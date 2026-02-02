@@ -50,7 +50,7 @@
 		<p class="tagline">
 			<span class="tagline-bold">Strengthening Northern Utah</span> <span class="tagline-italic">through Utah Values</span>
 		</p>
-		<ButtonSecondary>Donate</ButtonSecondary>
+		<ButtonSecondary href="https://secure.actblue.com/donate/peter-crosby-1">Donate</ButtonSecondary>
 	</div>
 
 	<div class="about-section">

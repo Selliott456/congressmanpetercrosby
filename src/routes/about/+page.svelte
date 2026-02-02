@@ -79,7 +79,7 @@
 		</section>
 
 		<div class="about-cta">
-			<ButtonSecondary href="/donate">Donate</ButtonSecondary>
+			<ButtonSecondary href="https://secure.actblue.com/donate/peter-crosby-1">Donate</ButtonSecondary>
 		</div>
 	</div>
 </main>

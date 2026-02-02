@@ -1,4 +1,5 @@
 <script>
+	/** @type {string | null} */
 	export let href = null;
 	export let type = 'button';
 	export let disabled = false;

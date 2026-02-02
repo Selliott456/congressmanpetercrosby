@@ -4,7 +4,7 @@
 	const links = [
 		{ label: 'HOME', href: '/' },
 		{ label: 'ABOUT', href: '/about' },
-		{ label: 'DONATE', href: '/donate' },
+		{ label: 'DONATE', href: 'https://secure.actblue.com/donate/peter-crosby-1', external: true },
 		{ label: 'EVENTS', href: '/events' },
 		{ label: 'PAST INTERVIEWS', href: '/past-interviews' },
 		{ label: 'CONTACT US', href: '/contact' }
@@ -28,7 +28,9 @@
 					<a
 						href={link.href}
 						class="nav-link"
-						class:active={$page.url.pathname === link.href || (link.href !== '/' && $page.url.pathname.startsWith(link.href))}
+						class:active={!link.external && ($page.url.pathname === link.href || (link.href !== '/' && $page.url.pathname.startsWith(link.href)))}
+						target={link.external ? '_blank' : undefined}
+						rel={link.external ? 'noopener noreferrer' : undefined}
 					>
 						{link.label}
 					</a>
@@ -54,7 +56,9 @@
 					<a
 						href={link.href}
 						class="nav-menu-link"
-						class:active={$page.url.pathname === link.href || (link.href !== '/' && $page.url.pathname.startsWith(link.href))}
+						class:active={!link.external && ($page.url.pathname === link.href || (link.href !== '/' && $page.url.pathname.startsWith(link.href)))}
+						target={link.external ? '_blank' : undefined}
+						rel={link.external ? 'noopener noreferrer' : undefined}
 						on:click={() => (menuOpen = false)}
 					>
 						{link.label}
