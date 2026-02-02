@@ -134,9 +134,20 @@
 		text-align: center;
 	}
 
+	@media (max-width: 768px) {
+		.faq-page {
+			padding-left: 0;
+			padding-right: 0;
+		}
+
+		.faq-content {
+			text-align: center;
+		}
+	}
+
 	@media (max-width: 640px) {
 		.faq-page {
-			padding: 2rem 1rem 3rem;
+			padding: 2rem 0 3rem;
 		}
 
 		.faq-title {

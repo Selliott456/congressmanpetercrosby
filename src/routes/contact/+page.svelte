@@ -287,7 +287,24 @@
 		transform: translateY(0);
 	}
 
-	@media (max-width: 720px) {
+	@media (max-width: 768px) {
+		.contact-content {
+			padding-left: 0;
+			padding-right: 0;
+		}
+
+		.contact-copy {
+			text-align: center;
+		}
+
+		.contact-info {
+			justify-content: center;
+		}
+
+		.contact-donate {
+			text-align: center;
+		}
+
 		.contact-main {
 			flex-direction: column;
 			gap: 2rem;
@@ -300,7 +317,7 @@
 
 	@media (max-width: 640px) {
 		.contact-page {
-			padding: 2rem 1rem 3rem;
+			padding: 2rem 0 3rem;
 		}
 
 		.contact-title {

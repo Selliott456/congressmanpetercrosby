@@ -817,23 +817,53 @@
 	}
 
 	@media (max-width: 768px) {
+		.events-header {
+			padding-left: 0;
+			padding-right: 0;
+		}
+
 		.events-hero {
 			flex-direction: column;
 			gap: 1.5rem;
+			padding-left: 0;
+			padding-right: 0;
+		}
+
+		.calendar-section {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			width: 100%;
+			max-width: none;
+			flex: 1 1 auto;
 		}
 
 		.events-hero.events-hero-has-next .calendar-section {
 			max-width: none;
+			flex: 1 1 auto;
 			border-right: none;
 			padding-right: 0;
 			border-bottom: 1px solid rgba(0, 35, 56, 0.08);
 			padding-bottom: 1.5rem;
 		}
+
+		.events-header {
+			text-align: center;
+		}
+
+		.all-events-section {
+			padding-left: 0;
+			padding-right: 0;
+		}
+
+		.all-events-heading {
+			text-align: center;
+		}
 	}
 
 	@media (max-width: 640px) {
 		.events-header {
-			padding: 2rem 1rem 1.5rem;
+			padding: 2rem 0 1.5rem;
 		}
 
 		.events-title {
@@ -841,7 +871,7 @@
 		}
 
 		.events-hero {
-			padding: 1.5rem 1rem;
+			padding: 1.5rem 0;
 		}
 
 		.events-hero.events-hero-has-next .calendar-section {
@@ -865,7 +895,7 @@
 		}
 
 		.next-event-section {
-			padding: 2rem 1rem 0;
+			padding: 2rem 0 0;
 		}
 
 		.next-event-card {
@@ -875,7 +905,7 @@
 		}
 
 		.all-events-section {
-			padding: 2rem 1rem 0;
+			padding: 2rem 0 0;
 		}
 
 		.events-list {

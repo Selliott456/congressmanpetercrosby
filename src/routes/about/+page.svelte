@@ -188,6 +188,18 @@
 		margin-bottom: 0;
 	}
 
+	@media (max-width: 768px) {
+		.about-content {
+			padding-left: 0;
+			padding-right: 0;
+			text-align: center;
+		}
+
+		.about-cta {
+			text-align: center;
+		}
+	}
+
 	@media (max-width: 640px) {
 		.about-hero {
 			padding: 0;
@@ -198,7 +210,7 @@
 		}
 
 		.about-content {
-			padding: 2rem 1rem 3rem;
+			padding: 2rem 0 3rem;
 		}
 
 		.about-section {

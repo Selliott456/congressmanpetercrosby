@@ -272,13 +272,53 @@
 		text-underline-offset: 2px;
 	}
 
-	@media (max-width: 640px) {
+	@media (max-width: 768px) {
+		.interviews-watermark::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-image: url('/images/peter.jpg');
+			background-repeat: repeat;
+			background-size: auto;
+			opacity: 0.08;
+			pointer-events: none;
+		}
+
 		.interviews-watermark-image {
+			display: none;
+		}
+
+		.interviews-header {
+			padding-left: 0;
+			padding-right: 0;
+			text-align: center;
+		}
+
+		.interviews-list {
+			padding-left: 0;
+			padding-right: 0;
+		}
+
+		.interview-card .interview-body {
+			text-align: center;
+		}
+
+		.interviews-cta {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+
+	@media (max-width: 640px) {
+		.interviews-watermark::before {
 			opacity: 0.06;
 		}
 
 		.interviews-header {
-			padding: 2rem 1rem 1.5rem;
+			padding: 2rem 0 1.5rem;
 		}
 
 		.interviews-title {
@@ -286,8 +326,12 @@
 		}
 
 		.interviews-list {
-			padding: 1.5rem 1rem 0;
+			padding: 1.5rem 0 0;
 			gap: 1.5rem;
+		}
+
+		.interviews-cta {
+			padding: 2.5rem 0 4rem;
 		}
 
 		.interview-card {
