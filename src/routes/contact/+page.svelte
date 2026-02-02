@@ -1,4 +1,6 @@
 <script>
+	import ButtonSecondary from '$lib/components/ButtonSecondary.svelte';
+
 	const EMAIL = 'petercrosbyforcongress@gmail.com';
 	const PHONE = '(801) 633-4297';
 
@@ -36,6 +38,9 @@
 				<div class="contact-info">
 					<a href="mailto:{EMAIL}" class="contact-link">{EMAIL}</a>
 					<a href="tel:+18016334297" class="contact-link">{PHONE}</a>
+				</div>
+				<div class="contact-donate">
+					<ButtonSecondary href="https://secure.actblue.com/donate/peter-crosby-1">Donate</ButtonSecondary>
 				</div>
 			</div>
 
@@ -174,6 +179,10 @@
 		flex-wrap: wrap;
 		gap: 0.75rem 1.5rem;
 		margin-bottom: 0;
+	}
+
+	.contact-donate {
+		margin-top: 1.5rem;
 	}
 
 	.contact-link {
