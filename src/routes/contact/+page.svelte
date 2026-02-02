@@ -23,7 +23,7 @@
 </script>
 
 <svelte:head>
-	<title>Contact Us — Congressman Peter Crosby</title>
+	<title>Contact Us — Peter Crosby for Congress</title>
 	<meta name="description" content="Contact the Peter Crosby for Congress campaign. Northern Utah deserves better." />
 </svelte:head>
 

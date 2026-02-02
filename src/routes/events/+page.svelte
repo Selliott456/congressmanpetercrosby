@@ -256,7 +256,7 @@
 </script>
 
 <svelte:head>
-	<title>Events — Congressman Peter Crosby</title>
+	<title>Events — Peter Crosby for Congress</title>
 	<meta name="description" content="Upcoming town halls, meet the candidate events, and live conversations with Peter Crosby in Northern Utah." />
 </svelte:head>
 

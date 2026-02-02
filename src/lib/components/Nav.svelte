@@ -7,7 +7,7 @@
 		{ label: 'ABOUT', href: '/about' },
 		{ label: 'EVENTS', href: '/events' },
 		{ label: 'PAST INTERVIEWS', href: '/past-interviews' },
-		{ label: 'CONTACT US', href: '/contact' }
+		{ label: 'POLICIES', href: '/faq' }
 	];
 
 	let menuOpen = false;
@@ -130,8 +130,8 @@
 	}
 
 	.nav-link.active {
-		background: var(--color-accent);
-		color: var(--color-primary);
+		background: transparent;
+		color: var(--color-accent);
 	}
 
 	.nav-link-inner {
@@ -258,8 +258,8 @@
 	}
 
 	.nav-menu-link.active {
-		background: var(--color-accent);
-		color: var(--color-primary);
+		background: transparent;
+		color: var(--color-accent);
 	}
 
 	.nav-menu-link-inner {

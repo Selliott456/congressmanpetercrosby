@@ -26,7 +26,7 @@
 </script>
 
 <svelte:head>
-	<title>Past Interviews — Congressman Peter Crosby</title>
+	<title>Past Interviews — Peter Crosby for Congress</title>
 	<meta name="description" content="Past interviews and town halls with Peter Crosby on Our Vote Counts, Hal Stewart, and more." />
 </svelte:head>
 

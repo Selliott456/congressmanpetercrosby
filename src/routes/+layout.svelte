@@ -3,6 +3,10 @@
 	import Footer from '../lib/components/Footer.svelte';
 </script>
 
+<svelte:head>
+	<title>Peter Crosby for Congress</title>
+</svelte:head>
+
 <Nav />
 <div class="layout-main">
 	<slot />

@@ -40,7 +40,7 @@
 </script>
 
 <svelte:head>
-	<title>About Peter Crosby — Congressman Peter Crosby</title>
+	<title>About Peter Crosby — Peter Crosby for Congress</title>
 	<meta name="description" content="Learn about Peter Crosby: husband, father, experienced leader, and service-driven candidate for Northern Utah." />
 </svelte:head>
 
