@@ -530,7 +530,7 @@
 
 	.calendar-day-num {
 		font-family: var(--font-primary);
-		font-size: 0.875rem;
+		font-size: 0.75rem;
 		color: var(--color-primary);
 	}
 
@@ -540,10 +540,11 @@
 
 	.calendar-cell.today .calendar-day-num {
 		font-weight: 700;
+		font-size: 0.6875rem;
 		color: var(--color-white);
 		background: var(--color-primary);
-		width: 1.5rem;
-		height: 1.5rem;
+		width: 1.25rem;
+		height: 1.25rem;
 		border-radius: 50%;
 		display: inline-flex;
 		align-items: center;
@@ -553,11 +554,11 @@
 
 	.calendar-dot {
 		display: block;
-		width: 6px;
-		height: 6px;
+		width: 4px;
+		height: 4px;
 		border-radius: 50%;
 		background: var(--color-secondary);
-		margin-top: 2px;
+		margin-top: 1px;
 		flex-shrink: 0;
 	}
 
@@ -601,6 +602,11 @@
 		line-height: 1.2;
 	}
 
+	.events-hero .next-event-heading {
+		font-size: 0.8125rem;
+		margin-bottom: 0.5rem;
+	}
+
 	.next-event-card {
 		display: flex;
 		gap: 1.5rem;
@@ -609,6 +615,52 @@
 		border: 2px solid var(--color-accent);
 		border-radius: 12px;
 		padding: 1.5rem;
+	}
+
+	.events-hero .next-event-card {
+		gap: 1rem;
+		padding: 1rem;
+		border-radius: 8px;
+		border-width: 1px;
+	}
+
+	.events-hero .next-event-card .event-date {
+		width: 3rem;
+		padding: 0.35rem 0;
+	}
+
+	.events-hero .next-event-card .event-month {
+		font-size: 0.625rem;
+	}
+
+	.events-hero .next-event-card .event-day {
+		font-size: 1.125rem;
+	}
+
+	.events-hero .next-event-card .event-title {
+		font-size: 1rem;
+		margin-bottom: 0.15rem;
+	}
+
+	.events-hero .next-event-card .event-time,
+	.events-hero .next-event-card .event-location {
+		font-size: 0.8125rem;
+		margin-bottom: 0.25rem;
+	}
+
+	.events-hero .next-event-card .event-calendar-links {
+		font-size: 0.75rem;
+		margin-bottom: 0.5rem;
+	}
+
+	.events-hero .next-event-card .event-description {
+		font-size: 0.875rem;
+		line-height: 1.5;
+		margin: 0;
+		display: -webkit-box;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
 	}
 
 	.next-event-card .event-date {
@@ -801,7 +853,7 @@
 		}
 
 		.calendar-cell {
-			min-height: 2.25rem;
+			min-height: 1.75rem;
 		}
 
 		.calendar-day-num {

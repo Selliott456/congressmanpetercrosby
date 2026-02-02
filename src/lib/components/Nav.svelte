@@ -2,9 +2,9 @@
 	import { page } from '$app/stores';
 
 	const links = [
+		{ label: 'DONATE', href: 'https://secure.actblue.com/donate/peter-crosby-1', external: true, donate: true },
 		{ label: 'HOME', href: '/' },
 		{ label: 'ABOUT', href: '/about' },
-		{ label: 'DONATE', href: 'https://secure.actblue.com/donate/peter-crosby-1', external: true },
 		{ label: 'EVENTS', href: '/events' },
 		{ label: 'PAST INTERVIEWS', href: '/past-interviews' },
 		{ label: 'CONTACT US', href: '/contact' }
@@ -28,11 +28,12 @@
 					<a
 						href={link.href}
 						class="nav-link"
+						class:nav-link-donate={link.donate}
 						class:active={!link.external && ($page.url.pathname === link.href || (link.href !== '/' && $page.url.pathname.startsWith(link.href)))}
 						target={link.external ? '_blank' : undefined}
 						rel={link.external ? 'noopener noreferrer' : undefined}
 					>
-						{link.label}
+						<span class="nav-link-inner">{link.label}</span>
 					</a>
 				</li>
 			{/each}
@@ -56,12 +57,13 @@
 					<a
 						href={link.href}
 						class="nav-menu-link"
+						class:nav-menu-link-donate={link.donate}
 						class:active={!link.external && ($page.url.pathname === link.href || (link.href !== '/' && $page.url.pathname.startsWith(link.href)))}
 						target={link.external ? '_blank' : undefined}
 						rel={link.external ? 'noopener noreferrer' : undefined}
 						on:click={() => (menuOpen = false)}
 					>
-						{link.label}
+						<span class="nav-menu-link-inner">{link.label}</span>
 					</a>
 				</li>
 			{/each}
@@ -130,6 +132,62 @@
 	.nav-link.active {
 		background: var(--color-accent);
 		color: var(--color-primary);
+	}
+
+	.nav-link-inner {
+		position: relative;
+		z-index: 1;
+	}
+
+	.nav-link.nav-link-donate {
+		display: inline-block;
+		position: relative;
+		overflow: hidden;
+		overflow: clip;
+		border-radius: 8px;
+		background: var(--color-secondary);
+		color: var(--color-white);
+		padding: 0.5rem 1rem;
+		font-weight: 500;
+	}
+
+	.nav-link.nav-link-donate::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 60%;
+		height: 100%;
+		background: linear-gradient(
+			105deg,
+			transparent 0%,
+			transparent 40%,
+			rgba(255, 255, 255, 0.25) 50%,
+			transparent 60%,
+			transparent 100%
+		);
+		animation: nav-donate-shimmer 2.5s ease-in-out infinite;
+		pointer-events: none;
+		z-index: 0;
+	}
+
+	.nav-link.nav-link-donate:hover {
+		background: #1d4a1f;
+		color: var(--color-white);
+		box-shadow: 0 4px 12px rgba(35, 89, 38, 0.3);
+	}
+
+	.nav-link.nav-link-donate:hover::after {
+		animation-duration: 1.5s;
+	}
+
+	@keyframes nav-donate-shimmer {
+		0% {
+			transform: translateX(-100%);
+		}
+		100% {
+			transform: translateX(167%);
+		}
 	}
 
 	.nav-toggle {
@@ -202,6 +260,52 @@
 	.nav-menu-link.active {
 		background: var(--color-accent);
 		color: var(--color-primary);
+	}
+
+	.nav-menu-link-inner {
+		position: relative;
+		z-index: 1;
+	}
+
+	.nav-menu-link.nav-menu-link-donate {
+		display: block;
+		position: relative;
+		overflow: hidden;
+		overflow: clip;
+		border-radius: 8px;
+		background: var(--color-secondary);
+		color: var(--color-white);
+		font-weight: 500;
+	}
+
+	.nav-menu-link.nav-menu-link-donate::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 60%;
+		height: 100%;
+		background: linear-gradient(
+			105deg,
+			transparent 0%,
+			transparent 40%,
+			rgba(255, 255, 255, 0.25) 50%,
+			transparent 60%,
+			transparent 100%
+		);
+		animation: nav-donate-shimmer 2.5s ease-in-out infinite;
+		pointer-events: none;
+		z-index: 0;
+	}
+
+	.nav-menu-link.nav-menu-link-donate:hover {
+		background: #1d4a1f;
+		color: var(--color-white);
+		box-shadow: 0 4px 12px rgba(35, 89, 38, 0.3);
+	}
+
+	.nav-menu-link.nav-menu-link-donate:hover::after {
+		animation-duration: 1.5s;
 	}
 
 	@media (max-width: 900px) {
