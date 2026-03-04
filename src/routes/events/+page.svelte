@@ -10,6 +10,114 @@
 
 	const events = [
 		{
+			month: 'Mar',
+			day: '4',
+			year: 2026,
+			monthIndex: 3,
+			title: 'Dining Liberally Ogden',
+			time: '6:30 PM MT',
+			location: null,
+			locationUrl: null,
+			description: 'RSVP to Dining Liberally Ogden Facebook page.',
+			viewEventUrl: null
+		},
+		{
+			month: 'Mar',
+			day: '10',
+			year: 2026,
+			monthIndex: 3,
+			title: "Caucus Night Training with the Women's Caucus",
+			time: '6:30 PM MT',
+			location: null,
+			locationUrl: null,
+			description: 'Caucus Night Training with the Women\'s Caucus.',
+			viewEventUrl: 'https://www.mobilize.us/utahdemocrats/event/897270/'
+		},
+		{
+			month: 'Mar',
+			day: '12',
+			year: 2026,
+			monthIndex: 3,
+			title: 'Virtual Town Hall',
+			time: '7:00 PM MT',
+			location: null,
+			locationUrl: null,
+			description: 'We are going to be talking about gerrymandering.',
+			viewEventUrl: 'https://www.facebook.com/share/1EAZBuFJDN/'
+		},
+		{
+			month: 'Mar',
+			day: '14',
+			year: 2026,
+			monthIndex: 3,
+			title: 'Meet the Candidate in Logan',
+			time: null,
+			location: 'Logan (RSVP only)',
+			locationUrl: null,
+			description: 'Meet the Candidate in Logan. RSVP only.',
+			viewEventUrl: null
+		},
+		{
+			month: 'Mar',
+			day: '17',
+			year: 2026,
+			monthIndex: 3,
+			title: 'Caucus Night',
+			time: null,
+			location: null,
+			locationUrl: null,
+			description: 'Caucus Night. Please pre-register!',
+			viewEventUrl: 'https://www.utahdemocrats.org/caucus/'
+		},
+		{
+			month: 'Mar',
+			day: '21',
+			year: 2026,
+			monthIndex: 3,
+			title: 'Volunteer Training',
+			time: '10:30 AM MT',
+			location: null,
+			locationUrl: null,
+			description: 'Please sign up to be a volunteer and join us! Light refreshments will be served.',
+			viewEventUrl: null
+		},
+		{
+			month: 'Mar',
+			day: '21',
+			year: 2026,
+			monthIndex: 3,
+			title: 'Open House in Cache Valley',
+			time: '6:00 PM MT',
+			location: 'Cache Valley (RSVP only)',
+			locationUrl: null,
+			description: 'Open House in Cache Valley. RSVP only.',
+			viewEventUrl: null
+		},
+		{
+			month: 'Mar',
+			day: '28',
+			year: 2026,
+			monthIndex: 3,
+			title: 'No Kings Protest in Logan Utah',
+			time: '10:30 AM MT',
+			location: 'Logan, Utah',
+			locationUrl: 'https://www.mobilize.us/nokings/event/902718/',
+			description: 'No Kings Protest in Logan Utah.',
+			viewEventUrl: 'https://www.mobilize.us/nokings/event/902718/'
+		},
+		{
+			month: 'Mar',
+			day: '28',
+			year: 2026,
+			monthIndex: 3,
+			title: 'No Kings Protest in Ogden Utah',
+			time: '12:00 PM MT',
+			location: 'Ogden, Utah',
+			locationUrl: 'https://www.mobilize.us/nokings/event/907278/',
+			description: 'No Kings Protest in Ogden Utah.',
+			viewEventUrl: 'https://www.mobilize.us/nokings/event/907278/'
+		},
+		{
 			month: 'Feb',
 			day: '2',
 			year: 2026,
@@ -317,7 +425,9 @@
 					</div>
 					<div class="event-body">
 						<h2 class="event-title">{nextEvent.title}</h2>
-						<p class="event-time">{nextEvent.time}</p>
+						{#if nextEvent.time}
+							<p class="event-time">{nextEvent.time}</p>
+						{/if}
 						{#if nextEvent.location}
 							<p class="event-location">
 								{#if nextEvent.locationUrl}
@@ -333,6 +443,9 @@
 							<span class="calendar-link">ICS</span>
 						</p>
 						<p class="event-description">{nextEvent.description}</p>
+						{#if nextEvent.viewEventUrl}
+							<a href={nextEvent.viewEventUrl} target="_blank" rel="noopener noreferrer" class="event-view-link">View Event →</a>
+						{/if}
 					</div>
 				</article>
 			</section>
@@ -353,7 +466,9 @@
 							<p class="event-past-label">Past event</p>
 						{/if}
 						<h2 class="event-title">{event.title}</h2>
-						<p class="event-time">{event.time}</p>
+						{#if event.time}
+							<p class="event-time">{event.time}</p>
+						{/if}
 						{#if event.location}
 							<p class="event-location">
 								{#if event.locationUrl}
@@ -369,6 +484,9 @@
 							<span class="calendar-link">ICS</span>
 						</p>
 						<p class="event-description">{event.description}</p>
+						{#if event.viewEventUrl}
+							<a href={event.viewEventUrl} target="_blank" rel="noopener noreferrer" class="event-view-link">View Event →</a>
+						{/if}
 					</div>
 				</article>
 			{/each}
@@ -789,6 +907,21 @@
 
 	.event-location a {
 		color: var(--color-primary);
+		text-decoration: underline;
+		text-underline-offset: 2px;
+	}
+
+	.event-view-link {
+		display: inline-block;
+		font-family: var(--font-primary);
+		font-size: 0.9375rem;
+		font-weight: 600;
+		color: var(--color-secondary);
+		text-decoration: none;
+		margin-top: 0.5rem;
+	}
+
+	.event-view-link:hover {
 		text-decoration: underline;
 		text-underline-offset: 2px;
 	}
