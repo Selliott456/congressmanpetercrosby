@@ -1,0 +1,15 @@
+# Netlify configuration
+# https://docs.netlify.com/configure-builds/file-based-configuration/
+
+# Redirects (e.g. for petercrosbyforcongress.org)
+[[redirects]]
+  from = "/donate"
+  to = "https://secure.actblue.com/donate/peter-crosby-1"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/take-action"
+  to = "/"
+  status = 302
+  force = true
