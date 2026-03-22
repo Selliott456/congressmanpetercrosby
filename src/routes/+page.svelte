@@ -1,8 +1,6 @@
 
 <script>
 	import ButtonSecondary from '$lib/components/ButtonSecondary.svelte';
-	import ButtonPrimary from '$lib/components/ButtonPrimary.svelte';
-	import { onMount } from 'svelte';
 
 	const socialLinks = [
 		{ name: 'TikTok', href: 'https://www.tiktok.com/@petercrosbyforcongress?is_from_webapp=1&sender_device=pc', icon: 'tiktok', label: 'TikTok' },
@@ -12,528 +10,676 @@
 		{ name: 'Substack', href: 'https://substack.com/@petercrosbyforcongress?r=3en65r&utm_medium=ios&utm_source=profile', icon: 'substack', label: 'Substack' }
 	];
 
-	const images = [
-		{ src: '/images/better.svg', alt: 'Better' },
-		{ src: '/images/expensive.svg', alt: 'Expensive' },
-		{ src: '/images/inflation.svg', alt: 'Inflation' },
-		{ src: '/images/law.svg', alt: 'Law' },
-		{ src: '/images/safe.svg', alt: 'Safe' },
-		{ src: '/images/save_lake.svg', alt: 'Save Lake' },
-		{ src: '/images/shame.svg', alt: 'Shame' }
+	const pillars = [
+		{
+			title: 'Rooted here',
+			text: 'Raised a family in Cache Valley. Northern Utah isn’t a stepping stone—it’s home.'
+		},
+		{
+			title: 'Accountable government',
+			text: 'Public office should serve people first: clear rules, honest answers, and representatives who earn your trust.'
+		},
+		{
+			title: 'Practical focus',
+			text: 'Housing people can afford, healthcare access that works in rural communities, and an economy that rewards work.'
+		}
 	];
 
-	let currentIndex = 0;
-	let autoPlayInterval;
-
-	function nextSlide() {
-		currentIndex = (currentIndex + 1) % images.length;
-	}
-
-	onMount(() => {
-		autoPlayInterval = setInterval(() => {
-			nextSlide();
-		}, 5000);
-
-		return () => {
-			if (autoPlayInterval) {
-				clearInterval(autoPlayInterval);
-			}
-		};
-	});
+	const priorities = [
+		{ src: '/images/better.svg', label: 'Stronger communities' },
+		{ src: '/images/expensive.svg', label: 'Affordable living' },
+		{ src: '/images/inflation.svg', label: 'Costs that match wages' },
+		{ src: '/images/law.svg', label: 'Fair rules for everyone' },
+		{ src: '/images/safe.svg', label: 'Safe neighborhoods' },
+		{ src: '/images/save_lake.svg', label: 'Protecting what we love' }
+	];
 </script>
 
 <svelte:head>
 	<title>Peter Crosby for Congress</title>
-	<meta name="description" content="Welcome to the official website" />
+	<meta
+		name="description"
+		content="Peter Crosby for U.S. Congress, Utah District 2. Integrity, practical solutions, and a representative who puts Northern Utah first."
+	/>
 </svelte:head>
 
-<main>
-	<div class="hero">
-		<div class="hero-content">
-			<img src="/images/brand_strategy_square_cropped_transparent_bg_blue_002338.svg" alt="Congressman Peter Crosby Logo" class="hero-logo" />
+<main class="home-page">
+	<!-- 1. Hero -->
+	<section class="home-hero" aria-label="Campaign introduction">
+		<div class="home-hero-bg" />
+		<div class="home-hero-inner">
+			<img
+				src="/images/brand_strategy_square_cropped_transparent_bg_blue_002338.svg"
+				alt="Peter Crosby for Congress"
+				class="home-hero-logo"
+				width="280"
+				height="280"
+			/>
+			<p class="home-hero-kicker">U.S. Congress · Utah District 2</p>
+			<h1 class="home-hero-title">A voice for Northern Utah</h1>
+			<p class="home-hero-lead">
+				Peter Crosby is running to represent this district with integrity, straight answers, and a focus on what
+				matters here—housing, honest government, and strong communities.
+			</p>
+			<div class="home-hero-cta">
+				<ButtonSecondary href="https://secure.actblue.com/donate/peter-crosby-1">Donate</ButtonSecondary>
+				<a href="/about" class="home-btn-ghost">Meet Peter</a>
+			</div>
 		</div>
-	</div>
+	</section>
 
-	<div class="tagline-section">
-		<p class="tagline">
-			<span class="tagline-bold">Strengthening Northern Utah</span> <span class="tagline-italic">through Utah Values</span>
-		</p>
-		<ButtonSecondary href="https://secure.actblue.com/donate/peter-crosby-1">Donate</ButtonSecondary>
-	</div>
+	<!-- 2. Values / trust pillars -->
+	<section class="home-section home-pillars" aria-labelledby="pillars-heading">
+		<div class="home-wrap">
+			<h2 id="pillars-heading" class="home-section-title">What this campaign stands for</h2>
+			<p class="home-section-intro">No slogans—just clear expectations for how your representative should show up.</p>
+			<ul class="home-pillar-grid">
+				{#each pillars as pillar}
+					<li class="home-pillar-card">
+						<h3 class="home-pillar-title">{pillar.title}</h3>
+						<p class="home-pillar-text">{pillar.text}</p>
+					</li>
+				{/each}
+			</ul>
+		</div>
+	</section>
 
-	<div class="about-section">
-		<div class="about-content">
-			<img src="/images/meet.svg" alt="Meet" class="about-image" />
-			<div class="about-text">
-				<p>My name is Peter Crosby, and I am running as a Democrat for U.S. Congress to represent northern Utah in District 2. I believe in integrity, community, and policies that make it easier for Utahns and their families to be safe and successful. Please join me in my campaign to get northern Utah back on track.</p>
-				<div class="about-social" aria-label="Social media links">
+	<!-- 3. Why he’s running -->
+	<section class="home-section home-why" aria-labelledby="why-heading">
+		<div class="home-wrap home-why-grid">
+			<div class="home-why-visual">
+				<img src="/images/meet.svg" alt="" class="home-why-img" role="presentation" />
+			</div>
+			<div class="home-why-copy">
+				<h2 id="why-heading" class="home-section-title home-section-title--left">Why he’s running</h2>
+				<p class="home-prose">
+					Northern Utah families deserve a representative who listens before speaking, answers tough questions, and
+					votes with the district in mind. Peter is running to bring that standard to Congress—not party talking
+					points, but work that helps neighbors and communities thrive.
+				</p>
+				<a href="/faq" class="home-text-link">Read where he stands on the issues →</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- 4. Priorities / issues -->
+	<section class="home-section home-priorities" aria-labelledby="priorities-heading">
+		<div class="home-wrap">
+			<h2 id="priorities-heading" class="home-section-title">Priorities</h2>
+			<p class="home-section-intro">Concrete issues affecting families and communities across the district.</p>
+			<ul class="home-priority-grid">
+				{#each priorities as item}
+					<li class="home-priority-item">
+						<div class="home-priority-icon-wrap">
+							<img src={item.src} alt="" class="home-priority-icon" role="presentation" />
+						</div>
+						<span class="home-priority-label">{item.label}</span>
+					</li>
+				{/each}
+			</ul>
+		</div>
+	</section>
+
+	<!-- 5. Community image -->
+	<section class="home-community" aria-label="Peter Crosby with family">
+		<div class="home-community-img-wrap">
+			<img
+				src="/images/family_peter.png"
+				alt="Peter Crosby with his family in Northern Utah"
+				class="home-community-img"
+				loading="lazy"
+			/>
+		</div>
+		<div class="home-community-caption">
+			<p class="home-community-quote">Family, service, and community—values that shape this campaign.</p>
+		</div>
+	</section>
+
+	<!-- 6. Get involved -->
+	<section class="home-section home-involve" aria-labelledby="involve-heading">
+		<div class="home-wrap">
+			<h2 id="involve-heading" class="home-section-title">Get involved</h2>
+			<p class="home-section-intro">Every race is won by people who pitch in. Pick what fits you.</p>
+			<div class="home-involve-grid">
+				<a href="https://secure.actblue.com/donate/peter-crosby-1" class="home-involve-card home-involve-card--accent" target="_blank" rel="noopener noreferrer">
+					<span class="home-involve-label">Donate</span>
+					<span class="home-involve-desc">Fuel voter outreach and events.</span>
+				</a>
+				<a href="mailto:petercrosbyforcongress@gmail.com?subject=Volunteering" class="home-involve-card">
+					<span class="home-involve-label">Volunteer</span>
+					<span class="home-involve-desc">Door knocks, calls, and community events.</span>
+				</a>
+				<a href="/events" class="home-involve-card">
+					<span class="home-involve-label">Events</span>
+					<span class="home-involve-desc">Town halls and meetups near you.</span>
+				</a>
+				<a href="/contact" class="home-involve-card">
+					<span class="home-involve-label">Contact</span>
+					<span class="home-involve-desc">Questions or ideas for the campaign.</span>
+				</a>
+			</div>
+			<div class="home-social-block">
+				<p class="home-social-label">Follow the campaign</p>
+				<div class="home-social" aria-label="Social media links">
 					{#each socialLinks as link}
-						<a href={link.href} class="about-social-link" aria-label={link.label} target="_blank" rel="noopener noreferrer">
+						<a href={link.href} class="home-social-link" aria-label={link.label} target="_blank" rel="noopener noreferrer">
 							{#if link.icon === 'tiktok'}
-								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+								<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
 							{:else if link.icon === 'youtube'}
-								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+								<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
 							{:else if link.icon === 'instagram'}
-								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+								<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
 							{:else if link.icon === 'facebook'}
-								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+								<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
 							{:else if link.icon === 'substack'}
-								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>
+								<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>
 							{/if}
 						</a>
 					{/each}
 				</div>
 			</div>
 		</div>
-	</div>
+	</section>
 
-	<div class="container">
-		<div class="campaign-section">
-			<div class="campaign-text">
-				<h2>A campaign built on the support of individuals like you</h2>
-				<p>My campaign depends on the support of hard working people who care about their neighbors and their community. Northern Utah is home to veterans, tradesmen, federal employees, educators, and entrepreneurs all working together to make something great. If you would like to help support us as we take on the kind of D.C. politics that have hurt us over the last few years, we have a place for you.</p>
-				<ButtonPrimary href="mailto:petercrosbyforcongress@gmail.com?subject=Volunteering">Volunteer</ButtonPrimary>
-			</div>
-			<div class="carousel">
-				<div class="carousel-track">
-					{#each images as image, index}
-						<div class="carousel-slide" class:active={index === currentIndex}>
-							<img src={image.src} alt={image.alt} />
-						</div>
-					{/each}
-				</div>
-			</div>
-		</div>
-	</div>
+	<!-- 7. Footer note: global Footer in +layout -->
 </main>
 
 <style>
-	:global(:root) {
-		--color-primary: #002338;
-		--color-secondary: #235926;
-		--color-accent: #bbcedd;
-		--color-white: #ffffff;
-		--font-primary: 'Open Sauce One', sans-serif;
-	}
-
-	:global(body) {
-		margin: 0;
-		font-family: var(--font-primary);
-		background: var(--color-white);
-		min-height: 100vh;
-		color: var(--color-primary);
-	}
-
-	main {
+	main.home-page {
 		padding: 0;
 		background: var(--color-white);
 	}
 
-	.hero {
+	.home-wrap {
+		width: 100%;
+		max-width: 1120px;
+		margin: 0 auto;
+		padding: 0 1.5rem;
+		box-sizing: border-box;
+	}
+
+	/* —— Hero —— */
+	.home-hero {
+		position: relative;
+		min-height: min(92vh, 900px);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 5rem 1.5rem 4rem;
+		overflow: hidden;
+	}
+
+	.home-hero-bg {
+		position: absolute;
+		inset: 0;
 		background-image: url('/images/trees.jpg');
 		background-size: cover;
 		background-position: center;
-		background-repeat: no-repeat;
-		padding: 0;
-		margin: 0;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		position: relative;
 	}
 
-	.hero::before {
+	.home-hero-bg::after {
 		content: '';
 		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		backdrop-filter: blur(2px);
-		background: rgba(187, 206, 221, 0.3);
-		z-index: 1;
-	}
-
-	.hero-content {
-		text-align: center;
-		max-width: 1200px;
-		width: 100%;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		gap: 0;
-		padding: 0;
-		margin: 0;
-		position: relative;
-		z-index: 2;
-	}
-
-	.hero-logo {
-		width: auto;
-		max-width: 450px;
-		height: auto;
-		display: block;
-		flex-shrink: 0;
-		padding: 0;
-		margin: 0;
-		clip-path: inset(5% 0 0 0);
-	}
-
-	.tagline-section {
-		background: var(--color-white);
-		padding: 4rem 2rem;
-		text-align: center;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 1.5rem;
-		position: relative;
-		z-index: 1;
-	}
-
-	.tagline-section :global(.btn) {
-		position: relative;
-		overflow: hidden;
-	}
-
-	.tagline-section :global(.btn)::before {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: -100%;
-		width: 100%;
-		height: 100%;
+		inset: 0;
 		background: linear-gradient(
-			90deg,
-			transparent,
-			rgba(255, 255, 255, 0.4),
-			transparent
+			180deg,
+			rgba(0, 35, 56, 0.55) 0%,
+			rgba(0, 35, 56, 0.72) 50%,
+			rgba(0, 35, 56, 0.85) 100%
 		);
-		animation: shimmer 3s infinite;
 	}
 
-	@keyframes shimmer {
-		0% {
-			left: -100%;
-		}
-		100% {
-			left: 100%;
-		}
-	}
-
-	.tagline {
-		font-size: 1.75rem;
-		color: var(--color-primary);
-		margin: 0;
-		line-height: 1.4;
-		text-align: center;
-	}
-
-	.tagline-bold {
-		font-weight: 700;
-	}
-
-	.tagline-italic {
-		font-style: italic;
-		font-weight: 400;
-	}
-
-	.about-section {
-		background: var(--color-white);
-		padding: 0;
-		position: relative;
-		overflow: hidden;
-	}
-
-	.about-section::before {
-		content: '';
-		position: absolute;
-		top: -50%;
-		left: -50%;
-		width: 200%;
-		height: 200%;
-		background-image: url('/images/brand_strategy_square_cropped_transparent_bg_blue_002338.svg');
-		background-size: 200px 200px;
-		background-repeat: repeat;
-		opacity: 0.1;
-		z-index: 0;
-		pointer-events: none;
-		transform: rotate(45deg);
-		transform-origin: center center;
-	}
-
-	.about-content {
-		max-width: 1200px;
-		margin: 0 auto;
-		padding: 4rem 2rem;
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		gap: 3rem;
+	.home-hero-inner {
 		position: relative;
 		z-index: 1;
+		max-width: 40rem;
+		text-align: center;
+		color: var(--color-white);
 	}
 
-	.about-image {
-		width: auto;
-		max-width: 300px;
+	.home-hero-logo {
+		width: min(200px, 42vw);
 		height: auto;
-		flex-shrink: 0;
+		margin: 0 auto 1.25rem;
+		display: block;
+		filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.25));
 	}
 
-	.about-text {
-		flex: 1;
+	.home-hero-kicker {
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		margin: 0 0 1rem;
+		opacity: 0.9;
 	}
 
-	.about-text p {
-		font-size: 1.125rem;
-		line-height: 1.8;
-		color: var(--color-primary);
-		margin: 0;
+	.home-hero-title {
+		font-family: var(--font-primary);
+		font-size: clamp(1.875rem, 5vw, 2.75rem);
+		font-weight: 700;
+		line-height: 1.15;
+		margin: 0 0 1.25rem;
+		letter-spacing: -0.02em;
 	}
 
-	.about-social {
+	.home-hero-lead {
+		font-family: var(--font-primary);
+		font-size: clamp(1.0625rem, 2.2vw, 1.1875rem);
+		line-height: 1.65;
+		margin: 0 0 2rem;
+		opacity: 0.95;
+		max-width: 36rem;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.home-hero-cta {
 		display: flex;
-		align-items: center;
-		justify-content: center;
+		flex-wrap: wrap;
 		gap: 1rem;
-		margin-top: 1.25rem;
+		justify-content: center;
+		align-items: center;
 	}
 
-	.about-social-link {
-		display: flex;
+	.home-hero-cta :global(.btn) {
+		min-width: 11rem;
+	}
+
+	.home-btn-ghost {
+		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		width: 40px;
-		height: 40px;
-		color: var(--color-primary);
+		min-width: 11rem;
+		padding: 0.75rem 1.5rem;
+		font-family: var(--font-primary);
+		font-size: 1rem;
+		font-weight: 600;
+		color: var(--color-white);
+		text-decoration: none;
+		border: 2px solid rgba(255, 255, 255, 0.85);
 		border-radius: 8px;
-		transition: background 0.2s ease, color 0.2s ease;
+		transition: background 0.2s ease, border-color 0.2s ease;
 	}
 
-	.about-social-link:hover {
-		background: rgba(0, 35, 56, 0.08);
+	.home-btn-ghost:hover {
+		background: rgba(255, 255, 255, 0.12);
+		border-color: var(--color-white);
+	}
+
+	/* —— Sections —— */
+	.home-section {
+		padding: clamp(3.5rem, 8vw, 5.5rem) 0;
+	}
+
+	.home-section-title {
+		font-family: var(--font-primary);
+		font-size: clamp(1.5rem, 3vw, 2rem);
+		font-weight: 700;
 		color: var(--color-primary);
+		text-align: center;
+		margin: 0 0 0.75rem;
+		line-height: 1.2;
+		letter-spacing: -0.02em;
 	}
 
-	.container {
-		width: 100%;
-		max-width: 1200px;
-		margin: 0 auto;
-		padding: 4rem 2rem;
-		display: flex;
-		flex-direction: column;
-		gap: 2rem;
+	.home-section-title--left {
+		text-align: left;
 	}
 
-	.campaign-section {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		gap: 4rem;
-		width: 100%;
-	}
-
-	.campaign-text {
-		flex: 1;
-	}
-
-	.campaign-text h2 {
-		font-size: 2rem;
+	.home-section-intro {
+		font-family: var(--font-primary);
+		font-size: 1.0625rem;
+		line-height: 1.6;
 		color: var(--color-primary);
-		margin: 0 0 1.5rem 0;
+		text-align: center;
+		max-width: 36rem;
+		margin: 0 auto 2.5rem;
+		opacity: 0.88;
+	}
+
+	/* Pillars */
+	.home-pillars {
+		background: linear-gradient(180deg, #f5f8fa 0%, var(--color-white) 100%);
+	}
+
+	.home-pillar-grid {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1.5rem;
+	}
+
+	.home-pillar-card {
+		background: var(--color-white);
+		border: 1px solid rgba(0, 35, 56, 0.08);
+		border-radius: 12px;
+		padding: 1.75rem 1.5rem;
+		box-shadow: 0 4px 20px rgba(0, 35, 56, 0.04);
+	}
+
+	.home-pillar-title {
+		font-family: var(--font-primary);
+		font-size: 1.125rem;
+		font-weight: 700;
+		color: var(--color-primary);
+		margin: 0 0 0.65rem;
 		line-height: 1.3;
 	}
 
-	.campaign-text p {
-		font-size: 1.125rem;
-		line-height: 1.8;
+	.home-pillar-text {
+		font-family: var(--font-primary);
+		font-size: 0.9875rem;
+		line-height: 1.65;
 		color: var(--color-primary);
-		margin: 0 0 2rem 0;
+		margin: 0;
+		opacity: 0.9;
 	}
 
-	.campaign-text :global(.btn) {
-		margin-top: 0;
-		position: relative;
-		overflow: hidden;
+	/* Why */
+	.home-why {
+		background: var(--color-white);
 	}
 
-	.campaign-text :global(.btn)::before {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: -100%;
-		width: 100%;
-		height: 100%;
-		background: linear-gradient(
-			90deg,
-			transparent,
-			rgba(255, 255, 255, 0.4),
-			transparent
-		);
-		animation: shimmer 3s infinite;
-	}
-
-	.carousel {
-		position: relative;
-		width: 100%;
-		max-width: 500px;
-		flex-shrink: 0;
-	}
-
-	.carousel-track {
-		position: relative;
-		width: 100%;
-		height: 400px;
-		overflow: hidden;
-		border-radius: 8px;
-	}
-
-	.carousel-slide {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		opacity: 0;
-		transform: translateX(100%);
-		transition: opacity 0.5s ease, transform 0.5s ease;
-		display: flex;
+	.home-why-grid {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+		gap: clamp(2rem, 5vw, 4rem);
 		align-items: center;
+	}
+
+	.home-why-visual {
+		display: flex;
 		justify-content: center;
 	}
 
-	.carousel-slide.active {
-		opacity: 1;
-		transform: translateX(0);
-		z-index: 1;
+	.home-why-img {
+		width: min(280px, 100%);
+		height: auto;
 	}
 
-	.carousel-slide img {
-		width: 100%;
-		height: 100%;
+	.home-why-copy .home-section-title {
+		margin-bottom: 1rem;
+	}
+
+	.home-prose {
+		font-family: var(--font-primary);
+		font-size: 1.0625rem;
+		line-height: 1.75;
+		color: var(--color-primary);
+		margin: 0 0 1.25rem;
+		max-width: 38rem;
+	}
+
+	.home-text-link {
+		font-family: var(--font-primary);
+		font-size: 0.9375rem;
+		font-weight: 600;
+		color: var(--color-secondary);
+		text-decoration: none;
+	}
+
+	.home-text-link:hover {
+		text-decoration: underline;
+		text-underline-offset: 3px;
+	}
+
+	/* Priorities */
+	.home-priorities {
+		background: var(--color-accent);
+		background: linear-gradient(135deg, #d4e4ed 0%, var(--color-accent) 50%, #e8eef4 100%);
+	}
+
+	.home-priority-grid {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1.25rem;
+	}
+
+	.home-priority-item {
+		background: rgba(255, 255, 255, 0.75);
+		backdrop-filter: blur(8px);
+		border-radius: 12px;
+		padding: 1.25rem 1rem;
+		text-align: center;
+		border: 1px solid rgba(0, 35, 56, 0.06);
+	}
+
+	.home-priority-icon-wrap {
+		height: 4rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 0.75rem;
+	}
+
+	.home-priority-icon {
+		max-height: 3.25rem;
+		width: auto;
+		max-width: 100%;
 		object-fit: contain;
+	}
+
+	.home-priority-label {
+		font-family: var(--font-primary);
+		font-size: 0.875rem;
+		font-weight: 600;
+		color: var(--color-primary);
+		line-height: 1.35;
 		display: block;
 	}
 
+	/* Community */
+	.home-community {
+		padding: 0;
+	}
+
+	.home-community-img-wrap {
+		width: 100%;
+		max-height: min(70vh, 560px);
+		overflow: hidden;
+	}
+
+	.home-community-img {
+		width: 100%;
+		height: min(70vh, 560px);
+		object-fit: cover;
+		object-position: center 25%;
+		display: block;
+	}
+
+	.home-community-caption {
+		background: var(--color-primary);
+		color: var(--color-white);
+		padding: 1.5rem 1.5rem 2rem;
+		text-align: center;
+	}
+
+	.home-community-quote {
+		font-family: var(--font-primary);
+		font-size: clamp(1rem, 2.5vw, 1.1875rem);
+		font-weight: 500;
+		line-height: 1.5;
+		margin: 0;
+		max-width: 36rem;
+		margin-left: auto;
+		margin-right: auto;
+		opacity: 0.95;
+	}
+
+	/* Get involved */
+	.home-involve {
+		background: var(--color-white);
+		padding-bottom: clamp(4rem, 10vw, 6rem);
+	}
+
+	.home-involve-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1rem;
+		margin-bottom: 3rem;
+	}
+
+	.home-involve-card {
+		display: flex;
+		flex-direction: column;
+		gap: 0.35rem;
+		padding: 1.5rem 1.25rem;
+		border-radius: 12px;
+		border: 1px solid rgba(0, 35, 56, 0.12);
+		text-decoration: none;
+		color: inherit;
+		transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+		background: var(--color-white);
+	}
+
+	.home-involve-card:hover {
+		border-color: var(--color-secondary);
+		box-shadow: 0 8px 28px rgba(0, 35, 56, 0.08);
+		transform: translateY(-2px);
+	}
+
+	.home-involve-card--accent {
+		background: var(--color-secondary);
+		border-color: var(--color-secondary);
+		color: var(--color-white);
+	}
+
+	.home-involve-card--accent:hover {
+		background: #1d4a1f;
+		border-color: #1d4a1f;
+		color: var(--color-white);
+	}
+
+	.home-involve-label {
+		font-family: var(--font-primary);
+		font-size: 1.125rem;
+		font-weight: 700;
+	}
+
+	.home-involve-desc {
+		font-family: var(--font-primary);
+		font-size: 0.875rem;
+		line-height: 1.45;
+		opacity: 0.92;
+	}
+
+	.home-involve-card--accent .home-involve-desc {
+		opacity: 0.95;
+	}
+
+	.home-social-block {
+		text-align: center;
+		padding-top: 0.5rem;
+		border-top: 1px solid rgba(0, 35, 56, 0.08);
+	}
+
+	.home-social-label {
+		font-family: var(--font-primary);
+		font-size: 0.8125rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		color: var(--color-primary);
+		opacity: 0.75;
+		margin: 0 0 1rem;
+	}
+
+	.home-social {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 0.75rem;
+	}
+
+	.home-social-link {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 44px;
+		height: 44px;
+		color: var(--color-primary);
+		border-radius: 10px;
+		transition: background 0.2s ease;
+	}
+
+	.home-social-link:hover {
+		background: rgba(0, 35, 56, 0.08);
+	}
+
+	@media (max-width: 900px) {
+		.home-pillar-grid {
+			grid-template-columns: 1fr;
+			max-width: 28rem;
+			margin: 0 auto;
+		}
+
+		.home-priority-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		.home-why-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.home-why-copy .home-section-title {
+			text-align: center;
+		}
+
+		.home-why-copy .home-prose,
+		.home-text-link {
+			text-align: left;
+			display: block;
+		}
+
+		.home-why-copy {
+			text-align: center;
+		}
+
+		.home-text-link {
+			margin-top: 0.5rem;
+		}
+	}
 
 	@media (max-width: 768px) {
-		.tagline-section {
-			text-align: center;
+		/* Readable alignment vs layout-wide justified paragraphs */
+		.home-page p,
+		.home-page li {
+			text-align: left;
 		}
 
-		.about-content {
-			text-align: center;
-		}
-
-		.about-text p,
-		.about-social {
-			justify-content: center;
-		}
-
-		.campaign-text {
-			text-align: center;
-		}
-
-		.campaign-text :global(.btn) {
-			display: inline-flex;
-			justify-content: center;
-			align-items: center;
-			text-align: center;
-		}
-
-		/* Hero full-bleed: 100vw, no side margin */
-		.hero {
+		.home-hero {
 			width: 100vw;
 			max-width: 100vw;
 			margin-left: calc(-1 * var(--mobile-margin));
 			margin-right: calc(-1 * var(--mobile-margin));
+			padding-left: 1.25rem;
+			padding-right: 1.25rem;
 			box-sizing: border-box;
 		}
 
-		.tagline-section {
+		.home-wrap {
 			padding-left: 0;
 			padding-right: 0;
 		}
 
-		.about-content {
-			flex-direction: column;
-			gap: 2rem;
-			padding-left: 0;
-			padding-right: 0;
+		.home-involve-grid {
+			grid-template-columns: 1fr;
 		}
 
-		.container {
-			padding-left: 0;
-			padding-right: 0;
-		}
-
-		.campaign-section {
-			flex-direction: column;
-			gap: 2rem;
+		.home-section-intro {
+			margin-bottom: 2rem;
 		}
 	}
 
-	@media (max-width: 640px) {
-		.hero {
-			padding: 0;
-		}
-
-		.hero-content {
-			flex-direction: column;
-			text-align: center;
-			padding: 0;
-			margin: 0;
-		}
-
-		.hero-logo {
-			max-width: 300px;
-			padding: 0;
-			margin: 0;
-		}
-
-		.tagline-section {
-			padding-top: 1.5rem;
-			padding-bottom: 1.5rem;
-		}
-
-		.tagline {
-			font-size: 1.25rem;
-		}
-
-		.about-section {
-			padding-top: 3rem;
-			padding-bottom: 3rem;
-		}
-
-		.about-image {
-			max-width: 250px;
-		}
-
-		.about-text p {
-			font-size: 1rem;
-		}
-
-		.container {
-			padding-top: 3rem;
-			padding-bottom: 3rem;
-		}
-
-		.campaign-text h2 {
-			font-size: 1.5rem;
-		}
-
-		.campaign-text p {
-			font-size: 1rem;
-		}
-
-		.carousel {
-			max-width: 100%;
-		}
-
-		.carousel-track {
-			height: 300px;
+	@media (max-width: 480px) {
+		.home-priority-grid {
+			grid-template-columns: 1fr;
 		}
 	}
 </style>
