@@ -20,7 +20,16 @@
 <nav class="nav">
 	<div class="nav-inner">
 		<a href="/" class="nav-logo" aria-label="Congressman Peter Crosby - Home">
-			<img src="/images/brand_strategy_logo_white.svg" alt="" class="nav-logo-img" />
+			<img
+				src="/images/brand_strategy_logo_white.svg"
+				alt=""
+				class="nav-logo-img"
+				width="200"
+				height="72"
+				fetchpriority="high"
+				loading="eager"
+				decoding="sync"
+			/>
 		</a>
 		<ul class="nav-links">
 			{#each links as link}

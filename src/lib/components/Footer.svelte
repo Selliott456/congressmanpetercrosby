@@ -37,7 +37,15 @@
 	<div class="footer-inner">
 		<div class="footer-col">
 			<div class="footer-brand">
-				<img src="/images/brand_strategy_square_cropped_transparent_bg_blue_002338.svg" alt="" class="footer-logo" />
+				<img
+					src="/images/brand_strategy_square_cropped_transparent_bg_blue_002338.svg"
+					alt=""
+					class="footer-logo"
+					width="160"
+					height="160"
+					loading="lazy"
+					decoding="async"
+				/>
 			</div>
 			<a href="/contact" class="footer-faq-link">Contact Us</a>
 			<div class="footer-social" aria-label="Social media links">

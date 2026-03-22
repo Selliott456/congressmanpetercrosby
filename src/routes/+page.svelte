@@ -41,6 +41,14 @@
 		name="description"
 		content="Peter Crosby for U.S. Congress, Utah District 2. Integrity, practical solutions, and a representative who puts Northern Utah first."
 	/>
+	<!-- Hero LCP: background photo + logo before CSS paints -->
+	<link rel="preload" href="/images/trees.jpg" as="image" />
+	<link
+		rel="preload"
+		href="/images/brand_strategy_square_cropped_transparent_bg_blue_002338.svg"
+		as="image"
+		type="image/svg+xml"
+	/>
 </svelte:head>
 
 <main class="home-page">
@@ -54,6 +62,9 @@
 				class="home-hero-logo"
 				width="280"
 				height="280"
+				fetchpriority="high"
+				loading="eager"
+				decoding="sync"
 			/>
 			<p class="home-hero-kicker">U.S. Congress · Utah District 2</p>
 			<h1 class="home-hero-title">A voice for Northern Utah</h1>
@@ -88,7 +99,14 @@
 	<section class="home-section home-why" aria-labelledby="why-heading">
 		<div class="home-wrap home-why-grid">
 			<div class="home-why-visual">
-				<img src="/images/meet.svg" alt="" class="home-why-img" role="presentation" />
+				<img
+					src="/images/meet.svg"
+					alt=""
+					class="home-why-img"
+					role="presentation"
+					loading="lazy"
+					decoding="async"
+				/>
 			</div>
 			<div class="home-why-copy">
 				<h2 id="why-heading" class="home-section-title home-section-title--left">Why he’s running</h2>
@@ -111,7 +129,14 @@
 				{#each priorities as item}
 					<li class="home-priority-item">
 						<div class="home-priority-image-wrap">
-							<img src={item.src} alt="" class="home-priority-img" role="presentation" />
+							<img
+								src={item.src}
+								alt=""
+								class="home-priority-img"
+								role="presentation"
+								loading="lazy"
+								decoding="async"
+							/>
 						</div>
 						<p class="home-priority-label">{item.label}</p>
 					</li>
@@ -128,6 +153,8 @@
 				alt="Peter Crosby with his family in Northern Utah"
 				class="home-community-img"
 				loading="lazy"
+				decoding="async"
+				sizes="100vw"
 			/>
 		</div>
 		<div class="home-community-caption">

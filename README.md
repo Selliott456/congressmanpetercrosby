@@ -46,6 +46,14 @@ npm run dev
 └── vite.config.js       # Vite configuration
 ```
 
+## Performance (images)
+
+- **Preload** is used for the nav logo, homepage hero photo (`trees.jpg`), and hero logo so the browser starts them early.
+- **Lazy loading** (`loading="lazy"`) defers below-the-fold images (priorities, meet graphic, footer logo, family photo).
+- **`decoding="async"`** on non-critical images avoids blocking the main thread.
+- **Netlify** sends cache headers for `/images/*` (see `netlify.toml`).
+- **File size:** Large PNG/JPG files (e.g. `family_peter.png`, `trees.jpg`) have the biggest impact. Compress with [Squoosh](https://squoosh.app/) or similar, or export WebP/AVIF and use `<picture>` if you add multiple formats later.
+
 ## Technologies
 
 - [SvelteKit](https://kit.svelte.dev/) - The fastest way to build Svelte applications
