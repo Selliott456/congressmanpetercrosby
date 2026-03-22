@@ -1,3 +1,6 @@
+import { pagesEn } from './pages-en';
+import { pagesEs } from './pages-es';
+
 export type Locale = 'en' | 'es';
 
 export type Messages = typeof en;
@@ -79,7 +82,8 @@ const en = {
 		involveContactDesc: 'Questions or ideas for the campaign.',
 		followCampaign: 'Follow the campaign',
 		socialAria: 'Social media links'
-	}
+	},
+	...pagesEn
 };
 
 const es: Messages = {
@@ -160,7 +164,8 @@ const es: Messages = {
 		involveContactDesc: 'Preguntas o ideas para la campaña.',
 		followCampaign: 'Siga la campaña',
 		socialAria: 'Enlaces a redes sociales'
-	}
+	},
+	...pagesEs
 };
 
 export const dictionaries: Record<Locale, Messages> = { en, es };

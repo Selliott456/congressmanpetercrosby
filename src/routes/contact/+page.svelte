@@ -1,5 +1,7 @@
 <script>
+	import { get } from 'svelte/store';
 	import ButtonSecondary from '$lib/components/ButtonSecondary.svelte';
+	import { messages } from '$lib/i18n/locale';
 
 	const EMAIL = 'petercrosbyforcongress@gmail.com';
 	const PHONE = '(801) 633-4297';
@@ -14,7 +16,7 @@
 	 */
 	function handleSubmit(e) {
 		e.preventDefault();
-		const subject = encodeURIComponent('Contact from website');
+		const subject = encodeURIComponent(get(messages).contact.mailSubject);
 		const body = encodeURIComponent(
 			`Name: ${firstName} ${lastName}\nEmail: ${email}\n\nMessage:\n${message}`
 		);
@@ -23,33 +25,33 @@
 </script>
 
 <svelte:head>
-	<title>Contact Us — Peter Crosby for Congress</title>
-	<meta name="description" content="Contact the Peter Crosby for Congress campaign. Northern Utah deserves better." />
+	<title>{$messages.contact.metaTitle}</title>
+	<meta name="description" content={$messages.contact.metaDescription} />
 </svelte:head>
 
 <main class="contact-page">
 	<div class="contact-content">
 		<div class="contact-main">
 			<div class="contact-copy">
-				<h1 class="contact-title">Contact Us</h1>
+				<h1 class="contact-title">{$messages.contact.pageTitle}</h1>
 				<p class="contact-intro">
-					Northern Utah deserves better. Contact us to learn more about our campaign, or to get involved yourself.
+					{$messages.contact.intro}
 				</p>
 				<div class="contact-info">
 					<a href="mailto:{EMAIL}" class="contact-link">{EMAIL}</a>
 					<a href="tel:+18016334297" class="contact-link">{PHONE}</a>
 				</div>
 				<div class="contact-donate">
-					<ButtonSecondary href="https://secure.actblue.com/donate/peter-crosby-1">Donate</ButtonSecondary>
+					<ButtonSecondary href="https://secure.actblue.com/donate/peter-crosby-1">{$messages.contact.donate}</ButtonSecondary>
 				</div>
 			</div>
 
 			<div class="contact-form-wrap">
 				<form class="contact-form" on:submit={handleSubmit}>
 			<fieldset class="form-fieldset">
-				<legend class="form-legend">Name</legend>
+				<legend class="form-legend">{$messages.contact.formLegendName}</legend>
 				<div class="form-row">
-					<label class="form-label" for="first-name">First Name (required)</label>
+					<label class="form-label" for="first-name">{$messages.contact.firstName}</label>
 					<input
 						id="first-name"
 						class="form-input"
@@ -60,7 +62,7 @@
 					/>
 				</div>
 				<div class="form-row">
-					<label class="form-label" for="last-name">Last Name (required)</label>
+					<label class="form-label" for="last-name">{$messages.contact.lastName}</label>
 					<input
 						id="last-name"
 						class="form-input"
@@ -73,7 +75,7 @@
 			</fieldset>
 
 			<div class="form-row">
-				<label class="form-label" for="email">Email (required)</label>
+				<label class="form-label" for="email">{$messages.contact.email}</label>
 				<input
 					id="email"
 					class="form-input"
@@ -85,7 +87,7 @@
 			</div>
 
 			<div class="form-row">
-				<label class="form-label" for="message">Message (required)</label>
+				<label class="form-label" for="message">{$messages.contact.message}</label>
 				<textarea
 					id="message"
 					class="form-input form-textarea"
@@ -95,7 +97,7 @@
 				></textarea>
 			</div>
 
-			<button type="submit" class="form-submit">Send</button>
+			<button type="submit" class="form-submit">{$messages.contact.send}</button>
 				</form>
 			</div>
 		</div>

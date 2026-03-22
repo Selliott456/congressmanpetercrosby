@@ -1,0 +1,301 @@
+/**
+ * Campaign events (English source). Spanish overrides: $messages.events.byId[id]
+ */
+export type EventRow = {
+	id: string;
+	month: string;
+	day: string;
+	year: number;
+	monthIndex: number;
+	title: string;
+	time: string | null;
+	location: string | null;
+	locationUrl: string | null;
+	description: string;
+	viewEventUrl: string | null;
+};
+
+export const eventsData: EventRow[] = [
+	{
+		id: 'ev-001',
+		month: 'Mar',
+		day: '4',
+		year: 2026,
+		monthIndex: 3,
+		title: 'Dining Liberally Ogden',
+		time: '6:30 PM MT',
+		location: null,
+		locationUrl: null,
+		description: 'RSVP to Dining Liberally Ogden Facebook page.',
+		viewEventUrl: null
+	},
+	{
+		id: 'ev-002',
+		month: 'Mar',
+		day: '10',
+		year: 2026,
+		monthIndex: 3,
+		title: "Caucus Night Training with the Women's Caucus",
+		time: '6:30 PM MT',
+		location: null,
+		locationUrl: null,
+		description: "Caucus Night Training with the Women's Caucus.",
+		viewEventUrl: 'https://www.mobilize.us/utahdemocrats/event/897270/'
+	},
+	{
+		id: 'ev-003',
+		month: 'Mar',
+		day: '12',
+		year: 2026,
+		monthIndex: 3,
+		title: 'Virtual Town Hall',
+		time: '7:00 PM MT',
+		location: null,
+		locationUrl: null,
+		description: 'We are going to be talking about gerrymandering.',
+		viewEventUrl: 'https://www.facebook.com/share/1EAZBuFJDN/'
+	},
+	{
+		id: 'ev-004',
+		month: 'Mar',
+		day: '14',
+		year: 2026,
+		monthIndex: 3,
+		title: 'Meet the Candidate in Logan',
+		time: null,
+		location: 'Logan (RSVP only)',
+		locationUrl: null,
+		description: 'Meet the Candidate in Logan. RSVP only.',
+		viewEventUrl: null
+	},
+	{
+		id: 'ev-005',
+		month: 'Mar',
+		day: '17',
+		year: 2026,
+		monthIndex: 3,
+		title: 'Caucus Night',
+		time: null,
+		location: null,
+		locationUrl: null,
+		description: 'Caucus Night. Please pre-register!',
+		viewEventUrl: 'https://www.utahdemocrats.org/caucus/'
+	},
+	{
+		id: 'ev-006',
+		month: 'Mar',
+		day: '21',
+		year: 2026,
+		monthIndex: 3,
+		title: 'Volunteer Training',
+		time: '10:30 AM MT',
+		location: null,
+		locationUrl: null,
+		description: 'Please sign up to be a volunteer and join us! Light refreshments will be served.',
+		viewEventUrl: null
+	},
+	{
+		id: 'ev-007',
+		month: 'Mar',
+		day: '21',
+		year: 2026,
+		monthIndex: 3,
+		title: 'Open House in Cache Valley',
+		time: '6:00 PM MT',
+		location: 'Cache Valley (RSVP only)',
+		locationUrl: null,
+		description: 'Open House in Cache Valley. RSVP only.',
+		viewEventUrl: null
+	},
+	{
+		id: 'ev-008',
+		month: 'Mar',
+		day: '28',
+		year: 2026,
+		monthIndex: 3,
+		title: 'No Kings Protest in Logan Utah',
+		time: '10:30 AM MT',
+		location: 'Logan, Utah',
+		locationUrl: 'https://www.mobilize.us/nokings/event/902718/',
+		description: 'No Kings Protest in Logan Utah.',
+		viewEventUrl: 'https://www.mobilize.us/nokings/event/902718/'
+	},
+	{
+		id: 'ev-009',
+		month: 'Mar',
+		day: '28',
+		year: 2026,
+		monthIndex: 3,
+		title: 'No Kings Protest in Ogden Utah',
+		time: '12:00 PM MT',
+		location: 'Ogden, Utah',
+		locationUrl: 'https://www.mobilize.us/nokings/event/907278/',
+		description: 'No Kings Protest in Ogden Utah.',
+		viewEventUrl: 'https://www.mobilize.us/nokings/event/907278/'
+	},
+	{
+		id: 'ev-010',
+		month: 'Feb',
+		day: '2',
+		year: 2026,
+		monthIndex: 2,
+		title: 'Town Hall - Davis County',
+		time: '6:30 PM – 7:30 PM',
+		location: 'Davis County Library - Clearfield Branch',
+		locationUrl: 'https://www.google.com/maps/search/Davis+County+Library+Clearfield+Branch',
+		description:
+			'We will be in Davis County for a town hall event. Please come with your questions, and we hope to see you there.',
+		viewEventUrl: 'https://www.google.com/maps/search/Davis+County+Library+Clearfield+Branch'
+	},
+	{
+		id: 'ev-011',
+		month: 'Feb',
+		day: '3',
+		year: 2026,
+		monthIndex: 2,
+		title: 'Town Hall - Weber County',
+		time: '7:00 PM – 8:00 PM',
+		location: 'Main Library - Weber County Library System',
+		locationUrl: 'https://www.google.com/maps/search/Weber+County+Library+Main',
+		description: 'We are having a town hall in Weber County. Please come join us with your questions.',
+		viewEventUrl: 'https://www.google.com/maps/search/Weber+County+Library+Main'
+	},
+	{
+		id: 'ev-012',
+		month: 'Feb',
+		day: '4',
+		year: 2026,
+		monthIndex: 2,
+		title: 'Town Hall - Cache County',
+		time: '7:30 PM – 8:30 PM',
+		location: 'Logan Library',
+		locationUrl: 'https://www.google.com/maps/search/Logan+Library+Utah',
+		description: 'We are having a town hall in Cache County. Please come join us!',
+		viewEventUrl: 'https://www.google.com/maps/search/Logan+Library+Utah'
+	},
+	{
+		id: 'ev-013',
+		month: 'Jan',
+		day: '20',
+		year: 2026,
+		monthIndex: 1,
+		title: 'Tik Tok Live - Affordable Housing with Farrah Pliley',
+		time: '6:30 PM – 7:30 PM',
+		location: null,
+		locationUrl: null,
+		description:
+			'We are having a live Tik Tok conversation with local realtor Farrah Pliley to talk about affordable housing. Please join us: tiktok.com/@petercrosbyforcongress.',
+		viewEventUrl: 'https://tiktok.com/@petercrosbyforcongress'
+	},
+	{
+		id: 'ev-014',
+		month: 'Jan',
+		day: '15',
+		year: 2026,
+		monthIndex: 1,
+		title: 'Tik Tok Live',
+		time: '6:30 PM – 7:15 PM',
+		location: 'tiktok.com/@petercrosbyforcongress',
+		locationUrl: 'https://tiktok.com/@petercrosbyforcongress',
+		description:
+			'Chris from Coffee N Politics (tiktok.com/@coffee_n_politics) and Peter are having a conversation about running for office in Northern Utah. Please come join us at tiktok.com/@petercrosbyforcongress!',
+		viewEventUrl: 'https://tiktok.com/@petercrosbyforcongress'
+	},
+	{
+		id: 'ev-015',
+		month: 'Jan',
+		day: '14',
+		year: 2026,
+		monthIndex: 1,
+		title: 'Town Hall - Box Elder',
+		time: '6:30 PM – 7:30 PM',
+		location: 'Brigham City Public Library (26 E Forest St, Brigham City, UT 84302)',
+		locationUrl: 'https://www.google.com/maps/search/26+E+Forest+St+Brigham+City+UT',
+		description:
+			'Come and meet the candidate. Peter Crosby will be available from 6:30 - 7:30 PM to answer your questions and talk about the challenges and opportunities facing Northern Utah.',
+		viewEventUrl: 'https://www.google.com/maps/search/26+E+Forest+St+Brigham+City+UT'
+	},
+	{
+		id: 'ev-016',
+		month: 'Jan',
+		day: '13',
+		year: 2026,
+		monthIndex: 1,
+		title: 'Town Hall - Cache Valley',
+		time: '6:00 PM – 7:00 PM',
+		location: 'Logan City Library, 285 N. Main, Logan, UT 84321',
+		locationUrl: 'https://www.google.com/maps/search/285+N+Main+Logan+UT',
+		description:
+			'Peter will be at the Logan City Library from 6:00 to 7:00 PM on Tuesday, the 13th of January. Please come join us for a town hall style conversation.',
+		viewEventUrl: 'https://www.google.com/maps/search/285+N+Main+Logan+UT'
+	},
+	{
+		id: 'ev-017',
+		month: 'Dec',
+		day: '21',
+		year: 2024,
+		monthIndex: 12,
+		title: 'Our Vote Counts - Round Table',
+		time: '1:00 PM – 3:00 PM',
+		location: null,
+		locationUrl: null,
+		description:
+			'Our Vote Counts hosts a virtual round table, and have asked me to join them this Sunday. Please pop in for a conversation with candidates from across the political spectrum. tiktok.com/@our.vote.counts',
+		viewEventUrl: 'https://tiktok.com/@our.vote.counts'
+	},
+	{
+		id: 'ev-018',
+		month: 'Dec',
+		day: '16',
+		year: 2024,
+		monthIndex: 12,
+		title: 'Meet the candidate - Live Tik Tok',
+		time: '6:00 PM – 7:00 PM',
+		location: null,
+		locationUrl: null,
+		description: 'Our Vote Counts is hosting a live Tik Tok to interview me. Please come join us!',
+		viewEventUrl: 'https://tiktok.com/@our.vote.counts'
+	},
+	{
+		id: 'ev-019',
+		month: 'Dec',
+		day: '10',
+		year: 2024,
+		monthIndex: 12,
+		title: 'Meet the candidate',
+		time: '6:00 PM – 7:00 PM',
+		location: 'Syracuse Community Center (1912 S 1900 W, Syracuse, UT 84075)',
+		locationUrl: 'https://www.google.com/maps/search/1912+S+1900+W+Syracuse+UT',
+		description:
+			'Come and meet the candidate. Peter Crosby will be available from 6:00 - 7:00 PM to answer your questions and talk about the challenges and opportunities facing Northern Utah.',
+		viewEventUrl: 'https://www.google.com/maps/search/1912+S+1900+W+Syracuse+UT'
+	},
+	{
+		id: 'ev-020',
+		month: 'Dec',
+		day: '3',
+		year: 2024,
+		monthIndex: 12,
+		title: 'Meet the candidate',
+		time: '6:00 PM – 7:00 PM',
+		location: 'Kaysville Library (215 N Fairfield Rd, Kaysville, UT 84037)',
+		locationUrl: 'https://www.google.com/maps/search/215+N+Fairfield+Rd+Kaysville+UT',
+		description:
+			'Come and meet the candidate. Peter Crosby will be available from 6:00 - 7:00 PM to answer your questions and talk about the challenges and opportunities facing Northern Utah.',
+		viewEventUrl: 'https://www.google.com/maps/search/215+N+Fairfield+Rd+Kaysville+UT'
+	},
+	{
+		id: 'ev-021',
+		month: 'Nov',
+		day: '24',
+		year: 2024,
+		monthIndex: 11,
+		title: 'Meet the candidate',
+		time: '6:00 PM – 7:00 PM',
+		location: 'Davis County Library - Clearfield Branch (1 N Main St, Clearfield, UT 84015)',
+		locationUrl: 'https://www.google.com/maps/search/1+N+Main+St+Clearfield+UT',
+		description:
+			'Come and meet the candidate. Peter Crosby will be available from 6:00 - 7:00 PM to answer your questions and talk about the challenges and opportunities facing Northern Utah.',
+		viewEventUrl: 'https://www.google.com/maps/search/1+N+Main+St+Clearfield+UT'
+	}
+];

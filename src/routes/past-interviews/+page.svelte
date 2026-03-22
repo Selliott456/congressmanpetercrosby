@@ -1,33 +1,11 @@
 <script>
 	import ButtonSecondary from '$lib/components/ButtonSecondary.svelte';
-
-	const interviews = [
-		{
-			month: 'Dec',
-			day: '16',
-			year: 2024,
-			title: 'Interview - Our Vote Counts',
-			time: '3:30 PM – 4:30 PM',
-			description: 'Our Vote Counts and I sat for a virtual interview and town hall, where we talked about a wide range of issues facing our district and the nation. You can find the full interview on Youtube.',
-			viewEventUrl: 'https://www.youtube.com/watch?v=kHJBykNy9zg',
-			platform: 'youtube'
-		},
-		{
-			month: 'Nov',
-			day: '17',
-			year: 2024,
-			title: 'Interview - Hal Stewart',
-			time: '3:30 PM – 4:30 PM',
-			description: 'Hal Stewart interviewed me at the start of my campaign. If you would like to see where we started, this is the first time I went public with my desire to help Northern Utah.',
-			viewEventUrl: 'https://www.petercrosbyforcongress.org/events-2-1/e08a9jyyxhlt8r691kitsl9ic1m3yg',
-			platform: 'website'
-		}
-	];
+	import { messages } from '$lib/i18n/locale';
 </script>
 
 <svelte:head>
-	<title>Past Interviews — Peter Crosby for Congress</title>
-	<meta name="description" content="Past interviews and town halls with Peter Crosby on Our Vote Counts, Hal Stewart, and more." />
+	<title>{$messages.pastInterviews.metaTitle}</title>
+	<meta name="description" content={$messages.pastInterviews.metaDescription} />
 </svelte:head>
 
 <main class="interviews-page">
@@ -35,17 +13,22 @@
 		<img src="/images/peter.jpg" alt="" class="interviews-watermark-image" />
 	</div>
 	<header class="interviews-header">
-		<h1 class="interviews-title">Past Interviews</h1>
-		<p class="interviews-intro">Virtual interviews and town halls from the campaign.</p>
+		<h1 class="interviews-title">{$messages.pastInterviews.pageTitle}</h1>
+		<p class="interviews-intro">{$messages.pastInterviews.intro}</p>
 	</header>
 
 	<div class="interviews-list">
-		{#each interviews as interview}
+		{#each $messages.pastInterviews.items as interview}
 			<article class="interview-card">
 				<div class="interview-date">
 					<span class="interview-month">{interview.month}</span>
 					<span class="interview-day">{interview.day}</span>
-					<span class="interview-platform" aria-label={interview.platform === 'youtube' ? 'YouTube' : 'Website'}>
+					<span
+						class="interview-platform"
+						aria-label={interview.platform === 'youtube'
+							? $messages.pastInterviews.ariaYoutube
+							: $messages.pastInterviews.ariaWebsite}
+					>
 						{#if interview.platform === 'youtube'}
 							<svg class="platform-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
 								<path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
@@ -63,14 +46,14 @@
 					<h2 class="interview-title">{interview.title}</h2>
 					<p class="interview-time">{interview.time}</p>
 					<p class="interview-calendar-links">
-						<span class="calendar-link">Google Calendar</span>
+						<span class="calendar-link">{$messages.common.googleCalendar}</span>
 						<span class="calendar-sep"> </span>
-						<span class="calendar-link">ICS</span>
+						<span class="calendar-link">{$messages.common.ics}</span>
 					</p>
 					<p class="interview-description">{interview.description}</p>
 					{#if interview.viewEventUrl}
 						<a href={interview.viewEventUrl} target="_blank" rel="noopener noreferrer" class="interview-view-link">
-							View Event →
+							{$messages.common.viewEvent}
 						</a>
 					{/if}
 				</div>
@@ -79,7 +62,7 @@
 	</div>
 
 	<div class="interviews-cta">
-		<ButtonSecondary href="https://secure.actblue.com/donate/peter-crosby-1">Donate</ButtonSecondary>
+		<ButtonSecondary href="https://secure.actblue.com/donate/peter-crosby-1">{$messages.common.donate}</ButtonSecondary>
 	</div>
 </main>
 
@@ -148,18 +131,6 @@
 		gap: 2rem;
 	}
 
-	.interviews-cta {
-		position: relative;
-		z-index: 1;
-		max-width: 800px;
-		margin: 0 auto;
-		padding: 2.5rem 1.5rem 4rem;
-		margin-top: 2.5rem;
-		padding-top: 2rem;
-		border-top: 1px solid rgba(0, 35, 56, 0.08);
-		text-align: center;
-	}
-
 	.interview-card {
 		display: flex;
 		gap: 1.5rem;
@@ -176,29 +147,12 @@
 	.interview-date {
 		flex-shrink: 0;
 		width: 4rem;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		gap: 0.35rem;
 		text-align: center;
 		background: var(--color-primary);
 		color: var(--color-white);
 		border-radius: 8px;
 		padding: 0.5rem 0;
-	}
-
-	.interview-platform {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		color: var(--color-white);
-		opacity: 0.95;
-	}
-
-	.platform-icon {
-		width: 1.25rem;
-		height: 1.25rem;
+		position: relative;
 	}
 
 	.interview-month {
@@ -216,6 +170,26 @@
 		font-size: 1.5rem;
 		font-weight: 700;
 		line-height: 1.2;
+	}
+
+	.interview-platform {
+		position: absolute;
+		bottom: -0.5rem;
+		right: -0.5rem;
+		width: 1.75rem;
+		height: 1.75rem;
+		border-radius: 50%;
+		background: var(--color-white);
+		color: var(--color-primary);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		box-shadow: 0 2px 8px rgba(0, 35, 56, 0.15);
+	}
+
+	.platform-icon {
+		width: 1rem;
+		height: 1rem;
 	}
 
 	.interview-body {
@@ -260,11 +234,13 @@
 	}
 
 	.interview-view-link {
+		display: inline-block;
 		font-family: var(--font-primary);
 		font-size: 0.9375rem;
 		font-weight: 600;
 		color: var(--color-secondary);
 		text-decoration: none;
+		margin-top: 0.5rem;
 	}
 
 	.interview-view-link:hover {
@@ -272,25 +248,18 @@
 		text-underline-offset: 2px;
 	}
 
+	.interviews-cta {
+		position: relative;
+		z-index: 1;
+		max-width: 800px;
+		margin: 0 auto;
+		padding: 2.5rem 1.5rem 0;
+		text-align: center;
+		border-top: 1px solid rgba(0, 35, 56, 0.08);
+		margin-top: 2rem;
+	}
+
 	@media (max-width: 768px) {
-		.interviews-watermark::before {
-			content: '';
-			position: absolute;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			background-image: url('/images/peter.jpg');
-			background-repeat: repeat;
-			background-size: auto;
-			opacity: 0.08;
-			pointer-events: none;
-		}
-
-		.interviews-watermark-image {
-			display: none;
-		}
-
 		.interviews-header {
 			padding-left: 0;
 			padding-right: 0;
@@ -310,17 +279,27 @@
 			padding-left: 0;
 			padding-right: 0;
 		}
+
+		.interviews-watermark::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-image: url('/images/peter.jpg');
+			background-repeat: repeat;
+			background-size: auto;
+			opacity: 0.08;
+			pointer-events: none;
+		}
+
+		.interviews-watermark-image {
+			display: none;
+		}
 	}
 
 	@media (max-width: 640px) {
-		.interviews-watermark::before {
-			opacity: 0.06;
-		}
-
-		.interviews-header {
-			padding: 2rem 0 1.5rem;
-		}
-
 		.interviews-title {
 			font-size: 1.75rem;
 		}
@@ -328,10 +307,6 @@
 		.interviews-list {
 			padding: 1.5rem 0 0;
 			gap: 1.5rem;
-		}
-
-		.interviews-cta {
-			padding: 2.5rem 0 4rem;
 		}
 
 		.interview-card {
@@ -342,7 +317,7 @@
 
 		.interview-date {
 			width: 100%;
-			flex-direction: row;
+			display: flex;
 			align-items: center;
 			justify-content: center;
 			gap: 0.5rem;
@@ -361,6 +336,14 @@
 
 		.interview-title {
 			font-size: 1.125rem;
+		}
+
+		.interviews-cta {
+			padding: 2.5rem 0 0;
+		}
+
+		.interviews-watermark::before {
+			opacity: 0.06;
 		}
 	}
 </style>

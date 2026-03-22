@@ -1,0 +1,315 @@
+/** Spanish page copy (merged into dictionaries.es) — structure mirrors pages-en.ts */
+export const pagesEs = {
+	common: {
+		donate: 'Donar',
+		viewEvent: 'Ver evento →',
+		googleCalendar: 'Google Calendar',
+		ics: 'ICS'
+	},
+	about: {
+		metaTitle: 'Acerca de Peter Crosby — Peter Crosby para el Congreso',
+		metaDescription:
+			'Conozca a Peter Crosby: esposo, padre, líder con experiencia y candidato impulsado por el servicio al norte de Utah.',
+		heroAlt: 'Peter Crosby con su esposa Amanda y sus tres hijas',
+		sections: [
+			{
+				title: 'Esposo y padre',
+				paragraphs: [
+					'Mi esposa y yo, con nuestras tres hijas, hemos construido un hogar en Cache Valley, donde hemos vivido la mayor parte de los 19 años de matrimonio de Amanda y yo. Hemos criado a tres jóvenes amables, apasionadas, brillantes y extraordinarias. Me postulo para asegurar que ellas, y todos los demás, tengan las oportunidades que nos prometieron.',
+					'Ser padre puede estar lleno de retos e inquietudes. Pueden ser pequeños (cuánto tiempo puede estar el chupete en el suelo antes de enjuagarlo) o no tan pequeños (cómo vamos a pagar de comer a nuestros hijos este mes). Hay noches largas y a veces días más largos, pero lo hacemos porque queremos que salgan al mundo preparadas para lograr grandes cosas. Les enseñamos a ser honestas, a tener integridad, a amar al prójimo y a trabajar duro. Y queremos que el mundo al que las enviamos les dé una oportunidad justa de ser quienes sabemos que pueden ser. Únase a mí para ayudar a que eso sea posible.'
+				]
+			},
+			{
+				title: 'Líder con experiencia',
+				paragraphs: [
+					'Comencé mi carrera profesional en una empresa Fortune 500 en operaciones. Ascendí a un rol de supervisión en un año mientras estudiaba a tiempo completo, y pasé los siguientes cinco o seis años liderando equipos y proyectos. Cuando pasé a analítica a nivel corporativo, tenía once personas a cargo y más de 200 empleados ayudando a impulsar una línea de negocio con más de 15 millones de dólares en ingresos anuales.',
+					'Después de una década dejé el sector privado para trabajar en Utah State University en investigación institucional, donde pude servir a nuestra comunidad ampliamente apoyando la misión de nuestra universidad pública. Como graduado universitario de primera generación con dos títulos en ciencia política, conozco de primera mano el valor que nuestras universidades del norte de Utah aportan a personas y comunidades, y quise ser parte de eso. Así que también empecé a enseñar, con clases sobre política e instituciones estadounidenses para pregrado. Agradezco seguir como educador adjunto en el Center for Anticipatory Intelligence de USU, donde ahora doy un curso de posgrado sobre tecnología emergente. Trabajar con estudiantes como mentor, instructor y futuro colega es de lo más gratificante.',
+					'Mi empleo a tiempo completo ha vuelto al sector privado como director, gestor de proyectos y consultor para una empresa de investigación que apoya la educación superior. Con mi experiencia en los sectores público y privado, trabajo con rectores, provosts, profesorado y personal de apoyo para ayudarles a navegar un futuro cada vez más impredecible.',
+					'Mi educación y trayectoria profesional me han dido una vida de experiencia como líder. Sé que el liderazgo efectivo se basa en la confianza, y lo más importante que puedo hacer es ganar la suya. Espero que me dé esa oportunidad.'
+				]
+			},
+			{
+				title: 'Impulsado por el servicio',
+				paragraphs: [
+					'Mi familia tiene una larga historia de servicio público desde los cimientos de nuestro país. Mis padres estuvieron en el ejército, al igual que mis dos abuelos y mis dos hermanos. Fui cadete del ROTC hasta que me lesioné la rodilla en educación física una mañana, lo que me llevó por otro camino. El padre de mi esposa, sus hermanos y abuelos también sirvieron. El servicio está en nuestro ADN, y mi esposa y yo hemos intentado inculcar esos valores a nuestras hijas.',
+					'Sé que los derechos y libertades de este país exigen el sacrificio de todos si queremos conservarlos. Creo que el juramento que hice como Eagle Scout hace casi veinticinco años para mejorar la sociedad sigue vigente. Los funcionarios públicos, como nuestros representantes en el Congreso, están para servir. Es un deber, un honor y una obligación poner al país y a la comunidad antes que uno mismo. Únase a mí para hacer nuestra parte.'
+				]
+			}
+		]
+	},
+	contact: {
+		metaTitle: 'Contáctenos — Peter Crosby para el Congreso',
+		metaDescription: 'Contacte la campaña Peter Crosby para el Congreso. El norte de Utah merece algo mejor.',
+		pageTitle: 'Contáctenos',
+		intro:
+			'El norte de Utah merece algo mejor. Contáctenos para saber más sobre la campaña o para participar usted mismo.',
+		donate: 'Donar',
+		formLegendName: 'Nombre',
+		firstName: 'Nombre (obligatorio)',
+		lastName: 'Apellido (obligatorio)',
+		email: 'Correo electrónico (obligatorio)',
+		message: 'Mensaje (obligatorio)',
+		send: 'Enviar',
+		mailSubject: 'Contacto desde el sitio web'
+	},
+	pastInterviews: {
+		metaTitle: 'Entrevistas anteriores — Peter Crosby para el Congreso',
+		metaDescription:
+			'Entrevistas y cabildos anteriores con Peter Crosby en Our Vote Counts, Hal Stewart y más.',
+		pageTitle: 'Entrevistas anteriores',
+		intro: 'Entrevistas virtuales y cabildos de la campaña.',
+		ariaYoutube: 'YouTube',
+		ariaWebsite: 'Sitio web',
+		items: [
+			{
+				id: 'pi-1',
+				month: 'Dic',
+				day: '16',
+				year: 2024,
+				title: 'Entrevista - Our Vote Counts',
+				time: '3:30 PM – 4:30 PM',
+				description:
+					'Our Vote Counts y yo participamos en una entrevista virtual y cabildo donde hablamos de muchos temas que enfrentan nuestro distrito y el país. Puede ver la entrevista completa en YouTube.',
+				viewEventUrl: 'https://www.youtube.com/watch?v=kHJBykNy9zg',
+				platform: 'youtube' as const
+			},
+			{
+				id: 'pi-2',
+				month: 'Nov',
+				day: '17',
+				year: 2024,
+				title: 'Entrevista - Hal Stewart',
+				time: '3:30 PM – 4:30 PM',
+				description:
+					'Hal Stewart me entrevistó al inicio de mi campaña. Si quiere ver cómo empezamos, esta es la primera vez que di públicamente que quería ayudar al norte de Utah.',
+				viewEventUrl: 'https://www.petercrosbyforcongress.org/events-2-1/e08a9jyyxhlt8r691kitsl9ic1m3yg',
+				platform: 'website' as const
+			}
+		]
+	},
+	events: {
+		metaTitle: 'Eventos — Peter Crosby para el Congreso',
+		metaDescription:
+			'Próximos cabildos, encuentros con el candidato y conversaciones en vivo con Peter Crosby en el norte de Utah.',
+		ui: {
+			pageTitle: 'Eventos',
+			intro: 'Cabildos, encuentros con el candidato y conversaciones en todo el norte de Utah.',
+			calendarAria: 'Calendario',
+			prevMonth: 'Mes anterior',
+			nextMonth: 'Mes siguiente',
+			dayWithEvent: 'Día con evento',
+			nextEvent: 'Próximo evento',
+			allEvents: 'Todos los eventos',
+			pastEvent: 'Evento pasado'
+		},
+		monthNames: [
+			'Enero',
+			'Febrero',
+			'Marzo',
+			'Abril',
+			'Mayo',
+			'Junio',
+			'Julio',
+			'Agosto',
+			'Septiembre',
+			'Octubre',
+			'Noviembre',
+			'Diciembre'
+		],
+		dayNames: ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'],
+		monthAbbrev: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+		byId: {
+			'ev-001': {
+				title: 'Dining Liberally Ogden',
+				description: 'Confirme asistencia en la página de Facebook de Dining Liberally Ogden.'
+			},
+			'ev-002': {
+				title: 'Capacitación de noche de caucus con el Women’s Caucus',
+				description: 'Capacitación de noche de caucus con el Women’s Caucus.'
+			},
+			'ev-003': {
+				title: 'Cabildo virtual',
+				description: 'Hablaremos sobre el gerrymandering.'
+			},
+			'ev-004': {
+				title: 'Conozca al candidato en Logan',
+				description: 'Conozca al candidato en Logan. Solo con confirmación previa (RSVP).'
+			},
+			'ev-005': {
+				title: 'Noche de caucus',
+				description: 'Noche de caucus. ¡Regístrese con anticipación!'
+			},
+			'ev-006': {
+				title: 'Capacitación de voluntarios',
+				description: '¡Regístrese como voluntario y acompáñenos! Habrá refrigerios ligeros.'
+			},
+			'ev-007': {
+				title: 'Casa abierta en Cache Valley',
+				description: 'Casa abierta en Cache Valley. Solo con confirmación previa (RSVP).'
+			},
+			'ev-008': {
+				title: 'Protesta No Kings en Logan, Utah',
+				description: 'Protesta No Kings en Logan, Utah.'
+			},
+			'ev-009': {
+				title: 'Protesta No Kings en Ogden, Utah',
+				description: 'Protesta No Kings en Ogden, Utah.'
+			},
+			'ev-010': {
+				title: 'Cabildo - Condado de Davis',
+				description:
+					'Estaremos en el condado de Davis para un cabildo. Venga con sus preguntas; esperamos verle.'
+			},
+			'ev-011': {
+				title: 'Cabildo - Condado de Weber',
+				description: 'Cabildo en el condado de Weber. Acompáñenos con sus preguntas.'
+			},
+			'ev-012': {
+				title: 'Cabildo - Condado de Cache',
+				description: 'Cabildo en el condado de Cache. ¡Acompáñenos!'
+			},
+			'ev-013': {
+				title: 'TikTok en vivo - Vivienda asequible con Farrah Pliley',
+				description:
+					'Conversación en vivo en TikTok con la agente Farrah Pliley sobre vivienda asequible. Únase: tiktok.com/@petercrosbyforcongress.'
+			},
+			'ev-014': {
+				title: 'TikTok en vivo',
+				description:
+					'Chris de Coffee N Politics y Peter conversan sobre postularse al cargo en el norte de Utah. Únase en tiktok.com/@petercrosbyforcongress.'
+			},
+			'ev-015': {
+				title: 'Cabildo - Box Elder',
+				description:
+					'Venga a conocer al candidato. Peter Crosby estará de 6:30 a 7:30 PM para responder preguntas y hablar de los retos y oportunidades del norte de Utah.'
+			},
+			'ev-016': {
+				title: 'Cabildo - Cache Valley',
+				description:
+					'Peter estará en la biblioteca de Logan de 6:00 a 7:00 PM el martes 13 de enero. Acompáñenos en un diálogo tipo cabildo.'
+			},
+			'ev-017': {
+				title: 'Our Vote Counts - Mesa redonda',
+				description:
+					'Our Vote Counts organiza una mes redonda virtual y me invitaron este domingo. Entre a conversar con candidatos de distintos espectros. tiktok.com/@our.vote.counts'
+			},
+			'ev-018': {
+				title: 'Conozca al candidato - TikTok en vivo',
+				description: 'Our Vote Counts transmite una entrevista en TikTok. ¡Acompáñenos!'
+			},
+			'ev-019': {
+				title: 'Conozca al candidato',
+				description:
+					'Venga a conocer al candidato. Peter Crosby estará de 6:00 a 7:00 PM para responder preguntas y hablar del norte de Utah.'
+			},
+			'ev-020': {
+				title: 'Conozca al candidato',
+				description:
+					'Venga a conocer al candidato. Peter Crosby estará de 6:00 a 7:00 PM para responder preguntas y hablar del norte de Utah.'
+			},
+			'ev-021': {
+				title: 'Conozca al candidato',
+				description:
+					'Venga a conocer al candidato. Peter Crosby estará de 6:00 a 7:00 PM para responder preguntas y hablar del norte de Utah.'
+			}
+		} as Record<string, { title: string; description: string }>
+	},
+	faq: {
+		metaTitle: 'Preguntas frecuentes — Peter Crosby para el Congreso',
+		metaDescription:
+			'Preguntas frecuentes sobre las prioridades de Peter Crosby, la economía, la integridad del gobierno y la salud.',
+		pageTitle: 'Preguntas frecuentes',
+		items: [
+			{
+				question: '¿Cuáles son sus principales prioridades de políticas?',
+				parts: [
+					{
+						type: 'p' as const,
+						text: 'Mis prioridades reflejan a la gente con la que hablo en el norte de Utah. En esas conversaciones surgen muchas preocupaciones, pero creo que se resumen en estas áreas:'
+					},
+					{
+						type: 'ul' as const,
+						items: [
+							'El bienestar económico de nuestro distrito',
+							'La integridad de nuestro gobierno',
+							'La salud de nuestras comunidades'
+						]
+					},
+					{
+						type: 'p' as const,
+						text: 'En estas áreas, y en toda política pública, mi prioridad es representar a la gente del norte de Utah. Mis posiciones ponen primero a las personas.'
+					}
+				]
+			},
+			{
+				question: '¿Qué problemas económicos enfrenta el norte de Utah y qué haría al respecto?',
+				parts: [
+					{
+						type: 'p' as const,
+						text: 'El norte de Utah tiene una fuerte tradición de trabajo duro e innovación con una comunidad que pone primero a la gente. Esos valores nos han servido décadas, pero hoy están bajo presión, en parte por las acciones (o la inacción) de quienes nos representan.'
+					},
+					{
+						type: 'p' as const,
+						text: 'Vivimos una crisis de vivienda: muchas personas no encuentran hogar estable en un mercado entre los más caros del país. Hay esfuerzos en el estado, pero no alcanzan. Hay que incentivar mejor planificación, más vivienda asequible en modelos comunitarios y mayores ingresos para las familias promedio para que puedan construir su futuro aquí.'
+					},
+					{
+						type: 'p' as const,
+						text: 'También hay inflación y alza del costo de vida que golpean a quienes no están en el 1 % superior. Alimentos básicos ocupan cada vez más el presupuesto. Otros bienes, afectados por aranceles (e ignorados por nuestro representante), son más caros. Al mismo tiempo el empleo parece debilitarse: todo cuesta más y menos gente puede mantener a su familia.'
+					},
+					{
+						type: 'p' as const,
+						text: 'A eso se suman miles de empleados federales y militares en licencia o trabajando sin pago porque una Cámara, un Senado y una Casa Blanca republicanos no gobiernan bien. Los bancos de alimentos y recursos comunitarios se estiran al límite mientras algunos representantes toman vacaciones pagadas.'
+					},
+					{
+						type: 'p' as const,
+						text: 'Mi prioridad es la gente del norte de Utah usando el poder del Congreso para enderezar el rumbo. Me uniría a colegas dispuestos a poner fin a un régimen de aranceles ilegal que perjudica a negocios y emprendedores locales. Haría cumplir la ley para que SNAP llegue a las más de 80 000 familias de Utah que luchan. Y me opondría al liderazgo republicano en Washington: deben aprender a gobernar o buscar otro trabajo.'
+					}
+				]
+			},
+			{
+				question:
+					'Menciona la integridad del gobierno. ¿Qué significa y qué haría?',
+				parts: [
+					{
+						type: 'p' as const,
+						text: 'Mi familia tiene una larga tradición de servicio militar y público desde antes de que existiera Estados Unidos. De niño aprendí la obligación de los ciudadanos y la carga especial de quienes nos representan. Este año hemos visto cómo se rompe la confianza mientras el país se aleja del estado de derecho y de la voluntad del pueblo.'
+					},
+					{
+						type: 'p' as const,
+						text: 'Quien nos representa debe poner primero la Constitución, segundo las necesidades de este distrito y mucho más abajo todo lo demás. Los elegimos para representarnos, no a su partido ni a su interés propio. Mucha gente en el norte de Utah no confía en que su representante actual ponga al distrito antes de la política de Washington o del autopromoción; el último año lo ha demostrado.'
+					},
+					{
+						type: 'p' as const,
+						text: 'Hay varias medidas para reconstruir la confianza, con sacrificio de los representantes. Primero: prohibiría operaciones con acciones individuales para miembros del Congreso y familiares directos. No está bien regular la empresa en la que invierten. Están para servirnos, no a su cuenta bancaria.'
+					},
+					{
+						type: 'p' as const,
+						text: 'Segundo: apoyaría un debate sobre límites de mandato en el Congreso. Es saludable evitar que cualquier persona o partido haga del Congreso su hogar permanente. América no necesita políticos eternos.'
+					},
+					{
+						type: 'p' as const,
+						text: 'Tercero: apoyo quitar el dinero corporativo del proceso político. El gobierno es del pueblo, no de intereses corporativos. Reducir el “dinero oscuro” ayuda a que los servidores públicos nos sirvan mejor.'
+					},
+					{
+						type: 'p' as const,
+						text: 'Las tres medidas son razonables y exigen poner al país y a los votantes antes del partido y el beneficio personal. Estoy dispuesto a hacerlo con el apoyo de este distrito.'
+					}
+				]
+			},
+			{
+				question:
+					'¿Cuál es su posición sobre los recortes a la Ley del Cuidado de Salud Asequible (ACA) y el acceso en comunidades rurales?',
+				parts: [
+					{
+						type: 'p' as const,
+						text: 'La llamada “Big Beautiful Bill”, en la que ayudó el representante Blake Moore del Distrito 1, recorta de forma importante el acceso a la salud al reducir pagos a Medicare desde 2026. Los golpes son mayores en comunidades rurales como las del norte de Utah y encarecen la atención. Utah ya no puede igualar la inversión federal como antes a pesar del superávit estatal; hospitales y urgencias lo sentirán más. En lo rural, menos acceso a cuidados críticos.'
+					},
+					{
+						type: 'p' as const,
+						text: 'Por eso no apoyo esa ley ni sus recortes dirigidos a nuestras comunidades. Es mala política y dañará a miles de familias en Utah.'
+					}
+				]
+			}
+		]
+	}
+};
