@@ -110,10 +110,10 @@
 			<ul class="home-priority-grid">
 				{#each priorities as item}
 					<li class="home-priority-item">
-						<div class="home-priority-icon-wrap">
-							<img src={item.src} alt="" class="home-priority-icon" role="presentation" />
+						<div class="home-priority-image-wrap">
+							<img src={item.src} alt="" class="home-priority-img" role="presentation" />
 						</div>
-						<span class="home-priority-label">{item.label}</span>
+						<p class="home-priority-label">{item.label}</p>
 					</li>
 				{/each}
 			</ul>
@@ -442,27 +442,35 @@
 	}
 
 	.home-priority-item {
+		display: flex;
+		flex-direction: column;
 		background: rgba(255, 255, 255, 0.75);
 		backdrop-filter: blur(8px);
 		border-radius: 12px;
-		padding: 1.25rem 1rem;
-		text-align: center;
+		padding: 0;
+		overflow: hidden;
 		border: 1px solid rgba(0, 35, 56, 0.06);
+		min-height: 0;
 	}
 
-	.home-priority-icon-wrap {
-		height: 4rem;
+	.home-priority-image-wrap {
+		flex: 1 1 auto;
+		width: 100%;
+		aspect-ratio: 1;
+		min-height: 140px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		margin-bottom: 0.75rem;
+		background: rgba(255, 255, 255, 0.55);
 	}
 
-	.home-priority-icon {
-		max-height: 3.25rem;
-		width: auto;
-		max-width: 100%;
+	.home-priority-img {
+		width: 100%;
+		height: 100%;
 		object-fit: contain;
+		padding: 0.75rem;
+		box-sizing: border-box;
+		display: block;
 	}
 
 	.home-priority-label {
@@ -471,7 +479,12 @@
 		font-weight: 600;
 		color: var(--color-primary);
 		line-height: 1.35;
-		display: block;
+		text-align: center;
+		margin: 0;
+		padding: 0.875rem 0.75rem 1rem;
+		flex-shrink: 0;
+		border-top: 1px solid rgba(0, 35, 56, 0.06);
+		background: rgba(255, 255, 255, 0.85);
 	}
 
 	/* Community */
