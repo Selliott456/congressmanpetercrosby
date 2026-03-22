@@ -715,6 +715,50 @@
 		.home-section-intro {
 			margin-bottom: 2rem;
 		}
+
+		/* Priorities: no blue/accent band on mobile */
+		.home-priorities {
+			background: var(--color-white);
+		}
+
+		.home-priorities .home-section-intro {
+			display: none;
+		}
+
+		.home-priorities .home-section-title {
+			text-align: center;
+			margin-bottom: 1.5rem;
+		}
+
+		/* Override .home-page p left-align for labels under priority images */
+		.home-priorities .home-priority-label {
+			text-align: center;
+		}
+
+		/* Family photo: full width, whole image fits on screen */
+		.home-community {
+			margin-left: calc(-1 * var(--mobile-margin));
+			margin-right: calc(-1 * var(--mobile-margin));
+			width: 100vw;
+			max-width: 100vw;
+			box-sizing: border-box;
+		}
+
+		.home-community-img-wrap {
+			max-height: none;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background: var(--color-white);
+		}
+
+		.home-community-img {
+			width: 100%;
+			height: auto;
+			max-height: min(92vh, 960px);
+			object-fit: contain;
+			object-position: center center;
+		}
 	}
 
 	@media (max-width: 480px) {
