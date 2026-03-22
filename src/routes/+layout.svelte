@@ -1,6 +1,12 @@
 <script>
+	import { onMount } from 'svelte';
 	import Nav from '../lib/components/Nav.svelte';
 	import Footer from '../lib/components/Footer.svelte';
+	import { initLocaleFromStorage } from '$lib/i18n/locale';
+
+	onMount(() => {
+		initLocaleFromStorage();
+	});
 </script>
 
 <svelte:head>

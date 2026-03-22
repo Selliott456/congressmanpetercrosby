@@ -1,6 +1,6 @@
-
 <script>
 	import ButtonSecondary from '$lib/components/ButtonSecondary.svelte';
+	import { messages } from '$lib/i18n/locale';
 
 	const socialLinks = [
 		{ name: 'TikTok', href: 'https://www.tiktok.com/@petercrosbyforcongress?is_from_webapp=1&sender_device=pc', icon: 'tiktok', label: 'TikTok' },
@@ -10,37 +10,25 @@
 		{ name: 'Substack', href: 'https://substack.com/@petercrosbyforcongress?r=3en65r&utm_medium=ios&utm_source=profile', icon: 'substack', label: 'Substack' }
 	];
 
-	const pillars = [
-		{
-			title: 'Rooted here',
-			text: 'Raised a family in Cache Valley. Northern Utah isn’t a stepping stone—it’s home.'
-		},
-		{
-			title: 'Accountable government',
-			text: 'Public office should serve people first: clear rules, honest answers, and representatives who earn your trust.'
-		},
-		{
-			title: 'Practical focus',
-			text: 'Housing people can afford, healthcare access that works in rural communities, and an economy that rewards work.'
-		}
+	const prioritySrcs = [
+		'/images/better.svg',
+		'/images/expensive.svg',
+		'/images/inflation.svg',
+		'/images/law.svg',
+		'/images/safe.svg',
+		'/images/save_lake.svg'
 	];
 
-	const priorities = [
-		{ src: '/images/better.svg', label: 'Stronger communities' },
-		{ src: '/images/expensive.svg', label: 'Affordable living' },
-		{ src: '/images/inflation.svg', label: 'Costs that match wages' },
-		{ src: '/images/law.svg', label: 'Fair rules for everyone' },
-		{ src: '/images/safe.svg', label: 'Safe neighborhoods' },
-		{ src: '/images/save_lake.svg', label: 'Protecting what we love' }
-	];
+	$: pillars = $messages.home.pillars;
+	$: priorities = $messages.home.priorities.map((p, i) => ({
+		...p,
+		src: prioritySrcs[i]
+	}));
 </script>
 
 <svelte:head>
 	<title>Peter Crosby for Congress</title>
-	<meta
-		name="description"
-		content="Peter Crosby for U.S. Congress, Utah District 2. Integrity, practical solutions, and a representative who puts Northern Utah first."
-	/>
+	<meta name="description" content={$messages.home.metaDescription} />
 	<!-- Hero LCP: background photo + logo before CSS paints -->
 	<link rel="preload" href="/images/trees.jpg" as="image" />
 	<link
@@ -53,7 +41,7 @@
 
 <main class="home-page">
 	<!-- 1. Hero -->
-	<section class="home-hero" aria-label="Campaign introduction">
+	<section class="home-hero" aria-label={$messages.home.heroTitle}>
 		<div class="home-hero-bg" />
 		<div class="home-hero-inner">
 			<img
@@ -66,15 +54,12 @@
 				loading="eager"
 				decoding="sync"
 			/>
-			<p class="home-hero-kicker">U.S. Congress · Utah District 2</p>
-			<h1 class="home-hero-title">A voice for Northern Utah</h1>
-			<p class="home-hero-lead">
-				Peter Crosby is running to represent this district with integrity, straight answers, and a focus on what
-				matters here—housing, honest government, and strong communities.
-			</p>
+			<p class="home-hero-kicker">{$messages.home.heroKicker}</p>
+			<h1 class="home-hero-title">{$messages.home.heroTitle}</h1>
+			<p class="home-hero-lead">{$messages.home.heroLead}</p>
 			<div class="home-hero-cta">
-				<ButtonSecondary href="https://secure.actblue.com/donate/peter-crosby-1">Donate</ButtonSecondary>
-				<a href="/about" class="home-btn-ghost">Meet Peter</a>
+				<ButtonSecondary href="https://secure.actblue.com/donate/peter-crosby-1">{$messages.home.donate}</ButtonSecondary>
+				<a href="/about" class="home-btn-ghost">{$messages.home.meetPeter}</a>
 			</div>
 		</div>
 	</section>
@@ -82,8 +67,8 @@
 	<!-- 2. Values / trust pillars -->
 	<section class="home-section home-pillars" aria-labelledby="pillars-heading">
 		<div class="home-wrap">
-			<h2 id="pillars-heading" class="home-section-title">What this campaign stands for</h2>
-			<p class="home-section-intro">No slogans—just clear expectations for how your representative should show up.</p>
+			<h2 id="pillars-heading" class="home-section-title">{$messages.home.pillarsTitle}</h2>
+			<p class="home-section-intro">{$messages.home.pillarsIntro}</p>
 			<ul class="home-pillar-grid">
 				{#each pillars as pillar}
 					<li class="home-pillar-card">
@@ -109,13 +94,9 @@
 				/>
 			</div>
 			<div class="home-why-copy">
-				<h2 id="why-heading" class="home-section-title home-section-title--left">Why he’s running</h2>
-				<p class="home-prose">
-					Northern Utah families deserve a representative who listens before speaking, answers tough questions, and
-					votes with the district in mind. Peter is running to bring that standard to Congress—not party talking
-					points, but work that helps neighbors and communities thrive.
-				</p>
-				<a href="/faq" class="home-text-link">Read where he stands on the issues →</a>
+				<h2 id="why-heading" class="home-section-title home-section-title--left">{$messages.home.whyTitle}</h2>
+				<p class="home-prose">{$messages.home.whyProse}</p>
+				<a href="/faq" class="home-text-link">{$messages.home.whyLink}</a>
 			</div>
 		</div>
 	</section>
@@ -123,8 +104,8 @@
 	<!-- 4. Priorities / issues -->
 	<section class="home-section home-priorities" aria-labelledby="priorities-heading">
 		<div class="home-wrap">
-			<h2 id="priorities-heading" class="home-section-title">Priorities</h2>
-			<p class="home-section-intro">Concrete issues affecting families and communities across the district.</p>
+			<h2 id="priorities-heading" class="home-section-title">{$messages.home.prioritiesTitle}</h2>
+			<p class="home-section-intro">{$messages.home.prioritiesIntro}</p>
 			<ul class="home-priority-grid">
 				{#each priorities as item}
 					<li class="home-priority-item">
@@ -146,11 +127,11 @@
 	</section>
 
 	<!-- 5. Community image -->
-	<section class="home-community" aria-label="Peter Crosby with family">
+	<section class="home-community" aria-label={$messages.home.communityAria}>
 		<div class="home-community-img-wrap">
 			<img
 				src="/images/family_peter.png"
-				alt="Peter Crosby with his family in Northern Utah"
+				alt={$messages.home.communityAlt}
 				class="home-community-img"
 				loading="lazy"
 				decoding="async"
@@ -158,36 +139,36 @@
 			/>
 		</div>
 		<div class="home-community-caption">
-			<p class="home-community-quote">Family, service, and community—values that shape this campaign.</p>
+			<p class="home-community-quote">{$messages.home.communityQuote}</p>
 		</div>
 	</section>
 
 	<!-- 6. Get involved -->
 	<section class="home-section home-involve" aria-labelledby="involve-heading">
 		<div class="home-wrap">
-			<h2 id="involve-heading" class="home-section-title">Get involved</h2>
-			<p class="home-section-intro">Every race is won by people who pitch in. Pick what fits you.</p>
+			<h2 id="involve-heading" class="home-section-title">{$messages.home.involveTitle}</h2>
+			<p class="home-section-intro">{$messages.home.involveIntro}</p>
 			<div class="home-involve-grid">
 				<a href="https://secure.actblue.com/donate/peter-crosby-1" class="home-involve-card home-involve-card--accent" target="_blank" rel="noopener noreferrer">
-					<span class="home-involve-label">Donate</span>
-					<span class="home-involve-desc">Fuel voter outreach and events.</span>
+					<span class="home-involve-label">{$messages.home.involveDonate}</span>
+					<span class="home-involve-desc">{$messages.home.involveDonateDesc}</span>
 				</a>
 				<a href="mailto:petercrosbyforcongress@gmail.com?subject=Volunteering" class="home-involve-card">
-					<span class="home-involve-label">Volunteer</span>
-					<span class="home-involve-desc">Door knocks, calls, and community events.</span>
+					<span class="home-involve-label">{$messages.home.involveVolunteer}</span>
+					<span class="home-involve-desc">{$messages.home.involveVolunteerDesc}</span>
 				</a>
 				<a href="/events" class="home-involve-card">
-					<span class="home-involve-label">Events</span>
-					<span class="home-involve-desc">Town halls and meetups near you.</span>
+					<span class="home-involve-label">{$messages.home.involveEvents}</span>
+					<span class="home-involve-desc">{$messages.home.involveEventsDesc}</span>
 				</a>
 				<a href="/contact" class="home-involve-card">
-					<span class="home-involve-label">Contact</span>
-					<span class="home-involve-desc">Questions or ideas for the campaign.</span>
+					<span class="home-involve-label">{$messages.home.involveContact}</span>
+					<span class="home-involve-desc">{$messages.home.involveContactDesc}</span>
 				</a>
 			</div>
 			<div class="home-social-block">
-				<p class="home-social-label">Follow the campaign</p>
-				<div class="home-social" aria-label="Social media links">
+				<p class="home-social-label">{$messages.home.followCampaign}</p>
+				<div class="home-social" aria-label={$messages.home.socialAria}>
 					{#each socialLinks as link}
 						<a href={link.href} class="home-social-link" aria-label={link.label} target="_blank" rel="noopener noreferrer">
 							{#if link.icon === 'tiktok'}

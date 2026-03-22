@@ -1,13 +1,15 @@
 <script>
 	import { page } from '$app/stores';
+	import LanguageSwitcher from './LanguageSwitcher.svelte';
+	import { messages } from '$lib/i18n/locale';
 
-	const links = [
-		{ label: 'DONATE', href: 'https://secure.actblue.com/donate/peter-crosby-1', external: true, donate: true },
-		{ label: 'HOME', href: '/' },
-		{ label: 'ABOUT', href: '/about' },
-		{ label: 'EVENTS', href: '/events' },
-		{ label: 'PAST INTERVIEWS', href: '/past-interviews' },
-		{ label: 'POLICIES', href: '/faq' }
+	$: links = [
+		{ label: $messages.nav.donate, href: 'https://secure.actblue.com/donate/peter-crosby-1', external: true, donate: true },
+		{ label: $messages.nav.home, href: '/' },
+		{ label: $messages.nav.about, href: '/about' },
+		{ label: $messages.nav.events, href: '/events' },
+		{ label: $messages.nav.pastInterviews, href: '/past-interviews' },
+		{ label: $messages.nav.policies, href: '/faq' }
 	];
 
 	let menuOpen = false;
@@ -19,7 +21,7 @@
 
 <nav class="nav">
 	<div class="nav-inner">
-		<a href="/" class="nav-logo" aria-label="Congressman Peter Crosby - Home">
+		<a href="/" class="nav-logo" aria-label={$messages.nav.ariaHome}>
 			<img
 				src="/images/brand_strategy_logo_white.svg"
 				alt=""
@@ -47,9 +49,11 @@
 				</li>
 			{/each}
 		</ul>
-		<button
+		<div class="nav-right">
+			<LanguageSwitcher />
+			<button
 			class="nav-toggle"
-			aria-label="Toggle menu"
+			aria-label={$messages.nav.menuToggle}
 			aria-expanded={menuOpen}
 			aria-controls="nav-menu"
 			on:click={toggleMenu}
@@ -58,6 +62,7 @@
 			<span class="nav-toggle-bar"></span>
 			<span class="nav-toggle-bar"></span>
 		</button>
+		</div>
 	</div>
 	<div id="nav-menu" class="nav-menu" class:open={menuOpen} aria-hidden={!menuOpen}>
 		<ul class="nav-menu-links">
@@ -96,7 +101,14 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 1.5rem;
+		gap: 1rem;
+	}
+
+	.nav-right {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		flex-shrink: 0;
 	}
 
 	.nav-logo {

@@ -1,4 +1,6 @@
 <script>
+	import { messages } from '$lib/i18n/locale';
+
 	const socialLinks = [
 		{
 			name: 'TikTok',
@@ -47,8 +49,8 @@
 					decoding="async"
 				/>
 			</div>
-			<a href="/contact" class="footer-faq-link">Contact Us</a>
-			<div class="footer-social" aria-label="Social media links">
+			<a href="/contact" class="footer-faq-link">{$messages.footer.contactUs}</a>
+			<div class="footer-social" aria-label={$messages.footer.socialAria}>
 				{#each socialLinks as link}
 					<a
 						href={link.href}
@@ -73,8 +75,14 @@
 			</div>
 		</div>
 
-		<p class="footer-copy">&copy; {new Date().getFullYear()} Peter Crosby for Congress. All rights reserved.</p>
-		<p class="footer-credit">Created by <a href="https://elliottpeck.dev" class="footer-credit-link" target="_blank" rel="noopener noreferrer">Elliott Peck Software</a></p>
+		<p class="footer-copy">&copy; {new Date().getFullYear()} {$messages.footer.rights}</p>
+		<p class="footer-credit">
+			{$messages.footer.createdBy}
+			{' '}
+			<a href="https://elliottpeck.dev" class="footer-credit-link" target="_blank" rel="noopener noreferrer"
+				>{$messages.footer.createdByName}</a
+			>
+		</p>
 	</div>
 </footer>
 
