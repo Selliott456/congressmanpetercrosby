@@ -12,7 +12,16 @@
 	let heroInnerEl;
 	let fullContentHeight = 0;
 
+	function isMobileLayout() {
+		return typeof window !== 'undefined' && window.matchMedia('(max-width: 768px)').matches;
+	}
+
 	function updateScale() {
+		if (isMobileLayout()) {
+			scale = 1;
+			if (heroEl) heroEl.style.height = '';
+			return;
+		}
 		const scrollY = window.scrollY ?? window.pageYOffset;
 		const progress = (TRANSITION_RANGE - scrollY) / TRANSITION_RANGE;
 		const clamped = Math.max(0, Math.min(1, progress));
@@ -34,8 +43,14 @@
 			const img = heroInnerEl.querySelector('img');
 			if (img && !img.complete) img.addEventListener('load', measure);
 		}
+		const mq = window.matchMedia('(max-width: 768px)');
+		const onMq = () => measure();
+		mq.addEventListener('change', onMq);
 		window.addEventListener('scroll', updateScale, { passive: true });
-		return () => window.removeEventListener('scroll', updateScale);
+		return () => {
+			mq.removeEventListener('change', onMq);
+			window.removeEventListener('scroll', updateScale);
+		};
 	});
 </script>
 
@@ -189,10 +204,21 @@
 	}
 
 	@media (max-width: 768px) {
+		/* Sticky + z-index was painting the hero above scrolling body copy; text ran underneath */
+		.about-hero {
+			position: relative;
+			top: auto;
+			z-index: auto;
+			overflow: visible;
+		}
+
 		.about-content {
 			padding-left: 0;
 			padding-right: 0;
 			text-align: center;
+			position: relative;
+			z-index: 0;
+			background: var(--color-white);
 		}
 
 		.about-cta {
