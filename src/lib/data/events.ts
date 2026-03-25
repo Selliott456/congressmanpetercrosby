@@ -297,5 +297,96 @@ export const eventsData: EventRow[] = [
 		description:
 			'Come and meet the candidate. Peter Crosby will be available from 6:00 - 7:00 PM to answer your questions and talk about the challenges and opportunities facing Northern Utah.',
 		viewEventUrl: 'https://www.google.com/maps/search/1+N+Main+St+Clearfield+UT'
+	},
+	{
+		id: 'ev-022',
+		month: 'Apr',
+		day: '2',
+		year: 2026,
+		monthIndex: 4,
+		title: 'Weber County Caucus',
+		time: '5:30 PM – 8:30 PM MT',
+		location: 'DaVinci Academy, 2033 Grant Ave, Ogden, UT 84401',
+		locationUrl: 'https://www.google.com/maps/search/2033+Grant+Ave+Ogden+UT+84401',
+		description: 'Weber County Democratic caucus at DaVinci Academy.',
+		viewEventUrl: 'https://www.google.com/maps/search/2033+Grant+Ave+Ogden+UT+84401'
+	},
+	{
+		id: 'ev-023',
+		month: 'Apr',
+		day: '7',
+		year: 2026,
+		monthIndex: 4,
+		title: 'Town Hall - Ogden/Weber',
+		time: '7:00 PM – 8:00 PM MT',
+		location: 'Main Library (Weber County Library), 2464 Jefferson Ave, Ogden, UT',
+		locationUrl: 'https://www.google.com/maps/search/2464+Jefferson+Ave+Ogden+UT',
+		description: 'Town hall in Ogden at the Main Library. Please come with your questions.',
+		viewEventUrl: 'https://www.google.com/maps/search/2464+Jefferson+Ave+Ogden+UT'
+	},
+	{
+		id: 'ev-024',
+		month: 'Apr',
+		day: '9',
+		year: 2026,
+		monthIndex: 4,
+		title: 'Town Hall - Cache County',
+		time: '5:30 PM – 6:30 PM MT',
+		location: 'Logan Library, 285 N Main St, Logan, UT',
+		locationUrl: 'https://www.google.com/maps/search/285+N+Main+St+Logan+UT',
+		description: 'Town hall in Cache County at the Logan Library.',
+		viewEventUrl: 'https://www.google.com/maps/search/285+N+Main+St+Logan+UT'
+	},
+	{
+		id: 'ev-025',
+		month: 'Apr',
+		day: '11',
+		year: 2026,
+		monthIndex: 4,
+		title: 'Davis County Convention',
+		time: '12:00 PM – 4:00 PM MT',
+		location: 'Northridge High School, 2430 N Hill Field Rd, Layton, UT',
+		locationUrl: 'https://www.google.com/maps/search/2430+N+Hill+Field+Rd+Layton+UT',
+		description: 'Davis County Democratic convention at Northridge High School.',
+		viewEventUrl: 'https://www.google.com/maps/search/2430+N+Hill+Field+Rd+Layton+UT'
+	},
+	{
+		id: 'ev-026',
+		month: 'Apr',
+		day: '11',
+		year: 2026,
+		monthIndex: 4,
+		title: 'Box Elder Convention',
+		time: '7:00 PM – 8:30 PM MT',
+		location: 'USU Extension, Room 30, 01 South Main, Brigham City, UT 84302',
+		locationUrl: 'https://www.google.com/maps/search/01+South+Main+Brigham+City+UT+84302',
+		description: 'Box Elder County Democratic convention at USU Extension.',
+		viewEventUrl: 'https://www.google.com/maps/search/01+South+Main+Brigham+City+UT+84302'
+	},
+	{
+		id: 'ev-027',
+		month: 'Apr',
+		day: '22',
+		year: 2026,
+		monthIndex: 4,
+		title: 'Town Hall - Davis County',
+		time: '6:00 PM – 7:00 PM MT',
+		location: 'Centerville Library, 45 S 400 W, Centerville, UT',
+		locationUrl: 'https://www.google.com/maps/search/45+S+400+W+Centerville+UT',
+		description: 'Town hall in Davis County at the Centerville Library.',
+		viewEventUrl: 'https://www.google.com/maps/search/45+S+400+W+Centerville+UT'
+	},
+	{
+		id: 'ev-028',
+		month: 'Apr',
+		day: '25',
+		year: 2026,
+		monthIndex: 4,
+		title: 'Utah Democratic Convention',
+		time: null,
+		location: 'Jordan High School, 95 Beetdigger Blvd, Sandy, UT',
+		locationUrl: 'https://www.google.com/maps/search/95+Beetdigger+Blvd+Sandy+UT',
+		description: 'Utah Democratic Party state convention at Jordan High School.',
+		viewEventUrl: 'https://www.google.com/maps/search/95+Beetdigger+Blvd+Sandy+UT'
 	}
 ];

@@ -211,6 +211,34 @@ export const pagesEs = {
 				title: 'Conozca al candidato',
 				description:
 					'Venga a conocer al candidato. Peter Crosby estará de 6:00 a 7:00 PM para responder preguntas y hablar del norte de Utah.'
+			},
+			'ev-022': {
+				title: 'Caucus del condado de Weber',
+				description: 'Caucus demócrata del condado de Weber en DaVinci Academy.'
+			},
+			'ev-023': {
+				title: 'Cabildo - Ogden/Weber',
+				description: 'Cabildo en Ogden en la biblioteca principal. Venga con sus preguntas.'
+			},
+			'ev-024': {
+				title: 'Cabildo - Condado de Cache',
+				description: 'Cabildo en el condado de Cache en la biblioteca de Logan.'
+			},
+			'ev-025': {
+				title: 'Convención del condado de Davis',
+				description: 'Convención demócrata del condado de Davis en Northridge High School.'
+			},
+			'ev-026': {
+				title: 'Convención de Box Elder',
+				description: 'Convención demócrata del condado de Box Elder en la extensión de la USU.'
+			},
+			'ev-027': {
+				title: 'Cabildo - Condado de Davis',
+				description: 'Cabildo en el condado de Davis en la biblioteca de Centerville.'
+			},
+			'ev-028': {
+				title: 'Convención demócrata de Utah',
+				description: 'Convención estatal del Partido Demócrata de Utah en Jordan High School.'
 			}
 		} as Record<string, { title: string; description: string }>
 	},
