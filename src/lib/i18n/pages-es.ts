@@ -13,26 +13,25 @@ export const pagesEs = {
 		heroAlt: 'Peter Crosby con su esposa Amanda y sus tres hijas',
 		sections: [
 			{
+				title: 'Impulsado por el servicio',
+				paragraphs: [
+					'Mi familia tiene una historia de servicio público que se remonta a los cimientos de nuestro país. Mis padres estuvieron en las fuerzas armadas, al igual que mis dos abuelos y mis dos hermanos. Fui cadete del ROTC hasta que me lesioné la rodilla en educación física una mañana, lo que me llevó por otro camino. El padre de mi esposa, sus hermanos y abuelos también sirvieron. El servicio lo llevamos incorporado, y mi esposa y yo hemos intentado inculcar esos valores a nuestras hijas.',
+					'Sé que los derechos y libertades sobre los que se fundó este país exigen el sacrificio de todos si queremos conservarlos. Creo que el juramento que hice como Eagle Scout hace casi veinticinco años para mejorar la sociedad sigue vigente. Los funcionarios públicos, como nuestros representantes en el Congreso, están para servir. Es un deber, un honor y una obligación poner al país y a la comunidad antes que uno mismo. Únase a mí para hacer nuestra parte.'
+				]
+			},
+			{
 				title: 'Esposo y padre',
 				paragraphs: [
-					'Mi esposa y yo, con nuestras tres hijas, hemos construido un hogar en Cache Valley, donde hemos vivido la mayor parte de los 19 años de matrimonio de Amanda y yo. Hemos criado a tres jóvenes amables, apasionadas, brillantes y extraordinarias. Me postulo para asegurar que ellas, y todos los demás, tengan las oportunidades que nos prometieron.',
-					'Ser padre puede estar lleno de retos e inquietudes. Pueden ser pequeños (cuánto tiempo puede estar el chupete en el suelo antes de enjuagarlo) o no tan pequeños (cómo vamos a pagar de comer a nuestros hijos este mes). Hay noches largas y a veces días más largos, pero lo hacemos porque queremos que salgan al mundo preparadas para lograr grandes cosas. Les enseñamos a ser honestas, a tener integridad, a amar al prójimo y a trabajar duro. Y queremos que el mundo al que las enviamos les dé una oportunidad justa de ser quienes sabemos que pueden ser. Únase a mí para ayudar a que eso sea posible.'
+					'Mi esposa Amanda y yo, con nuestras tres hijas, hemos construido un hogar en Cache Valley, donde hemos vivido la mayor parte de los 19 años de matrimonio de Amanda y yo. Hemos criado a tres jóvenes amables, apasionadas, brillantes y extraordinarias. Les enseñamos a ser honestas, a tener integridad, a amar al prójimo y a trabajar duro. Me postulo para asegurar que ellas, y todos los demás, tengan las oportunidades que nos prometieron. Únase a mí para ayudar a que eso sea posible.'
 				]
 			},
 			{
 				title: 'Líder con experiencia',
 				paragraphs: [
-					'Comencé mi carrera profesional en una empresa Fortune 500 en operaciones. Ascendí a un rol de supervisión en un año mientras estudiaba a tiempo completo, y pasé los siguientes cinco o seis años liderando equipos y proyectos. Cuando pasé a analítica a nivel corporativo, tenía once personas a cargo y más de 200 empleados ayudando a impulsar una línea de negocio con más de 15 millones de dólares en ingresos anuales.',
-					'Después de una década dejé el sector privado para trabajar en Utah State University en investigación institucional, donde pude servir a nuestra comunidad ampliamente apoyando la misión de nuestra universidad pública. Como graduado universitario de primera generación con dos títulos en ciencia política, conozco de primera mano el valor que nuestras universidades del norte de Utah aportan a personas y comunidades, y quise ser parte de eso. Así que también empecé a enseñar, con clases sobre política e instituciones estadounidenses para pregrado. Agradezco seguir como educador adjunto en el Center for Anticipatory Intelligence de USU, donde ahora doy un curso de posgrado sobre tecnología emergente. Trabajar con estudiantes como mentor, instructor y futuro colega es de lo más gratificante.',
+					'Comencé mi carrera profesional en una empresa Fortune 500 en operaciones. Ascendí a un rol de supervisión en un año mientras estudiaba a tiempo completo, y pasé los siguientes cinco o seis años liderando equipos y proyectos. Cuando pasé a analítica a nivel corporativo, tenía once personas a cargo y más de 200 empleados.',
+					'Como graduado universitario de primera generación con dos títulos en ciencia política, conozco de primera mano el valor que nuestras universidades del norte de Utah aportan a personas y comunidades, y quise ser parte de eso. Así que dejé el sector privado para trabajar en Utah State University en investigación institucional. También empecé a enseñar, con mis primeras clases centradas en política e instituciones estadounidenses para pregrado. Agradezco seguir como educador adjunto en el Center for Anticipatory Intelligence de USU, donde ahora doy un curso de posgrado sobre tecnología emergente. Trabajar con estudiantes como mentor, instructor y futuro colega es quizá una de las experiencias profesionales más gratificantes que he tenido.',
 					'Mi empleo a tiempo completo ha vuelto al sector privado como director, gestor de proyectos y consultor para una empresa de investigación que apoya la educación superior. Con mi experiencia en los sectores público y privado, trabajo con rectores, provosts, profesorado y personal de apoyo para ayudarles a navegar un futuro cada vez más impredecible.',
-					'Mi educación y trayectoria profesional me han dido una vida de experiencia como líder. Sé que el liderazgo efectivo se basa en la confianza, y lo más importante que puedo hacer es ganar la suya. Espero que me dé esa oportunidad.'
-				]
-			},
-			{
-				title: 'Impulsado por el servicio',
-				paragraphs: [
-					'Mi familia tiene una larga historia de servicio público desde los cimientos de nuestro país. Mis padres estuvieron en el ejército, al igual que mis dos abuelos y mis dos hermanos. Fui cadete del ROTC hasta que me lesioné la rodilla en educación física una mañana, lo que me llevó por otro camino. El padre de mi esposa, sus hermanos y abuelos también sirvieron. El servicio está en nuestro ADN, y mi esposa y yo hemos intentado inculcar esos valores a nuestras hijas.',
-					'Sé que los derechos y libertades de este país exigen el sacrificio de todos si queremos conservarlos. Creo que el juramento que hice como Eagle Scout hace casi veinticinco años para mejorar la sociedad sigue vigente. Los funcionarios públicos, como nuestros representantes en el Congreso, están para servir. Es un deber, un honor y una obligación poner al país y a la comunidad antes que uno mismo. Únase a mí para hacer nuestra parte.'
+					'Mi trayectoria me ha enseñado la fuerza del pensamiento flexible, la construcción de relaciones y las habilidades organizativas. He aprendido que un buen liderazgo se basa en la confianza.'
 				]
 			}
 		]
