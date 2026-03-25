@@ -9,6 +9,7 @@
 </svelte:head>
 
 <main class="faq-page">
+	<div class="faq-watermark" aria-hidden="true"></div>
 	<div class="faq-content">
 		<h1 class="faq-title">{$messages.faq.pageTitle}</h1>
 
@@ -39,12 +40,34 @@
 
 <style>
 	.faq-page {
+		position: relative;
 		background: var(--color-white);
-		min-height: 60vh;
+		min-height: 100vh;
 		padding: 3rem 1.5rem 4rem;
+		overflow-x: visible;
+		overflow-y: visible;
+	}
+
+	.faq-watermark {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 50%;
+		width: 100vw;
+		max-width: none;
+		transform: translateX(-50%);
+		pointer-events: none;
+		z-index: 0;
+		opacity: 0.08;
+		background-image: url('/images/mountains_2.jpg');
+		background-repeat: repeat-y;
+		background-size: 100% auto;
+		background-position: center top;
 	}
 
 	.faq-content {
+		position: relative;
+		z-index: 1;
 		max-width: 800px;
 		margin: 0 auto;
 	}
@@ -119,11 +142,22 @@
 		.faq-content {
 			text-align: center;
 		}
+
+		.faq-watermark {
+			left: 0;
+			transform: none;
+			width: calc(100% + 2 * var(--mobile-margin));
+			margin-left: calc(-1 * var(--mobile-margin));
+		}
 	}
 
 	@media (max-width: 640px) {
 		.faq-page {
 			padding: 2rem 0 3rem;
+		}
+
+		.faq-watermark {
+			opacity: 0.06;
 		}
 
 		.faq-title {
