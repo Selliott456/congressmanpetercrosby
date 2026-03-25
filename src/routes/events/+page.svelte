@@ -120,6 +120,7 @@
 </svelte:head>
 
 <main class="events-page">
+	<div class="events-watermark" aria-hidden="true"></div>
 	<header class="events-header">
 		<h1 class="events-title">{$messages.events.ui.pageTitle}</h1>
 		<p class="events-intro">{$messages.events.ui.intro}</p>
@@ -209,55 +210,80 @@
 	</div>
 
 	<div class="all-events-section">
-		<h2 class="all-events-heading">{$messages.events.ui.allEvents}</h2>
-		<div class="events-list">
-			{#each eventsWithAnchor as { event, anchorId }}
-				<article id={anchorId ?? undefined} class="event-card" class:past={isPastEvent(event)}>
-					<div class="event-date">
-						<span class="event-month">{$messages.events.monthAbbrev[event.monthIndex - 1]}</span>
-						<span class="event-day">{event.day}</span>
-					</div>
-					<div class="event-body">
-						{#if isPastEvent(event)}
-							<p class="event-past-label">{$messages.events.ui.pastEvent}</p>
-						{/if}
-						<h2 class="event-title">{event.title}</h2>
-						{#if event.time}
-							<p class="event-time">{event.time}</p>
-						{/if}
-						{#if event.location}
-							<p class="event-location">
-								{#if event.locationUrl}
-									<a href={event.locationUrl} target="_blank" rel="noopener noreferrer">{event.location}</a>
-								{:else}
-									{event.location}
-								{/if}
+		<div class="all-events-content">
+			<h2 class="all-events-heading">{$messages.events.ui.allEvents}</h2>
+			<div class="events-list">
+				{#each eventsWithAnchor as { event, anchorId }}
+					<article id={anchorId ?? undefined} class="event-card" class:past={isPastEvent(event)}>
+						<div class="event-date">
+							<span class="event-month">{$messages.events.monthAbbrev[event.monthIndex - 1]}</span>
+							<span class="event-day">{event.day}</span>
+						</div>
+						<div class="event-body">
+							{#if isPastEvent(event)}
+								<p class="event-past-label">{$messages.events.ui.pastEvent}</p>
+							{/if}
+							<h2 class="event-title">{event.title}</h2>
+							{#if event.time}
+								<p class="event-time">{event.time}</p>
+							{/if}
+							{#if event.location}
+								<p class="event-location">
+									{#if event.locationUrl}
+										<a href={event.locationUrl} target="_blank" rel="noopener noreferrer">{event.location}</a>
+									{:else}
+										{event.location}
+									{/if}
+								</p>
+							{/if}
+							<p class="event-calendar-links">
+								<span class="calendar-link">{$messages.common.googleCalendar}</span>
+								<span class="calendar-sep"> </span>
+								<span class="calendar-link">{$messages.common.ics}</span>
 							</p>
-						{/if}
-						<p class="event-calendar-links">
-							<span class="calendar-link">{$messages.common.googleCalendar}</span>
-							<span class="calendar-sep"> </span>
-							<span class="calendar-link">{$messages.common.ics}</span>
-						</p>
-						<p class="event-description">{event.description}</p>
-						{#if event.viewEventUrl}
-							<a href={event.viewEventUrl} target="_blank" rel="noopener noreferrer" class="event-view-link">{$messages.common.viewEvent}</a>
-						{/if}
-					</div>
-				</article>
-			{/each}
+							<p class="event-description">{event.description}</p>
+							{#if event.viewEventUrl}
+								<a href={event.viewEventUrl} target="_blank" rel="noopener noreferrer" class="event-view-link">{$messages.common.viewEvent}</a>
+							{/if}
+						</div>
+					</article>
+				{/each}
+			</div>
 		</div>
 	</div>
 </main>
 
 <style>
 	.events-page {
+		position: relative;
 		background: var(--color-white);
 		min-height: 100vh;
 		padding-bottom: 4rem;
+		/* Allow full-bleed watermark; do not clip horizontally */
+		overflow-x: visible;
+		overflow-y: visible;
+	}
+
+	.events-watermark {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 50%;
+		width: 100vw;
+		max-width: none;
+		transform: translateX(-50%);
+		pointer-events: none;
+		z-index: 0;
+		opacity: 0.08;
+		background-image: url('/images/family_peter.jpg');
+		background-repeat: repeat-y;
+		background-size: 100% auto;
+		background-position: center top;
 	}
 
 	.events-header {
+		position: relative;
+		z-index: 1;
 		max-width: 800px;
 		margin: 0 auto;
 		padding: 3rem 1.5rem 2rem;
@@ -284,8 +310,8 @@
 
 	.events-hero {
 		position: sticky;
-		top: 6rem;
 		z-index: 10;
+		top: 6rem;
 		background: var(--color-white);
 		border-bottom: 1px solid rgba(0, 35, 56, 0.08);
 		box-shadow: 0 4px 20px rgba(0, 35, 56, 0.06);
@@ -533,6 +559,7 @@
 		margin: 0;
 		display: -webkit-box;
 		-webkit-line-clamp: 3;
+		line-clamp: 3;
 		-webkit-box-orient: vertical;
 		overflow: hidden;
 	}
@@ -542,10 +569,22 @@
 	}
 
 	.all-events-section {
+		position: relative;
+		z-index: 1;
+		width: 100%;
+		max-width: none;
+		margin: 0 auto;
+		padding: 2.5rem 0 0;
+		border-top: 1px solid rgba(0, 35, 56, 0.08);
+		overflow: hidden;
+	}
+
+	.all-events-content {
+		position: relative;
+		z-index: 1;
 		max-width: 800px;
 		margin: 0 auto;
-		padding: 2.5rem 1.5rem 0;
-		border-top: 1px solid rgba(0, 35, 56, 0.08);
+		padding: 0 1.5rem;
 	}
 
 	.all-events-heading {
@@ -745,8 +784,21 @@
 			padding-right: 0;
 		}
 
+		.all-events-content {
+			padding-left: 0;
+			padding-right: 0;
+		}
+
 		.all-events-heading {
 			text-align: center;
+		}
+
+		/* Break out of .layout-main horizontal padding so watermark is truly full-bleed */
+		.events-watermark {
+			left: 0;
+			transform: none;
+			width: calc(100% + 2 * var(--mobile-margin));
+			margin-left: calc(-1 * var(--mobile-margin));
 		}
 	}
 
@@ -828,6 +880,10 @@
 
 		.event-title {
 			font-size: 1.125rem;
+		}
+
+		.events-watermark {
+			opacity: 0.06;
 		}
 	}
 </style>
