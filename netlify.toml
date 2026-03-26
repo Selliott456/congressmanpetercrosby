@@ -25,3 +25,9 @@
   to = "/"
   status = 302
   force = true
+
+[[redirects]]
+  from = "/favicon.ico"
+  to = "/images/brand_strategy_logo_white.svg"
+  status = 301
+  force = true

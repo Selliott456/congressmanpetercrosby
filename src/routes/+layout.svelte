@@ -11,6 +11,7 @@
 
 <svelte:head>
 	<title>Peter Crosby for Congress</title>
+	<link rel="icon" href="/images/brand_strategy_logo_white.svg" type="image/svg+xml" />
 	<!-- Nav logo: discover early on every route -->
 	<link
 		rel="preload"
