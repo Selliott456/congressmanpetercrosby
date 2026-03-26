@@ -23,38 +23,16 @@ npm run dev
 
 3. Open your browser and navigate to `http://localhost:5173`
 
-### Contact Form Email Setup
+### Contact Form Setup (Netlify Forms)
 
-The contact form now sends directly from the server (it does not open a mail app).
+The contact form uses Netlify Forms (no API key required).
 
-1. Create `.env` in the project root.
-
-2. Set values in `.env`:
-- `RESEND_API_KEY` (required)
-- `CONTACT_TO_EMAIL` (optional, defaults to `petercrosbyforcongress@gmail.com`)
-- `CONTACT_FROM_EMAIL` (optional, defaults to `Campaign Website <onboarding@resend.dev>`)
-
-3. Restart the dev server after changing env vars.
-
-### Netlify Environment Variables
-
-In Netlify, set the same keys in:
-
-- Site settings -> Build & deploy -> Environment -> Environment variables
-
-Required:
-- `RESEND_API_KEY`
-
-Optional:
-- `CONTACT_TO_EMAIL`
-- `CONTACT_FROM_EMAIL`
-
-If the form shows “Contact form is not configured yet” on production:
-
-- Confirm the variable name is exactly `RESEND_API_KEY` (no spaces, no quotes).
-- Prefer scope **All scopes** (or include **Functions** / **Runtime** so server actions see the value).
-- Trigger a new deploy after saving env vars (env changes do not always apply until the next build/deploy).
-- Try **Clear cache and deploy site** once if it still fails.
+1. Deploy the site to Netlify.
+2. Submit the contact form once so Netlify detects the form.
+3. In Netlify dashboard, open:
+   - Forms -> contact
+4. Add email notifications in:
+   - Forms -> contact -> Settings and usage -> Form notifications
 
 ### Available Scripts
 
