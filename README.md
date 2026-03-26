@@ -49,6 +49,13 @@ Optional:
 - `CONTACT_TO_EMAIL`
 - `CONTACT_FROM_EMAIL`
 
+If the form shows “Contact form is not configured yet” on production:
+
+- Confirm the variable name is exactly `RESEND_API_KEY` (no spaces, no quotes).
+- Prefer scope **All scopes** (or include **Functions** / **Runtime** so server actions see the value).
+- Trigger a new deploy after saving env vars (env changes do not always apply until the next build/deploy).
+- Try **Clear cache and deploy site** once if it still fails.
+
 ### Available Scripts
 
 - `npm run dev` - Start the development server
