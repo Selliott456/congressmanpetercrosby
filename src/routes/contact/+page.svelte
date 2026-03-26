@@ -37,10 +37,12 @@
 					class="contact-form"
 					name="contact"
 					method="POST"
-					action="/contact-success"
+					action="/"
 					data-netlify="true"
+					data-sveltekit-reload
 				>
 			<input type="hidden" name="form-name" value="contact" />
+			<input type="hidden" name="redirect" value="/contact-success" />
 			<input type="hidden" name="topic" value={isVolunteerTopic ? 'volunteer' : ''} />
 			<fieldset class="form-fieldset">
 				<legend class="form-legend">{$messages.contact.formLegendName}</legend>

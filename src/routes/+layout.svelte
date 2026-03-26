@@ -23,8 +23,9 @@
 
 <Nav />
 <!-- Hidden Netlify form so detection works reliably with SvelteKit routes -->
-<form name="contact" method="POST" action="/contact-success" data-netlify="true" hidden>
+<form name="contact" method="POST" action="/" data-netlify="true" hidden>
 	<input type="hidden" name="form-name" value="contact" />
+	<input type="hidden" name="redirect" value="/contact-success" />
 	<input type="text" name="firstName" />
 	<input type="text" name="lastName" />
 	<input type="email" name="email" />
