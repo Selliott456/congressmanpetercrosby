@@ -1,4 +1,5 @@
 <script>
+	import { dev } from '$app/environment';
 	import { page } from '$app/stores';
 	import ButtonSecondary from '$lib/components/ButtonSecondary.svelte';
 	import { messages } from '$lib/i18n/locale';
@@ -8,6 +9,7 @@
 
 	$: isVolunteerTopic = $page.url.searchParams.get('topic') === 'volunteer';
 	$: defaultMessage = isVolunteerTopic ? 'I would like to volunteer for the campaign.' : '';
+	$: formAction = dev ? '/api/test-contact' : '/netlify-form-detection.html';
 </script>
 
 <svelte:head>
@@ -37,7 +39,7 @@
 					class="contact-form"
 					name="contact"
 					method="POST"
-					action="/"
+					action={formAction}
 					data-netlify="true"
 					data-sveltekit-reload
 				>
