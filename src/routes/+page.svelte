@@ -153,7 +153,7 @@
 					<span class="home-involve-label">{$messages.home.involveDonate}</span>
 					<span class="home-involve-desc">{$messages.home.involveDonateDesc}</span>
 				</a>
-				<a href="mailto:petercrosbyforcongress@gmail.com?subject=Volunteering" class="home-involve-card">
+				<a href="/contact?topic=volunteer" class="home-involve-card">
 					<span class="home-involve-label">{$messages.home.involveVolunteer}</span>
 					<span class="home-involve-desc">{$messages.home.involveVolunteerDesc}</span>
 				</a>

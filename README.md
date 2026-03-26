@@ -23,6 +23,32 @@ npm run dev
 
 3. Open your browser and navigate to `http://localhost:5173`
 
+### Contact Form Email Setup
+
+The contact form now sends directly from the server (it does not open a mail app).
+
+1. Create `.env` in the project root.
+
+2. Set values in `.env`:
+- `RESEND_API_KEY` (required)
+- `CONTACT_TO_EMAIL` (optional, defaults to `petercrosbyforcongress@gmail.com`)
+- `CONTACT_FROM_EMAIL` (optional, defaults to `Campaign Website <onboarding@resend.dev>`)
+
+3. Restart the dev server after changing env vars.
+
+### Netlify Environment Variables
+
+In Netlify, set the same keys in:
+
+- Site settings -> Build & deploy -> Environment -> Environment variables
+
+Required:
+- `RESEND_API_KEY`
+
+Optional:
+- `CONTACT_TO_EMAIL`
+- `CONTACT_FROM_EMAIL`
+
 ### Available Scripts
 
 - `npm run dev` - Start the development server

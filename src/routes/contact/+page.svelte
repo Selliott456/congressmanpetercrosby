@@ -1,27 +1,15 @@
 <script>
-	import { get } from 'svelte/store';
+	import { page } from '$app/stores';
 	import ButtonSecondary from '$lib/components/ButtonSecondary.svelte';
 	import { messages } from '$lib/i18n/locale';
 
 	const EMAIL = 'petercrosbyforcongress@gmail.com';
 	const PHONE = '(801) 633-4297';
 
-	let firstName = '';
-	let lastName = '';
-	let email = '';
-	let message = '';
+	export let form;
 
-	/**
-	 * @param {SubmitEvent} e
-	 */
-	function handleSubmit(e) {
-		e.preventDefault();
-		const subject = encodeURIComponent(get(messages).contact.mailSubject);
-		const body = encodeURIComponent(
-			`Name: ${firstName} ${lastName}\nEmail: ${email}\n\nMessage:\n${message}`
-		);
-		window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
-	}
+	$: isVolunteerTopic = $page.url.searchParams.get('topic') === 'volunteer';
+	$: defaultMessage = isVolunteerTopic ? 'I would like to volunteer for the campaign.' : '';
 </script>
 
 <svelte:head>
@@ -47,16 +35,24 @@
 			</div>
 
 			<div class="contact-form-wrap">
-				<form class="contact-form" on:submit={handleSubmit}>
+				<form class="contact-form" method="POST">
+			{#if form?.success}
+				<p class="form-status form-status--success">Thanks! Your message has been sent.</p>
+			{/if}
+			{#if form?.error}
+				<p class="form-status form-status--error">{form.error}</p>
+			{/if}
+			<input type="hidden" name="topic" value={isVolunteerTopic ? 'volunteer' : ''} />
 			<fieldset class="form-fieldset">
 				<legend class="form-legend">{$messages.contact.formLegendName}</legend>
 				<div class="form-row">
 					<label class="form-label" for="first-name">{$messages.contact.firstName}</label>
 					<input
 						id="first-name"
+						name="firstName"
 						class="form-input"
 						type="text"
-						bind:value={firstName}
+						value={form?.values?.firstName ?? ''}
 						required
 						autocomplete="given-name"
 					/>
@@ -65,9 +61,10 @@
 					<label class="form-label" for="last-name">{$messages.contact.lastName}</label>
 					<input
 						id="last-name"
+						name="lastName"
 						class="form-input"
 						type="text"
-						bind:value={lastName}
+						value={form?.values?.lastName ?? ''}
 						required
 						autocomplete="family-name"
 					/>
@@ -78,9 +75,10 @@
 				<label class="form-label" for="email">{$messages.contact.email}</label>
 				<input
 					id="email"
+					name="email"
 					class="form-input"
 					type="email"
-					bind:value={email}
+					value={form?.values?.email ?? ''}
 					required
 					autocomplete="email"
 				/>
@@ -90,11 +88,11 @@
 				<label class="form-label" for="message">{$messages.contact.message}</label>
 				<textarea
 					id="message"
+					name="message"
 					class="form-input form-textarea"
 					rows="5"
-					bind:value={message}
 					required
-				></textarea>
+				>{form?.values?.message ?? defaultMessage}</textarea>
 			</div>
 
 			<button type="submit" class="form-submit">{$messages.contact.send}</button>
@@ -205,6 +203,26 @@
 		display: flex;
 		flex-direction: column;
 		gap: 1.25rem;
+	}
+
+	.form-status {
+		margin: 0;
+		padding: 0.6rem 0.75rem;
+		border-radius: 6px;
+		font-family: var(--font-primary);
+		font-size: 0.95rem;
+	}
+
+	.form-status--success {
+		background: rgba(35, 89, 38, 0.12);
+		color: #1d4a1f;
+		border: 1px solid rgba(35, 89, 38, 0.3);
+	}
+
+	.form-status--error {
+		background: rgba(150, 20, 20, 0.1);
+		color: #6b1616;
+		border: 1px solid rgba(150, 20, 20, 0.25);
 	}
 
 	.form-fieldset {
