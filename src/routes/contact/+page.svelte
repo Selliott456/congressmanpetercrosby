@@ -153,6 +153,8 @@
 		flex: 0 0 auto;
 		width: 100%;
 		max-width: 420px;
+		min-width: 0;
+		box-sizing: border-box;
 		background: var(--color-accent);
 		border-radius: 12px;
 		padding: 1.75rem;
@@ -194,6 +196,8 @@
 		color: var(--color-secondary);
 		text-decoration: none;
 		transition: color 0.2s ease;
+		overflow-wrap: anywhere;
+		word-break: break-word;
 	}
 
 	.contact-link:hover {
@@ -205,6 +209,8 @@
 		display: flex;
 		flex-direction: column;
 		gap: 1.25rem;
+		width: 100%;
+		min-width: 0;
 	}
 
 	.form-status {
@@ -249,6 +255,7 @@
 		display: flex;
 		flex-direction: column;
 		gap: 0.35rem;
+		min-width: 0;
 	}
 
 	.form-label {
@@ -261,7 +268,9 @@
 	.form-input {
 		font-family: var(--font-primary);
 		font-size: 1.125rem;
-		padding: 0.6rem 0.75rem;
+		width: 100%;
+		box-sizing: border-box;
+		padding: 0.75rem 0.875rem;
 		border: 1px solid rgba(0, 35, 56, 0.25);
 		border-radius: 6px;
 		background: var(--color-white);
@@ -329,17 +338,27 @@
 
 		.contact-main {
 			flex-direction: column;
+			align-items: center;
 			gap: 2rem;
 		}
 
 		.contact-form-wrap {
-			max-width: none;
+			width: min(100%, 520px) !important;
+			flex: 0 1 auto;
+			max-width: 520px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		.form-submit {
+			align-self: center;
 		}
 	}
 
 	@media (max-width: 640px) {
 		.contact-page {
 			padding: 2rem 0 3rem;
+			overflow-x: hidden;
 		}
 
 		.contact-title {

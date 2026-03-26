@@ -59,6 +59,7 @@
 			<p class="home-hero-lead">{$messages.home.heroLead}</p>
 			<div class="home-hero-cta">
 				<ButtonSecondary href="https://secure.actblue.com/donate/peter-crosby-1">{$messages.home.donate}</ButtonSecondary>
+				<a href="/contact?topic=volunteer" class="home-btn-ghost">{$messages.home.involveVolunteer}</a>
 				<a href="/about" class="home-btn-ghost">{$messages.home.meetPeter}</a>
 			</div>
 		</div>
