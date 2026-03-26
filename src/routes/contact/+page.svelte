@@ -8,7 +8,6 @@
 
 	$: isVolunteerTopic = $page.url.searchParams.get('topic') === 'volunteer';
 	$: defaultMessage = isVolunteerTopic ? 'I would like to volunteer for the campaign.' : '';
-	$: submitted = $page.url.searchParams.get('submitted') === '1';
 </script>
 
 <svelte:head>
@@ -38,12 +37,9 @@
 					class="contact-form"
 					name="contact"
 					method="POST"
-					action="/contact?submitted=1"
+					action="/contact-success"
 					data-netlify="true"
 				>
-			{#if submitted}
-				<p class="form-status form-status--success">Thanks! Your message has been sent.</p>
-			{/if}
 			<input type="hidden" name="form-name" value="contact" />
 			<input type="hidden" name="topic" value={isVolunteerTopic ? 'volunteer' : ''} />
 			<fieldset class="form-fieldset">
@@ -203,20 +199,6 @@
 		display: flex;
 		flex-direction: column;
 		gap: 1.25rem;
-	}
-
-	.form-status {
-		margin: 0;
-		padding: 0.6rem 0.75rem;
-		border-radius: 6px;
-		font-family: var(--font-primary);
-		font-size: 0.95rem;
-	}
-
-	.form-status--success {
-		background: rgba(35, 89, 38, 0.12);
-		color: #1d4a1f;
-		border: 1px solid rgba(35, 89, 38, 0.3);
 	}
 
 	.form-fieldset {
