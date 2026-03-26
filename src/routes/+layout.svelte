@@ -22,15 +22,6 @@
 </svelte:head>
 
 <Nav />
-<!-- Hidden Netlify form so detection works reliably with SvelteKit routes -->
-<form name="contact" method="POST" action="/contact-success" data-netlify="true" hidden>
-	<input type="hidden" name="form-name" value="contact" />
-	<input type="text" name="firstName" />
-	<input type="text" name="lastName" />
-	<input type="email" name="email" />
-	<textarea name="message"></textarea>
-	<input type="text" name="topic" />
-</form>
 <div class="layout-main">
 	<slot />
 </div>

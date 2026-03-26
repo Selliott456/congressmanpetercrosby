@@ -1,15 +1,14 @@
 <script>
-	import { dev } from '$app/environment';
 	import { page } from '$app/stores';
 	import ButtonSecondary from '$lib/components/ButtonSecondary.svelte';
 	import { messages } from '$lib/i18n/locale';
 
 	const EMAIL = 'petercrosbyforcongress@gmail.com';
 	const PHONE = '(801) 633-4297';
+	export let form;
 
 	$: isVolunteerTopic = $page.url.searchParams.get('topic') === 'volunteer';
 	$: defaultMessage = isVolunteerTopic ? 'I would like to volunteer for the campaign.' : '';
-	$: formAction = dev ? '/api/test-contact' : '/contact-success';
 </script>
 
 <svelte:head>
@@ -37,13 +36,14 @@
 			<div class="contact-form-wrap">
 				<form
 					class="contact-form"
-					name="contact"
 					method="POST"
-					action={formAction}
-					data-netlify="true"
-					data-sveltekit-reload
 				>
-			<input type="hidden" name="form-name" value="contact" />
+			{#if form?.success}
+				<p class="form-status form-status--success">Thanks! Your message has been sent.</p>
+			{/if}
+			{#if form?.error}
+				<p class="form-status form-status--error">{form.error}</p>
+			{/if}
 			<input type="hidden" name="topic" value={isVolunteerTopic ? 'volunteer' : ''} />
 			<fieldset class="form-fieldset">
 				<legend class="form-legend">{$messages.contact.formLegendName}</legend>
@@ -54,6 +54,7 @@
 						name="firstName"
 						class="form-input"
 						type="text"
+						value={form?.values?.firstName ?? ''}
 						required
 						autocomplete="given-name"
 					/>
@@ -65,6 +66,7 @@
 						name="lastName"
 						class="form-input"
 						type="text"
+						value={form?.values?.lastName ?? ''}
 						required
 						autocomplete="family-name"
 					/>
@@ -78,6 +80,7 @@
 					name="email"
 					class="form-input"
 					type="email"
+					value={form?.values?.email ?? ''}
 					required
 					autocomplete="email"
 				/>
@@ -91,7 +94,7 @@
 					class="form-input form-textarea"
 					rows="5"
 					required
-				>{defaultMessage}</textarea>
+				>{form?.values?.message ?? defaultMessage}</textarea>
 			</div>
 
 			<button type="submit" class="form-submit">{$messages.contact.send}</button>
@@ -202,6 +205,26 @@
 		display: flex;
 		flex-direction: column;
 		gap: 1.25rem;
+	}
+
+	.form-status {
+		margin: 0;
+		padding: 0.6rem 0.75rem;
+		border-radius: 6px;
+		font-family: var(--font-primary);
+		font-size: 0.95rem;
+	}
+
+	.form-status--success {
+		background: rgba(35, 89, 38, 0.12);
+		color: #1d4a1f;
+		border: 1px solid rgba(35, 89, 38, 0.3);
+	}
+
+	.form-status--error {
+		background: rgba(150, 20, 20, 0.1);
+		color: #6b1616;
+		border: 1px solid rgba(150, 20, 20, 0.25);
 	}
 
 	.form-fieldset {
