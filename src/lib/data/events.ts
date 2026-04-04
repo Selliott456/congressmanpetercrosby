@@ -299,6 +299,19 @@ export const eventsData: EventRow[] = [
 		viewEventUrl: 'https://www.google.com/maps/search/1+N+Main+St+Clearfield+UT'
 	},
 	{
+		id: 'ev-029',
+		month: 'Apr',
+		day: '1',
+		year: 2026,
+		monthIndex: 4,
+		title: 'Town Hall - Box Elder County',
+		time: '6:30 PM MT',
+		location: 'Brigham City Public Library, 26 E Forest St, Brigham City, UT 84302',
+		locationUrl: 'https://www.google.com/maps/search/26+E+Forest+St+Brigham+City+UT',
+		description: 'Town hall in Box Elder County at the Brigham City Library.',
+		viewEventUrl: 'https://www.google.com/maps/search/26+E+Forest+St+Brigham+City+UT'
+	},
+	{
 		id: 'ev-022',
 		month: 'Apr',
 		day: '2',
@@ -317,11 +330,11 @@ export const eventsData: EventRow[] = [
 		day: '7',
 		year: 2026,
 		monthIndex: 4,
-		title: 'Town Hall - Ogden/Weber',
-		time: '7:00 PM – 8:00 PM MT',
-		location: 'Main Library (Weber County Library), 2464 Jefferson Ave, Ogden, UT',
+		title: 'Town Hall - Weber County',
+		time: '7:00 PM MT',
+		location: 'Ogden Main Library (Weber County Library), 2464 Jefferson Ave, Ogden, UT',
 		locationUrl: 'https://www.google.com/maps/search/2464+Jefferson+Ave+Ogden+UT',
-		description: 'Town hall in Ogden at the Main Library. Please come with your questions.',
+		description: 'Town hall in Weber County at the Ogden Main Library. Please come with your questions.',
 		viewEventUrl: 'https://www.google.com/maps/search/2464+Jefferson+Ave+Ogden+UT'
 	},
 	{
@@ -331,7 +344,7 @@ export const eventsData: EventRow[] = [
 		year: 2026,
 		monthIndex: 4,
 		title: 'Town Hall - Cache County',
-		time: '5:30 PM – 6:30 PM MT',
+		time: '5:30 PM MT',
 		location: 'Logan Library, 285 N Main St, Logan, UT',
 		locationUrl: 'https://www.google.com/maps/search/285+N+Main+St+Logan+UT',
 		description: 'Town hall in Cache County at the Logan Library.',
@@ -364,13 +377,26 @@ export const eventsData: EventRow[] = [
 		viewEventUrl: 'https://www.google.com/maps/search/01+South+Main+Brigham+City+UT+84302'
 	},
 	{
+		id: 'ev-030',
+		month: 'Apr',
+		day: '13',
+		year: 2026,
+		monthIndex: 4,
+		title: 'Virtual Town Hall',
+		time: '8:00 PM MT',
+		location: 'Facebook',
+		locationUrl: 'https://www.facebook.com/share/1EAZBuFJDN/',
+		description: 'Virtual town hall on Facebook. Join us online.',
+		viewEventUrl: 'https://www.facebook.com/share/1EAZBuFJDN/'
+	},
+	{
 		id: 'ev-027',
 		month: 'Apr',
 		day: '22',
 		year: 2026,
 		monthIndex: 4,
 		title: 'Town Hall - Davis County',
-		time: '6:00 PM – 7:00 PM MT',
+		time: '6:00 PM MT',
 		location: 'Centerville Library, 45 S 400 W, Centerville, UT',
 		locationUrl: 'https://www.google.com/maps/search/45+S+400+W+Centerville+UT',
 		description: 'Town hall in Davis County at the Centerville Library.',

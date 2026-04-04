@@ -216,8 +216,9 @@ export const pagesEs = {
 				description: 'Caucus demócrata del condado de Weber en DaVinci Academy.'
 			},
 			'ev-023': {
-				title: 'Cabildo - Ogden/Weber',
-				description: 'Cabildo en Ogden en la biblioteca principal. Venga con sus preguntas.'
+				title: 'Cabildo - Condado de Weber',
+				description:
+					'Cabildo en el condado de Weber en la biblioteca principal de Ogden. Venga con sus preguntas.'
 			},
 			'ev-024': {
 				title: 'Cabildo - Condado de Cache',
@@ -238,6 +239,14 @@ export const pagesEs = {
 			'ev-028': {
 				title: 'Convención demócrata de Utah',
 				description: 'Convención estatal del Partido Demócrata de Utah en Jordan High School.'
+			},
+			'ev-029': {
+				title: 'Cabildo - Condado de Box Elder',
+				description: 'Cabildo en el condado de Box Elder en la biblioteca de Brigham City.'
+			},
+			'ev-030': {
+				title: 'Cabildo virtual',
+				description: 'Cabildo virtual en Facebook. Únase en línea.'
 			}
 		} as Record<string, { title: string; description: string }>
 	},
