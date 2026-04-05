@@ -83,6 +83,7 @@
 				>{$messages.footer.createdByName}</a
 			>
 		</p>
+		<p class="footer-disclaimer">{$messages.footer.paidForBy}</p>
 	</div>
 </footer>
 
@@ -199,6 +200,19 @@
 	.footer-credit-link:hover {
 		opacity: 0.85;
 		text-decoration: underline;
+	}
+
+	.footer-disclaimer {
+		font-family: var(--font-primary);
+		font-size: 12pt;
+		font-weight: 700;
+		line-height: 1.4;
+		color: #000000;
+		margin: 0;
+		padding-top: 0.75rem;
+		width: 100%;
+		max-width: 520px;
+		text-align: center;
 	}
 
 	@media (max-width: 640px) {

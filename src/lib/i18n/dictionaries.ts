@@ -21,7 +21,8 @@ const en = {
 		createdBy: 'Created by',
 		createdByName: 'Elliott Peck Software',
 		socialAria: 'Social media links',
-		rights: 'Peter Crosby for Congress. All rights reserved.'
+		rights: 'Peter Crosby for Congress. All rights reserved.',
+		paidForBy: 'Paid for by Peter Crosby for Congress'
 	},
 	language: {
 		switch: 'Language',
@@ -102,7 +103,8 @@ const es: Messages = {
 		createdBy: 'Creado por',
 		createdByName: 'Elliott Peck Software',
 		socialAria: 'Enlaces a redes sociales',
-		rights: 'Peter Crosby para el Congreso. Todos los derechos reservados.'
+		rights: 'Peter Crosby para el Congreso. Todos los derechos reservados.',
+		paidForBy: 'Paid for by Peter Crosby for Congress'
 	},
 	language: {
 		switch: 'Idioma',
