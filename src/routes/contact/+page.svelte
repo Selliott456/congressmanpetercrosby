@@ -3,7 +3,7 @@
 	import ButtonSecondary from '$lib/components/ButtonSecondary.svelte';
 	import { messages } from '$lib/i18n/locale';
 
-	const EMAIL = 'petercrosbyforcongress@gmail.com';
+	const EMAIL = 'elliottpeck12@gmail.com';
 	const PHONE = '(801) 633-4297';
 	export let form;
 
