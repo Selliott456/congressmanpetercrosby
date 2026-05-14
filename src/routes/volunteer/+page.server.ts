@@ -17,7 +17,6 @@ export const actions: Actions = {
 			});
 		}
 
-		// Submit server-side to Netlify form endpoint; success shown only when this call succeeds.
 		const submit = new URLSearchParams();
 		submit.set('form-name', 'contact');
 		submit.set('firstName', firstName);

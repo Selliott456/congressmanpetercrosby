@@ -1,14 +1,8 @@
 <script>
-	import { page } from '$app/stores';
-	import ButtonSecondary from '$lib/components/ButtonSecondary.svelte';
 	import { messages } from '$lib/i18n/locale';
 
 	const EMAIL = 'petercrosbyforcongress@gmail.com';
 	const PHONE = '(801) 633-4297';
-	export let form;
-
-	$: isVolunteerTopic = $page.url.searchParams.get('topic') === 'volunteer';
-	$: defaultMessage = isVolunteerTopic ? 'I would like to volunteer for the campaign.' : '';
 </script>
 
 <svelte:head>
@@ -16,104 +10,40 @@
 	<meta name="description" content={$messages.contact.metaDescription} />
 </svelte:head>
 
-<main class="contact-page">
-	<div class="contact-content">
-		<div class="contact-main">
-			<div class="contact-copy">
-				<h1 class="contact-title">{$messages.contact.pageTitle}</h1>
-				<p class="contact-intro">
-					{$messages.contact.intro}
-				</p>
-				<div class="contact-info">
-					<a href="mailto:{EMAIL}" class="contact-link">{EMAIL}</a>
-					<a href="tel:+18016334297" class="contact-link">{PHONE}</a>
-				</div>
-				<div class="contact-donate">
-					<ButtonSecondary href="https://secure.actblue.com/donate/peter-crosby-1">{$messages.contact.donate}</ButtonSecondary>
-				</div>
+<main class="contact-simple-page">
+	<div class="contact-simple-inner">
+		<h1 class="contact-simple-title">{$messages.contact.pageTitle}</h1>
+		<p class="contact-simple-intro">{$messages.contact.intro}</p>
+		<dl class="contact-simple-list">
+			<div class="contact-simple-row">
+				<dt class="contact-simple-term">{$messages.contact.emailLabel}</dt>
+				<dd class="contact-simple-def">
+					<a href={`mailto:${EMAIL}`} class="contact-simple-link">{EMAIL}</a>
+				</dd>
 			</div>
-
-			<div class="contact-form-wrap">
-				<form
-					class="contact-form"
-					method="POST"
-				>
-			{#if form?.success}
-				<p class="form-status form-status--success">Thanks! Your message has been sent.</p>
-			{/if}
-			{#if form?.error}
-				<p class="form-status form-status--error">{form.error}</p>
-			{/if}
-			<input type="hidden" name="topic" value={isVolunteerTopic ? 'volunteer' : ''} />
-			<fieldset class="form-fieldset">
-				<legend class="form-legend">{$messages.contact.formLegendName}</legend>
-				<div class="form-row">
-					<label class="form-label" for="first-name">{$messages.contact.firstName}</label>
-					<input
-						id="first-name"
-						name="firstName"
-						class="form-input"
-						type="text"
-						value={form?.values?.firstName ?? ''}
-						required
-						autocomplete="given-name"
-					/>
-				</div>
-				<div class="form-row">
-					<label class="form-label" for="last-name">{$messages.contact.lastName}</label>
-					<input
-						id="last-name"
-						name="lastName"
-						class="form-input"
-						type="text"
-						value={form?.values?.lastName ?? ''}
-						required
-						autocomplete="family-name"
-					/>
-				</div>
-			</fieldset>
-
-			<div class="form-row">
-				<label class="form-label" for="email">{$messages.contact.email}</label>
-				<input
-					id="email"
-					name="email"
-					class="form-input"
-					type="email"
-					value={form?.values?.email ?? ''}
-					required
-					autocomplete="email"
-				/>
+			<div class="contact-simple-row">
+				<dt class="contact-simple-term">{$messages.contact.phoneLabel}</dt>
+				<dd class="contact-simple-def">
+					<a href="tel:+18016334297" class="contact-simple-link">{PHONE}</a>
+				</dd>
 			</div>
-
-			<div class="form-row">
-				<label class="form-label" for="message">{$messages.contact.message}</label>
-				<textarea
-					id="message"
-					name="message"
-					class="form-input form-textarea"
-					rows="5"
-					required
-				>{form?.values?.message ?? defaultMessage}</textarea>
-			</div>
-
-			<button type="submit" class="form-submit">{$messages.contact.send}</button>
-				</form>
-			</div>
-		</div>
+		</dl>
 	</div>
 </main>
 
 <style>
-	.contact-page {
+	.contact-simple-page {
 		position: relative;
 		background: var(--color-white);
 		min-height: 60vh;
 		padding: 3rem 1.5rem 4rem;
 		overflow: hidden;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
 
-	.contact-page::before {
+	.contact-simple-page::before {
 		content: '';
 		position: fixed;
 		top: -50%;
@@ -130,252 +60,97 @@
 		transform-origin: center center;
 	}
 
-	.contact-content {
+	.contact-simple-inner {
 		position: relative;
 		z-index: 1;
-		max-width: 1000px;
+		width: fit-content;
+		max-width: 100%;
 		margin: 0 auto;
-	}
-
-	.contact-main {
 		display: flex;
-		flex-direction: row;
-		align-items: flex-start;
-		gap: 2.5rem;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
 	}
 
-	.contact-copy {
-		flex: 1;
-		min-width: 0;
-	}
-
-	.contact-form-wrap {
-		flex: 0 0 auto;
-		width: 100%;
-		max-width: 420px;
-		min-width: 0;
-		box-sizing: border-box;
-		background: var(--color-accent);
-		border-radius: 12px;
-		padding: 1.75rem;
-		box-shadow: 0 2px 12px rgba(0, 35, 56, 0.08);
-	}
-
-	.contact-title {
+	.contact-simple-title {
 		font-family: var(--font-primary);
-		font-size: 2.75rem;
+		font-size: clamp(1.875rem, 4vw, 2.75rem);
 		font-weight: 700;
 		color: var(--color-primary);
-		margin: 0 0 1rem 0;
+		margin: 0 0 1rem;
 		line-height: 1.2;
+		max-width: 100%;
 	}
 
-	.contact-intro {
+	.contact-simple-intro {
 		font-family: var(--font-primary);
-		font-size: 1.375rem;
-		line-height: 1.7;
+		font-size: 1.125rem;
+		line-height: 1.65;
 		color: var(--color-primary);
-		margin: 0 0 1.5rem 0;
+		margin: 0 0 2rem;
+		opacity: 0.92;
+		max-width: 100%;
 	}
 
-	.contact-info {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.75rem 1.5rem;
+	.contact-simple-list {
+		margin: 0 auto;
+		padding: 0;
+		text-align: left;
+		width: fit-content;
+		max-width: 100%;
+	}
+
+	.contact-simple-row {
+		display: grid;
+		grid-template-columns: minmax(min-content, auto) 1fr;
+		gap: 0.5rem 1.25rem;
+		align-items: baseline;
+		margin: 0 0 1.25rem;
+	}
+
+	.contact-simple-row:last-child {
 		margin-bottom: 0;
 	}
 
-	.contact-donate {
-		margin-top: 1.5rem;
+	.contact-simple-term {
+		font-family: var(--font-primary);
+		font-size: 0.9375rem;
+		font-weight: 600;
+		color: var(--color-primary);
+		margin: 0;
+		opacity: 0.85;
 	}
 
-	.contact-link {
+	.contact-simple-def {
+		margin: 0;
+		min-width: 0;
+	}
+
+	.contact-simple-link {
 		font-family: var(--font-primary);
-		font-size: 1.25rem;
+		font-size: 1.125rem;
 		font-weight: 600;
 		color: var(--color-secondary);
 		text-decoration: none;
-		transition: color 0.2s ease;
 		overflow-wrap: anywhere;
 		word-break: break-word;
 	}
 
-	.contact-link:hover {
+	.contact-simple-link:hover {
 		color: #1d4a1f;
 		text-decoration: underline;
 	}
 
-	.contact-form {
-		display: flex;
-		flex-direction: column;
-		gap: 1.25rem;
-		width: 100%;
-		min-width: 0;
-	}
-
-	.form-status {
-		margin: 0;
-		padding: 0.6rem 0.75rem;
-		border-radius: 6px;
-		font-family: var(--font-primary);
-		font-size: 0.95rem;
-	}
-
-	.form-status--success {
-		background: rgba(35, 89, 38, 0.12);
-		color: #1d4a1f;
-		border: 1px solid rgba(35, 89, 38, 0.3);
-	}
-
-	.form-status--error {
-		background: rgba(150, 20, 20, 0.1);
-		color: #6b1616;
-		border: 1px solid rgba(150, 20, 20, 0.25);
-	}
-
-	.form-fieldset {
-		border: none;
-		padding: 0;
-		margin: 0;
-		display: flex;
-		flex-direction: column;
-		gap: 1.25rem;
-	}
-
-	.form-legend {
-		font-family: var(--font-primary);
-		font-size: 1.25rem;
-		font-weight: 600;
-		color: var(--color-primary);
-		margin: 0 0 0.25rem 0;
-		padding: 0;
-	}
-
-	.form-row {
-		display: flex;
-		flex-direction: column;
-		gap: 0.35rem;
-		min-width: 0;
-	}
-
-	.form-label {
-		font-family: var(--font-primary);
-		font-size: 1.0625rem;
-		font-weight: 600;
-		color: var(--color-primary);
-	}
-
-	.form-input {
-		font-family: var(--font-primary);
-		font-size: 1.125rem;
-		width: 100%;
-		box-sizing: border-box;
-		padding: 0.75rem 0.875rem;
-		border: 1px solid rgba(0, 35, 56, 0.25);
-		border-radius: 6px;
-		background: var(--color-white);
-		color: var(--color-primary);
-		transition: border-color 0.2s ease, box-shadow 0.2s ease;
-	}
-
-	.form-input:focus {
-		outline: none;
-		border-color: var(--color-secondary);
-		box-shadow: 0 0 0 2px rgba(35, 89, 38, 0.2);
-	}
-
-	.form-input::placeholder {
-		color: rgba(0, 35, 56, 0.45);
-	}
-
-	.form-textarea {
-		resize: vertical;
-		min-height: 120px;
-	}
-
-	.form-submit {
-		font-family: var(--font-primary);
-		font-size: 1.25rem;
-		font-weight: 600;
-		padding: 0.75rem 2rem;
-		border: none;
-		border-radius: 8px;
-		background: var(--color-secondary);
-		color: var(--color-white);
-		cursor: pointer;
-		transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-		align-self: flex-start;
-		margin-top: 0.25rem;
-	}
-
-	.form-submit:hover {
-		background: #1d4a1f;
-		box-shadow: 0 4px 12px rgba(35, 89, 38, 0.3);
-		transform: translateY(-1px);
-	}
-
-	.form-submit:active {
-		transform: translateY(0);
-	}
-
-	@media (max-width: 768px) {
-		.contact-content {
-			padding-left: 0;
-			padding-right: 0;
-		}
-
-		.contact-copy {
+	@media (max-width: 480px) {
+		.contact-simple-row {
+			grid-template-columns: 1fr;
+			gap: 0.25rem;
 			text-align: center;
+			justify-items: center;
 		}
 
-		.contact-info {
-			justify-content: center;
-		}
-
-		.contact-donate {
+		.contact-simple-list {
 			text-align: center;
-		}
-
-		.contact-main {
-			flex-direction: column;
-			align-items: center;
-			gap: 2rem;
-		}
-
-		.contact-form-wrap {
-			width: min(100%, 520px) !important;
-			flex: 0 1 auto;
-			max-width: 520px;
-			margin-left: auto;
-			margin-right: auto;
-		}
-
-		.form-submit {
-			align-self: center;
-		}
-	}
-
-	@media (max-width: 640px) {
-		.contact-page {
-			padding: 2rem 0 3rem;
-			overflow-x: hidden;
-		}
-
-		.contact-title {
-			font-size: 1.875rem;
-		}
-
-		.contact-intro {
-			font-size: 1.25rem;
-		}
-
-		.contact-info {
-			flex-direction: column;
-			gap: 0.5rem;
-		}
-
-		.contact-form-wrap {
-			padding: 1.25rem;
 		}
 	}
 </style>

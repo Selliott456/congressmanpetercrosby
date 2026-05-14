@@ -38,10 +38,19 @@ export const pagesEs = {
 	},
 	contact: {
 		metaTitle: 'Contáctenos — Peter Crosby para el Congreso',
-		metaDescription: 'Contacte la campaña Peter Crosby para el Congreso. El norte de Utah merece algo mejor.',
+		metaDescription: 'Teléfono y correo de la campaña Peter Crosby para el Congreso.',
 		pageTitle: 'Contáctenos',
+		intro: 'Comuníquese con la campaña por teléfono o correo electrónico.',
+		emailLabel: 'Correo',
+		phoneLabel: 'Teléfono'
+	},
+	volunteer: {
+		metaTitle: 'Ser voluntario — Peter Crosby para el Congreso',
+		metaDescription:
+			'Inscríbase como voluntario en la campaña Peter Crosby para el Congreso. El norte de Utah merece algo mejor.',
+		pageTitle: 'Sea voluntario',
 		intro:
-			'El norte de Utah merece algo mejor. Contáctenos para saber más sobre la campaña o para participar usted mismo.',
+			'El norte de Utah merece algo mejor. Díganos cómo quiere ayudar—inscríbase abajo o escríbanos con sus preguntas.',
 		donate: 'Donar',
 		formLegendName: 'Nombre',
 		firstName: 'Nombre (obligatorio)',

@@ -38,9 +38,19 @@ export const pagesEn = {
 	},
 	contact: {
 		metaTitle: 'Contact Us — Peter Crosby for Congress',
-		metaDescription: 'Contact the Peter Crosby for Congress campaign. Northern Utah deserves better.',
-		pageTitle: 'Contact Us',
-		intro: 'Northern Utah deserves better. Contact us to learn more about our campaign, or to get involved yourself.',
+		metaDescription: 'Phone and email for the Peter Crosby for Congress campaign.',
+		pageTitle: 'Contact us',
+		intro: 'Reach the campaign using the phone number or email below.',
+		emailLabel: 'Email',
+		phoneLabel: 'Phone'
+	},
+	volunteer: {
+		metaTitle: 'Volunteer — Peter Crosby for Congress',
+		metaDescription:
+			'Sign up to volunteer with the Peter Crosby for Congress campaign. Northern Utah deserves better.',
+		pageTitle: 'Volunteer with us',
+		intro:
+			'Northern Utah deserves better. Tell us how you would like to help—sign up below or reach out with questions.',
 		donate: 'Donate',
 		formLegendName: 'Name',
 		firstName: 'First Name (required)',
