@@ -3,10 +3,50 @@
 	import { messages } from '$lib/i18n/locale';
 
 	const EMAIL = 'petercrosbyforcongress@gmail.com';
-	const PHONE = '(801) 633-4297';
+	const OFFICE_PHONE = '(801) 633-4297';
 	const defaultMessage = 'I would like to volunteer for the campaign.';
 
 	export let form;
+
+	/** Local ZIP value so typing is not overwritten by reactive updates; synced from server on validation error. */
+	let zipInput = '';
+
+	function emptyHelpChecked() {
+		return {
+			help_canvassing: false,
+			help_phone_banking: false,
+			help_text_banking: false,
+			help_hosting_event: false,
+			help_data_entry: false,
+			help_wherever_needed: false
+		};
+	}
+
+	/** Must use bind:checked so choices survive re-renders and are included in FormData. */
+	/** @type {Record<string, boolean>} */
+	let helpChecked = emptyHelpChecked();
+
+	$: helpFields = [
+		{ name: 'help_canvassing', label: $messages.volunteer.helpCanvassing },
+		{ name: 'help_phone_banking', label: $messages.volunteer.helpPhoneBanking },
+		{ name: 'help_text_banking', label: $messages.volunteer.helpTextBanking },
+		{ name: 'help_hosting_event', label: $messages.volunteer.helpHosting },
+		{ name: 'help_data_entry', label: $messages.volunteer.helpDataEntry },
+		{ name: 'help_wherever_needed', label: $messages.volunteer.helpWherever }
+	];
+
+	$: if (form?.error && form?.values) {
+		zipInput = String(form.values.zip ?? '');
+		const v = /** @type {Record<string, unknown>} */ (form.values);
+		helpChecked = {
+			help_canvassing: !!v.help_canvassing,
+			help_phone_banking: !!v.help_phone_banking,
+			help_text_banking: !!v.help_text_banking,
+			help_hosting_event: !!v.help_hosting_event,
+			help_data_entry: !!v.help_data_entry,
+			help_wherever_needed: !!v.help_wherever_needed
+		};
+	}
 </script>
 
 <svelte:head>
@@ -22,7 +62,7 @@
 				<p class="volunteer-intro">{$messages.volunteer.intro}</p>
 				<div class="volunteer-info">
 					<a href={`mailto:${EMAIL}`} class="volunteer-link">{EMAIL}</a>
-					<a href="tel:+18016334297" class="volunteer-link">{PHONE}</a>
+					<a href="tel:+18016334297" class="volunteer-link">{OFFICE_PHONE}</a>
 				</div>
 				<div class="volunteer-donate">
 					<ButtonSecondary href="https://secure.actblue.com/donate/peter-crosby-1"
@@ -32,14 +72,27 @@
 			</div>
 
 			<div class="volunteer-form-wrap">
-				<form class="volunteer-form" method="POST">
+				<form
+					class="volunteer-form"
+					name="contact"
+					method="POST"
+					action="/volunteer"
+					data-netlify="true"
+				>
 					{#if form?.success}
 						<p class="form-status form-status--success">Thanks! Your message has been sent.</p>
 					{/if}
 					{#if form?.error}
 						<p class="form-status form-status--error">{form.error}</p>
 					{/if}
+					<input type="hidden" name="form-name" value="contact" />
 					<input type="hidden" name="topic" value="volunteer" />
+					<div class="form-honeypot" aria-hidden="true">
+						<label class="form-honeypot-label">
+							Don’t fill this out if you’re human:
+							<input type="text" name="bot-field" tabindex="-1" autocomplete="off" />
+						</label>
+					</div>
 					<fieldset class="form-fieldset">
 						<legend class="form-legend">{$messages.volunteer.formLegendName}</legend>
 						<div class="form-row">
@@ -80,6 +133,60 @@
 							autocomplete="email"
 						/>
 					</div>
+
+					<div class="form-row">
+						<label class="form-label" for="phone">{$messages.volunteer.phone}</label>
+						<input
+							id="phone"
+							name="phone"
+							class="form-input"
+							type="tel"
+							value={form?.values?.phone ?? ''}
+							required
+							autocomplete="tel"
+							inputmode="tel"
+							aria-describedby="phone-hint"
+						/>
+						<p class="form-hint" id="phone-hint">{$messages.volunteer.phoneHint}</p>
+					</div>
+
+					<div class="form-row">
+						<label class="form-label" for="zip">
+							{$messages.volunteer.zip}
+							<span class="form-optional">({$messages.volunteer.zipOptional})</span>
+						</label>
+						<input
+							id="zip"
+							name="zip"
+							class="form-input"
+							type="text"
+							bind:value={zipInput}
+							autocomplete="postal-code"
+							inputmode="text"
+							aria-describedby="zip-hint"
+						/>
+						<p class="form-hint" id="zip-hint">{$messages.volunteer.zipHint}</p>
+					</div>
+
+					<fieldset class="form-fieldset form-fieldset--help">
+						<legend class="form-legend">{$messages.volunteer.helpLegend}</legend>
+						<ul class="form-help-list">
+							{#each helpFields as field (field.name)}
+								<li class="form-help-item">
+									<label class="form-check-label">
+										<input
+											type="checkbox"
+											id={'help-' + field.name}
+											name={field.name}
+											value="yes"
+											bind:checked={helpChecked[field.name]}
+										/>
+										<span class="form-check-text">{field.label}</span>
+									</label>
+								</li>
+							{/each}
+						</ul>
+					</fieldset>
 
 					<div class="form-row">
 						<label class="form-label" for="message">{$messages.volunteer.message}</label>
@@ -147,7 +254,7 @@
 	.volunteer-form-wrap {
 		flex: 0 0 auto;
 		width: 100%;
-		max-width: 420px;
+		max-width: 480px;
 		min-width: 0;
 		box-sizing: border-box;
 		background: var(--color-accent);
@@ -201,6 +308,7 @@
 	}
 
 	.volunteer-form {
+		position: relative;
 		display: flex;
 		flex-direction: column;
 		gap: 1.25rem;
@@ -228,6 +336,27 @@
 		border: 1px solid rgba(150, 20, 20, 0.25);
 	}
 
+	.form-honeypot {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border: 0;
+	}
+
+	.form-honeypot-label {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+	}
+
 	.form-fieldset {
 		border: none;
 		padding: 0;
@@ -244,6 +373,60 @@
 		color: var(--color-primary);
 		margin: 0 0 0.25rem 0;
 		padding: 0;
+	}
+
+	.form-fieldset--help {
+		gap: 0.75rem;
+	}
+
+	.form-optional {
+		font-weight: 500;
+		opacity: 0.75;
+	}
+
+	.form-hint {
+		font-family: var(--font-primary);
+		font-size: 0.875rem;
+		line-height: 1.4;
+		color: var(--color-primary);
+		margin: 0;
+		opacity: 0.78;
+	}
+
+	.form-help-list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.65rem;
+	}
+
+	.form-help-item {
+		margin: 0;
+	}
+
+	.form-help-item .form-check-label {
+		display: flex;
+		align-items: flex-start;
+		gap: 0.6rem;
+	}
+
+	.form-help-item input {
+		margin-top: 0.35rem;
+		width: 1.1rem;
+		height: 1.1rem;
+		accent-color: var(--color-secondary);
+		flex-shrink: 0;
+	}
+
+	.form-check-label {
+		font-family: var(--font-primary);
+		font-size: 1rem;
+		line-height: 1.45;
+		color: var(--color-primary);
+		font-weight: 500;
+		cursor: pointer;
 	}
 
 	.form-row {
@@ -348,6 +531,10 @@
 			max-width: 520px;
 			margin-left: auto;
 			margin-right: auto;
+		}
+
+		.form-help-list {
+			text-align: left;
 		}
 
 		.form-submit {
