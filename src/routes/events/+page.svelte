@@ -1,6 +1,10 @@
 <script>
 	import { eventsData } from '$lib/data/events';
+	import { cmsEventsData } from '$lib/data/cmsEvents';
 	import { messages } from '$lib/i18n/locale';
+
+	/** Curated events first; supplemental JSON in src/content/events (see cmsEvents.ts). */
+	const allEventsData = [...eventsData, ...cmsEventsData];
 
 	/**
 	 * @param {{ year: number; monthIndex: number; day: string }} event
@@ -11,7 +15,7 @@
 		return d < new Date();
 	}
 
-	$: events = eventsData.map((e) => ({
+	$: events = allEventsData.map((e) => ({
 		...e,
 		title: $messages.events.byId[e.id]?.title ?? e.title,
 		description: $messages.events.byId[e.id]?.description ?? e.description
@@ -52,14 +56,14 @@
 
 	/** @param {number} year @param {number} month @param {number} day */
 	function hasEventOnDate(year, month, day) {
-		return eventsData.some(
+		return allEventsData.some(
 			(e) => e.year === year && e.monthIndex === month && parseInt(e.day, 10) === day
 		);
 	}
 
 	/** @param {number} year @param {number} month @param {number} day */
 	function getEventsOnDate(year, month, day) {
-		return eventsData.filter(
+		return allEventsData.filter(
 			(e) => e.year === year && e.monthIndex === month && parseInt(e.day, 10) === day
 		);
 	}
