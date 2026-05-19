@@ -119,6 +119,8 @@ export const pagesEs = {
 			nextMonth: 'Mes siguiente',
 			dayWithEvent: 'Día con evento',
 			nextEvent: 'Próximo evento',
+			noUpcomingEvents:
+				'No hay próximos eventos programados. Vuelva pronto o consulte los eventos anteriores abajo.',
 			allEvents: 'Todos los eventos',
 			pastEvent: 'Evento pasado'
 		},

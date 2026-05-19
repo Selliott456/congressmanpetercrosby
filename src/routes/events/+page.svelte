@@ -1,10 +1,6 @@
 <script>
 	import { eventsData } from '$lib/data/events';
-	import { cmsEventsData } from '$lib/data/cmsEvents';
 	import { messages } from '$lib/i18n/locale';
-
-	/** Curated events first; supplemental JSON in src/content/events (see cmsEvents.ts). */
-	const allEventsData = [...eventsData, ...cmsEventsData];
 
 	/**
 	 * @param {{ year: number; monthIndex: number; day: string }} event
@@ -15,7 +11,7 @@
 		return d < new Date();
 	}
 
-	$: events = allEventsData.map((e) => ({
+	$: events = eventsData.map((e) => ({
 		...e,
 		title: $messages.events.byId[e.id]?.title ?? e.title,
 		description: $messages.events.byId[e.id]?.description ?? e.description
@@ -56,14 +52,14 @@
 
 	/** @param {number} year @param {number} month @param {number} day */
 	function hasEventOnDate(year, month, day) {
-		return allEventsData.some(
+		return eventsData.some(
 			(e) => e.year === year && e.monthIndex === month && parseInt(e.day, 10) === day
 		);
 	}
 
 	/** @param {number} year @param {number} month @param {number} day */
 	function getEventsOnDate(year, month, day) {
-		return allEventsData.filter(
+		return eventsData.filter(
 			(e) => e.year === year && e.monthIndex === month && parseInt(e.day, 10) === day
 		);
 	}
@@ -130,7 +126,7 @@
 		<p class="events-intro">{$messages.events.ui.intro}</p>
 	</header>
 
-	<div class="events-hero" class:events-hero-has-next={!!nextEvent}>
+	<div class="events-hero">
 		<section class="calendar-section" aria-label={$messages.events.ui.calendarAria}>
 			<div class="calendar-header">
 				<button type="button" class="calendar-nav" aria-label={$messages.events.ui.prevMonth} on:click={prevMonth}>←</button>
@@ -176,9 +172,9 @@
 			</p>
 		</section>
 
-		{#if nextEvent}
-			<section class="next-event-section" aria-label={$messages.events.ui.nextEvent}>
-				<h2 class="next-event-heading">{$messages.events.ui.nextEvent}</h2>
+		<section class="next-event-section" aria-label={$messages.events.ui.nextEvent}>
+			<h2 class="next-event-heading">{$messages.events.ui.nextEvent}</h2>
+			{#if nextEvent}
 				<article class="next-event-card">
 					<div class="event-date">
 						<span class="event-month">{$messages.events.monthAbbrev[nextEvent.monthIndex - 1]}</span>
@@ -209,8 +205,10 @@
 						{/if}
 					</div>
 				</article>
-			</section>
-		{/if}
+			{:else}
+				<p class="next-event-empty">{$messages.events.ui.noUpcomingEvents}</p>
+			{/if}
+		</section>
 	</div>
 
 	<div class="all-events-section">
@@ -328,18 +326,13 @@
 		padding: 1.25rem 1.5rem;
 	}
 
-	.calendar-section {
-		flex: 1 1 auto;
-		min-width: 0;
-		padding: 0;
-		border-bottom: none;
-	}
-
-	.events-hero.events-hero-has-next .calendar-section {
+	.events-hero .calendar-section {
 		flex: 0 0 auto;
 		max-width: 300px;
+		min-width: 0;
+		padding: 0 1.5rem 0 0;
+		border-bottom: none;
 		border-right: 1px solid rgba(0, 35, 56, 0.08);
-		padding-right: 1.5rem;
 	}
 
 	.events-hero .next-event-section {
@@ -557,6 +550,19 @@
 		margin-bottom: 0.5rem;
 	}
 
+	.next-event-empty {
+		font-family: var(--font-primary);
+		font-size: 0.9375rem;
+		line-height: 1.6;
+		color: var(--color-primary);
+		margin: 0;
+		padding: 1rem;
+		background: rgba(187, 206, 221, 0.2);
+		border: 1px solid var(--color-accent);
+		border-radius: 8px;
+		opacity: 0.9;
+	}
+
 	.events-hero .next-event-card .event-description {
 		font-size: 0.875rem;
 		line-height: 1.5;
@@ -761,16 +767,11 @@
 			padding-right: 0;
 		}
 
-		.calendar-section {
+		.events-hero .calendar-section {
 			display: flex;
 			flex-direction: column;
 			align-items: center;
 			width: 100%;
-			max-width: none;
-			flex: 1 1 auto;
-		}
-
-		.events-hero.events-hero-has-next .calendar-section {
 			max-width: none;
 			flex: 1 1 auto;
 			border-right: none;
@@ -817,10 +818,6 @@
 
 		.events-hero {
 			padding: 1.5rem 0;
-		}
-
-		.events-hero.events-hero-has-next .calendar-section {
-			padding-bottom: 1.5rem;
 		}
 
 		.calendar-title {

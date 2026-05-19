@@ -119,6 +119,7 @@ export const pagesEn = {
 			nextMonth: 'Next month',
 			dayWithEvent: 'Day with event',
 			nextEvent: 'Next event',
+			noUpcomingEvents: 'No upcoming events scheduled. Check back soon or browse past events below.',
 			allEvents: 'All events',
 			pastEvent: 'Past event'
 		},
