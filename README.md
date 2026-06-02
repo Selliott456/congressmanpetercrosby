@@ -6,8 +6,10 @@ A modern SvelteKit frontend application.
 
 ### Prerequisites
 
-- Node.js (v18 or higher)
-- npm or yarn
+- Node.js **v18 or higher** (the toolchain — Vite 5 + SvelteKit 2 — does not run on older Node). Node 20 LTS is recommended.
+- npm
+
+> See [`HANDOFF.md`](./HANDOFF.md) for architecture notes, conventions, and known issues before making changes.
 
 ### Installation
 
@@ -23,16 +25,17 @@ npm run dev
 
 3. Open your browser and navigate to `http://localhost:5173`
 
-### Contact Form Setup (Netlify Forms)
+### Volunteer Form Setup (Netlify Forms)
 
-The contact form uses Netlify Forms (no API key required).
+The volunteer form (at `/volunteer`) uses Netlify Forms (no API key required). The
+SvelteKit action in `src/routes/volunteer/+page.server.ts` validates input and proxies
+the submission to `static/netlify-form-detection.html`, which Netlify scans at build
+time to register a form named **`contact`**.
 
 1. Deploy the site to Netlify.
-2. Submit the contact form once so Netlify detects the form.
-3. In Netlify dashboard, open:
-   - Forms -> contact
-4. Add email notifications in:
-   - Forms -> contact -> Settings and usage -> Form notifications
+2. Submit the form once so Netlify detects it.
+3. In Netlify dashboard, open: **Forms -> contact**.
+4. Add email notifications in: **Forms -> contact -> Settings and usage -> Form notifications**.
 
 ### Available Scripts
 
@@ -46,15 +49,20 @@ The contact form uses Netlify Forms (no API key required).
 
 ```
 ├── src/
-│   ├── routes/          # Application routes
-│   │   ├── +page.svelte # Main page
-│   │   └── +layout.svelte # Layout wrapper
-│   ├── app.html         # HTML template
-│   └── app.d.ts         # TypeScript definitions
-├── static/              # Static assets
-├── package.json         # Dependencies and scripts
-├── svelte.config.js     # SvelteKit configuration
-└── vite.config.js       # Vite configuration
+│   ├── routes/              # File-based routes (home, about, faq, events,
+│   │   │                    #   past-interviews, contact, volunteer)
+│   │   ├── +layout.svelte   # App shell: Nav + Footer + global CSS variables
+│   │   └── +page.svelte     # Home page
+│   ├── lib/
+│   │   ├── components/       # Reusable UI (Button, Nav, Footer, SocialIcon, …)
+│   │   ├── data/            # Static data (events, socialLinks)
+│   │   └── i18n/            # Locale store + EN/ES dictionaries
+│   ├── app.html             # HTML template
+│   └── app.d.ts             # SvelteKit type declarations
+├── static/                  # Static assets (images, netlify-form-detection.html)
+├── package.json
+├── svelte.config.js
+└── vite.config.js
 ```
 
 ## Performance (images)

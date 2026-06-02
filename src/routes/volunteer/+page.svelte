@@ -1,5 +1,5 @@
 <script>
-	import ButtonSecondary from '$lib/components/ButtonSecondary.svelte';
+	import Button from '$lib/components/Button.svelte';
 	import { messages } from '$lib/i18n/locale';
 
 	const EMAIL = 'petercrosbyforcongress@gmail.com';
@@ -65,8 +65,8 @@
 					<a href="tel:+18016334297" class="volunteer-link">{OFFICE_PHONE}</a>
 				</div>
 				<div class="volunteer-donate">
-					<ButtonSecondary href="https://secure.actblue.com/donate/peter-crosby-1"
-						>{$messages.volunteer.donate}</ButtonSecondary
+					<Button href="https://secure.actblue.com/donate/peter-crosby-1"
+						>{$messages.volunteer.donate}</Button
 					>
 				</div>
 			</div>

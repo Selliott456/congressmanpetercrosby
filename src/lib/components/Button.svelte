@@ -1,18 +1,19 @@
 <script>
-	/** @type {string | null} */
+	/** Render as an `<a>` when set, otherwise a `<button>`. @type {string | null} */
 	export let href = null;
+	/** @type {'button' | 'submit' | 'reset'} */
 	export let type = 'button';
 	export let disabled = false;
-
-	let Tag = href ? 'a' : 'button';
+	/** Visual style. Only `secondary` is currently used in the app. @type {'primary' | 'secondary' | 'accent'} */
+	export let variant = 'secondary';
 </script>
 
 {#if href}
-	<a {href} class="btn btn-secondary" class:disabled {...$$restProps}>
+	<a {href} class="btn btn-{variant}" class:disabled {...$$restProps}>
 		<span class="btn-inner"><slot /></span>
 	</a>
 {:else}
-	<button {type} {disabled} class="btn btn-secondary" class:disabled {...$$restProps}>
+	<button {type} {disabled} class="btn btn-{variant}" class:disabled {...$$restProps}>
 		<span class="btn-inner"><slot /></span>
 	</button>
 {/if}
@@ -36,6 +37,28 @@
 	.btn-inner {
 		position: relative;
 		z-index: 1;
+	}
+
+	.btn-primary {
+		background: var(--color-primary);
+		color: var(--color-white);
+	}
+
+	.btn-primary:hover:not(.disabled) {
+		background: #003a5a;
+		transform: translateY(-2px);
+		box-shadow: 0 4px 12px rgba(0, 35, 56, 0.3);
+	}
+
+	.btn-accent {
+		background: var(--color-accent);
+		color: var(--color-primary);
+	}
+
+	.btn-accent:hover:not(.disabled) {
+		background: #a8c0d0;
+		transform: translateY(-2px);
+		box-shadow: 0 4px 12px rgba(187, 206, 221, 0.4);
 	}
 
 	.btn-secondary {
@@ -85,7 +108,7 @@
 		}
 	}
 
-	.btn-secondary:active:not(.disabled) {
+	.btn:active:not(.disabled) {
 		transform: translateY(0);
 	}
 

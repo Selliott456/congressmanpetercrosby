@@ -1,5 +1,5 @@
 <script>
-	import ButtonSecondary from '$lib/components/ButtonSecondary.svelte';
+	import Button from '$lib/components/Button.svelte';
 	import { messages } from '$lib/i18n/locale';
 </script>
 
@@ -33,7 +33,7 @@
 		{/each}
 
 		<div class="faq-cta">
-			<ButtonSecondary href="https://secure.actblue.com/donate/peter-crosby-1">{$messages.common.donate}</ButtonSecondary>
+			<Button href="https://secure.actblue.com/donate/peter-crosby-1">{$messages.common.donate}</Button>
 		</div>
 	</div>
 </main>

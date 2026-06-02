@@ -1,6 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
-	import ButtonSecondary from '$lib/components/ButtonSecondary.svelte';
+	import Button from '$lib/components/Button.svelte';
 	import { messages } from '$lib/i18n/locale';
 
 	const TRANSITION_RANGE = 280; // px of scroll over which scale goes 1 → 0.7
@@ -80,7 +80,7 @@
 		{/each}
 
 		<div class="about-cta">
-			<ButtonSecondary href="https://secure.actblue.com/donate/peter-crosby-1">{$messages.common.donate}</ButtonSecondary>
+			<Button href="https://secure.actblue.com/donate/peter-crosby-1">{$messages.common.donate}</Button>
 		</div>
 	</div>
 </main>
