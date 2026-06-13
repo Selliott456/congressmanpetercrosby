@@ -139,8 +139,8 @@
 		max-width: 500px;
 		height: auto;
 		display: block;
-		border-radius: 8px;
-		box-shadow: 0 4px 20px rgba(0, 35, 56, 0.15);
+		border-radius: 0;
+		border: 1px solid var(--line-l);
 	}
 
 	.about-content {
@@ -165,20 +165,21 @@
 	}
 
 	.section-title {
-		font-family: var(--font-primary);
+		font-family: var(--display);
+		font-style: italic;
 		font-size: 1.5rem;
-		font-weight: 700;
-		color: var(--color-primary);
+		font-weight: 900;
+		letter-spacing: -0.02em;
+		color: var(--ink);
 		margin: 0 0 1rem 0;
-		line-height: 1.3;
-		text-transform: capitalize;
+		line-height: 1.15;
 	}
 
 	.section-body {
 		font-family: var(--font-primary);
 		font-size: 1.0625rem;
 		line-height: 1.8;
-		color: var(--color-primary);
+		color: var(--ink-2);
 	}
 
 	.section-body p {

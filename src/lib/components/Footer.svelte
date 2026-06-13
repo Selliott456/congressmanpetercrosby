@@ -1,10 +1,12 @@
 <script>
   import { messages } from "$lib/i18n/locale";
   import SocialIcon from "./SocialIcon.svelte";
+  import Rail from "./Rail.svelte";
   import { socialLinks } from "$lib/data/socialLinks";
 </script>
 
 <footer class="footer">
+  <Rail />
   <div class="footer-inner">
     <div class="footer-col">
       <div class="footer-brand">
@@ -54,9 +56,8 @@
 
 <style>
   .footer {
-    background: var(--color-accent);
-    color: var(--color-primary);
-    border-top: 1px solid rgba(0, 35, 56, 0.12);
+    background: var(--paper-2);
+    color: var(--ink);
     margin-top: auto;
   }
 
@@ -107,16 +108,16 @@
     justify-content: center;
     width: 40px;
     height: 40px;
-    color: var(--color-primary);
-    border-radius: 8px;
+    color: var(--ink);
+    border-radius: 0;
     transition:
       background 0.2s ease,
       color 0.2s ease;
   }
 
   .footer-social-link:hover {
-    background: rgba(0, 35, 56, 0.1);
-    color: var(--color-primary);
+    background: rgba(15, 37, 69, 0.1);
+    color: var(--ink);
   }
 
   .footer-faq-link {

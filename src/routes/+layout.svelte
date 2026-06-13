@@ -29,11 +29,34 @@
 
 <style>
 	:global(:root) {
-		--color-primary: #002338;
-		--color-secondary: #235926;
+		/* ── Brand palette (style guide) ───────────────────────── */
+		--ink-deep: #091b36;
+		--ink: #0f2545;
+		--ink-2: #1a3358;
+		--ink-3: #274680;
+		--paper: #f7fafc;
+		--paper-2: #eaf1f8;
+		--paper-3: #d6e2ee;
+		--green: #235926;
+		--sky: #7fb7dc;
+		--blue: #2e5fa0;
+		--line-l: rgba(15, 37, 69, 0.16);
+		--line-l-2: rgba(15, 37, 69, 0.08);
+		--line-d: rgba(255, 255, 255, 0.14);
+
+		/* ── Type ──────────────────────────────────────────────── */
+		--display: 'Archivo', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+		--sans: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+		--serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+		--mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+
+		/* ── Legacy aliases (migrated per component/page) ──────── */
+		--color-primary: var(--ink);
+		--color-secondary: var(--green);
 		--color-accent: #bbcedd;
-		--color-white: #ffffff;
-		--font-primary: 'Open Sauce One', sans-serif;
+		--color-white: var(--paper);
+		--font-primary: var(--sans);
+
 		--mobile-margin: 1.25rem;
 	}
 

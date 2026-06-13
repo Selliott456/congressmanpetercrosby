@@ -279,27 +279,30 @@
   }
 
   .home-hero-kicker {
+    font-family: var(--display);
+    font-style: italic;
     font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
+    font-weight: 800;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
+    color: var(--sky);
     margin: 0 0 1rem;
-    opacity: 0.9;
   }
 
   .home-hero-title {
-    font-family: var(--font-primary);
-    font-size: clamp(1.875rem, 5vw, 2.75rem);
-    font-weight: 700;
-    line-height: 1.15;
+    font-family: var(--display);
+    font-style: italic;
+    font-size: clamp(2rem, 5.5vw, 3.25rem);
+    font-weight: 900;
+    line-height: 1.02;
     margin: 0 0 1.25rem;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.04em;
   }
 
   .home-hero-lead {
-    font-family: var(--font-primary);
-    font-size: clamp(1.0625rem, 2.2vw, 1.1875rem);
-    line-height: 1.65;
+    font-family: var(--serif);
+    font-size: clamp(1.0625rem, 2.2vw, 1.25rem);
+    line-height: 1.5;
     margin: 0 0 1.5rem;
     opacity: 0.95;
     max-width: 36rem;
@@ -324,14 +327,17 @@
     align-items: center;
     justify-content: center;
     min-width: 11rem;
-    padding: 0.75rem 1.5rem;
-    font-family: var(--font-primary);
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--color-white);
+    padding: 0.8rem 1.5rem;
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 0.8125rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--paper);
     text-decoration: none;
     border: 2px solid rgba(255, 255, 255, 0.85);
-    border-radius: 8px;
+    border-radius: 0;
     transition:
       background 0.2s ease,
       border-color 0.2s ease;
@@ -339,7 +345,7 @@
 
   .home-btn-ghost:hover {
     background: rgba(255, 255, 255, 0.12);
-    border-color: var(--color-white);
+    border-color: var(--paper);
   }
 
   /* —— Sections —— */
@@ -348,14 +354,15 @@
   }
 
   .home-section-title {
-    font-family: var(--font-primary);
-    font-size: clamp(1.5rem, 3vw, 2rem);
-    font-weight: 700;
-    color: var(--color-primary);
+    font-family: var(--display);
+    font-style: italic;
+    font-size: clamp(1.625rem, 3.2vw, 2.25rem);
+    font-weight: 900;
+    color: var(--ink);
     text-align: center;
     margin: 0 0 0.75rem;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
+    line-height: 1.05;
+    letter-spacing: -0.035em;
   }
 
   .home-section-title--left {
@@ -363,14 +370,13 @@
   }
 
   .home-section-intro {
-    font-family: var(--font-primary);
-    font-size: 1.0625rem;
-    line-height: 1.6;
-    color: var(--color-primary);
+    font-family: var(--serif);
+    font-size: 1.125rem;
+    line-height: 1.55;
+    color: var(--ink-2);
     text-align: center;
     max-width: 36rem;
     margin: 0 auto 2.5rem;
-    opacity: 0.88;
   }
 
   /* Pillars */
@@ -389,28 +395,29 @@
 
   .home-pillar-card {
     background: var(--color-white);
-    border: 1px solid rgba(0, 35, 56, 0.08);
-    border-radius: 12px;
+    border: 1px solid var(--line-l-2);
+    border-radius: 0;
+    border-top: 3px solid var(--sky);
     padding: 1.75rem 1.5rem;
-    box-shadow: 0 4px 20px rgba(0, 35, 56, 0.04);
   }
 
   .home-pillar-title {
-    font-family: var(--font-primary);
+    font-family: var(--display);
+    font-style: italic;
     font-size: 1.125rem;
-    font-weight: 700;
-    color: var(--color-primary);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    color: var(--ink);
     margin: 0 0 0.65rem;
-    line-height: 1.3;
+    line-height: 1.25;
   }
 
   .home-pillar-text {
     font-family: var(--font-primary);
     font-size: 0.9875rem;
     line-height: 1.65;
-    color: var(--color-primary);
+    color: var(--ink-2);
     margin: 0;
-    opacity: 0.9;
   }
 
   /* Why */
@@ -443,7 +450,7 @@
     font-family: var(--font-primary);
     font-size: 1.0625rem;
     line-height: 1.75;
-    color: var(--color-primary);
+    color: var(--ink-2);
     margin: 0 0 1.25rem;
     max-width: 38rem;
   }
@@ -452,7 +459,7 @@
     font-family: var(--font-primary);
     font-size: 0.9375rem;
     font-weight: 600;
-    color: var(--color-secondary);
+    color: var(--blue);
     text-decoration: none;
   }
 
@@ -463,12 +470,12 @@
 
   /* Priorities */
   .home-priorities {
-    background: var(--color-accent);
+    background: var(--paper-2);
     background: linear-gradient(
       135deg,
-      #d4e4ed 0%,
-      var(--color-accent) 50%,
-      #e8eef4 100%
+      var(--paper-3) 0%,
+      var(--paper-2) 50%,
+      var(--paper) 100%
     );
   }
 
@@ -486,10 +493,10 @@
     flex-direction: column;
     background: rgba(255, 255, 255, 0.75);
     backdrop-filter: blur(8px);
-    border-radius: 12px;
+    border-radius: 0;
     padding: 0;
     overflow: hidden;
-    border: 1px solid rgba(0, 35, 56, 0.06);
+    border: 1px solid var(--line-l-2);
     min-height: 0;
   }
 
@@ -517,13 +524,13 @@
     font-family: var(--font-primary);
     font-size: 0.875rem;
     font-weight: 600;
-    color: var(--color-primary);
+    color: var(--ink);
     line-height: 1.35;
     text-align: center;
     margin: 0;
     padding: 0.875rem 0.75rem 1rem;
     flex-shrink: 0;
-    border-top: 1px solid rgba(0, 35, 56, 0.06);
+    border-top: 1px solid var(--line-l-2);
     background: rgba(255, 255, 255, 0.85);
   }
 
@@ -547,17 +554,18 @@
   }
 
   .home-community-caption {
-    background: var(--color-primary);
-    color: var(--color-white);
+    background: var(--ink);
+    color: var(--paper);
     padding: 1.5rem 1.5rem 2rem;
     text-align: center;
   }
 
   .home-community-quote {
-    font-family: var(--font-primary);
-    font-size: clamp(1rem, 2.5vw, 1.1875rem);
-    font-weight: 500;
-    line-height: 1.5;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(1.0625rem, 2.5vw, 1.375rem);
+    font-weight: 400;
+    line-height: 1.45;
     margin: 0;
     max-width: 36rem;
     margin-left: auto;
@@ -583,39 +591,39 @@
     flex-direction: column;
     gap: 0.35rem;
     padding: 1.5rem 1.25rem;
-    border-radius: 12px;
-    border: 1px solid rgba(0, 35, 56, 0.12);
+    border-radius: 0;
+    border: 1px solid var(--line-l);
     text-decoration: none;
     color: inherit;
     transition:
       border-color 0.2s ease,
-      box-shadow 0.2s ease,
-      transform 0.2s ease;
+      background 0.2s ease;
     background: var(--color-white);
   }
 
   .home-involve-card:hover {
-    border-color: var(--color-secondary);
-    box-shadow: 0 8px 28px rgba(0, 35, 56, 0.08);
-    transform: translateY(-2px);
+    border-color: var(--ink);
+    background: var(--paper-2);
   }
 
   .home-involve-card--accent {
-    background: var(--color-secondary);
-    border-color: var(--color-secondary);
-    color: var(--color-white);
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--paper);
   }
 
   .home-involve-card--accent:hover {
-    background: #1d4a1f;
-    border-color: #1d4a1f;
-    color: var(--color-white);
+    background: var(--ink-2);
+    border-color: var(--ink-2);
+    color: var(--paper);
   }
 
   .home-involve-label {
-    font-family: var(--font-primary);
+    font-family: var(--display);
+    font-style: italic;
     font-size: 1.125rem;
-    font-weight: 700;
+    font-weight: 800;
+    letter-spacing: -0.01em;
   }
 
   .home-involve-desc {
@@ -636,13 +644,13 @@
   }
 
   .home-social-label {
-    font-family: var(--font-primary);
+    font-family: var(--display);
+    font-style: italic;
     font-size: 0.8125rem;
-    font-weight: 600;
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--color-primary);
-    opacity: 0.75;
+    letter-spacing: 0.2em;
+    color: var(--blue);
     margin: 0 0 1rem;
   }
 
@@ -659,13 +667,13 @@
     justify-content: center;
     width: 44px;
     height: 44px;
-    color: var(--color-primary);
-    border-radius: 10px;
+    color: var(--ink);
+    border-radius: 0;
     transition: background 0.2s ease;
   }
 
   .home-social-link:hover {
-    background: rgba(0, 35, 56, 0.08);
+    background: rgba(15, 37, 69, 0.08);
   }
 
   @media (max-width: 900px) {

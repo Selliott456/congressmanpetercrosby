@@ -73,12 +73,14 @@
 	}
 
 	.faq-title {
-		font-family: var(--font-primary);
+		font-family: var(--display);
+		font-style: italic;
 		font-size: 2.5rem;
-		font-weight: 700;
-		color: var(--color-primary);
+		font-weight: 900;
+		letter-spacing: -0.03em;
+		color: var(--ink);
 		margin: 0 0 2rem 0;
-		line-height: 1.2;
+		line-height: 1.05;
 	}
 
 	.faq-section {
@@ -90,19 +92,21 @@
 	}
 
 	.faq-question {
-		font-family: var(--font-primary);
+		font-family: var(--display);
+		font-style: italic;
 		font-size: 1.25rem;
-		font-weight: 700;
-		color: var(--color-primary);
+		font-weight: 800;
+		letter-spacing: -0.01em;
+		color: var(--ink);
 		margin: 0 0 1rem 0;
-		line-height: 1.4;
+		line-height: 1.3;
 	}
 
 	.faq-answer {
 		font-family: var(--font-primary);
 		font-size: 1.0625rem;
 		line-height: 1.8;
-		color: var(--color-primary);
+		color: var(--ink-2);
 	}
 
 	.faq-answer p {

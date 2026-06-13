@@ -1,6 +1,7 @@
 <script>
   import { page } from "$app/stores";
   import LanguageSwitcher from "./LanguageSwitcher.svelte";
+  import Rail from "./Rail.svelte";
   import { messages } from "$lib/i18n/locale";
 
   const donateHref = "https://secure.actblue.com/donate/peter-crosby-1";
@@ -22,6 +23,7 @@
 </script>
 
 <nav class="nav">
+  <Rail />
   <div class="nav-inner">
     <div class="nav-start">
       <a href="/" class="nav-logo" aria-label={$messages.nav.ariaHome}>
@@ -159,14 +161,16 @@
   }
 
   .nav-link {
-    font-family: var(--font-primary);
-    font-size: 0.875rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    color: var(--color-white);
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--paper);
     text-decoration: none;
-    padding: 0.5rem 0.75rem;
-    border-radius: 6px;
+    padding: 0.5rem 0.6rem;
+    border-radius: 0;
     transition:
       background 0.2s ease,
       color 0.2s ease;
@@ -174,12 +178,12 @@
 
   .nav-link:hover {
     background: rgba(255, 255, 255, 0.15);
-    color: var(--color-white);
+    color: var(--paper);
   }
 
   .nav-link.active {
     background: transparent;
-    color: var(--color-accent);
+    color: var(--sky);
   }
 
   .nav-link-inner {
@@ -192,11 +196,10 @@
     position: relative;
     overflow: hidden;
     overflow: clip;
-    border-radius: 8px;
-    background: var(--color-secondary);
-    color: var(--color-white);
+    border-radius: 0;
+    background: var(--green);
+    color: var(--paper);
     padding: 0.5rem 1rem;
-    font-weight: 500;
   }
 
   .nav-link.nav-link-donate::after {
@@ -221,8 +224,7 @@
 
   .nav-link.nav-link-donate:hover {
     background: #1d4a1f;
-    color: var(--color-white);
-    box-shadow: 0 4px 12px rgba(35, 89, 38, 0.3);
+    color: var(--paper);
   }
 
   .nav-link.nav-link-donate:hover::after {
@@ -250,7 +252,7 @@
     background: transparent;
     border: none;
     cursor: pointer;
-    border-radius: 6px;
+    border-radius: 0;
     transition: background 0.2s ease;
   }
 
@@ -262,8 +264,7 @@
     display: block;
     width: 22px;
     height: 2px;
-    background: var(--color-white);
-    border-radius: 1px;
+    background: var(--paper);
     transition:
       transform 0.2s ease,
       opacity 0.2s ease;
@@ -290,14 +291,16 @@
   }
 
   .nav-menu-link {
-    font-family: var(--font-primary);
-    font-size: 0.875rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    color: var(--color-white);
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 0.8125rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--paper);
     text-decoration: none;
     padding: 0.75rem 1rem;
-    border-radius: 6px;
+    border-radius: 0;
     display: block;
     transition:
       background 0.2s ease,
@@ -306,12 +309,12 @@
 
   .nav-menu-link:hover {
     background: rgba(255, 255, 255, 0.15);
-    color: var(--color-white);
+    color: var(--paper);
   }
 
   .nav-menu-link.active {
     background: transparent;
-    color: var(--color-accent);
+    color: var(--sky);
   }
 
   .nav-menu-link-inner {

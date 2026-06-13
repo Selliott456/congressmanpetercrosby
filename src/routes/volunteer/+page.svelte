@@ -257,26 +257,28 @@
 		max-width: 480px;
 		min-width: 0;
 		box-sizing: border-box;
-		background: var(--color-accent);
-		border-radius: 12px;
+		background: var(--paper-2);
+		border-radius: 0;
 		padding: 1.75rem;
-		box-shadow: 0 2px 12px rgba(0, 35, 56, 0.08);
+		border: 1px solid var(--line-l);
 	}
 
 	.volunteer-title {
-		font-family: var(--font-primary);
+		font-family: var(--display);
+		font-style: italic;
 		font-size: 2.75rem;
-		font-weight: 700;
-		color: var(--color-primary);
+		font-weight: 900;
+		letter-spacing: -0.03em;
+		color: var(--ink);
 		margin: 0 0 1rem 0;
-		line-height: 1.2;
+		line-height: 1.05;
 	}
 
 	.volunteer-intro {
-		font-family: var(--font-primary);
+		font-family: var(--serif);
 		font-size: 1.375rem;
-		line-height: 1.7;
-		color: var(--color-primary);
+		line-height: 1.55;
+		color: var(--ink-2);
 		margin: 0 0 1.5rem 0;
 	}
 
@@ -295,7 +297,7 @@
 		font-family: var(--font-primary);
 		font-size: 1.25rem;
 		font-weight: 600;
-		color: var(--color-secondary);
+		color: var(--blue);
 		text-decoration: none;
 		transition: color 0.2s ease;
 		overflow-wrap: anywhere;
@@ -303,7 +305,7 @@
 	}
 
 	.volunteer-link:hover {
-		color: #1d4a1f;
+		color: var(--ink);
 		text-decoration: underline;
 	}
 
@@ -319,7 +321,7 @@
 	.form-status {
 		margin: 0;
 		padding: 0.6rem 0.75rem;
-		border-radius: 6px;
+		border-radius: 0;
 		font-family: var(--font-primary);
 		font-size: 0.95rem;
 	}
@@ -367,10 +369,12 @@
 	}
 
 	.form-legend {
-		font-family: var(--font-primary);
+		font-family: var(--display);
+		font-style: italic;
 		font-size: 1.25rem;
-		font-weight: 600;
-		color: var(--color-primary);
+		font-weight: 800;
+		letter-spacing: -0.01em;
+		color: var(--ink);
 		margin: 0 0 0.25rem 0;
 		padding: 0;
 	}
@@ -416,7 +420,7 @@
 		margin-top: 0.35rem;
 		width: 1.1rem;
 		height: 1.1rem;
-		accent-color: var(--color-secondary);
+		accent-color: var(--blue);
 		flex-shrink: 0;
 	}
 
@@ -449,10 +453,10 @@
 		width: 100%;
 		box-sizing: border-box;
 		padding: 0.75rem 0.875rem;
-		border: 1px solid rgba(0, 35, 56, 0.25);
-		border-radius: 6px;
-		background: var(--color-white);
-		color: var(--color-primary);
+		border: 1px solid var(--line-l);
+		border-radius: 0;
+		background: var(--paper);
+		color: var(--ink);
 		transition:
 			border-color 0.2s ease,
 			box-shadow 0.2s ease;
@@ -460,12 +464,12 @@
 
 	.form-input:focus {
 		outline: none;
-		border-color: var(--color-secondary);
-		box-shadow: 0 0 0 2px rgba(35, 89, 38, 0.2);
+		border-color: var(--blue);
+		box-shadow: 0 0 0 2px rgba(46, 95, 160, 0.2);
 	}
 
 	.form-input::placeholder {
-		color: rgba(0, 35, 56, 0.45);
+		color: rgba(15, 37, 69, 0.45);
 	}
 
 	.form-textarea {
@@ -474,31 +478,28 @@
 	}
 
 	.form-submit {
-		font-family: var(--font-primary);
-		font-size: 1.25rem;
-		font-weight: 600;
-		padding: 0.75rem 2rem;
-		border: none;
-		border-radius: 8px;
-		background: var(--color-secondary);
-		color: var(--color-white);
+		font-family: var(--display);
+		font-style: italic;
+		font-size: 0.9375rem;
+		font-weight: 800;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		padding: 0.85rem 2rem;
+		border: 2px solid var(--ink);
+		border-radius: 0;
+		background: var(--ink);
+		color: var(--paper);
 		cursor: pointer;
 		transition:
 			background 0.2s ease,
-			transform 0.2s ease,
-			box-shadow 0.2s ease;
+			border-color 0.2s ease;
 		align-self: flex-start;
 		margin-top: 0.25rem;
 	}
 
 	.form-submit:hover {
-		background: #1d4a1f;
-		box-shadow: 0 4px 12px rgba(35, 89, 38, 0.3);
-		transform: translateY(-1px);
-	}
-
-	.form-submit:active {
-		transform: translateY(0);
+		background: var(--ink-2);
+		border-color: var(--ink-2);
 	}
 
 	@media (max-width: 768px) {

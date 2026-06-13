@@ -73,22 +73,23 @@
 	}
 
 	.contact-simple-title {
-		font-family: var(--font-primary);
+		font-family: var(--display);
+		font-style: italic;
 		font-size: clamp(1.875rem, 4vw, 2.75rem);
-		font-weight: 700;
-		color: var(--color-primary);
+		font-weight: 900;
+		letter-spacing: -0.03em;
+		color: var(--ink);
 		margin: 0 0 1rem;
-		line-height: 1.2;
+		line-height: 1.05;
 		max-width: 100%;
 	}
 
 	.contact-simple-intro {
-		font-family: var(--font-primary);
+		font-family: var(--serif);
 		font-size: 1.125rem;
-		line-height: 1.65;
-		color: var(--color-primary);
+		line-height: 1.6;
+		color: var(--ink-2);
 		margin: 0 0 2rem;
-		opacity: 0.92;
 		max-width: 100%;
 	}
 
@@ -113,12 +114,13 @@
 	}
 
 	.contact-simple-term {
-		font-family: var(--font-primary);
-		font-size: 0.9375rem;
+		font-family: var(--mono);
+		font-size: 0.8125rem;
 		font-weight: 600;
-		color: var(--color-primary);
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--ink-2);
 		margin: 0;
-		opacity: 0.85;
 	}
 
 	.contact-simple-def {
@@ -130,14 +132,14 @@
 		font-family: var(--font-primary);
 		font-size: 1.125rem;
 		font-weight: 600;
-		color: var(--color-secondary);
+		color: var(--blue);
 		text-decoration: none;
 		overflow-wrap: anywhere;
 		word-break: break-word;
 	}
 
 	.contact-simple-link:hover {
-		color: #1d4a1f;
+		color: var(--ink);
 		text-decoration: underline;
 	}
 
