@@ -143,7 +143,7 @@
   }
 
   .nav-logo-img {
-    height: 72px;
+    height: 88px;
     width: auto;
     display: block;
   }
@@ -199,7 +199,7 @@
     border-radius: 0;
     background: var(--green);
     color: var(--paper);
-    padding: 0.5rem 1rem;
+    padding: 0.7rem 1.85rem;
   }
 
   .nav-link.nav-link-donate::after {
