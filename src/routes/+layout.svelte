@@ -53,7 +53,6 @@
 		/* ── Legacy aliases (migrated per component/page) ──────── */
 		--color-primary: var(--ink);
 		--color-secondary: var(--green);
-		--color-accent: #bbcedd;
 		--color-white: var(--paper);
 		--font-primary: var(--sans);
 

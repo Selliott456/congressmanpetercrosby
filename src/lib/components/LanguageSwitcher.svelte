@@ -18,7 +18,7 @@
 	>
 		<!-- US flag (simplified stripes + canton) -->
 		<svg class="flag flag--us" viewBox="0 0 60 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-			<rect width="60" height="32" fill="#B22234" rx="2" />
+			<rect width="60" height="32" fill="#B22234" />
 			<!-- White stripes (6 bands) -->
 			<rect x="0" y={h} width="60" height={h} fill="#fff" />
 			<rect x="0" y={3 * h} width="60" height={h} fill="#fff" />
@@ -54,7 +54,7 @@
 	>
 		<!-- Spain civil flag — red / yellow / red (Español) -->
 		<svg class="flag flag--es" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-			<rect width="60" height="40" fill="#AA151B" rx="2" />
+			<rect width="60" height="40" fill="#AA151B" />
 			<rect x="0" y="10" width="60" height="20" fill="#F1BF00" />
 		</svg>
 		<span class="lang-abbr">ESP</span>
@@ -78,7 +78,7 @@
 		padding: 0.25rem 0.35rem 0.25rem 0.2rem;
 		background: transparent;
 		border: 2px solid transparent;
-		border-radius: 6px;
+		border-radius: 0;
 		cursor: pointer;
 		transition: border-color 0.2s ease, background 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
 		opacity: 0.55;
@@ -91,8 +91,8 @@
 
 	.lang-btn.active {
 		opacity: 1;
-		border-color: var(--color-accent);
-		box-shadow: 0 0 0 1px rgba(187, 206, 221, 0.5);
+		border-color: var(--sky);
+		box-shadow: 0 0 0 1px rgba(127, 183, 220, 0.5);
 		background: rgba(255, 255, 255, 0.08);
 	}
 
@@ -126,6 +126,6 @@
 	}
 
 	.lang-btn.active .lang-abbr {
-		color: var(--color-accent);
+		color: var(--sky);
 	}
 </style>
