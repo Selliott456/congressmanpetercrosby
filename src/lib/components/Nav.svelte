@@ -355,4 +355,13 @@
       display: none !important;
     }
   }
+
+  /* Phone widths: logo + donate + language switcher + menu button no longer
+     fit on one row, so the inline donate overflows. Hide it here (donate
+     remains reachable via the hero/page CTAs). */
+  @media (max-width: 600px) {
+    .nav-link.nav-link-donate {
+      display: none;
+    }
+  }
 </style>
