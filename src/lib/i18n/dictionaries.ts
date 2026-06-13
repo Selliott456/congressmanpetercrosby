@@ -46,36 +46,58 @@ const en = {
 		heroLead:
 			'Peter Crosby is running to represent this district with integrity, straight answers, and a focus on what matters here—housing, honest government, and strong communities.',
 		donate: 'Donate',
-		pillarsTitle: 'What this campaign stands for',
-		pillarsIntro: 'No slogans—just clear expectations for how your representative should show up.',
-		pillars: [
+		prioritiesEyebrow: 'Priorities',
+		prioritiesTitle: 'Five priorities. No fine print.',
+		prioritiesLede:
+			'Northern Utah families deserve a representative who listens before speaking, answers tough questions, and votes with the district in mind. Here is where Peter stands.',
+		priorities: [
 			{
-				title: 'Rooted here',
-				text: 'Raised a family in Cache Valley. Northern Utah isn’t a stepping stone—it’s home.'
+				title: 'Housing people can afford',
+				summary: 'Young families and seniors are getting priced out of the towns they built.',
+				points: [
+					'Cut the red tape that blocks starter homes and townhomes near where people already work.',
+					'Protect seniors and longtime renters from the worst of the rent spikes.',
+					'Keep growth in step with water, roads, and schools—not ahead of them.'
+				]
 			},
 			{
-				title: 'Accountable government',
-				text: 'Public office should serve people first: clear rules, honest answers, and representatives who earn your trust.'
+				title: 'Costs that match wages',
+				summary: 'Groceries, gas, and insurance climbed faster than paychecks. The job is to close that gap.',
+				points: [
+					'Lower the everyday costs—energy, prescriptions, and child care—that hit family budgets first.',
+					'Back the small businesses and trades that keep good-paying jobs local.',
+					'Hold the line on the spending that fuels inflation.'
+				]
 			},
 			{
-				title: 'Practical focus',
-				text: 'Housing people can afford, healthcare access that works in rural communities, and an economy that rewards work.'
+				title: 'Healthcare that works rurally',
+				summary: 'A clinic an hour away isn’t access. Rural Utah deserves care that’s actually within reach.',
+				points: [
+					'Keep rural hospitals and clinics open and staffed.',
+					'Expand telehealth and mental-health care for small towns.',
+					'Bring down the price of prescriptions for seniors.'
+				]
+			},
+			{
+				title: 'Honest, accountable government',
+				summary: 'Public office is a public trust—clear answers, open books, and showing up.',
+				points: [
+					'Hold regular town halls and answer tough questions in person.',
+					'Put spending and votes on the record where anyone can read them.',
+					'Refuse the gridlock games—work with anyone who’ll deliver for the district.'
+				]
+			},
+			{
+				title: 'Protecting Northern Utah',
+				summary: 'The Great Salt Lake, our air, and safe neighborhoods are worth protecting for the next generation.',
+				points: [
+					'Take the shrinking Great Salt Lake seriously before it’s a crisis.',
+					'Defend the clean air and public lands that define life here.',
+					'Back the officers, firefighters, and neighbors who keep communities safe.'
+				]
 			}
 		],
-		whyTitle: 'Why he’s running',
-		whyProse:
-			'Northern Utah families deserve a representative who listens before speaking, answers tough questions, and votes with the district in mind. Peter is running to bring that standard to Congress—not party talking points, but work that helps neighbors and communities thrive.',
-		whyLink: 'Read where he stands on the issues →',
-		prioritiesTitle: 'Priorities',
-		prioritiesIntro: 'Concrete issues affecting families and communities across the district.',
-		priorities: [
-			{ label: 'Stronger communities' },
-			{ label: 'Affordable living' },
-			{ label: 'Costs that match wages' },
-			{ label: 'Fair rules for everyone' },
-			{ label: 'Safe neighborhoods' },
-			{ label: 'Protecting what we love' }
-		],
+		prioritiesLink: 'Read where he stands on the issues →',
 		communityAria: 'Peter Crosby with family',
 		communityAlt: 'Peter Crosby with his family in Northern Utah',
 		communityQuote: 'Family, service, and community—values that shape this campaign.',
@@ -136,37 +158,58 @@ const es: Messages = {
 		heroLead:
 			'Peter Crosby se postula para representar este distrito con integridad, respuestas claras y un enfoque en lo que importa aquí: vivienda, gobierno honesto y comunidades fuertes.',
 		donate: 'Donar',
-		pillarsTitle: 'En qué se basa esta campaña',
-		pillarsIntro:
-			'Sin eslóganes: expectativas claras de cómo debe comportarse quien le representa.',
-		pillars: [
+		prioritiesEyebrow: 'Prioridades',
+		prioritiesTitle: 'Cinco prioridades. Sin letra pequeña.',
+		prioritiesLede:
+			'Las familias del norte de Utah merecen un representante que escuche antes de hablar, responda preguntas difíciles y vote pensando en el distrito. Aquí está la postura de Peter.',
+		priorities: [
 			{
-				title: 'Arraigo aquí',
-				text: 'Crió a su familia en Cache Valley. El norte de Utah no es un trampolín: es hogar.'
+				title: 'Vivienda al alcance',
+				summary: 'Las familias jóvenes y los mayores están siendo expulsados de los pueblos que construyeron.',
+				points: [
+					'Eliminar la burocracia que frena las casas y townhomes accesibles cerca de donde la gente ya trabaja.',
+					'Proteger a los mayores e inquilinos de siempre de las peores subidas de alquiler.',
+					'Mantener el crecimiento a la par del agua, las carreteras y las escuelas, no por delante.'
+				]
 			},
 			{
-				title: 'Gobierno responsable',
-				text: 'El cargo público debe servir primero a la gente: reglas claras, respuestas honestas y representantes que se ganen su confianza.'
+				title: 'Costos acordes a los sueldos',
+				summary: 'La comida, la gasolina y los seguros subieron más rápido que los sueldos. La tarea es cerrar esa brecha.',
+				points: [
+					'Bajar los costos diarios —energía, medicamentos y cuidado infantil— que golpean primero al presupuesto familiar.',
+					'Apoyar a los pequeños negocios y oficios que mantienen empleos bien pagados aquí.',
+					'Frenar el gasto que alimenta la inflación.'
+				]
 			},
 			{
-				title: 'Enfoque práctico',
-				text: 'Vivienda asequible, acceso a la salud que funcione en comunidades rurales y una economía que recompense el trabajo.'
+				title: 'Salud que funciona en zonas rurales',
+				summary: 'Una clínica a una hora no es acceso. La zona rural de Utah merece atención que esté de verdad a su alcance.',
+				points: [
+					'Mantener abiertos y con personal los hospitales y clínicas rurales.',
+					'Ampliar la telesalud y la atención de salud mental para los pueblos pequeños.',
+					'Reducir el precio de los medicamentos para los mayores.'
+				]
+			},
+			{
+				title: 'Gobierno honesto y responsable',
+				summary: 'El cargo público es una confianza pública: respuestas claras, cuentas abiertas y dar la cara.',
+				points: [
+					'Hacer asambleas comunitarias y responder las preguntas difíciles en persona.',
+					'Poner los gastos y votos en el registro donde cualquiera pueda leerlos.',
+					'Rechazar los juegos de bloqueo: trabajar con quien sea que cumpla por el distrito.'
+				]
+			},
+			{
+				title: 'Proteger el norte de Utah',
+				summary: 'El Gran Lago Salado, nuestro aire y los barrios seguros valen la pena protegerlos para la próxima generación.',
+				points: [
+					'Tomar en serio la reducción del Gran Lago Salado antes de que sea una crisis.',
+					'Defender el aire limpio y las tierras públicas que definen la vida aquí.',
+					'Apoyar a los oficiales, bomberos y vecinos que mantienen seguras a las comunidades.'
+				]
 			}
 		],
-		whyTitle: 'Por qué se postula',
-		whyProse:
-			'Las familias del norte de Utah merecen un representante que escuche antes de hablar, responda preguntas difíciles y vote pensando en el distrito. Peter se postula para llevar ese estándar al Congreso: no consignas de partido, sino trabajo que ayude a vecinos y comunidades a prosperar.',
-		whyLink: 'Lea sus posiciones sobre los temas →',
-		prioritiesTitle: 'Prioridades',
-		prioritiesIntro: 'Temas concretos que afectan a familias y comunidades en el distrito.',
-		priorities: [
-			{ label: 'Comunidades más fuertes' },
-			{ label: 'Costo de vida asequible' },
-			{ label: 'Salarios acordes con los costos' },
-			{ label: 'Reglas justas para todos' },
-			{ label: 'Vecindarios seguros' },
-			{ label: 'Proteger lo que amamos' }
-		],
+		prioritiesLink: 'Lea su postura sobre los temas →',
 		communityAria: 'Peter Crosby con su familia',
 		communityAlt: 'Peter Crosby con su familia en el norte de Utah',
 		communityQuote: 'Familia, servicio y comunidad: valores que dan forma a esta campaña.',

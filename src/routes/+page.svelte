@@ -3,23 +3,9 @@
   import SocialIcon from "$lib/components/SocialIcon.svelte";
   import Rail from "$lib/components/Rail.svelte";
   import EndorsementMarquee from "$lib/components/EndorsementMarquee.svelte";
+  import Priorities from "$lib/components/Priorities.svelte";
   import { messages } from "$lib/i18n/locale";
   import { socialLinks } from "$lib/data/socialLinks";
-
-  const prioritySrcs = [
-    "/images/better.svg",
-    "/images/expensive.svg",
-    "/images/inflation.svg",
-    "/images/law.svg",
-    "/images/safe.svg",
-    "/images/save_lake.svg",
-  ];
-
-  $: pillars = $messages.home.pillars;
-  $: priorities = $messages.home.priorities.map((p, i) => ({
-    ...p,
-    src: prioritySrcs[i],
-  }));
 </script>
 
 <svelte:head>
@@ -67,79 +53,8 @@
   <!-- 1b. Endorsements marquee -->
   <EndorsementMarquee />
 
-  <!-- 2. Values / trust pillars -->
-  <section class="home-section home-pillars" aria-labelledby="pillars-heading">
-    <div class="home-wrap">
-      <h2 id="pillars-heading" class="home-section-title">
-        {$messages.home.pillarsTitle}
-      </h2>
-      <p class="home-section-intro">{$messages.home.pillarsIntro}</p>
-      <ul class="home-pillar-grid">
-        {#each pillars as pillar}
-          <li class="home-pillar-card">
-            <h3 class="home-pillar-title">{pillar.title}</h3>
-            <p class="home-pillar-text">{pillar.text}</p>
-          </li>
-        {/each}
-      </ul>
-    </div>
-  </section>
-
-  <!-- 3. Why he’s running -->
-  <section class="home-section home-why" aria-labelledby="why-heading">
-    <div class="home-wrap home-why-grid">
-      <div class="home-why-visual">
-        <img
-          src="/images/meet.svg"
-          alt=""
-          class="home-why-img"
-          role="presentation"
-          loading="lazy"
-          decoding="async"
-        />
-      </div>
-      <div class="home-why-copy">
-        <h2
-          id="why-heading"
-          class="home-section-title home-section-title--left"
-        >
-          {$messages.home.whyTitle}
-        </h2>
-        <p class="home-prose">{$messages.home.whyProse}</p>
-        <a href="/faq" class="home-text-link">{$messages.home.whyLink}</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- 4. Priorities / issues -->
-  <section
-    class="home-section home-priorities"
-    aria-labelledby="priorities-heading"
-  >
-    <div class="home-wrap">
-      <h2 id="priorities-heading" class="home-section-title">
-        {$messages.home.prioritiesTitle}
-      </h2>
-      <p class="home-section-intro">{$messages.home.prioritiesIntro}</p>
-      <ul class="home-priority-grid">
-        {#each priorities as item}
-          <li class="home-priority-item">
-            <div class="home-priority-image-wrap">
-              <img
-                src={item.src}
-                alt=""
-                class="home-priority-img"
-                role="presentation"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <p class="home-priority-label">{item.label}</p>
-          </li>
-        {/each}
-      </ul>
-    </div>
-  </section>
+  <!-- 2. Priorities -->
+  <Priorities />
 
   <!-- 5. Community image -->
   <section class="home-community" aria-label={$messages.home.communityAria}>
@@ -375,10 +290,6 @@
     letter-spacing: -0.035em;
   }
 
-  .home-section-title--left {
-    text-align: left;
-  }
-
   .home-section-intro {
     font-family: var(--serif);
     font-size: 1.125rem;
@@ -387,161 +298,6 @@
     text-align: center;
     max-width: 36rem;
     margin: 0 auto 2.5rem;
-  }
-
-  /* Pillars */
-  .home-pillars {
-    background: linear-gradient(180deg, #f5f8fa 0%, var(--color-white) 100%);
-  }
-
-  .home-pillar-grid {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-
-  .home-pillar-card {
-    background: var(--color-white);
-    border: 1px solid var(--line-l-2);
-    border-radius: 0;
-    border-top: 3px solid var(--sky);
-    padding: 1.75rem 1.5rem;
-  }
-
-  .home-pillar-title {
-    font-family: var(--display);
-    font-style: italic;
-    font-size: 1.125rem;
-    font-weight: 800;
-    letter-spacing: -0.01em;
-    color: var(--ink);
-    margin: 0 0 0.65rem;
-    line-height: 1.25;
-  }
-
-  .home-pillar-text {
-    font-family: var(--font-primary);
-    font-size: 0.9875rem;
-    line-height: 1.65;
-    color: var(--ink-2);
-    margin: 0;
-  }
-
-  /* Why */
-  .home-why {
-    background: var(--color-white);
-  }
-
-  .home-why-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
-    gap: clamp(2rem, 5vw, 4rem);
-    align-items: center;
-  }
-
-  .home-why-visual {
-    display: flex;
-    justify-content: center;
-  }
-
-  .home-why-img {
-    width: min(280px, 100%);
-    height: auto;
-  }
-
-  .home-why-copy .home-section-title {
-    margin-bottom: 1rem;
-  }
-
-  .home-prose {
-    font-family: var(--font-primary);
-    font-size: 1.0625rem;
-    line-height: 1.75;
-    color: var(--ink-2);
-    margin: 0 0 1.25rem;
-    max-width: 38rem;
-  }
-
-  .home-text-link {
-    font-family: var(--font-primary);
-    font-size: 0.9375rem;
-    font-weight: 600;
-    color: var(--blue);
-    text-decoration: none;
-  }
-
-  .home-text-link:hover {
-    text-decoration: underline;
-    text-underline-offset: 3px;
-  }
-
-  /* Priorities */
-  .home-priorities {
-    background: var(--paper-2);
-    background: linear-gradient(
-      135deg,
-      var(--paper-3) 0%,
-      var(--paper-2) 50%,
-      var(--paper) 100%
-    );
-  }
-
-  .home-priority-grid {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.25rem;
-  }
-
-  .home-priority-item {
-    display: flex;
-    flex-direction: column;
-    background: rgba(255, 255, 255, 0.75);
-    backdrop-filter: blur(8px);
-    border-radius: 0;
-    padding: 0;
-    overflow: hidden;
-    border: 1px solid var(--line-l-2);
-    min-height: 0;
-  }
-
-  .home-priority-image-wrap {
-    flex: 1 1 auto;
-    width: 100%;
-    aspect-ratio: 1;
-    min-height: 140px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(255, 255, 255, 0.55);
-  }
-
-  .home-priority-img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    padding: 0.75rem;
-    box-sizing: border-box;
-    display: block;
-  }
-
-  .home-priority-label {
-    font-family: var(--font-primary);
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--ink);
-    line-height: 1.35;
-    text-align: center;
-    margin: 0;
-    padding: 0.875rem 0.75rem 1rem;
-    flex-shrink: 0;
-    border-top: 1px solid var(--line-l-2);
-    background: rgba(255, 255, 255, 0.85);
   }
 
   /* Community */
@@ -686,44 +442,9 @@
     background: rgba(15, 37, 69, 0.08);
   }
 
-  @media (max-width: 900px) {
-    .home-pillar-grid {
-      grid-template-columns: 1fr;
-      max-width: 28rem;
-      margin: 0 auto;
-    }
-
-    .home-priority-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .home-why-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .home-why-copy .home-section-title {
-      text-align: center;
-    }
-
-    .home-why-copy .home-prose,
-    .home-text-link {
-      text-align: left;
-      display: block;
-    }
-
-    .home-why-copy {
-      text-align: center;
-    }
-
-    .home-text-link {
-      margin-top: 0.5rem;
-    }
-  }
-
   @media (max-width: 768px) {
     /* Readable alignment vs layout-wide justified paragraphs */
-    .home-page p,
-    .home-page li {
+    .home-page p {
       text-align: left;
     }
 
@@ -760,25 +481,6 @@
       margin-bottom: 2rem;
     }
 
-    /* Priorities: no blue/accent band on mobile */
-    .home-priorities {
-      background: var(--color-white);
-    }
-
-    .home-priorities .home-section-intro {
-      display: none;
-    }
-
-    .home-priorities .home-section-title {
-      text-align: center;
-      margin-bottom: 1.5rem;
-    }
-
-    /* Override .home-page p left-align for labels under priority images */
-    .home-priorities .home-priority-label {
-      text-align: center;
-    }
-
     /* Family photo: full width, whole image fits on screen */
     .home-community {
       margin-left: calc(-1 * var(--mobile-margin));
@@ -802,12 +504,6 @@
       max-height: min(92vh, 960px);
       object-fit: contain;
       object-position: center center;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .home-priority-grid {
-      grid-template-columns: 1fr;
     }
   }
 </style>
