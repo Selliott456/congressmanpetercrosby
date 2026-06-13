@@ -30,6 +30,11 @@ const en = {
 		english: 'English',
 		spanish: 'Español'
 	},
+	announcement: {
+		ballotsMail: 'Ballots Mail · Oct 13, 2026',
+		electionDay: 'Election Day · Tue, Nov 3',
+		registerToVote: 'Register to Vote'
+	},
 	home: {
 		metaDescription:
 			'Peter Crosby for U.S. Congress, Utah District 2. Integrity, practical solutions, and a representative who puts Northern Utah first.',
@@ -38,7 +43,6 @@ const en = {
 		heroLead:
 			'Peter Crosby is running to represent this district with integrity, straight answers, and a focus on what matters here—housing, honest government, and strong communities.',
 		donate: 'Donate',
-		meetPeter: 'Meet Peter',
 		pillarsTitle: 'What this campaign stands for',
 		pillarsIntro: 'No slogans—just clear expectations for how your representative should show up.',
 		pillars: [
@@ -113,6 +117,11 @@ const es: Messages = {
 		english: 'English',
 		spanish: 'Español'
 	},
+	announcement: {
+		ballotsMail: 'Boletas por correo · 13 oct 2026',
+		electionDay: 'Día de elecciones · mar 3 nov',
+		registerToVote: 'Regístrese para votar'
+	},
 	home: {
 		metaDescription:
 			'Peter Crosby para el Congreso de EE. UU., Distrito 2 de Utah. Integridad, soluciones prácticas y un representante que pone primero al norte de Utah.',
@@ -121,7 +130,6 @@ const es: Messages = {
 		heroLead:
 			'Peter Crosby se postula para representar este distrito con integridad, respuestas claras y un enfoque en lo que importa aquí: vivienda, gobierno honesto y comunidades fuertes.',
 		donate: 'Donar',
-		meetPeter: 'Conocer a Peter',
 		pillarsTitle: 'En qué se basa esta campaña',
 		pillarsIntro:
 			'Sin eslóganes: expectativas claras de cómo debe comportarse quien le representa.',

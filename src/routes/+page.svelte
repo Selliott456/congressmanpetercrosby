@@ -1,6 +1,7 @@
 <script>
   import Button from "$lib/components/Button.svelte";
   import SocialIcon from "$lib/components/SocialIcon.svelte";
+  import Rail from "$lib/components/Rail.svelte";
   import { messages } from "$lib/i18n/locale";
   import { socialLinks } from "$lib/data/socialLinks";
 
@@ -23,42 +24,41 @@
 <svelte:head>
   <title>Peter Crosby for Congress</title>
   <meta name="description" content={$messages.home.metaDescription} />
-  <!-- Hero LCP: background photo + logo before CSS paints -->
-  <link rel="preload" href="/images/trees.jpg" as="image" />
-  <link
-    rel="preload"
-    href="/images/brand_strategy_square_cropped_transparent_bg_blue_002338.svg"
-    as="image"
-    type="image/svg+xml"
-  />
+  <!-- Hero LCP: Peter portrait before CSS paints -->
+  <link rel="preload" href="/images/peter.jpg" as="image" />
 </svelte:head>
 
 <main class="home-page">
   <!-- 1. Hero -->
   <section class="home-hero" aria-label={$messages.home.heroTitle}>
-    <div class="home-hero-bg" />
     <div class="home-hero-inner">
-      <img
-        src="/images/brand_strategy_square_cropped_transparent_bg_blue_002338.svg"
-        alt="Peter Crosby for Congress"
-        class="home-hero-logo"
-        width="280"
-        height="280"
-        fetchpriority="high"
-        loading="eager"
-        decoding="sync"
-      />
-      <p class="home-hero-kicker">{$messages.home.heroKicker}</p>
-      <h1 class="home-hero-title">{$messages.home.heroTitle}</h1>
-      <p class="home-hero-lead">{$messages.home.heroLead}</p>
-      <div class="home-hero-cta">
-        <Button href="https://secure.actblue.com/donate/peter-crosby-1"
-          >{$messages.home.donate}</Button
-        >
-        <a href="/volunteer" class="home-btn-ghost"
-          >{$messages.home.involveVolunteer}</a
-        >
-        <a href="/about" class="home-btn-ghost">{$messages.home.meetPeter}</a>
+      <div class="home-hero-copy">
+        <p class="home-hero-kicker">{$messages.home.heroKicker}</p>
+        <h1 class="home-hero-title">{$messages.home.heroTitle}</h1>
+        <p class="home-hero-lead">{$messages.home.heroLead}</p>
+        <div class="home-hero-cta">
+          <Button href="https://secure.actblue.com/donate/peter-crosby-1"
+            >{$messages.home.donate}</Button
+          >
+          <a href="/volunteer" class="home-btn-ghost"
+            >{$messages.home.involveVolunteer}</a
+          >
+        </div>
+      </div>
+      <div class="home-hero-media">
+        <Rail />
+        <div class="home-hero-portrait-frame">
+          <img
+            src="/images/peter.jpg"
+            alt="Peter Crosby"
+            class="home-hero-portrait"
+            width="1200"
+            height="1800"
+            fetchpriority="high"
+            loading="eager"
+            decoding="sync"
+          />
+        </div>
       </div>
     </div>
   </section>
@@ -237,45 +237,53 @@
     min-height: min(78vh, 720px);
     display: flex;
     align-items: center;
-    justify-content: center;
     padding: 3.25rem 1.5rem 2.75rem;
     overflow: hidden;
-  }
-
-  .home-hero-bg {
-    position: absolute;
-    inset: 0;
-    background-image: url("/images/trees.jpg");
-    background-size: cover;
-    background-position: center;
-  }
-
-  .home-hero-bg::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      180deg,
-      rgba(0, 35, 56, 0.55) 0%,
-      rgba(0, 35, 56, 0.72) 50%,
-      rgba(0, 35, 56, 0.85) 100%
-    );
+    background: var(--ink-deep);
   }
 
   .home-hero-inner {
     position: relative;
     z-index: 1;
-    max-width: 40rem;
-    text-align: center;
-    color: var(--color-white);
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: center;
+    text-align: left;
+    color: var(--paper);
   }
 
-  .home-hero-logo {
-    width: min(200px, 42vw);
-    height: auto;
-    margin: 0 auto 1.25rem;
+  .home-hero-copy {
+    min-width: 0;
+  }
+
+  /* Framed portrait with ridge-line stripe along the top */
+  .home-hero-media {
+    width: 100%;
+    max-width: 420px;
+    justify-self: end;
+  }
+
+  .home-hero-portrait-frame {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4 / 5;
+    border: 1px solid var(--line-d);
+    border-top: none;
+    background: var(--ink-2);
+  }
+
+  .home-hero-portrait {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
     display: block;
-    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.25));
+    transform: scale(1.55);
+    transform-origin: center 26%;
   }
 
   .home-hero-kicker {
@@ -303,18 +311,16 @@
     font-family: var(--serif);
     font-size: clamp(1.0625rem, 2.2vw, 1.25rem);
     line-height: 1.5;
-    margin: 0 0 1.5rem;
+    margin: 0 0 1.75rem;
     opacity: 0.95;
-    max-width: 36rem;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: 32rem;
   }
 
   .home-hero-cta {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
   }
 
@@ -725,6 +731,16 @@
       padding-left: 1.25rem;
       padding-right: 1.25rem;
       box-sizing: border-box;
+    }
+
+    .home-hero-inner {
+      grid-template-columns: 1fr;
+      gap: 2.25rem;
+    }
+
+    .home-hero-media {
+      justify-self: center;
+      max-width: 320px;
     }
 
     .home-wrap {

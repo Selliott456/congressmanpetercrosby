@@ -5,7 +5,7 @@
 	 * underlines section heroes.
 	 */
 	/** Stripe thickness. @type {string} */
-	export let height = '8px';
+	export let height = '5px';
 </script>
 
 <div class="rail" style="--rail-h: {height}" aria-hidden="true">

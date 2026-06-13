@@ -1,5 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
+	import AnnouncementBar from '../lib/components/AnnouncementBar.svelte';
 	import Nav from '../lib/components/Nav.svelte';
 	import Footer from '../lib/components/Footer.svelte';
 	import { initLocaleFromStorage } from '$lib/i18n/locale';
@@ -21,6 +22,7 @@
 	/>
 </svelte:head>
 
+<AnnouncementBar />
 <Nav />
 <div class="layout-main">
 	<slot />

@@ -1,6 +1,5 @@
 <script>
   import { page } from "$app/stores";
-  import LanguageSwitcher from "./LanguageSwitcher.svelte";
   import Rail from "./Rail.svelte";
   import { messages } from "$lib/i18n/locale";
 
@@ -38,14 +37,6 @@
           decoding="sync"
         />
       </a>
-      <a
-        href={donateHref}
-        class="nav-link nav-link-donate"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <span class="nav-link-inner">{$messages.nav.donate}</span>
-      </a>
     </div>
     <ul class="nav-links">
       {#each links as link}
@@ -63,7 +54,14 @@
       {/each}
     </ul>
     <div class="nav-right">
-      <LanguageSwitcher />
+      <a
+        href={donateHref}
+        class="nav-link nav-link-donate"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span class="nav-link-inner">{$messages.nav.donate}</span>
+      </a>
       <button
         class="nav-toggle"
         aria-label={$messages.nav.menuToggle}
@@ -115,9 +113,9 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 0.75rem 1.5rem;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    justify-content: space-between;
     gap: 1rem;
   }
 
@@ -125,14 +123,16 @@
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    flex-shrink: 0;
+    justify-self: start;
+    min-width: 0;
   }
 
   .nav-right {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    flex-shrink: 0;
+    justify-self: end;
+    min-width: 0;
   }
 
   .nav-logo {
@@ -152,7 +152,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    flex: 1;
+    justify-self: center;
     min-width: 0;
     gap: 0.25rem;
     list-style: none;
@@ -323,18 +323,9 @@
   }
 
   @media (max-width: 900px) {
+    /* Hide the centered links; grid collapses to logo (left) + actions (right) */
     .nav-links {
       display: none;
-    }
-
-    .nav-inner {
-      flex-wrap: wrap;
-      row-gap: 0.5rem;
-    }
-
-    .nav-start {
-      flex: 1;
-      min-width: 0;
     }
 
     .nav-toggle {
