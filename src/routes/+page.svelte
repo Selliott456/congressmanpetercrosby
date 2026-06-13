@@ -2,6 +2,7 @@
   import Button from "$lib/components/Button.svelte";
   import SocialIcon from "$lib/components/SocialIcon.svelte";
   import Rail from "$lib/components/Rail.svelte";
+  import EndorsementMarquee from "$lib/components/EndorsementMarquee.svelte";
   import { messages } from "$lib/i18n/locale";
   import { socialLinks } from "$lib/data/socialLinks";
 
@@ -62,6 +63,9 @@
       </div>
     </div>
   </section>
+
+  <!-- 1b. Endorsements marquee -->
+  <EndorsementMarquee />
 
   <!-- 2. Values / trust pillars -->
   <section class="home-section home-pillars" aria-labelledby="pillars-heading">

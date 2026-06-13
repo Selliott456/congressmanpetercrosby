@@ -35,6 +35,9 @@ const en = {
 		electionDay: 'Election Day · Tue, Nov 3',
 		registerToVote: 'Register to Vote'
 	},
+	endorsements: {
+		eyebrow: 'Endorsed By'
+	},
 	home: {
 		metaDescription:
 			'Peter Crosby for U.S. Congress, Utah District 2. Integrity, practical solutions, and a representative who puts Northern Utah first.',
@@ -121,6 +124,9 @@ const es: Messages = {
 		ballotsMail: 'Boletas por correo · 13 oct 2026',
 		electionDay: 'Día de elecciones · mar 3 nov',
 		registerToVote: 'Regístrese para votar'
+	},
+	endorsements: {
+		eyebrow: 'Respaldado por'
 	},
 	home: {
 		metaDescription:

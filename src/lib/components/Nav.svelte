@@ -163,7 +163,7 @@
   .nav-link {
     font-family: var(--display);
     font-style: italic;
-    font-size: 0.75rem;
+    font-size: 0.875rem;
     font-weight: 800;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -293,7 +293,7 @@
   .nav-menu-link {
     font-family: var(--display);
     font-style: italic;
-    font-size: 0.8125rem;
+    font-size: 0.9375rem;
     font-weight: 800;
     letter-spacing: 0.08em;
     text-transform: uppercase;
