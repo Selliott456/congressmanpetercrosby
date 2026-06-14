@@ -11,6 +11,9 @@ export const pagesEs = {
 		metaDescription:
 			'Conozca a Peter Crosby: esposo, padre, líder con experiencia y candidato impulsado por el servicio al norte de Utah.',
 		heroAlt: 'Peter Crosby con su esposa Amanda y sus tres hijas',
+		introTitle: 'Centrado en la familia, enfocado en la comunidad',
+		introLede:
+			'El norte de Utah no es solo un punto en el mapa para mí. Es mi hogar, mi vecindario y mi comunidad. No soy un político de carrera, y no entré en esta contienda para jugar los juegos partidistas de Washington. Me postulo al Congreso porque nuestros vecindarios merecen un liderazgo firme y de sentido común, enfocado en las verdaderas presiones económicas que golpean la mesa de cada familia. Desde bajar el creciente costo de vida hasta proteger los empleos locales que sostienen a nuestras comunidades, mi compromiso es ofrecer una administración honesta y verdadera responsabilidad.',
 		sections: [
 			{
 				title: 'Impulsado por el servicio',
