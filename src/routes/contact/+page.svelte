@@ -43,23 +43,6 @@
 		align-items: center;
 	}
 
-	.contact-simple-page::before {
-		content: '';
-		position: fixed;
-		top: -50%;
-		left: -50%;
-		width: 200%;
-		height: 200%;
-		background-image: url('/images/brand_strategy_square_cropped_transparent_bg_blue_002338.svg');
-		background-size: 200px 200px;
-		background-repeat: repeat;
-		opacity: 0.1;
-		pointer-events: none;
-		z-index: 0;
-		transform: rotate(45deg);
-		transform-origin: center center;
-	}
-
 	.contact-simple-inner {
 		position: relative;
 		z-index: 1;
