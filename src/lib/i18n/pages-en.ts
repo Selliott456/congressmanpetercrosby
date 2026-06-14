@@ -152,10 +152,12 @@ export const pagesEn = {
 		kindVideo: 'Video',
 		kindArticle: 'Op-Ed',
 		closeVideo: 'Close video',
+		pinnedEyebrow: 'Featured',
+		pinnedTitle: 'Featured media',
 		metaTitle: 'Media — Peter Crosby for Congress',
 		metaDescription:
 			'Videos, op-eds, and interviews from the Peter Crosby for Congress campaign.',
-		pageTitle: 'Media',
+		pageTitle: 'All media',
 		pageLede: 'Videos, op-eds, and interviews from across the campaign.',
 		byId: {} as Record<string, { title: string; description: string }>
 	},

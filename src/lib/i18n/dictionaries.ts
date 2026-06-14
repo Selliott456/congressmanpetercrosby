@@ -12,7 +12,7 @@ const en = {
 		about: 'ABOUT',
 		contact: 'CONTACT',
 		events: 'EVENTS',
-		pastInterviews: 'PAST INTERVIEWS',
+		media: 'MEDIA',
 		policies: 'POLICIES',
 		ariaHome: 'Congressman Peter Crosby - Home',
 		menuToggle: 'Toggle menu'
@@ -124,7 +124,7 @@ const es: Messages = {
 		about: 'ACERCA DE',
 		contact: 'CONTACTO',
 		events: 'EVENTOS',
-		pastInterviews: 'ENTREVISTAS',
+		media: 'MEDIOS',
 		policies: 'POLÍTICAS',
 		ariaHome: 'Peter Crosby para el Congreso - Inicio',
 		menuToggle: 'Abrir menú'

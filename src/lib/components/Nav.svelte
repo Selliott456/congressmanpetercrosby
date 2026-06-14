@@ -8,10 +8,10 @@
   $: links = [
     { label: $messages.nav.home, href: "/" },
     { label: $messages.nav.about, href: "/about" },
-    { label: $messages.nav.contact, href: "/contact" },
-    { label: $messages.nav.events, href: "/events" },
-    { label: $messages.nav.pastInterviews, href: "/past-interviews" },
     { label: $messages.nav.policies, href: "/faq" },
+    { label: $messages.nav.media, href: "/media" },
+    { label: $messages.nav.events, href: "/events" },
+    { label: $messages.nav.contact, href: "/contact" },
   ];
 
   let menuOpen = false;

@@ -283,10 +283,12 @@ export const pagesEs = {
 		kindVideo: 'Video',
 		kindArticle: 'Columna',
 		closeVideo: 'Cerrar video',
+		pinnedEyebrow: 'Destacados',
+		pinnedTitle: 'Medios destacados',
 		metaTitle: 'Medios — Peter Crosby para el Congreso',
 		metaDescription:
 			'Videos, columnas y entrevistas de la campaña Peter Crosby para el Congreso.',
-		pageTitle: 'Medios',
+		pageTitle: 'Todo el contenido',
 		pageLede: 'Videos, columnas y entrevistas de toda la campaña.',
 		byId: {
 			'md-001': {

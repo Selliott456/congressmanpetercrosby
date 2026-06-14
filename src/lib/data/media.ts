@@ -1,10 +1,12 @@
 /**
  * Campaign media (English source). Spanish overrides: $messages.media.byId[id].
- * The home page shows the 6 most recent; /media shows the full list.
+ * The home page shows the 6 most recent; /media shows a pinned set + the rest.
  * Placeholder content — replace with the campaign's real videos and op-eds.
  */
 export type MediaItem = {
 	id: string;
+	/** Pin to the top (featured) section of the /media page. */
+	pinned: boolean;
 	type: 'video' | 'article';
 	title: string;
 	description: string;
@@ -21,6 +23,7 @@ export type MediaItem = {
 export const mediaData: MediaItem[] = [
 	{
 		id: 'md-001',
+		pinned: true,
 		type: 'video',
 		title: 'Peter on rural healthcare access',
 		description: 'A short conversation about keeping clinics open and staffed across Cache Valley.',
@@ -31,6 +34,7 @@ export const mediaData: MediaItem[] = [
 	},
 	{
 		id: 'md-002',
+		pinned: false,
 		type: 'article',
 		title: 'Op-Ed: The Great Salt Lake can’t wait',
 		description: 'Why Northern Utah needs a real plan for the lake before the next dry year.',
@@ -40,6 +44,7 @@ export const mediaData: MediaItem[] = [
 	},
 	{
 		id: 'md-003',
+		pinned: false,
 		type: 'video',
 		title: 'Town hall in Logan — full recording',
 		description: 'Peter takes questions on housing, costs, and water from neighbors in Logan.',
@@ -50,6 +55,7 @@ export const mediaData: MediaItem[] = [
 	},
 	{
 		id: 'md-004',
+		pinned: true,
 		type: 'article',
 		title: 'Crosby: Housing is a kitchen-table issue',
 		description: 'Starter homes, not slogans — an op-ed on what working families actually need.',
@@ -59,6 +65,7 @@ export const mediaData: MediaItem[] = [
 	},
 	{
 		id: 'md-005',
+		pinned: false,
 		type: 'video',
 		title: '60 seconds: Why I’m running',
 		description: 'The short version, straight from Peter.',
@@ -69,6 +76,7 @@ export const mediaData: MediaItem[] = [
 	},
 	{
 		id: 'md-006',
+		pinned: false,
 		type: 'article',
 		title: 'Five questions with Peter Crosby',
 		description: 'A wide-ranging interview on accountability, water, and showing up for the district.',
@@ -78,6 +86,7 @@ export const mediaData: MediaItem[] = [
 	},
 	{
 		id: 'md-007',
+		pinned: true,
 		type: 'video',
 		title: 'On the trail: knocking doors in Ogden',
 		description: 'Behind the scenes with volunteers across the district on a Saturday morning.',
@@ -88,6 +97,7 @@ export const mediaData: MediaItem[] = [
 	},
 	{
 		id: 'md-008',
+		pinned: false,
 		type: 'article',
 		title: 'Endorsement: A steady hand for District 2',
 		description: 'Why the editorial board is backing Crosby for Congress.',
@@ -101,3 +111,9 @@ export const mediaData: MediaItem[] = [
 export const mediaByRecent: MediaItem[] = [...mediaData].sort((a, b) =>
 	b.date.localeCompare(a.date)
 );
+
+/** Pinned (featured) media, newest-first. */
+export const pinnedMedia: MediaItem[] = mediaByRecent.filter((m) => m.pinned);
+
+/** Non-pinned media, newest-first. */
+export const restMedia: MediaItem[] = mediaByRecent.filter((m) => !m.pinned);
