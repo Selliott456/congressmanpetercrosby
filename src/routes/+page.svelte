@@ -50,6 +50,22 @@
           />
         </div>
       </div>
+      <div class="home-hero-social">
+        <p class="home-hero-social-label">{$messages.home.followCampaign}</p>
+        <div class="home-hero-social-row" aria-label={$messages.home.socialAria}>
+          {#each socialLinks as link}
+            <a
+              href={link.href}
+              class="home-hero-social-link"
+              aria-label={link.label}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <SocialIcon name={link.icon} size={22} />
+            </a>
+          {/each}
+        </div>
+      </div>
     </div>
   </section>
 
@@ -121,22 +137,6 @@
           >
         </a>
       </div>
-      <div class="home-social-block">
-        <p class="home-social-label">{$messages.home.followCampaign}</p>
-        <div class="home-social" aria-label={$messages.home.socialAria}>
-          {#each socialLinks as link}
-            <a
-              href={link.href}
-              class="home-social-link"
-              aria-label={link.label}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <SocialIcon name={link.icon} size={22} />
-            </a>
-          {/each}
-        </div>
-      </div>
     </div>
   </section>
 
@@ -176,10 +176,53 @@
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1.05fr 0.95fr;
-    gap: clamp(2rem, 5vw, 4.5rem);
+    column-gap: clamp(2rem, 5vw, 4.5rem);
+    row-gap: clamp(1.75rem, 4vw, 2.5rem);
     align-items: center;
     text-align: left;
     color: var(--paper);
+  }
+
+  .home-hero-social {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line-d);
+  }
+
+  .home-hero-social-label {
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--sky);
+    margin: 0 0 0.85rem;
+  }
+
+  .home-hero-social-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem;
+  }
+
+  .home-hero-social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    color: var(--paper);
+    transition:
+      background 0.2s ease,
+      color 0.2s ease;
+  }
+
+  .home-hero-social-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--sky);
   }
 
   .home-hero-copy {
@@ -420,45 +463,6 @@
 
   .home-involve-card--accent .home-involve-desc {
     opacity: 0.95;
-  }
-
-  .home-social-block {
-    text-align: center;
-    padding-top: 0.5rem;
-    border-top: 1px solid rgba(0, 35, 56, 0.08);
-  }
-
-  .home-social-label {
-    font-family: var(--display);
-    font-style: italic;
-    font-size: 0.8125rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    color: var(--blue);
-    margin: 0 0 1rem;
-  }
-
-  .home-social {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.75rem;
-  }
-
-  .home-social-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    color: var(--ink);
-    border-radius: 0;
-    transition: background 0.2s ease;
-  }
-
-  .home-social-link:hover {
-    background: rgba(15, 37, 69, 0.08);
   }
 
   @media (max-width: 768px) {

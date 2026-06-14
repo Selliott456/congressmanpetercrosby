@@ -40,16 +40,6 @@
       &copy; {new Date().getFullYear()}
       {$messages.footer.rights}
     </p>
-    <p class="footer-credit">
-      {$messages.footer.createdBy}
-      {" "}
-      <a
-        href="https://elliottpeck.dev"
-        class="footer-credit-link"
-        target="_blank"
-        rel="noopener noreferrer">{$messages.footer.createdByName}</a
-      >
-    </p>
     <p class="footer-disclaimer">{$messages.footer.paidForBy}</p>
   </div>
 </footer>
@@ -147,27 +137,6 @@
     border-top: 1px solid rgba(0, 35, 56, 0.15);
     width: 100%;
     max-width: 400px;
-  }
-
-  .footer-credit {
-    font-family: var(--font-primary);
-    font-size: 0.8125rem;
-    color: var(--color-primary);
-    opacity: 0.9;
-    margin: 0;
-    padding-top: 0.25rem;
-  }
-
-  .footer-credit-link {
-    color: var(--color-primary);
-    text-decoration: none;
-    font-weight: 600;
-    transition: opacity 0.2s ease;
-  }
-
-  .footer-credit-link:hover {
-    opacity: 0.85;
-    text-decoration: underline;
   }
 
   .footer-disclaimer {

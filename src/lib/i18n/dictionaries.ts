@@ -19,8 +19,6 @@ const en = {
 	},
 	footer: {
 		contactUs: 'Contact Us',
-		createdBy: 'Created by',
-		createdByName: 'Elliott Peck Software',
 		socialAria: 'Social media links',
 		rights: 'Peter Crosby for Congress. All rights reserved.',
 		paidForBy: 'Paid for by Peter Crosby for Congress'
@@ -133,8 +131,6 @@ const es: Messages = {
 	},
 	footer: {
 		contactUs: 'Contáctenos',
-		createdBy: 'Creado por',
-		createdByName: 'Elliott Peck Software',
 		socialAria: 'Enlaces a redes sociales',
 		rights: 'Peter Crosby para el Congreso. Todos los derechos reservados.',
 		paidForBy: 'Paid for by Peter Crosby for Congress'
