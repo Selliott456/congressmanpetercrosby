@@ -207,7 +207,6 @@
 		margin: 0 0 1rem;
 		max-width: 64ch;
 		font-family: var(--serif);
-		font-style: italic;
 		font-size: 1.0625rem;
 		line-height: 1.45;
 		color: var(--ink);
