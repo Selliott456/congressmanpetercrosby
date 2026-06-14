@@ -115,7 +115,8 @@ export const pagesEs = {
 		metaDescription:
 			'Próximos cabildos, encuentros con el candidato y conversaciones en vivo con Peter Crosby en el norte de Utah.',
 		ui: {
-			pageTitle: 'Eventos',
+			eyebrow: 'Eventos',
+			pageTitle: 'Dónde encontrar a Peter',
 			intro: 'Cabildos, encuentros con el candidato y conversaciones en todo el norte de Utah.',
 			calendarAria: 'Calendario',
 			prevMonth: 'Mes anterior',
@@ -125,7 +126,27 @@ export const pagesEs = {
 			noUpcomingEvents:
 				'No hay próximos eventos programados. Vuelva pronto o consulte los eventos anteriores abajo.',
 			allEvents: 'Todos los eventos',
-			pastEvent: 'Evento pasado'
+			pastEvent: 'Evento pasado',
+			upcomingHeading: 'Próximos y recientes',
+			pastHeading: 'Eventos anteriores',
+			viewAllPast: 'Ver eventos anteriores',
+			hidePast: 'Ocultar eventos anteriores',
+			rsvp: 'Confirmar asistencia',
+			rsvped: 'Confirmado',
+			rsvpModalTitle: 'Confirmar asistencia',
+			rsvpFirstName: 'Nombre',
+			rsvpLastName: 'Apellido',
+			rsvpEmail: 'Correo electrónico',
+			rsvpSubmit: 'Enviar confirmación',
+			rsvpSubmitting: 'Enviando…',
+			rsvpSuccessTitle: '¡Está confirmado!',
+			rsvpSuccessBody: 'Le enviamos una confirmación por correo — esperamos verle allí.',
+			rsvpError: 'Algo salió mal. Inténtelo de nuevo.',
+			rsvpClose: 'Cerrar',
+			rsvpDone: 'Listo',
+			addToCalendar: 'Agregar al calendario',
+			calendarGoogle: 'Google',
+			calendarApple: 'Apple / Outlook'
 		},
 		monthNames: [
 			'Enero',
@@ -273,6 +294,15 @@ export const pagesEs = {
 			'ev-030': {
 				title: 'Cabildo virtual',
 				description: 'Cabildo virtual en Facebook. Únase en línea.'
+			},
+			'ev-100': {
+				title: 'Conozca al candidato — Ogden',
+				description:
+					'Venga a conocer a Peter y haga sus preguntas. Confirme su asistencia para planear los asientos.'
+			},
+			'ev-101': {
+				title: 'Cabildo - Condado de Cache',
+				description: 'Cabildo en el condado de Cache. Traiga sus preguntas para Peter.'
 			}
 		} as Record<string, { title: string; description: string }>
 	},

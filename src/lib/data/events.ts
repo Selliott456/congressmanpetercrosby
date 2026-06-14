@@ -13,6 +13,12 @@ export type EventRow = {
 	locationUrl: string | null;
 	description: string;
 	viewEventUrl: string | null;
+	/** Offer the on-site RSVP option for this event (only shown while the event is upcoming). */
+	rsvp?: boolean;
+	/** Start time as 24h "HH:MM" in America/Denver. Drives "Add to Calendar". Omit for an all-day entry. */
+	startTime?: string | null;
+	/** End time as 24h "HH:MM" in America/Denver. Defaults to one hour after start when omitted. */
+	endTime?: string | null;
 };
 
 export const eventsData: EventRow[] = [
@@ -66,7 +72,8 @@ export const eventsData: EventRow[] = [
 		location: 'Logan (RSVP only)',
 		locationUrl: null,
 		description: 'Meet the Candidate in Logan. RSVP only.',
-		viewEventUrl: null
+		viewEventUrl: null,
+		rsvp: true
 	},
 	{
 		id: 'ev-005',
@@ -105,7 +112,8 @@ export const eventsData: EventRow[] = [
 		location: 'Cache Valley (RSVP only)',
 		locationUrl: null,
 		description: 'Open House in Cache Valley. RSVP only.',
-		viewEventUrl: null
+		viewEventUrl: null,
+		rsvp: true
 	},
 	{
 		id: 'ev-008',
@@ -557,5 +565,38 @@ export const eventsData: EventRow[] = [
 		locationUrl: 'https://www.google.com/maps/search/Hogle+Zoo+Salt+Lake+City+UT',
 		description: "2026 Taylor & Mayne Awards Dinner at Utah's Hogle Zoo.",
 		viewEventUrl: 'https://www.google.com/maps/search/Hogle+Zoo+Salt+Lake+City+UT'
+	},
+	// --- Sample upcoming events (placeholder — replace with real campaign events) ---
+	{
+		id: 'ev-100',
+		month: 'Jun',
+		day: '20',
+		year: 2026,
+		monthIndex: 6,
+		title: 'Meet the Candidate — Ogden',
+		time: '6:00 PM – 7:00 PM MT',
+		location: 'Ogden City Library',
+		locationUrl: 'https://www.google.com/maps/search/Ogden+City+Library+Utah',
+		description: 'Come meet Peter and ask your questions. RSVP so we can plan seating.',
+		viewEventUrl: null,
+		rsvp: true,
+		startTime: '18:00',
+		endTime: '19:00'
+	},
+	{
+		id: 'ev-101',
+		month: 'Jul',
+		day: '9',
+		year: 2026,
+		monthIndex: 7,
+		title: 'Town Hall — Cache County',
+		time: '6:30 PM – 7:30 PM MT',
+		location: 'Logan City Library',
+		locationUrl: 'https://www.google.com/maps/search/Logan+City+Library+Utah',
+		description: 'A town hall in Cache County. Bring your questions for Peter.',
+		viewEventUrl: null,
+		rsvp: true,
+		startTime: '18:30',
+		endTime: '19:30'
 	}
 ];

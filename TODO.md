@@ -116,3 +116,96 @@ Need the comms director to give clear direction on:
 
 This feeds [`src/lib/data/media.ts`](src/lib/data/media.ts) (home Media section + `/media`
 archive). Relates to the Instagram item above if we also pull social posts.
+
+---
+
+## Forms & Netlify access — constraints and the hosting question
+
+**Status:** Working today, but management is gated by account access. Plan a path off it.
+
+**How the form works now:** Netlify Forms detects the schema at deploy from
+[`static/netlify-form-detection.html`](static/netlify-form-detection.html) (form named
+`contact`). The volunteer [server action](src/routes/volunteer/+page.server.ts) validates
+input, then POSTs it server-side to that detection path, where Netlify captures it.
+Submissions, notifications, spam settings, exports, and build env vars all live in the
+**Netlify dashboard**.
+
+**Access situation (clarified):**
+- The site is hosted on the **previous website owner's personal Netlify account**. They
+  could no longer maintain the site, but their **spouse is still actively engaged in the
+  campaign** — so there is **no immediate fear of the setup being orphaned**.
+- **The campaign IS receiving form submissions today** — so the earlier "submissions may be
+  invisible" concern does not apply. Delivery is working.
+- What we still can't do without dashboard access: change notification routing, spam
+  settings, exports, or set build env vars / API secrets.
+
+**What this limits in code:**
+- Form **UX/behavior** (fields, validation, layout, success/error states, conditional
+  logic, merging contact + volunteer) — fully in our control, repo/client side.
+- `netlify.toml` (redirects, headers) — in our control (deploys from repo).
+- Form **delivery destination** and notifications — NOT in our control (dashboard-gated).
+- Any server approach needing a **private API key** (e.g. Resend/SendGrid email) — blocked,
+  since build env vars are dashboard-gated.
+
+**If we ever want delivery independent of the Netlify account:** move to a form service that
+accepts a client-side POST with a *public* access key (Formspree, Basin, Web3Forms,
+Formspark, Getform). Campaign owns the inbox/dashboard; no host access or server secrets
+needed. Swap the server action's Netlify POST for the service endpoint and drop the
+detection HTML; keep all existing validation/UX. Not urgent while delivery works — listed
+as the unblock path.
+
+> **CALLOUT — move to campaign-owned hosting.** The campaign should migrate the site to a
+> **campaign-owned hosting/Netlify account** (current owner initiates a Netlify site
+> transfer, or we redeploy fresh on a campaign account). Even though there's no immediate
+> orphaning risk, owning the hosting eliminates all of these access hurdles — submission
+> management, notifications, env vars, spam settings, deploy control — in one move. Decide
+> and schedule this with the campaign manager.
+
+---
+
+## Three form types + forwarding emails needed
+
+**Status:** Volunteer form exists; two more wanted. Awaiting destination emails per form.
+
+The campaign wants **three** distinct forms:
+
+1. **Volunteer** — already exists ([`/volunteer`](src/routes/volunteer/+page.svelte)).
+   Destination is **changing** (see below).
+2. **Media contacts / requests** — new (press inquiries, interview requests).
+3. **General contacts / requests** — new (catch-all questions/messages).
+
+**Needed from the campaign:** the **forwarding/destination email for each of the three
+forms**. Right now **all submissions go to Peter (the candidate)** — the campaign wants
+these routed to the appropriate person/inbox per form instead.
+
+**Notes / dependencies:**
+- Routing per form depends on the delivery setup. With the **current Netlify Forms** flow,
+  per-form notification routing is **dashboard-gated** (we don't have access). With a
+  **campaign-owned form service** (see the Netlify/forms item above), each form can have its
+  own destination set in an account the campaign controls — so this is another reason the
+  delivery-migration path matters.
+- Each new form needs: UI page + validation/UX (in our control), a Netlify detection entry
+  or service form id, and en+es copy. Likely a shared form component to avoid duplicating
+  the volunteer form's markup three times.
+
+---
+
+## Upgrade Formspree & finish the RSVP round-trip on a Pro account
+
+**Status:** RSVP → Formspree is built and working on the **free** Formspree account
+(endpoint `https://formspree.io/f/xnjylwar`). Form lives on the Events page
+([`RsvpModal.svelte`](src/lib/components/RsvpModal.svelte) → `EventCard` → events page).
+
+**To do once the campaign buys the Professional tier:**
+1. **Upgrade the Formspree account to Professional** (free tier caps at ~50
+   submissions/month — too low for live RSVP volume).
+2. **Confirm the form** in Formspree (first real submission triggers an owner-verification
+   email) so submissions stop being held.
+3. **Enable the autoresponse / confirmation email** to the submitter (the success message
+   already promises "We emailed a confirmation to you" — the `email` field is sent as
+   reply-to, so this just needs turning on in the form settings).
+4. **Complete a real end-to-end round-trip test:** submit an RSVP, confirm the campaign
+   receives the submission AND the submitter receives the confirmation email, with the
+   event name/date showing correctly (sent as `event`, `eventDate`, `_subject`).
+5. Consider per-form routing once the other forms (Volunteer, Media, General — see the
+   "Three form types" item) move to Formspree too.

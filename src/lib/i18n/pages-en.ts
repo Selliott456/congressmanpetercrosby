@@ -115,7 +115,8 @@ export const pagesEn = {
 		metaDescription:
 			'Upcoming town halls, meet the candidate events, and live conversations with Peter Crosby in Northern Utah.',
 		ui: {
-			pageTitle: 'Events',
+			eyebrow: 'Events',
+			pageTitle: 'Where to find Peter',
 			intro: 'Town halls, meet the candidate events, and live conversations across Northern Utah.',
 			calendarAria: 'Calendar',
 			prevMonth: 'Previous month',
@@ -124,7 +125,27 @@ export const pagesEn = {
 			nextEvent: 'Next event',
 			noUpcomingEvents: 'No upcoming events scheduled. Check back soon or browse past events below.',
 			allEvents: 'All events',
-			pastEvent: 'Past event'
+			pastEvent: 'Past event',
+			upcomingHeading: 'Upcoming & recent',
+			pastHeading: 'Past events',
+			viewAllPast: 'View all past events',
+			hidePast: 'Hide past events',
+			rsvp: 'RSVP',
+			rsvped: "RSVP'd",
+			rsvpModalTitle: 'RSVP',
+			rsvpFirstName: 'First name',
+			rsvpLastName: 'Last name',
+			rsvpEmail: 'Email',
+			rsvpSubmit: 'Send RSVP',
+			rsvpSubmitting: 'Sending…',
+			rsvpSuccessTitle: "You're on the list!",
+			rsvpSuccessBody: 'We emailed a confirmation to you — we look forward to seeing you there.',
+			rsvpError: 'Something went wrong. Please try again.',
+			rsvpClose: 'Close',
+			rsvpDone: 'Done',
+			addToCalendar: 'Add to calendar',
+			calendarGoogle: 'Google',
+			calendarApple: 'Apple / Outlook'
 		},
 		monthNames: [
 			'January',
