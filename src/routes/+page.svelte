@@ -62,6 +62,7 @@
 
   <!-- 5. Community image -->
   <section class="home-community" aria-label={$messages.home.communityAria}>
+    <Rail />
     <div class="home-community-img-wrap">
       <img
         src="/images/family_peter.png"
@@ -321,6 +322,20 @@
     object-fit: cover;
     object-position: center 25%;
     display: block;
+  }
+
+  /* As the frame widens, cover crops more off the top — bias the focal
+     point upward so heads stay in frame on wide/widescreen viewports. */
+  @media (min-width: 1150px) {
+    .home-community-img {
+      object-position: center 12%;
+    }
+  }
+
+  @media (min-width: 1600px) {
+    .home-community-img {
+      object-position: center top;
+    }
   }
 
   .home-community-caption {
