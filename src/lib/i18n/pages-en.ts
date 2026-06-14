@@ -145,6 +145,17 @@ export const pagesEn = {
 		monthAbbrev: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
 		byId: {} as Record<string, { title: string; description: string }>
 	},
+	endorsementsPage: {
+		metaTitle: 'Endorsements — Peter Crosby for Congress',
+		metaDescription:
+			'Community leaders, neighbors, and local voices backing Peter Crosby for Congress in Northern Utah.',
+		eyebrow: 'Endorsements',
+		pageTitle: 'Who’s standing with Peter',
+		lede: 'Mayors, neighbors, and local leaders from across Northern Utah are backing this campaign.',
+		peopleHeading: 'People',
+		orgHeading: 'Businesses & organizations',
+		byId: {} as Record<string, { role: string }>
+	},
 	media: {
 		eyebrow: 'Media',
 		title: 'Latest from the campaign',

@@ -276,6 +276,25 @@ export const pagesEs = {
 			}
 		} as Record<string, { title: string; description: string }>
 	},
+	endorsementsPage: {
+		metaTitle: 'Respaldos — Peter Crosby para el Congreso',
+		metaDescription:
+			'Líderes comunitarios, vecinos y voces locales que respaldan a Peter Crosby para el Congreso en el norte de Utah.',
+		eyebrow: 'Respaldos',
+		pageTitle: 'Quiénes apoyan a Peter',
+		lede: 'Alcaldes, vecinos y líderes locales de todo el norte de Utah respaldan esta campaña.',
+		peopleHeading: 'Personas',
+		orgHeading: 'Negocios y organizaciones',
+		byId: {
+			'en-001': { role: 'Alcaldesa, Kaysville' },
+			'en-002': { role: 'Comisionado del Condado de Cache' },
+			'en-003': { role: 'Pediatra, Logan' },
+			'en-004': { role: 'Dueña de pequeño negocio, Ogden' },
+			'en-101': { role: 'Local 405' },
+			'en-102': { role: 'Asociación de docentes' },
+			'en-103': { role: 'Coalición de pequeños negocios' }
+		} as Record<string, { role: string }>
+	},
 	media: {
 		eyebrow: 'Medios',
 		title: 'Lo más reciente de la campaña',

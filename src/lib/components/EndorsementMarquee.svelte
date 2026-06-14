@@ -1,16 +1,37 @@
 <script>
+	import { onMount } from 'svelte';
 	import { messages } from '$lib/i18n/locale';
+	import { endorsements as endorsementData } from '$lib/data/endorsements';
 
-	// Placeholder endorsements for testing — swap for real names/orgs later.
-	const endorsements = [
-		'Utah Education Association',
-		'Sen. Maria Delgado',
-		'Cache Valley Labor Council',
-		'Mayor Tom Whitfield · Logan',
-		'Northern Utah Farmers Coalition',
-		'Rep. James Okafor',
-		'Ogden Firefighters Local 514'
-	];
+	/** Fisher–Yates shuffle (returns a new array, leaves the source untouched). */
+	/**
+	 * @template T
+	 * @param {T[]} arr
+	 * @returns {T[]}
+	 */
+	function shuffle(arr) {
+		const out = [...arr];
+		for (let i = out.length - 1; i > 0; i--) {
+			const j = Math.floor(Math.random() * (i + 1));
+			[out[i], out[j]] = [out[j], out[i]];
+		}
+		return out;
+	}
+
+	// SSR renders in data order; we randomize on mount so the server and client
+	// markup match on first paint (no hydration mismatch), then reshuffle per visit.
+	/** @type {import('$lib/data/endorsements').Endorsement[]} */
+	let ordered = endorsementData;
+
+	onMount(() => {
+		ordered = shuffle(endorsementData);
+	});
+
+	// Label = name, plus the (localized) role when one exists.
+	$: endorsements = ordered.map((e) => {
+		const role = $messages.endorsementsPage.byId[e.id]?.role ?? e.role;
+		return role ? `${e.name} · ${role}` : e.name;
+	});
 </script>
 
 <section class="endorse" aria-label={$messages.endorsements.eyebrow}>
