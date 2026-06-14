@@ -13,7 +13,7 @@
   <title>Peter Crosby for Congress</title>
   <meta name="description" content={$messages.home.metaDescription} />
   <!-- Hero LCP: Peter portrait before CSS paints -->
-  <link rel="preload" href="/images/peter.jpg" as="image" />
+  <link rel="preload" href="/images/peter_headshot_1.jpg" as="image" />
 </svelte:head>
 
 <main class="home-page">
@@ -39,11 +39,11 @@
         <Rail />
         <div class="home-hero-portrait-frame">
           <img
-            src="/images/peter.jpg"
+            src="/images/peter_headshot_1.jpg"
             alt="Peter Crosby"
             class="home-hero-portrait"
             width="1200"
-            height="1800"
+            height="960"
             fetchpriority="high"
             loading="eager"
             decoding="sync"
@@ -206,10 +206,8 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center top;
+    object-position: center;
     display: block;
-    transform: scale(1.55);
-    transform-origin: center 26%;
   }
 
   .home-hero-kicker {
