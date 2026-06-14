@@ -273,6 +273,58 @@ export const pagesEs = {
 			}
 		} as Record<string, { title: string; description: string }>
 	},
+	media: {
+		eyebrow: 'Medios',
+		title: 'Lo más reciente de la campaña',
+		viewAll: 'Ver todo',
+		kindVideo: 'Video',
+		kindArticle: 'Columna',
+		closeVideo: 'Cerrar video',
+		metaTitle: 'Medios — Peter Crosby para el Congreso',
+		metaDescription:
+			'Videos, columnas y entrevistas de la campaña Peter Crosby para el Congreso.',
+		pageTitle: 'Medios',
+		pageLede: 'Videos, columnas y entrevistas de toda la campaña.',
+		byId: {
+			'md-001': {
+				title: 'Peter sobre el acceso a la salud rural',
+				description:
+					'Una breve conversación sobre mantener abiertas y con personal las clínicas de Cache Valley.'
+			},
+			'md-002': {
+				title: 'Columna: El Gran Lago Salado no puede esperar',
+				description:
+					'Por qué el norte de Utah necesita un plan real para el lago antes del próximo año seco.'
+			},
+			'md-003': {
+				title: 'Cabildo en Logan — grabación completa',
+				description:
+					'Peter responde preguntas sobre vivienda, costos y agua de los vecinos de Logan.'
+			},
+			'md-004': {
+				title: 'Crosby: La vivienda es un tema de mesa familiar',
+				description:
+					'Casas accesibles, no eslóganes: una columna sobre lo que las familias de verdad necesitan.'
+			},
+			'md-005': {
+				title: '60 segundos: Por qué me postulo',
+				description: 'La versión corta, directamente de Peter.'
+			},
+			'md-006': {
+				title: 'Cinco preguntas con Peter Crosby',
+				description:
+					'Una entrevista amplia sobre responsabilidad, agua y dar la cara por el distrito.'
+			},
+			'md-007': {
+				title: 'En campaña: tocando puertas en Ogden',
+				description: 'Tras bambalinas con los voluntarios del distrito un sábado por la mañana.'
+			},
+			'md-008': {
+				title: 'Respaldo: Una mano firme para el Distrito 2',
+				description: 'Por qué el consejo editorial respalda a Crosby para el Congreso.'
+			}
+		} as Record<string, { title: string; description: string }>
+	},
 	faq: {
 		metaTitle: 'Preguntas frecuentes — Peter Crosby para el Congreso',
 		metaDescription:

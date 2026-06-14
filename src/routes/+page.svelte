@@ -4,6 +4,7 @@
   import Rail from "$lib/components/Rail.svelte";
   import EndorsementMarquee from "$lib/components/EndorsementMarquee.svelte";
   import Priorities from "$lib/components/Priorities.svelte";
+  import Media from "$lib/components/Media.svelte";
   import { messages } from "$lib/i18n/locale";
   import { socialLinks } from "$lib/data/socialLinks";
 </script>
@@ -55,6 +56,9 @@
 
   <!-- 2. Priorities -->
   <Priorities />
+
+  <!-- 3. Media -->
+  <Media />
 
   <!-- 5. Community image -->
   <section class="home-community" aria-label={$messages.home.communityAria}>

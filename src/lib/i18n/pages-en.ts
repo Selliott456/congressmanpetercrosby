@@ -142,6 +142,20 @@ export const pagesEn = {
 		monthAbbrev: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
 		byId: {} as Record<string, { title: string; description: string }>
 	},
+	media: {
+		eyebrow: 'Media',
+		title: 'Latest from the campaign',
+		viewAll: 'View all media',
+		kindVideo: 'Video',
+		kindArticle: 'Op-Ed',
+		closeVideo: 'Close video',
+		metaTitle: 'Media — Peter Crosby for Congress',
+		metaDescription:
+			'Videos, op-eds, and interviews from the Peter Crosby for Congress campaign.',
+		pageTitle: 'Media',
+		pageLede: 'Videos, op-eds, and interviews from across the campaign.',
+		byId: {} as Record<string, { title: string; description: string }>
+	},
 	faq: {
 		metaTitle: 'FAQs — Peter Crosby for Congress',
 		metaDescription:
