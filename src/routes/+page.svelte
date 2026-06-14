@@ -23,7 +23,9 @@
       <div class="home-hero-copy">
         <p class="home-hero-kicker">{$messages.home.heroKicker}</p>
         <h1 class="home-hero-title">{$messages.home.heroTitle}</h1>
-        <p class="home-hero-lead">{$messages.home.heroLead}</p>
+        {#each $messages.home.heroLead as para}
+          <p class="home-hero-lead">{para}</p>
+        {/each}
         <div class="home-hero-cta">
           <Button href="https://secure.actblue.com/donate/peter-crosby-1"
             >{$messages.home.donate}</Button

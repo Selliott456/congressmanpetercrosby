@@ -43,8 +43,10 @@ const en = {
 			'Peter Crosby for U.S. Congress, Utah District 2. Integrity, practical solutions, and a representative who puts Northern Utah first.',
 		heroKicker: 'U.S. Congress · Utah District 2',
 		heroTitle: 'A voice for Northern Utah',
-		heroLead:
-			'Peter Crosby is running to represent this district with integrity, straight answers, and a focus on what matters here—housing, honest government, and strong communities.',
+		heroLead: [
+			'I’m running to put Northern Utah first, not Washington politics. I believe you deserve a representative who answers directly to you, not to a political party.',
+			'Northern Utah is my home; it’s where I was raised, and where we’re raising our family. I’m focused on exactly what matters to our neighborhoods: lowering the cost of living, protecting our local jobs, and bringing honest stewardship back to Congress.'
+		],
 		donate: 'Donate',
 		prioritiesEyebrow: 'Priorities',
 		prioritiesTitle: 'Five priorities. No fine print.',
@@ -155,8 +157,10 @@ const es: Messages = {
 			'Peter Crosby para el Congreso de EE. UU., Distrito 2 de Utah. Integridad, soluciones prácticas y un representante que pone primero al norte de Utah.',
 		heroKicker: 'Congreso de EE. UU. · Distrito 2 de Utah',
 		heroTitle: 'Una voz para el norte de Utah',
-		heroLead:
-			'Peter Crosby se postula para representar este distrito con integridad, respuestas claras y un enfoque en lo que importa aquí: vivienda, gobierno honesto y comunidades fuertes.',
+		heroLead: [
+			'Me postulo para poner al norte de Utah primero, no a la política de Washington. Creo que usted merece un representante que le responda directamente a usted, no a un partido político.',
+			'El norte de Utah es mi hogar; aquí me crié y aquí estamos criando a nuestra familia. Me concentro exactamente en lo que les importa a nuestros vecindarios: bajar el costo de vida, proteger nuestros empleos locales y devolver al Congreso una administración honesta.'
+		],
 		donate: 'Donar',
 		prioritiesEyebrow: 'Prioridades',
 		prioritiesTitle: 'Cinco prioridades. Sin letra pequeña.',
