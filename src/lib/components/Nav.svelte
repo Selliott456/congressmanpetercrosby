@@ -8,7 +8,7 @@
   $: links = [
     { label: $messages.nav.home, href: "/" },
     { label: $messages.nav.about, href: "/about" },
-    { label: $messages.nav.policies, href: "/faq" },
+    { label: $messages.nav.policies, href: "/policies" },
     { label: $messages.nav.media, href: "/media" },
     { label: $messages.nav.events, href: "/events" },
     { label: $messages.nav.contact, href: "/contact" },

@@ -98,8 +98,8 @@
 		.layout-main :global(p),
 		.layout-main :global(.section-body),
 		.layout-main :global(.section-body p),
-		.layout-main :global(.faq-answer),
-		.layout-main :global(.faq-answer p),
+		.layout-main :global(.policies-answer),
+		.layout-main :global(.policies-answer p),
 		.layout-main :global(.event-description),
 		.layout-main :global(.interview-description) {
 			text-align: justify;

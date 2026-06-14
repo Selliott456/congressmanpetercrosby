@@ -88,7 +88,7 @@
 			{/each}
 		</div>
 
-		<a href="/faq" class="pri-link">{$messages.home.prioritiesLink}</a>
+		<a href="/policies" class="pri-link">{$messages.home.prioritiesLink}</a>
 	</div>
 </section>
 

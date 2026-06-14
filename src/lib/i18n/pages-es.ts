@@ -349,11 +349,14 @@ export const pagesEs = {
 			}
 		} as Record<string, { title: string; description: string }>
 	},
-	faq: {
-		metaTitle: 'Preguntas frecuentes — Peter Crosby para el Congreso',
+	policies: {
+		metaTitle: 'La postura de Peter — Peter Crosby para el Congreso',
 		metaDescription:
-			'Preguntas frecuentes sobre las prioridades de Peter Crosby, la economía, la integridad del gobierno y la salud.',
-		pageTitle: 'Preguntas frecuentes',
+			'La postura de Peter Crosby sobre los temas del norte de Utah: la economía, la integridad del gobierno y la salud de nuestras comunidades.',
+		eyebrow: 'Políticas',
+		pageTitle: 'La postura de Peter',
+		lede: 'Respuestas claras sobre los temas que más importan al norte de Utah: la economía, la integridad de nuestro gobierno y la salud de nuestras comunidades.',
+		videoComingSoon: 'Video próximamente',
 		items: [
 			{
 				question: '¿Cuáles son sus principales prioridades de políticas?',

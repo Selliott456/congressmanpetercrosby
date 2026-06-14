@@ -172,11 +172,14 @@ export const pagesEn = {
 		pageLede: 'Videos, op-eds, and interviews from across the campaign.',
 		byId: {} as Record<string, { title: string; description: string }>
 	},
-	faq: {
-		metaTitle: 'FAQs — Peter Crosby for Congress',
+	policies: {
+		metaTitle: 'Where Peter Stands — Peter Crosby for Congress',
 		metaDescription:
-			"Frequently asked questions about Peter Crosby's policy priorities, economic issues, government integrity, and healthcare.",
-		pageTitle: 'FAQs',
+			'Where Peter Crosby stands on the issues facing Northern Utah: the economy, the integrity of our government, and the health of our communities.',
+		eyebrow: 'Policies',
+		pageTitle: 'Where Peter stands',
+		lede: 'Straight answers on the issues that matter most to Northern Utah — the economy, the integrity of our government, and the health of our communities.',
+		videoComingSoon: 'Video coming soon',
 		items: [
 			{
 				question: 'What are your top policy priorities?',
