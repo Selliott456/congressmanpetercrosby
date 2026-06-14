@@ -208,33 +208,12 @@
 
 <style>
 	.volunteer-page {
-		position: relative;
-		background: var(--color-white);
+		background: var(--paper);
 		min-height: 60vh;
 		padding: 3rem 1.5rem 4rem;
-		overflow: hidden;
-	}
-
-	.volunteer-page::before {
-		content: '';
-		position: fixed;
-		top: -50%;
-		left: -50%;
-		width: 200%;
-		height: 200%;
-		background-image: url('/images/brand_strategy_square_cropped_transparent_bg_blue_002338.svg');
-		background-size: 200px 200px;
-		background-repeat: repeat;
-		opacity: 0.1;
-		pointer-events: none;
-		z-index: 0;
-		transform: rotate(45deg);
-		transform-origin: center center;
 	}
 
 	.volunteer-content {
-		position: relative;
-		z-index: 1;
 		max-width: 1000px;
 		margin: 0 auto;
 	}
