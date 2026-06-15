@@ -40,13 +40,31 @@
 		description: $messages.events.byId[e.id]?.description ?? e.description
 	}));
 
-	// Shown by default: upcoming + within the last 7 days, soonest first.
-	$: upcomingAndRecent = events.filter((e) => !isOld(e)).sort((a, b) => eventTime(a) - eventTime(b));
-	// Hidden behind the toggle: older than 7 days, most recent first.
-	$: pastEvents = events.filter((e) => isOld(e)).sort((a, b) => eventTime(b) - eventTime(a));
-	// Soonest upcoming event = the highlighted "next event".
+	// Type filter — 'all' plus the named EventType values. Default shows everything.
+	let activeFilter = 'all';
+
+	$: filterOptions = [
+		{ value: 'all', label: $messages.events.ui.filterAll },
+		{ value: 'town-hall', label: $messages.events.ui.filterTownHall },
+		{ value: 'meet-greet', label: $messages.events.ui.filterMeetGreet },
+		{ value: 'rally', label: $messages.events.ui.filterRally },
+		{ value: 'volunteer', label: $messages.events.ui.filterVolunteer }
+	];
+
+	// Shown by default: upcoming + within the last 7 days, soonest first. (Respects the filter.)
+	$: upcomingAndRecent = events
+		.filter((e) => !isOld(e) && (activeFilter === 'all' || e.type === activeFilter))
+		.sort((a, b) => eventTime(a) - eventTime(b));
+	// Hidden behind the toggle: older than 7 days, most recent first. (Respects the filter.)
+	$: pastEvents = events
+		.filter((e) => isOld(e) && (activeFilter === 'all' || e.type === activeFilter))
+		.sort((a, b) => eventTime(b) - eventTime(a));
+	// Next event highlight: soonest upcoming that is NOT volunteer training, so it stays
+	// voter-facing. Independent of the active filter.
 	$: nextEvent =
-		events.filter((e) => !isPastEvent(e)).sort((a, b) => eventTime(a) - eventTime(b))[0] ?? null;
+		events
+			.filter((e) => !isPastEvent(e) && e.type !== 'volunteer')
+			.sort((a, b) => eventTime(a) - eventTime(b))[0] ?? null;
 
 	let showPast = false;
 
@@ -211,6 +229,20 @@
 	</div>
 
 	<div class="events-list-section">
+		<div class="events-filter" role="group" aria-label={$messages.events.ui.filterLabel}>
+			{#each filterOptions as opt (opt.value)}
+				<button
+					type="button"
+					class="events-filter-btn"
+					class:active={activeFilter === opt.value}
+					aria-pressed={activeFilter === opt.value}
+					on:click={() => (activeFilter = opt.value)}
+				>
+					{opt.label}
+				</button>
+			{/each}
+		</div>
+
 		<h2 class="events-list-heading">{$messages.events.ui.upcomingHeading}</h2>
 		{#if upcomingAndRecent.length}
 			<div class="events-list">
@@ -523,6 +555,42 @@
 		padding: 2.5rem 1.5rem 0;
 	}
 
+	.events-filter {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin-bottom: 1.75rem;
+	}
+
+	.events-filter-btn {
+		font-family: var(--mono);
+		font-size: 0.6875rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		padding: 0.5rem 1rem;
+		border: 1px solid var(--line-l);
+		border-radius: 0;
+		background: transparent;
+		color: var(--ink-2);
+		cursor: pointer;
+		transition:
+			background 0.18s ease,
+			border-color 0.18s ease,
+			color 0.18s ease;
+	}
+
+	.events-filter-btn:hover {
+		border-color: var(--ink);
+		color: var(--ink);
+	}
+
+	.events-filter-btn.active {
+		background: var(--ink);
+		border-color: var(--ink);
+		color: var(--paper);
+	}
+
 	.events-list-heading {
 		font-size: 1.25rem;
 		letter-spacing: -0.01em;
@@ -622,6 +690,10 @@
 
 		.events-list-heading {
 			text-align: center;
+		}
+
+		.events-filter {
+			justify-content: center;
 		}
 	}
 

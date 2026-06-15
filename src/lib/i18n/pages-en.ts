@@ -145,7 +145,13 @@ export const pagesEn = {
 			rsvpDone: 'Done',
 			addToCalendar: 'Add to calendar',
 			calendarGoogle: 'Google',
-			calendarApple: 'Apple / Outlook'
+			calendarApple: 'Apple / Outlook',
+			filterLabel: 'Filter events by type',
+			filterAll: 'All',
+			filterTownHall: 'Town hall',
+			filterRally: 'Rally',
+			filterMeetGreet: 'Meet & greet',
+			filterVolunteer: 'Volunteer training'
 		},
 		monthNames: [
 			'January',

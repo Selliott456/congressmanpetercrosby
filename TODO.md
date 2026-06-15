@@ -209,3 +209,27 @@ these routed to the appropriate person/inbox per form instead.
    event name/date showing correctly (sent as `event`, `eventDate`, `_subject`).
 5. Consider per-form routing once the other forms (Volunteer, Media, General — see the
    "Three form types" item) move to Formspree too.
+
+---
+
+## Finalize the event category list with the campaign
+
+**Status:** Filtering is built and working; the category taxonomy is a first draft.
+
+The events page now filters by `type` ([`EventType`](src/lib/data/events.ts) →
+`'town-hall' | 'rally' | 'meet-greet' | 'volunteer' | 'other'`), with filter chips for
+**All · Town hall · Meet & greet · Rally · Volunteer training** (default All). The
+**Next Event** highlight intentionally skips `volunteer` events to stay voter-facing.
+
+**Needs campaign input — refine and finalize the categories:**
+- The four named types don't cover everything in the real/placeholder data. ~13 events
+  (caucuses, conventions, TikTok/virtual lives, social events like happy hours, potlucks,
+  awards dinners) are currently typed **`other`**, which has **no filter chip** — they show
+  only under "All."
+- Decide the final category set: e.g. add an **"Other"** chip so everything is reachable,
+  and/or add real categories like **Caucus/Convention** and **Virtual / Live**.
+- Confirm the **labels** (and Spanish translations) for each category.
+- Confirm the **Next Event exclusion** rule (currently: skip volunteer training — open to
+  excluding other internal/organizing event types too).
+
+Once finalized: update the `EventType` union, re-tag events, and add chips + en/es labels.

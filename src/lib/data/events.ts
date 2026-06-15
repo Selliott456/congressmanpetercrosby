@@ -1,8 +1,14 @@
 /**
  * Campaign events (English source). Spanish overrides: $messages.events.byId[id]
  */
+
+/** Event category, used by the events-page type filter. 'other' has no filter chip (shows under "All"). */
+export type EventType = 'town-hall' | 'rally' | 'meet-greet' | 'volunteer' | 'other';
+
 export type EventRow = {
 	id: string;
+	/** Category for the events-page type filter. */
+	type: EventType;
 	month: string;
 	day: string;
 	year: number;
@@ -24,6 +30,7 @@ export type EventRow = {
 export const eventsData: EventRow[] = [
 	{
 		id: 'ev-001',
+		type: 'other',
 		month: 'Mar',
 		day: '4',
 		year: 2026,
@@ -37,6 +44,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-002',
+		type: 'volunteer',
 		month: 'Mar',
 		day: '10',
 		year: 2026,
@@ -50,6 +58,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-003',
+		type: 'town-hall',
 		month: 'Mar',
 		day: '12',
 		year: 2026,
@@ -63,6 +72,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-004',
+		type: 'meet-greet',
 		month: 'Mar',
 		day: '14',
 		year: 2026,
@@ -77,6 +87,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-005',
+		type: 'other',
 		month: 'Mar',
 		day: '17',
 		year: 2026,
@@ -90,6 +101,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-006',
+		type: 'volunteer',
 		month: 'Mar',
 		day: '21',
 		year: 2026,
@@ -103,6 +115,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-007',
+		type: 'meet-greet',
 		month: 'Mar',
 		day: '21',
 		year: 2026,
@@ -117,6 +130,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-008',
+		type: 'rally',
 		month: 'Mar',
 		day: '28',
 		year: 2026,
@@ -130,6 +144,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-009',
+		type: 'rally',
 		month: 'Mar',
 		day: '28',
 		year: 2026,
@@ -143,6 +158,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-010',
+		type: 'town-hall',
 		month: 'Feb',
 		day: '2',
 		year: 2026,
@@ -157,6 +173,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-011',
+		type: 'town-hall',
 		month: 'Feb',
 		day: '3',
 		year: 2026,
@@ -170,6 +187,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-012',
+		type: 'town-hall',
 		month: 'Feb',
 		day: '4',
 		year: 2026,
@@ -183,6 +201,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-013',
+		type: 'other',
 		month: 'Jan',
 		day: '20',
 		year: 2026,
@@ -197,6 +216,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-014',
+		type: 'other',
 		month: 'Jan',
 		day: '15',
 		year: 2026,
@@ -211,6 +231,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-015',
+		type: 'town-hall',
 		month: 'Jan',
 		day: '14',
 		year: 2026,
@@ -225,6 +246,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-016',
+		type: 'town-hall',
 		month: 'Jan',
 		day: '13',
 		year: 2026,
@@ -239,6 +261,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-017',
+		type: 'other',
 		month: 'Dec',
 		day: '21',
 		year: 2024,
@@ -253,6 +276,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-018',
+		type: 'meet-greet',
 		month: 'Dec',
 		day: '16',
 		year: 2024,
@@ -266,6 +290,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-019',
+		type: 'meet-greet',
 		month: 'Dec',
 		day: '10',
 		year: 2024,
@@ -280,6 +305,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-020',
+		type: 'meet-greet',
 		month: 'Dec',
 		day: '3',
 		year: 2024,
@@ -294,6 +320,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-021',
+		type: 'meet-greet',
 		month: 'Nov',
 		day: '24',
 		year: 2024,
@@ -308,6 +335,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-029',
+		type: 'town-hall',
 		month: 'Apr',
 		day: '1',
 		year: 2026,
@@ -321,6 +349,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-022',
+		type: 'other',
 		month: 'Apr',
 		day: '2',
 		year: 2026,
@@ -334,6 +363,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-023',
+		type: 'town-hall',
 		month: 'Apr',
 		day: '7',
 		year: 2026,
@@ -347,6 +377,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-024',
+		type: 'town-hall',
 		month: 'Apr',
 		day: '9',
 		year: 2026,
@@ -360,6 +391,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-025',
+		type: 'other',
 		month: 'Apr',
 		day: '11',
 		year: 2026,
@@ -373,6 +405,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-026',
+		type: 'other',
 		month: 'Apr',
 		day: '11',
 		year: 2026,
@@ -386,6 +419,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-030',
+		type: 'town-hall',
 		month: 'Apr',
 		day: '13',
 		year: 2026,
@@ -399,6 +433,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-027',
+		type: 'town-hall',
 		month: 'Apr',
 		day: '22',
 		year: 2026,
@@ -412,6 +447,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-028',
+		type: 'other',
 		month: 'Apr',
 		day: '25',
 		year: 2026,
@@ -425,6 +461,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-031',
+		type: 'volunteer',
 		month: 'May',
 		day: '19',
 		year: 2026,
@@ -438,6 +475,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-032',
+		type: 'town-hall',
 		month: 'May',
 		day: '19',
 		year: 2026,
@@ -451,6 +489,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-033',
+		type: 'other',
 		month: 'May',
 		day: '20',
 		year: 2026,
@@ -464,6 +503,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-034',
+		type: 'rally',
 		month: 'May',
 		day: '23',
 		year: 2026,
@@ -477,6 +517,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-035',
+		type: 'town-hall',
 		month: 'May',
 		day: '26',
 		year: 2026,
@@ -490,6 +531,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-036',
+		type: 'volunteer',
 		month: 'May',
 		day: '27',
 		year: 2026,
@@ -503,6 +545,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-037',
+		type: 'town-hall',
 		month: 'May',
 		day: '27',
 		year: 2026,
@@ -516,6 +559,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-038',
+		type: 'other',
 		month: 'May',
 		day: '28',
 		year: 2026,
@@ -529,6 +573,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-039',
+		type: 'rally',
 		month: 'May',
 		day: '30',
 		year: 2026,
@@ -542,6 +587,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-040',
+		type: 'other',
 		month: 'May',
 		day: '30',
 		year: 2026,
@@ -555,6 +601,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-041',
+		type: 'other',
 		month: 'May',
 		day: '30',
 		year: 2026,
@@ -569,6 +616,7 @@ export const eventsData: EventRow[] = [
 	// --- Sample upcoming events (placeholder — replace with real campaign events) ---
 	{
 		id: 'ev-100',
+		type: 'meet-greet',
 		month: 'Jun',
 		day: '20',
 		year: 2026,
@@ -585,6 +633,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-101',
+		type: 'town-hall',
 		month: 'Jul',
 		day: '9',
 		year: 2026,

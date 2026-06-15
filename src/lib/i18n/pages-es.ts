@@ -146,7 +146,13 @@ export const pagesEs = {
 			rsvpDone: 'Listo',
 			addToCalendar: 'Agregar al calendario',
 			calendarGoogle: 'Google',
-			calendarApple: 'Apple / Outlook'
+			calendarApple: 'Apple / Outlook',
+			filterLabel: 'Filtrar eventos por tipo',
+			filterAll: 'Todos',
+			filterTownHall: 'Cabildo',
+			filterRally: 'Concentración',
+			filterMeetGreet: 'Conocer al candidato',
+			filterVolunteer: 'Capacitación de voluntarios'
 		},
 		monthNames: [
 			'Enero',
