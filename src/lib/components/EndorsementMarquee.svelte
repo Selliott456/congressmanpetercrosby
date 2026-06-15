@@ -56,6 +56,11 @@
 				{/each}
 			</div>
 		</div>
+
+		<a class="endorse-link" href="/endorsements">
+			{$messages.endorsements.viewAll}
+			<span class="endorse-link-arrow" aria-hidden="true">→</span>
+		</a>
 	</div>
 </section>
 
@@ -104,6 +109,33 @@
 		/* Fade the items in/out at the edges */
 		-webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
 		mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+	}
+
+	.endorse-link {
+		align-self: flex-end;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.35rem;
+		font-family: var(--font-primary);
+		font-size: 0.8125rem;
+		font-weight: 600;
+		letter-spacing: 0.02em;
+		color: var(--sky);
+		text-decoration: none;
+		transition:
+			color 0.18s ease,
+			gap 0.18s ease;
+	}
+
+	.endorse-link:hover,
+	.endorse-link:focus-visible {
+		color: var(--paper);
+		gap: 0.6rem;
+	}
+
+	.endorse-link-arrow {
+		font-size: 0.875rem;
+		line-height: 1;
 	}
 
 	.endorse-track {

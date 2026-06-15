@@ -34,7 +34,8 @@ const en = {
 		registerToVote: 'Register to Vote'
 	},
 	endorsements: {
-		eyebrow: 'Endorsed By'
+		eyebrow: 'Endorsed By',
+		viewAll: 'See all endorsements'
 	},
 	home: {
 		metaDescription:
@@ -146,7 +147,8 @@ const es: Messages = {
 		registerToVote: 'Regístrese para votar'
 	},
 	endorsements: {
-		eyebrow: 'Respaldado por'
+		eyebrow: 'Respaldado por',
+		viewAll: 'Ver todos los respaldos'
 	},
 	home: {
 		metaDescription:
