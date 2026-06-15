@@ -44,7 +44,7 @@ const en = {
 		heroTitle: 'A voice for Northern Utah',
 		heroLead: [
 			'I’m running to put Northern Utah first, not Washington politics. I believe you deserve a representative who answers directly to you, not to a political party.',
-			'Northern Utah is my home; it’s where I was raised, and where we’re raising our family. I’m focused on exactly what matters to our neighborhoods: lowering the cost of living, protecting our local jobs, and bringing honest stewardship back to Congress.'
+			'Northern Utah is home. It’s where Amanda and I have put down roots and are raising our family, and where I’ve come to love these communities as my own. I’m running because the people here deserve someone who will show up and fight for them — to lower the cost of living, protect the local jobs that hold our towns together, and bring honest, people-first leadership back to Congress.'
 		],
 		donate: 'Donate',
 		prioritiesEyebrow: 'Priorities',
@@ -157,7 +157,7 @@ const es: Messages = {
 		heroTitle: 'Una voz para el norte de Utah',
 		heroLead: [
 			'Me postulo para poner al norte de Utah primero, no a la política de Washington. Creo que usted merece un representante que le responda directamente a usted, no a un partido político.',
-			'El norte de Utah es mi hogar; aquí me crié y aquí estamos criando a nuestra familia. Me concentro exactamente en lo que les importa a nuestros vecindarios: bajar el costo de vida, proteger nuestros empleos locales y devolver al Congreso una administración honesta.'
+			'El norte de Utah es nuestro hogar. Aquí Amanda y yo hemos echado raíces y criamos a nuestra familia, y aquí he aprendido a querer a estas comunidades como propias. Me postulo porque la gente de aquí merece a alguien que dé la cara y luche por ella: bajar el costo de vida, proteger los empleos locales que sostienen a nuestros pueblos y devolver al Congreso un liderazgo honesto que pone primero a las personas.'
 		],
 		donate: 'Donar',
 		prioritiesEyebrow: 'Prioridades',
