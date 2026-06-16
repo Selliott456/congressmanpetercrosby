@@ -100,7 +100,7 @@
 
 <style>
 	.event-card {
-		background: var(--paper);
+		background: var(--paper-2);
 		border: 1px solid var(--line-l);
 		/* Clear the sticky nav when jumped to from the calendar. */
 		scroll-margin-top: 6rem;
