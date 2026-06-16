@@ -11,6 +11,8 @@
 	export let featured = false;
 	/** Anchor id for calendar → card linking. @type {string | null} */
 	export let anchorId = null;
+	/** Display layout: 'list' (horizontal row) or 'grid' (stacked column). @type {'list' | 'grid'} */
+	export let layout = 'list';
 
 	const dispatch = createEventDispatcher();
 
@@ -32,7 +34,13 @@
 	$: icsName = showCalendar ? icsFilename(event) : 'event.ics';
 </script>
 
-<article id={anchorId ?? undefined} class="event-card" class:featured class:past>
+<article
+	id={anchorId ?? undefined}
+	class="event-card"
+	class:featured
+	class:past
+	class:event-card--grid={layout === 'grid'}
+>
 	{#if featured}
 		<Rail />
 	{/if}
@@ -114,6 +122,50 @@
 
 	.event-card.past {
 		opacity: 0.75;
+	}
+
+	/* Grid view: stack the card vertically so it fits a narrow column,
+	   and let cards stretch to equal height with the RSVP pinned to the bottom. */
+	.event-card--grid {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.event-card--grid .event-inner {
+		flex: 1;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.event-card--grid .event-date {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5rem;
+		padding: 0.4rem 0;
+	}
+
+	.event-card--grid .event-month {
+		display: inline;
+		font-size: 0.875rem;
+	}
+
+	.event-card--grid .event-day {
+		display: inline;
+		font-size: 1.25rem;
+	}
+
+	.event-card--grid .event-body {
+		flex: 1;
+	}
+
+	.event-card--grid .event-rsvp-aside {
+		align-self: stretch;
+	}
+
+	.event-card--grid .event-rsvp {
+		width: 100%;
 	}
 
 	.event-inner {

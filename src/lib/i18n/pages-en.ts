@@ -151,7 +151,10 @@ export const pagesEn = {
 			filterTownHall: 'Town hall',
 			filterRally: 'Rally',
 			filterMeetGreet: 'Meet & greet',
-			filterVolunteer: 'Volunteer training'
+			filterVolunteer: 'Volunteer training',
+			viewLabel: 'View',
+			viewList: 'List view',
+			viewGrid: 'Grid view'
 		},
 		monthNames: [
 			'January',

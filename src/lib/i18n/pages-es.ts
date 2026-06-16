@@ -152,7 +152,10 @@ export const pagesEs = {
 			filterTownHall: 'Cabildo',
 			filterRally: 'Concentración',
 			filterMeetGreet: 'Conocer al candidato',
-			filterVolunteer: 'Capacitación de voluntarios'
+			filterVolunteer: 'Capacitación de voluntarios',
+			viewLabel: 'Vista',
+			viewList: 'Vista de lista',
+			viewGrid: 'Vista de cuadrícula'
 		},
 		monthNames: [
 			'Enero',

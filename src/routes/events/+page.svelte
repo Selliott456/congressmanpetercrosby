@@ -1,5 +1,5 @@
 <script>
-	import { tick } from 'svelte';
+	import { onMount, tick } from 'svelte';
 	import { eventsData } from '$lib/data/events';
 	import { messages } from '$lib/i18n/locale';
 	import EventCard from '$lib/components/EventCard.svelte';
@@ -42,6 +42,27 @@
 
 	// Type filter — 'all' plus the named EventType values. Default shows everything.
 	let activeFilter = 'all';
+
+	// List (default) vs grid layout for the event lists.
+	const VIEW_KEY = 'pcc-events-view';
+	/** @type {'list' | 'grid'} */
+	let view = 'list';
+
+	// Read the saved preference on mount (client-only, so SSR/first paint stays 'list').
+	onMount(() => {
+		const saved = localStorage.getItem(VIEW_KEY);
+		if (saved === 'grid' || saved === 'list') view = saved;
+	});
+
+	/** @param {'list' | 'grid'} next */
+	function setView(next) {
+		view = next;
+		try {
+			localStorage.setItem(VIEW_KEY, next);
+		} catch {
+			/* ignore quota/availability errors */
+		}
+	}
 
 	$: filterOptions = [
 		{ value: 'all', label: $messages.events.ui.filterAll },
@@ -229,26 +250,61 @@
 	</div>
 
 	<div class="events-list-section">
-		<div class="events-filter" role="group" aria-label={$messages.events.ui.filterLabel}>
-			{#each filterOptions as opt (opt.value)}
+		<div class="events-toolbar">
+			<div class="events-filter" role="group" aria-label={$messages.events.ui.filterLabel}>
+				{#each filterOptions as opt (opt.value)}
+					<button
+						type="button"
+						class="events-filter-btn"
+						class:active={activeFilter === opt.value}
+						aria-pressed={activeFilter === opt.value}
+						on:click={() => (activeFilter = opt.value)}
+					>
+						{opt.label}
+					</button>
+				{/each}
+			</div>
+
+			<div class="events-view-toggle" role="group" aria-label={$messages.events.ui.viewLabel}>
 				<button
 					type="button"
-					class="events-filter-btn"
-					class:active={activeFilter === opt.value}
-					aria-pressed={activeFilter === opt.value}
-					on:click={() => (activeFilter = opt.value)}
+					class="events-view-btn"
+					class:active={view === 'list'}
+					aria-pressed={view === 'list'}
+					aria-label={$messages.events.ui.viewList}
+					on:click={() => setView('list')}
 				>
-					{opt.label}
+					<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+						<rect x="1" y="2" width="14" height="2.5" />
+						<rect x="1" y="6.75" width="14" height="2.5" />
+						<rect x="1" y="11.5" width="14" height="2.5" />
+					</svg>
 				</button>
-			{/each}
+				<button
+					type="button"
+					class="events-view-btn"
+					class:active={view === 'grid'}
+					aria-pressed={view === 'grid'}
+					aria-label={$messages.events.ui.viewGrid}
+					on:click={() => setView('grid')}
+				>
+					<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+						<rect x="1" y="1" width="6" height="6" />
+						<rect x="9" y="1" width="6" height="6" />
+						<rect x="1" y="9" width="6" height="6" />
+						<rect x="9" y="9" width="6" height="6" />
+					</svg>
+				</button>
+			</div>
 		</div>
 
 		<h2 class="events-list-heading">{$messages.events.ui.upcomingHeading}</h2>
 		{#if upcomingAndRecent.length}
-			<div class="events-list">
+			<div class="events-list" class:events-list--grid={view === 'grid'}>
 				{#each upcomingAndRecent as event (event.id)}
 					<EventCard
 						{event}
+						layout={view}
 						anchorId={anchorByEventId[event.id] ?? null}
 						on:rsvp={(e) => (rsvpEvent = e.detail)}
 					/>
@@ -276,10 +332,11 @@
 				<h2 class="events-list-heading events-list-heading--past">
 					{$messages.events.ui.pastHeading}
 				</h2>
-				<div class="events-list">
+				<div class="events-list" class:events-list--grid={view === 'grid'}>
 					{#each pastEvents as event (event.id)}
 						<EventCard
 							{event}
+							layout={view}
 							anchorId={anchorByEventId[event.id] ?? null}
 							on:rsvp={(e) => (rsvpEvent = e.detail)}
 						/>
@@ -555,11 +612,58 @@
 		padding: 2.5rem 1.5rem 0;
 	}
 
+	.events-toolbar {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		margin-bottom: 1.75rem;
+	}
+
 	.events-filter {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 0.5rem;
-		margin-bottom: 1.75rem;
+	}
+
+	.events-view-toggle {
+		display: inline-flex;
+		gap: 0.35rem;
+		flex-shrink: 0;
+	}
+
+	.events-view-btn {
+		display: grid;
+		place-items: center;
+		width: 2.25rem;
+		height: 2.25rem;
+		padding: 0;
+		border: 1px solid var(--line-l);
+		border-radius: 0;
+		background: transparent;
+		color: var(--ink-2);
+		cursor: pointer;
+		transition:
+			background 0.18s ease,
+			border-color 0.18s ease,
+			color 0.18s ease;
+	}
+
+	.events-view-btn svg {
+		width: 0.9375rem;
+		height: 0.9375rem;
+	}
+
+	.events-view-btn:hover {
+		border-color: var(--ink);
+		color: var(--ink);
+	}
+
+	.events-view-btn.active {
+		background: var(--ink);
+		border-color: var(--ink);
+		color: var(--paper);
 	}
 
 	.events-filter-btn {
@@ -605,6 +709,26 @@
 		display: flex;
 		flex-direction: column;
 		gap: 1rem;
+	}
+
+	/* Grid view: 3 across at full width, dropping to 2 then 1 on smaller screens. */
+	.events-list--grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1rem;
+		align-items: stretch;
+	}
+
+	@media (max-width: 900px) {
+		.events-list--grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	@media (max-width: 600px) {
+		.events-list--grid {
+			grid-template-columns: 1fr;
+		}
 	}
 
 	.events-empty {
@@ -690,6 +814,10 @@
 
 		.events-list-heading {
 			text-align: center;
+		}
+
+		.events-toolbar {
+			justify-content: center;
 		}
 
 		.events-filter {
