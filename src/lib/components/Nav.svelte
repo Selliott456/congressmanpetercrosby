@@ -54,6 +54,9 @@
       {/each}
     </ul>
     <div class="nav-right">
+      <a href="/volunteer" class="nav-link nav-link-volunteer">
+        <span class="nav-link-inner">{$messages.nav.volunteer}</span>
+      </a>
       <a
         href={donateHref}
         class="nav-link nav-link-donate"
@@ -130,7 +133,7 @@
   .nav-right {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.5rem;
     justify-self: end;
     min-width: 0;
   }
@@ -199,7 +202,8 @@
     border-radius: 0;
     background: var(--green);
     color: var(--paper);
-    padding: 0.7rem 1.85rem;
+    font-size: 0.8125rem;
+    padding: 0.55rem 1.2rem;
   }
 
   .nav-link.nav-link-donate::after {
@@ -238,6 +242,22 @@
     100% {
       transform: translateX(167%);
     }
+  }
+
+  .nav-link.nav-link-volunteer {
+    display: inline-block;
+    background: transparent;
+    color: var(--paper);
+    border: 1px solid rgba(247, 250, 252, 0.4);
+    font-size: 0.8125rem;
+    padding: 0.5rem 1.2rem;
+    border-radius: 0;
+  }
+
+  .nav-link.nav-link-volunteer:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: var(--paper);
+    color: var(--paper);
   }
 
   .nav-toggle {
@@ -325,6 +345,11 @@
   @media (max-width: 900px) {
     /* Hide the centered links; grid collapses to logo (left) + actions (right) */
     .nav-links {
+      display: none;
+    }
+
+    /* Keep the mobile action row uncluttered — volunteer lives in the hero/menu */
+    .nav-link.nav-link-volunteer {
       display: none;
     }
 

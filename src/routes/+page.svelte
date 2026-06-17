@@ -13,7 +13,7 @@
   <title>Peter Crosby for Congress</title>
   <meta name="description" content={$messages.home.metaDescription} />
   <!-- Hero LCP: Peter portrait before CSS paints -->
-  <link rel="preload" href="/images/peter_headshot_1.jpg" as="image" />
+  <link rel="preload" href="/images/peter.jpg" as="image" />
 </svelte:head>
 
 <main class="home-page">
@@ -39,11 +39,11 @@
         <Rail />
         <div class="home-hero-portrait-frame">
           <img
-            src="/images/peter_headshot_1.jpg"
+            src="/images/peter.jpg"
             alt="Peter Crosby"
             class="home-hero-portrait"
             width="1200"
-            height="960"
+            height="1800"
             fetchpriority="high"
             loading="eager"
             decoding="sync"
@@ -249,7 +249,11 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
+    /* peter.jpg is a full standing shot — anchor the top and zoom in so it
+       frames chest-up without cropping the top of his head. */
+    object-position: center top;
+    transform: scale(1.35);
+    transform-origin: center top;
     display: block;
   }
 
@@ -295,6 +299,18 @@
     min-width: 11rem;
   }
 
+  /* Donate CTA: green fill (matching the nav) with white text for legibility on the dark hero. */
+  .home-hero-cta :global(.btn-secondary) {
+    background: var(--green);
+    border-color: var(--green);
+    color: var(--paper);
+  }
+
+  .home-hero-cta :global(.btn-secondary:hover:not(.disabled)) {
+    background: #1d4a1f;
+    border-color: #1d4a1f;
+  }
+
   .home-btn-ghost {
     display: inline-flex;
     align-items: center;
@@ -307,18 +323,21 @@
     font-weight: 800;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--paper);
+    color: var(--ink-deep);
+    background: var(--paper);
     text-decoration: none;
-    border: 2px solid rgba(255, 255, 255, 0.85);
+    border: 2px solid var(--paper);
     border-radius: 0;
     transition:
       background 0.2s ease,
-      border-color 0.2s ease;
+      border-color 0.2s ease,
+      color 0.2s ease;
   }
 
   .home-btn-ghost:hover {
-    background: rgba(255, 255, 255, 0.12);
-    border-color: var(--paper);
+    background: var(--sky);
+    border-color: var(--sky);
+    color: var(--ink-deep);
   }
 
   /* —— Sections —— */
@@ -435,14 +454,14 @@
   }
 
   .home-involve-card--accent {
-    background: var(--ink);
-    border-color: var(--ink);
+    background: var(--green);
+    border-color: var(--green);
     color: var(--paper);
   }
 
   .home-involve-card--accent:hover {
-    background: var(--ink-2);
-    border-color: var(--ink-2);
+    background: #1d4a1f;
+    border-color: #1d4a1f;
     color: var(--paper);
   }
 

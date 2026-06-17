@@ -8,6 +8,7 @@ export type Messages = typeof en;
 const en = {
 	nav: {
 		donate: 'DONATE',
+		volunteer: 'Volunteer',
 		home: 'HOME',
 		about: 'ABOUT',
 		contact: 'CONTACT',
@@ -121,6 +122,7 @@ const en = {
 const es: Messages = {
 	nav: {
 		donate: 'DONAR',
+		volunteer: 'Voluntario',
 		home: 'INICIO',
 		about: 'ACERCA DE',
 		contact: 'CONTACTO',
