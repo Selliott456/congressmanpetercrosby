@@ -324,15 +324,7 @@ export const pagesEs = {
 		lede: 'Alcaldes, vecinos y líderes locales de todo el norte de Utah respaldan esta campaña.',
 		peopleHeading: 'Personas',
 		orgHeading: 'Negocios y organizaciones',
-		byId: {
-			'en-001': { role: 'Alcaldesa, Kaysville' },
-			'en-002': { role: 'Comisionado del Condado de Cache' },
-			'en-003': { role: 'Pediatra, Logan' },
-			'en-004': { role: 'Dueña de pequeño negocio, Ogden' },
-			'en-101': { role: 'Local 405' },
-			'en-102': { role: 'Asociación de docentes' },
-			'en-103': { role: 'Coalición de pequeños negocios' }
-		} as Record<string, { role: string }>
+		byId: {} as Record<string, { role: string }>
 	},
 	media: {
 		eyebrow: 'Medios',

@@ -1,7 +1,10 @@
 /**
  * Endorsements (English source). Spanish role overrides: $messages.endorsementsPage.byId[id].
  * The /endorsements page splits these into People and Organizations sections by `category`.
- * Placeholder content — replace with the campaign's real endorsers, logos, and photos.
+ *
+ * Source: campaign "PC - Endorsements" sheet — confirmed (Received = "Y") endorsements only.
+ * Roles/descriptions were blank for every confirmed row, so these are names only for now;
+ * add `role` (and Spanish overrides) + `photo` as the campaign supplies them.
  */
 export type Endorsement = {
 	id: string;
@@ -11,20 +14,40 @@ export type Endorsement = {
 	name: string;
 	/** Optional title/affiliation shown in muted text, e.g. "Mayor, Kaysville". */
 	role?: string;
-	/** Image path under /images: a portrait (person) or logo (organization). Falls back to initials. */
+	/** Portrait image path under /images. Falls back to initials when omitted. */
 	photo?: string;
 };
 
 export const endorsements: Endorsement[] = [
-	{ id: 'en-001', category: 'person', name: 'Jane Whitfield', role: 'Mayor, Kaysville' },
-	{ id: 'en-002', category: 'person', name: 'Robert Alvarez', role: 'Cache County Commissioner' },
-	{ id: 'en-003', category: 'person', name: 'Dr. Susan Mei', role: 'Pediatrician, Logan' },
-	{ id: 'en-004', category: 'person', name: 'Patricia Nguyen', role: 'Small Business Owner, Ogden' },
-	{ id: 'en-005', category: 'person', name: 'Daniel Okafor' },
-	{ id: 'en-101', category: 'organization', name: 'Cache Valley Labor Council', role: 'Local 405' },
-	{ id: 'en-102', category: 'organization', name: 'Northern Utah Educators', role: 'Teachers’ association' },
-	{ id: 'en-103', category: 'organization', name: 'Ogden Main Street Alliance', role: 'Small business coalition' },
-	{ id: 'en-104', category: 'organization', name: 'Bear River Conservation Fund' }
+	// People
+	{ id: 'rosemary-lesser', category: 'person', name: 'Dr. Rosemary Lesser' },
+	{ id: 'dakota-wurth', category: 'person', name: 'Dakota Wurth' },
+	{ id: 'john-arthur', category: 'person', name: 'John Arthur' },
+	{ id: 'stephanie-pitcher', category: 'person', name: 'Stephanie Pitcher' },
+	{ id: 'abigail-treasure', category: 'person', name: 'Abigail Treasure' },
+	{ id: 'caroline-gleich', category: 'person', name: 'Caroline Gleich' },
+	{ id: 'anna-graff', category: 'person', name: 'Anna Graff' },
+	{ id: 'garret-rushforth', category: 'person', name: 'Garret Rushforth' },
+	{ id: 'kim-james', category: 'person', name: 'Kim James' },
+	{ id: 'bianca-mittendorf', category: 'person', name: 'Bianca Mittendorf' },
+
+	// Businesses & organizations
+	{ id: 'wsu-democrats', category: 'organization', name: 'WSU Democrats' },
+	{ id: 'weber-county-progressives', category: 'organization', name: 'Weber County Progressives' },
+	{ id: 'ogden-50501', category: 'organization', name: 'Ogden 50501' },
+	{
+		id: 'weber-dem-womens-caucus',
+		category: 'organization',
+		name: 'Weber Democratic Women’s Caucus'
+	},
+	{ id: 'utah-dem-black-caucus', category: 'organization', name: 'Utah Democratic Black Caucus' },
+	{ id: 'labor-caucus', category: 'organization', name: 'Labor Caucus' },
+	{ id: 'nalc-branch-68', category: 'organization', name: 'NALC - Branch 68' },
+	{ id: 'nalc-branch-970', category: 'organization', name: 'NALC - Branch 970' },
+	{ id: 'afscme-1004', category: 'organization', name: 'AFSCME - 1004' },
+	{ id: 'utah-veterans-caucus', category: 'organization', name: 'Utah Veterans Caucus' },
+	{ id: 'environmental-caucus', category: 'organization', name: 'Environmental Caucus' },
+	{ id: 'womens-dem-club-utah', category: 'organization', name: 'Women’s Democratic Club of Utah' }
 ];
 
 /** Individual endorsers. */

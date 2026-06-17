@@ -233,3 +233,27 @@ The events page now filters by `type` ([`EventType`](src/lib/data/events.ts) →
   excluding other internal/organizing event types too).
 
 Once finalized: update the `EventType` union, re-tag events, and add chips + en/es labels.
+
+---
+
+## Endorsement roles/titles & photos for the confirmed endorsers
+
+**Status:** 22 confirmed endorsers are live on `/endorsements` + the home marquee, but as
+**names only** — their "Description of Group/Person" cells in the sheet were blank, so no
+roles/affiliations and no photos yet.
+
+**Needed to enrich the cards** (`src/lib/data/endorsements.ts`):
+- **Roles/titles for the individuals** especially — e.g. Dr. Rosemary Lesser (former state
+  representative?), Stephanie Pitcher, John Arthur, Caroline Gleich, etc. These show as the
+  muted line under the name (and want a Spanish translation in `pages-es.ts` byId).
+- **Photos/logos** — portraits for people, logos for organizations (drop optimized files in
+  `static/images/` and set each `photo`). Until then cards show a monogram-initials
+  fallback.
+- Short descriptors for the orgs are optional but nice (e.g. what NALC / AFSCME locals are).
+
+Confirmed endorsers needing this: 10 people (Dr. Rosemary Lesser, Dakota Wurth, John Arthur,
+Stephanie Pitcher, Abigail Treasure, Caroline Gleich, Anna Graff, Garret Rushforth, Kim
+James, Bianca Mittendorf) + 12 orgs (WSU Democrats, Weber County Progressives, Ogden 50501,
+Weber Democratic Women's Caucus, Utah Democratic Black Caucus, Labor Caucus, NALC Branch 68,
+NALC Branch 970, AFSCME 1004, Utah Veterans Caucus, Environmental Caucus, Women's Democratic
+Club of Utah).
