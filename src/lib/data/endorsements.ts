@@ -33,7 +33,7 @@ export const endorsements: Endorsement[] = [
 
 	// Businesses & organizations
 	{ id: 'wsu-democrats', category: 'organization', name: 'WSU Democrats' },
-	{ id: 'weber-county-progressives', category: 'organization', name: 'Weber County Progressives' },
+	{ id: 'weber-county-progressives', category: 'organization', name: 'Weber County Progressive Caucus' },
 	{ id: 'ogden-50501', category: 'organization', name: 'Ogden 50501' },
 	{
 		id: 'weber-dem-womens-caucus',
@@ -45,7 +45,7 @@ export const endorsements: Endorsement[] = [
 	{ id: 'nalc-branch-68', category: 'organization', name: 'NALC - Branch 68' },
 	{ id: 'nalc-branch-970', category: 'organization', name: 'NALC - Branch 970' },
 	{ id: 'afscme-1004', category: 'organization', name: 'AFSCME - 1004' },
-	{ id: 'utah-veterans-caucus', category: 'organization', name: 'Utah Veterans Caucus' },
+	{ id: 'utah-veterans-caucus', category: 'organization', name: 'Utah Veterans Democratic Caucus' },
 	{ id: 'environmental-caucus', category: 'organization', name: 'Environmental Caucus' },
 	{ id: 'womens-dem-club-utah', category: 'organization', name: 'Women’s Democratic Club of Utah' }
 ];
