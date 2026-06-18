@@ -20,16 +20,16 @@ export type Endorsement = {
 
 export const endorsements: Endorsement[] = [
 	// People
-	{ id: 'rosemary-lesser', category: 'person', name: 'Dr. Rosemary Lesser', role:  'Physician, Veteran, Utah House District 10'},
-	{ id: 'dakota-wurth', category: 'person', name: 'Dakota Wurth', role:'Clearfield City Council, State Senate Candidate' },
-	{ id: 'john-arthur', category: 'person', name: 'John Arthur', role: 'Utah House District 41' },
-	{ id: 'stephanie-pitcher', category: 'person', name: 'Stephanie Pitcher', role: 'Utah Senate District 14' },
-	{ id: 'abigail-treasure', category: 'person', name: 'Abigail Treasure', role: 'Candidate - Utah House District 16' },
-	{ id: 'caroline-gleich', category: 'person', name: 'Caroline Gleich', role: 'US Senate Candidate - Utah' },
-	{ id: 'anna-graff', category: 'person', name: 'Anna Graff', role: 'Candidate - Utah House District 12' },
-	{ id: 'garret-rushforth', category: 'person', name: 'Garret Rushforth', role: 'Candidate - Utah Senate District 7' },
-	{ id: 'kim-james', category: 'person', name: 'Kim James', role: 'Candidate - Utah House District 8' },
-	{ id: 'bianca-mittendorf', category: 'person', name: 'Bianca Mittendorf', role: 'Candidate - Utah House District 7' },
+	{ id: 'rosemary-lesser', category: 'person', name: 'Dr. Rosemary Lesser', role: 'Physician, Veteran, Utah House District 10', photo: '/images/endorsements/rosemary_lesser.jpg' },
+	{ id: 'dakota-wurth', category: 'person', name: 'Dakota Wurth', role: 'Clearfield City Council, State Senate Candidate', photo: '/images/endorsements/dakota_wurth.jpg' },
+    { id: 'bianca-mittendorf', category: 'person', name: 'Bianca Mittendorf', role: 'Candidate - Utah House District 7', photo: '/images/endorsements/bianca_mittendorf.jpg' },
+      { id: 'caroline-gleich', category: 'person', name: 'Caroline Gleich', role: 'US Senate Candidate - Utah', photo: '/images/endorsements/caroline_gleich.jpg' },
+	{ id: 'john-arthur', category: 'person', name: 'John Arthur', role: 'Utah House District 41', photo: '/images/endorsements/john_arthur.jpg' },
+	{ id: 'stephanie-pitcher', category: 'person', name: 'Stephanie Pitcher', role: 'Utah Senate District 14', photo: '/images/endorsements/stephanie_pitcher.jpg' },
+	{ id: 'abigail-treasure', category: 'person', name: 'Abigail Treasure', role: 'Candidate - Utah House District 16', photo: '/images/endorsements/abigail_treasure.jpg' },
+	{ id: 'anna-graff', category: 'person', name: 'Anna Graff', role: 'Candidate - Utah House District 12', photo: '/images/endorsements/anna_graff.jpg' },
+	{ id: 'garret-rushforth', category: 'person', name: 'Garret Rushforth', role: 'Candidate - Utah Senate District 7', photo: '/images/endorsements/garret_rushforth.jpg' },
+	{ id: 'kim-james', category: 'person', name: 'Kim James', role: 'Candidate - Utah House District 8', photo: '/images/endorsements/kim_james.jpg' },
 
 	// Businesses & organizations
 	{ id: 'wsu-democrats', category: 'organization', name: 'WSU Democrats' },
