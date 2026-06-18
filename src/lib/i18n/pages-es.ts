@@ -324,7 +324,18 @@ export const pagesEs = {
 		lede: 'Alcaldes, vecinos y líderes locales de todo el norte de Utah respaldan esta campaña.',
 		peopleHeading: 'Personas',
 		orgHeading: 'Negocios y organizaciones',
-		byId: {} as Record<string, { role: string }>
+		byId: {
+			'rosemary-lesser': { role: 'Médica, veterana - Distrito 10 de la Cámara de Utah' },
+			'dakota-wurth': { role: 'Concejo Municipal de Clearfield, candidata al Senado estatal' },
+			'john-arthur': { role: 'Distrito 41 de la Cámara de Utah' },
+			'stephanie-pitcher': { role: 'Distrito 14 del Senado de Utah' },
+			'abigail-treasure': { role: 'Candidata - Distrito 16 de la Cámara de Utah' },
+			'caroline-gleich': { role: 'Candidata al Senado de EE. UU. - Utah' },
+			'anna-graff': { role: 'Candidata - Distrito 12 de la Cámara de Utah' },
+			'garret-rushforth': { role: 'Candidato - Distrito 7 del Senado de Utah' },
+			'kim-james': { role: 'Candidata - Distrito 8 de la Cámara de Utah' },
+			'bianca-mittendorf': { role: 'Candidata - Distrito 7 de la Cámara de Utah' }
+		} as Record<string, { role: string }>
 	},
 	media: {
 		eyebrow: 'Medios',

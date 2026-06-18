@@ -20,16 +20,16 @@ export type Endorsement = {
 
 export const endorsements: Endorsement[] = [
 	// People
-	{ id: 'rosemary-lesser', category: 'person', name: 'Dr. Rosemary Lesser' },
-	{ id: 'dakota-wurth', category: 'person', name: 'Dakota Wurth' },
-	{ id: 'john-arthur', category: 'person', name: 'John Arthur' },
-	{ id: 'stephanie-pitcher', category: 'person', name: 'Stephanie Pitcher' },
-	{ id: 'abigail-treasure', category: 'person', name: 'Abigail Treasure' },
-	{ id: 'caroline-gleich', category: 'person', name: 'Caroline Gleich' },
-	{ id: 'anna-graff', category: 'person', name: 'Anna Graff' },
-	{ id: 'garret-rushforth', category: 'person', name: 'Garret Rushforth' },
-	{ id: 'kim-james', category: 'person', name: 'Kim James' },
-	{ id: 'bianca-mittendorf', category: 'person', name: 'Bianca Mittendorf' },
+	{ id: 'rosemary-lesser', category: 'person', name: 'Dr. Rosemary Lesser', role:  'Physician, Veteran, Utah House District 10'},
+	{ id: 'dakota-wurth', category: 'person', name: 'Dakota Wurth', role:'Clearfield City Council, State Senate Candidate' },
+	{ id: 'john-arthur', category: 'person', name: 'John Arthur', role: 'Utah House District 41' },
+	{ id: 'stephanie-pitcher', category: 'person', name: 'Stephanie Pitcher', role: 'Utah Senate District 14' },
+	{ id: 'abigail-treasure', category: 'person', name: 'Abigail Treasure', role: 'Candidate - Utah House District 16' },
+	{ id: 'caroline-gleich', category: 'person', name: 'Caroline Gleich', role: 'US Senate Candidate - Utah' },
+	{ id: 'anna-graff', category: 'person', name: 'Anna Graff', role: 'Candidate - Utah House District 12' },
+	{ id: 'garret-rushforth', category: 'person', name: 'Garret Rushforth', role: 'Candidate - Utah Senate District 7' },
+	{ id: 'kim-james', category: 'person', name: 'Kim James', role: 'Candidate - Utah House District 8' },
+	{ id: 'bianca-mittendorf', category: 'person', name: 'Bianca Mittendorf', role: 'Candidate - Utah House District 7' },
 
 	// Businesses & organizations
 	{ id: 'wsu-democrats', category: 'organization', name: 'WSU Democrats' },
