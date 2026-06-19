@@ -85,7 +85,10 @@
 			display: flex;
 			flex-direction: column;
 			align-items: stretch;
-			overflow-x: hidden;
+			/* `clip` (not `hidden`) so it still prevents horizontal scroll without
+			   becoming a scroll container — which would break `position: sticky`
+			   descendants (e.g. the Policies "On this page" bar) on mobile. */
+			overflow-x: clip;
 		}
 
 		.layout-main > :global(main),

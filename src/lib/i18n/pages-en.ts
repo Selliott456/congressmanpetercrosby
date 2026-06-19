@@ -240,8 +240,11 @@ export const pagesEn = {
 		pageTitle: 'Where Peter stands',
 		lede: 'Straight answers on the issues that matter most to Northern Utah — the economy, the integrity of our government, and the health of our communities.',
 		videoComingSoon: 'Video coming soon',
+		onThisPage: 'On this page',
 		items: [
 			{
+				id: 'top-priorities',
+				navLabel: 'Top priorities',
 				question: 'What are your top policy priorities?',
 				parts: [
 					{
@@ -263,6 +266,8 @@ export const pagesEn = {
 				]
 			},
 			{
+				id: 'economy',
+				navLabel: 'The economy',
 				question:
 					'What are the economic issues facing northern Utah and what would you do about them?',
 				parts: [
@@ -289,6 +294,8 @@ export const pagesEn = {
 				]
 			},
 			{
+				id: 'government-integrity',
+				navLabel: 'Government integrity',
 				question:
 					'You mention the integrity of our government as an issue raised by people here in Northern Utah. What do you mean by that, and what would you do?',
 				parts: [
@@ -319,6 +326,8 @@ export const pagesEn = {
 				]
 			},
 			{
+				id: 'healthcare',
+				navLabel: 'Healthcare',
 				question:
 					'What is your position on the cuts to the Affordable Care Act (ACA or "Obamacare") and access to healthcare for rural communities?',
 				parts: [

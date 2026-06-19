@@ -429,8 +429,11 @@ export const pagesEs = {
 		pageTitle: 'La postura de Peter',
 		lede: 'Respuestas claras sobre los temas que más importan al norte de Utah: la economía, la integridad de nuestro gobierno y la salud de nuestras comunidades.',
 		videoComingSoon: 'Video próximamente',
+		onThisPage: 'En esta página',
 		items: [
 			{
+				id: 'top-priorities',
+				navLabel: 'Prioridades',
 				question: '¿Cuáles son sus principales prioridades de políticas?',
 				parts: [
 					{
@@ -452,6 +455,8 @@ export const pagesEs = {
 				]
 			},
 			{
+				id: 'economy',
+				navLabel: 'La economía',
 				question: '¿Qué problemas económicos enfrenta el norte de Utah y qué haría al respecto?',
 				parts: [
 					{
@@ -477,6 +482,8 @@ export const pagesEs = {
 				]
 			},
 			{
+				id: 'government-integrity',
+				navLabel: 'Integridad',
 				question:
 					'Menciona la integridad del gobierno. ¿Qué significa y qué haría?',
 				parts: [
@@ -507,6 +514,8 @@ export const pagesEs = {
 				]
 			},
 			{
+				id: 'healthcare',
+				navLabel: 'Salud',
 				question:
 					'¿Cuál es su posición sobre los recortes a la Ley del Cuidado de Salud Asequible (ACA) y el acceso en comunidades rurales?',
 				parts: [
