@@ -1,51 +1,67 @@
 <script>
+	import Rail from '$lib/components/Rail.svelte';
 	import Button from '$lib/components/Button.svelte';
 	import { messages } from '$lib/i18n/locale';
 
-	const EMAIL = 'petercrosbyforcongress@gmail.com';
-	const OFFICE_PHONE = '(801) 633-4297';
-	const defaultMessage = 'I would like to volunteer for the campaign.';
+	const EMAIL = 'information@petercrosbyforcongress.org';
+	const [EMAIL_USER, EMAIL_DOMAIN] = EMAIL.split('@');
+	const PHONE = '(435) 535-1048';
+	const DONATE_URL = 'https://secure.actblue.com/donate/peter-crosby-1';
+	const ENDPOINT = 'https://formspree.io/f/mqeovjzd';
 
-	export let form;
+	/** @type {'idle' | 'submitting' | 'success' | 'error'} */
+	let status = 'idle';
 
-	/** Local ZIP value so typing is not overwritten by reactive updates; synced from server on validation error. */
-	let zipInput = '';
-
-	function emptyHelpChecked() {
-		return {
-			help_canvassing: false,
-			help_phone_banking: false,
-			help_text_banking: false,
-			help_hosting_event: false,
-			help_data_entry: false,
-			help_wherever_needed: false
-		};
-	}
-
-	/** Must use bind:checked so choices survive re-renders and are included in FormData. */
-	/** @type {Record<string, boolean>} */
-	let helpChecked = emptyHelpChecked();
+	/**
+	 * Canvassing is pre-selected; the rest start unchecked.
+	 * @type {Record<string, boolean>}
+	 */
+	let helpChecked = {
+		help_canvassing: true,
+		help_phone_banking: false,
+		help_hosting_event: false,
+		help_data_entry: false,
+		help_wherever_needed: false
+	};
 
 	$: helpFields = [
 		{ name: 'help_canvassing', label: $messages.volunteer.helpCanvassing },
 		{ name: 'help_phone_banking', label: $messages.volunteer.helpPhoneBanking },
-		{ name: 'help_text_banking', label: $messages.volunteer.helpTextBanking },
 		{ name: 'help_hosting_event', label: $messages.volunteer.helpHosting },
 		{ name: 'help_data_entry', label: $messages.volunteer.helpDataEntry },
 		{ name: 'help_wherever_needed', label: $messages.volunteer.helpWherever }
 	];
 
-	$: if (form?.error && form?.values) {
-		zipInput = String(form.values.zip ?? '');
-		const v = /** @type {Record<string, unknown>} */ (form.values);
-		helpChecked = {
-			help_canvassing: !!v.help_canvassing,
-			help_phone_banking: !!v.help_phone_banking,
-			help_text_banking: !!v.help_text_banking,
-			help_hosting_event: !!v.help_hosting_event,
-			help_data_entry: !!v.help_data_entry,
-			help_wherever_needed: !!v.help_wherever_needed
-		};
+	/** Friendly prefilled message; stops syncing once the visitor edits it. */
+	let message = '';
+	let messageTouched = false;
+	$: if (!messageTouched) message = $messages.volunteer.messageDefault;
+
+	/** @param {SubmitEvent} event */
+	async function handleSubmit(event) {
+		event.preventDefault();
+		const form = /** @type {HTMLFormElement} */ (event.currentTarget);
+		status = 'submitting';
+		try {
+			const response = await fetch(ENDPOINT, {
+				method: 'POST',
+				body: new FormData(form),
+				headers: { Accept: 'application/json' }
+			});
+			if (response.ok) {
+				status = 'success';
+				form.reset();
+			} else {
+				status = 'error';
+			}
+		} catch {
+			status = 'error';
+		}
+	}
+
+	function resetForm() {
+		status = 'idle';
+		messageTouched = false;
 	}
 </script>
 
@@ -54,47 +70,48 @@
 	<meta name="description" content={$messages.volunteer.metaDescription} />
 </svelte:head>
 
-<main class="volunteer-page">
-	<div class="volunteer-content">
-		<div class="volunteer-main">
-			<div class="volunteer-copy">
-				<h1 class="volunteer-title">{$messages.volunteer.pageTitle}</h1>
-				<p class="volunteer-intro">{$messages.volunteer.intro}</p>
-				<div class="volunteer-info">
-					<a href={`mailto:${EMAIL}`} class="volunteer-link">{EMAIL}</a>
-					<a href="tel:+18016334297" class="volunteer-link">{OFFICE_PHONE}</a>
+<main class="contact-page">
+	<div class="contact-inner">
+		<aside class="contact-aside">
+			<h1 class="contact-title">{$messages.volunteer.pageTitle}</h1>
+			<Rail height="5px" />
+			<p class="contact-lede">{$messages.volunteer.intro}</p>
+			<dl class="contact-list">
+				<div class="contact-row">
+					<dt class="contact-term">{$messages.volunteer.emailLabel}</dt>
+					<dd class="contact-def">
+						<a href={`mailto:${EMAIL}`} class="contact-link"
+							>{EMAIL_USER}@<wbr />{EMAIL_DOMAIN}</a
+						>
+					</dd>
 				</div>
-				<div class="volunteer-donate">
-					<Button href="https://secure.actblue.com/donate/peter-crosby-1"
-						>{$messages.volunteer.donate}</Button
-					>
+				<div class="contact-row">
+					<dt class="contact-term">{$messages.volunteer.phoneLabel}</dt>
+					<dd class="contact-def">
+						<a href="tel:+14355351048" class="contact-link">{PHONE}</a>
+					</dd>
 				</div>
+			</dl>
+			<div class="contact-cta">
+				<p class="contact-cta-text">{$messages.volunteer.donatePrompt}</p>
+				<Button href={DONATE_URL} variant="secondary">{$messages.volunteer.donate}</Button>
 			</div>
+		</aside>
 
-			<div class="volunteer-form-wrap">
-				<form
-					class="volunteer-form"
-					name="contact"
-					method="POST"
-					action="/volunteer"
-					data-netlify="true"
-				>
-					{#if form?.success}
-						<p class="form-status form-status--success">Thanks! Your message has been sent.</p>
-					{/if}
-					{#if form?.error}
-						<p class="form-status form-status--error">{form.error}</p>
-					{/if}
-					<input type="hidden" name="form-name" value="contact" />
-					<input type="hidden" name="topic" value="volunteer" />
-					<div class="form-honeypot" aria-hidden="true">
-						<label class="form-honeypot-label">
-							Don’t fill this out if you’re human:
-							<input type="text" name="bot-field" tabindex="-1" autocomplete="off" />
-						</label>
-					</div>
-					<fieldset class="form-fieldset">
-						<legend class="form-legend">{$messages.volunteer.formLegendName}</legend>
+		<div class="contact-form-wrap">
+			{#if status === 'success'}
+				<div class="form-success" role="status" aria-live="polite">
+					<p class="form-success-title">{$messages.volunteer.successTitle}</p>
+					<p class="form-success-body">{$messages.volunteer.successBody}</p>
+					<button type="button" class="form-success-again" on:click={resetForm}>
+						{$messages.volunteer.sendAnother}
+					</button>
+				</div>
+			{:else}
+				<form class="contact-form" on:submit={handleSubmit}>
+					<input type="hidden" name="_subject" value="Volunteer signup (website)" />
+
+					<div class="form-grid">
 						<div class="form-row">
 							<label class="form-label" for="first-name">{$messages.volunteer.firstName}</label>
 							<input
@@ -102,7 +119,6 @@
 								name="firstName"
 								class="form-input"
 								type="text"
-								value={form?.values?.firstName ?? ''}
 								required
 								autocomplete="given-name"
 							/>
@@ -114,40 +130,38 @@
 								name="lastName"
 								class="form-input"
 								type="text"
-								value={form?.values?.lastName ?? ''}
 								required
 								autocomplete="family-name"
 							/>
 						</div>
-					</fieldset>
-
-					<div class="form-row">
-						<label class="form-label" for="email">{$messages.volunteer.email}</label>
-						<input
-							id="email"
-							name="email"
-							class="form-input"
-							type="email"
-							value={form?.values?.email ?? ''}
-							required
-							autocomplete="email"
-						/>
 					</div>
 
-					<div class="form-row">
-						<label class="form-label" for="phone">{$messages.volunteer.phone}</label>
-						<input
-							id="phone"
-							name="phone"
-							class="form-input"
-							type="tel"
-							value={form?.values?.phone ?? ''}
-							required
-							autocomplete="tel"
-							inputmode="tel"
-							aria-describedby="phone-hint"
-						/>
-						<p class="form-hint" id="phone-hint">{$messages.volunteer.phoneHint}</p>
+					<div class="form-grid">
+						<div class="form-row">
+							<label class="form-label" for="phone">{$messages.volunteer.phone}</label>
+							<input
+								id="phone"
+								name="phone"
+								class="form-input"
+								type="tel"
+								required
+								autocomplete="tel"
+								inputmode="tel"
+								aria-describedby="phone-hint"
+							/>
+							<p class="form-hint" id="phone-hint">{$messages.volunteer.phoneHint}</p>
+						</div>
+						<div class="form-row">
+							<label class="form-label" for="email">{$messages.volunteer.email}</label>
+							<input
+								id="email"
+								name="email"
+								class="form-input"
+								type="email"
+								required
+								autocomplete="email"
+							/>
+						</div>
 					</div>
 
 					<div class="form-row">
@@ -160,7 +174,6 @@
 							name="zip"
 							class="form-input"
 							type="text"
-							bind:value={zipInput}
 							autocomplete="postal-code"
 							inputmode="text"
 							aria-describedby="zip-hint"
@@ -168,7 +181,7 @@
 						<p class="form-hint" id="zip-hint">{$messages.volunteer.zipHint}</p>
 					</div>
 
-					<fieldset class="form-fieldset form-fieldset--help">
+					<fieldset class="form-fieldset">
 						<legend class="form-legend">{$messages.volunteer.helpLegend}</legend>
 						<ul class="form-help-list">
 							{#each helpFields as field (field.name)}
@@ -176,7 +189,6 @@
 									<label class="form-check-label">
 										<input
 											type="checkbox"
-											id={'help-' + field.name}
 											name={field.name}
 											value="yes"
 											bind:checked={helpChecked[field.name]}
@@ -196,220 +208,142 @@
 							class="form-input form-textarea"
 							rows="5"
 							required
-						>{form?.values?.message ?? defaultMessage}</textarea>
+							bind:value={message}
+							on:input={() => (messageTouched = true)}
+						></textarea>
 					</div>
 
-					<button type="submit" class="form-submit">{$messages.volunteer.send}</button>
+					{#if status === 'error'}
+						<p class="form-error" role="alert">{$messages.volunteer.errorMessage}</p>
+					{/if}
+
+					<div class="form-foot">
+						<p class="form-required">{$messages.volunteer.requiredNote}</p>
+						<button type="submit" class="form-submit" disabled={status === 'submitting'}>
+							{status === 'submitting' ? $messages.volunteer.sending : $messages.volunteer.send}
+						</button>
+					</div>
 				</form>
-			</div>
+			{/if}
 		</div>
 	</div>
 </main>
 
 <style>
-	.volunteer-page {
+	.contact-page {
 		background: var(--paper);
 		min-height: 60vh;
-		padding: 3rem 1.5rem 4rem;
+		padding: 3.5rem 1.5rem 4.5rem;
 	}
 
-	.volunteer-content {
-		max-width: 1000px;
+	.contact-inner {
+		max-width: 1080px;
 		margin: 0 auto;
+		display: grid;
+		grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+		gap: 3.5rem;
+		align-items: start;
 	}
 
-	.volunteer-main {
-		display: flex;
-		flex-direction: row;
-		align-items: flex-start;
-		gap: 2.5rem;
+	/* ---- Left aside ---- */
+	.contact-aside {
+		position: sticky;
+		top: 2rem;
 	}
 
-	.volunteer-copy {
-		flex: 1;
-		min-width: 0;
-	}
-
-	.volunteer-form-wrap {
-		flex: 0 0 auto;
-		width: 100%;
-		max-width: 480px;
-		min-width: 0;
-		box-sizing: border-box;
-		background: var(--paper-2);
-		border-radius: 0;
-		padding: 1.75rem;
-		border: 1px solid var(--line-l);
-	}
-
-	.volunteer-title {
+	.contact-title {
 		font-family: var(--display);
 		font-style: italic;
-		font-size: 2.75rem;
+		font-size: clamp(2.25rem, 4vw, 3rem);
 		font-weight: 900;
 		letter-spacing: -0.03em;
 		color: var(--ink);
-		margin: 0 0 1rem 0;
-		line-height: 1.05;
+		margin: 0 0 1rem;
+		line-height: 1.02;
 	}
 
-	.volunteer-intro {
+	.contact-lede {
 		font-family: var(--serif);
-		font-size: 1.375rem;
+		font-size: 1.25rem;
 		line-height: 1.55;
 		color: var(--ink-2);
-		margin: 0 0 1.5rem 0;
+		margin: 1.5rem 0 2rem;
 	}
 
-	.volunteer-info {
+	.contact-list {
+		margin: 0;
+		padding: 0;
 		display: flex;
-		flex-wrap: wrap;
-		gap: 0.75rem 1.5rem;
-		margin-bottom: 0;
+		flex-direction: column;
+		gap: 1rem;
 	}
 
-	.volunteer-donate {
-		margin-top: 1.5rem;
+	.contact-row {
+		display: flex;
+		flex-direction: column;
+		gap: 0.2rem;
 	}
 
-	.volunteer-link {
+	.contact-term {
+		font-family: var(--mono);
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: var(--ink-3);
+		margin: 0;
+	}
+
+	.contact-def {
+		margin: 0;
+	}
+
+	.contact-link {
 		font-family: var(--font-primary);
-		font-size: 1.25rem;
+		font-size: 1.125rem;
 		font-weight: 600;
 		color: var(--blue);
 		text-decoration: none;
-		transition: color 0.2s ease;
 		overflow-wrap: anywhere;
-		word-break: break-word;
 	}
 
-	.volunteer-link:hover {
+	.contact-link:hover {
 		color: var(--ink);
 		text-decoration: underline;
 	}
 
-	.volunteer-form {
-		position: relative;
-		display: flex;
-		flex-direction: column;
-		gap: 1.25rem;
-		width: 100%;
+	.contact-cta {
+		margin-top: 2rem;
+		padding-top: 1.5rem;
+		border-top: 1px solid var(--line-l);
+	}
+
+	.contact-cta-text {
+		font-family: var(--serif);
+		font-size: 1.0625rem;
+		line-height: 1.5;
+		color: var(--ink-2);
+		margin: 0 0 0.85rem;
+	}
+
+	/* ---- Right form panel ---- */
+	.contact-form-wrap {
+		background: var(--paper-2);
+		border: 1px solid var(--line-l);
+		padding: 1.75rem;
 		min-width: 0;
 	}
 
-	.form-status {
-		margin: 0;
-		padding: 0.6rem 0.75rem;
-		border-radius: 0;
-		font-family: var(--font-primary);
-		font-size: 0.95rem;
-	}
-
-	.form-status--success {
-		background: rgba(35, 89, 38, 0.12);
-		color: #1d4a1f;
-		border: 1px solid rgba(35, 89, 38, 0.3);
-	}
-
-	.form-status--error {
-		background: rgba(150, 20, 20, 0.1);
-		color: #6b1616;
-		border: 1px solid rgba(150, 20, 20, 0.25);
-	}
-
-	.form-honeypot {
-		position: absolute;
-		width: 1px;
-		height: 1px;
-		padding: 0;
-		margin: -1px;
-		overflow: hidden;
-		clip: rect(0, 0, 0, 0);
-		white-space: nowrap;
-		border: 0;
-	}
-
-	.form-honeypot-label {
-		position: absolute;
-		width: 1px;
-		height: 1px;
-		overflow: hidden;
-		clip: rect(0, 0, 0, 0);
-		white-space: nowrap;
-	}
-
-	.form-fieldset {
-		border: none;
-		padding: 0;
-		margin: 0;
+	.contact-form {
 		display: flex;
 		flex-direction: column;
 		gap: 1.25rem;
 	}
 
-	.form-legend {
-		font-family: var(--display);
-		font-style: italic;
-		font-size: 1.25rem;
-		font-weight: 800;
-		letter-spacing: -0.01em;
-		color: var(--ink);
-		margin: 0 0 0.25rem 0;
-		padding: 0;
-	}
-
-	.form-fieldset--help {
-		gap: 0.75rem;
-	}
-
-	.form-optional {
-		font-weight: 500;
-		opacity: 0.75;
-	}
-
-	.form-hint {
-		font-family: var(--font-primary);
-		font-size: 0.875rem;
-		line-height: 1.4;
-		color: var(--color-primary);
-		margin: 0;
-		opacity: 0.78;
-	}
-
-	.form-help-list {
-		list-style: none;
-		margin: 0;
-		padding: 0;
-		display: flex;
-		flex-direction: column;
-		gap: 0.65rem;
-	}
-
-	.form-help-item {
-		margin: 0;
-	}
-
-	.form-help-item .form-check-label {
-		display: flex;
-		align-items: flex-start;
-		gap: 0.6rem;
-	}
-
-	.form-help-item input {
-		margin-top: 0.35rem;
-		width: 1.1rem;
-		height: 1.1rem;
-		accent-color: var(--blue);
-		flex-shrink: 0;
-	}
-
-	.form-check-label {
-		font-family: var(--font-primary);
-		font-size: 1rem;
-		line-height: 1.45;
-		color: var(--color-primary);
-		font-weight: 500;
-		cursor: pointer;
+	.form-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1.25rem;
 	}
 
 	.form-row {
@@ -421,17 +355,22 @@
 
 	.form-label {
 		font-family: var(--font-primary);
-		font-size: 1.0625rem;
+		font-size: 0.9375rem;
 		font-weight: 600;
-		color: var(--color-primary);
+		color: var(--ink);
+	}
+
+	.form-optional {
+		font-weight: 500;
+		opacity: 0.7;
 	}
 
 	.form-input {
 		font-family: var(--font-primary);
-		font-size: 1.125rem;
+		font-size: 1rem;
 		width: 100%;
 		box-sizing: border-box;
-		padding: 0.75rem 0.875rem;
+		padding: 0.7rem 0.8rem;
 		border: 1px solid var(--line-l);
 		border-radius: 0;
 		background: var(--paper);
@@ -447,13 +386,88 @@
 		box-shadow: 0 0 0 2px rgba(46, 95, 160, 0.2);
 	}
 
-	.form-input::placeholder {
-		color: rgba(15, 37, 69, 0.45);
-	}
-
 	.form-textarea {
 		resize: vertical;
 		min-height: 120px;
+	}
+
+	.form-hint {
+		font-family: var(--font-primary);
+		font-size: 0.8125rem;
+		line-height: 1.4;
+		color: var(--ink-3);
+		margin: 0;
+	}
+
+	.form-fieldset {
+		border: none;
+		padding: 0;
+		margin: 0;
+		min-width: 0;
+		border-top: 1px solid var(--line-l);
+		padding-top: 1.25rem;
+	}
+
+	.form-legend {
+		font-family: var(--display);
+		font-style: italic;
+		font-size: 1.125rem;
+		font-weight: 800;
+		letter-spacing: -0.01em;
+		color: var(--ink);
+		padding: 0;
+		margin: 0 0 0.75rem;
+	}
+
+	.form-help-list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 0.65rem 1.25rem;
+	}
+
+	.form-help-item {
+		margin: 0;
+	}
+
+	.form-check-label {
+		display: flex;
+		align-items: flex-start;
+		gap: 0.55rem;
+		font-family: var(--font-primary);
+		font-size: 0.9375rem;
+		line-height: 1.4;
+		color: var(--ink);
+		font-weight: 500;
+		cursor: pointer;
+	}
+
+	.form-check-label input {
+		margin-top: 0.2rem;
+		width: 1.05rem;
+		height: 1.05rem;
+		accent-color: var(--blue);
+		flex-shrink: 0;
+	}
+
+	.form-foot {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		flex-wrap: wrap;
+		margin-top: 0.25rem;
+	}
+
+	.form-required {
+		font-family: var(--mono);
+		font-size: 0.6875rem;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--ink-3);
+		margin: 0;
 	}
 
 	.form-submit {
@@ -472,8 +486,6 @@
 		transition:
 			background 0.2s ease,
 			border-color 0.2s ease;
-		align-self: flex-start;
-		margin-top: 0.25rem;
 	}
 
 	.form-submit:hover {
@@ -481,67 +493,92 @@
 		border-color: var(--ink-2);
 	}
 
-	@media (max-width: 768px) {
-		.volunteer-content {
-			padding-left: 0;
-			padding-right: 0;
+	.form-submit:disabled {
+		opacity: 0.6;
+		cursor: progress;
+	}
+
+	.form-error {
+		font-family: var(--font-primary);
+		font-size: 0.95rem;
+		line-height: 1.4;
+		color: #6b1616;
+		background: rgba(150, 20, 20, 0.08);
+		border: 1px solid rgba(150, 20, 20, 0.25);
+		padding: 0.65rem 0.8rem;
+		margin: 0;
+	}
+
+	.form-success {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 0.75rem;
+		border-left: 3px solid var(--green);
+		padding: 0.25rem 0 0.25rem 1.25rem;
+	}
+
+	.form-success-title {
+		font-family: var(--display);
+		font-style: italic;
+		font-size: 1.5rem;
+		font-weight: 900;
+		letter-spacing: -0.02em;
+		color: var(--ink);
+		margin: 0;
+	}
+
+	.form-success-body {
+		font-family: var(--serif);
+		font-size: 1.0625rem;
+		line-height: 1.5;
+		color: var(--ink-2);
+		margin: 0;
+	}
+
+	.form-success-again {
+		font-family: var(--mono);
+		font-size: 0.6875rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--blue);
+		background: none;
+		border: none;
+		padding: 0;
+		cursor: pointer;
+	}
+
+	.form-success-again:hover {
+		color: var(--ink);
+		text-decoration: underline;
+	}
+
+	@media (max-width: 860px) {
+		.contact-inner {
+			grid-template-columns: 1fr;
+			gap: 2.25rem;
 		}
 
-		.volunteer-copy {
-			text-align: center;
-		}
-
-		.volunteer-info {
-			justify-content: center;
-		}
-
-		.volunteer-donate {
-			text-align: center;
-		}
-
-		.volunteer-main {
-			flex-direction: column;
-			align-items: center;
-			gap: 2rem;
-		}
-
-		.volunteer-form-wrap {
-			width: min(100%, 520px) !important;
-			flex: 0 1 auto;
-			max-width: 520px;
-			margin-left: auto;
-			margin-right: auto;
-		}
-
-		.form-help-list {
-			text-align: left;
-		}
-
-		.form-submit {
-			align-self: center;
+		.contact-aside {
+			position: static;
 		}
 	}
 
-	@media (max-width: 640px) {
-		.volunteer-page {
-			padding: 2rem 0 3rem;
-			overflow-x: hidden;
+	@media (max-width: 560px) {
+		.contact-page {
+			padding: 2.5rem 1.25rem 3.5rem;
 		}
 
-		.volunteer-title {
-			font-size: 1.875rem;
+		.form-grid {
+			grid-template-columns: 1fr;
 		}
 
-		.volunteer-intro {
-			font-size: 1.25rem;
+		.form-help-list {
+			grid-template-columns: 1fr;
 		}
 
-		.volunteer-info {
-			flex-direction: column;
-			gap: 0.5rem;
-		}
-
-		.volunteer-form-wrap {
+		.contact-form-wrap {
 			padding: 1.25rem;
 		}
 	}

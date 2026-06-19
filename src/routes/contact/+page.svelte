@@ -1,8 +1,57 @@
 <script>
+	import Rail from '$lib/components/Rail.svelte';
+	import Button from '$lib/components/Button.svelte';
 	import { messages } from '$lib/i18n/locale';
 
-	const EMAIL = 'petercrosbyforcongress@gmail.com';
-	const PHONE = '(801) 633-4297';
+	const EMAIL = 'information@petercrosbyforcongress.org';
+	const [EMAIL_USER, EMAIL_DOMAIN] = EMAIL.split('@');
+	const PHONE = '(435) 535-1048';
+
+	/** @type {'general' | 'media'} */
+	let topic = 'general';
+
+	/** Formspree endpoint per topic. */
+	const ENDPOINTS = {
+		general: 'https://formspree.io/f/meewbdjn',
+		media: 'https://formspree.io/f/mzdqlwpy'
+	};
+
+	/** @type {'idle' | 'submitting' | 'success' | 'error'} */
+	let status = 'idle';
+
+	/** @type {{ id: 'general' | 'media'; label: string }[]} */
+	$: topics = [
+		{ id: 'general', label: $messages.contact.topicGeneral },
+		{ id: 'media', label: $messages.contact.topicMedia }
+	];
+
+	$: blurb = topic === 'media' ? $messages.contact.blurbMedia : $messages.contact.blurbGeneral;
+
+	/** @param {SubmitEvent} event */
+	async function handleSubmit(event) {
+		event.preventDefault();
+		const form = /** @type {HTMLFormElement} */ (event.currentTarget);
+		status = 'submitting';
+		try {
+			const response = await fetch(ENDPOINTS[topic], {
+				method: 'POST',
+				body: new FormData(form),
+				headers: { Accept: 'application/json' }
+			});
+			if (response.ok) {
+				status = 'success';
+				form.reset();
+			} else {
+				status = 'error';
+			}
+		} catch {
+			status = 'error';
+		}
+	}
+
+	function resetForm() {
+		status = 'idle';
+	}
 </script>
 
 <svelte:head>
@@ -10,132 +59,533 @@
 	<meta name="description" content={$messages.contact.metaDescription} />
 </svelte:head>
 
-<main class="contact-simple-page">
-	<div class="contact-simple-inner">
-		<h1 class="contact-simple-title">{$messages.contact.pageTitle}</h1>
-		<p class="contact-simple-intro">{$messages.contact.intro}</p>
-		<dl class="contact-simple-list">
-			<div class="contact-simple-row">
-				<dt class="contact-simple-term">{$messages.contact.emailLabel}</dt>
-				<dd class="contact-simple-def">
-					<a href={`mailto:${EMAIL}`} class="contact-simple-link">{EMAIL}</a>
-				</dd>
+<main class="contact-page">
+	<div class="contact-inner">
+		<aside class="contact-aside">
+			<h1 class="contact-title">{$messages.contact.pageTitle}</h1>
+			<Rail height="5px" />
+			<p class="contact-lede">{$messages.contact.intro}</p>
+			<dl class="contact-list">
+				<div class="contact-row">
+					<dt class="contact-term">{$messages.contact.emailLabel}</dt>
+					<dd class="contact-def">
+						<a href={`mailto:${EMAIL}`} class="contact-link"
+							>{EMAIL_USER}@<wbr />{EMAIL_DOMAIN}</a
+						>
+					</dd>
+				</div>
+				<div class="contact-row">
+					<dt class="contact-term">{$messages.contact.phoneLabel}</dt>
+					<dd class="contact-def">
+						<a href="tel:+14355351048" class="contact-link">{PHONE}</a>
+					</dd>
+				</div>
+			</dl>
+			<div class="contact-cta">
+				<p class="contact-cta-text">{$messages.contact.volunteerPrompt}</p>
+				<Button href="/volunteer" variant="secondary">{$messages.contact.volunteerCta}</Button>
 			</div>
-			<div class="contact-simple-row">
-				<dt class="contact-simple-term">{$messages.contact.phoneLabel}</dt>
-				<dd class="contact-simple-def">
-					<a href="tel:+18016334297" class="contact-simple-link">{PHONE}</a>
-				</dd>
-			</div>
-		</dl>
+		</aside>
+
+		<div class="contact-form-wrap">
+			{#if status === 'success'}
+					<div class="form-success" role="status" aria-live="polite">
+						<p class="form-success-title">{$messages.contact.successTitle}</p>
+						<p class="form-success-body">{$messages.contact.successBody}</p>
+						<button type="button" class="form-success-again" on:click={resetForm}>
+							{$messages.contact.sendAnother}
+						</button>
+					</div>
+				{/if}
+				<fieldset class="topic-switch" class:is-hidden={status === 'success'}>
+				<legend class="topic-legend">{$messages.contact.topicLegend}</legend>
+				<div class="topic-tabs" role="tablist">
+					{#each topics as t (t.id)}
+						<button
+							type="button"
+							role="tab"
+							class="topic-tab"
+							class:is-active={topic === t.id}
+							aria-selected={topic === t.id}
+							on:click={() => (topic = t.id)}
+						>
+							{t.label}
+						</button>
+					{/each}
+				</div>
+			</fieldset>
+
+			<form
+					class="contact-form"
+					class:is-hidden={status === 'success'}
+					on:submit={handleSubmit}
+				>
+				<input type="hidden" name="topic" value={topic} />
+					<input
+						type="hidden"
+						name="_subject"
+						value={topic === 'media' ? 'Media request (website)' : 'General inquiry (website)'}
+					/>
+				<p class="form-blurb">{blurb}</p>
+
+					{#if topic === 'media'}
+						<div class="form-row">
+							<label class="form-label" for="media-outlet">{$messages.contact.mediaOutlet}</label>
+							<input
+								id="media-outlet"
+								name="mediaOutlet"
+								class="form-input"
+								type="text"
+								required
+								autocomplete="organization"
+							/>
+						</div>
+					{/if}
+
+				<div class="form-grid">
+					<div class="form-row">
+						<label class="form-label" for="first-name">{$messages.contact.firstName}</label>
+						<input
+							id="first-name"
+							name="firstName"
+							class="form-input"
+							type="text"
+							required
+							autocomplete="given-name"
+						/>
+					</div>
+					<div class="form-row">
+						<label class="form-label" for="last-name">{$messages.contact.lastName}</label>
+						<input
+							id="last-name"
+							name="lastName"
+							class="form-input"
+							type="text"
+							required
+							autocomplete="family-name"
+						/>
+					</div>
+				</div>
+
+				<div class="form-grid">
+					<div class="form-row">
+						<label class="form-label" for="phone">{$messages.contact.phone}</label>
+						<input
+							id="phone"
+							name="phone"
+							class="form-input"
+							type="tel"
+							required
+							autocomplete="tel"
+							inputmode="tel"
+						/>
+					</div>
+					<div class="form-row">
+						<label class="form-label" for="email">{$messages.contact.email}</label>
+						<input
+							id="email"
+							name="email"
+							class="form-input"
+							type="email"
+							required
+							autocomplete="email"
+						/>
+					</div>
+				</div>
+
+				<div class="form-row">
+					<label class="form-label" for="message">{$messages.contact.message}</label>
+					<textarea
+						id="message"
+						name="message"
+						class="form-input form-textarea"
+						rows="5"
+						required
+					></textarea>
+				</div>
+
+				{#if status === 'error'}
+						<p class="form-error" role="alert">{$messages.contact.errorMessage}</p>
+					{/if}
+
+					<div class="form-foot">
+					<p class="form-required">{$messages.contact.requiredNote}</p>
+					<button type="submit" class="form-submit" disabled={status === 'submitting'}>
+							{status === 'submitting' ? $messages.contact.sending : $messages.contact.send}
+						</button>
+				</div>
+			</form>
+		</div>
 	</div>
 </main>
 
 <style>
-	.contact-simple-page {
-		position: relative;
-		background: var(--color-white);
+	.contact-page {
+		background: var(--paper);
 		min-height: 60vh;
-		padding: 3rem 1.5rem 4rem;
-		overflow: hidden;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
+		padding: 3.5rem 1.5rem 4.5rem;
 	}
 
-	.contact-simple-inner {
-		position: relative;
-		z-index: 1;
-		width: fit-content;
-		max-width: 100%;
+	.contact-inner {
+		max-width: 1080px;
 		margin: 0 auto;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		text-align: center;
+		display: grid;
+		grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+		gap: 3.5rem;
+		align-items: start;
 	}
 
-	.contact-simple-title {
+	/* ---- Left aside ---- */
+	.contact-aside {
+		position: sticky;
+		top: 2rem;
+	}
+
+	.contact-title {
 		font-family: var(--display);
 		font-style: italic;
-		font-size: clamp(1.875rem, 4vw, 2.75rem);
+		font-size: clamp(2.25rem, 4vw, 3rem);
 		font-weight: 900;
 		letter-spacing: -0.03em;
 		color: var(--ink);
 		margin: 0 0 1rem;
-		line-height: 1.05;
-		max-width: 100%;
+		line-height: 1.02;
 	}
 
-	.contact-simple-intro {
+	.contact-lede {
 		font-family: var(--serif);
-		font-size: 1.125rem;
-		line-height: 1.6;
+		font-size: 1.25rem;
+		line-height: 1.55;
 		color: var(--ink-2);
-		margin: 0 0 2rem;
-		max-width: 100%;
+		margin: 1.5rem 0 2rem;
 	}
 
-	.contact-simple-list {
-		margin: 0 auto;
+	.contact-list {
+		margin: 0;
 		padding: 0;
-		text-align: left;
-		width: fit-content;
-		max-width: 100%;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
 	}
 
-	.contact-simple-row {
-		display: grid;
-		grid-template-columns: minmax(min-content, auto) 1fr;
-		gap: 0.5rem 1.25rem;
-		align-items: baseline;
-		margin: 0 0 1.25rem;
+	.contact-row {
+		display: flex;
+		flex-direction: column;
+		gap: 0.2rem;
 	}
 
-	.contact-simple-row:last-child {
-		margin-bottom: 0;
-	}
-
-	.contact-simple-term {
+	.contact-term {
 		font-family: var(--mono);
-		font-size: 0.8125rem;
+		font-size: 0.75rem;
 		font-weight: 600;
-		letter-spacing: 0.08em;
+		letter-spacing: 0.1em;
 		text-transform: uppercase;
-		color: var(--ink-2);
+		color: var(--ink-3);
 		margin: 0;
 	}
 
-	.contact-simple-def {
+	.contact-def {
 		margin: 0;
-		min-width: 0;
 	}
 
-	.contact-simple-link {
+	.contact-link {
 		font-family: var(--font-primary);
 		font-size: 1.125rem;
 		font-weight: 600;
 		color: var(--blue);
 		text-decoration: none;
 		overflow-wrap: anywhere;
-		word-break: break-word;
 	}
 
-	.contact-simple-link:hover {
+	.contact-link:hover {
 		color: var(--ink);
 		text-decoration: underline;
 	}
 
-	@media (max-width: 480px) {
-		.contact-simple-row {
+	.contact-cta {
+		margin-top: 2rem;
+		padding-top: 1.5rem;
+		border-top: 1px solid var(--line-l);
+	}
+
+	.contact-cta-text {
+		font-family: var(--serif);
+		font-size: 1.0625rem;
+		line-height: 1.5;
+		color: var(--ink-2);
+		margin: 0 0 0.85rem;
+	}
+
+	/* ---- Right form panel ---- */
+	.contact-form-wrap {
+		background: var(--paper-2);
+		border: 1px solid var(--line-l);
+		padding: 1.75rem;
+		min-width: 0;
+	}
+
+	.topic-switch {
+		border: none;
+		padding: 0;
+		margin: 0 0 1.5rem;
+		/* Fieldsets default to min-width: min-content, which lets the tab grid
+		   overflow its parent on narrow screens — pin it back to the container. */
+		min-width: 0;
+	}
+
+	.topic-legend {
+		font-family: var(--mono);
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: var(--ink-3);
+		padding: 0;
+		margin: 0 0 0.65rem;
+	}
+
+	.topic-tabs {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		border: 1px solid var(--ink);
+	}
+
+	.topic-tab {
+		font-family: var(--display);
+		font-style: italic;
+		font-weight: 800;
+		font-size: 0.8125rem;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+		text-align: center;
+		padding: 0.7rem 0.5rem;
+		background: transparent;
+		color: var(--ink);
+		border: none;
+		border-right: 1px solid var(--ink);
+		cursor: pointer;
+		transition:
+			background 0.15s ease,
+			color 0.15s ease;
+	}
+
+	.topic-tab:last-child {
+		border-right: none;
+	}
+
+	.topic-tab:hover:not(.is-active) {
+		background: var(--paper-3);
+	}
+
+	.topic-tab.is-active {
+		background: var(--ink);
+		color: var(--paper);
+	}
+
+	.contact-form {
+		display: flex;
+		flex-direction: column;
+		gap: 1.25rem;
+	}
+
+	.form-blurb {
+		font-family: var(--serif);
+		font-size: 1.0625rem;
+		line-height: 1.5;
+		color: var(--ink-2);
+		margin: 0;
+	}
+
+	.form-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1.25rem;
+	}
+
+	.form-row {
+		display: flex;
+		flex-direction: column;
+		gap: 0.35rem;
+		min-width: 0;
+	}
+
+	.form-label {
+		font-family: var(--font-primary);
+		font-size: 0.9375rem;
+		font-weight: 600;
+		color: var(--ink);
+	}
+
+	.form-input {
+		font-family: var(--font-primary);
+		font-size: 1rem;
+		width: 100%;
+		box-sizing: border-box;
+		padding: 0.7rem 0.8rem;
+		border: 1px solid var(--line-l);
+		border-radius: 0;
+		background: var(--paper);
+		color: var(--ink);
+		transition:
+			border-color 0.2s ease,
+			box-shadow 0.2s ease;
+	}
+
+	.form-input:focus {
+		outline: none;
+		border-color: var(--blue);
+		box-shadow: 0 0 0 2px rgba(46, 95, 160, 0.2);
+	}
+
+	.form-textarea {
+		resize: vertical;
+		min-height: 120px;
+	}
+
+	.form-foot {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		flex-wrap: wrap;
+		margin-top: 0.25rem;
+	}
+
+	.form-required {
+		font-family: var(--mono);
+		font-size: 0.6875rem;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--ink-3);
+		margin: 0;
+	}
+
+	.form-submit {
+		font-family: var(--display);
+		font-style: italic;
+		font-size: 0.9375rem;
+		font-weight: 800;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		padding: 0.85rem 2rem;
+		border: 2px solid var(--ink);
+		border-radius: 0;
+		background: var(--ink);
+		color: var(--paper);
+		cursor: pointer;
+		transition:
+			background 0.2s ease,
+			border-color 0.2s ease;
+	}
+
+	.form-submit:hover {
+		background: var(--ink-2);
+		border-color: var(--ink-2);
+	}
+
+	.form-submit:disabled {
+		opacity: 0.6;
+		cursor: progress;
+	}
+
+	.is-hidden {
+		display: none;
+	}
+
+	.form-error {
+		font-family: var(--font-primary);
+		font-size: 0.95rem;
+		line-height: 1.4;
+		color: #6b1616;
+		background: rgba(150, 20, 20, 0.08);
+		border: 1px solid rgba(150, 20, 20, 0.25);
+		padding: 0.65rem 0.8rem;
+		margin: 0;
+	}
+
+	.form-success {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 0.75rem;
+		border-left: 3px solid var(--green);
+		padding: 0.25rem 0 0.25rem 1.25rem;
+	}
+
+	.form-success-title {
+		font-family: var(--display);
+		font-style: italic;
+		font-size: 1.5rem;
+		font-weight: 900;
+		letter-spacing: -0.02em;
+		color: var(--ink);
+		margin: 0;
+	}
+
+	.form-success-body {
+		font-family: var(--serif);
+		font-size: 1.0625rem;
+		line-height: 1.5;
+		color: var(--ink-2);
+		margin: 0;
+	}
+
+	.form-success-again {
+		font-family: var(--mono);
+		font-size: 0.6875rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--blue);
+		background: none;
+		border: none;
+		padding: 0;
+		cursor: pointer;
+	}
+
+	.form-success-again:hover {
+		color: var(--ink);
+		text-decoration: underline;
+	}
+
+	@media (max-width: 860px) {
+		.contact-inner {
 			grid-template-columns: 1fr;
-			gap: 0.25rem;
-			text-align: center;
-			justify-items: center;
+			gap: 2.25rem;
 		}
 
-		.contact-simple-list {
-			text-align: center;
+		.contact-aside {
+			position: static;
+		}
+	}
+
+	@media (max-width: 560px) {
+		.contact-page {
+			padding: 2.5rem 1.25rem 3.5rem;
+		}
+
+		.form-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.contact-form-wrap {
+			padding: 1.25rem;
+		}
+
+		/* Stack the topic tabs so the long labels stay legible instead of being
+		   squeezed into two cramped columns. */
+		.topic-tabs {
+			grid-template-columns: 1fr;
+		}
+
+		.topic-tab {
+			border-right: none;
+			border-bottom: 1px solid var(--ink);
+			padding: 0.75rem 0.5rem;
+		}
+
+		.topic-tab:last-child {
+			border-bottom: none;
 		}
 	}
 </style>
