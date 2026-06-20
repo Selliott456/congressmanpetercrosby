@@ -4,7 +4,7 @@
 	import { markRsvped } from '$lib/stores/rsvp';
 	import Rail from './Rail.svelte';
 
-	const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xnjylwar';
+	const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mvznevgz';
 
 	/** @type {import('$lib/data/events').EventRow & { title: string; description: string }} */
 	export let event;
