@@ -11,6 +11,7 @@ export const pagesEn = {
 		metaDescription:
 			'Learn about Peter Crosby: husband, father, experienced leader, and service-driven candidate for Northern Utah.',
 		heroAlt: 'Peter Crosby with his wife Amanda and their three daughters',
+		eyebrow: 'Meet Peter',
 		introTitle: 'Family Centered, Community Focused',
 		introLede:
 			'Northern Utah isn’t just a spot on a map to me. It’s my home, my neighborhood, and my community. I’m not a career politician, and I didn’t clock into this race to play Washington’s partisan games. I’m running for Congress because our neighborhoods deserve steady, common-sense leadership focused on the real economic pressures hitting our kitchen tables. From lowering the rising cost of living to protecting the local jobs that anchor our communities, my commitment is to deliver honest stewardship and real accountability.',

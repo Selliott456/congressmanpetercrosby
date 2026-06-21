@@ -13,6 +13,7 @@
 	<section class="about-intro" aria-labelledby="about-intro-title">
 		<div class="about-intro-inner">
 			<div class="about-intro-copy">
+				<p class="about-intro-eyebrow">{$messages.about.eyebrow}</p>
 				<h1 id="about-intro-title" class="about-intro-title">{$messages.about.introTitle}</h1>
 				<p class="about-intro-lede">{$messages.about.introLede}</p>
 			</div>
@@ -71,6 +72,27 @@
 		grid-template-columns: 1.05fr 0.95fr;
 		gap: clamp(2rem, 5vw, 4rem);
 		align-items: center;
+	}
+
+	.about-intro-eyebrow {
+		margin: 0 0 0.75rem;
+		display: flex;
+		align-items: center;
+		gap: 0.6rem;
+		font-family: var(--display);
+		font-style: italic;
+		font-weight: 800;
+		font-size: 0.6875rem;
+		letter-spacing: 0.2em;
+		text-transform: uppercase;
+		color: var(--blue);
+	}
+
+	.about-intro-eyebrow::before {
+		content: '';
+		width: 26px;
+		height: 2px;
+		background: var(--blue);
 	}
 
 	.about-intro-title {
@@ -132,7 +154,7 @@
 	}
 
 	.section-body {
-		font-family: var(--font-primary);
+		font-family: var(--serif);
 		font-size: 1.0625rem;
 		line-height: 1.8;
 		color: var(--ink-2);

@@ -317,7 +317,7 @@
 	}
 
 	.policies-answer {
-		font-family: var(--font-primary);
+		font-family: var(--serif);
 		font-size: 1.0625rem;
 		line-height: 1.8;
 		color: var(--ink-2);
