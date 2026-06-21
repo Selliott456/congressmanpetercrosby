@@ -20,7 +20,10 @@
           decoding="async"
         />
       </div>
-      <a href="/contact" class="footer-faq-link">{$messages.footer.contactUs}</a>
+      <nav class="footer-links" aria-label={$messages.footer.navAria}>
+        <a href="/endorsements" class="footer-faq-link">{$messages.footer.endorsements}</a>
+        <a href="/contact" class="footer-faq-link">{$messages.footer.contactUs}</a>
+      </nav>
       <div class="footer-social" aria-label={$messages.footer.socialAria}>
         {#each socialLinks as link}
           <a
@@ -110,6 +113,15 @@
     color: var(--ink);
   }
 
+  .footer-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+    margin-top: 0.75rem;
+  }
+
   .footer-faq-link {
     font-family: var(--font-primary);
     font-size: 0.875rem;
@@ -117,7 +129,6 @@
     letter-spacing: 0.02em;
     color: var(--color-primary);
     text-decoration: none;
-    margin-top: 0.75rem;
     display: inline-block;
     transition: opacity 0.2s ease;
   }

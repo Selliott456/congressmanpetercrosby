@@ -20,6 +20,8 @@ const en = {
 	},
 	footer: {
 		contactUs: 'Contact Us',
+		endorsements: 'Endorsements',
+		navAria: 'Footer links',
 		socialAria: 'Social media links',
 		rights: 'Peter Crosby for Congress. All rights reserved.',
 		paidForBy: 'Paid for by Peter Crosby for Congress'
@@ -134,6 +136,8 @@ const es: Messages = {
 	},
 	footer: {
 		contactUs: 'Contáctenos',
+		endorsements: 'Respaldos',
+		navAria: 'Enlaces del pie de página',
 		socialAria: 'Enlaces a redes sociales',
 		rights: 'Peter Crosby para el Congreso. Todos los derechos reservados.',
 		paidForBy: 'Paid for by Peter Crosby for Congress'

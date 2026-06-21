@@ -100,6 +100,24 @@
         </li>
       {/each}
     </ul>
+    <div class="nav-menu-actions">
+      <a
+        href="/volunteer"
+        class="nav-menu-action nav-menu-action-volunteer"
+        on:click={() => (menuOpen = false)}
+      >
+        {$messages.nav.volunteer}
+      </a>
+      <a
+        href={donateHref}
+        class="nav-menu-action nav-menu-action-donate"
+        target="_blank"
+        rel="noopener noreferrer"
+        on:click={() => (menuOpen = false)}
+      >
+        {$messages.nav.donate}
+      </a>
+    </div>
   </div>
 </nav>
 
@@ -117,7 +135,11 @@
     margin: 0 auto;
     padding: 0.75rem 1.5rem;
     display: grid;
-    grid-template-columns: 1fr auto 1fr;
+    /* Logo (auto) + links (1fr, left-aligned next to the logo) + actions (auto).
+       Anchoring the links left of center instead of centering them frees the
+       slack on the right, so the full nav survives down to 1024px before
+       collapsing to the hamburger. */
+    grid-template-columns: auto 1fr auto;
     align-items: center;
     gap: 1rem;
   }
@@ -154,8 +176,8 @@
   .nav-links {
     display: flex;
     align-items: center;
-    justify-content: center;
-    justify-self: center;
+    justify-content: flex-start;
+    justify-self: start;
     min-width: 0;
     gap: 0.25rem;
     list-style: none;
@@ -342,14 +364,70 @@
     z-index: 1;
   }
 
-  @media (max-width: 900px) {
-    /* Hide the centered links; grid collapses to logo (left) + actions (right) */
+  /* Volunteer + Donate pinned to the bottom of the open menu, so both stay
+     reachable at the narrow widths where they drop out of the header. */
+  .nav-menu-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(247, 250, 252, 0.18);
+  }
+
+  .nav-menu-action {
+    display: block;
+    text-align: center;
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 0.9375rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0.85rem 1rem;
+    border-radius: 0;
+    transition:
+      background 0.2s ease,
+      border-color 0.2s ease,
+      color 0.2s ease;
+  }
+
+  .nav-menu-action-volunteer {
+    background: transparent;
+    color: var(--paper);
+    border: 1px solid rgba(247, 250, 252, 0.4);
+  }
+
+  .nav-menu-action-volunteer:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: var(--paper);
+    color: var(--paper);
+  }
+
+  .nav-menu-action-donate {
+    background: var(--green);
+    color: var(--paper);
+    border: 1px solid var(--green);
+  }
+
+  .nav-menu-action-donate:hover {
+    background: #1d4a1f;
+    border-color: #1d4a1f;
+    color: var(--paper);
+  }
+
+  @media (max-width: 1023px) {
+    /* Below 1024px even the left-aligned row would crowd the action buttons
+       (the longer Spanish labels are the tight case), so collapse to the
+       hamburger; the header reduces to logo (left) + toggle (right). The
+       Volunteer/Donate CTAs move into the open menu instead. */
     .nav-links {
       display: none;
     }
 
-    /* Keep the mobile action row uncluttered — volunteer lives in the hero/menu */
-    .nav-link.nav-link-volunteer {
+    .nav-link.nav-link-volunteer,
+    .nav-link.nav-link-donate {
       display: none;
     }
 
@@ -366,18 +444,9 @@
     }
   }
 
-  @media (min-width: 901px) {
+  @media (min-width: 1024px) {
     .nav-menu {
       display: none !important;
-    }
-  }
-
-  /* Phone widths: logo + donate + language switcher + menu button no longer
-     fit on one row, so the inline donate overflows. Hide it here (donate
-     remains reachable via the hero/page CTAs). */
-  @media (max-width: 600px) {
-    .nav-link.nav-link-donate {
-      display: none;
     }
   }
 </style>
