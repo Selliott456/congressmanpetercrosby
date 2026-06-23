@@ -126,7 +126,12 @@
 						name="_subject"
 						value={topic === 'media' ? 'Media request (website)' : 'General inquiry (website)'}
 					/>
-				<p class="form-blurb">{blurb}</p>
+				<!-- Honeypot: hidden from people; bots that fill it are silently dropped by Formspree. -->
+					<div class="hp-field" aria-hidden="true">
+						<label for="contact-hp">Leave this field empty</label>
+						<input id="contact-hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+					</div>
+					<p class="form-blurb">{blurb}</p>
 
 					{#if topic === 'media'}
 						<div class="form-row">
@@ -137,6 +142,7 @@
 								class="form-input"
 								type="text"
 								required
+								maxlength="120"
 								autocomplete="organization"
 							/>
 						</div>
@@ -151,6 +157,7 @@
 							class="form-input"
 							type="text"
 							required
+							maxlength="80"
 							autocomplete="given-name"
 						/>
 					</div>
@@ -162,6 +169,7 @@
 							class="form-input"
 							type="text"
 							required
+							maxlength="80"
 							autocomplete="family-name"
 						/>
 					</div>
@@ -176,6 +184,7 @@
 							class="form-input"
 							type="tel"
 							required
+							maxlength="25"
 							autocomplete="tel"
 							inputmode="tel"
 						/>
@@ -188,6 +197,7 @@
 							class="form-input"
 							type="email"
 							required
+							maxlength="254"
 							autocomplete="email"
 						/>
 					</div>
@@ -201,6 +211,7 @@
 						class="form-input form-textarea"
 						rows="5"
 						required
+						maxlength="2000"
 					></textarea>
 				</div>
 
@@ -490,6 +501,15 @@
 
 	.is-hidden {
 		display: none;
+	}
+
+	/* Honeypot — kept in the DOM (so bots fill it) but away from people and AT. */
+	.hp-field {
+		position: absolute;
+		left: -9999px;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
 	}
 
 	.form-error {

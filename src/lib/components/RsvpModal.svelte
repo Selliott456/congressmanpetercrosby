@@ -122,6 +122,7 @@
 							bind:value={firstName}
 							bind:this={firstInput}
 							required
+							maxlength="80"
 							autocomplete="given-name"
 						/>
 					</div>
@@ -134,6 +135,7 @@
 							type="text"
 							bind:value={lastName}
 							required
+							maxlength="80"
 							autocomplete="family-name"
 						/>
 					</div>
@@ -146,6 +148,7 @@
 							type="email"
 							bind:value={email}
 							required
+							maxlength="254"
 							autocomplete="email"
 						/>
 					</div>

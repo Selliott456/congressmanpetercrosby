@@ -111,6 +111,12 @@
 				<form class="contact-form" on:submit={handleSubmit}>
 					<input type="hidden" name="_subject" value="Volunteer signup (website)" />
 
+					<!-- Honeypot: hidden from people; bots that fill it are silently dropped by Formspree. -->
+					<div class="hp-field" aria-hidden="true">
+						<label for="volunteer-hp">Leave this field empty</label>
+						<input id="volunteer-hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+					</div>
+
 					<div class="form-grid">
 						<div class="form-row">
 							<label class="form-label" for="first-name">{$messages.volunteer.firstName}</label>
@@ -120,6 +126,7 @@
 								class="form-input"
 								type="text"
 								required
+								maxlength="80"
 								autocomplete="given-name"
 							/>
 						</div>
@@ -131,6 +138,7 @@
 								class="form-input"
 								type="text"
 								required
+								maxlength="80"
 								autocomplete="family-name"
 							/>
 						</div>
@@ -145,6 +153,7 @@
 								class="form-input"
 								type="tel"
 								required
+								maxlength="25"
 								autocomplete="tel"
 								inputmode="tel"
 								aria-describedby="phone-hint"
@@ -159,6 +168,7 @@
 								class="form-input"
 								type="email"
 								required
+								maxlength="254"
 								autocomplete="email"
 							/>
 						</div>
@@ -174,6 +184,7 @@
 							name="zip"
 							class="form-input"
 							type="text"
+							maxlength="10"
 							autocomplete="postal-code"
 							inputmode="text"
 							aria-describedby="zip-hint"
@@ -208,6 +219,7 @@
 							class="form-input form-textarea"
 							rows="5"
 							required
+							maxlength="2000"
 							bind:value={message}
 							on:input={() => (messageTouched = true)}
 						></textarea>
@@ -496,6 +508,15 @@
 	.form-submit:disabled {
 		opacity: 0.6;
 		cursor: progress;
+	}
+
+	/* Honeypot — kept in the DOM (so bots fill it) but away from people and AT. */
+	.hp-field {
+		position: absolute;
+		left: -9999px;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
 	}
 
 	.form-error {
