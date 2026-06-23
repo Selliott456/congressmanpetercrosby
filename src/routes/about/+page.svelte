@@ -15,7 +15,9 @@
 			<div class="about-intro-copy">
 				<p class="about-intro-eyebrow">{$messages.about.eyebrow}</p>
 				<h1 id="about-intro-title" class="about-intro-title">{$messages.about.introTitle}</h1>
-				<p class="about-intro-lede">{$messages.about.introLede}</p>
+				{#each $messages.about.introLede as para}
+					<p class="about-intro-lede">{para}</p>
+				{/each}
 			</div>
 			<div class="about-intro-media">
 				<img
@@ -112,6 +114,10 @@
 		font-size: clamp(1.0625rem, 2.2vw, 1.25rem);
 		line-height: 1.55;
 		color: var(--ink-2);
+	}
+
+	.about-intro-lede + .about-intro-lede {
+		margin-top: 1rem;
 	}
 
 	.about-intro-img {

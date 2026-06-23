@@ -13,8 +13,10 @@ export const pagesEn = {
 		heroAlt: 'Peter Crosby with his wife Amanda and their three daughters',
 		eyebrow: 'Meet Peter',
 		introTitle: 'Family Centered, Community Focused',
-		introLede:
-			'Northern Utah isn’t just a spot on a map to me. It’s my home, my neighborhood, and my community. I’m not a career politician, and I didn’t clock into this race to play Washington’s partisan games. I’m running for Congress because our neighborhoods deserve steady, common-sense leadership focused on the real economic pressures hitting our kitchen tables. From lowering the rising cost of living to protecting the local jobs that anchor our communities, my commitment is to deliver honest stewardship and real accountability.',
+		introLede: [
+			'Northern Utah is my home, my neighborhood, and my community. I’m running for Congress because our neighborhoods deserve steady, common-sense leadership focused on the real answers to the problems hitting us the hardest.',
+			'From lowering the rising cost of living to protecting the local jobs that anchor our communities, my commitment is to deliver honest stewardship and real accountability.'
+		],
 		sections: [
 			{
 				title: 'Service driven',
@@ -32,7 +34,7 @@ export const pagesEn = {
 			{
 				title: 'Experienced leader',
 				paragraphs: [
-					'I started my professional career working for a Fortune 500 company in operations. I worked my way up to a supervisory role within a year while going to school full time, and spent the next five to six years leading teams and projects. At the time I moved to a position in analytics at the corporate level, I had a staff of eleven and over 200 employees.',
+					'I started my professional career working for a Fortune 500 company in operations. I worked my way up to a supervisory role within a year while going to school full time, and spent the next five to six years leading teams and projects. At the time I moved to a position in analytics at the corporate level, I had a staff of 11 and over 200 employees.',
 					'As a first-generation college graduate with two degrees in political science, I know first-hand the value our universities in Northern Utah provide to individuals and communities, and I wanted to be part of that. So, I left the private sector to work for Utah State University in institutional research. I also started teaching, with my first classes focusing on American politics and institutions for undergraduates. I am grateful to continue my role as an educator working as an adjunct for the Center for Anticipatory Intelligence at USU, where I now teach a graduate course on emergent technology. Working with students as a mentor, instructor, and future colleague is perhaps some of the most rewarding professional experiences I have.',
 					'My current full time employment is back in the private sector as a director, project manager, and consultant for a research company that supports higher education. Using my background in both the private and public sectors, I work with presidents, provosts, faculty, and support staff to help them navigate what has become a very unpredictable future.',
 					'My background has taught me the strength of flexible thinking, relationship building, and organizational skills. I have learned that good leadership is built on trust.'
@@ -240,7 +242,7 @@ export const pagesEn = {
 			'Where Peter Crosby stands on the issues facing Northern Utah: the economy, the integrity of our government, and the health of our communities.',
 		eyebrow: 'Policies',
 		pageTitle: 'Where Peter stands',
-		lede: 'Straight answers on the issues that matter most to Northern Utah — the economy, the integrity of our government, and the health of our communities.',
+		lede: 'Real answers on the issues that matter most to Northern Utah — the economy, the integrity of our government, and the health of our communities.',
 		videoComingSoon: 'Video coming soon',
 		onThisPage: 'On this page',
 		items: [
@@ -263,7 +265,7 @@ export const pagesEn = {
 					},
 					{
 						type: 'p' as const,
-						text: 'In these areas, and in all other policy making, my top priority is to represent the people of Northern Utah. My policy positions are people first.'
+						text: 'In these areas, and in all other policy making, my top priority is to represent the people of Northern Utah. My policy solutions are oriented to put individuals, families, and communities first.'
 					}
 				]
 			},
@@ -335,7 +337,7 @@ export const pagesEn = {
 				parts: [
 					{
 						type: 'p' as const,
-						text: 'The recent "Big Beautiful Bill," which District 1\'s Rep. Blake Moore helped craft and pass, significantly cuts access to healthcare by reducing payments to Medicare starting in 2026. These cuts hit hardest in rural communities like those here in Northern Utah, and will make it more expensive to get access to medical care. This is already having an impact here in Utah, as the state is unable to match federal investment at the same level we have in the past, despite the fact we run a large surplus in our state budget. This will likely impact our hospital and emergency care systems the hardest. For rural communities especially, this means less access to critical care.'
+						text: 'The recent "Big Beautiful Bill", crafted, in part, by Rep. Blake Moore of what is now congressional district 2, significantly cuts access to healthcare by reducing payments to Medicare starting in 2026. These cuts hit hardest in rural communities like those here in Northern Utah, and will make it more expensive to get access to medical care. This is already having an impact here in Utah, as the state is unable to match federal investment at the same level we have in the past, despite the fact we run a large surplus in our state budget. This will likely impact our hospital and emergency care systems the hardest. For rural communities especially, this means less access to critical care.'
 					},
 					{
 						type: 'p' as const,

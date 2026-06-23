@@ -13,8 +13,10 @@ export const pagesEs = {
 		heroAlt: 'Peter Crosby con su esposa Amanda y sus tres hijas',
 		eyebrow: 'Conozca a Peter',
 		introTitle: 'Centrado en la familia, enfocado en la comunidad',
-		introLede:
-			'El norte de Utah no es solo un punto en el mapa para mí. Es mi hogar, mi vecindario y mi comunidad. No soy un político de carrera, y no entré en esta contienda para jugar los juegos partidistas de Washington. Me postulo al Congreso porque nuestros vecindarios merecen un liderazgo firme y de sentido común, enfocado en las verdaderas presiones económicas que golpean la mesa de cada familia. Desde bajar el creciente costo de vida hasta proteger los empleos locales que sostienen a nuestras comunidades, mi compromiso es ofrecer una administración honesta y verdadera responsabilidad.',
+		introLede: [
+			'El norte de Utah es mi hogar, mi vecindario y mi comunidad. Me postulo al Congreso porque nuestros vecindarios merecen un liderazgo firme y de sentido común, enfocado en las verdaderas respuestas a los problemas que más nos golpean.',
+			'Desde bajar el creciente costo de vida hasta proteger los empleos locales que sostienen a nuestras comunidades, mi compromiso es ofrecer una administración honesta y verdadera responsabilidad.'
+		],
 		sections: [
 			{
 				title: 'Impulsado por el servicio',
@@ -32,7 +34,7 @@ export const pagesEs = {
 			{
 				title: 'Líder con experiencia',
 				paragraphs: [
-					'Comencé mi carrera profesional en una empresa Fortune 500 en operaciones. Ascendí a un rol de supervisión en un año mientras estudiaba a tiempo completo, y pasé los siguientes cinco o seis años liderando equipos y proyectos. Cuando pasé a analítica a nivel corporativo, tenía once personas a cargo y más de 200 empleados.',
+					'Comencé mi carrera profesional en una empresa Fortune 500 en operaciones. Ascendí a un rol de supervisión en un año mientras estudiaba a tiempo completo, y pasé los siguientes cinco o seis años liderando equipos y proyectos. Cuando pasé a analítica a nivel corporativo, tenía 11 personas a cargo y más de 200 empleados.',
 					'Como graduado universitario de primera generación con dos títulos en ciencia política, conozco de primera mano el valor que nuestras universidades del norte de Utah aportan a personas y comunidades, y quise ser parte de eso. Así que dejé el sector privado para trabajar en Utah State University en investigación institucional. También empecé a enseñar, con mis primeras clases centradas en política e instituciones estadounidenses para pregrado. Agradezco seguir como educador adjunto en el Center for Anticipatory Intelligence de USU, donde ahora doy un curso de posgrado sobre tecnología emergente. Trabajar con estudiantes como mentor, instructor y futuro colega es quizá una de las experiencias profesionales más gratificantes que he tenido.',
 					'Mi empleo a tiempo completo ha vuelto al sector privado como director, gestor de proyectos y consultor para una empresa de investigación que apoya la educación superior. Con mi experiencia en los sectores público y privado, trabajo con rectores, provosts, profesorado y personal de apoyo para ayudarles a navegar un futuro cada vez más impredecible.',
 					'Mi trayectoria me ha enseñado la fuerza del pensamiento flexible, la construcción de relaciones y las habilidades organizativas. He aprendido que un buen liderazgo se basa en la confianza.'
@@ -501,7 +503,7 @@ export const pagesEs = {
 			'La postura de Peter Crosby sobre los temas del norte de Utah: la economía, la integridad del gobierno y la salud de nuestras comunidades.',
 		eyebrow: 'Políticas',
 		pageTitle: 'La postura de Peter',
-		lede: 'Respuestas claras sobre los temas que más importan al norte de Utah: la economía, la integridad de nuestro gobierno y la salud de nuestras comunidades.',
+		lede: 'Respuestas reales sobre los temas que más importan al norte de Utah: la economía, la integridad de nuestro gobierno y la salud de nuestras comunidades.',
 		videoComingSoon: 'Video próximamente',
 		onThisPage: 'En esta página',
 		items: [
@@ -524,7 +526,7 @@ export const pagesEs = {
 					},
 					{
 						type: 'p' as const,
-						text: 'En estas áreas, y en toda política pública, mi prioridad es representar a la gente del norte de Utah. Mis posiciones ponen primero a las personas.'
+						text: 'En estas áreas, y en toda política pública, mi prioridad es representar a la gente del norte de Utah. Mis soluciones de política están orientadas a poner primero a las personas, las familias y las comunidades.'
 					}
 				]
 			},
@@ -595,7 +597,7 @@ export const pagesEs = {
 				parts: [
 					{
 						type: 'p' as const,
-						text: 'La llamada “Big Beautiful Bill”, en la que ayudó el representante Blake Moore del Distrito 1, recorta de forma importante el acceso a la salud al reducir pagos a Medicare desde 2026. Los golpes son mayores en comunidades rurales como las del norte de Utah y encarecen la atención. Utah ya no puede igualar la inversión federal como antes a pesar del superávit estatal; hospitales y urgencias lo sentirán más. En lo rural, menos acceso a cuidados críticos.'
+						text: 'La llamada “Big Beautiful Bill”, elaborada en parte por el representante Blake Moore de lo que ahora es el distrito 2, recorta de forma importante el acceso a la salud al reducir pagos a Medicare desde 2026. Los golpes son mayores en comunidades rurales como las del norte de Utah y encarecen la atención. Utah ya no puede igualar la inversión federal como antes a pesar del superávit estatal; hospitales y urgencias lo sentirán más. En lo rural, menos acceso a cuidados críticos.'
 					},
 					{
 						type: 'p' as const,
