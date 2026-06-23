@@ -1,6 +1,6 @@
 <script>
 	import { createEventDispatcher } from 'svelte';
-	import { messages } from '$lib/i18n/locale';
+	import { locale, messages } from '$lib/i18n/locale';
 	import Rail from './Rail.svelte';
 
 	/** @type {import('$lib/data/media').MediaItem} */
@@ -8,10 +8,31 @@
 
 	const dispatch = createEventDispatcher();
 
+	/**
+	 * Format an ISO date (YYYY-MM-DD) for the meta line, e.g. "Jan 05, 2026".
+	 * Parses the parts as local time so the day never shifts across timezones.
+	 * @param {string} iso
+	 * @param {import('$lib/i18n/dictionaries').Locale} loc
+	 */
+	function formatDate(iso, loc) {
+		const [y, m, d] = iso.split('-').map(Number);
+		return new Date(y, m - 1, d).toLocaleDateString(loc === 'es' ? 'es-US' : 'en-US', {
+			year: 'numeric',
+			month: 'short',
+			day: '2-digit'
+		});
+	}
+
 	$: override = $messages.media.byId[item.id];
 	$: title = override?.title ?? item.title;
 	$: description = override?.description ?? item.description;
-	$: kind = item.type === 'video' ? $messages.media.kindVideo : $messages.media.kindArticle;
+	$: formattedDate = formatDate(item.date, $locale);
+	$: kind =
+		item.type === 'video'
+			? $messages.media.kindVideo
+			: item.type === 'op-ed'
+				? $messages.media.kindOpEd
+				: $messages.media.kindArticle;
 
 	/** @param {MouseEvent} event */
 	function onClick(event) {
@@ -42,8 +63,12 @@
 	</div>
 	<div class="media-body">
 		<h3 class="media-title">{title}</h3>
-		<p class="media-desc">{description}</p>
-		<span class="media-meta">{item.outlet}</span>
+		{#if description}
+				<p class="media-desc">{description}</p>
+			{/if}
+		<span class="media-meta">
+			{#if item.outlet}{item.outlet} • {/if}{formattedDate}
+		</span>
 	</div>
 </a>
 

@@ -1,15 +1,15 @@
 /**
  * Campaign media (English source). Spanish overrides: $messages.media.byId[id].
  * The home page shows the 6 most recent; /media shows a pinned set + the rest.
- * Placeholder content — replace with the campaign's real videos and op-eds.
+ * Source of truth: the "PC - Media Objects" Google Sheet.
  */
 export type MediaItem = {
 	id: string;
 	/** Pin to the top (featured) section of the /media page. */
 	pinned: boolean;
-	type: 'video' | 'article';
+	type: 'video' | 'article' | 'op-ed';
 	title: string;
-	description: string;
+	description?: string;
 	/** ISO date (YYYY-MM-DD) — used to pick the most recent items. */
 	date: string;
 	/** External link: YouTube watch URL (video) or the article URL. */
@@ -22,88 +22,59 @@ export type MediaItem = {
 
 export const mediaData: MediaItem[] = [
 	{
-		id: 'md-001',
+		id: 'our-vote-counts-interview',
 		pinned: true,
 		type: 'video',
-		title: 'Peter on rural healthcare access',
-		description: 'A short conversation about keeping clinics open and staffed across Cache Valley.',
-		date: '2026-06-01',
-		url: 'https://www.youtube.com/watch?v=aqz-KE-bpKQ',
-		youtubeId: 'aqz-KE-bpKQ',
+		title: 'Interview - Our Vote Counts',
+		description:
+			'Our Vote Counts and I sat for a virtual interview and town hall, where we talked about a wide range of issues facing our district and the nation.',
+		date: '2025-12-16',
+		url: 'https://youtu.be/kHJBykNy9zg',
+		youtubeId: 'kHJBykNy9zg',
 		outlet: 'YouTube'
 	},
 	{
-		id: 'md-002',
-		pinned: false,
-		type: 'article',
-		title: 'Op-Ed: The Great Salt Lake can’t wait',
-		description: 'Why Northern Utah needs a real plan for the lake before the next dry year.',
-		date: '2026-05-22',
-		url: 'https://www.sltrib.com',
-		outlet: 'Salt Lake Tribune'
-	},
-	{
-		id: 'md-003',
-		pinned: false,
-		type: 'video',
-		title: 'Town hall in Logan — full recording',
-		description: 'Peter takes questions on housing, costs, and water from neighbors in Logan.',
-		date: '2026-05-15',
-		url: 'https://www.youtube.com/watch?v=aqz-KE-bpKQ',
-		youtubeId: 'aqz-KE-bpKQ',
-		outlet: 'YouTube'
-	},
-	{
-		id: 'md-004',
+		id: 'the-ties-that-bind',
 		pinned: true,
-		type: 'article',
-		title: 'Crosby: Housing is a kitchen-table issue',
-		description: 'Starter homes, not slogans — an op-ed on what working families actually need.',
-		date: '2026-05-03',
-		url: 'https://www.standard.net',
-		outlet: 'Standard-Examiner'
+		type: 'op-ed',
+		title: 'The Ties that Bind',
+		description:
+			'I believe there are ties that bind us as Americans, truths we hold onto stronger than our culture, our geography, our language.',
+		date: '2026-01-19',
+		url: 'https://substack.com/@petercrosbyforcongress/p-185146020',
+		outlet: 'Substack'
 	},
 	{
-		id: 'md-005',
-		pinned: false,
-		type: 'video',
-		title: '60 seconds: Why I’m running',
-		description: 'The short version, straight from Peter.',
-		date: '2026-04-20',
-		url: 'https://www.youtube.com/watch?v=aqz-KE-bpKQ',
-		youtubeId: 'aqz-KE-bpKQ',
-		outlet: 'YouTube'
-	},
-	{
-		id: 'md-006',
+		id: 'early-campaign-launch',
 		pinned: false,
 		type: 'article',
-		title: 'Five questions with Peter Crosby',
-		description: 'A wide-ranging interview on accountability, water, and showing up for the district.',
-		date: '2026-04-10',
-		url: 'https://www.upr.org',
-		outlet: 'Utah Public Radio'
+		title: 'Peter Crosby Launches Early Campaign',
+		date: '2026-03-12',
+		url: 'https://www.theogdenite.com/news/peter-crosby-launches-early-campaign-against-three-term-rep-blake-moore',
+		outlet: 'The Ogdenite'
 	},
 	{
-		id: 'md-007',
+		id: 'virtual-town-hall',
 		pinned: true,
 		type: 'video',
-		title: 'On the trail: knocking doors in Ogden',
-		description: 'Behind the scenes with volunteers across the district on a Saturday morning.',
-		date: '2026-03-28',
-		url: 'https://www.youtube.com/watch?v=aqz-KE-bpKQ',
-		youtubeId: 'aqz-KE-bpKQ',
+		title: 'Virtual Town Hall with Peter',
+		description:
+			"Discussion about data centers, the influence of money in our current governmental system, briefly touch on DOGE, USAID, corporation accountability, AI, participating in our own government, & women's health.",
+		date: '2026-05-19',
+		url: 'https://youtu.be/YJAIs5yViqs',
+		youtubeId: 'YJAIs5yViqs',
 		outlet: 'YouTube'
 	},
 	{
-		id: 'md-008',
+		id: 'cache-valley-daily-spotlight',
 		pinned: false,
 		type: 'article',
-		title: 'Endorsement: A steady hand for District 2',
-		description: 'Why the editorial board is backing Crosby for Congress.',
-		date: '2026-03-15',
-		url: 'https://www.standard.net',
-		outlet: 'Ogden City Press'
+		title: 'Cache Valley Daily Campaign Spotlight',
+		description:
+			'Democratic congressional candidate Peter Crosby to host forum at Logan Library.',
+		date: '2026-06-05',
+		url: 'https://www.cachevalleydaily.com/news/democratic-congressional-candidate-peter-crosby-to-host-forum-at-logan-library-on-june-8/article_8aaa10b6-f72f-4505-a688-bb6d51ced1d4.html',
+		outlet: 'Cache Valley Daily'
 	}
 ];
 

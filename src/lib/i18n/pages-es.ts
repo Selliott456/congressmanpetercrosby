@@ -373,7 +373,8 @@ export const pagesEs = {
 		title: 'Lo más reciente de la campaña',
 		viewAll: 'Ver todo',
 		kindVideo: 'Video',
-		kindArticle: 'Columna',
+		kindArticle: 'Artículo',
+		kindOpEd: 'Columna',
 		closeVideo: 'Cerrar video',
 		pinnedEyebrow: 'Destacados',
 		pinnedTitle: 'Medios destacados',
@@ -383,44 +384,30 @@ export const pagesEs = {
 		pageTitle: 'Todo el contenido',
 		pageLede: 'Videos, columnas y entrevistas de toda la campaña.',
 		byId: {
-			'md-001': {
-				title: 'Peter sobre el acceso a la salud rural',
+			'our-vote-counts-interview': {
+				title: 'Entrevista — Our Vote Counts',
 				description:
-					'Una breve conversación sobre mantener abiertas y con personal las clínicas de Cache Valley.'
+					'Me senté con Our Vote Counts para una entrevista virtual y un cabildo, donde hablamos de una amplia gama de temas que enfrentan nuestro distrito y la nación.'
 			},
-			'md-002': {
-				title: 'Columna: El Gran Lago Salado no puede esperar',
+			'the-ties-that-bind': {
+				title: 'Los lazos que nos unen',
 				description:
-					'Por qué el norte de Utah necesita un plan real para el lago antes del próximo año seco.'
+					'Creo que hay lazos que nos unen como estadounidenses, verdades a las que nos aferramos con más fuerza que a nuestra cultura, nuestra geografía o nuestro idioma.'
 			},
-			'md-003': {
-				title: 'Cabildo en Logan — grabación completa',
+			'early-campaign-launch': {
+				title: 'Peter Crosby lanza su campaña con anticipación'
+			},
+			'virtual-town-hall': {
+				title: 'Cabildo virtual con Peter',
 				description:
-					'Peter responde preguntas sobre vivienda, costos y agua de los vecinos de Logan.'
+					'Conversación sobre los centros de datos, la influencia del dinero en nuestro sistema de gobierno actual, una breve mención de DOGE, USAID, la rendición de cuentas de las corporaciones, la IA, la participación en nuestro propio gobierno y la salud de las mujeres.'
 			},
-			'md-004': {
-				title: 'Crosby: La vivienda es un tema de mesa familiar',
+			'cache-valley-daily-spotlight': {
+				title: 'Cache Valley Daily destaca la campaña',
 				description:
-					'Casas accesibles, no eslóganes: una columna sobre lo que las familias de verdad necesitan.'
-			},
-			'md-005': {
-				title: '60 segundos: Por qué me postulo',
-				description: 'La versión corta, directamente de Peter.'
-			},
-			'md-006': {
-				title: 'Cinco preguntas con Peter Crosby',
-				description:
-					'Una entrevista amplia sobre responsabilidad, agua y dar la cara por el distrito.'
-			},
-			'md-007': {
-				title: 'En campaña: tocando puertas en Ogden',
-				description: 'Tras bambalinas con los voluntarios del distrito un sábado por la mañana.'
-			},
-			'md-008': {
-				title: 'Respaldo: Una mano firme para el Distrito 2',
-				description: 'Por qué el consejo editorial respalda a Crosby para el Congreso.'
+					'El candidato demócrata al Congreso Peter Crosby organizará un foro en la Biblioteca de Logan.'
 			}
-		} as Record<string, { title: string; description: string }>
+		} as Record<string, { title: string; description?: string }>
 	},
 	policies: {
 		metaTitle: 'La postura de Peter — Peter Crosby para el Congreso',

@@ -222,7 +222,8 @@ export const pagesEn = {
 		title: 'Latest from the campaign',
 		viewAll: 'View all media',
 		kindVideo: 'Video',
-		kindArticle: 'Op-Ed',
+		kindArticle: 'Article',
+		kindOpEd: 'Op-Ed',
 		closeVideo: 'Close video',
 		pinnedEyebrow: 'Featured',
 		pinnedTitle: 'Featured media',
@@ -231,7 +232,7 @@ export const pagesEn = {
 			'Videos, op-eds, and interviews from the Peter Crosby for Congress campaign.',
 		pageTitle: 'All media',
 		pageLede: 'Videos, op-eds, and interviews from across the campaign.',
-		byId: {} as Record<string, { title: string; description: string }>
+		byId: {} as Record<string, { title: string; description?: string }>
 	},
 	policies: {
 		metaTitle: 'Where Peter Stands — Peter Crosby for Congress',
