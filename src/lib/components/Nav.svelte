@@ -108,15 +108,6 @@
       >
         {$messages.nav.volunteer}
       </a>
-      <a
-        href={donateHref}
-        class="nav-menu-action nav-menu-action-donate"
-        target="_blank"
-        rel="noopener noreferrer"
-        on:click={() => (menuOpen = false)}
-      >
-        {$messages.nav.donate}
-      </a>
     </div>
   </div>
 </nav>
@@ -364,8 +355,9 @@
     z-index: 1;
   }
 
-  /* Volunteer + Donate pinned to the bottom of the open menu, so both stay
-     reachable at the narrow widths where they drop out of the header. */
+  /* Volunteer pinned to the bottom of the open menu, so it stays reachable at
+     the narrow widths where it drops out of the header. (Donate stays in the
+     header at all breakpoints, so it's not duplicated here.) */
   .nav-menu-actions {
     display: flex;
     flex-direction: column;
@@ -405,29 +397,16 @@
     color: var(--paper);
   }
 
-  .nav-menu-action-donate {
-    background: var(--green);
-    color: var(--paper);
-    border: 1px solid var(--green);
-  }
-
-  .nav-menu-action-donate:hover {
-    background: #1d4a1f;
-    border-color: #1d4a1f;
-    color: var(--paper);
-  }
-
   @media (max-width: 1023px) {
-    /* Below 1024px even the left-aligned row would crowd the action buttons
-       (the longer Spanish labels are the tight case), so collapse to the
-       hamburger; the header reduces to logo (left) + toggle (right). The
-       Volunteer/Donate CTAs move into the open menu instead. */
+    /* Below 1024px the link row collapses to the hamburger; the header reduces
+       to logo (left) + persistent Donate CTA + toggle (right). Donate stays
+       visible at every breakpoint per the campaign; Volunteer moves into the
+       open menu. */
     .nav-links {
       display: none;
     }
 
-    .nav-link.nav-link-volunteer,
-    .nav-link.nav-link-donate {
+    .nav-link.nav-link-volunteer {
       display: none;
     }
 
