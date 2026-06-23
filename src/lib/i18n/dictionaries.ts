@@ -102,6 +102,27 @@ const en = {
 			}
 		],
 		prioritiesLink: 'Read where he stands on the issues →',
+		// Temporary home stand-in shown while the full "Priorities" section copy is
+		// being finalized — a short summary of the Policies page. See PoliciesSummary.svelte.
+		policiesSummaryEyebrow: 'Where Peter stands',
+		policiesSummaryTitle: 'People-first policy for Northern Utah',
+		policiesSummaryLede:
+			'Peter’s priorities come straight from the people he meets across Northern Utah. They come down to three things:',
+		policiesSummaryAreas: [
+			{
+				title: 'The economy',
+				text: 'Confronting the housing crisis and the rising cost of living, and standing up for the local jobs and small businesses that hold our towns together.'
+			},
+			{
+				title: 'The integrity of our government',
+				text: 'Banning congressional stock trades, opening a real conversation on term limits, and getting corporate dark money out of our politics.'
+			},
+			{
+				title: 'The health of our communities',
+				text: 'Protecting access to care for rural Utah and opposing the cuts that hit local families and hospitals the hardest.'
+			}
+		],
+		policiesSummaryLink: 'Read where Peter stands on the issues →',
 		communityAria: 'Peter Crosby with family',
 		communityAlt: 'Peter Crosby with his family in Northern Utah',
 		communityQuote: 'Family, service, and community—values that shape this campaign.',
@@ -218,6 +239,27 @@ const es: Messages = {
 			}
 		],
 		prioritiesLink: 'Lea su postura sobre los temas →',
+		// Stand-in temporal de la página de inicio mientras se finaliza el texto de
+		// la sección "Prioridades" — un resumen de la página de Políticas.
+		policiesSummaryEyebrow: 'La postura de Peter',
+		policiesSummaryTitle: 'Políticas que ponen a la gente primero',
+		policiesSummaryLede:
+			'Las prioridades de Peter vienen directamente de la gente que conoce en todo el norte de Utah. Se resumen en tres áreas:',
+		policiesSummaryAreas: [
+			{
+				title: 'La economía',
+				text: 'Enfrentar la crisis de vivienda y el aumento del costo de vida, y defender los empleos locales y las pequeñas empresas que sostienen a nuestros pueblos.'
+			},
+			{
+				title: 'La integridad de nuestro gobierno',
+				text: 'Prohibir que los miembros del Congreso negocien acciones, abrir una conversación seria sobre los límites de mandato y sacar el dinero corporativo de nuestra política.'
+			},
+			{
+				title: 'La salud de nuestras comunidades',
+				text: 'Proteger el acceso a la atención médica del Utah rural y oponerse a los recortes que más golpean a las familias y los hospitales locales.'
+			}
+		],
+		policiesSummaryLink: 'Lea la postura de Peter sobre los temas →',
 		communityAria: 'Peter Crosby con su familia',
 		communityAlt: 'Peter Crosby con su familia en el norte de Utah',
 		communityQuote: 'Familia, servicio y comunidad: valores que dan forma a esta campaña.',

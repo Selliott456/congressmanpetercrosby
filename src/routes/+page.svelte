@@ -3,7 +3,11 @@
   import SocialIcon from "$lib/components/SocialIcon.svelte";
   import Rail from "$lib/components/Rail.svelte";
   import EndorsementMarquee from "$lib/components/EndorsementMarquee.svelte";
-  import Priorities from "$lib/components/Priorities.svelte";
+  // Priorities is hidden until the campaign finalizes the section copy. To unhide:
+  // restore this import, swap <PoliciesSummary /> back to <Priorities /> below, and
+  // (optionally) drop the PoliciesSummary import + component.
+  // import Priorities from "$lib/components/Priorities.svelte";
+  import PoliciesSummary from "$lib/components/PoliciesSummary.svelte";
   import Media from "$lib/components/Media.svelte";
   import { messages } from "$lib/i18n/locale";
   import { socialLinks } from "$lib/data/socialLinks";
@@ -72,8 +76,9 @@
   <!-- 1b. Endorsements marquee -->
   <EndorsementMarquee />
 
-  <!-- 2. Priorities -->
-  <Priorities />
+  <!-- 2. Priorities (hidden until campaign copy is ready — see import note above) -->
+  <!-- <Priorities /> -->
+  <PoliciesSummary />
 
   <!-- 3. Media -->
   <Media />

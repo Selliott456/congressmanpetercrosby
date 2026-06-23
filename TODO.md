@@ -4,6 +4,31 @@ Running list of open items to review and decide on. Not commitments — discussi
 
 ---
 
+## Home "Priorities" section — hidden until campaign finalizes the copy
+
+**Status:** Temporarily hidden on the homepage. Awaiting finished section copy from the
+campaign. Once the copy is ready, unhide and deploy.
+
+The home **"Five priorities. No fine print."** section ([`Priorities.svelte`](src/lib/components/Priorities.svelte))
+is currently hidden because its detail copy is still placeholder and the campaign is writing
+the real version. In its place the homepage shows
+[`PoliciesSummary.svelte`](src/lib/components/PoliciesSummary.svelte) — a short, on-brand
+summary of the Policies page (header, lede, three pillars: the economy, the integrity of our
+government, the health of our communities) with a forwarding link to `/policies`. Content is
+drawn faithfully from [`/policies`](src/routes/policies/+page.svelte) and lives in the
+`home.policiesSummary*` strings (en + es) in [`dictionaries.ts`](src/lib/i18n/dictionaries.ts).
+
+**Nothing was deleted** — `Priorities.svelte` and its `home.priorities*` strings are intact.
+
+**To unhide when the campaign delivers the copy:**
+1. In [`src/routes/+page.svelte`](src/routes/+page.svelte): uncomment the `Priorities` import
+   and swap `<PoliciesSummary />` back to `<Priorities />` (the steps are inlined as comments).
+2. Update the `home.priorities*` copy (en + es) with the campaign's final text.
+3. Optionally remove `PoliciesSummary.svelte` and the `home.policiesSummary*` strings (en + es).
+4. `npm run check` + `npm run build`, then deploy.
+
+---
+
 ## Pull the 3 most recent Instagram posts into the homepage "Media" section
 
 **Status:** Feasibility discussed, not started. To review with the campaign manager /
