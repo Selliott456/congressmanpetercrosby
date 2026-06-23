@@ -108,9 +108,11 @@
 			text-align: justify;
 		}
 
-		/* Short headings / taglines stay centered */
+		/* Short headings / taglines / labels stay centered (never justified) */
 		.layout-main :global(.tagline),
-		.layout-main :global(.tagline-section p) {
+		.layout-main :global(.tagline-section p),
+		.layout-main :global(.endorsement-name),
+		.layout-main :global(.endorsement-role) {
 			text-align: center;
 		}
 
