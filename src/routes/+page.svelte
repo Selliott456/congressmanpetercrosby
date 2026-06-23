@@ -30,6 +30,7 @@
         {#each $messages.home.heroLead as para}
           <p class="home-hero-lead">{para}</p>
         {/each}
+        <a href="/events" class="home-hero-events-link">{$messages.home.heroEventsLink}</a>
         <div class="home-hero-cta">
           <Button href="https://secure.actblue.com/donate/peter-crosby-1"
             >{$messages.home.donate}</Button
@@ -290,6 +291,27 @@
     margin: 0 0 1.75rem;
     opacity: 0.95;
     max-width: 32rem;
+  }
+
+  /* Tertiary text link to the events page — sits between the lede and the
+     solid Donate/Volunteer CTAs. */
+  .home-hero-events-link {
+    display: inline-flex;
+    align-items: center;
+    margin: 0 0 1.75rem;
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 0.9375rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--sky);
+    text-decoration: none;
+  }
+
+  .home-hero-events-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
   }
 
   .home-hero-cta {

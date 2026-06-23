@@ -44,11 +44,13 @@ const en = {
 		metaDescription:
 			'Peter Crosby for U.S. Congress, Utah District 2. Integrity, practical solutions, and a representative who puts Northern Utah first.',
 		heroKicker: 'U.S. Congress · Utah District 2',
-		heroTitle: 'A voice for Northern Utah',
+		heroTitle: 'The Voice for Northern Utah',
 		heroLead: [
-			'I’m running to put Northern Utah first, not Washington politics. I believe you deserve a representative who answers directly to you, not to a political party.',
-			'Northern Utah is home. It’s where Amanda and I have put down roots and are raising our family, and where I’ve come to love these communities as my own. I’m running because the people here deserve someone who will show up and fight for them — to lower the cost of living, protect the local jobs that hold our towns together, and bring honest, people-first leadership back to Congress.'
+			'Northern Utah is home. It’s where Amanda and I have put down roots and have raised our family for almost 20 years now.',
+			'I’m running because our community needs a leader that will voice our concerns, resolve our issues, and hold to our values whatever comes. I am determined to be that kind of leader, and to earn your trust by proving that out the entire campaign.',
+			'I want to hear from you. I’m holding town halls every month. Come talk to me at the next one near you.'
 		],
+		heroEventsLink: 'Find your next town hall →',
 		donate: 'Donate',
 		prioritiesEyebrow: 'Priorities',
 		prioritiesTitle: 'Five priorities. No fine print.',
@@ -181,11 +183,13 @@ const es: Messages = {
 		metaDescription:
 			'Peter Crosby para el Congreso de EE. UU., Distrito 2 de Utah. Integridad, soluciones prácticas y un representante que pone primero al norte de Utah.',
 		heroKicker: 'Congreso de EE. UU. · Distrito 2 de Utah',
-		heroTitle: 'Una voz para el norte de Utah',
+		heroTitle: 'La voz del norte de Utah',
 		heroLead: [
-			'Me postulo para poner al norte de Utah primero, no a la política de Washington. Creo que usted merece un representante que le responda directamente a usted, no a un partido político.',
-			'El norte de Utah es nuestro hogar. Aquí Amanda y yo hemos echado raíces y criamos a nuestra familia, y aquí he aprendido a querer a estas comunidades como propias. Me postulo porque la gente de aquí merece a alguien que dé la cara y luche por ella: bajar el costo de vida, proteger los empleos locales que sostienen a nuestros pueblos y devolver al Congreso un liderazgo honesto que pone primero a las personas.'
+			'El norte de Utah es nuestro hogar. Aquí Amanda y yo hemos echado raíces y hemos criado a nuestra familia durante casi 20 años.',
+			'Me postulo porque nuestra comunidad necesita un líder que exprese nuestras preocupaciones, resuelva nuestros problemas y se mantenga fiel a nuestros valores pase lo que pase. Estoy decidido a ser esa clase de líder y a ganarme su confianza demostrándolo durante toda la campaña.',
+			'Quiero saber de usted. Realizo cabildos cada mes. Venga a hablar conmigo en el próximo que haya cerca de usted.'
 		],
+		heroEventsLink: 'Encuentre su próximo cabildo →',
 		donate: 'Donar',
 		prioritiesEyebrow: 'Prioridades',
 		prioritiesTitle: 'Cinco prioridades. Sin letra pequeña.',
