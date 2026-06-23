@@ -116,6 +116,20 @@
 			text-align: center;
 		}
 
+		/* Intro ledes opt out of the body-justify above and follow their own
+		   container's alignment (left on most pages, centered on events/interviews). */
+		.layout-main :global(.about-intro-lede),
+		.layout-main :global(.contact-lede),
+		.layout-main :global(.endorse-lede),
+		.layout-main :global(.media-block-lede),
+		.layout-main :global(.pol-lede),
+		.layout-main :global(.policies-lede),
+		.layout-main :global(.pri-lede),
+		.layout-main :global(.events-intro),
+		.layout-main :global(.interviews-intro) {
+			text-align: inherit;
+		}
+
 		/* Buttons: keep text centered */
 		.layout-main :global(.btn) {
 			text-align: center;

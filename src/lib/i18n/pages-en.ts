@@ -214,7 +214,7 @@ export const pagesEn = {
 			'Community leaders, neighbors, and local voices backing Peter Crosby for Congress in Northern Utah.',
 		eyebrow: 'Endorsements',
 		pageTitle: 'Who’s standing with Peter',
-		lede: 'Mayors, neighbors, and local leaders from across Northern Utah are backing this campaign.',
+		lede: 'Neighbors, local leaders, and organizations from across Northern Utah are backing this campaign.',
 		peopleHeading: 'People',
 		orgHeading: 'Businesses & organizations',
 		byId: {} as Record<string, { role: string }>

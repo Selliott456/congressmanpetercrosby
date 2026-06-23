@@ -398,11 +398,6 @@
 	}
 
 	@media (max-width: 768px) {
-		.policies-hero-inner,
-		.policies-body-inner {
-			text-align: center;
-		}
-
 		/* Keep the jump bar a single sticky line that scrolls sideways. */
 		.policies-jump-inner {
 			overflow-x: auto;
@@ -420,15 +415,6 @@
 		.policies-jump-list {
 			flex-wrap: nowrap;
 			gap: 1.25rem;
-		}
-
-		.policies-eyebrow {
-			justify-content: center;
-		}
-
-		.policies-lede {
-			margin-left: auto;
-			margin-right: auto;
 		}
 
 		.policies-section {

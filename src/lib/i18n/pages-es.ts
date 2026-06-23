@@ -440,7 +440,7 @@ export const pagesEs = {
 			'Líderes comunitarios, vecinos y voces locales que respaldan a Peter Crosby para el Congreso en el norte de Utah.',
 		eyebrow: 'Respaldos',
 		pageTitle: 'Quiénes apoyan a Peter',
-		lede: 'Alcaldes, vecinos y líderes locales de todo el norte de Utah respaldan esta campaña.',
+		lede: 'Vecinos, líderes locales y organizaciones de todo el norte de Utah respaldan esta campaña.',
 		peopleHeading: 'Personas',
 		orgHeading: 'Negocios y organizaciones',
 		byId: {
