@@ -27,7 +27,7 @@
 				<p class="media-block-eyebrow">{$messages.media.eyebrow}</p>
 				<h2 class="media-block-title">{$messages.media.pageTitle}</h2>
 			</div>
-			<MediaGrid items={restMedia} />
+			<MediaGrid items={restMedia} variant="light" />
 		</div>
 	</section>
 </main>

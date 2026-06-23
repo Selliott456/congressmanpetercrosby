@@ -5,6 +5,8 @@
 
 	/** @type {import('$lib/data/media').MediaItem} */
 	export let item;
+	/** Card surface: 'dark' (default, navy) or 'light' (for light section grounds). @type {'dark' | 'light'} */
+	export let variant = 'dark';
 
 	const dispatch = createEventDispatcher();
 
@@ -47,6 +49,7 @@
 
 <a
 	class="media-card"
+	class:media-card--light={variant === 'light'}
 	href={item.url}
 	target="_blank"
 	rel="noopener noreferrer"
@@ -90,6 +93,31 @@
 	.media-card:focus-visible {
 		border-color: var(--sky);
 		transform: translateY(-3px);
+	}
+
+	/* Light variant — for cards on light section grounds (less glaring). The
+	   thumbnail stays dark; the body becomes a light surface with dark text. */
+	.media-card--light {
+		background: var(--paper-2);
+		border-color: var(--line-l);
+		color: var(--ink);
+	}
+
+	.media-card--light:hover,
+	.media-card--light:focus-visible {
+		border-color: var(--blue);
+	}
+
+	.media-card--light .media-title {
+		color: var(--ink);
+	}
+
+	.media-card--light .media-desc {
+		color: var(--ink-2);
+	}
+
+	.media-card--light .media-meta {
+		color: var(--ink-3);
 	}
 
 	.media-thumb {

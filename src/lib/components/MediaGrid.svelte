@@ -4,6 +4,8 @@
 
 	/** @type {import('$lib/data/media').MediaItem[]} */
 	export let items;
+	/** Card surface passed through to each MediaCard. @type {'dark' | 'light'} */
+	export let variant = 'dark';
 
 	/** @type {import('$lib/data/media').MediaItem | null} */
 	let active = null;
@@ -21,7 +23,7 @@
 <ul class="media-grid">
 	{#each items as item (item.id)}
 		<li class="media-grid-cell">
-			<MediaCard {item} on:play={onPlay} />
+			<MediaCard {item} {variant} on:play={onPlay} />
 		</li>
 	{/each}
 </ul>

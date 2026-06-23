@@ -81,28 +81,7 @@
   <!-- <Priorities /> -->
   <PoliciesSummary />
 
-  <!-- 3. Media -->
-  <Media />
-
-  <!-- 5. Community image -->
-  <section class="home-community" aria-label={$messages.home.communityAria}>
-    <Rail />
-    <div class="home-community-img-wrap">
-      <img
-        src="/images/family_peter.png"
-        alt={$messages.home.communityAlt}
-        class="home-community-img"
-        loading="lazy"
-        decoding="async"
-        sizes="100vw"
-      />
-    </div>
-    <div class="home-community-caption">
-      <p class="home-community-quote">{$messages.home.communityQuote}</p>
-    </div>
-  </section>
-
-  <!-- 6. Get involved -->
+  <!-- 3. Get involved -->
   <section class="home-section home-involve" aria-labelledby="involve-heading">
     <div class="home-wrap">
       <h2 id="involve-heading" class="home-section-title">
@@ -146,7 +125,28 @@
     </div>
   </section>
 
-  <!-- 7. Footer note: global Footer in +layout -->
+  <!-- 4. Media -->
+  <Media />
+
+  <!-- 5. Community image -->
+  <section class="home-community" aria-label={$messages.home.communityAria}>
+    <Rail />
+    <div class="home-community-img-wrap">
+      <img
+        src="/images/family_peter.png"
+        alt={$messages.home.communityAlt}
+        class="home-community-img"
+        loading="lazy"
+        decoding="async"
+        sizes="100vw"
+      />
+    </div>
+    <div class="home-community-caption">
+      <p class="home-community-quote">{$messages.home.communityQuote}</p>
+    </div>
+  </section>
+
+  <!-- 6. Footer note: global Footer in +layout -->
 </main>
 
 <style>
@@ -449,8 +449,18 @@
 
   /* Get involved */
   .home-involve {
-    background: var(--color-white);
+    background: var(--ink-deep);
+    color: var(--paper);
     padding-bottom: clamp(4rem, 10vw, 6rem);
+  }
+
+  /* Dark-ground overrides for the (shared) section title + intro. */
+  .home-involve .home-section-title {
+    color: var(--paper);
+  }
+
+  .home-involve .home-section-intro {
+    color: rgba(247, 250, 252, 0.8);
   }
 
   .home-involve-grid {
@@ -466,18 +476,18 @@
     gap: 0.35rem;
     padding: 1.5rem 1.25rem;
     border-radius: 0;
-    border: 1px solid var(--line-l);
+    border: 1px solid var(--line-d);
     text-decoration: none;
     color: inherit;
     transition:
       border-color 0.2s ease,
       background 0.2s ease;
-    background: var(--color-white);
+    background: var(--ink-2);
   }
 
   .home-involve-card:hover {
-    border-color: var(--ink);
-    background: var(--paper-2);
+    border-color: var(--sky);
+    background: var(--ink-2);
   }
 
   .home-involve-card--accent {
@@ -540,6 +550,17 @@
     .home-wrap {
       padding-left: 0;
       padding-right: 0;
+    }
+
+    /* Dark section bleeds edge-to-edge on mobile (like the hero + community). */
+    .home-involve {
+      width: 100vw;
+      max-width: 100vw;
+      margin-left: calc(-1 * var(--mobile-margin));
+      margin-right: calc(-1 * var(--mobile-margin));
+      padding-left: 1.25rem;
+      padding-right: 1.25rem;
+      box-sizing: border-box;
     }
 
     .home-involve-grid {
