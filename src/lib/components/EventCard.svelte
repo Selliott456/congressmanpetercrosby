@@ -327,6 +327,7 @@
 		align-self: center;
 	}
 
+	/* Ghost CTA — civic-blue outline so it reads as secondary to the solid date block. */
 	.event-rsvp {
 		box-sizing: border-box;
 		font-family: var(--display);
@@ -337,19 +338,21 @@
 		text-transform: uppercase;
 		text-align: center;
 		padding: 0.6rem 1.6rem;
-		border: 1px solid var(--ink);
-		background: var(--ink);
-		color: var(--paper);
+		border: 1px solid var(--blue);
+		background: transparent;
+		color: var(--blue);
 		cursor: pointer;
 		white-space: nowrap;
 		transition:
 			background 0.18s ease,
-			border-color 0.18s ease;
+			border-color 0.18s ease,
+			color 0.18s ease;
 	}
 
 	.event-rsvp:not(.event-rsvp--done):hover {
 		background: var(--blue);
 		border-color: var(--blue);
+		color: var(--paper);
 	}
 
 	/* Confirmed RSVP — green, non-interactive. */

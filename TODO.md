@@ -29,6 +29,54 @@ drawn faithfully from [`/policies`](src/routes/policies/+page.svelte) and lives 
 
 ---
 
+## Localize event venue/location descriptors (Spanish)
+
+**Status:** Deferred (decided to scope later). All events have Spanish `title` + `description`
+overrides; **location and time are not localized.**
+
+The event `byId` Spanish override schema covers **title + description only**
+([`pages-es.ts`](src/lib/i18n/pages-es.ts) → `events.byId`). An event's `time` and
+`location` (e.g. "Logan City Library, 285 N. Main, Logan, UT") still render from the English
+source ([`events.ts`](src/lib/data/events.ts)) in both languages. Most locations are
+addresses / proper venue names, so this is a reasonable default — but for a fully first-class
+Spanish experience the campaign may want venue *descriptors* localized (e.g. "Logan City
+Library" → "Biblioteca de Logan", "… Branch" → "Sucursal …").
+
+**If we do this:** extend the `events.byId` override type to optionally include `location`
+(and possibly a localized `time` label), then add Spanish location overrides across **all**
+~50 events. Keep the address portion intact; translate only the descriptor. Touches every
+event, so it's a deliberate pass, not a quick edit. Also confirm whether the `time` string
+("7:00 PM – 8:00 PM MT") needs a Spanish variant or is acceptable as-is.
+
+---
+
+## Show event graphics in event components ("View Details" → modal/spotlight)
+
+**Status:** Not started. Needs a design decision + the graphic assets from the campaign.
+
+Many events have a promotional **JPG graphic** (flyer/poster). We want a way to surface it
+from the event card without cluttering the layout. Likely approach: a **"View Details"**
+link/button on [`EventCard.svelte`](src/lib/components/EventCard.svelte) that opens the
+event's graphic in a **modal / lightbox / spotlight** (overlay the image, dim the page,
+close on Esc / backdrop click).
+
+**To decide / figure out:**
+- **Pattern + reuse:** we already have an image-modal precedent in
+  [`VideoLightbox.svelte`](src/lib/components/VideoLightbox.svelte) (YouTube) and the RSVP
+  modal ([`RsvpModal.svelte`](src/lib/components/RsvpModal.svelte)) — focus trap, Esc-to-close,
+  body-scroll-lock, backdrop. Reuse that scaffolding for an image spotlight rather than
+  building modal plumbing from scratch.
+- **Data:** add an optional `graphic` (image path) — and maybe `graphicAlt` — to `EventRow`
+  in [`events.ts`](src/lib/data/events.ts), and a column in the "PC - Event Objects" sheet.
+  Only show "View Details" when a graphic exists.
+- **Assets:** the actual JPGs, optimized (`sips` per the Assets note) into `static/images/`.
+  Decide aspect-ratio handling (flyers are usually portrait) and a sensible max size.
+- **Placement vs. existing links:** how "View Details" sits alongside "Add to Calendar",
+  "View Event", and the RSVP CTA without overloading the card.
+- **A11y:** alt text per graphic, and the modal should announce/title itself.
+
+---
+
 ## Pull the 3 most recent Instagram posts into the homepage "Media" section
 
 **Status:** Feasibility discussed, not started. To review with the campaign manager /

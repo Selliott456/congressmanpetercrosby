@@ -335,14 +335,100 @@ export const pagesEs = {
 				title: 'Cabildo virtual',
 				description: 'Cabildo virtual en Facebook. Únase en línea.'
 			},
-			'ev-100': {
-				title: 'Conozca al candidato — Ogden',
-				description:
-					'Venga a conocer a Peter y haga sus preguntas. Confirme su asistencia para planear los asientos.'
+			'ev-031': {
+				title: 'Capacitación con Lindsie',
+				description: 'Capacitación de campaña en la oficina de campaña del condado de Davis.'
 			},
-			'ev-101': {
-				title: 'Cabildo - Condado de Cache',
-				description: 'Cabildo en el condado de Cache. Traiga sus preguntas para Peter.'
+			'ev-032': {
+				title: 'Cabildo virtual',
+				description: 'Acompáñenos en línea para un cabildo virtual en Facebook.'
+			},
+			'ev-033': {
+				title: 'Gira de participación cívica de Women’s Work Utah',
+				description:
+					'Gira de participación cívica de Women’s Work Utah en el centro comunitario de Farmington.'
+			},
+			'ev-034': {
+				title: 'Protesta contra los centros de datos en el Capitolio',
+				description: 'Protesta contra los centros de datos en el Capitolio del Estado de Utah.'
+			},
+			'ev-035': {
+				title: 'Cabildo en Logan',
+				description: 'Cabildo en Logan. Venga con sus preguntas.'
+			},
+			'ev-036': {
+				title: 'Capacitación de voluntarios',
+				description: 'Capacitación de voluntarios en la biblioteca de Ogden.'
+			},
+			'ev-037': {
+				title: 'Cabildo',
+				description: 'Cabildo en la biblioteca de Ogden. Venga con sus preguntas.'
+			},
+			'ev-038': {
+				title: 'Hora feliz de los demócratas de Davis',
+				description: 'Hora feliz de los demócratas de Davis en Roosters, en Layton.'
+			},
+			'ev-039': {
+				title: 'Protesta contra los centros de datos',
+				description:
+					'Protesta contra los centros de datos en el histórico Palacio de Justicia del Condado de Cache.'
+			},
+			'ev-040': {
+				title: 'Comida compartida en el parque con Davis Indivisible',
+				description: 'Comida compartida en el parque con Davis Indivisible.'
+			},
+			'ev-041': {
+				title: 'Cena de Premios Taylor & Mayne 2026',
+				description: 'Cena de Premios Taylor & Mayne 2026 en el Hogle Zoo de Utah.'
+			},
+			'ev-042': {
+				title: 'Cabildo virtual por Facebook Live',
+				description: 'Un cabildo virtual con Peter. ¡Únase desde donde se encuentre!'
+			},
+			'ev-043': {
+				title: 'Día de agradecimiento a voluntarios, condado de Cache',
+				description:
+					'Acompáñenos a desayunar panqueques en el parque. Traiga a sus amistades para dar las gracias juntos.'
+			},
+			'ev-044': {
+				title: 'Día de agradecimiento a voluntarios, condado de Box Elder',
+				description:
+					'Día de campo con Peter en el parque. Acompáñenos a un almuerzo ligero. Traiga a sus amistades para dar las gracias juntos.'
+			},
+			'ev-045': {
+				title: 'Día de agradecimiento a voluntarios, condado de Weber',
+				description:
+					'Tome una limonada rosa con Peter. Acompáñenos por una refrescante limonada rosa. Traiga a sus amistades para dar las gracias juntos.'
+			},
+			'ev-046': {
+				title: 'Día de agradecimiento a voluntarios, condado de Davis',
+				description:
+					'Tome un helado con Peter. Acompáñenos por un helado. Traiga a una amistad para dar las gracias juntos.'
+			},
+			'ev-047': {
+				title: 'Cabildo – Condado de Davis',
+				description: 'Un cabildo con Peter en el condado de Davis. Traiga sus preguntas para Peter.'
+			},
+			'ev-048': {
+				title: 'Cabildo – Condado de Cache',
+				description: 'Un cabildo con Peter en el condado de Cache. Traiga sus preguntas para Peter.'
+			},
+			'ev-049': {
+				title: 'Cabildo – Condado de Box Elder',
+				description:
+					'Un cabildo con Peter en el condado de Box Elder. Traiga sus preguntas para Peter.'
+			},
+			'ev-050': {
+				title: 'Encuentro comunitario – Fruit Heights',
+				description: 'Un encuentro comunitario en el condado de Davis.'
+			},
+			'ev-051': {
+				title: 'Cabildo – Condado de Davis',
+				description: 'Un cabildo con Peter en el condado de Davis. Traiga sus preguntas para Peter.'
+			},
+			'ev-052': {
+				title: 'Cabildo – Condado de Weber',
+				description: 'Un cabildo con Peter en el condado de Weber. Traiga sus preguntas para Peter.'
 			}
 		} as Record<string, { title: string; description: string }>
 	},
