@@ -48,7 +48,8 @@ export const endorsements: Endorsement[] = [
 	{ id: 'afscme-1004', category: 'organization', name: 'AFSCME - 1004', photo: '/images/endorsements/afscme_1004.jpg' },
 	{ id: 'utah-veterans-caucus', category: 'organization', name: 'Utah Veterans Democratic Caucus', photo: '/images/endorsements/utah_veterans_democratic_caucus.jpg' },
 	{ id: 'environmental-caucus', category: 'organization', name: 'Environmental Caucus', photo: '/images/endorsements/environmental_caucus.jpg' },
-	{ id: 'womens-dem-club-utah', category: 'organization', name: 'Women’s Democratic Club of Utah', photo: '/images/endorsements/womens_democratic_club_of_utah.jpg' }
+	{ id: 'womens-dem-club-utah', category: 'organization', name: 'Women’s Democratic Club of Utah', photo: '/images/endorsements/womens_democratic_club_of_utah.jpg' },
+	{ id: 'utah-state-progressive-caucus', category: 'organization', name: 'Utah State Progressive Caucus', photo: '/images/endorsements/utah_state_progressive_caucus.jpg' }
 ];
 
 /** Individual endorsers. */
