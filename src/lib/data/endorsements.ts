@@ -32,22 +32,23 @@ export const endorsements: Endorsement[] = [
 	{ id: 'kim-james', category: 'person', name: 'Kim James', role: 'Candidate - Utah House District 8', photo: '/images/endorsements/kim_james.jpg' },
 
 	// Businesses & organizations
-	{ id: 'wsu-democrats', category: 'organization', name: 'WSU Democrats' },
-	{ id: 'weber-county-progressives', category: 'organization', name: 'Weber County Progressive Caucus' },
-	{ id: 'ogden-50501', category: 'organization', name: 'Ogden 50501' },
+	{ id: 'wsu-democrats', category: 'organization', name: 'WSU Democrats', photo: '/images/endorsements/wsu_democrats.jpg' },
+	{ id: 'weber-county-progressives', category: 'organization', name: 'Weber County Progressive Caucus', photo: '/images/endorsements/weber_county_progressive_caucus.jpg' },
+	{ id: 'ogden-50501', category: 'organization', name: 'Ogden 50501', photo: '/images/endorsements/ogden_50501.jpg' },
 	{
 		id: 'weber-dem-womens-caucus',
 		category: 'organization',
-		name: 'Weber Democratic Women’s Caucus'
+		name: 'Weber Democratic Women’s Caucus',
+		photo: '/images/endorsements/weber_democratic_womens_caucus.jpg'
 	},
-	{ id: 'utah-dem-black-caucus', category: 'organization', name: 'Utah Democratic Black Caucus' },
+	{ id: 'utah-dem-black-caucus', category: 'organization', name: 'Utah Democratic Black Caucus', photo: '/images/endorsements/utah_democratic_black_caucus.jpg' },
 	{ id: 'labor-caucus', category: 'organization', name: 'Labor Caucus' },
 	{ id: 'nalc-branch-68', category: 'organization', name: 'NALC - Branch 68' },
 	{ id: 'nalc-branch-970', category: 'organization', name: 'NALC - Branch 970' },
-	{ id: 'afscme-1004', category: 'organization', name: 'AFSCME - 1004' },
-	{ id: 'utah-veterans-caucus', category: 'organization', name: 'Utah Veterans Democratic Caucus' },
-	{ id: 'environmental-caucus', category: 'organization', name: 'Environmental Caucus' },
-	{ id: 'womens-dem-club-utah', category: 'organization', name: 'Women’s Democratic Club of Utah' }
+	{ id: 'afscme-1004', category: 'organization', name: 'AFSCME - 1004', photo: '/images/endorsements/afscme_1004.jpg' },
+	{ id: 'utah-veterans-caucus', category: 'organization', name: 'Utah Veterans Democratic Caucus', photo: '/images/endorsements/utah_veterans_democratic_caucus.jpg' },
+	{ id: 'environmental-caucus', category: 'organization', name: 'Environmental Caucus', photo: '/images/endorsements/environmental_caucus.jpg' },
+	{ id: 'womens-dem-club-utah', category: 'organization', name: 'Women’s Democratic Club of Utah', photo: '/images/endorsements/womens_democratic_club_of_utah.jpg' }
 ];
 
 /** Individual endorsers. */

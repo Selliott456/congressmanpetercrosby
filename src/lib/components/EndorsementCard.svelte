@@ -61,9 +61,10 @@
 		border-color: var(--line-l);
 	}
 
+	/* Org images are already framed 1:1 squares — fill the photo frame (the old
+	   contain + padding left a light gap at the top). */
 	.endorsement-photo--organization img {
-		object-fit: contain;
-		padding: 1.25rem;
+		object-fit: cover;
 	}
 
 	.endorsement-photo--organization .endorsement-initials {
