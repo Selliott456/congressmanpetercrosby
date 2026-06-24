@@ -103,21 +103,22 @@
 	}
 
 	.interviews-title {
-		font-family: var(--font-primary);
+		font-family: var(--display);
+		font-style: italic;
 		font-size: 2.25rem;
-		font-weight: 700;
-		color: var(--color-primary);
+		font-weight: 900;
+		letter-spacing: -0.03em;
+		color: var(--ink);
 		margin: 0 0 0.5rem 0;
-		line-height: 1.2;
+		line-height: 1.05;
 	}
 
 	.interviews-intro {
-		font-family: var(--font-primary);
+		font-family: var(--serif);
 		font-size: 1.0625rem;
 		line-height: 1.6;
-		color: var(--color-primary);
+		color: var(--ink-2);
 		margin: 0;
-		opacity: 0.9;
 	}
 
 	.interviews-list {
@@ -148,27 +149,27 @@
 		flex-shrink: 0;
 		width: 4rem;
 		text-align: center;
-		background: var(--color-primary);
-		color: var(--color-white);
-		border-radius: 8px;
+		background: var(--ink);
+		color: var(--paper);
+		border-radius: 0;
 		padding: 0.5rem 0;
 		position: relative;
 	}
 
 	.interview-month {
 		display: block;
-		font-family: var(--font-primary);
+		font-family: var(--mono);
 		font-size: 0.75rem;
 		font-weight: 600;
 		text-transform: uppercase;
-		letter-spacing: 0.05em;
+		letter-spacing: 0.08em;
 	}
 
 	.interview-day {
 		display: block;
-		font-family: var(--font-primary);
+		font-family: var(--mono);
 		font-size: 1.5rem;
-		font-weight: 700;
+		font-weight: 600;
 		line-height: 1.2;
 	}
 
@@ -178,13 +179,13 @@
 		right: -0.5rem;
 		width: 1.75rem;
 		height: 1.75rem;
-		border-radius: 50%;
-		background: var(--color-white);
-		color: var(--color-primary);
+		border-radius: 0;
+		background: var(--paper);
+		color: var(--ink);
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		box-shadow: 0 2px 8px rgba(0, 35, 56, 0.15);
+		border: 1px solid var(--line-l);
 	}
 
 	.platform-icon {
@@ -198,38 +199,41 @@
 	}
 
 	.interview-title {
-		font-family: var(--font-primary);
+		font-family: var(--display);
+		font-style: italic;
 		font-size: 1.25rem;
-		font-weight: 700;
-		color: var(--color-primary);
+		font-weight: 800;
+		letter-spacing: -0.01em;
+		color: var(--ink);
 		margin: 0 0 0.25rem 0;
-		line-height: 1.3;
+		line-height: 1.25;
 	}
 
 	.interview-time {
-		font-family: var(--font-primary);
-		font-size: 0.9375rem;
-		color: var(--color-primary);
+		font-family: var(--mono);
+		font-size: 0.8125rem;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: var(--ink-2);
 		margin: 0 0 0.5rem 0;
-		opacity: 0.9;
 	}
 
 	.interview-calendar-links {
-		font-family: var(--font-primary);
-		font-size: 0.875rem;
+		font-family: var(--mono);
+		font-size: 0.8125rem;
+		letter-spacing: 0.04em;
 		margin: 0 0 0.75rem 0;
 	}
 
 	.calendar-link {
-		color: var(--color-primary);
-		opacity: 0.85;
+		color: var(--ink-2);
 	}
 
 	.interview-description {
 		font-family: var(--font-primary);
 		font-size: 1rem;
 		line-height: 1.7;
-		color: var(--color-primary);
+		color: var(--ink-2);
 		margin: 0 0 1rem 0;
 	}
 
@@ -238,7 +242,7 @@
 		font-family: var(--font-primary);
 		font-size: 0.9375rem;
 		font-weight: 600;
-		color: var(--color-secondary);
+		color: var(--blue);
 		text-decoration: none;
 		margin-top: 0.5rem;
 	}

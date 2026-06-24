@@ -20,16 +20,24 @@
 
 <style>
 	.btn {
-		padding: 0.75rem 2rem;
-		font-family: var(--font-primary);
-		font-size: 1rem;
-		font-weight: 500;
-		border: none;
-		border-radius: 8px;
+		padding: 0.8rem 1.75rem;
+		font-family: var(--display);
+		font-style: italic;
+		font-size: 0.8125rem;
+		font-weight: 800;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		border: 2px solid transparent;
+		border-radius: 0;
 		cursor: pointer;
-		transition: all 0.2s ease;
+		transition:
+			background 0.2s ease,
+			color 0.2s ease,
+			border-color 0.2s ease;
 		text-decoration: none;
-		display: inline-block;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
 		text-align: center;
 		width: 180px;
 	}
@@ -40,33 +48,36 @@
 	}
 
 	.btn-primary {
-		background: var(--color-primary);
-		color: var(--color-white);
+		background: var(--ink);
+		color: var(--paper);
+		border-color: var(--ink);
 	}
 
 	.btn-primary:hover:not(.disabled) {
-		background: #003a5a;
-		transform: translateY(-2px);
-		box-shadow: 0 4px 12px rgba(0, 35, 56, 0.3);
+		background: var(--ink-2);
+		border-color: var(--ink-2);
 	}
 
+	/* Ghost / outline */
 	.btn-accent {
-		background: var(--color-accent);
-		color: var(--color-primary);
+		background: transparent;
+		color: var(--ink);
+		border-color: var(--ink);
 	}
 
 	.btn-accent:hover:not(.disabled) {
-		background: #a8c0d0;
-		transform: translateY(-2px);
-		box-shadow: 0 4px 12px rgba(187, 206, 221, 0.4);
+		background: var(--ink);
+		color: var(--paper);
 	}
 
+	/* Primary CTA — sky fill with the brand shimmer */
 	.btn-secondary {
 		position: relative;
 		overflow: hidden;
 		overflow: clip;
-		background: var(--color-secondary);
-		color: var(--color-white);
+		background: var(--sky);
+		color: var(--ink);
+		border-color: var(--sky);
 	}
 
 	.btn-secondary::after {
@@ -90,9 +101,8 @@
 	}
 
 	.btn-secondary:hover:not(.disabled) {
-		background: #1d4a1f;
-		transform: translateY(-2px);
-		box-shadow: 0 4px 12px rgba(35, 89, 38, 0.3);
+		background: #6aa6cf;
+		border-color: #6aa6cf;
 	}
 
 	.btn-secondary:hover:not(.disabled)::after {
@@ -106,10 +116,6 @@
 		100% {
 			transform: translateX(167%);
 		}
-	}
-
-	.btn:active:not(.disabled) {
-		transform: translateY(0);
 	}
 
 	.btn.disabled,

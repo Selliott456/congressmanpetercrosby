@@ -1,6 +1,6 @@
 <script>
   import { page } from "$app/stores";
-  import LanguageSwitcher from "./LanguageSwitcher.svelte";
+  import Rail from "./Rail.svelte";
   import { messages } from "$lib/i18n/locale";
 
   const donateHref = "https://secure.actblue.com/donate/peter-crosby-1";
@@ -8,10 +8,10 @@
   $: links = [
     { label: $messages.nav.home, href: "/" },
     { label: $messages.nav.about, href: "/about" },
-    { label: $messages.nav.contact, href: "/contact" },
+    { label: $messages.nav.policies, href: "/policies" },
+    { label: $messages.nav.media, href: "/media" },
     { label: $messages.nav.events, href: "/events" },
-    { label: $messages.nav.pastInterviews, href: "/past-interviews" },
-    { label: $messages.nav.policies, href: "/faq" },
+    { label: $messages.nav.contact, href: "/contact" },
   ];
 
   let menuOpen = false;
@@ -22,6 +22,7 @@
 </script>
 
 <nav class="nav">
+  <Rail />
   <div class="nav-inner">
     <div class="nav-start">
       <a href="/" class="nav-logo" aria-label={$messages.nav.ariaHome}>
@@ -35,14 +36,6 @@
           loading="eager"
           decoding="sync"
         />
-      </a>
-      <a
-        href={donateHref}
-        class="nav-link nav-link-donate"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <span class="nav-link-inner">{$messages.nav.donate}</span>
       </a>
     </div>
     <ul class="nav-links">
@@ -61,7 +54,17 @@
       {/each}
     </ul>
     <div class="nav-right">
-      <LanguageSwitcher />
+      <a href="/volunteer" class="nav-link nav-link-volunteer">
+        <span class="nav-link-inner">{$messages.nav.volunteer}</span>
+      </a>
+      <a
+        href={donateHref}
+        class="nav-link nav-link-donate"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span class="nav-link-inner">{$messages.nav.donate}</span>
+      </a>
       <button
         class="nav-toggle"
         aria-label={$messages.nav.menuToggle}
@@ -97,6 +100,15 @@
         </li>
       {/each}
     </ul>
+    <div class="nav-menu-actions">
+      <a
+        href="/volunteer"
+        class="nav-menu-action nav-menu-action-volunteer"
+        on:click={() => (menuOpen = false)}
+      >
+        {$messages.nav.volunteer}
+      </a>
+    </div>
   </div>
 </nav>
 
@@ -113,9 +125,13 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 0.75rem 1.5rem;
-    display: flex;
+    display: grid;
+    /* Logo (auto) + links (1fr, left-aligned next to the logo) + actions (auto).
+       Anchoring the links left of center instead of centering them frees the
+       slack on the right, so the full nav survives down to 1024px before
+       collapsing to the hamburger. */
+    grid-template-columns: auto 1fr auto;
     align-items: center;
-    justify-content: space-between;
     gap: 1rem;
   }
 
@@ -123,14 +139,16 @@
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    flex-shrink: 0;
+    justify-self: start;
+    min-width: 0;
   }
 
   .nav-right {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    flex-shrink: 0;
+    gap: 0.5rem;
+    justify-self: end;
+    min-width: 0;
   }
 
   .nav-logo {
@@ -141,7 +159,7 @@
   }
 
   .nav-logo-img {
-    height: 72px;
+    height: 88px;
     width: auto;
     display: block;
   }
@@ -149,8 +167,8 @@
   .nav-links {
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex: 1;
+    justify-content: flex-start;
+    justify-self: start;
     min-width: 0;
     gap: 0.25rem;
     list-style: none;
@@ -159,14 +177,16 @@
   }
 
   .nav-link {
-    font-family: var(--font-primary);
+    font-family: var(--display);
+    font-style: italic;
     font-size: 0.875rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    color: var(--color-white);
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--paper);
     text-decoration: none;
-    padding: 0.5rem 0.75rem;
-    border-radius: 6px;
+    padding: 0.5rem 0.6rem;
+    border-radius: 0;
     transition:
       background 0.2s ease,
       color 0.2s ease;
@@ -174,12 +194,12 @@
 
   .nav-link:hover {
     background: rgba(255, 255, 255, 0.15);
-    color: var(--color-white);
+    color: var(--paper);
   }
 
   .nav-link.active {
     background: transparent;
-    color: var(--color-accent);
+    color: var(--sky);
   }
 
   .nav-link-inner {
@@ -192,11 +212,11 @@
     position: relative;
     overflow: hidden;
     overflow: clip;
-    border-radius: 8px;
-    background: var(--color-secondary);
-    color: var(--color-white);
-    padding: 0.5rem 1rem;
-    font-weight: 500;
+    border-radius: 0;
+    background: var(--green);
+    color: var(--paper);
+    font-size: 0.8125rem;
+    padding: 0.55rem 1.2rem;
   }
 
   .nav-link.nav-link-donate::after {
@@ -221,8 +241,7 @@
 
   .nav-link.nav-link-donate:hover {
     background: #1d4a1f;
-    color: var(--color-white);
-    box-shadow: 0 4px 12px rgba(35, 89, 38, 0.3);
+    color: var(--paper);
   }
 
   .nav-link.nav-link-donate:hover::after {
@@ -238,6 +257,22 @@
     }
   }
 
+  .nav-link.nav-link-volunteer {
+    display: inline-block;
+    background: transparent;
+    color: var(--paper);
+    border: 1px solid rgba(247, 250, 252, 0.4);
+    font-size: 0.8125rem;
+    padding: 0.5rem 1.2rem;
+    border-radius: 0;
+  }
+
+  .nav-link.nav-link-volunteer:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: var(--paper);
+    color: var(--paper);
+  }
+
   .nav-toggle {
     display: none;
     align-items: center;
@@ -250,7 +285,7 @@
     background: transparent;
     border: none;
     cursor: pointer;
-    border-radius: 6px;
+    border-radius: 0;
     transition: background 0.2s ease;
   }
 
@@ -262,8 +297,7 @@
     display: block;
     width: 22px;
     height: 2px;
-    background: var(--color-white);
-    border-radius: 1px;
+    background: var(--paper);
     transition:
       transform 0.2s ease,
       opacity 0.2s ease;
@@ -290,14 +324,16 @@
   }
 
   .nav-menu-link {
-    font-family: var(--font-primary);
-    font-size: 0.875rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    color: var(--color-white);
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 0.9375rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--paper);
     text-decoration: none;
     padding: 0.75rem 1rem;
-    border-radius: 6px;
+    border-radius: 0;
     display: block;
     transition:
       background 0.2s ease,
@@ -306,12 +342,12 @@
 
   .nav-menu-link:hover {
     background: rgba(255, 255, 255, 0.15);
-    color: var(--color-white);
+    color: var(--paper);
   }
 
   .nav-menu-link.active {
     background: transparent;
-    color: var(--color-accent);
+    color: var(--sky);
   }
 
   .nav-menu-link-inner {
@@ -319,19 +355,59 @@
     z-index: 1;
   }
 
-  @media (max-width: 900px) {
+  /* Volunteer pinned to the bottom of the open menu, so it stays reachable at
+     the narrow widths where it drops out of the header. (Donate stays in the
+     header at all breakpoints, so it's not duplicated here.) */
+  .nav-menu-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(247, 250, 252, 0.18);
+  }
+
+  .nav-menu-action {
+    display: block;
+    text-align: center;
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 0.9375rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0.85rem 1rem;
+    border-radius: 0;
+    transition:
+      background 0.2s ease,
+      border-color 0.2s ease,
+      color 0.2s ease;
+  }
+
+  .nav-menu-action-volunteer {
+    background: transparent;
+    color: var(--paper);
+    border: 1px solid rgba(247, 250, 252, 0.4);
+  }
+
+  .nav-menu-action-volunteer:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: var(--paper);
+    color: var(--paper);
+  }
+
+  @media (max-width: 1023px) {
+    /* Below 1024px the link row collapses to the hamburger; the header reduces
+       to logo (left) + persistent Donate CTA + toggle (right). Donate stays
+       visible at every breakpoint per the campaign; Volunteer moves into the
+       open menu. */
     .nav-links {
       display: none;
     }
 
-    .nav-inner {
-      flex-wrap: wrap;
-      row-gap: 0.5rem;
-    }
-
-    .nav-start {
-      flex: 1;
-      min-width: 0;
+    .nav-link.nav-link-volunteer {
+      display: none;
     }
 
     .nav-toggle {
@@ -347,7 +423,7 @@
     }
   }
 
-  @media (min-width: 901px) {
+  @media (min-width: 1024px) {
     .nav-menu {
       display: none !important;
     }

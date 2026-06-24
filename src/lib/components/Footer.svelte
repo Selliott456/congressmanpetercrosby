@@ -1,10 +1,12 @@
 <script>
   import { messages } from "$lib/i18n/locale";
   import SocialIcon from "./SocialIcon.svelte";
+  import Rail from "./Rail.svelte";
   import { socialLinks } from "$lib/data/socialLinks";
 </script>
 
 <footer class="footer">
+  <Rail />
   <div class="footer-inner">
     <div class="footer-col">
       <div class="footer-brand">
@@ -18,7 +20,10 @@
           decoding="async"
         />
       </div>
-      <a href="/contact" class="footer-faq-link">{$messages.footer.contactUs}</a>
+      <nav class="footer-links" aria-label={$messages.footer.navAria}>
+        <a href="/endorsements" class="footer-faq-link">{$messages.footer.endorsements}</a>
+        <a href="/contact" class="footer-faq-link">{$messages.footer.contactUs}</a>
+      </nav>
       <div class="footer-social" aria-label={$messages.footer.socialAria}>
         {#each socialLinks as link}
           <a
@@ -38,25 +43,14 @@
       &copy; {new Date().getFullYear()}
       {$messages.footer.rights}
     </p>
-    <p class="footer-credit">
-      {$messages.footer.createdBy}
-      {" "}
-      <a
-        href="https://elliottpeck.dev"
-        class="footer-credit-link"
-        target="_blank"
-        rel="noopener noreferrer">{$messages.footer.createdByName}</a
-      >
-    </p>
     <p class="footer-disclaimer">{$messages.footer.paidForBy}</p>
   </div>
 </footer>
 
 <style>
   .footer {
-    background: var(--color-accent);
-    color: var(--color-primary);
-    border-top: 1px solid rgba(0, 35, 56, 0.12);
+    background: var(--paper-2);
+    color: var(--ink);
     margin-top: auto;
   }
 
@@ -107,16 +101,25 @@
     justify-content: center;
     width: 40px;
     height: 40px;
-    color: var(--color-primary);
-    border-radius: 8px;
+    color: var(--ink);
+    border-radius: 0;
     transition:
       background 0.2s ease,
       color 0.2s ease;
   }
 
   .footer-social-link:hover {
-    background: rgba(0, 35, 56, 0.1);
-    color: var(--color-primary);
+    background: rgba(15, 37, 69, 0.1);
+    color: var(--ink);
+  }
+
+  .footer-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+    margin-top: 0.75rem;
   }
 
   .footer-faq-link {
@@ -126,7 +129,6 @@
     letter-spacing: 0.02em;
     color: var(--color-primary);
     text-decoration: none;
-    margin-top: 0.75rem;
     display: inline-block;
     transition: opacity 0.2s ease;
   }
@@ -146,27 +148,6 @@
     border-top: 1px solid rgba(0, 35, 56, 0.15);
     width: 100%;
     max-width: 400px;
-  }
-
-  .footer-credit {
-    font-family: var(--font-primary);
-    font-size: 0.8125rem;
-    color: var(--color-primary);
-    opacity: 0.9;
-    margin: 0;
-    padding-top: 0.25rem;
-  }
-
-  .footer-credit-link {
-    color: var(--color-primary);
-    text-decoration: none;
-    font-weight: 600;
-    transition: opacity 0.2s ease;
-  }
-
-  .footer-credit-link:hover {
-    opacity: 0.85;
-    text-decoration: underline;
   }
 
   .footer-disclaimer {

@@ -1,5 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
+	import AnnouncementBar from '../lib/components/AnnouncementBar.svelte';
 	import Nav from '../lib/components/Nav.svelte';
 	import Footer from '../lib/components/Footer.svelte';
 	import { initLocaleFromStorage } from '$lib/i18n/locale';
@@ -21,6 +22,7 @@
 	/>
 </svelte:head>
 
+<AnnouncementBar />
 <Nav />
 <div class="layout-main">
 	<slot />
@@ -29,11 +31,33 @@
 
 <style>
 	:global(:root) {
-		--color-primary: #002338;
-		--color-secondary: #235926;
-		--color-accent: #bbcedd;
-		--color-white: #ffffff;
-		--font-primary: 'Open Sauce One', sans-serif;
+		/* ── Brand palette (style guide) ───────────────────────── */
+		--ink-deep: #091b36;
+		--ink: #0f2545;
+		--ink-2: #1a3358;
+		--ink-3: #274680;
+		--paper: #f7fafc;
+		--paper-2: #eaf1f8;
+		--paper-3: #d6e2ee;
+		--green: #235926;
+		--sky: #7fb7dc;
+		--blue: #2e5fa0;
+		--line-l: rgba(15, 37, 69, 0.16);
+		--line-l-2: rgba(15, 37, 69, 0.08);
+		--line-d: rgba(255, 255, 255, 0.14);
+
+		/* ── Type ──────────────────────────────────────────────── */
+		--display: 'Archivo', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+		--sans: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+		--serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+		--mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+
+		/* ── Legacy aliases (migrated per component/page) ──────── */
+		--color-primary: var(--ink);
+		--color-secondary: var(--green);
+		--color-white: var(--paper);
+		--font-primary: var(--sans);
+
 		--mobile-margin: 1.25rem;
 	}
 
@@ -61,7 +85,10 @@
 			display: flex;
 			flex-direction: column;
 			align-items: stretch;
-			overflow-x: hidden;
+			/* `clip` (not `hidden`) so it still prevents horizontal scroll without
+			   becoming a scroll container — which would break `position: sticky`
+			   descendants (e.g. the Policies "On this page" bar) on mobile. */
+			overflow-x: clip;
 		}
 
 		.layout-main > :global(main),
@@ -74,17 +101,35 @@
 		.layout-main :global(p),
 		.layout-main :global(.section-body),
 		.layout-main :global(.section-body p),
-		.layout-main :global(.faq-answer),
-		.layout-main :global(.faq-answer p),
+		.layout-main :global(.policies-answer),
+		.layout-main :global(.policies-answer p),
 		.layout-main :global(.event-description),
 		.layout-main :global(.interview-description) {
 			text-align: justify;
 		}
 
-		/* Short headings / taglines stay centered */
+		/* Short headings / taglines / labels stay centered (never justified) */
 		.layout-main :global(.tagline),
-		.layout-main :global(.tagline-section p) {
+		.layout-main :global(.tagline-section p),
+		.layout-main :global(.endorsement-name),
+		.layout-main :global(.endorsement-role) {
 			text-align: center;
+		}
+
+		/* Intro ledes + short card body copy opt out of the body-justify above and
+		   follow their own container's alignment (left on most pages, centered on
+		   events/interviews). */
+		.layout-main :global(.about-intro-lede),
+		.layout-main :global(.contact-lede),
+		.layout-main :global(.endorse-lede),
+		.layout-main :global(.media-block-lede),
+		.layout-main :global(.pol-lede),
+		.layout-main :global(.pol-area-text),
+		.layout-main :global(.policies-lede),
+		.layout-main :global(.pri-lede),
+		.layout-main :global(.events-intro),
+		.layout-main :global(.interviews-intro) {
+			text-align: inherit;
 		}
 
 		/* Buttons: keep text centered */

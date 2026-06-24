@@ -1,131 +1,171 @@
 <script>
 	import { locale, setLocale, messages } from '$lib/i18n/locale';
 
-	/** Stripe height for 13-row US flag in viewBox height 32 */
-	const h = 32 / 13;
-	const cantonH = 7 * h;
+	let open = false;
+	/** @type {HTMLElement | undefined} */
+	let root;
+	/** @type {HTMLButtonElement | undefined} */
+	let trigger;
+
+	// Languages shown in their own name (autonyms), no country flags.
+	$: options = [
+		{ code: /** @type {'en'} */ ('en'), label: $messages.language.english },
+		{ code: /** @type {'es'} */ ('es'), label: $messages.language.spanish }
+	];
+	$: current = options.find((o) => o.code === $locale) ?? options[0];
+
+	function toggle() {
+		open = !open;
+	}
+
+	/** @param {'en' | 'es'} code */
+	function choose(code) {
+		setLocale(code);
+		open = false;
+		trigger?.focus();
+	}
+
+	/** @param {MouseEvent} event */
+	function handleWindowClick(event) {
+		if (open && root && !root.contains(/** @type {Node} */ (event.target))) open = false;
+	}
+
+	/** @param {KeyboardEvent} event */
+	function handleKeydown(event) {
+		if (event.key === 'Escape' && open) {
+			open = false;
+			trigger?.focus();
+		}
+	}
 </script>
 
-<div class="lang-switch" role="group" aria-label={$messages.language.switch}>
+<svelte:window on:click={handleWindowClick} on:keydown={handleKeydown} />
+
+<div class="lang" class:open bind:this={root}>
 	<button
 		type="button"
-		class="lang-btn"
-		class:active={$locale === 'en'}
-		aria-pressed={$locale === 'en'}
-		aria-label={$messages.language.english}
-		title={$messages.language.english}
-		on:click={() => setLocale('en')}
+		class="lang-trigger"
+		aria-haspopup="menu"
+		aria-expanded={open}
+		aria-label={$messages.language.switch}
+		bind:this={trigger}
+		on:click={toggle}
 	>
-		<!-- US flag (simplified stripes + canton) -->
-		<svg class="flag flag--us" viewBox="0 0 60 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-			<rect width="60" height="32" fill="#B22234" rx="2" />
-			<!-- White stripes (6 bands) -->
-			<rect x="0" y={h} width="60" height={h} fill="#fff" />
-			<rect x="0" y={3 * h} width="60" height={h} fill="#fff" />
-			<rect x="0" y={5 * h} width="60" height={h} fill="#fff" />
-			<rect x="0" y={7 * h} width="60" height={h} fill="#fff" />
-			<rect x="0" y={9 * h} width="60" height={h} fill="#fff" />
-			<rect x="0" y={11 * h} width="60" height={h} fill="#fff" />
-			<!-- Canton -->
-			<rect width="24" height={cantonH} fill="#3C3B6E" />
-			<!-- Tiny star grid (decorative) -->
-			<g fill="#fff">
-				{#each Array(3) as _, row}
-					{#each Array(5) as _, col}
-						<circle
-							cx={4 + col * 4}
-							cy={2.2 + row * 4.2}
-							r="0.85"
-						/>
-					{/each}
-				{/each}
-			</g>
-		</svg>
-		<span class="lang-abbr">ENG</span>
+		<span class="lang-globe" aria-hidden="true">&#127760;</span>
+		<span class="lang-current">{current.label}</span>
+		<span class="lang-caret" aria-hidden="true">&#9662;</span>
 	</button>
-	<button
-		type="button"
-		class="lang-btn"
-		class:active={$locale === 'es'}
-		aria-pressed={$locale === 'es'}
-		aria-label={$messages.language.spanish}
-		title={$messages.language.spanish}
-		on:click={() => setLocale('es')}
-	>
-		<!-- Spain civil flag — red / yellow / red (Español) -->
-		<svg class="flag flag--es" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-			<rect width="60" height="40" fill="#AA151B" rx="2" />
-			<rect x="0" y="10" width="60" height="20" fill="#F1BF00" />
-		</svg>
-		<span class="lang-abbr">ESP</span>
-	</button>
+
+	{#if open}
+		<ul class="lang-menu" role="menu" aria-label={$messages.language.switch}>
+			{#each options as opt}
+				<li role="none">
+					<button
+						type="button"
+						role="menuitem"
+						class="lang-option"
+						class:active={opt.code === $locale}
+						aria-current={opt.code === $locale ? 'true' : undefined}
+						on:click={() => choose(opt.code)}
+					>
+						{opt.label}
+					</button>
+				</li>
+			{/each}
+		</ul>
+	{/if}
 </div>
 
 <style>
-	.lang-switch {
-		display: flex;
-		align-items: center;
-		gap: 0.35rem;
+	.lang {
+		position: relative;
 		flex-shrink: 0;
 	}
 
-	.lang-btn {
-		position: relative;
+	.lang-trigger {
 		display: inline-flex;
 		align-items: center;
-		justify-content: center;
-		gap: 0.35rem;
-		padding: 0.25rem 0.35rem 0.25rem 0.2rem;
+		gap: 0.4rem;
+		padding: 0.28rem 0.5rem;
 		background: transparent;
-		border: 2px solid transparent;
-		border-radius: 6px;
+		border: 1px solid var(--line-d);
+		border-radius: 0;
 		cursor: pointer;
-		transition: border-color 0.2s ease, background 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
-		opacity: 0.55;
-	}
-
-	.lang-btn:hover {
-		opacity: 0.95;
-		background: rgba(255, 255, 255, 0.1);
-	}
-
-	.lang-btn.active {
-		opacity: 1;
-		border-color: var(--color-accent);
-		box-shadow: 0 0 0 1px rgba(187, 206, 221, 0.5);
-		background: rgba(255, 255, 255, 0.08);
-	}
-
-	.flag {
-		display: block;
-		height: 18px;
-		width: auto;
-		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
-	}
-
-	.flag--us {
-		aspect-ratio: 60 / 32;
-	}
-
-	.flag--es {
-		aspect-ratio: 60 / 40;
-	}
-
-	.lang-abbr {
-		font-family: var(--font-primary);
+		color: rgba(247, 250, 252, 0.85);
+		font-family: var(--mono);
 		font-size: 0.6875rem;
-		font-weight: 700;
+		font-weight: 600;
 		letter-spacing: 0.06em;
-		color: rgba(255, 255, 255, 0.65);
+		text-transform: uppercase;
 		white-space: nowrap;
-		transition: color 0.2s ease;
+		transition:
+			border-color 0.2s ease,
+			background 0.2s ease,
+			color 0.2s ease;
 	}
 
-	.lang-btn:hover .lang-abbr {
-		color: rgba(255, 255, 255, 0.95);
+	.lang-trigger:hover,
+	.lang-trigger:focus-visible {
+		border-color: var(--sky);
+		color: var(--paper);
+		background: rgba(255, 255, 255, 0.06);
 	}
 
-	.lang-btn.active .lang-abbr {
-		color: var(--color-accent);
+	.lang-globe {
+		font-size: 0.85rem;
+		line-height: 1;
+	}
+
+	.lang-caret {
+		font-size: 0.6rem;
+		line-height: 1;
+		transition: transform 0.2s ease;
+	}
+
+	.lang.open .lang-caret {
+		transform: rotate(180deg);
+	}
+
+	.lang-menu {
+		position: absolute;
+		top: calc(100% + 4px);
+		right: 0;
+		z-index: 200;
+		min-width: 100%;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		background: var(--ink-deep);
+		border: 1px solid var(--line-d);
+	}
+
+	.lang-option {
+		display: block;
+		width: 100%;
+		padding: 0.45rem 0.7rem;
+		text-align: left;
+		background: transparent;
+		border: 0;
+		cursor: pointer;
+		color: rgba(247, 250, 252, 0.8);
+		font-family: var(--mono);
+		font-size: 0.6875rem;
+		font-weight: 600;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		white-space: nowrap;
+		transition:
+			background 0.15s ease,
+			color 0.15s ease;
+	}
+
+	.lang-option:hover,
+	.lang-option:focus-visible {
+		background: rgba(255, 255, 255, 0.08);
+		color: var(--paper);
+	}
+
+	.lang-option.active {
+		color: var(--sky);
 	}
 </style>

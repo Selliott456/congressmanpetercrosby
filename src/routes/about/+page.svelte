@@ -1,58 +1,7 @@
 <script>
-	import { onMount } from 'svelte';
 	import Button from '$lib/components/Button.svelte';
+	import Rail from '$lib/components/Rail.svelte';
 	import { messages } from '$lib/i18n/locale';
-
-	const TRANSITION_RANGE = 280; // px of scroll over which scale goes 1 → 0.7
-	const MIN_SCALE = 0.7;
-
-	let scale = 1;
-	/** @type {HTMLDivElement | undefined} */
-	let heroEl;
-	/** @type {HTMLDivElement | undefined} */
-	let heroInnerEl;
-	let fullContentHeight = 0;
-
-	function isMobileLayout() {
-		return typeof window !== 'undefined' && window.matchMedia('(max-width: 768px)').matches;
-	}
-
-	function updateScale() {
-		if (isMobileLayout()) {
-			scale = 1;
-			if (heroEl) heroEl.style.height = '';
-			return;
-		}
-		const scrollY = window.scrollY ?? window.pageYOffset;
-		const progress = (TRANSITION_RANGE - scrollY) / TRANSITION_RANGE;
-		const clamped = Math.max(0, Math.min(1, progress));
-		scale = MIN_SCALE + (1 - MIN_SCALE) * clamped;
-		// Shrink hero height with the picture so the background matches
-		if (heroEl && fullContentHeight > 0) {
-			heroEl.style.height = `${fullContentHeight * scale}px`;
-		}
-	}
-
-	onMount(() => {
-		const measure = () => {
-			if (heroInnerEl) fullContentHeight = heroInnerEl.offsetHeight;
-			updateScale();
-		};
-		measure();
-		// Re-measure after image loads in case layout wasn't final
-		if (heroInnerEl) {
-			const img = heroInnerEl.querySelector('img');
-			if (img && !img.complete) img.addEventListener('load', measure);
-		}
-		const mq = window.matchMedia('(max-width: 768px)');
-		const onMq = () => measure();
-		mq.addEventListener('change', onMq);
-		window.addEventListener('scroll', updateScale, { passive: true });
-		return () => {
-			mq.removeEventListener('change', onMq);
-			window.removeEventListener('scroll', updateScale);
-		};
-	});
 </script>
 
 <svelte:head>
@@ -61,11 +10,30 @@
 </svelte:head>
 
 <main class="about-page">
-	<div class="about-hero" bind:this={heroEl}>
-		<div class="about-hero-inner" bind:this={heroInnerEl} style="transform: scale({scale})">
-			<img src="/images/family_peter.png" alt={$messages.about.heroAlt} class="about-hero-image" />
+	<section class="about-intro" aria-labelledby="about-intro-title">
+		<div class="about-intro-inner">
+			<div class="about-intro-copy">
+				<p class="about-intro-eyebrow">{$messages.about.eyebrow}</p>
+				<h1 id="about-intro-title" class="about-intro-title">{$messages.about.introTitle}</h1>
+				{#each $messages.about.introLede as para}
+					<p class="about-intro-lede">{para}</p>
+				{/each}
+			</div>
+			<div class="about-intro-media">
+				<img
+					src="/images/family_peter.jpg"
+					alt={$messages.about.heroAlt}
+					class="about-intro-img"
+					width="1600"
+					height="1067"
+					fetchpriority="high"
+					decoding="async"
+				/>
+			</div>
 		</div>
-	</div>
+	</section>
+
+	<Rail />
 
 	<div class="about-content">
 		{#each $messages.about.sections as section}
@@ -80,7 +48,9 @@
 		{/each}
 
 		<div class="about-cta">
-			<Button href="https://secure.actblue.com/donate/peter-crosby-1">{$messages.common.donate}</Button>
+			<Button href="https://secure.actblue.com/donate/peter-crosby-1"
+				>{$messages.common.donate}</Button
+			>
 		</div>
 	</div>
 </main>
@@ -91,60 +61,74 @@
 		background: var(--color-white);
 	}
 
-	.about-hero {
+	/* —— Top intro: copy left, family photo right —— */
+	.about-intro {
 		background: var(--color-white);
-		padding: 0;
-		border-bottom: 1px solid rgba(0, 35, 56, 0.08);
-		position: sticky;
-		top: 6rem; /* below nav (logo 72px + padding) */
-		z-index: 10;
-		overflow: hidden;
-		transition: height 0.12s ease-out;
 	}
 
-	.about-hero::before {
-		content: '';
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		width: 400vmax;
-		height: 400vmax;
-		margin-left: -200vmax;
-		margin-top: -200vmax;
-		background-image: url('/images/brand_strategy_square_cropped_transparent_bg_blue_002338.svg');
-		background-size: 200px 200px;
-		background-repeat: repeat;
-		opacity: 0.1;
-		z-index: 0;
-		pointer-events: none;
-		transform: rotate(45deg);
-		transform-origin: center center;
-	}
-
-	.about-hero-inner {
-		position: relative;
-		z-index: 1;
-		max-width: 900px;
+	.about-intro-inner {
+		max-width: 1120px;
 		margin: 0 auto;
-		display: flex;
-		flex-direction: column;
+		padding: clamp(2.5rem, 6vw, 4.5rem) 1.5rem;
+		display: grid;
+		grid-template-columns: 1.05fr 0.95fr;
+		gap: clamp(2rem, 5vw, 4rem);
 		align-items: center;
-		gap: 1.5rem;
-		transform-origin: top center;
-		transition: transform 0.12s ease-out;
 	}
 
-	.about-hero-image {
-		width: 100%;
-		max-width: 500px;
-		height: auto;
+	.about-intro-eyebrow {
+		margin: 0 0 0.75rem;
+		display: flex;
+		align-items: center;
+		gap: 0.6rem;
+		font-family: var(--display);
+		font-style: italic;
+		font-weight: 800;
+		font-size: 0.6875rem;
+		letter-spacing: 0.2em;
+		text-transform: uppercase;
+		color: var(--blue);
+	}
+
+	.about-intro-eyebrow::before {
+		content: '';
+		width: 26px;
+		height: 2px;
+		background: var(--blue);
+	}
+
+	.about-intro-title {
+		margin: 0 0 1.25rem;
+		font-family: var(--display);
+		font-style: italic;
+		font-weight: 900;
+		font-size: clamp(2rem, 5vw, 3rem);
+		letter-spacing: -0.035em;
+		line-height: 1.02;
+		color: var(--ink);
+	}
+
+	.about-intro-lede {
+		margin: 0;
+		font-family: var(--serif);
+		font-size: clamp(1.0625rem, 2.2vw, 1.25rem);
+		line-height: 1.55;
+		color: var(--ink-2);
+	}
+
+	.about-intro-lede + .about-intro-lede {
+		margin-top: 1rem;
+	}
+
+	.about-intro-img {
 		display: block;
-		border-radius: 8px;
-		box-shadow: 0 4px 20px rgba(0, 35, 56, 0.15);
+		width: 100%;
+		height: auto;
+		border: 1px solid var(--line-l);
 	}
 
 	.about-content {
-		max-width: 800px;
+		max-width: 1120px;
 		margin: 0 auto;
 		padding: 3rem 1.5rem 4rem;
 	}
@@ -165,20 +149,21 @@
 	}
 
 	.section-title {
-		font-family: var(--font-primary);
+		font-family: var(--display);
+		font-style: italic;
 		font-size: 1.5rem;
-		font-weight: 700;
-		color: var(--color-primary);
+		font-weight: 900;
+		letter-spacing: -0.02em;
+		color: var(--ink);
 		margin: 0 0 1rem 0;
-		line-height: 1.3;
-		text-transform: capitalize;
+		line-height: 1.15;
 	}
 
 	.section-body {
-		font-family: var(--font-primary);
+		font-family: var(--serif);
 		font-size: 1.0625rem;
 		line-height: 1.8;
-		color: var(--color-primary);
+		color: var(--ink-2);
 	}
 
 	.section-body p {
@@ -190,37 +175,18 @@
 	}
 
 	@media (max-width: 768px) {
-		/* Sticky + z-index was painting the hero above scrolling body copy; text ran underneath */
-		.about-hero {
-			position: relative;
-			top: auto;
-			z-index: auto;
-			overflow: visible;
+		.about-intro-inner {
+			grid-template-columns: 1fr;
+			gap: 2rem;
 		}
 
 		.about-content {
 			padding-left: 0;
 			padding-right: 0;
-			text-align: center;
-			position: relative;
-			z-index: 0;
-			background: var(--color-white);
-		}
-
-		.about-cta {
-			text-align: center;
 		}
 	}
 
 	@media (max-width: 640px) {
-		.about-hero {
-			padding: 0;
-		}
-
-		.about-hero-image {
-			max-width: 100%;
-		}
-
 		.about-content {
 			padding: 2rem 0 3rem;
 		}

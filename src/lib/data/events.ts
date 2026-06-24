@@ -1,8 +1,14 @@
 /**
  * Campaign events (English source). Spanish overrides: $messages.events.byId[id]
  */
+
+/** Event category, used by the events-page type filter. 'other' has no filter chip (shows under "All"). */
+export type EventType = 'town-hall' | 'rally' | 'meet-greet' | 'volunteer' | 'other';
+
 export type EventRow = {
 	id: string;
+	/** Category for the events-page type filter. */
+	type: EventType;
 	month: string;
 	day: string;
 	year: number;
@@ -13,11 +19,18 @@ export type EventRow = {
 	locationUrl: string | null;
 	description: string;
 	viewEventUrl: string | null;
+	/** Offer the on-site RSVP option for this event (only shown while the event is upcoming). */
+	rsvp?: boolean;
+	/** Start time as 24h "HH:MM" in America/Denver. Drives "Add to Calendar". Omit for an all-day entry. */
+	startTime?: string | null;
+	/** End time as 24h "HH:MM" in America/Denver. Defaults to one hour after start when omitted. */
+	endTime?: string | null;
 };
 
 export const eventsData: EventRow[] = [
 	{
 		id: 'ev-001',
+		type: 'other',
 		month: 'Mar',
 		day: '4',
 		year: 2026,
@@ -31,6 +44,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-002',
+		type: 'volunteer',
 		month: 'Mar',
 		day: '10',
 		year: 2026,
@@ -44,6 +58,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-003',
+		type: 'town-hall',
 		month: 'Mar',
 		day: '12',
 		year: 2026,
@@ -57,6 +72,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-004',
+		type: 'meet-greet',
 		month: 'Mar',
 		day: '14',
 		year: 2026,
@@ -66,10 +82,12 @@ export const eventsData: EventRow[] = [
 		location: 'Logan (RSVP only)',
 		locationUrl: null,
 		description: 'Meet the Candidate in Logan. RSVP only.',
-		viewEventUrl: null
+		viewEventUrl: null,
+		rsvp: true
 	},
 	{
 		id: 'ev-005',
+		type: 'other',
 		month: 'Mar',
 		day: '17',
 		year: 2026,
@@ -83,6 +101,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-006',
+		type: 'volunteer',
 		month: 'Mar',
 		day: '21',
 		year: 2026,
@@ -96,6 +115,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-007',
+		type: 'meet-greet',
 		month: 'Mar',
 		day: '21',
 		year: 2026,
@@ -105,10 +125,12 @@ export const eventsData: EventRow[] = [
 		location: 'Cache Valley (RSVP only)',
 		locationUrl: null,
 		description: 'Open House in Cache Valley. RSVP only.',
-		viewEventUrl: null
+		viewEventUrl: null,
+		rsvp: true
 	},
 	{
 		id: 'ev-008',
+		type: 'rally',
 		month: 'Mar',
 		day: '28',
 		year: 2026,
@@ -122,6 +144,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-009',
+		type: 'rally',
 		month: 'Mar',
 		day: '28',
 		year: 2026,
@@ -135,6 +158,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-010',
+		type: 'town-hall',
 		month: 'Feb',
 		day: '2',
 		year: 2026,
@@ -149,6 +173,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-011',
+		type: 'town-hall',
 		month: 'Feb',
 		day: '3',
 		year: 2026,
@@ -162,6 +187,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-012',
+		type: 'town-hall',
 		month: 'Feb',
 		day: '4',
 		year: 2026,
@@ -175,6 +201,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-013',
+		type: 'other',
 		month: 'Jan',
 		day: '20',
 		year: 2026,
@@ -189,6 +216,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-014',
+		type: 'other',
 		month: 'Jan',
 		day: '15',
 		year: 2026,
@@ -203,6 +231,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-015',
+		type: 'town-hall',
 		month: 'Jan',
 		day: '14',
 		year: 2026,
@@ -217,6 +246,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-016',
+		type: 'town-hall',
 		month: 'Jan',
 		day: '13',
 		year: 2026,
@@ -231,6 +261,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-017',
+		type: 'other',
 		month: 'Dec',
 		day: '21',
 		year: 2024,
@@ -245,6 +276,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-018',
+		type: 'meet-greet',
 		month: 'Dec',
 		day: '16',
 		year: 2024,
@@ -258,6 +290,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-019',
+		type: 'meet-greet',
 		month: 'Dec',
 		day: '10',
 		year: 2024,
@@ -272,6 +305,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-020',
+		type: 'meet-greet',
 		month: 'Dec',
 		day: '3',
 		year: 2024,
@@ -286,6 +320,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-021',
+		type: 'meet-greet',
 		month: 'Nov',
 		day: '24',
 		year: 2024,
@@ -300,6 +335,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-029',
+		type: 'town-hall',
 		month: 'Apr',
 		day: '1',
 		year: 2026,
@@ -313,6 +349,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-022',
+		type: 'other',
 		month: 'Apr',
 		day: '2',
 		year: 2026,
@@ -326,6 +363,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-023',
+		type: 'town-hall',
 		month: 'Apr',
 		day: '7',
 		year: 2026,
@@ -339,6 +377,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-024',
+		type: 'town-hall',
 		month: 'Apr',
 		day: '9',
 		year: 2026,
@@ -352,6 +391,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-025',
+		type: 'other',
 		month: 'Apr',
 		day: '11',
 		year: 2026,
@@ -365,6 +405,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-026',
+		type: 'other',
 		month: 'Apr',
 		day: '11',
 		year: 2026,
@@ -378,6 +419,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-030',
+		type: 'town-hall',
 		month: 'Apr',
 		day: '13',
 		year: 2026,
@@ -391,6 +433,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-027',
+		type: 'town-hall',
 		month: 'Apr',
 		day: '22',
 		year: 2026,
@@ -404,6 +447,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-028',
+		type: 'other',
 		month: 'Apr',
 		day: '25',
 		year: 2026,
@@ -417,6 +461,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-031',
+		type: 'volunteer',
 		month: 'May',
 		day: '19',
 		year: 2026,
@@ -430,6 +475,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-032',
+		type: 'town-hall',
 		month: 'May',
 		day: '19',
 		year: 2026,
@@ -443,6 +489,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-033',
+		type: 'other',
 		month: 'May',
 		day: '20',
 		year: 2026,
@@ -456,6 +503,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-034',
+		type: 'rally',
 		month: 'May',
 		day: '23',
 		year: 2026,
@@ -469,6 +517,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-035',
+		type: 'town-hall',
 		month: 'May',
 		day: '26',
 		year: 2026,
@@ -482,6 +531,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-036',
+		type: 'volunteer',
 		month: 'May',
 		day: '27',
 		year: 2026,
@@ -495,6 +545,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-037',
+		type: 'town-hall',
 		month: 'May',
 		day: '27',
 		year: 2026,
@@ -508,6 +559,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-038',
+		type: 'other',
 		month: 'May',
 		day: '28',
 		year: 2026,
@@ -521,6 +573,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-039',
+		type: 'rally',
 		month: 'May',
 		day: '30',
 		year: 2026,
@@ -534,6 +587,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-040',
+		type: 'other',
 		month: 'May',
 		day: '30',
 		year: 2026,
@@ -547,6 +601,7 @@ export const eventsData: EventRow[] = [
 	},
 	{
 		id: 'ev-041',
+		type: 'other',
 		month: 'May',
 		day: '30',
 		year: 2026,
@@ -557,5 +612,187 @@ export const eventsData: EventRow[] = [
 		locationUrl: 'https://www.google.com/maps/search/Hogle+Zoo+Salt+Lake+City+UT',
 		description: "2026 Taylor & Mayne Awards Dinner at Utah's Hogle Zoo.",
 		viewEventUrl: 'https://www.google.com/maps/search/Hogle+Zoo+Salt+Lake+City+UT'
+	},
+	// --- Late June / July 2026 — from the "PC - Event Objects" sheet ---
+	{
+		id: 'ev-042',
+		type: 'town-hall',
+		month: 'Jun',
+		day: '25',
+		year: 2026,
+		monthIndex: 6,
+		title: 'Virtual Town Hall via Facebook Live',
+		time: '8:00 PM – 9:00 PM MT',
+		location: 'Facebook Live',
+		locationUrl: null,
+		description: 'A Virtual Townhall w/Peter. Join from wherever you are!',
+		viewEventUrl: 'https://www.facebook.com/profile.php?id=61583498494612&sk=live_videos',
+		startTime: '20:00',
+		endTime: '21:00'
+	},
+	{
+		id: 'ev-043',
+		type: 'volunteer',
+		month: 'Jun',
+		day: '27',
+		year: 2026,
+		monthIndex: 6,
+		title: 'Volunteer Appreciation Day, Cache County',
+		time: '9:00 AM – 10:30 AM MT',
+		location: 'Jens Johanson Park, Logan',
+		locationUrl: 'https://maps.app.goo.gl/NxXJQFgzRFPkJdja8',
+		description: 'Join us for Pancakes in the Park. Bring your friends as we say Thank You!',
+		viewEventUrl: null,
+		rsvp: true,
+		startTime: '09:00',
+		endTime: '10:30'
+	},
+	{
+		id: 'ev-044',
+		type: 'volunteer',
+		month: 'Jun',
+		day: '27',
+		year: 2026,
+		monthIndex: 6,
+		title: 'Volunteer Appreciation Day, Box Elder County',
+		time: '11:30 AM – 1:00 PM MT',
+		location: '2565 W 3300 N, Farr West, UT',
+		locationUrl: 'https://maps.app.goo.gl/Xq2W7nmJcKfeRw6V8',
+		description: 'Picnic with Peter at the Park. Join us for a light picnic lunch. Bring your friends as we say Thank You!',
+		viewEventUrl: null,
+		rsvp: true,
+		startTime: '11:30',
+		endTime: '13:00'
+	},
+	{
+		id: 'ev-045',
+		type: 'volunteer',
+		month: 'Jun',
+		day: '27',
+		year: 2026,
+		monthIndex: 6,
+		title: 'Volunteer Appreciation Day, Weber County',
+		time: '3:00 PM – 5:00 PM MT',
+		location: 'Browning Park, Ogden',
+		locationUrl: 'https://maps.app.goo.gl/nL33Yow7o3dgfao18',
+		description: "Drink some Pink's with Peter. Join us for refreshing Pink Lemonade. Bring your friends as we say Thank You!",
+		viewEventUrl: null,
+		rsvp: true,
+		startTime: '15:00',
+		endTime: '17:00'
+	},
+	{
+		id: 'ev-046',
+		type: 'volunteer',
+		month: 'Jun',
+		day: '27',
+		year: 2026,
+		monthIndex: 6,
+		title: 'Volunteer Appreciation Day, Davis County',
+		time: '6:30 PM – 9:00 PM MT',
+		location: 'Angel Street Soccer Complex, Kaysville',
+		locationUrl: 'https://maps.app.goo.gl/N9ZLcfmsB3JSyAKd7',
+		description: 'Get the Scoop with Peter. Join us for ice cream. Bring a friend as we say Thank You!',
+		viewEventUrl: null,
+		rsvp: true,
+		startTime: '18:30',
+		endTime: '21:00'
+	},
+	{
+		id: 'ev-047',
+		type: 'town-hall',
+		month: 'Jun',
+		day: '29',
+		year: 2026,
+		monthIndex: 6,
+		title: 'Town Hall – Davis County',
+		time: '7:00 PM – 8:00 PM MT',
+		location: 'Davis County Library, Centerville Branch',
+		locationUrl: 'https://maps.app.goo.gl/9iaacVYrH3NCaYaQA',
+		description: 'A Town Hall w/Peter in Davis County. Bring your questions for Peter.',
+		viewEventUrl: null,
+		startTime: '19:00',
+		endTime: '20:00'
+	},
+	{
+		id: 'ev-048',
+		type: 'town-hall',
+		month: 'Jul',
+		day: '6',
+		year: 2026,
+		monthIndex: 7,
+		title: 'Town Hall – Cache County',
+		time: '7:00 PM – 8:00 PM MT',
+		location: 'Logan Library, Cache County',
+		locationUrl: 'https://maps.app.goo.gl/oAQFj1BmWhMcBUHy9',
+		description: 'A Town Hall w/Peter in Cache County. Bring your questions for Peter.',
+		viewEventUrl: null,
+		startTime: '19:00',
+		endTime: '20:00'
+	},
+	{
+		id: 'ev-049',
+		type: 'town-hall',
+		month: 'Jul',
+		day: '7',
+		year: 2026,
+		monthIndex: 7,
+		title: 'Town Hall – Box Elder County',
+		time: '6:30 PM – 7:30 PM MT',
+		location: 'Tremonton Public Library, Box Elder County',
+		locationUrl: 'https://maps.app.goo.gl/XRRWd2WdtFzkorXz9',
+		description: 'A Town Hall w/Peter in Box Elder County. Bring your questions for Peter.',
+		viewEventUrl: null,
+		startTime: '18:30',
+		endTime: '19:30'
+	},
+	{
+		id: 'ev-050',
+		type: 'meet-greet',
+		month: 'Jul',
+		day: '9',
+		year: 2026,
+		monthIndex: 7,
+		title: 'Community Meet and Greet – Fruit Heights',
+		time: '6:30 PM – 8:00 PM MT',
+		location: 'Fruit Heights. Address available to those who RSVP',
+		locationUrl: null,
+		description: 'A community Meet and Greet in Davis County',
+		viewEventUrl: null,
+		rsvp: true,
+		startTime: '18:30',
+		endTime: '20:00'
+	},
+	{
+		id: 'ev-051',
+		type: 'town-hall',
+		month: 'Jul',
+		day: '14',
+		year: 2026,
+		monthIndex: 7,
+		title: 'Town Hall – Davis County',
+		time: '7:00 PM – 8:00 PM MT',
+		location: 'Davis County Library, Syracuse Branch',
+		locationUrl: 'https://maps.app.goo.gl/4zSrgiLubSn431zEA',
+		description: 'A Town Hall w/Peter in Davis County. Bring your questions for Peter.',
+		viewEventUrl: null,
+		startTime: '19:00',
+		endTime: '20:00'
+	},
+	{
+		id: 'ev-052',
+		type: 'town-hall',
+		month: 'Jul',
+		day: '21',
+		year: 2026,
+		monthIndex: 7,
+		title: 'Town Hall – Weber County',
+		time: '7:00 PM – 8:30 PM MT',
+		location: 'Weber County Main Library, Ogden',
+		locationUrl: 'https://maps.app.goo.gl/EvsFFw6ko3S6NptM9',
+		description: 'A Town Hall w/Peter in Weber County. Bring your questions for Peter.',
+		viewEventUrl: null,
+		startTime: '19:00',
+		endTime: '20:30'
 	}
 ];

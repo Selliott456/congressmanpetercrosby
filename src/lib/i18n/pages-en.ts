@@ -11,6 +11,12 @@ export const pagesEn = {
 		metaDescription:
 			'Learn about Peter Crosby: husband, father, experienced leader, and service-driven candidate for Northern Utah.',
 		heroAlt: 'Peter Crosby with his wife Amanda and their three daughters',
+		eyebrow: 'Meet Peter',
+		introTitle: 'Family Centered, Community Focused',
+		introLede: [
+			'Northern Utah is my home, my neighborhood, and my community. I’m running for Congress because our neighborhoods deserve steady, common-sense leadership focused on the real answers to the problems hitting us the hardest.',
+			'From lowering the rising cost of living to protecting the local jobs that anchor our communities, my commitment is to deliver honest stewardship and real accountability.'
+		],
 		sections: [
 			{
 				title: 'Service driven',
@@ -28,7 +34,7 @@ export const pagesEn = {
 			{
 				title: 'Experienced leader',
 				paragraphs: [
-					'I started my professional career working for a Fortune 500 company in operations. I worked my way up to a supervisory role within a year while going to school full time, and spent the next five to six years leading teams and projects. At the time I moved to a position in analytics at the corporate level, I had a staff of eleven and over 200 employees.',
+					'I started my professional career working for a Fortune 500 company in operations. I worked my way up to a supervisory role within a year while going to school full time, and spent the next five to six years leading teams and projects. At the time I moved to a position in analytics at the corporate level, I had a staff of 11 and over 200 employees.',
 					'As a first-generation college graduate with two degrees in political science, I know first-hand the value our universities in Northern Utah provide to individuals and communities, and I wanted to be part of that. So, I left the private sector to work for Utah State University in institutional research. I also started teaching, with my first classes focusing on American politics and institutions for undergraduates. I am grateful to continue my role as an educator working as an adjunct for the Center for Anticipatory Intelligence at USU, where I now teach a graduate course on emergent technology. Working with students as a mentor, instructor, and future colleague is perhaps some of the most rewarding professional experiences I have.',
 					'My current full time employment is back in the private sector as a director, project manager, and consultant for a research company that supports higher education. Using my background in both the private and public sectors, I work with presidents, provosts, faculty, and support staff to help them navigate what has become a very unpredictable future.',
 					'My background has taught me the strength of flexible thinking, relationship building, and organizational skills. I have learned that good leadership is built on trust.'
@@ -38,11 +44,33 @@ export const pagesEn = {
 	},
 	contact: {
 		metaTitle: 'Contact Us — Peter Crosby for Congress',
-		metaDescription: 'Phone and email for the Peter Crosby for Congress campaign.',
+		metaDescription:
+			'Volunteer, send a media request, or reach the Peter Crosby for Congress campaign with a general question.',
 		pageTitle: 'Contact us',
-		intro: 'Reach the campaign using the phone number or email below.',
+		intro:
+			'Reaching out from the press, or just have a question? Pick a topic and send us a note—the campaign will get back to you.',
 		emailLabel: 'Email',
-		phoneLabel: 'Phone'
+		phoneLabel: 'Phone',
+		volunteerPrompt: 'Want to pitch in on the campaign?',
+		volunteerCta: 'Volunteer with us',
+		topicLegend: 'What can we help you with?',
+		topicMedia: 'Media Request',
+		topicGeneral: 'General Information',
+		blurbMedia: 'Press, interview, and media inquiries.',
+		blurbGeneral: 'Questions, ideas, or anything else.',
+		firstName: 'First Name',
+		lastName: 'Last Name',
+		phone: 'Phone Number',
+		email: 'Email Address',
+		mediaOutlet: 'Media Outlet / Publication',
+		message: 'Message',
+		requiredNote: 'All fields are required.',
+		send: 'Send message',
+		sending: 'Sending…',
+		errorMessage: 'Something went wrong. Please try again, or email us directly.',
+		successTitle: 'Thank you!',
+		successBody: 'Your message is on its way—we’ll be in touch soon.',
+		sendAnother: 'Send another message'
 	},
 	volunteer: {
 		metaTitle: 'Volunteer — Peter Crosby for Congress',
@@ -52,25 +80,33 @@ export const pagesEn = {
 		intro:
 			'Northern Utah deserves better. Tell us how you would like to help—sign up below or reach out with questions.',
 		donate: 'Donate',
-		formLegendName: 'Name',
-		firstName: 'First Name (required)',
-		lastName: 'Last Name (required)',
-		email: 'Email (required)',
-		phone: 'Mobile phone number (required)',
+		donatePrompt: 'Prefer to chip in?',
+		emailLabel: 'Email',
+		phoneLabel: 'Phone',
+		firstName: 'First Name',
+		lastName: 'Last Name',
+		email: 'Email Address',
+		phone: 'Mobile Phone Number',
 		phoneHint: 'We use this number to reach you quickly by text.',
 		zip: 'ZIP code',
 		zipOptional: 'optional',
-		zipHint: 'Five digits, or five digits, a hyphen, and four more digits (optional field).',
+		zipHint: 'Five digits, or five digits, a hyphen, and four more digits.',
 		helpLegend: 'How would you like to help?',
 		helpCanvassing: 'Canvassing',
 		helpPhoneBanking: 'Phone banking',
-		helpTextBanking: 'Text banking',
 		helpHosting: 'Hosting an event',
-		helpDataEntry: 'Data entry/admin',
+		helpDataEntry: 'Data entry / admin',
 		helpWherever: 'Wherever needed',
-		message: 'Message (required)',
-		send: 'Send',
-		mailSubject: 'Contact from website'
+		message: 'Message',
+		messageDefault: 'I’d like to help out.',
+		requiredNote: 'All fields required except where noted.',
+		send: 'Send message',
+		sending: 'Sending…',
+		errorMessage: 'Something went wrong. Please try again, or email us directly.',
+		successTitle: 'Thank you!',
+		successBody:
+			'Thanks for stepping up—someone from the campaign will be in touch about next steps.',
+		sendAnother: 'Submit another response'
 	},
 	pastInterviews: {
 		metaTitle: 'Past Interviews — Peter Crosby for Congress',
@@ -112,7 +148,8 @@ export const pagesEn = {
 		metaDescription:
 			'Upcoming town halls, meet the candidate events, and live conversations with Peter Crosby in Northern Utah.',
 		ui: {
-			pageTitle: 'Events',
+			eyebrow: 'Events',
+			pageTitle: 'Where to find Peter',
 			intro: 'Town halls, meet the candidate events, and live conversations across Northern Utah.',
 			calendarAria: 'Calendar',
 			prevMonth: 'Previous month',
@@ -121,7 +158,36 @@ export const pagesEn = {
 			nextEvent: 'Next event',
 			noUpcomingEvents: 'No upcoming events scheduled. Check back soon or browse past events below.',
 			allEvents: 'All events',
-			pastEvent: 'Past event'
+			pastEvent: 'Past event',
+			upcomingHeading: 'Upcoming & recent',
+			pastHeading: 'Past events',
+			viewAllPast: 'View all past events',
+			hidePast: 'Hide past events',
+			rsvp: 'RSVP',
+			rsvped: "RSVP'd",
+			rsvpModalTitle: 'RSVP',
+			rsvpFirstName: 'First name',
+			rsvpLastName: 'Last name',
+			rsvpEmail: 'Email',
+			rsvpSubmit: 'Send RSVP',
+			rsvpSubmitting: 'Sending…',
+			rsvpSuccessTitle: "You're on the list!",
+			rsvpSuccessBody: 'We emailed a confirmation to you — we look forward to seeing you there.',
+			rsvpError: 'Something went wrong. Please try again.',
+			rsvpClose: 'Close',
+			rsvpDone: 'Done',
+			addToCalendar: 'Add to calendar',
+			calendarGoogle: 'Google',
+			calendarApple: 'Apple / Outlook',
+			filterLabel: 'Filter events by type',
+			filterAll: 'All',
+			filterTownHall: 'Town hall',
+			filterRally: 'Rally',
+			filterMeetGreet: 'Meet & greet',
+			filterVolunteer: 'Volunteer training',
+			viewLabel: 'View',
+			viewList: 'List view',
+			viewGrid: 'Grid view'
 		},
 		monthNames: [
 			'January',
@@ -142,13 +208,47 @@ export const pagesEn = {
 		monthAbbrev: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
 		byId: {} as Record<string, { title: string; description: string }>
 	},
-	faq: {
-		metaTitle: 'FAQs — Peter Crosby for Congress',
+	endorsementsPage: {
+		metaTitle: 'Endorsements — Peter Crosby for Congress',
 		metaDescription:
-			"Frequently asked questions about Peter Crosby's policy priorities, economic issues, government integrity, and healthcare.",
-		pageTitle: 'FAQs',
+			'Community leaders, neighbors, and local voices backing Peter Crosby for Congress in Northern Utah.',
+		eyebrow: 'Endorsements',
+		pageTitle: 'Who’s standing with Peter',
+		lede: 'Neighbors, local leaders, and organizations from across Northern Utah are backing this campaign.',
+		peopleHeading: 'People',
+		orgHeading: 'Businesses & organizations',
+		byId: {} as Record<string, { role: string }>
+	},
+	media: {
+		eyebrow: 'Media',
+		title: 'Latest from the campaign',
+		viewAll: 'View all media',
+		kindVideo: 'Video',
+		kindArticle: 'Article',
+		kindOpEd: 'Op-Ed',
+		closeVideo: 'Close video',
+		pinnedEyebrow: 'Featured',
+		pinnedTitle: 'Featured media',
+		metaTitle: 'Media — Peter Crosby for Congress',
+		metaDescription:
+			'Videos, op-eds, and interviews from the Peter Crosby for Congress campaign.',
+		pageTitle: 'All media',
+		pageLede: 'Videos, op-eds, and interviews from across the campaign.',
+		byId: {} as Record<string, { title: string; description?: string }>
+	},
+	policies: {
+		metaTitle: 'Where Peter Stands — Peter Crosby for Congress',
+		metaDescription:
+			'Where Peter Crosby stands on the issues facing Northern Utah: the economy, the integrity of our government, and the health of our communities.',
+		eyebrow: 'Policies',
+		pageTitle: 'Where Peter stands',
+		lede: 'Real answers on the issues that matter most to Northern Utah — the economy, the integrity of our government, and the health of our communities.',
+		videoComingSoon: 'Video coming soon',
+		onThisPage: 'On this page',
 		items: [
 			{
+				id: 'top-priorities',
+				navLabel: 'Top priorities',
 				question: 'What are your top policy priorities?',
 				parts: [
 					{
@@ -165,11 +265,13 @@ export const pagesEn = {
 					},
 					{
 						type: 'p' as const,
-						text: 'In these areas, and in all other policy making, my top priority is to represent the people of Northern Utah. My policy positions are people first.'
+						text: 'In these areas, and in all other policy making, my top priority is to represent the people of Northern Utah. My policy solutions are oriented to put individuals, families, and communities first.'
 					}
 				]
 			},
 			{
+				id: 'economy',
+				navLabel: 'The economy',
 				question:
 					'What are the economic issues facing northern Utah and what would you do about them?',
 				parts: [
@@ -196,6 +298,8 @@ export const pagesEn = {
 				]
 			},
 			{
+				id: 'government-integrity',
+				navLabel: 'Government integrity',
 				question:
 					'You mention the integrity of our government as an issue raised by people here in Northern Utah. What do you mean by that, and what would you do?',
 				parts: [
@@ -226,12 +330,14 @@ export const pagesEn = {
 				]
 			},
 			{
+				id: 'healthcare',
+				navLabel: 'Healthcare',
 				question:
 					'What is your position on the cuts to the Affordable Care Act (ACA or "Obamacare") and access to healthcare for rural communities?',
 				parts: [
 					{
 						type: 'p' as const,
-						text: 'The recent "Big Beautiful Bill," which District 1\'s Rep. Blake Moore helped craft and pass, significantly cuts access to healthcare by reducing payments to Medicare starting in 2026. These cuts hit hardest in rural communities like those here in Northern Utah, and will make it more expensive to get access to medical care. This is already having an impact here in Utah, as the state is unable to match federal investment at the same level we have in the past, despite the fact we run a large surplus in our state budget. This will likely impact our hospital and emergency care systems the hardest. For rural communities especially, this means less access to critical care.'
+						text: 'The recent "Big Beautiful Bill", crafted, in part, by Rep. Blake Moore of what is now congressional district 2, significantly cuts access to healthcare by reducing payments to Medicare starting in 2026. These cuts hit hardest in rural communities like those here in Northern Utah, and will make it more expensive to get access to medical care. This is already having an impact here in Utah, as the state is unable to match federal investment at the same level we have in the past, despite the fact we run a large surplus in our state budget. This will likely impact our hospital and emergency care systems the hardest. For rural communities especially, this means less access to critical care.'
 					},
 					{
 						type: 'p' as const,
