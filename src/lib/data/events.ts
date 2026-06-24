@@ -622,13 +622,13 @@ export const eventsData: EventRow[] = [
 		year: 2026,
 		monthIndex: 6,
 		title: 'Virtual Town Hall via Facebook Live',
-		time: '8:00 PM – 9:00 PM MT',
+		time: '7:00 PM – 8:00 PM MT',
 		location: 'Facebook Live',
 		locationUrl: null,
 		description: 'A Virtual Townhall w/Peter. Join from wherever you are!',
 		viewEventUrl: 'https://www.facebook.com/profile.php?id=61583498494612&sk=live_videos',
-		startTime: '20:00',
-		endTime: '21:00'
+		startTime: '19:00',
+		endTime: '20:00'
 	},
 	{
 		id: 'ev-043',
