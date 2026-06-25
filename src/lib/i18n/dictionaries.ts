@@ -24,7 +24,19 @@ const en = {
 		navAria: 'Footer links',
 		socialAria: 'Social media links',
 		rights: 'Peter Crosby for Congress. All rights reserved.',
-		paidForBy: 'Paid for by Peter Crosby for Congress'
+		paidForBy: 'Paid for by Peter Crosby for Congress',
+		newsletter: {
+			title: 'Get campaign updates',
+			blurb: 'News, events, and ways to help — straight to your inbox.',
+			emailLabel: 'Email address',
+			emailPlaceholder: 'you@example.com',
+			submit: 'Sign up',
+			sending: 'Signing up…',
+			successTitle: 'You’re subscribed!',
+			successBody: 'Thanks for joining — we’ll keep you posted.',
+			error: 'Something went wrong. Please try again.',
+			privacy: 'We’ll never share your email.'
+		}
 	},
 	language: {
 		switch: 'Language',
@@ -163,7 +175,19 @@ const es: Messages = {
 		navAria: 'Enlaces del pie de página',
 		socialAria: 'Enlaces a redes sociales',
 		rights: 'Peter Crosby para el Congreso. Todos los derechos reservados.',
-		paidForBy: 'Paid for by Peter Crosby for Congress'
+		paidForBy: 'Paid for by Peter Crosby for Congress',
+		newsletter: {
+			title: 'Reciba novedades de la campaña',
+			blurb: 'Noticias, eventos y formas de ayudar, directo a su correo.',
+			emailLabel: 'Correo electrónico',
+			emailPlaceholder: 'usted@ejemplo.com',
+			submit: 'Suscribirse',
+			sending: 'Enviando…',
+			successTitle: '¡Está suscrito!',
+			successBody: 'Gracias por unirse: le mantendremos informado.',
+			error: 'Algo salió mal. Inténtelo de nuevo.',
+			privacy: 'Nunca compartiremos su correo.'
+		}
 	},
 	language: {
 		switch: 'Idioma',
