@@ -28,6 +28,8 @@ const en = {
 		newsletter: {
 			title: 'Get campaign updates',
 			blurb: 'News, events, and ways to help — straight to your inbox.',
+			firstName: 'First name',
+			lastName: 'Last name',
 			emailLabel: 'Email address',
 			emailPlaceholder: 'you@example.com',
 			submit: 'Sign up',
@@ -179,6 +181,8 @@ const es: Messages = {
 		newsletter: {
 			title: 'Reciba novedades de la campaña',
 			blurb: 'Noticias, eventos y formas de ayudar, directo a su correo.',
+			firstName: 'Nombre',
+			lastName: 'Apellido',
 			emailLabel: 'Correo electrónico',
 			emailPlaceholder: 'usted@ejemplo.com',
 			submit: 'Suscribirse',

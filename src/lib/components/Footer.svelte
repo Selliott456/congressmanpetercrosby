@@ -99,6 +99,30 @@
               autocomplete="off"
             />
           </div>
+          <div class="footer-news-names">
+            <input
+              id="newsletter-first"
+              name="firstName"
+              type="text"
+              class="footer-news-input"
+              placeholder={$messages.footer.newsletter.firstName}
+              aria-label={$messages.footer.newsletter.firstName}
+              required
+              maxlength="80"
+              autocomplete="given-name"
+            />
+            <input
+              id="newsletter-last"
+              name="lastName"
+              type="text"
+              class="footer-news-input"
+              placeholder={$messages.footer.newsletter.lastName}
+              aria-label={$messages.footer.newsletter.lastName}
+              required
+              maxlength="80"
+              autocomplete="family-name"
+            />
+          </div>
           <div class="footer-news-row">
             <input
               id="newsletter-email"
@@ -274,6 +298,7 @@
     gap: 0.5rem;
   }
 
+  .footer-news-names,
   .footer-news-row {
     display: flex;
     gap: 0.5rem;
@@ -440,6 +465,7 @@
       font-size: 0.8125rem;
     }
 
+    .footer-news-names,
     .footer-news-row {
       flex-direction: column;
     }
