@@ -15,6 +15,7 @@ const en = {
 		events: 'EVENTS',
 		media: 'MEDIA',
 		policies: 'POLICIES',
+		endorsements: 'ENDORSEMENTS',
 		ariaHome: 'Congressman Peter Crosby - Home',
 		menuToggle: 'Toggle menu'
 	},
@@ -168,6 +169,7 @@ const es: Messages = {
 		events: 'EVENTOS',
 		media: 'MEDIOS',
 		policies: 'POLÍTICAS',
+		endorsements: 'RESPALDOS',
 		ariaHome: 'Peter Crosby para el Congreso - Inicio',
 		menuToggle: 'Abrir menú'
 	},
