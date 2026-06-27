@@ -215,7 +215,8 @@
 		padding: 0.55rem 1.5rem;
 		display: flex;
 		align-items: center;
-		gap: 1rem;
+		/* ~26px between the "On this page" label and the jump links (16px + ~10px). */
+		gap: 1.625rem;
 		min-width: 0;
 	}
 
