@@ -216,7 +216,7 @@ export const pagesEn = {
 		pageTitle: 'Who’s standing with Peter',
 		lede: 'Neighbors, local leaders, and organizations from across Northern Utah are backing this campaign.',
 		peopleHeading: 'People',
-		orgHeading: 'Businesses & organizations',
+		orgHeading: 'Caucuses & organizations',
 		byId: {} as Record<string, { role: string }>
 	},
 	media: {
