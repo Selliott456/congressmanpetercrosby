@@ -97,8 +97,12 @@
 		padding: 1.4rem 1.5rem 1.6rem;
 	}
 
-	/* Rail (ridge-line stripe) tops each area card. */
+	/* Rail (ridge-line stripe) tops each area card. The Rail ships width:100%,
+	   which resolves to the card's content width, so the negative side margins
+	   would only shift it left (leaving it short on the right). width:auto lets
+	   those margins stretch it edge-to-edge across the full card. */
 	.pol-area :global(.rail) {
+		width: auto;
 		margin: -1.4rem -1.5rem 1.1rem;
 	}
 
