@@ -42,9 +42,9 @@ export const endorsements: Endorsement[] = [
 		photo: '/images/endorsements/weber_democratic_womens_caucus.jpg'
 	},
 	{ id: 'utah-dem-black-caucus', category: 'organization', name: 'Utah Democratic Black Caucus', photo: '/images/endorsements/utah_democratic_black_caucus.jpg' },
-	{ id: 'labor-caucus', category: 'organization', name: 'Labor Caucus' },
-	{ id: 'nalc-branch-68', category: 'organization', name: 'NALC - Branch 68' },
-	{ id: 'nalc-branch-970', category: 'organization', name: 'NALC - Branch 970' },
+	{ id: 'labor-caucus', category: 'organization', name: 'Labor Caucus', photo: '/images/endorsements/labor_caucus.jpg' },
+	{ id: 'nalc-branch-68', category: 'organization', name: 'NALC - Branch 68', photo: '/images/endorsements/NALC.jpg' },
+	{ id: 'nalc-branch-970', category: 'organization', name: 'NALC - Branch 970', photo: '/images/endorsements/NALC.jpg' },
 	{ id: 'afscme-1004', category: 'organization', name: 'AFSCME - 1004', photo: '/images/endorsements/afscme_1004.jpg' },
 	{ id: 'utah-veterans-caucus', category: 'organization', name: 'Utah Veterans Democratic Caucus', photo: '/images/endorsements/utah_veterans_democratic_caucus.jpg' },
 	{ id: 'environmental-caucus', category: 'organization', name: 'Environmental Caucus', photo: '/images/endorsements/environmental_caucus.jpg' },

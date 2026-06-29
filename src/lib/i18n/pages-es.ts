@@ -442,7 +442,7 @@ export const pagesEs = {
 		pageTitle: 'Quiénes apoyan a Peter',
 		lede: 'Vecinos, líderes locales y organizaciones de todo el norte de Utah respaldan esta campaña.',
 		peopleHeading: 'Personas',
-		orgHeading: 'Negocios y organizaciones',
+		orgHeading: 'Caucus y organizaciones',
 		byId: {
 			'rosemary-lesser': { role: 'Médica, veterana - Distrito 10 de la Cámara de Utah' },
 			'dakota-wurth': { role: 'Concejo Municipal de Clearfield, candidata al Senado estatal' },

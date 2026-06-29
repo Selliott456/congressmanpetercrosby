@@ -322,8 +322,17 @@
     align-items: center;
   }
 
-  .home-hero-cta :global(.btn) {
+  /* Both CTAs share one flex sizing so they always match width — whether side by
+     side or wrapped/stacked (which happens whenever the copy column is narrow).
+     border-box + a shared cap make the outer widths equal despite the Button's
+     fixed width / different padding from the ghost link. */
+  .home-hero-cta :global(.btn),
+  .home-hero-cta .home-btn-ghost {
+    box-sizing: border-box;
+    flex: 1 1 11rem;
+    width: auto;
     min-width: 11rem;
+    max-width: 15rem;
   }
 
   /* Donate CTA: green fill (matching the nav) with white text for legibility on the dark hero. */
@@ -545,6 +554,20 @@
     .home-hero-media {
       justify-self: center;
       max-width: 320px;
+    }
+
+    /* Stack the hero CTAs on mobile (matching the single-column hero). Reset the
+       children's flex (in a column it would size their HEIGHT) so height stays
+       content-sized; width comes from align-items: stretch, capped by max-width,
+       which keeps the stacked buttons equal width and left-aligned. */
+    .home-hero-cta {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .home-hero-cta :global(.btn),
+    .home-hero-cta .home-btn-ghost {
+      flex: 0 0 auto;
     }
 
     .home-wrap {

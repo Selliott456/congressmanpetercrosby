@@ -8,6 +8,11 @@
 	let activeId = '';
 	/** The sticky jump bar; its height feeds the anchor offset. @type {HTMLElement | undefined} */
 	let jumpBar;
+	/** The horizontally-scrollable jump list (overflows on narrow screens). @type {HTMLElement | undefined} */
+	let jumpInner;
+	/** Edge-fade visibility — each is true only when there's hidden content to scroll toward. */
+	let canScrollLeft = false;
+	let canScrollRight = false;
 	/** Offsets for the two stacked sticky bars (site nav + jump bar), applied as CSS vars. */
 	let navTop = 0;
 	let anchorOffset = 0;
@@ -17,7 +22,31 @@
 		const navH = siteNav?.offsetHeight ?? 64;
 		navTop = navH;
 		anchorOffset = navH + (jumpBar?.offsetHeight ?? 0) + 16;
+		updateScrollEdges();
 	}
+
+	/** Show the left/right fades based on how far the jump list is scrolled; both stay
+	    off when nothing overflows (so the fades never lie about scrollability). */
+	function updateScrollEdges() {
+		if (!jumpInner) return;
+		const max = jumpInner.scrollWidth - jumpInner.clientWidth;
+		canScrollLeft = jumpInner.scrollLeft > 1;
+		canScrollRight = jumpInner.scrollLeft < max - 1;
+	}
+
+	/** Keep the active link in view (centered) within the scrollable list. */
+	function scrollActiveIntoView() {
+		if (!jumpInner || jumpInner.scrollWidth <= jumpInner.clientWidth) return;
+		const link = jumpInner.querySelector('.policies-jump-link[href="#' + activeId + '"]');
+		if (!link) return;
+		const c = jumpInner.getBoundingClientRect();
+		const l = link.getBoundingClientRect();
+		const target = jumpInner.scrollLeft + (l.left - c.left) - (c.width - l.width) / 2;
+		jumpInner.scrollTo({ left: Math.max(0, target), behavior: 'smooth' });
+	}
+
+	// Chase the highlight: whenever the active section changes, slide it into view.
+	$: if (jumpInner && activeId) scrollActiveIntoView();
 
 	/** @param {string} id */
 	function jumpTo(id) {
@@ -33,6 +62,7 @@
 		activeId = $messages.policies.items[0]?.id ?? '';
 		measure();
 		window.addEventListener('resize', measure);
+		jumpInner?.addEventListener('scroll', updateScrollEdges, { passive: true });
 
 		const sections = Array.from(document.querySelectorAll('.policies-section'));
 		const observer = new IntersectionObserver(
@@ -57,6 +87,7 @@
 
 		return () => {
 			window.removeEventListener('resize', measure);
+			jumpInner?.removeEventListener('scroll', updateScrollEdges);
 			observer.disconnect();
 		};
 	});
@@ -79,10 +110,18 @@
 		</div>
 	</section>
 
-	<Rail />
+	<div class="policies-rail">
+		<Rail />
+	</div>
 
-	<nav class="policies-jump" aria-label={$messages.policies.onThisPage} bind:this={jumpBar}>
-		<div class="policies-jump-inner">
+	<nav
+		class="policies-jump"
+		class:has-left-fade={canScrollLeft}
+		class:has-right-fade={canScrollRight}
+		aria-label={$messages.policies.onThisPage}
+		bind:this={jumpBar}
+	>
+		<div class="policies-jump-inner" bind:this={jumpInner}>
 			<span class="policies-jump-label">{$messages.policies.onThisPage}</span>
 			<ul class="policies-jump-list">
 				{#each $messages.policies.items as item}
@@ -209,13 +248,46 @@
 		border-bottom: 1px solid rgba(9, 27, 54, 0.2);
 	}
 
+	/* Edge fades signal that the jump list scrolls sideways. They're toggled by
+	   JS (has-left-fade / has-right-fade) only when content actually overflows,
+	   so they never appear on a list that fits. Sticky establishes the
+	   containing block, so these pin to the bar's edges, not the scrolled content. */
+	.policies-jump::before,
+	.policies-jump::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: 2.75rem;
+		pointer-events: none;
+		opacity: 0;
+		transition: opacity 0.18s ease;
+		z-index: 1;
+	}
+
+	.policies-jump::before {
+		left: 0;
+		background: linear-gradient(90deg, var(--blue), rgba(46, 95, 160, 0));
+	}
+
+	.policies-jump::after {
+		right: 0;
+		background: linear-gradient(270deg, var(--blue), rgba(46, 95, 160, 0));
+	}
+
+	.policies-jump.has-left-fade::before,
+	.policies-jump.has-right-fade::after {
+		opacity: 1;
+	}
+
 	.policies-jump-inner {
 		max-width: 1120px;
 		margin: 0 auto;
 		padding: 0.55rem 1.5rem;
 		display: flex;
 		align-items: center;
-		gap: 1rem;
+		/* ~26px between the "On this page" label and the jump links (16px + ~10px). */
+		gap: 1.625rem;
 		min-width: 0;
 	}
 
@@ -398,8 +470,21 @@
 	}
 
 	@media (max-width: 768px) {
-		/* Keep the jump bar a single sticky line that scrolls sideways. */
+		/* Bleed the rail + blue band out past the layout's mobile gutter so they
+		   span the full screen like the site nav above (instead of floating inset). */
+		.policies-rail,
+		.policies-jump {
+			margin-left: calc(-1 * var(--mobile-margin));
+			margin-right: calc(-1 * var(--mobile-margin));
+		}
+
+		/* Keep the jump bar a single sticky line that scrolls sideways. The inner
+		   padding-left re-adds the gutter (mobile margin + base inset) so the first
+		   link aligns with the page's body text. The trailing gutter lives on the
+		   last item instead (see below), so padding-right is dropped here. */
 		.policies-jump-inner {
+			padding-left: calc(var(--mobile-margin) + 1.5rem);
+			padding-right: 0;
 			overflow-x: auto;
 			scrollbar-width: none;
 		}
@@ -412,9 +497,21 @@
 			display: none;
 		}
 
+		/* Let the list size to its content (not shrink to the scroll container), so
+		   its trailing spacer actually extends the scroll extent. */
 		.policies-jump-list {
 			flex-wrap: nowrap;
+			flex-shrink: 0;
 			gap: 1.25rem;
+		}
+
+		/* A flex scroll container drops both trailing padding AND the last item's
+		   margin from the scroll extent, so the last link sits flush at scroll-end.
+		   A real in-flow spacer (a flex child) is always counted — it plus the list
+		   gap gives the last link the same breathing room as the start gutter. */
+		.policies-jump-list::after {
+			content: '';
+			flex: 0 0 1.5rem;
 		}
 
 		.policies-section {

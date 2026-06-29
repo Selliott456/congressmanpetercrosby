@@ -11,6 +11,7 @@
     { label: $messages.nav.policies, href: "/policies" },
     { label: $messages.nav.media, href: "/media" },
     { label: $messages.nav.events, href: "/events" },
+    { label: $messages.nav.endorsements, href: "/endorsements" },
     { label: $messages.nav.contact, href: "/contact" },
   ];
 
@@ -397,11 +398,13 @@
     color: var(--paper);
   }
 
-  @media (max-width: 1023px) {
-    /* Below 1024px the link row collapses to the hamburger; the header reduces
+  @media (max-width: 1119px) {
+    /* Below 1120px the link row collapses to the hamburger; the header reduces
        to logo (left) + persistent Donate CTA + toggle (right). Donate stays
        visible at every breakpoint per the campaign; Volunteer moves into the
-       open menu. */
+       open menu. The 7-link row (HOME…CONTACT incl. ENDORSEMENTS) needs ~1095px
+       of inner width; collapsing at 1120 keeps ~40px of breathing room before
+       CONTACT would touch the Donate button. */
     .nav-links {
       display: none;
     }
@@ -423,7 +426,7 @@
     }
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 1120px) {
     .nav-menu {
       display: none !important;
     }
