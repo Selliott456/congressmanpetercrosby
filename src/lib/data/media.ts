@@ -82,7 +82,8 @@ export const mediaData: MediaItem[] = [
 			'Democratic congressional candidate Peter Crosby to host forum at Logan Library.',
 		date: '2026-06-05',
 		url: 'https://www.cachevalleydaily.com/news/democratic-congressional-candidate-peter-crosby-to-host-forum-at-logan-library-on-june-8/article_8aaa10b6-f72f-4505-a688-bb6d51ced1d4.html',
-		outlet: 'Cache Valley Daily'
+		outlet: 'Cache Valley Daily',
+		image: '/images/media/cache-valley-daily-spotlight.jpg'
 	},
 	{
 		id: 'cache-valley-daily-winnable',
