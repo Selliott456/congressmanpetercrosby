@@ -1,6 +1,9 @@
 /**
  * Campaign media (English source). Spanish overrides: $messages.media.byId[id].
  * The home page shows the 6 most recent; /media shows a pinned set + the rest.
+ * Convention: keep exactly 3 items pinned — the campaign's most important —
+ * so the featured set stays a clean row on widescreen and a short stack on
+ * phones. Pinning a new one means unpinning another.
  * Source of truth: the "PC - Media Objects" Google Sheet.
  */
 export type MediaItem = {
@@ -55,7 +58,7 @@ export const mediaData: MediaItem[] = [
 	},
 	{
 		id: 'virtual-town-hall',
-		pinned: true,
+		pinned: false,
 		type: 'video',
 		title: 'Virtual Town Hall with Peter',
 		description:
@@ -74,6 +77,17 @@ export const mediaData: MediaItem[] = [
 			'Democratic congressional candidate Peter Crosby to host forum at Logan Library.',
 		date: '2026-06-05',
 		url: 'https://www.cachevalleydaily.com/news/democratic-congressional-candidate-peter-crosby-to-host-forum-at-logan-library-on-june-8/article_8aaa10b6-f72f-4505-a688-bb6d51ced1d4.html',
+		outlet: 'Cache Valley Daily'
+	},
+	{
+		id: 'cache-valley-daily-winnable',
+		pinned: true,
+		type: 'article',
+		title: 'Crosby Views the Race as Winnable',
+		description:
+			"A Cache Valley Daily profile on why Peter Crosby sees his challenge to three-term Rep. Blake Moore as winnable, pointing to Moore's slipping primary numbers and Northern Utah's growing competitiveness.",
+		date: '2026-07-01',
+		url: 'https://www.cachevalleydaily.com/news/democrat-peter-crosby-views-uphill-battle-against-incumbent-rep-blake-moore-as-winnable/article_54bbff83-a567-4bc4-9d66-d6ab540f5375.html',
 		outlet: 'Cache Valley Daily'
 	}
 ];
