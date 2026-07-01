@@ -494,6 +494,11 @@ export const pagesEs = {
 				title: 'Cache Valley Daily destaca la campaña',
 				description:
 					'El candidato demócrata al Congreso Peter Crosby organizará un foro en la Biblioteca de Logan.'
+			},
+			'cache-valley-daily-winnable': {
+				title: 'Crosby ve la contienda como ganable',
+				description:
+					'Un perfil de Cache Valley Daily sobre por qué Peter Crosby considera ganable su desafío al representante Blake Moore, que lleva tres mandatos, y señala la caída de Moore en las primarias y la creciente competitividad del norte de Utah.'
 			}
 		} as Record<string, { title: string; description?: string }>
 	},

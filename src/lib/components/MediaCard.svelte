@@ -55,11 +55,17 @@
 	rel="noopener noreferrer"
 	on:click={onClick}
 >
-	<div class="media-thumb media-thumb--{item.type}">
+	<div class="media-thumb media-thumb--{item.type}" class:media-thumb--image={item.image}>
+		{#if item.image}
+			<img class="media-thumb-img" src={item.image} alt="" loading="lazy" decoding="async" />
+			{#if item.type === 'video'}
+				<span class="media-thumb-scrim" aria-hidden="true"></span>
+			{/if}
+		{/if}
 		<div class="media-thumb-rail"><Rail /></div>
 		{#if item.type === 'video'}
 			<span class="media-play" aria-hidden="true"></span>
-		{:else}
+		{:else if !item.image}
 			<span class="media-outlet">{item.outlet}</span>
 		{/if}
 		<span class="media-kind">{kind}</span>
@@ -131,15 +137,36 @@
 		background: linear-gradient(150deg, var(--ink) 0%, var(--ink-deep) 100%);
 	}
 
+	/* Campaign-supplied thumbnail image; covers the gradient placeholder. */
+	.media-thumb-img {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		z-index: 0;
+	}
+
+	/* Darkens a video thumbnail image just enough for the play button to read. */
+	.media-thumb-scrim {
+		position: absolute;
+		inset: 0;
+		z-index: 1;
+		background: rgba(9, 27, 54, 0.4);
+	}
+
 	.media-thumb-rail {
 		position: absolute;
 		top: 0;
 		left: 0;
 		right: 0;
+		z-index: 2;
 	}
 
 	/* Video: play button */
 	.media-play {
+		position: relative;
+		z-index: 2;
 		width: 0;
 		height: 0;
 		border-style: solid;
@@ -170,6 +197,7 @@
 		position: absolute;
 		left: 0;
 		bottom: 0;
+		z-index: 2;
 		padding: 0.3rem 0.65rem;
 		background: var(--ink-deep);
 		font-family: var(--mono);

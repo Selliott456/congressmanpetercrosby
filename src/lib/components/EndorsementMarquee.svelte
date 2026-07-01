@@ -143,7 +143,7 @@
 		align-items: center;
 		width: max-content;
 		white-space: nowrap;
-		animation: endorse-marquee 70s linear infinite;
+		animation: endorse-marquee 110s linear infinite;
 	}
 
 	/* Pause when a visitor hovers, so they can read a name */
