@@ -21,6 +21,10 @@ export type MediaItem = {
 	youtubeId?: string;
 	/** Publication or channel, e.g. "Salt Lake Tribune" or "YouTube". */
 	outlet?: string;
+	/** Card thumbnail image path under /images (e.g. "/images/media/foo.jpg").
+	    When omitted, the card falls back to the branded gradient placeholder
+	    (play button for video, outlet wordmark for articles). */
+	image?: string;
 };
 
 export const mediaData: MediaItem[] = [
@@ -54,7 +58,8 @@ export const mediaData: MediaItem[] = [
 		title: 'Peter Crosby Launches Early Campaign',
 		date: '2026-03-12',
 		url: 'https://www.theogdenite.com/news/peter-crosby-launches-early-campaign-against-three-term-rep-blake-moore',
-		outlet: 'The Ogdenite'
+		outlet: 'The Ogdenite',
+		image: '/images/media/early-campaign-launch.jpeg'
 	},
 	{
 		id: 'virtual-town-hall',
@@ -88,7 +93,8 @@ export const mediaData: MediaItem[] = [
 			"A Cache Valley Daily profile on why Peter Crosby sees his challenge to three-term Rep. Blake Moore as winnable, pointing to Moore's slipping primary numbers and Northern Utah's growing competitiveness.",
 		date: '2026-07-01',
 		url: 'https://www.cachevalleydaily.com/news/democrat-peter-crosby-views-uphill-battle-against-incumbent-rep-blake-moore-as-winnable/article_54bbff83-a567-4bc4-9d66-d6ab540f5375.html',
-		outlet: 'Cache Valley Daily'
+		outlet: 'Cache Valley Daily',
+		image: '/images/media/cache-valley-daily-winnable.jpg'
 	}
 ];
 
