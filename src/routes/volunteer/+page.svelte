@@ -12,31 +12,6 @@
 	/** @type {'idle' | 'submitting' | 'success' | 'error'} */
 	let status = 'idle';
 
-	/**
-	 * Canvassing is pre-selected; the rest start unchecked.
-	 * @type {Record<string, boolean>}
-	 */
-	let helpChecked = {
-		help_canvassing: true,
-		help_phone_banking: false,
-		help_hosting_event: false,
-		help_data_entry: false,
-		help_wherever_needed: false
-	};
-
-	$: helpFields = [
-		{ name: 'help_canvassing', label: $messages.volunteer.helpCanvassing },
-		{ name: 'help_phone_banking', label: $messages.volunteer.helpPhoneBanking },
-		{ name: 'help_hosting_event', label: $messages.volunteer.helpHosting },
-		{ name: 'help_data_entry', label: $messages.volunteer.helpDataEntry },
-		{ name: 'help_wherever_needed', label: $messages.volunteer.helpWherever }
-	];
-
-	/** Friendly prefilled message; stops syncing once the visitor edits it. */
-	let message = '';
-	let messageTouched = false;
-	$: if (!messageTouched) message = $messages.volunteer.messageDefault;
-
 	/** @param {SubmitEvent} event */
 	async function handleSubmit(event) {
 		event.preventDefault();
@@ -61,7 +36,6 @@
 
 	function resetForm() {
 		status = 'idle';
-		messageTouched = false;
 	}
 </script>
 
@@ -117,31 +91,17 @@
 						<input id="volunteer-hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
 					</div>
 
-					<div class="form-grid">
-						<div class="form-row">
-							<label class="form-label" for="first-name">{$messages.volunteer.firstName}</label>
-							<input
-								id="first-name"
-								name="firstName"
-								class="form-input"
-								type="text"
-								required
-								maxlength="80"
-								autocomplete="given-name"
-							/>
-						</div>
-						<div class="form-row">
-							<label class="form-label" for="last-name">{$messages.volunteer.lastName}</label>
-							<input
-								id="last-name"
-								name="lastName"
-								class="form-input"
-								type="text"
-								required
-								maxlength="80"
-								autocomplete="family-name"
-							/>
-						</div>
+					<div class="form-row">
+						<label class="form-label" for="full-name">{$messages.volunteer.fullName}</label>
+						<input
+							id="full-name"
+							name="fullName"
+							class="form-input"
+							type="text"
+							required
+							maxlength="120"
+							autocomplete="name"
+						/>
 					</div>
 
 					<div class="form-grid">
@@ -156,9 +116,7 @@
 								maxlength="25"
 								autocomplete="tel"
 								inputmode="tel"
-								aria-describedby="phone-hint"
 							/>
-							<p class="form-hint" id="phone-hint">{$messages.volunteer.phoneHint}</p>
 						</div>
 						<div class="form-row">
 							<label class="form-label" for="email">{$messages.volunteer.email}</label>
@@ -174,55 +132,78 @@
 						</div>
 					</div>
 
-					<div class="form-row">
-						<label class="form-label" for="zip">
-							{$messages.volunteer.zip}
-							<span class="form-optional">({$messages.volunteer.zipOptional})</span>
-						</label>
-						<input
-							id="zip"
-							name="zip"
-							class="form-input"
-							type="text"
-							maxlength="10"
-							autocomplete="postal-code"
-							inputmode="text"
-							aria-describedby="zip-hint"
-						/>
-						<p class="form-hint" id="zip-hint">{$messages.volunteer.zipHint}</p>
+					<div class="form-grid">
+						<div class="form-row">
+							<label class="form-label" for="city">{$messages.volunteer.city}</label>
+							<input
+								id="city"
+								name="city"
+								class="form-input"
+								type="text"
+								required
+								maxlength="80"
+								autocomplete="address-level2"
+							/>
+						</div>
+						<div class="form-row">
+							<label class="form-label" for="county">{$messages.volunteer.county}</label>
+							<input
+								id="county"
+								name="county"
+								class="form-input"
+								type="text"
+								required
+								maxlength="80"
+							/>
+						</div>
 					</div>
 
-					<fieldset class="form-fieldset">
-						<legend class="form-legend">{$messages.volunteer.helpLegend}</legend>
-						<ul class="form-help-list">
-							{#each helpFields as field (field.name)}
-								<li class="form-help-item">
-									<label class="form-check-label">
-										<input
-											type="checkbox"
-											name={field.name}
-											value="yes"
-											bind:checked={helpChecked[field.name]}
-										/>
-										<span class="form-check-text">{field.label}</span>
-									</label>
-								</li>
-							{/each}
-						</ul>
-					</fieldset>
+					<div class="form-row">
+						<label class="form-label" for="house-district">
+							{$messages.volunteer.houseDistrict}
+							<span class="form-optional">({$messages.volunteer.optional})</span>
+						</label>
+						<input
+							id="house-district"
+							name="houseDistrict"
+							class="form-input"
+							type="text"
+							maxlength="60"
+							aria-describedby="house-district-hint"
+						/>
+						<p class="form-hint" id="house-district-hint">
+							{$messages.volunteer.houseDistrictHint}
+						</p>
+					</div>
 
 					<div class="form-row">
-						<label class="form-label" for="message">{$messages.volunteer.message}</label>
-						<textarea
-							id="message"
-							name="message"
-							class="form-input form-textarea"
-							rows="5"
+						<label class="form-label" for="source">{$messages.volunteer.source}</label>
+						<input
+							id="source"
+							name="source"
+							class="form-input"
+							type="text"
 							required
+							maxlength="200"
+							aria-describedby="source-hint"
+						/>
+						<p class="form-hint" id="source-hint">{$messages.volunteer.sourceHint}</p>
+					</div>
+
+					<div class="form-row">
+						<label class="form-label" for="skills">
+							{$messages.volunteer.skills}
+							<span class="form-optional">({$messages.volunteer.optional})</span>
+						</label>
+						<textarea
+							id="skills"
+							name="skills"
+							class="form-input form-textarea"
+							rows="4"
 							maxlength="2000"
-							bind:value={message}
-							on:input={() => (messageTouched = true)}
+							aria-describedby="skills-hint"
 						></textarea>
+						<p class="form-hint" id="skills-hint">{$messages.volunteer.skillsHint}</p>
 					</div>
 
 					{#if status === 'error'}
@@ -411,59 +392,6 @@
 		margin: 0;
 	}
 
-	.form-fieldset {
-		border: none;
-		padding: 0;
-		margin: 0;
-		min-width: 0;
-		border-top: 1px solid var(--line-l);
-		padding-top: 1.25rem;
-	}
-
-	.form-legend {
-		font-family: var(--display);
-		font-style: italic;
-		font-size: 1.125rem;
-		font-weight: 800;
-		letter-spacing: -0.01em;
-		color: var(--ink);
-		padding: 0;
-		margin: 0 0 0.75rem;
-	}
-
-	.form-help-list {
-		list-style: none;
-		margin: 0;
-		padding: 0;
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 0.65rem 1.25rem;
-	}
-
-	.form-help-item {
-		margin: 0;
-	}
-
-	.form-check-label {
-		display: flex;
-		align-items: flex-start;
-		gap: 0.55rem;
-		font-family: var(--font-primary);
-		font-size: 0.9375rem;
-		line-height: 1.4;
-		color: var(--ink);
-		font-weight: 500;
-		cursor: pointer;
-	}
-
-	.form-check-label input {
-		margin-top: 0.2rem;
-		width: 1.05rem;
-		height: 1.05rem;
-		accent-color: var(--blue);
-		flex-shrink: 0;
-	}
-
 	.form-foot {
 		display: flex;
 		align-items: center;
@@ -592,10 +520,6 @@
 		}
 
 		.form-grid {
-			grid-template-columns: 1fr;
-		}
-
-		.form-help-list {
 			grid-template-columns: 1fr;
 		}
 
