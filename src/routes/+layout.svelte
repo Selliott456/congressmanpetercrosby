@@ -126,6 +126,7 @@
 		.layout-main :global(.pol-lede),
 		.layout-main :global(.pol-area-text),
 		.layout-main :global(.policies-lede),
+		.layout-main :global(.policies-ask-text),
 		.layout-main :global(.pri-lede),
 		.layout-main :global(.events-intro),
 		.layout-main :global(.interviews-intro) {

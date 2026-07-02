@@ -511,6 +511,10 @@ export const pagesEs = {
 		lede: 'Respuestas reales sobre los temas que más importan al norte de Utah: la economía, la integridad de nuestro gobierno y la salud de nuestras comunidades.',
 		videoComingSoon: 'Video próximamente',
 		onThisPage: 'En esta página',
+		ctaTitle: '¿Tienes una pregunta que no ves aquí?',
+		ctaText:
+			'Si hay algo que te gustaría saber y no está cubierto arriba, dímelo — me encantaría saber de ti.',
+		ctaButton: 'Haz una pregunta',
 		items: [
 			{
 				id: 'top-priorities',

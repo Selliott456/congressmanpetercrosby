@@ -87,7 +87,7 @@
 			</div>
 		</aside>
 
-		<div class="contact-form-wrap">
+		<div class="contact-form-wrap" id="contact-form">
 			{#if status === 'success'}
 					<div class="form-success" role="status" aria-live="polite">
 						<p class="form-success-title">{$messages.contact.successTitle}</p>
@@ -333,6 +333,9 @@
 		border: 1px solid var(--line-l);
 		padding: 1.75rem;
 		min-width: 0;
+		/* Clears the sticky nav (~117px tall) when linked to via #contact-form
+		   (e.g. the Policies page "Ask a question" CTA). */
+		scroll-margin-top: 8.5rem;
 	}
 
 	.topic-switch {

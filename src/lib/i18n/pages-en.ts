@@ -245,6 +245,10 @@ export const pagesEn = {
 		lede: 'Real answers on the issues that matter most to Northern Utah — the economy, the integrity of our government, and the health of our communities.',
 		videoComingSoon: 'Video coming soon',
 		onThisPage: 'On this page',
+		ctaTitle: 'Have a question you don’t see here?',
+		ctaText:
+			'If there’s something you’d like to know that isn’t covered above, please let me know — I’d love to hear from you.',
+		ctaButton: 'Ask a question',
 		items: [
 			{
 				id: 'top-priorities',
