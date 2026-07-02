@@ -247,7 +247,7 @@ export const pagesEn = {
 		onThisPage: 'On this page',
 		ctaTitle: 'Have a question you don’t see here?',
 		ctaText:
-			'If there’s something you’d like to know that isn’t covered above, please let me know — I’d love to hear from you.',
+			'I want to hear from you. If there’s a question you don’t see answered above, send it my way — the questions I hear most shape the town halls I hold and the topics I address here.',
 		ctaButton: 'Ask a question',
 		items: [
 			{
