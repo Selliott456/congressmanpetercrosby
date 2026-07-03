@@ -9,6 +9,15 @@
 	const DONATE_URL = 'https://secure.actblue.com/donate/peter-crosby-1';
 	const ENDPOINT = 'https://formspree.io/f/mqeovjzd';
 
+	/** Public campaign volunteer calendar (Google Calendar embed, Mountain Time).
+	    `mode` is appended reactively so the view toggle can swap it. */
+	const CALENDAR_BASE =
+		'https://calendar.google.com/calendar/embed?src=c_d787cfc734b49c528b0bfa1f07974f5ed70aa91e7e020a51f1a304f99b305b86%40group.calendar.google.com&ctz=America%2FDenver&showTitle=0&showPrint=0&showCalendars=0&showTz=0';
+
+	/** Google Calendar view mode. @type {'MONTH' | 'AGENDA'} */
+	let calView = 'MONTH';
+	$: calendarSrc = `${CALENDAR_BASE}&mode=${calView}`;
+
 	/** @type {'idle' | 'submitting' | 'success' | 'error'} */
 	let status = 'idle';
 
@@ -45,30 +54,59 @@
 </svelte:head>
 
 <main class="contact-page">
-	<div class="contact-inner">
-		<aside class="contact-aside">
-			<h1 class="contact-title">{$messages.volunteer.pageTitle}</h1>
-			<Rail height="5px" />
-			<p class="contact-lede">{$messages.volunteer.intro}</p>
-			<dl class="contact-list">
-				<div class="contact-row">
-					<dt class="contact-term">{$messages.volunteer.emailLabel}</dt>
-					<dd class="contact-def">
-						<a href={`mailto:${EMAIL}`} class="contact-link"
-							>{EMAIL_USER}@<wbr />{EMAIL_DOMAIN}</a
-						>
-					</dd>
+	<header class="volunteer-head">
+		<h1 class="contact-title">{$messages.volunteer.pageTitle}</h1>
+		<Rail height="5px" />
+		<p class="contact-lede">{$messages.volunteer.intro}</p>
+		<dl class="contact-list volunteer-head-contact">
+			<div class="contact-row">
+				<dt class="contact-term">{$messages.volunteer.emailLabel}</dt>
+				<dd class="contact-def">
+					<a href={`mailto:${EMAIL}`} class="contact-link">{EMAIL_USER}@<wbr />{EMAIL_DOMAIN}</a>
+				</dd>
+			</div>
+			<div class="contact-row">
+				<dt class="contact-term">{$messages.volunteer.phoneLabel}</dt>
+				<dd class="contact-def">
+					<a href="tel:+14355351048" class="contact-link">{PHONE}</a>
+				</dd>
+			</div>
+		</dl>
+	</header>
+
+	<div class="contact-inner volunteer-grid">
+		<aside class="contact-aside volunteer-cal-col">
+			<div class="volunteer-cal-head">
+				<h2 class="volunteer-cal-heading">{$messages.volunteer.calendarHeading}</h2>
+				<div class="cal-view-toggle" role="group" aria-label={$messages.volunteer.calViewLabel}>
+					<button
+						type="button"
+						class="cal-view-btn"
+						class:is-active={calView === 'MONTH'}
+						aria-pressed={calView === 'MONTH'}
+						on:click={() => (calView = 'MONTH')}
+					>
+						{$messages.volunteer.calViewMonth}
+					</button>
+					<button
+						type="button"
+						class="cal-view-btn"
+						class:is-active={calView === 'AGENDA'}
+						aria-pressed={calView === 'AGENDA'}
+						on:click={() => (calView = 'AGENDA')}
+					>
+						{$messages.volunteer.calViewAgenda}
+					</button>
 				</div>
-				<div class="contact-row">
-					<dt class="contact-term">{$messages.volunteer.phoneLabel}</dt>
-					<dd class="contact-def">
-						<a href="tel:+14355351048" class="contact-link">{PHONE}</a>
-					</dd>
-				</div>
-			</dl>
-			<div class="contact-cta">
-				<p class="contact-cta-text">{$messages.volunteer.donatePrompt}</p>
-				<Button href={DONATE_URL} variant="secondary">{$messages.volunteer.donate}</Button>
+			</div>
+			<div class="volunteer-calendar">
+				<div class="volunteer-calendar-rail"><Rail /></div>
+				<iframe
+					class="volunteer-calendar-frame"
+					title={$messages.volunteer.calendarHeading}
+					src={calendarSrc}
+					loading="lazy"
+				></iframe>
 			</div>
 		</aside>
 
@@ -220,6 +258,11 @@
 			{/if}
 		</div>
 	</div>
+
+	<div class="contact-cta volunteer-donate">
+		<p class="contact-cta-text">{$messages.volunteer.donatePrompt}</p>
+		<Button href={DONATE_URL} variant="secondary">{$messages.volunteer.donate}</Button>
+	</div>
 </main>
 
 <style>
@@ -238,10 +281,117 @@
 		align-items: start;
 	}
 
+	/* Full-width title + lede header above the two-column body. */
+	.volunteer-head {
+		max-width: 1080px;
+		margin: 0 auto 2.5rem;
+	}
+
+	.volunteer-head .contact-lede {
+		max-width: 62ch;
+		margin: 1.5rem 0 0;
+	}
+
+	/* Email + phone sit side by side under the header lede. (Compound selector
+	   so it beats the base .contact-list column layout regardless of order.) */
+	.contact-list.volunteer-head-contact {
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 1.5rem 2.5rem;
+		margin-top: 1.75rem;
+	}
+
+	/* Donate CTA spans the full content width beneath the calendar + form. */
+	.volunteer-donate {
+		max-width: 1080px;
+		margin: 3rem auto 0;
+		text-align: center;
+	}
+
+	/* Calendar (left) + form (right). */
+	.volunteer-grid {
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+	}
+
 	/* ---- Left aside ---- */
 	.contact-aside {
 		position: sticky;
 		top: 2rem;
+	}
+
+	/* The calendar column is tall, so it doesn't stick like the old aside. */
+	.volunteer-cal-col {
+		position: static;
+	}
+
+	.volunteer-cal-head {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		margin: 0 0 0.75rem;
+	}
+
+	.volunteer-cal-heading {
+		font-family: var(--display);
+		font-style: italic;
+		font-size: 1.125rem;
+		font-weight: 800;
+		letter-spacing: -0.01em;
+		color: var(--ink);
+		margin: 0;
+	}
+
+	/* Month / Agenda segmented toggle. */
+	.cal-view-toggle {
+		display: inline-flex;
+		flex-shrink: 0;
+		border: 1px solid var(--line-l);
+	}
+
+	.cal-view-btn {
+		font-family: var(--mono);
+		font-size: 0.6875rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		padding: 0.4rem 0.75rem;
+		background: var(--paper);
+		color: var(--ink-3);
+		border: none;
+		cursor: pointer;
+		transition:
+			background 0.15s ease,
+			color 0.15s ease;
+	}
+
+	.cal-view-btn + .cal-view-btn {
+		border-left: 1px solid var(--line-l);
+	}
+
+	.cal-view-btn:hover:not(.is-active) {
+		color: var(--ink);
+	}
+
+	.cal-view-btn.is-active {
+		background: var(--blue);
+		color: var(--paper);
+	}
+
+	.volunteer-calendar {
+		border: 1px solid var(--line-l);
+		background: var(--paper);
+	}
+
+	.volunteer-calendar-rail {
+		line-height: 0;
+	}
+
+	.volunteer-calendar-frame {
+		display: block;
+		width: 100%;
+		height: 620px;
+		border: 0;
 	}
 
 	.contact-title {
@@ -525,6 +675,10 @@
 
 		.contact-form-wrap {
 			padding: 1.25rem;
+		}
+
+		.volunteer-calendar-frame {
+			height: 460px;
 		}
 	}
 </style>
