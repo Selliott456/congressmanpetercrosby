@@ -249,7 +249,7 @@ export const pagesEn = {
 		onThisPage: 'On this page',
 		ctaTitle: 'Have a question you don’t see here?',
 		ctaText:
-			'I want to hear from you. If there’s a question you don’t see answered above, send it my way — the questions I hear most shape the town halls I hold and the topics I address here.',
+			'I want to hear from you. If there’s a question you don’t see answered above, send it my way.',
 		ctaButton: 'Ask a question',
 		items: [
 			{

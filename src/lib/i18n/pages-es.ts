@@ -515,7 +515,7 @@ export const pagesEs = {
 		onThisPage: 'En esta página',
 		ctaTitle: '¿Tienes una pregunta que no ves aquí?',
 		ctaText:
-			'Quiero saber de ti. Si tienes una pregunta que no ves respondida arriba, envíamela — las preguntas que más escucho dan forma a los cabildos que organizo y a los temas que abordo aquí.',
+			'Quiero saber de ti. Si tienes una pregunta que no ves respondida arriba, envíamela.',
 		ctaButton: 'Haz una pregunta',
 		items: [
 			{
