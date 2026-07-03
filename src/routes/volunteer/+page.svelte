@@ -110,8 +110,10 @@
 			</div>
 		</aside>
 
-		<div class="contact-form-wrap">
-			{#if status === 'success'}
+		<div class="volunteer-form-col">
+			<h2 class="volunteer-form-heading">{$messages.volunteer.formHeading}</h2>
+			<div class="contact-form-wrap">
+				{#if status === 'success'}
 				<div class="form-success" role="status" aria-live="polite">
 					<p class="form-success-title">{$messages.volunteer.successTitle}</p>
 					<p class="form-success-body">{$messages.volunteer.successBody}</p>
@@ -256,6 +258,7 @@
 					</div>
 				</form>
 			{/if}
+			</div>
 		</div>
 	</div>
 
@@ -281,10 +284,13 @@
 		align-items: start;
 	}
 
-	/* Full-width title + lede header above the two-column body. */
+	/* Full-width title + lede header above the two-column body, with a divider
+	   separating it from the calendar + form. */
 	.volunteer-head {
 		max-width: 1080px;
 		margin: 0 auto 2.5rem;
+		padding-bottom: 2rem;
+		border-bottom: 1px solid var(--line-l);
 	}
 
 	.volunteer-head .contact-lede {
@@ -332,7 +338,8 @@
 		margin: 0 0 0.75rem;
 	}
 
-	.volunteer-cal-heading {
+	.volunteer-cal-heading,
+	.volunteer-form-heading {
 		font-family: var(--display);
 		font-style: italic;
 		font-size: 1.125rem;
@@ -340,6 +347,15 @@
 		letter-spacing: -0.01em;
 		color: var(--ink);
 		margin: 0;
+	}
+
+	/* Matches the calendar head's height (which the view toggle makes taller than
+	   plain heading text) and bottom spacing, so the panel tops line up. */
+	.volunteer-form-heading {
+		display: flex;
+		align-items: center;
+		min-height: 1.85rem;
+		margin: 0 0 0.75rem;
 	}
 
 	/* Month / Agenda segmented toggle. */

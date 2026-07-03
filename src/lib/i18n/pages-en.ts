@@ -85,6 +85,7 @@ export const pagesEn = {
 		calViewLabel: 'Calendar view',
 		calViewMonth: 'Month',
 		calViewAgenda: 'Agenda',
+		formHeading: 'Sign up',
 		emailLabel: 'Email',
 		phoneLabel: 'Phone',
 		fullName: 'Full Name',
