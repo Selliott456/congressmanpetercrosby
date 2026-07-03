@@ -283,7 +283,7 @@ export const pagesEn = {
 				parts: [
 					{
 						type: 'p' as const,
-						text: 'Northern Utah has a strong tradition of hard work combined with innovation supported by a community that puts people first. These values and traditions have served us well for decades, but are now under stress, partly because of the actions (or inaction) or our representatives.'
+						text: 'Northern Utah has a strong tradition of hard work combined with innovation supported by a community that puts people first. These values and traditions have served us well for decades, but are now under stress, partly because of the actions (or inaction) of our representatives.'
 					},
 					{
 						type: 'p' as const,
