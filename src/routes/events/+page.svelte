@@ -5,8 +5,6 @@
 	import EventCard from '$lib/components/EventCard.svelte';
 	import RsvpModal from '$lib/components/RsvpModal.svelte';
 
-	const SEVEN_DAYS = 7 * 24 * 60 * 60 * 1000;
-
 	/** @param {number} year @param {number} month @param {number} day */
 	function dayAnchorId(year, month, day) {
 		return `event-${year}-${month}-${day}`;
@@ -24,14 +22,10 @@
 		return d;
 	}
 
-	/** @param {import('$lib/data/events').EventRow} e */
+	/** Already ended → bumped into the hidden "past events" section.
+	 * @param {import('$lib/data/events').EventRow} e */
 	function isPastEvent(e) {
 		return endOfDay(e) < new Date();
-	}
-
-	/** Older than 7 days → hidden by default. @param {import('$lib/data/events').EventRow} e */
-	function isOld(e) {
-		return endOfDay(e).getTime() < Date.now() - SEVEN_DAYS;
 	}
 
 	$: events = eventsData.map((e) => ({
@@ -72,13 +66,13 @@
 		{ value: 'volunteer', label: $messages.events.ui.filterVolunteer }
 	];
 
-	// Shown by default: upcoming + within the last 7 days, soonest first. (Respects the filter.)
+	// Shown by default: upcoming events only, soonest first. (Respects the filter.)
 	$: upcomingAndRecent = events
-		.filter((e) => !isOld(e) && (activeFilter === 'all' || e.type === activeFilter))
+		.filter((e) => !isPastEvent(e) && (activeFilter === 'all' || e.type === activeFilter))
 		.sort((a, b) => eventTime(a) - eventTime(b));
-	// Hidden behind the toggle: older than 7 days, most recent first. (Respects the filter.)
+	// Hidden behind the toggle: every past event, most recent first. (Respects the filter.)
 	$: pastEvents = events
-		.filter((e) => isOld(e) && (activeFilter === 'all' || e.type === activeFilter))
+		.filter((e) => isPastEvent(e) && (activeFilter === 'all' || e.type === activeFilter))
 		.sort((a, b) => eventTime(b) - eventTime(a));
 	// Next event highlight: soonest upcoming that is NOT volunteer training, so it stays
 	// voter-facing. Independent of the active filter.
@@ -112,7 +106,7 @@
 	 * @param {number} year @param {number} month @param {number} day */
 	async function jumpToDay(year, month, day) {
 		const dayEvents = getEventsOnDate(year, month, day);
-		if (dayEvents.some(isOld)) showPast = true;
+		if (dayEvents.some(isPastEvent)) showPast = true;
 		await tick();
 		const el = document.getElementById(dayAnchorId(year, month, day));
 		if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
