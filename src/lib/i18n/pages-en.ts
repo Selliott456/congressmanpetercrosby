@@ -85,22 +85,20 @@ export const pagesEn = {
 		phoneLabel: 'Phone',
 		firstName: 'First Name',
 		lastName: 'Last Name',
-		email: 'Email Address',
-		phone: 'Mobile Phone Number',
-		phoneHint: 'We use this number to reach you quickly by text.',
-		zip: 'ZIP code',
-		zipOptional: 'optional',
-		zipHint: 'Five digits, or five digits, a hyphen, and four more digits.',
-		helpLegend: 'How would you like to help?',
-		helpCanvassing: 'Canvassing',
-		helpPhoneBanking: 'Phone banking',
-		helpHosting: 'Hosting an event',
-		helpDataEntry: 'Data entry / admin',
-		helpWherever: 'Wherever needed',
-		message: 'Message',
-		messageDefault: 'I’d like to help out.',
+		phone: 'Phone',
+		email: 'Email',
+		city: 'City',
+		county: 'County',
+		houseDistrict: 'House District',
+		optional: 'optional',
+		houseDistrictHint: 'Not sure which one you’re in? You can leave this blank.',
+		source: 'What led you to volunteer?',
+		sourceHint:
+			'For example: a town hall, social media, a conversation with a volunteer, or a community event.',
+		skills: 'Skills or resources you can offer',
+		skillsHint: 'Describe any skills or resources you’d like to offer as a volunteer.',
 		requiredNote: 'All fields required except where noted.',
-		send: 'Send message',
+		send: 'Sign up',
 		sending: 'Sending…',
 		errorMessage: 'Something went wrong. Please try again, or email us directly.',
 		successTitle: 'Thank you!',
@@ -245,6 +243,10 @@ export const pagesEn = {
 		lede: 'Real answers on the issues that matter most to Northern Utah — the economy, the integrity of our government, and the health of our communities.',
 		videoComingSoon: 'Video coming soon',
 		onThisPage: 'On this page',
+		ctaTitle: 'Have a question you don’t see here?',
+		ctaText:
+			'I want to hear from you. If there’s a question you don’t see answered above, send it my way.',
+		ctaButton: 'Ask a question',
 		items: [
 			{
 				id: 'top-priorities',
@@ -277,7 +279,7 @@ export const pagesEn = {
 				parts: [
 					{
 						type: 'p' as const,
-						text: 'Northern Utah has a strong tradition of hard work combined with innovation supported by a community that puts people first. These values and traditions have served us well for decades, but are now under stress, partly because of the actions (or inaction) or our representatives.'
+						text: 'Northern Utah has a strong tradition of hard work combined with innovation supported by a community that puts people first. These values and traditions have served us well for decades, but are now under stress, partly because of the actions (or inaction) of our representatives.'
 					},
 					{
 						type: 'p' as const,

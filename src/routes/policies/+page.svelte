@@ -173,6 +173,15 @@
 				</section>
 			{/each}
 
+			<section class="policies-ask" aria-labelledby="policies-ask-heading">
+				<div class="policies-ask-rail"><Rail /></div>
+				<h2 id="policies-ask-heading" class="policies-ask-title">
+					{$messages.policies.ctaTitle}
+				</h2>
+				<p class="policies-ask-text">{$messages.policies.ctaText}</p>
+				<Button href="/contact#contact-form" variant="primary">{$messages.policies.ctaButton}</Button>
+			</section>
+
 			<div class="policies-cta">
 				<Button href="https://secure.actblue.com/donate/peter-crosby-1">{$messages.common.donate}</Button>
 			</div>
@@ -462,8 +471,45 @@
 		color: var(--sky);
 	}
 
+	/* "Have a question?" prompt — routes to the Contact page (General form). */
+	.policies-ask {
+		position: relative;
+		margin-top: 3.5rem;
+		padding: 2.75rem 1.5rem 2.85rem;
+		background: var(--paper-2);
+		border: 1px solid var(--line-l);
+		text-align: center;
+	}
+
+	.policies-ask-rail {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+	}
+
+	.policies-ask-title {
+		margin: 0.35rem 0 0.65rem;
+		font-family: var(--display);
+		font-style: italic;
+		font-weight: 900;
+		font-size: clamp(1.4rem, 3.5vw, 1.9rem);
+		letter-spacing: -0.02em;
+		line-height: 1.05;
+		color: var(--ink);
+	}
+
+	.policies-ask-text {
+		max-width: 48ch;
+		margin: 0 auto 1.6rem;
+		font-family: var(--serif);
+		font-size: 1.0625rem;
+		line-height: 1.55;
+		color: var(--ink-2);
+	}
+
 	.policies-cta {
-		margin-top: 3rem;
+		margin-top: 1.75rem;
 		padding-top: 2rem;
 		border-top: 1px solid var(--line-l);
 		text-align: center;
