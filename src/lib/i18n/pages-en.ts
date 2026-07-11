@@ -242,6 +242,7 @@ export const pagesEn = {
 		pageTitle: 'Where Peter stands',
 		lede: 'Real answers on the issues that matter most to Northern Utah — the economy, the integrity of our government, and the health of our communities.',
 		videoComingSoon: 'Video coming soon',
+		videoEconomyLabel: 'Peter Crosby on the economy',
 		onThisPage: 'On this page',
 		ctaTitle: 'Have a question you don’t see here?',
 		ctaText:

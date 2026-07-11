@@ -508,6 +508,7 @@ export const pagesEs = {
 		pageTitle: 'La postura de Peter',
 		lede: 'Respuestas reales sobre los temas que más importan al norte de Utah: la economía, la integridad de nuestro gobierno y la salud de nuestras comunidades.',
 		videoComingSoon: 'Video próximamente',
+		videoEconomyLabel: 'Peter Crosby sobre la economía',
 		onThisPage: 'En esta página',
 		ctaTitle: '¿Tienes una pregunta que no ves aquí?',
 		ctaText:

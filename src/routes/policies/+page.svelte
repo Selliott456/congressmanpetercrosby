@@ -163,12 +163,30 @@
 					</div>
 
 					<div class="policies-media">
-						<!-- Placeholder for a forthcoming video of Peter on this position. -->
-						<div class="policy-video" role="img" aria-label={$messages.policies.videoComingSoon}>
-							<div class="policy-video-rail"><Rail /></div>
-							<span class="policy-video-play" aria-hidden="true"></span>
-							<span class="policy-video-label">{$messages.policies.videoComingSoon}</span>
-						</div>
+						{#if item.id === 'economy'}
+							<!-- Vertical (9:16) message video of Peter on the economy. -->
+							<div class="policy-video-frame">
+								<div class="policy-video-rail"><Rail /></div>
+								<!-- svelte-ignore a11y-media-has-caption -->
+								<video
+									class="policy-video-player"
+									controls
+									playsinline
+									preload="none"
+									poster="/images/policies/affordability-poster.jpg"
+									aria-label={$messages.policies.videoEconomyLabel}
+								>
+									<source src="/images/policies/affordability.mp4" type="video/mp4" />
+								</video>
+							</div>
+						{:else}
+							<!-- Placeholder for a forthcoming video of Peter on this position. -->
+							<div class="policy-video" role="img" aria-label={$messages.policies.videoComingSoon}>
+								<div class="policy-video-rail"><Rail /></div>
+								<span class="policy-video-play" aria-hidden="true"></span>
+								<span class="policy-video-label">{$messages.policies.videoComingSoon}</span>
+							</div>
+						{/if}
 					</div>
 				</section>
 			{/each}
@@ -471,6 +489,23 @@
 		color: var(--sky);
 	}
 
+	/* Real vertical (9:16) message video — mirrors the placeholder's dark frame + rail. */
+	.policy-video-frame {
+		position: relative;
+		width: 100%;
+		aspect-ratio: 9 / 16;
+		overflow: hidden;
+		background: var(--ink-deep);
+		border: 1px solid var(--line-d);
+	}
+
+	.policy-video-player {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
 	/* "Have a question?" prompt — routes to the Contact page (General form). */
 	.policies-ask {
 		position: relative;
@@ -563,6 +598,12 @@
 		.policies-section {
 			grid-template-columns: 1fr;
 			gap: 1.5rem;
+		}
+
+		/* Stacked: keep the tall 9:16 video from dominating the column. */
+		.policy-video-frame {
+			max-width: 320px;
+			margin-inline: auto;
 		}
 	}
 
