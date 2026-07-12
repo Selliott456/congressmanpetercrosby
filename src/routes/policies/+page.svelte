@@ -144,7 +144,11 @@
 	<section class="policies-body">
 		<div class="policies-body-inner">
 			{#each $messages.policies.items as item}
-				<section class="policies-section" id={item.id}>
+				<section
+					class="policies-section"
+					class:policies-section--intro={item.id === 'top-priorities'}
+					id={item.id}
+				>
 					<div class="policies-text">
 						<h2 class="policies-question">{item.question}</h2>
 						<div class="policies-answer">
@@ -162,6 +166,7 @@
 						</div>
 					</div>
 
+					{#if item.id !== 'top-priorities'}
 					<div class="policies-media">
 						{#if item.id === 'economy'}
 							<!-- Vertical (9:16) message video of Peter on the economy. -->
@@ -188,6 +193,7 @@
 							</div>
 						{/if}
 					</div>
+					{/if}
 				</section>
 			{/each}
 
@@ -392,6 +398,11 @@
 		margin-bottom: 3rem;
 		border-bottom: 1px solid var(--line-l);
 		scroll-margin-top: var(--policies-anchor, 6rem);
+	}
+
+	/* Intro section has no video — let the copy span the full width. */
+	.policies-section--intro {
+		grid-template-columns: 1fr;
 	}
 
 	.policies-section:last-of-type {
