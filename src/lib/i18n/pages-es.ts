@@ -422,13 +422,87 @@ export const pagesEs = {
 				title: 'Encuentro comunitario – Fruit Heights',
 				description: 'Un encuentro comunitario en el condado de Davis.'
 			},
-			'ev-051': {
-				title: 'Cabildo – Condado de Davis',
-				description: 'Un cabildo con Peter en el condado de Davis. Traiga sus preguntas para Peter.'
+			// --- Airtable-sourced events (see events.ts cutover comment) ---
+			'gcal-0li2l67k3ev3q901c0bi42e910': {
+				title: 'Desfile de Farmington',
+				description: 'Peter marcha en el desfile de Farmington: ¡venga a apoyarlo!'
 			},
-			'ev-052': {
+			'gcal-13s98ltndqvkr7oup54ioa2br1': {
+				title: 'Cabildo – Syracuse',
+				description:
+					'Acompañe a Peter en un cabildo en la Biblioteca Syracuse Northwest (Auditorio). Traiga sus preguntas.'
+			},
+			'gcal-7e44f0prdbo121ef5rpbp86jkc': {
+				title: 'Picnic y conozca al candidato',
+				description:
+					'Los candidatos hablarán brevemente sobre su plataforma y visión, con tiempo para conversar de manera informal en el picnic. Acompáñenos.'
+			},
+			'gcal-530mdgg04cccb639la66879mcv': {
+				title: 'Encuentro y saludo – Distrito 16',
+				description:
+					'Un encuentro comunitario organizado en el Distrito 16 de la Cámara. Venga a saludar a Peter.'
+			},
+			'gcal-0mv0bt56bdktr7fmls85p8r0ct': {
 				title: 'Cabildo – Condado de Weber',
-				description: 'Un cabildo con Peter en el condado de Weber. Traiga sus preguntas para Peter.'
+				description:
+					'Acompañe a Peter en un cabildo en la Biblioteca Principal del Condado de Weber en Ogden. Traiga sus preguntas.'
+			},
+			'gcal-59l0d4s00h5dsoh2s0u6vq5lti': {
+				title: 'Cabildo Virtual',
+				description: 'Un cabildo virtual, disponible por Facebook Live. Únase desde donde esté.'
+			},
+			'gcal-7ceivt1nb9c7pjadi6hi6lnilr': {
+				title: 'Cabildo – Layton',
+				description:
+					'Acompañe a Peter en un cabildo en la Biblioteca del Condado de Davis, sucursal Layton. Traiga sus preguntas.'
+			},
+			'gcal-47u5fs1rk0o9sfon8aa7norfhf': {
+				title: 'Cabildo – Ogden Valley',
+				description:
+					'Acompañe a Peter en un cabildo en la Biblioteca de Ogden Valley en Huntsville. Traiga sus preguntas.'
+			},
+			'gcal-201npt6bb9jps47jfnakkgrm45': {
+				title: 'Cabildo – Logan',
+				description: 'Acompañe a Peter en un cabildo en la Biblioteca de Logan. Traiga sus preguntas.'
+			},
+			'gcal-1bbse8es0na6c0rvgak9o2c2ad': {
+				title: 'Cabildo – North Ogden',
+				description:
+					'Acompañe a Peter en un cabildo en la Biblioteca North Branch en North Ogden. Traiga sus preguntas.'
+			},
+			'gcal-68f18cmu9rq4k46rf9l76uhg3k': {
+				title: 'Desfile inaugural de Peach Days',
+				description:
+					'Peter participa en el desfile inaugural de Peach Days en Brigham City. ¡Venga a saludar!'
+			},
+			'gcal-2gu7l3fhoa442gv2cqhokatk8b': {
+				title: 'Festival Latino de Cache Valley',
+				description: 'Peter acompaña a la comunidad en el Festival Latino de Cache Valley en Logan.'
+			},
+			'gcal-3lncaejnvk0mk4s1alt46va16r': {
+				title: 'Desfile de Peach Days',
+				description: 'Peter marcha en el desfile de Peach Days en Brigham City. ¡Venga a apoyarlo!'
+			},
+			'gcal-7shm3nltreu4lqee22fikpam9a': {
+				title: 'Cabildo – Farmington',
+				description:
+					'Acompañe a Peter en un cabildo en la sede de la Biblioteca del Condado de Davis en Farmington. Traiga sus preguntas.'
+			},
+			'gcal-5lbomb5vtb90oakphdsnipakjc': {
+				title: 'Festival del Orgullo de Logan',
+				description: 'Peter acompaña a la comunidad en el Festival del Orgullo de Logan.'
+			},
+			'gcal-1v233j1cjil0lt8fvio1flmffm': {
+				title: 'Día en el Quad (USU)',
+				description: 'Encuentre a la campaña en el Día en el Quad de USU. Pase a saludar.'
+			},
+			'gcal-1o39srp3iqufuf9ab32du5o857': {
+				title: 'Cabildo – Kaysville',
+				description: 'Acompañe a Peter en un cabildo en la Biblioteca de Kaysville. Traiga sus preguntas.'
+			},
+			'gcal-79j4830k0p9ft60in84lbmlmnp': {
+				title: 'Día de las Elecciones',
+				description: 'Día de las Elecciones. Haga oír su voz: ¡vote!'
 			}
 		} as Record<string, { title: string; description: string }>
 	},
