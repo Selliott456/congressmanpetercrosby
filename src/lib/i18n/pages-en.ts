@@ -19,25 +19,70 @@ export const pagesEn = {
 		],
 		sections: [
 			{
-				title: 'Service driven',
-				paragraphs: [
-					"My family has a history of public service going back to the foundations of our country. My parents were both in the military, as were both of my grandfathers, and both of my brothers. I was a cadet in the ROTC until I blew my knee out in PT one morning, which set me on a different path. My wife's father, brothers, and grandparents also served. Service is hard coded into us, and my wife and I have tried to instill those values in our daughters.",
-					'I know the rights and freedoms this country is built on require sacrifice from all of us if we are to keep them. I believe the oath I made as an Eagle Scout almost twenty-five years ago to better society still holds today. Public servants, like our Congressional representatives, are there to serve. It is a duty, an honor, and an obligation to put country and community before self. Please join me in doing our part.'
+				title: 'A Family History of Public Service, A Duty to Serve',
+				parts: [
+					{
+						type: 'p' as const,
+						text: 'My parents were both in the military, as were both of my grandfathers, and both of my brothers. My wife’s father, brothers, and grandparents also served. I am an Eagle Scout and was a cadet in the ROTC, both foundational experiences in my life. Service is hard coded into us, and my wife and I have tried to instill those values in our daughters.'
+					},
+					{
+						type: 'p' as const,
+						text: 'After an injury during my time serving in the ROTC, I knew I had to choose a different path for service. Running for Congress is part of that service for me.'
+					},
+					{
+						type: 'p' as const,
+						text: 'Safekeeping the rights and freedoms of our country requires sacrifice from all of us. The oath I made as an Eagle Scout almost twenty-five years ago to better society is still central to my life today. Public servants, like our Congressional representatives, are there to serve their neighbors. As your elected representative in Congress, I’ll put community and country before myself every moment of every day.'
+					}
 				]
 			},
 			{
-				title: 'Husband and father',
-				paragraphs: [
-					'My wife, Amanda, and I, along with our three daughters, have built a home in Cache Valley, where we have lived most of the 19 years Amanda and I have been married. We have raised three kind, passionate, brilliant, and remarkable young women. We teach them to be honest, to have integrity, to love their neighbor, and to work hard. I am running to make sure they, and everyone else, have the opportunities we were promised. Please join me to help make that possible.'
+				title: 'A Husband and Father Rooted in Cache Valley for 19 years',
+				parts: [
+					{
+						type: 'p' as const,
+						text: 'My wife, Amanda, and I, are raising our three beautiful daughters in the Cache Valley. They are three kind, passionate, brilliant, and remarkable young women.'
+					},
+					{
+						type: 'p' as const,
+						text: 'We teach them to be honest, to have integrity, to love their neighbor, and to work hard.'
+					},
+					{
+						type: 'p' as const,
+						text: 'I am running to make sure they, and everyone else, have the opportunities we were promised. Please join me to help make that possible.'
+					}
 				]
 			},
 			{
-				title: 'Experienced leader',
-				paragraphs: [
-					'I started my professional career working for a Fortune 500 company in operations. I worked my way up to a supervisory role within a year while going to school full time, and spent the next five to six years leading teams and projects. At the time I moved to a position in analytics at the corporate level, I had a staff of 11 and over 200 employees.',
-					'As a first-generation college graduate with two degrees in political science, I know first-hand the value our universities in Northern Utah provide to individuals and communities, and I wanted to be part of that. So, I left the private sector to work for Utah State University in institutional research. I also started teaching, with my first classes focusing on American politics and institutions for undergraduates. I am grateful to continue my role as an educator working as an adjunct for the Center for Anticipatory Intelligence at USU, where I now teach a graduate course on emergent technology. Working with students as a mentor, instructor, and future colleague is perhaps some of the most rewarding professional experiences I have.',
-					'My current full time employment is back in the private sector as a director, project manager, and consultant for a research company that supports higher education. Using my background in both the private and public sectors, I work with presidents, provosts, faculty, and support staff to help them navigate what has become a very unpredictable future.',
-					'My background has taught me the strength of flexible thinking, relationship building, and organizational skills. I have learned that good leadership is built on trust.'
+				title: 'A Professional Career Rooted in Leadership and Trust',
+				parts: [
+					{
+						type: 'p' as const,
+						text: 'I’m a first-generation college graduate who has spent my career balancing my family life with working more than one full time job to make ends meet. My professional career has taken me from leadership positions in a Fortune 500 company, to a professorship at Utah State University.'
+					},
+					{
+						type: 'ul' as const,
+						items: [
+							'Completed undergraduate studies in [year] at [school]',
+							'Started as a boot on the ground staff member working in operations',
+							'Rose to a supervisory role within 1 year while going to school full time',
+							'Awarded a master’s degree in XX in [year]',
+							'Led a team of hundreds of employees working to [brief description of the work]',
+							'Moved to higher education with a position in institutional research and teaching at Utah State University where I taught American Politics to undergrads',
+							'Currently an adjunct professor for the Center for Anticipatory Intelligence at USU teaching a graduate course on emergent technology while balancing a full time role as a director, project manager and consultant in the private sector'
+						]
+					},
+					{
+						type: 'p' as const,
+						text: 'Using my background in both the private and public sectors, I work with presidents, provosts, faculty, and support staff to help them navigate what has become a very unpredictable future.'
+					},
+					{
+						type: 'p' as const,
+						text: 'Working with students as a mentor, instructor, and future colleague is my most rewarding professional experience.'
+					},
+					{
+						type: 'p' as const,
+						text: 'My background has taught me the strength of flexible thinking, relationship building, and organizational skills.'
+					}
 				]
 			}
 		]

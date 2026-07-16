@@ -40,8 +40,16 @@
 			<section class="about-section">
 				<h2 class="section-title">{section.title}</h2>
 				<div class="section-body">
-					{#each section.paragraphs as para}
-						<p>{para}</p>
+					{#each section.parts as part}
+						{#if part.type === 'p'}
+							<p>{part.text}</p>
+						{:else if part.type === 'ul'}
+							<ul>
+								{#each part.items as li}
+									<li>{li}</li>
+								{/each}
+							</ul>
+						{/if}
 					{/each}
 				</div>
 			</section>
@@ -172,6 +180,33 @@
 
 	.section-body p:last-child {
 		margin-bottom: 0;
+	}
+
+	.section-body ul {
+		margin: 0 0 1rem 0;
+		padding-left: 1.25rem;
+		list-style: none;
+	}
+
+	.section-body li {
+		position: relative;
+		margin-bottom: 0.6rem;
+		padding-left: 1rem;
+	}
+
+	.section-body li:last-child {
+		margin-bottom: 0;
+	}
+
+	/* Square hairline marker to match the brand's square-corner motif. */
+	.section-body li::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0.7em;
+		width: 6px;
+		height: 6px;
+		background: var(--blue);
 	}
 
 	@media (max-width: 768px) {

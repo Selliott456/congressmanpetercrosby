@@ -19,25 +19,70 @@ export const pagesEs = {
 		],
 		sections: [
 			{
-				title: 'Impulsado por el servicio',
-				paragraphs: [
-					'Mi familia tiene una historia de servicio público que se remonta a los cimientos de nuestro país. Mis padres estuvieron en las fuerzas armadas, al igual que mis dos abuelos y mis dos hermanos. Fui cadete del ROTC hasta que me lesioné la rodilla en educación física una mañana, lo que me llevó por otro camino. El padre de mi esposa, sus hermanos y abuelos también sirvieron. El servicio lo llevamos incorporado, y mi esposa y yo hemos intentado inculcar esos valores a nuestras hijas.',
-					'Sé que los derechos y libertades sobre los que se fundó este país exigen el sacrificio de todos si queremos conservarlos. Creo que el juramento que hice como Eagle Scout hace casi veinticinco años para mejorar la sociedad sigue vigente. Los funcionarios públicos, como nuestros representantes en el Congreso, están para servir. Es un deber, un honor y una obligación poner al país y a la comunidad antes que uno mismo. Únase a mí para hacer nuestra parte.'
+				title: 'Una historia familiar de servicio público, un deber de servir',
+				parts: [
+					{
+						type: 'p' as const,
+						text: 'Mis padres estuvieron en las fuerzas armadas, al igual que mis dos abuelos y mis dos hermanos. El padre de mi esposa, sus hermanos y abuelos también sirvieron. Soy Eagle Scout y fui cadete del ROTC, dos experiencias fundamentales en mi vida. El servicio lo llevamos incorporado, y mi esposa y yo hemos intentado inculcar esos valores a nuestras hijas.'
+					},
+					{
+						type: 'p' as const,
+						text: 'Tras una lesión durante mi tiempo en el ROTC, supe que debía elegir un camino distinto para servir. Postularme al Congreso es parte de ese servicio para mí.'
+					},
+					{
+						type: 'p' as const,
+						text: 'Salvaguardar los derechos y libertades de nuestro país exige el sacrificio de todos nosotros. El juramento que hice como Eagle Scout hace casi veinticinco años de mejorar la sociedad sigue siendo central en mi vida hoy. Los funcionarios públicos, como nuestros representantes en el Congreso, están para servir a sus vecinos. Como su representante electo en el Congreso, pondré a la comunidad y al país antes que a mí mismo en cada momento de cada día.'
+					}
 				]
 			},
 			{
-				title: 'Esposo y padre',
-				paragraphs: [
-					'Mi esposa Amanda y yo, con nuestras tres hijas, hemos construido un hogar en Cache Valley, donde hemos vivido la mayor parte de los 19 años de matrimonio de Amanda y yo. Hemos criado a tres jóvenes amables, apasionadas, brillantes y extraordinarias. Les enseñamos a ser honestas, a tener integridad, a amar al prójimo y a trabajar duro. Me postulo para asegurar que ellas, y todos los demás, tengan las oportunidades que nos prometieron. Únase a mí para ayudar a que eso sea posible.'
+				title: 'Esposo y padre arraigado en Cache Valley desde hace 19 años',
+				parts: [
+					{
+						type: 'p' as const,
+						text: 'Mi esposa, Amanda, y yo estamos criando a nuestras tres hermosas hijas en Cache Valley. Son tres jóvenes amables, apasionadas, brillantes y extraordinarias.'
+					},
+					{
+						type: 'p' as const,
+						text: 'Les enseñamos a ser honestas, a tener integridad, a amar a su prójimo y a trabajar duro.'
+					},
+					{
+						type: 'p' as const,
+						text: 'Me postulo para asegurar que ellas, y todos los demás, tengan las oportunidades que nos prometieron. Acompáñenme para hacerlo posible.'
+					}
 				]
 			},
 			{
-				title: 'Líder con experiencia',
-				paragraphs: [
-					'Comencé mi carrera profesional en una empresa Fortune 500 en operaciones. Ascendí a un rol de supervisión en un año mientras estudiaba a tiempo completo, y pasé los siguientes cinco o seis años liderando equipos y proyectos. Cuando pasé a analítica a nivel corporativo, tenía 11 personas a cargo y más de 200 empleados.',
-					'Como graduado universitario de primera generación con dos títulos en ciencia política, conozco de primera mano el valor que nuestras universidades del norte de Utah aportan a personas y comunidades, y quise ser parte de eso. Así que dejé el sector privado para trabajar en Utah State University en investigación institucional. También empecé a enseñar, con mis primeras clases centradas en política e instituciones estadounidenses para pregrado. Agradezco seguir como educador adjunto en el Center for Anticipatory Intelligence de USU, donde ahora doy un curso de posgrado sobre tecnología emergente. Trabajar con estudiantes como mentor, instructor y futuro colega es quizá una de las experiencias profesionales más gratificantes que he tenido.',
-					'Mi empleo a tiempo completo ha vuelto al sector privado como director, gestor de proyectos y consultor para una empresa de investigación que apoya la educación superior. Con mi experiencia en los sectores público y privado, trabajo con rectores, provosts, profesorado y personal de apoyo para ayudarles a navegar un futuro cada vez más impredecible.',
-					'Mi trayectoria me ha enseñado la fuerza del pensamiento flexible, la construcción de relaciones y las habilidades organizativas. He aprendido que un buen liderazgo se basa en la confianza.'
+				title: 'Una carrera profesional basada en el liderazgo y la confianza',
+				parts: [
+					{
+						type: 'p' as const,
+						text: 'Soy un graduado universitario de primera generación que ha pasado su carrera equilibrando la vida familiar con más de un empleo de tiempo completo para llegar a fin de mes. Mi carrera profesional me ha llevado de puestos de liderazgo en una empresa Fortune 500 a una cátedra en Utah State University.'
+					},
+					{
+						type: 'ul' as const,
+						items: [
+							'Completé mis estudios de licenciatura en [año] en [escuela]',
+							'Comencé como miembro del personal de base trabajando en operaciones',
+							'Ascendí a un rol de supervisión en menos de un año mientras estudiaba a tiempo completo',
+							'Obtuve una maestría en XX en [año]',
+							'Dirigí un equipo de cientos de empleados dedicados a [breve descripción del trabajo]',
+							'Pasé a la educación superior con un puesto en investigación institucional y docencia en Utah State University, donde enseñé Política Estadounidense a estudiantes de pregrado',
+							'Actualmente soy profesor adjunto en el Center for Anticipatory Intelligence de USU, donde imparto un curso de posgrado sobre tecnología emergente mientras desempeño un rol de tiempo completo como director, gestor de proyectos y consultor en el sector privado'
+						]
+					},
+					{
+						type: 'p' as const,
+						text: 'Con mi experiencia en los sectores privado y público, trabajo con rectores, provosts, profesorado y personal de apoyo para ayudarles a navegar un futuro cada vez más impredecible.'
+					},
+					{
+						type: 'p' as const,
+						text: 'Trabajar con estudiantes como mentor, instructor y futuro colega es mi experiencia profesional más gratificante.'
+					},
+					{
+						type: 'p' as const,
+						text: 'Mi trayectoria me ha enseñado la fuerza del pensamiento flexible, la construcción de relaciones y las habilidades organizativas.'
+					}
 				]
 			}
 		]
