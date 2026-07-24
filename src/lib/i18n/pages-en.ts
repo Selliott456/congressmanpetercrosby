@@ -283,12 +283,12 @@ export const pagesEn = {
 	policies: {
 		metaTitle: 'Where Peter Stands — Peter Crosby for Congress',
 		metaDescription:
-			'Where Peter Crosby stands on the issues facing Northern Utah: the economy, the integrity of our government, and the health of our communities.',
+			'Where Peter Crosby stands on the issues facing Northern Utah: affordability, accountability, and stewardship of the Great Salt Lake and our public lands.',
 		eyebrow: 'Policies',
 		pageTitle: 'Where Peter stands',
-		lede: 'Real answers on the issues that matter most to Northern Utah — the economy, the integrity of our government, and the health of our communities.',
+		lede: 'Real answers on the issues that matter most to Northern Utah — affordability, the integrity of our government, and stewardship of the Great Salt Lake and our public lands.',
 		videoComingSoon: 'Video coming soon',
-		videoEconomyLabel: 'Peter Crosby on the economy',
+		videoAffordabilityLabel: 'Peter Crosby on affordability',
 		onThisPage: 'On this page',
 		ctaTitle: 'Have a question you don’t see here?',
 		ctaText:
@@ -302,27 +302,27 @@ export const pagesEn = {
 				parts: [
 					{
 						type: 'p' as const,
-						text: 'My policy priorities are a reflection of the people I speak with throughout Northern Utah. These conversations have surfaced a variety of concerns and issues, but I think they can be summed up in the following areas:'
+						text: 'My policy priorities are a reflection of every conversation I have with people throughout Northern Utah. Since last July I have personally spoken with hundreds of regular people from every walk of life and political background, and our campaign volunteers have added thousands more. These conversations have surfaced a variety of concerns and issues, but I think they can be summed up in the following areas:'
 					},
 					{
 						type: 'ul' as const,
 						items: [
-							'The economic well being of our district',
-							'The integrity of our government',
-							'The health of our communities'
+							'We have an affordability crisis',
+							'We are deeply concerned about the integrity of our government',
+							'We have an existential threat as the Great Salt Lake dies, and broader concerns about our public lands'
 						]
 					},
 					{
 						type: 'p' as const,
-						text: 'In these areas, and in all other policy making, my top priority is to represent the people of Northern Utah. My policy solutions are oriented to put individuals, families, and communities first.'
+						text: 'So broadly, my top priorities are Affordability, Accountability, and Stewardship. In these areas, and in all other policy making, my top priority is to represent the people of Northern Utah. My policy solutions focus on two core areas: getting the system to do what it is supposed to do, and making sure I am putting individuals, families, and communities first.'
 					}
 				]
 			},
 			{
-				id: 'economy',
-				navLabel: 'The economy',
+				id: 'affordability',
+				navLabel: 'Affordability',
 				question:
-					'What are the economic issues facing northern Utah and what would you do about them?',
+					'What are the affordability issues facing northern Utah and what would you do about them?',
 				parts: [
 					{
 						type: 'p' as const,
@@ -330,7 +330,7 @@ export const pagesEn = {
 					},
 					{
 						type: 'p' as const,
-						text: 'We are currently experiencing a housing crisis that prevents people from finding permanent homes due to a housing market that is one of the most expensive in the country. While there are some in-state efforts to alleviate this pressure, they are falling well short of our current needs. We need to incentivize better planning, more affordable housing built around community models, and increase the income available to average Utahns so they can afford to start building their families and their futures here.'
+						text: 'We are currently experiencing a housing crisis that prevents people from finding permanent homes due to a housing market that is one of the most expensive in the country. While there are some in-state efforts to alleviate this pressure, they are falling well short of our current needs. We need to incentivize better planning, more affordable housing built around community models, and increase the income available to average Utahns so they can afford to start building their families and their futures here. This includes refunding existing programs that support rural community development and fighting for a living wage.'
 					},
 					{
 						type: 'p' as const,
@@ -338,17 +338,21 @@ export const pagesEn = {
 					},
 					{
 						type: 'p' as const,
-						text: 'Adding to this building disaster are thousands of federal workers and members of the military who are now either furloughed or forced to work without pay because a Republican House, a Republican Senate, and a Republican White House can not effectively govern. There are already reports of dedicated food banks and other community resources being stretched to a breaking point, while our representatives take a paid vacation.'
+						text: 'Adding to this building disaster are thousands of federal workers who have been forced out of their jobs. We have lost thousands of good jobs in the district, and an estimated $110–150 million in lost wages. Those were paychecks that supported families and our local businesses. There are already reports of dedicated food banks and other community resources being stretched to a breaking point, and child hunger has doubled in the state.'
 					},
 					{
 						type: 'p' as const,
-						text: 'My priority in solving these challenges is to focus on the people here in Northern Utah by using the power of the Congress to right the ship. I would join other willing members of Congress and bring an end to an illegal tariff regime that is making it harder and harder for our local business and entrepreneurs to make a living. I would ensure the law is upheld in making sure SNAP benefits are distributed to the more than 80,000 Utah families who are struggling. Finally, I would stand up against the current Republican leadership in D.C. They need to learn how to govern, or they need to get a new job.'
+						text: 'As a final insult to injury, this Congress has cut access to healthcare for millions of Americans, including tens of thousands here in Utah. Our seniors and rural communities are being hit the hardest, but everyone is seeing the extra costs. My own personal insurance increased 40% through my employer, but the quality of care has not increased. People are being forced to make a decision between paying the rent or seeing a doctor, and that is unsustainable.'
+					},
+					{
+						type: 'p' as const,
+						text: 'My priority in solving these challenges is to focus on the people here in Northern Utah by using the power of the Congress to right the ship. I would join other willing members of Congress and bring an end to an illegal tariff regime that is making it harder and harder for our local business and entrepreneurs to make a living. I would ensure the law is upheld in making sure SNAP benefits are distributed to the more than 80,000 Utah families who are struggling. I would support regulatory reform for our housing markets, and re-fund existing programs that make it easier for rural communities and first-time home buyers to build roots. Finally, we have to find a cost-effective solution for healthcare access. Every large-scale study points to the same solution: a single-payer system. My preference is one that also allows private insurance companies to exist, but now they have to compete in an actual marketplace, instead of holding regular people captive while making the jobs of healthcare providers more difficult.'
 					}
 				]
 			},
 			{
 				id: 'government-integrity',
-				navLabel: 'Government integrity',
+				navLabel: 'Accountability',
 				question:
 					'You mention the integrity of our government as an issue raised by people here in Northern Utah. What do you mean by that, and what would you do?',
 				parts: [
@@ -362,7 +366,7 @@ export const pagesEn = {
 					},
 					{
 						type: 'p' as const,
-						text: 'I think there are several solutions that will help rebuild our trust in our government, and they require sacrifice on the part of our representatives. First, I would ban individual stock trades for all members of Congress and their immediate families. It is not right for someone to regulate the company they invest in. Our representatives are there to serve us, not their bank accounts.'
+						text: 'There are several solutions that will help rebuild our trust in our government, and they require sacrifice on the part of our representatives. First, I would ban individual stock trades for all members of Congress and their immediate families. This ban should also be extended to members of the executive branch (e.g., the President, Vice President, cabinet secretaries) and their immediate families, as well as the judicial branch. It is not right for someone to regulate the company they invest in. Our representatives are there to serve us, not their bank accounts.'
 					},
 					{
 						type: 'p' as const,
@@ -370,7 +374,7 @@ export const pagesEn = {
 					},
 					{
 						type: 'p' as const,
-						text: 'Third, I support efforts to remove corporate money from our political process. Our government is "of the people, by the people, for the people," not corporate interests. Removing the influence of this "dark money" will help all of our public servants better serve us, the people.'
+						text: 'Third, I support efforts to remove corporate money from our political process. Our government is “of the people, by the people, for the people,” not corporate interests. Removing the influence of this “dark money” will help all of our public servants better serve us, the people.'
 					},
 					{
 						type: 'p' as const,
@@ -379,18 +383,81 @@ export const pagesEn = {
 				]
 			},
 			{
-				id: 'healthcare',
-				navLabel: 'Healthcare',
-				question:
-					'What is your position on the cuts to the Affordable Care Act (ACA or "Obamacare") and access to healthcare for rural communities?',
+				id: 'great-salt-lake',
+				navLabel: 'Stewardship',
+				question: 'What do we do about the Great Salt Lake?',
 				parts: [
 					{
 						type: 'p' as const,
-						text: 'The recent "Big Beautiful Bill", crafted, in part, by Rep. Blake Moore of what is now congressional district 2, significantly cuts access to healthcare by reducing payments to Medicare starting in 2026. These cuts hit hardest in rural communities like those here in Northern Utah, and will make it more expensive to get access to medical care. This is already having an impact here in Utah, as the state is unable to match federal investment at the same level we have in the past, despite the fact we run a large surplus in our state budget. This will likely impact our hospital and emergency care systems the hardest. For rural communities especially, this means less access to critical care.'
+						text: 'Restoring the Great Salt Lake requires more water. This is largely a state decision, as the Utah Legislature decides how to allocate resources in partnership with local entities. As a federal representative, my responsibility is to provide resources that help move more water to the lake and to remove barriers at the national level that prevent effective solutions.'
+					},
+					{
+						type: 'p' as const,
+						text: 'This means securing funding to help restore our aging water infrastructure and removing the invasive phragmites around the shore. It also means simplifying existing regulatory barriers among federal agencies if/when improvement projects require multi-agency approvals. Finally, it also means understanding there are likely to be communities impacted by decisions about water allocation, and thinking about what those consequences are before they happen so we can provide the resources and support necessary to support those impacted (like farmers). This means one of the committees I would be open to serving on would be the Agricultural committee, so I could better advocate for those most impacted by likely changes in water allocations throughout the state.'
+					}
+				]
+			},
+			{
+				id: 'healthcare',
+				navLabel: 'Healthcare',
+				groupHeading: 'Other Policy Positions',
+				question:
+					'What is your position on the cuts to the Affordable Care Act (ACA or “Obamacare”) and access to healthcare for rural communities?',
+				parts: [
+					{
+						type: 'p' as const,
+						text: 'The recent “Big Beautiful Bill”, crafted, in part, by Rep. Blake Moore of what is now congressional district 2, significantly cuts access to healthcare by reducing payments to Medicare starting in 2026. These cuts hit hardest in rural communities like those here in Northern Utah, and will make it more expensive to get access to medical care. This is already having an impact here in Utah, as the state is unable to match federal investment at the same level we have in the past, despite the fact we run a large surplus in our state budget. This will likely impact our hospital and emergency care systems the hardest. For rural communities especially, this means less access to critical care.'
 					},
 					{
 						type: 'p' as const,
 						text: 'Given this, I am not in favor of the Big Beautiful Bill and its cuts targeted at our local communities. It is bad policy, and it will significantly harm thousands of Utah families.'
+					}
+				]
+			},
+			{
+				id: 'data-centers',
+				navLabel: 'Data centers',
+				question:
+					'The Stratos data center project approved by MIDA is in Box Elder, a county in your district. What are your thoughts on data centers generally, and Stratos specifically?',
+				parts: [
+					{
+						type: 'p' as const,
+						text: 'I do not support additional data center development in Utah unless and until they adequately address concerns about water, energy, the environment, and community impacts. Additionally, decisions about their development should require community approval. I am opposed to the Stratos project because it fails to meet any of these requirements.'
+					}
+				]
+			},
+			{
+				id: 'ai',
+				navLabel: 'AI',
+				question: 'Data centers are often linked to AI development. Where do you stand on AI?',
+				parts: [
+					{
+						type: 'p' as const,
+						text: 'First, I think it is important to note that AI refers to a wide variety of technological tools that often get aggregated together. I am for machine learning processes that help us identify cancer in imaging more quickly and more accurately. I am opposed to the development and deployment of algorithms that are used to identify and track private citizens without any legal justification.'
+					},
+					{
+						type: 'p' as const,
+						text: 'Existing generative AI tools (e.g., ChatGPT, Claude, Midjourney) were built on stolen assets and more often than not negatively impact the human ability to create, reason, and meaningfully engage with the world around us. The tools are here, and they will not go away, so now we have an obligation to mitigate and prevent as much harm as we can.'
+					},
+					{
+						type: 'p' as const,
+						text: 'From a policy perspective, I am in favor of holding corporations accountable for their usage and deployment of AI. There are serious potential financial impacts for our communities, and our current tax code allows large corporations to avoid paying their fair share of taxes to support our government and communities. We need to close these tax loopholes, so that if AI deployment significantly displaces Americans and their families from the workforce, we have the resources necessary to support them while they transition.'
+					},
+					{
+						type: 'p' as const,
+						text: 'I am also in favor of updates to our current laws and regulations regarding data ownership and privacy. Americans should own their data, full stop. We should also be protected from the misuse of that data, whether by local agencies, corporations, or the federal government.'
+					}
+				]
+			},
+			{
+				id: 'epstein',
+				navLabel: 'Epstein files',
+				question:
+					'You have often mentioned that one of the reasons you are running is because of what happened to the victims of child trafficking in the Epstein files. What is your position on the Epstein traffickers?',
+				parts: [
+					{
+						type: 'p' as const,
+						text: 'Everyone involved should be prosecuted to the fullest extent of the law. I support the full release of the files, as per the victim’s request. I am not interested in protecting anyone who has participated in the buying, selling, or raping of children.'
 					}
 				]
 			}

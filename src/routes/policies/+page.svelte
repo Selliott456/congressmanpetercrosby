@@ -4,6 +4,15 @@
 	import Rail from '$lib/components/Rail.svelte';
 	import { messages } from '$lib/i18n/locale';
 
+	/** Which sections get the 2-column video layout. Everything else is full-width text.
+	    'video' = real on-site video; 'placeholder' = "coming soon" frame.
+	    @type {Record<string, 'video' | 'placeholder'>} */
+	const sectionMedia = {
+		affordability: 'video',
+		'government-integrity': 'placeholder',
+		'great-salt-lake': 'placeholder'
+	};
+
 	/** Anchor id of the section currently in view — drives the "you are here" highlight. */
 	let activeId = '';
 	/** The sticky jump bar; its height feeds the anchor offset. @type {HTMLElement | undefined} */
@@ -125,6 +134,9 @@
 			<span class="policies-jump-label">{$messages.policies.onThisPage}</span>
 			<ul class="policies-jump-list">
 				{#each $messages.policies.items as item}
+					{#if item.groupHeading}
+						<li class="policies-jump-sep" aria-hidden="true"></li>
+					{/if}
 					<li>
 						<a
 							class="policies-jump-link"
@@ -144,9 +156,15 @@
 	<section class="policies-body">
 		<div class="policies-body-inner">
 			{#each $messages.policies.items as item}
+				{#if item.groupHeading}
+					<div class="policies-group">
+						<div class="policies-group-rail"><Rail /></div>
+						<h2 class="policies-group-heading">{item.groupHeading}</h2>
+					</div>
+				{/if}
 				<section
 					class="policies-section"
-					class:policies-section--intro={item.id === 'top-priorities'}
+					class:policies-section--full={!sectionMedia[item.id]}
 					id={item.id}
 				>
 					<div class="policies-text">
@@ -166,10 +184,9 @@
 						</div>
 					</div>
 
-					{#if item.id !== 'top-priorities'}
-					<div class="policies-media">
-						{#if item.id === 'economy'}
-							<!-- Vertical (9:16) message video of Peter on the economy. -->
+					{#if sectionMedia[item.id] === 'video'}
+						<div class="policies-media">
+							<!-- Vertical (9:16) message video of Peter on this priority. -->
 							<div class="policy-video-frame">
 								<div class="policy-video-rail"><Rail /></div>
 								<!-- svelte-ignore a11y-media-has-caption -->
@@ -179,20 +196,21 @@
 									playsinline
 									preload="none"
 									poster="/images/policies/affordability-poster.jpg"
-									aria-label={$messages.policies.videoEconomyLabel}
+									aria-label={$messages.policies.videoAffordabilityLabel}
 								>
 									<source src="/images/policies/affordability.mp4" type="video/mp4" />
 								</video>
 							</div>
-						{:else}
-							<!-- Placeholder for a forthcoming video of Peter on this position. -->
+						</div>
+					{:else if sectionMedia[item.id] === 'placeholder'}
+						<div class="policies-media">
+							<!-- Placeholder for a forthcoming video of Peter on this priority. -->
 							<div class="policy-video" role="img" aria-label={$messages.policies.videoComingSoon}>
 								<div class="policy-video-rail"><Rail /></div>
 								<span class="policy-video-play" aria-hidden="true"></span>
 								<span class="policy-video-label">{$messages.policies.videoComingSoon}</span>
 							</div>
-						{/if}
-					</div>
+						</div>
 					{/if}
 				</section>
 			{/each}
@@ -322,6 +340,14 @@
 		/* ~26px between the "On this page" label and the jump links (16px + ~10px). */
 		gap: 1.625rem;
 		min-width: 0;
+		/* Always a single sticky line that scrolls sideways — never wrap to two lines.
+		   Edge fades + scroll-active-into-view (JS) make the overflow discoverable. */
+		overflow-x: auto;
+		scrollbar-width: none;
+	}
+
+	.policies-jump-inner::-webkit-scrollbar {
+		display: none;
 	}
 
 	.policies-jump-label {
@@ -340,13 +366,29 @@
 		padding: 0;
 		display: flex;
 		align-items: center;
-		flex-wrap: wrap;
-		gap: 0.25rem 1.5rem;
+		flex-wrap: nowrap;
+		flex-shrink: 0;
+		gap: 1.5rem;
 		min-width: 0;
+	}
+
+	/* Trailing spacer so the last link keeps breathing room at scroll-end (a flex
+	   scroll container drops trailing padding from the scroll extent). */
+	.policies-jump-list::after {
+		content: '';
+		flex: 0 0 1.5rem;
 	}
 
 	.policies-jump-list li {
 		margin: 0;
+	}
+
+	/* Visual break in the jump bar between the pillars and "Other Policy Positions". */
+	.policies-jump-sep {
+		width: 1px;
+		align-self: stretch;
+		min-height: 1rem;
+		background: var(--line-d);
 	}
 
 	.policies-jump-link {
@@ -389,6 +431,27 @@
 		padding: 0 1.5rem;
 	}
 
+	/* Divider between the priority pillars and the "Other Policy Positions" group. */
+	.policies-group {
+		margin: 1rem 0 2.5rem;
+	}
+
+	.policies-group-rail {
+		max-width: 120px;
+		margin-bottom: 0.9rem;
+	}
+
+	.policies-group-heading {
+		font-family: var(--display);
+		font-style: italic;
+		font-weight: 800;
+		font-size: 0.8125rem;
+		letter-spacing: 0.2em;
+		text-transform: uppercase;
+		color: var(--blue);
+		margin: 0;
+	}
+
 	.policies-section {
 		display: grid;
 		grid-template-columns: 1fr minmax(280px, 360px);
@@ -400,8 +463,8 @@
 		scroll-margin-top: var(--policies-anchor, 6rem);
 	}
 
-	/* Intro section has no video — let the copy span the full width. */
-	.policies-section--intro {
+	/* Sections without a video (intro + "Other Policy Positions") span the full width. */
+	.policies-section--full {
 		grid-template-columns: 1fr;
 	}
 
@@ -574,36 +637,19 @@
 		   padding-left re-adds the gutter (mobile margin + base inset) so the first
 		   link aligns with the page's body text. The trailing gutter lives on the
 		   last item instead (see below), so padding-right is dropped here. */
+		/* Single-line scroll behavior now lives in the base styles; mobile only
+		   re-adds the full-bleed gutter, hides the label, and tightens the gap. */
 		.policies-jump-inner {
 			padding-left: calc(var(--mobile-margin) + 1.5rem);
 			padding-right: 0;
-			overflow-x: auto;
-			scrollbar-width: none;
-		}
-
-		.policies-jump-inner::-webkit-scrollbar {
-			display: none;
 		}
 
 		.policies-jump-label {
 			display: none;
 		}
 
-		/* Let the list size to its content (not shrink to the scroll container), so
-		   its trailing spacer actually extends the scroll extent. */
 		.policies-jump-list {
-			flex-wrap: nowrap;
-			flex-shrink: 0;
 			gap: 1.25rem;
-		}
-
-		/* A flex scroll container drops both trailing padding AND the last item's
-		   margin from the scroll extent, so the last link sits flush at scroll-end.
-		   A real in-flow spacer (a flex child) is always counted — it plus the list
-		   gap gives the last link the same breathing room as the start gutter. */
-		.policies-jump-list::after {
-			content: '';
-			flex: 0 0 1.5rem;
 		}
 
 		.policies-section {
