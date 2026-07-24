@@ -1,4 +1,5 @@
 <script>
+	import { tick } from 'svelte';
 	import Rail from '$lib/components/Rail.svelte';
 	import Button from '$lib/components/Button.svelte';
 	import { messages } from '$lib/i18n/locale';
@@ -11,6 +12,9 @@
 
 	/** @type {'idle' | 'submitting' | 'success' | 'error'} */
 	let status = 'idle';
+
+	/** Success heading — focused on submit so the confirmation is announced/reachable. @type {HTMLElement | undefined} */
+	let successHeading;
 
 	/** @param {SubmitEvent} event */
 	async function handleSubmit(event) {
@@ -26,6 +30,8 @@
 			if (response.ok) {
 				status = 'success';
 				form.reset();
+				await tick();
+				successHeading?.focus();
 			} else {
 				status = 'error';
 			}
@@ -73,7 +79,9 @@
 		<div class="contact-form-wrap">
 			{#if status === 'success'}
 				<div class="form-success" role="status" aria-live="polite">
-					<p class="form-success-title">{$messages.volunteer.successTitle}</p>
+					<p class="form-success-title" bind:this={successHeading} tabindex="-1">
+						{$messages.volunteer.successTitle}
+					</p>
 					<p class="form-success-body">{$messages.volunteer.successBody}</p>
 					<button type="button" class="form-success-again" on:click={resetForm}>
 						{$messages.volunteer.sendAnother}
@@ -82,6 +90,8 @@
 			{:else}
 				<form class="contact-form" on:submit={handleSubmit}>
 					<input type="hidden" name="_subject" value="Volunteer signup (website)" />
+					<!-- Stable machine tag so the Formspree → Airtable workflow can route by form. -->
+					<input type="hidden" name="formType" value="volunteer" />
 
 					<!-- Honeypot: hidden from people; bots that fill it are silently dropped by Formspree. -->
 					<div class="hp-field" aria-hidden="true">
@@ -118,13 +128,15 @@
 
 					<div class="form-grid">
 						<div class="form-row">
-							<label class="form-label" for="phone">{$messages.volunteer.phone}</label>
+							<label class="form-label" for="phone">
+								{$messages.volunteer.phone}
+								<span class="form-optional">({$messages.volunteer.optional})</span>
+							</label>
 							<input
 								id="phone"
 								name="phone"
 								class="form-input"
 								type="tel"
-								required
 								maxlength="25"
 								autocomplete="tel"
 								inputmode="tel"

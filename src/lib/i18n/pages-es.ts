@@ -4,7 +4,8 @@ export const pagesEs = {
 		donate: 'Donar',
 		viewEvent: 'Ver evento →',
 		googleCalendar: 'Google Calendar',
-		ics: 'ICS'
+		ics: 'ICS',
+		optional: 'opcional'
 	},
 	about: {
 		metaTitle: 'Acerca de Peter Crosby — Peter Crosby para el Congreso',
@@ -109,7 +110,7 @@ export const pagesEs = {
 		email: 'Correo electrónico',
 		mediaOutlet: 'Medio / Publicación',
 		message: 'Mensaje',
-		requiredNote: 'Todos los campos son obligatorios.',
+		requiredNote: 'Todos los campos son obligatorios salvo donde se indique.',
 		send: 'Enviar mensaje',
 		sending: 'Enviando…',
 		errorMessage: 'Algo salió mal. Inténtelo de nuevo o escríbanos directamente.',
