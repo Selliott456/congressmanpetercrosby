@@ -41,6 +41,36 @@ const en = {
 			privacy: 'We’ll never share your email.'
 		}
 	},
+	yardSign: {
+		footerHeading: 'Put up a yard sign',
+		requestButton: 'Request a Yard Sign',
+		sponsorLink: 'Sponsor a yard sign',
+		eyebrow: 'Yard signs',
+		title: 'Request a yard sign',
+		blurb: 'Show your support for the campaign — we’ll get a sign to you and help put it up.',
+		firstName: 'First name',
+		lastName: 'Last name',
+		quantity: 'How many signs?',
+		email: 'Email',
+		phone: 'Phone',
+		streetAddress: 'Street address',
+		city: 'City',
+		instructions: 'Placement instructions',
+		instructionsHint: 'Where should the sign go? Any access notes or preferences.',
+		donatePrompt: 'Yard signs cost about $10 to print, deliver, and place.',
+		sponsorCta: 'Sponsor a yard sign →',
+		requiredNote: 'All fields required except where noted.',
+		submit: 'Send request',
+		submitting: 'Sending…',
+		close: 'Close',
+		error: 'Something went wrong. Please try again.',
+		successTitle: 'Request received!',
+		successBody:
+			'Thanks for showing your support. We’ll be in touch to coordinate delivery and placement.',
+		successSponsorPrompt:
+			'Want to help cover the cost? Each sign runs about $10 to produce and place.',
+		done: 'Done'
+	},
 	language: {
 		switch: 'Language',
 		english: 'English',
@@ -194,6 +224,36 @@ const es: Messages = {
 			error: 'Algo salió mal. Inténtelo de nuevo.',
 			privacy: 'Nunca compartiremos su correo.'
 		}
+	},
+	yardSign: {
+		footerHeading: 'Ponga un letrero de jardín',
+		requestButton: 'Solicitar un letrero',
+		sponsorLink: 'Patrocinar un letrero',
+		eyebrow: 'Letreros de jardín',
+		title: 'Solicitar un letrero de jardín',
+		blurb: 'Muestre su apoyo a la campaña: le llevaremos un letrero y le ayudaremos a colocarlo.',
+		firstName: 'Nombre',
+		lastName: 'Apellido',
+		quantity: '¿Cuántos letreros?',
+		email: 'Correo electrónico',
+		phone: 'Teléfono',
+		streetAddress: 'Dirección',
+		city: 'Ciudad',
+		instructions: 'Instrucciones de colocación',
+		instructionsHint: '¿Dónde debe ir el letrero? Notas de acceso o preferencias.',
+		donatePrompt: 'Los letreros cuestan alrededor de $10 para imprimir, entregar y colocar.',
+		sponsorCta: 'Patrocinar un letrero →',
+		requiredNote: 'Todos los campos son obligatorios salvo donde se indique.',
+		submit: 'Enviar solicitud',
+		submitting: 'Enviando…',
+		close: 'Cerrar',
+		error: 'Algo salió mal. Inténtelo de nuevo.',
+		successTitle: '¡Solicitud recibida!',
+		successBody:
+			'Gracias por mostrar su apoyo. Nos pondremos en contacto para coordinar la entrega y la colocación.',
+		successSponsorPrompt:
+			'¿Quiere ayudar a cubrir el costo? Cada letrero cuesta alrededor de $10 para producir y colocar.',
+		done: 'Listo'
 	},
 	language: {
 		switch: 'Idioma',
