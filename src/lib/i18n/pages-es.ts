@@ -511,23 +511,14 @@ export const pagesEs = {
 				title: 'Cabildo – Logan',
 				description: 'Acompañe a Peter en un cabildo en la Biblioteca de Logan. Traiga sus preguntas.'
 			},
-			'gcal-1bbse8es0na6c0rvgak9o2c2ad': {
-				title: 'Cabildo – North Ogden',
-				description:
-					'Acompañe a Peter en un cabildo en la Biblioteca North Branch en North Ogden. Traiga sus preguntas.'
-			},
 			'gcal-68f18cmu9rq4k46rf9l76uhg3k': {
-				title: 'Desfile inaugural de Peach Days',
+				title: 'Peach Days – Brigham City',
 				description:
-					'Peter participa en el desfile inaugural de Peach Days en Brigham City. ¡Venga a saludar!'
+					'Encuentre la mesa de la campaña en Peach Days en Brigham City, junto a los Demócratas de Box Elder.'
 			},
 			'gcal-2gu7l3fhoa442gv2cqhokatk8b': {
 				title: 'Festival Latino de Cache Valley',
 				description: 'Peter acompaña a la comunidad en el Festival Latino de Cache Valley en Logan.'
-			},
-			'gcal-3lncaejnvk0mk4s1alt46va16r': {
-				title: 'Desfile de Peach Days',
-				description: 'Peter marcha en el desfile de Peach Days en Brigham City. ¡Venga a apoyarlo!'
 			},
 			'gcal-7shm3nltreu4lqee22fikpam9a': {
 				title: 'Cabildo – Farmington',
@@ -538,10 +529,6 @@ export const pagesEs = {
 				title: 'Festival del Orgullo de Logan',
 				description: 'Peter acompaña a la comunidad en el Festival del Orgullo de Logan.'
 			},
-			'gcal-1v233j1cjil0lt8fvio1flmffm': {
-				title: 'Día en el Quad (USU)',
-				description: 'Encuentre a la campaña en el Día en el Quad de USU. Pase a saludar.'
-			},
 			'gcal-1o39srp3iqufuf9ab32du5o857': {
 				title: 'Cabildo – Kaysville',
 				description: 'Acompañe a Peter en un cabildo en la Biblioteca de Kaysville. Traiga sus preguntas.'
@@ -549,6 +536,86 @@ export const pagesEs = {
 			'gcal-79j4830k0p9ft60in84lbmlmnp': {
 				title: 'Día de las Elecciones',
 				description: 'Día de las Elecciones. Haga oír su voz: ¡vote!'
+			},
+			'gcal-60o1pei574juj1o4iojdqv79gs': {
+				title: 'Desfile del Día de los Pioneros de Mendon',
+				description: 'Acompañe a la campaña en el desfile del Día de los Pioneros de Mendon. ¡Venga a saludar!'
+			},
+			'gcal-09c2nr2mevnggmhpm7jfhmlmrr': {
+				title: 'BBQ de verano – Progresistas del Condado de Weber',
+				description: 'Un BBQ de verano con los Progresistas del Condado de Weber. ¡Venga a acompañarnos!'
+			},
+			'gcal-0l1pirh13fru5bvv2d0h23l8i1': {
+				title: 'Picnic y conozca a los candidatos',
+				description: 'Un picnic comunitario en Cache Valley donde los candidatos comparten su plataforma, con tiempo para conversar de manera informal. Acompáñenos.'
+			},
+			'gcal-6p3v4uskd4ilpj9ovv98lhou1d': {
+				title: 'Antelope by Moonlight',
+				description: 'Encuentre la mesa de los Demócratas del Condado de Davis en el paseo en bici Antelope by Moonlight. Pase a saludar.'
+			},
+			'gcal-70jsbm08a16c81dfr728unibtd': {
+				title: 'Desfile de South Weber',
+				description: '¡Acompañe a Peter y a otros candidatos locales en el desfile de South Weber!'
+			},
+			'gcal-7cu0c2of8h8mspcclqoso7639v': {
+				title: 'Cabildo – Condado de Box Elder',
+				description: 'Acompañe a Peter en el cabildo de agosto del Condado de Box Elder. Traiga sus preguntas y comparta sus inquietudes.'
+			},
+			'gcal-2bifckul2aicbv336070qn2vu9': {
+				title: 'Cabildo – Biblioteca de Roy',
+				description: 'Acompañe a Peter en el cabildo de agosto del Condado de Weber en la Biblioteca de Roy. Traiga sus preguntas.'
+			},
+			'gcal-25krankb031055jebtbo0jlfr5': {
+				title: 'Desfile de Sauerkraut Days de Providence',
+				description: '¡Acompañe a Peter y a su familia en el desfile de Sauerkraut Days de Providence!'
+			},
+			'gcal-3n2u5jsopk7sg1bik5kqdl9s1c': {
+				title: 'Sauerkraut Days de Providence – Mesa',
+				description: 'Encuentre a Peter con una mesa en los Sauerkraut Days de Providence. Pase a saludar.'
+			},
+			'gcal-7msagpfs4i1t9ade3i45t827sk': {
+				title: 'Foro Interreligioso de Cache Valley',
+				description: 'Un foro comunitario con líderes religiosos de Cache Valley sobre inquietudes ambientales: una oportunidad para escuchar a los candidatos. Más detalles próximamente.'
+			},
+			'gcal-1hc49k8ubfppkvv24fss43ac4s': {
+				title: 'Desfile de la Feria de Box Elder',
+				description: 'Acompañe a la campaña en el desfile de la Feria del Condado de Box Elder en Tremonton.'
+			},
+			'gcal-66cgctmceb9nc7tdb5dnbktnuk': {
+				title: 'Cabildo – Farmington',
+				description: 'Acompañe a Peter en el cabildo de agosto del Condado de Davis en Farmington. Traiga sus preguntas.'
+			},
+			'gcal-7kiiqefgfp3kf04nd18kv3kc5f': {
+				title: 'Día en el Quad de USU',
+				description: 'Encuentre a la campaña en el Día en el Quad de USU. Pase a saludar.'
+			},
+			'gcal-3rd8rs5b9cqse606eo61afk87a': {
+				title: 'Desfile de Tomato Days de Hooper',
+				description: 'Acompañe a la campaña en el desfile de Tomato Days de Hooper.'
+			},
+			'gcal-2m5urne2vm828utdmkdqmjabn9': {
+				title: 'Desfile de Peach Days – Brigham City',
+				description: 'Acompañe a la campaña caminando con los Demócratas de Box Elder en el desfile de Peach Days (comienza a las 10 a. m.).'
+			},
+			'gcal-43u07b634idc57don9uv0318ee': {
+				title: 'Cabildo – Biblioteca de Layton',
+				description: 'Acompañe a Peter en el cabildo del Condado de Davis en la Biblioteca de Layton. Traiga sus preguntas.'
+			},
+			'gcal-54o9oq6tcn5833gq458mth9egk': {
+				title: 'Desfile de Bienvenida de USU',
+				description: 'Acompañe a la campaña en el desfile de bienvenida (Homecoming) de USU en el centro de Logan.'
+			},
+			'gcal-51p7cin4daaquor021iod945fb': {
+				title: 'Ogden Pride',
+				description: 'Encuentre a la campaña en el festival Ogden Pride.'
+			},
+			'gcal-584jnkgh3cdlkk3mn2pmfbh5kr': {
+				title: 'Desfile Purple Paw (Bienvenida de WSU)',
+				description: 'Acompañe a la campaña en el desfile Purple Paw que inicia la Bienvenida (Homecoming) de Weber State en el centro de Ogden.'
+			},
+			'gcal-0v2436r6dda91cpnk1t5a2b69a': {
+				title: 'Debate del Distrito 2 del Congreso',
+				description: 'El debate oficial del Distrito 2 del Congreso, organizado por la Comisión de Debates de Utah y transmitido por televisión local y YouTube en vivo.'
 			}
 		} as Record<string, { title: string; description: string }>
 	},
