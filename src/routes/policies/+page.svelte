@@ -5,12 +5,28 @@
 	import { messages } from '$lib/i18n/locale';
 
 	/** Which sections get the 2-column video layout. Everything else is full-width text.
-	    'video' = real on-site video; 'placeholder' = "coming soon" frame.
-	    @type {Record<string, 'video' | 'placeholder'>} */
+	    A 'video' entry carries its own src/poster/label; 'placeholder' shows the
+	    "coming soon" frame (kept for future sections with no video yet).
+	    @type {Record<string, { type: 'video'; src: string; poster: string; labelKey: 'videoAffordabilityLabel' | 'videoAccountabilityLabel' | 'videoStewardshipLabel' } | { type: 'placeholder' }>} */
 	const sectionMedia = {
-		affordability: 'video',
-		'government-integrity': 'placeholder',
-		'great-salt-lake': 'placeholder'
+		affordability: {
+			type: 'video',
+			src: '/images/policies/affordability.mp4',
+			poster: '/images/policies/affordability-poster.jpg',
+			labelKey: 'videoAffordabilityLabel'
+		},
+		'government-integrity': {
+			type: 'video',
+			src: '/images/policies/accountability.mp4',
+			poster: '/images/policies/accountability-poster.jpg',
+			labelKey: 'videoAccountabilityLabel'
+		},
+		'great-salt-lake': {
+			type: 'video',
+			src: '/images/policies/stewardship.mp4',
+			poster: '/images/policies/stewardship-poster.jpg',
+			labelKey: 'videoStewardshipLabel'
+		}
 	};
 
 	/** Anchor id of the section currently in view — drives the "you are here" highlight. */
@@ -156,17 +172,14 @@
 	<section class="policies-body">
 		<div class="policies-body-inner">
 			{#each $messages.policies.items as item}
+				{@const media = sectionMedia[item.id]}
 				{#if item.groupHeading}
 					<div class="policies-group">
 						<div class="policies-group-rail"><Rail /></div>
 						<h2 class="policies-group-heading">{item.groupHeading}</h2>
 					</div>
 				{/if}
-				<section
-					class="policies-section"
-					class:policies-section--full={!sectionMedia[item.id]}
-					id={item.id}
-				>
+				<section class="policies-section" class:policies-section--full={!media} id={item.id}>
 					<div class="policies-text">
 						<h2 class="policies-question">{item.question}</h2>
 						<div class="policies-answer">
@@ -184,7 +197,7 @@
 						</div>
 					</div>
 
-					{#if sectionMedia[item.id] === 'video'}
+					{#if media?.type === 'video'}
 						<div class="policies-media">
 							<!-- Vertical (9:16) message video of Peter on this priority. -->
 							<div class="policy-video-frame">
@@ -195,14 +208,14 @@
 									controls
 									playsinline
 									preload="none"
-									poster="/images/policies/affordability-poster.jpg"
-									aria-label={$messages.policies.videoAffordabilityLabel}
+									poster={media.poster}
+									aria-label={$messages.policies[media.labelKey]}
 								>
-									<source src="/images/policies/affordability.mp4" type="video/mp4" />
+									<source src={media.src} type="video/mp4" />
 								</video>
 							</div>
 						</div>
-					{:else if sectionMedia[item.id] === 'placeholder'}
+					{:else if media?.type === 'placeholder'}
 						<div class="policies-media">
 							<!-- Placeholder for a forthcoming video of Peter on this priority. -->
 							<div class="policy-video" role="img" aria-label={$messages.policies.videoComingSoon}>

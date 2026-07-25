@@ -289,6 +289,8 @@ export const pagesEn = {
 		lede: 'Real answers on the issues that matter most to Northern Utah — affordability, the integrity of our government, and stewardship of the Great Salt Lake and our public lands.',
 		videoComingSoon: 'Video coming soon',
 		videoAffordabilityLabel: 'Peter Crosby on affordability',
+		videoAccountabilityLabel: 'Peter Crosby on accountability',
+		videoStewardshipLabel: 'Peter Crosby on the Great Salt Lake',
 		onThisPage: 'On this page',
 		ctaTitle: 'Have a question you don’t see here?',
 		ctaText:

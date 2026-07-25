@@ -629,6 +629,8 @@ export const pagesEs = {
 		lede: 'Respuestas reales sobre los temas que más importan al norte de Utah: la asequibilidad, la integridad de nuestro gobierno y el cuidado del Gran Lago Salado y nuestras tierras públicas.',
 		videoComingSoon: 'Video próximamente',
 		videoAffordabilityLabel: 'Peter Crosby sobre la asequibilidad',
+		videoAccountabilityLabel: 'Peter Crosby sobre la rendición de cuentas',
+		videoStewardshipLabel: 'Peter Crosby sobre el Gran Lago Salado',
 		onThisPage: 'En esta página',
 		ctaTitle: '¿Tienes una pregunta que no ves aquí?',
 		ctaText:
