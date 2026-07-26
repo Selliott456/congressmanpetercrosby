@@ -27,6 +27,24 @@ export type EventRow = {
 	endTime?: string | null;
 };
 
+/**
+ * Event types that offer on-site RSVP by default. The Airtable/Google Calendar
+ * source carries no "offer RSVP?" flag (see TODO.md), so we derive it: the
+ * voter-facing gathering types (town halls + meet & greets) collect RSVPs unless
+ * an individual event opts out. Any event may override with an explicit `rsvp`
+ * (e.g. a virtual/livestream town hall sets `rsvp: false` — you just join, no RSVP).
+ */
+export const RSVP_DEFAULT_TYPES: ReadonlySet<EventType> = new Set(['town-hall', 'meet-greet']);
+
+/**
+ * Whether an event should offer the on-site RSVP CTA. Explicit `rsvp` wins;
+ * otherwise it defaults on for {@link RSVP_DEFAULT_TYPES}. Callers still gate on
+ * the event being upcoming (RSVP only makes sense before the event).
+ */
+export function eventOffersRsvp(e: Pick<EventRow, 'type' | 'rsvp'>): boolean {
+	return e.rsvp ?? RSVP_DEFAULT_TYPES.has(e.type);
+}
+
 export const eventsData: EventRow[] = [
 	{
 		id: 'ev-001',
@@ -863,6 +881,8 @@ export const eventsData: EventRow[] = [
 		locationUrl: null,
 		description: 'A virtual town hall, viewable via Facebook Live. Join from wherever you are.',
 		viewEventUrl: null,
+		// Livestream — viewers just tune in, so opt out of the on-site RSVP default.
+		rsvp: false,
 		startTime: '20:00',
 		endTime: '21:00'
 	},

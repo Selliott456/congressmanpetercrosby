@@ -157,16 +157,16 @@ const en = {
 			'Peter’s priorities come straight from the people he meets across Northern Utah. They come down to three things:',
 		policiesSummaryAreas: [
 			{
-				title: 'The economy',
-				text: 'Confronting the housing crisis and the rising cost of living, and standing up for the local jobs and small businesses that hold our towns together.'
+				title: 'Affordability',
+				text: 'Confronting the housing crisis and the rising cost of living, including our healthcare costs, and standing up for the local jobs and small businesses that hold our towns together.'
 			},
 			{
-				title: 'The integrity of our government',
+				title: 'Accountability',
 				text: 'Banning congressional stock trades, opening a real conversation on term limits, and getting corporate dark money out of our politics.'
 			},
 			{
-				title: 'The health of our communities',
-				text: 'Protecting access to care for rural Utah and opposing the cuts that hit local families and hospitals the hardest.'
+				title: 'Stewardship',
+				text: 'Protecting our public lands, restoring the Great Salt Lake, and standing up for communities against corporate developments like the Stratos data center project in Box Elder.'
 			}
 		],
 		policiesSummaryLink: 'Read where Peter stands on the issues →',
@@ -341,16 +341,16 @@ const es: Messages = {
 			'Las prioridades de Peter vienen directamente de la gente que conoce en todo el norte de Utah. Se resumen en tres áreas:',
 		policiesSummaryAreas: [
 			{
-				title: 'La economía',
-				text: 'Enfrentar la crisis de vivienda y el aumento del costo de vida, y defender los empleos locales y las pequeñas empresas que sostienen a nuestros pueblos.'
+				title: 'Asequibilidad',
+				text: 'Enfrentar la crisis de vivienda y el aumento del costo de vida, incluidos los costos de atención médica, y defender los empleos locales y las pequeñas empresas que sostienen a nuestros pueblos.'
 			},
 			{
-				title: 'La integridad de nuestro gobierno',
+				title: 'Rendición de cuentas',
 				text: 'Prohibir que los miembros del Congreso negocien acciones, abrir una conversación seria sobre los límites de mandato y sacar el dinero corporativo de nuestra política.'
 			},
 			{
-				title: 'La salud de nuestras comunidades',
-				text: 'Proteger el acceso a la atención médica del Utah rural y oponerse a los recortes que más golpean a las familias y los hospitales locales.'
+				title: 'Cuidado ambiental',
+				text: 'Proteger nuestras tierras públicas, restaurar el Gran Lago Salado y defender a las comunidades frente a desarrollos corporativos como el proyecto de centro de datos Stratos en Box Elder.'
 			}
 		],
 		policiesSummaryLink: 'Lea la postura de Peter sobre los temas →',

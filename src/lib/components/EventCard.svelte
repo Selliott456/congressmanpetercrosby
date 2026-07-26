@@ -2,6 +2,7 @@
 	import { createEventDispatcher } from 'svelte';
 	import { messages } from '$lib/i18n/locale';
 	import { rsvpedEvents } from '$lib/stores/rsvp';
+	import { eventOffersRsvp } from '$lib/data/events';
 	import { googleCalendarUrl, icsHref, icsFilename } from '$lib/utils/calendar';
 	import Rail from './Rail.svelte';
 
@@ -24,8 +25,9 @@
 	}
 
 	$: past = endOfDay(event) < new Date();
-	// RSVP only makes sense while the event is still upcoming.
-	$: showRsvp = Boolean(event.rsvp) && !past;
+	// RSVP defaults on for town halls & meet-greets (eventOffersRsvp), and only
+	// makes sense while the event is still upcoming.
+	$: showRsvp = eventOffersRsvp(event) && !past;
 	$: rsvped = $rsvpedEvents.has(event.id);
 	// "Add to calendar" only makes sense for upcoming events.
 	$: showCalendar = !past;

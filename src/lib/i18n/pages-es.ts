@@ -686,6 +686,89 @@ export const pagesEs = {
 			}
 		} as Record<string, { title: string; description?: string }>
 	},
+	pressReleases: {
+		kind: 'Comunicado',
+		eyebrow: 'Sala de prensa',
+		sectionTitle: 'Comunicados de prensa',
+		sectionLede: 'Declaraciones y anuncios oficiales de la campaña.',
+		homeTitle: 'Comunicados de prensa',
+		readMore: 'Leer el comunicado',
+		viewAll: 'Ver todos los comunicados',
+		backToMedia: 'Volver a medios',
+		forImmediateRelease: 'Para publicación inmediata',
+		pressContact: 'Contacto de prensa',
+		downloadPdf: 'Descargar el comunicado (PDF)',
+		metaTitle: 'Comunicados de prensa — Peter Crosby para el Congreso',
+		metaDescription:
+			'Comunicados de prensa y anuncios oficiales de la campaña Peter Crosby para el Congreso.',
+		byId: {
+			'placeholder-town-hall-series': {
+				title: 'La campaña de Crosby anuncia una serie de cabildos en el norte de Utah',
+				summary:
+					'[Marcador] Un anuncio de muestra para probar el diseño de los comunicados. Reemplázalo con el comunicado oficial antes de publicar.',
+				body: [
+					{
+						type: 'p',
+						text: '[Cuerpo de marcador — reemplázalo con el texto aprobado del comunicado.] Este párrafo sustituye la apertura de un comunicado de prensa para revisar el diseño, el espaciado y la tipografía con una longitud de copia realista. Cámbialo por el anuncio real cuando el contenido esté listo.'
+					},
+					{
+						type: 'p',
+						text: 'Un segundo párrafo continúa el marcador para previsualizar comunicados de varios párrafos. Agrega aquí una cita aprobada, el calendario de paradas y cualquier detalle logístico.'
+					},
+					{
+						type: 'ul',
+						items: [
+							'[Marcador] Detalle o evento, línea uno',
+							'[Marcador] Detalle o evento, línea dos',
+							'[Marcador] Detalle o evento, línea tres'
+						]
+					}
+				]
+			},
+			'placeholder-statement-affordability': {
+				title: 'Declaración sobre la crisis del costo de vida en el norte de Utah',
+				summary:
+					'[Marcador] Una declaración de muestra para probar el diseño de los comunicados. Reemplázala con el comunicado oficial antes de publicar.',
+				body: [
+					{
+						type: 'p',
+						text: '[Cuerpo de marcador — reemplázalo con el texto aprobado de la declaración.] Este párrafo sustituto permite previsualizar cómo se lee un comunicado más corto, estilo declaración, en la página de detalle y en la cuadrícula de tarjetas.'
+					},
+					{
+						type: 'p',
+						text: 'Un párrafo final de marcador completa la declaración para revisar el espaciado entre bloques antes de agregar el contenido real.'
+					}
+				]
+			},
+			'placeholder-endorsement-announcement': {
+				title: 'La campaña anuncia una nueva ronda de respaldos comunitarios',
+				summary:
+					'[Marcador] Un anuncio de respaldos de muestra para probar el diseño de los comunicados. Reemplázalo con el comunicado oficial antes de publicar.',
+				body: [
+					{
+						type: 'p',
+						text: '[Cuerpo de marcador — reemplázalo con el texto aprobado del comunicado.] Este párrafo previsualiza un comunicado estilo respaldo. Reemplázalo con la lista real de personas que respaldan y cualquier cita que la acompañe.'
+					},
+					{
+						type: 'ul',
+						items: [
+							'[Marcador] Nombre y cargo de quien respalda',
+							'[Marcador] Nombre y cargo de quien respalda',
+							'[Marcador] Nombre y cargo de quien respalda'
+						]
+					}
+				]
+			}
+		} as Record<
+			string,
+			{
+				title: string;
+				summary: string;
+				body?: import('$lib/data/pressReleases').PressReleaseBlock[];
+				pdf?: string;
+			}
+		>
+	},
 	policies: {
 		metaTitle: 'La postura de Peter — Peter Crosby para el Congreso',
 		metaDescription:

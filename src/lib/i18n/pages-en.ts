@@ -279,6 +279,31 @@ export const pagesEn = {
 		pageLede: 'Videos, op-eds, and interviews from across the campaign.',
 		byId: {} as Record<string, { title: string; description?: string }>
 	},
+	pressReleases: {
+		kind: 'Press Release',
+		eyebrow: 'Newsroom',
+		sectionTitle: 'Press Releases',
+		sectionLede: 'Official statements and announcements from the campaign.',
+		homeTitle: 'Press releases',
+		readMore: 'Read the release',
+		viewAll: 'View all press releases',
+		backToMedia: 'Back to media',
+		forImmediateRelease: 'For immediate release',
+		pressContact: 'Press contact',
+		downloadPdf: 'Download the release (PDF)',
+		metaTitle: 'Press Releases — Peter Crosby for Congress',
+		metaDescription:
+			'Official press releases and announcements from the Peter Crosby for Congress campaign.',
+		byId: {} as Record<
+			string,
+			{
+				title: string;
+				summary: string;
+				body?: import('$lib/data/pressReleases').PressReleaseBlock[];
+				pdf?: string;
+			}
+		>
+	},
 	policies: {
 		metaTitle: 'Where Peter Stands — Peter Crosby for Congress',
 		metaDescription:
