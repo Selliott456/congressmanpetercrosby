@@ -702,60 +702,61 @@ export const pagesEs = {
 		metaDescription:
 			'Comunicados de prensa y anuncios oficiales de la campaña Peter Crosby para el Congreso.',
 		byId: {
-			'placeholder-town-hall-series': {
-				title: 'La campaña de Crosby anuncia una serie de cabildos en el norte de Utah',
+			'debate-rescheduled': {
+				title:
+					'La Comisión de Debates de Utah reprograma el debate del Distrito 2 del Congreso tras la respuesta del público',
 				summary:
-					'[Marcador] Un anuncio de muestra para probar el diseño de los comunicados. Reemplázalo con el comunicado oficial antes de publicar.',
+					'En respuesta a la preocupación de votantes y candidatos, la Comisión de Debates de Utah ha reprogramado el debate del Distrito 2 del Congreso para el 13 de octubre.',
 				body: [
 					{
 						type: 'p',
-						text: '[Cuerpo de marcador — reemplázalo con el texto aprobado del comunicado.] Este párrafo sustituye la apertura de un comunicado de prensa para revisar el diseño, el espaciado y la tipografía con una longitud de copia realista. Cámbialo por el anuncio real cuando el contenido esté listo.'
+						text: 'Ayer, la Comisión de Debates de Utah anunció la reprogramación del debate del Distrito 2 del Congreso (CD2), que ahora se realizará el martes 13 de octubre de 2026. Esto es una semana antes de lo planeado originalmente y el mismo día en que se entregan las boletas por correo. Es una victoria para los votantes de Utah, que merecen tener la oportunidad de evaluar a cada uno de los candidatos en el único debate público actualmente programado antes de emitir su voto.'
+					},
+					{
+						type: 'quote',
+						text: 'La democracia depende de votantes informados y candidatos responsables. Al mover este debate al 13 de octubre, los habitantes de Utah tendrán la oportunidad de escuchar directamente a ambos candidatos antes de que comience la votación. Eso es bueno para los votantes, bueno para el proceso electoral y bueno para Utah.',
+						attribution: 'Brian King, presidente del Partido Demócrata de Utah'
 					},
 					{
 						type: 'p',
-						text: 'Un segundo párrafo continúa el marcador para previsualizar comunicados de varios párrafos. Agrega aquí una cita aprobada, el calendario de paradas y cualquier detalle logístico.'
+						text: 'El candidato demócrata al Congreso Peter Crosby y la campaña Peter Crosby para el Congreso expresan su gratitud a los numerosos habitantes de Utah que se comunicaron respetuosamente para solicitar este cambio. No hay duda de que sus voces fueron escuchadas. La campaña también desea agradecer a la Comisión de Debates de Utah, a los líderes legislativos y políticos estatales, y a la campaña de Moore, que escucharon a los residentes de Utah y trabajaron para encontrar una solución adecuada.'
 					},
 					{
-						type: 'ul',
-						items: [
-							'[Marcador] Detalle o evento, línea uno',
-							'[Marcador] Detalle o evento, línea dos',
-							'[Marcador] Detalle o evento, línea tres'
-						]
+						type: 'p',
+						text: 'Peter Crosby es candidato al Congreso por primera vez y es el candidato demócrata en el Distrito 2 del Congreso de Utah. Lleva adelante una campaña de base: Peter no acepta donaciones de PAC corporativos ni financiamiento de PAC vinculados a intereses extranjeros, y ya cuenta con más donantes individuales de pequeñas cantidades registrados que la campaña de Moore. La campaña se sostiene por completo con voluntarios, con más de 300 voluntarios registrados. Peter cree que los ciudadanos del norte de Utah merecen un representante que viva en el distrito, escuche sus preocupaciones y ponga a la gente de Utah por encima del partido o de la búsqueda de poder personal. Está realizando cabildos públicos por todo el distrito, con al menos uno en los condados de Cache, Box Elder, Davis y Weber cada mes. Más información en petercrosbyforcongress.org.'
 					}
 				]
 			},
-			'placeholder-statement-affordability': {
-				title: 'Declaración sobre la crisis del costo de vida en el norte de Utah',
+			'debate-scheduling-voter-choice': {
+				title:
+					'La programación tardía del debate del Congreso perjudica la decisión de los votantes y genera preocupación en el candidato del CD2, Peter Crosby',
 				summary:
-					'[Marcador] Una declaración de muestra para probar el diseño de los comunicados. Reemplázala con el comunicado oficial antes de publicar.',
+					'Tras la publicación del calendario de debates de las elecciones generales por parte de la Comisión de Debates de Utah, Peter Crosby, candidato demócrata por el CD2, expresa su preocupación por que el debate del 20 de octubre con Blake Moore se realice una semana completa después de que se hayan enviado las boletas por correo.',
 				body: [
 					{
 						type: 'p',
-						text: '[Cuerpo de marcador — reemplázalo con el texto aprobado de la declaración.] Este párrafo sustituto permite previsualizar cómo se lee un comunicado más corto, estilo declaración, en la página de detalle y en la cuadrícula de tarjetas.'
+						text: 'El jueves, la Comisión de Debates de Utah publicó las fechas de los cuatro debates del Congreso previos a las elecciones generales del 3 de noviembre. Mientras que los debates de todos los demás distritos están programados antes de que las boletas por correo se envíen el 13 de octubre, el debate del CD2 está programado para el 20 de octubre: una semana completa después de la entrega de las boletas. El candidato demócrata Peter Crosby expresa una profunda preocupación, ya que significa que algunos votantes tomarán decisiones sin haber tenido la oportunidad de evaluar a cada uno de los candidatos en el único foro público facilitado por una autoridad de confianza.'
 					},
 					{
 						type: 'p',
-						text: 'Un párrafo final de marcador completa la declaración para revisar el espaciado entre bloques antes de agregar el contenido real.'
-					}
-				]
-			},
-			'placeholder-endorsement-announcement': {
-				title: 'La campaña anuncia una nueva ronda de respaldos comunitarios',
-				summary:
-					'[Marcador] Un anuncio de respaldos de muestra para probar el diseño de los comunicados. Reemplázalo con el comunicado oficial antes de publicar.',
-				body: [
-					{
-						type: 'p',
-						text: '[Cuerpo de marcador — reemplázalo con el texto aprobado del comunicado.] Este párrafo previsualiza un comunicado estilo respaldo. Reemplázalo con la lista real de personas que respaldan y cualquier cita que la acompañe.'
+						text: 'En un contexto en el que los votantes de Utah se sienten cada vez más excluidos del sistema político, este calendario tardío, posterior a la entrega de las boletas, es una forma más en que se retiene información a los ciudadanos del norte de Utah que quieren tomar decisiones informadas sobre su gobierno. Los ciudadanos merecen información oportuna y la oportunidad de considerar sus opciones antes de emitir su voto.'
 					},
 					{
-						type: 'ul',
-						items: [
-							'[Marcador] Nombre y cargo de quien respalda',
-							'[Marcador] Nombre y cargo de quien respalda',
-							'[Marcador] Nombre y cargo de quien respalda'
-						]
+						type: 'p',
+						text: 'La campaña Peter Crosby para el Congreso se comunicó con la Comisión de Debates de Utah para presentar una protesta formal, pero no ha recibido respuesta. La campaña valora el trabajo de la Comisión de Debates de Utah para organizar debates justos y reconoce la complejidad de la programación. Si bien la campaña no solicita elegir una fecha específica para el debate, sí pide que se adelante antes de que las boletas lleguen a los buzones de los votantes. Según la Oficina del Vicegobernador, en las elecciones generales de 2024, el 29% de los votantes de Utah ya había devuelto su boleta una semana antes del día de las elecciones. Estas cifras muestran la importancia de garantizar que los votantes puedan tomar decisiones informadas una vez que tengan la boleta en sus manos.'
+					},
+					{
+						type: 'quote',
+						text: 'Votar es nuestro deber cívico fundamental, y como votantes no podemos hacerlo de manera responsable si no contamos con toda la información. Estos debates son el único momento en que los votantes verán a todos los candidatos en el mismo escenario respondiendo preguntas. Merecen saber quién quiere representarlos antes de que se les pida emitir su voto.',
+						attribution: 'Peter Crosby'
+					},
+					{
+						type: 'p',
+						text: 'Es imprescindible que la Comisión de Debates de Utah mantenga un estándar de debate justo e imparcial entre los candidatos. Es un servicio del que dependen los ciudadanos y que ayuda a exigir cuentas a los candidatos ante sus electores. La campaña solicita públicamente que el debate del 20 de octubre se reprograme antes de la entrega de las boletas por correo del 13 de octubre, y espera un evento justo y animado.'
+					},
+					{
+						type: 'p',
+						text: 'Peter Crosby es candidato al Congreso por primera vez y es el candidato demócrata en el Distrito 2 del Congreso de Utah. Lleva adelante una campaña de base: Peter no acepta donaciones de PAC corporativos ni financiamiento de PAC vinculados a intereses extranjeros, y ya cuenta con más donantes individuales de pequeñas cantidades registrados que la campaña de Moore. La campaña se sostiene por completo con voluntarios, con más de 300 voluntarios registrados. Peter cree que los ciudadanos del norte de Utah merecen un representante que viva en el distrito, escuche sus preocupaciones y ponga a la gente de Utah por encima del partido o de la búsqueda de poder personal. Está realizando cabildos públicos por todo el distrito, con al menos uno en los condados de Cache, Box Elder, Davis y Weber cada mes. Más información en petercrosbyforcongress.org.'
 					}
 				]
 			}

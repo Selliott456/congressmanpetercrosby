@@ -63,6 +63,13 @@
 							<li>{li}</li>
 						{/each}
 					</ul>
+				{:else if part.type === 'quote'}
+					<blockquote class="press-quote">
+						<p>{part.text}</p>
+						{#if part.attribution}
+							<cite class="press-quote-cite">{part.attribution}</cite>
+						{/if}
+					</blockquote>
 				{/if}
 			{/each}
 		</div>
@@ -188,6 +195,33 @@
 
 	.press-body li {
 		margin-bottom: 0.4rem;
+	}
+
+	/* Pull quote — Source Serif italic per the brand, with a civic-blue rule. */
+	.press-quote {
+		margin: 1.75rem 0;
+		padding: 0.25rem 0 0.25rem 1.5rem;
+		border-left: 3px solid var(--blue);
+	}
+
+	.press-quote p {
+		margin: 0;
+		font-family: var(--serif);
+		font-style: italic;
+		font-size: clamp(1.125rem, 2.2vw, 1.3125rem);
+		line-height: 1.5;
+		color: var(--ink);
+	}
+
+	.press-quote-cite {
+		display: block;
+		margin-top: 0.75rem;
+		font-family: var(--mono);
+		font-style: normal;
+		font-size: 0.75rem;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+		color: var(--ink-2);
 	}
 
 	.press-download {
