@@ -2,13 +2,15 @@
 	import { createEventDispatcher, onMount, onDestroy, tick } from 'svelte';
 	import { messages } from '$lib/i18n/locale';
 	import Rail from './Rail.svelte';
+	import { SPONSOR_YARD_SIGN_URL } from '$lib/data/links';
 
 	/** Yard-sign requests → Formspree (campaign wires the Formspree → Airtable automation). */
 	const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xnjeooql';
-	/** ActBlue "sponsor a yard sign" donation page. */
-	const SPONSOR_URL = 'https://secure.actblue.com/donate/peteryardsign';
 
 	const dispatch = createEventDispatcher();
+
+	/** The dialog element — used to trap Tab focus inside the modal. @type {HTMLElement | undefined} */
+	let modalEl;
 
 	/** @type {'idle' | 'submitting' | 'success' | 'error'} */
 	let status = 'idle';
@@ -24,7 +26,28 @@
 
 	/** @param {KeyboardEvent} e */
 	function onKeydown(e) {
-		if (e.key === 'Escape') close();
+		if (e.key === 'Escape') {
+			close();
+			return;
+		}
+		// Focus trap: keep Tab cycling inside the dialog (aria-modal alone doesn't confine it).
+		if (e.key === 'Tab' && modalEl) {
+			const focusable = /** @type {HTMLElement[]} */ ([
+				...modalEl.querySelectorAll(
+					'a[href], button:not(:disabled), input:not(:disabled), textarea:not(:disabled)'
+				)
+			]).filter((el) => el.tabIndex !== -1);
+			if (!focusable.length) return;
+			const first = focusable[0];
+			const last = focusable[focusable.length - 1];
+			if (e.shiftKey && document.activeElement === first) {
+				e.preventDefault();
+				last.focus();
+			} else if (!e.shiftKey && document.activeElement === last) {
+				e.preventDefault();
+				first.focus();
+			}
+		}
 	}
 
 	/** @param {SubmitEvent} event */
@@ -64,7 +87,7 @@
 <svelte:window on:keydown={onKeydown} />
 
 <div class="ys-overlay" role="presentation" on:click|self={close}>
-	<div class="ys-modal" role="dialog" aria-modal="true" aria-labelledby="ys-title">
+	<div class="ys-modal" role="dialog" aria-modal="true" aria-labelledby="ys-title" bind:this={modalEl}>
 		<Rail />
 		<button type="button" class="ys-close" aria-label={$messages.yardSign.close} on:click={close}>×</button>
 
@@ -80,7 +103,7 @@
 						<p class="ys-sponsor-text">{$messages.yardSign.successSponsorPrompt}</p>
 						<a
 							class="ys-sponsor-btn"
-							href={SPONSOR_URL}
+							href={SPONSOR_YARD_SIGN_URL}
 							target="_blank"
 							rel="noopener noreferrer"
 						>
@@ -222,7 +245,7 @@
 					<!-- Donation nudge: suggest sponsoring to cover print + placement cost. -->
 					<div class="ys-sponsor">
 						<p class="ys-sponsor-text">{$messages.yardSign.donatePrompt}</p>
-						<a class="ys-sponsor-link" href={SPONSOR_URL} target="_blank" rel="noopener noreferrer">
+						<a class="ys-sponsor-link" href={SPONSOR_YARD_SIGN_URL} target="_blank" rel="noopener noreferrer">
 							{$messages.yardSign.sponsorCta}
 						</a>
 					</div>

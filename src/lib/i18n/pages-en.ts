@@ -136,7 +136,6 @@ export const pagesEn = {
 		city: 'City',
 		county: 'County',
 		houseDistrict: 'House District',
-		optional: 'optional',
 		houseDistrictHint: 'Not sure which one you’re in? You can leave this blank.',
 		source: 'What led you to volunteer?',
 		sourceHint:
@@ -287,7 +286,6 @@ export const pagesEn = {
 		eyebrow: 'Policies',
 		pageTitle: 'Where Peter stands',
 		lede: 'Real answers on the issues that matter most to Northern Utah — affordability, the integrity of our government, and stewardship of the Great Salt Lake and our public lands.',
-		videoComingSoon: 'Video coming soon',
 		videoAffordabilityLabel: 'Peter Crosby on affordability',
 		videoAccountabilityLabel: 'Peter Crosby on accountability',
 		videoStewardshipLabel: 'Peter Crosby on the Great Salt Lake',

@@ -23,11 +23,16 @@
 	/** Success heading — focused on submit so the confirmation is announced/reachable. @type {HTMLElement | undefined} */
 	let successHeading;
 
+	/** Radio buttons by topic id — so focus can follow selection (WAI-ARIA radiogroup). @type {Record<string, HTMLButtonElement>} */
+	let radioEls = {};
+
 	/** Arrow-key navigation for the topic radiogroup (two options → arrows toggle). @param {KeyboardEvent} e */
-	function onTopicKeydown(e) {
+	async function onTopicKeydown(e) {
 		if (['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(e.key)) {
 			e.preventDefault();
 			topic = topic === 'general' ? 'media' : 'general';
+			await tick();
+			radioEls[topic]?.focus();
 		}
 	}
 
@@ -130,6 +135,7 @@
 							class:is-active={topic === t.id}
 							aria-checked={topic === t.id}
 							tabindex={topic === t.id ? 0 : -1}
+							bind:this={radioEls[t.id]}
 							on:click={() => (topic = t.id)}
 						>
 							{t.label}

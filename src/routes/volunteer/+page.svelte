@@ -130,7 +130,7 @@
 						<div class="form-row">
 							<label class="form-label" for="phone">
 								{$messages.volunteer.phone}
-								<span class="form-optional">({$messages.volunteer.optional})</span>
+								<span class="form-optional">({$messages.common.optional})</span>
 							</label>
 							<input
 								id="phone"
@@ -185,7 +185,7 @@
 					<div class="form-row">
 						<label class="form-label" for="house-district">
 							{$messages.volunteer.houseDistrict}
-							<span class="form-optional">({$messages.volunteer.optional})</span>
+							<span class="form-optional">({$messages.common.optional})</span>
 						</label>
 						<input
 							id="house-district"
@@ -217,7 +217,7 @@
 					<div class="form-row">
 						<label class="form-label" for="skills">
 							{$messages.volunteer.skills}
-							<span class="form-optional">({$messages.volunteer.optional})</span>
+							<span class="form-optional">({$messages.common.optional})</span>
 						</label>
 						<textarea
 							id="skills"

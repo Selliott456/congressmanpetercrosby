@@ -4,10 +4,9 @@
   import Rail from "./Rail.svelte";
   import YardSignModal from "./YardSignModal.svelte";
   import { socialLinks } from "$lib/data/socialLinks";
+  import { SPONSOR_YARD_SIGN_URL } from "$lib/data/links";
 
   const NEWSLETTER_ENDPOINT = "https://formspree.io/f/xjgqknqd";
-  /** ActBlue "sponsor a yard sign" donation page. */
-  const SPONSOR_URL = "https://secure.actblue.com/donate/peteryardsign";
 
   /** Yard-sign request modal (opened from the footer band). */
   let showYardSign = false;
@@ -84,7 +83,7 @@
         </button>
         <a
           class="footer-yardsign-sponsor"
-          href={SPONSOR_URL}
+          href={SPONSOR_YARD_SIGN_URL}
           target="_blank"
           rel="noopener noreferrer"
         >

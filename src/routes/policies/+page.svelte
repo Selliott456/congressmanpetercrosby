@@ -4,25 +4,21 @@
 	import Rail from '$lib/components/Rail.svelte';
 	import { messages } from '$lib/i18n/locale';
 
-	/** Which sections get the 2-column video layout. Everything else is full-width text.
-	    A 'video' entry carries its own src/poster/label; 'placeholder' shows the
-	    "coming soon" frame (kept for future sections with no video yet).
-	    @type {Record<string, { type: 'video'; src: string; poster: string; labelKey: 'videoAffordabilityLabel' | 'videoAccountabilityLabel' | 'videoStewardshipLabel' } | { type: 'placeholder' }>} */
+	/** Sections that get the 2-column video layout (each carries its own src/poster/label).
+	    Everything else is full-width text.
+	    @type {Record<string, { src: string; poster: string; labelKey: 'videoAffordabilityLabel' | 'videoAccountabilityLabel' | 'videoStewardshipLabel' }>} */
 	const sectionMedia = {
 		affordability: {
-			type: 'video',
 			src: '/images/policies/affordability.mp4',
 			poster: '/images/policies/affordability-poster.jpg',
 			labelKey: 'videoAffordabilityLabel'
 		},
 		'government-integrity': {
-			type: 'video',
 			src: '/images/policies/accountability.mp4',
 			poster: '/images/policies/accountability-poster.jpg',
 			labelKey: 'videoAccountabilityLabel'
 		},
 		'great-salt-lake': {
-			type: 'video',
 			src: '/images/policies/stewardship.mp4',
 			poster: '/images/policies/stewardship-poster.jpg',
 			labelKey: 'videoStewardshipLabel'
@@ -197,7 +193,7 @@
 						</div>
 					</div>
 
-					{#if media?.type === 'video'}
+					{#if media}
 						<div class="policies-media">
 							<!-- Vertical (9:16) message video of Peter on this priority. -->
 							<div class="policy-video-frame">
@@ -213,15 +209,6 @@
 								>
 									<source src={media.src} type="video/mp4" />
 								</video>
-							</div>
-						</div>
-					{:else if media?.type === 'placeholder'}
-						<div class="policies-media">
-							<!-- Placeholder for a forthcoming video of Peter on this priority. -->
-							<div class="policy-video" role="img" aria-label={$messages.policies.videoComingSoon}>
-								<div class="policy-video-rail"><Rail /></div>
-								<span class="policy-video-play" aria-hidden="true"></span>
-								<span class="policy-video-label">{$messages.policies.videoComingSoon}</span>
 							</div>
 						</div>
 					{/if}
@@ -530,22 +517,11 @@
 		margin-bottom: 0;
 	}
 
-	/* Video placeholder — mirrors the MediaCard thumb (dark gradient + rail + play). */
 	.policies-media {
 		min-width: 0;
 	}
 
-	.policy-video {
-		position: relative;
-		width: 100%;
-		aspect-ratio: 16 / 9;
-		display: grid;
-		place-items: center;
-		overflow: hidden;
-		background: linear-gradient(150deg, var(--ink) 0%, var(--ink-deep) 100%);
-		border: 1px solid var(--line-d);
-	}
-
+	/* Rail stripe pinned to the top of the video frame. */
 	.policy-video-rail {
 		position: absolute;
 		top: 0;
@@ -553,30 +529,7 @@
 		right: 0;
 	}
 
-	.policy-video-play {
-		width: 0;
-		height: 0;
-		border-style: solid;
-		border-width: 13px 0 13px 22px;
-		border-color: transparent transparent transparent var(--paper);
-		margin-left: 5px;
-	}
-
-	.policy-video-label {
-		position: absolute;
-		left: 0;
-		bottom: 0;
-		padding: 0.3rem 0.65rem;
-		background: var(--ink-deep);
-		font-family: var(--mono);
-		font-size: 0.625rem;
-		font-weight: 600;
-		letter-spacing: 0.1em;
-		text-transform: uppercase;
-		color: var(--sky);
-	}
-
-	/* Real vertical (9:16) message video — mirrors the placeholder's dark frame + rail. */
+	/* Vertical (9:16) message video frame. */
 	.policy-video-frame {
 		position: relative;
 		width: 100%;
