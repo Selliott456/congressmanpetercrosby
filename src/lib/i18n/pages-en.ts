@@ -290,7 +290,7 @@ export const pagesEn = {
 		backToMedia: 'Back to media',
 		forImmediateRelease: 'For immediate release',
 		pressContact: 'Press contact',
-		downloadPdf: 'Download the release (PDF)',
+		downloadOriginal: 'Download the release',
 		metaTitle: 'Press Releases — Peter Crosby for Congress',
 		metaDescription:
 			'Official press releases and announcements from the Peter Crosby for Congress campaign.',
@@ -300,7 +300,7 @@ export const pagesEn = {
 				title: string;
 				summary: string;
 				body?: import('$lib/data/pressReleases').PressReleaseBlock[];
-				pdf?: string;
+				attachment?: string;
 			}
 		>
 	},

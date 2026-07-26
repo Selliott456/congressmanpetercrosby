@@ -32,12 +32,22 @@ export type PressRelease = {
 	/** Press-contact email shown in the release footer. */
 	contactEmail?: string;
 	/**
-	 * Optional path to the original PDF (the source artifact), served from
-	 * `static/press-releases/<slug>.pdf` → `/press-releases/<slug>.pdf`. When set,
-	 * the detail page shows a "Download the release (PDF)" link. For a Spanish PDF,
-	 * set `pdf` in the `es` `byId` override instead (falls back to this English one).
+	 * Card thumbnail (the designed release graphic), path under `/press-releases/`.
+	 * Shown on the `/media` section + home row cards, cropped to 16:9 (anchored top,
+	 * so the headline stays visible). Optional: when omitted, the card falls back to
+	 * the `attachment` file if that's an image, else the branded wordmark placeholder.
+	 * Supply a purpose-made 16:9 crop here if the full graphic doesn't crop cleanly.
 	 */
-	pdf?: string;
+	image?: string;
+	/**
+	 * Optional path to the original release file — the source artifact, a **JPEG
+	 * image or a PDF** — served from `static/press-releases/<slug>.<ext>`. When set,
+	 * the detail page shows a "Download the release" link (labeled with the format).
+	 * For a Spanish original, set `attachment` in the `es` `byId` override instead
+	 * (falls back to this English one). NOTE: this is the downloadable original; the
+	 * on-page text is always the transcribed `body` (accessible + translatable).
+	 */
+	attachment?: string;
 };
 
 export const pressReleases: PressRelease[] = [

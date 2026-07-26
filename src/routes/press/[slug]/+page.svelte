@@ -11,8 +11,10 @@
 	$: title = override?.title ?? release.title;
 	$: summary = override?.summary ?? release.summary;
 	$: body = override?.body ?? release.body;
-	// Locale-specific PDF wins (es override), else the English source PDF, if any.
-	$: pdf = override?.pdf ?? release.pdf;
+	// Locale-specific original wins (es override), else the English source file, if any.
+	$: attachment = override?.attachment ?? release.attachment;
+	// Format suffix for the download label, e.g. "PDF" / "JPG", from the extension.
+	$: attachmentFormat = attachment ? (attachment.split('.').pop() ?? '').toUpperCase() : '';
 
 	/**
 	 * Format an ISO date (YYYY-MM-DD) as a full dateline, e.g. "January 5, 2026".
@@ -65,10 +67,10 @@
 			{/each}
 		</div>
 
-		{#if pdf}
+		{#if attachment}
 			<p class="press-download">
-				<a href={pdf} download target="_blank" rel="noopener noreferrer">
-					↓ {$messages.pressReleases.downloadPdf}
+				<a href={attachment} download target="_blank" rel="noopener noreferrer">
+					↓ {$messages.pressReleases.downloadOriginal}{attachmentFormat ? ` (${attachmentFormat})` : ''}
 				</a>
 			</p>
 		{/if}

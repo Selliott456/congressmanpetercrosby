@@ -697,7 +697,7 @@ export const pagesEs = {
 		backToMedia: 'Volver a medios',
 		forImmediateRelease: 'Para publicación inmediata',
 		pressContact: 'Contacto de prensa',
-		downloadPdf: 'Descargar el comunicado (PDF)',
+		downloadOriginal: 'Descargar el comunicado',
 		metaTitle: 'Comunicados de prensa — Peter Crosby para el Congreso',
 		metaDescription:
 			'Comunicados de prensa y anuncios oficiales de la campaña Peter Crosby para el Congreso.',
@@ -765,7 +765,7 @@ export const pagesEs = {
 				title: string;
 				summary: string;
 				body?: import('$lib/data/pressReleases').PressReleaseBlock[];
-				pdf?: string;
+				attachment?: string;
 			}
 		>
 	},

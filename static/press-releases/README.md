@@ -1,7 +1,14 @@
-# Press release PDFs (original source files)
+# Press release originals (source files)
 
-Drop the original press-release PDFs here. Each is served at the root path, e.g.
-`static/press-releases/town-hall-series.pdf` → `/press-releases/town-hall-series.pdf`.
+Drop the original press-release files here — a **JPEG image** (how the campaign
+currently sends them) or a **PDF**. Each is served at the root path, e.g.
+`static/press-releases/town-hall-series.jpg` → `/press-releases/town-hall-series.jpg`.
+
+**Optimize JPEGs before committing** (press graphics can be multi-MB). Repo recipe:
+
+```bash
+sips --resampleWidth 1600 -s format jpeg -s formatOptions 80 in.jpg --out town-hall-series.jpg
+```
 
 Then reference it from `src/lib/data/pressReleases.ts`:
 
@@ -9,20 +16,20 @@ Then reference it from `src/lib/data/pressReleases.ts`:
 {
   id: 'town-hall-series',
   // …
-  pdf: '/press-releases/town-hall-series.pdf'
+  attachment: '/press-releases/town-hall-series.jpg'
 }
 ```
 
-The `/press/<id>` detail page renders a "Download the release (PDF)" link when
-`pdf` is set. For a **Spanish** PDF, set `pdf` inside the Spanish `byId` override
-(`pages-es.ts` → `pressReleases.byId[id].pdf`, e.g.
-`/press-releases/town-hall-series-es.pdf`); it falls back to the English PDF when
-no Spanish one is provided.
+The `/press/<id>` detail page renders a "Download the release" link (labeled with the
+format, e.g. "(JPG)") when `attachment` is set. For a **Spanish** original, set
+`attachment` inside the Spanish `byId` override (`pages-es.ts` →
+`pressReleases.byId[id].attachment`, e.g. `/press-releases/town-hall-series-es.jpg`);
+it falls back to the English original when no Spanish one is provided.
 
-**The PDF is the source, not the page.** The on-site page is transcribed from the
-PDF into `body` blocks (so it's styled, bilingual, mobile-friendly, and indexable);
-the PDF here is just the optional downloadable original. Don't embed the PDF in an
-iframe — transcribe it.
+**The image/PDF is the source, not the page.** The on-site page is transcribed from
+it into `body` blocks (styled, bilingual, mobile-friendly, indexable). A JPEG has no
+text layer, so the transcription IS the only machine-readable copy — never post the
+image alone in place of the text.
 
 Filename convention: use the release's `id` (slug), lowercase-kebab, `-es` suffix
 for the Spanish version.

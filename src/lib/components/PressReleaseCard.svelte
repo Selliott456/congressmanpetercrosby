@@ -22,10 +22,17 @@
 		});
 	}
 
+	// A file usable as a card thumbnail (designed graphic), by extension.
+	const IMAGE_RE = /\.(jpe?g|png|webp|avif|gif)$/i;
+
 	$: override = $messages.pressReleases.byId[item.id];
 	$: title = override?.title ?? item.title;
 	$: summary = override?.summary ?? item.summary;
 	$: formattedDate = formatDate(item.date, $locale);
+	// Locale-appropriate source file, then thumbnail: explicit `image`, else the
+	// attachment when it's itself an image, else the branded wordmark placeholder.
+	$: attachment = override?.attachment ?? item.attachment;
+	$: thumb = item.image ?? (attachment && IMAGE_RE.test(attachment) ? attachment : null);
 </script>
 
 <a
@@ -33,9 +40,13 @@
 	class:pr-card--light={variant === 'light'}
 	href={`/press/${item.id}`}
 >
-	<div class="pr-thumb">
+	<div class="pr-thumb" class:pr-thumb--image={thumb}>
+		{#if thumb}
+			<img class="pr-thumb-img" src={thumb} alt="" loading="lazy" decoding="async" />
+		{:else}
+			<span class="pr-thumb-mark">{$messages.pressReleases.kind}</span>
+		{/if}
 		<div class="pr-thumb-rail"><Rail /></div>
-		<span class="pr-thumb-mark">{$messages.pressReleases.kind}</span>
 		<span class="pr-kind">{$messages.pressReleases.kind}</span>
 	</div>
 	<div class="pr-body">
@@ -103,6 +114,18 @@
 		place-items: center;
 		overflow: hidden;
 		background: linear-gradient(150deg, var(--ink) 0%, var(--ink-deep) 100%);
+	}
+
+	/* Designed release graphic filling the thumb. Anchored to the top so the
+	   headline (usually at the top of the graphic) survives the 16:9 crop. */
+	.pr-thumb-img {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center top;
+		z-index: 0;
 	}
 
 	.pr-thumb-rail {
