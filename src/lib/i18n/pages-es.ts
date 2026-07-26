@@ -683,6 +683,16 @@ export const pagesEs = {
 				title: 'Crosby ve la contienda como ganable',
 				description:
 					'Un perfil de Cache Valley Daily sobre por qué Peter Crosby considera ganable su desafío al representante Blake Moore, que lleva tres mandatos, y señala la caída de Moore en las primarias y la creciente competitividad del norte de Utah.'
+			},
+			'your-vote-your-health': {
+				title: 'Entrevista — Your Vote Your Health',
+				description:
+					'En esta entrevista a fondo, Peter Crosby comparte su trayectoria: desde una familia militar conservadora en la zona rural de Utah hasta postularse al Congreso como demócrata. Habla sobre los problemas sistémicos del gobierno, la reforma del sistema de salud, los desafíos de salud en las zonas rurales y la importancia de la participación política de base.'
+			},
+			'faith-and-politics': {
+				title: 'Fe y política',
+				description:
+					'Hoy, en 2026, me encuentro en una posición que no habría esperado de joven: no solo como candidato al Congreso, sino como candidato al Congreso por el Partido Demócrata.'
 			}
 		} as Record<string, { title: string; description?: string }>
 	},

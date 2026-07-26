@@ -27,10 +27,19 @@ export type MediaItem = {
 	image?: string;
 };
 
+/**
+ * Default card thumbnail per `outlet`, used when an item has no explicit `image`.
+ * Lets a whole outlet share one branded graphic (e.g. every Substack op-ed) without
+ * repeating the path on each item. An item's own `image` always wins.
+ */
+export const outletThumbnails: Record<string, string> = {
+	Substack: '/images/media/substack.jpg'
+};
+
 export const mediaData: MediaItem[] = [
 	{
 		id: 'our-vote-counts-interview',
-		pinned: true,
+		pinned: false,
 		type: 'video',
 		title: 'Interview - Our Vote Counts',
 		description:
@@ -38,11 +47,12 @@ export const mediaData: MediaItem[] = [
 		date: '2025-12-16',
 		url: 'https://youtu.be/kHJBykNy9zg',
 		youtubeId: 'kHJBykNy9zg',
-		outlet: 'YouTube'
+		outlet: 'YouTube',
+		image: '/images/media/our_vote_counts.jpg'
 	},
 	{
 		id: 'the-ties-that-bind',
-		pinned: true,
+		pinned: false,
 		type: 'op-ed',
 		title: 'The Ties that Bind',
 		description:
@@ -71,7 +81,8 @@ export const mediaData: MediaItem[] = [
 		date: '2026-05-19',
 		url: 'https://youtu.be/YJAIs5yViqs',
 		youtubeId: 'YJAIs5yViqs',
-		outlet: 'YouTube'
+		outlet: 'YouTube',
+		image: '/images/media/virtual-town-hall_2026-05-19.jpg'
 	},
 	{
 		id: 'cache-valley-daily-spotlight',
@@ -86,6 +97,19 @@ export const mediaData: MediaItem[] = [
 		image: '/images/media/cache-valley-daily-spotlight.jpg'
 	},
 	{
+		id: 'your-vote-your-health',
+		pinned: true,
+		type: 'video',
+		title: 'Interview - Your Vote Your Health',
+		description:
+			'In this in-depth interview, Peter Crosby shares his journey from a conservative military family background in rural Utah to running for Congress as a Democrat. He discusses systemic issues in government, healthcare reform, rural health challenges, and the importance of grassroots political engagement.',
+		date: '2026-06-13',
+		url: 'https://youtu.be/Voq954LB-gI',
+		youtubeId: 'Voq954LB-gI',
+		outlet: 'YouTube',
+		image: '/images/media/your-vote-your-health.jpg'
+	},
+	{
 		id: 'cache-valley-daily-winnable',
 		pinned: true,
 		type: 'article',
@@ -96,6 +120,17 @@ export const mediaData: MediaItem[] = [
 		url: 'https://www.cachevalleydaily.com/news/democrat-peter-crosby-views-uphill-battle-against-incumbent-rep-blake-moore-as-winnable/article_54bbff83-a567-4bc4-9d66-d6ab540f5375.html',
 		outlet: 'Cache Valley Daily',
 		image: '/images/media/cache-valley-daily-winnable.jpg'
+	},
+	{
+		id: 'faith-and-politics',
+		pinned: true,
+		type: 'op-ed',
+		title: 'Faith and Politics',
+		description:
+			'Today, in 2026, I find myself in a position I would not have expected as a young man: not only a Congressional candidate, but a Congressional candidate with the Democratic party.',
+		date: '2026-07-12',
+		url: 'https://substack.com/home/post/p-206725072',
+		outlet: 'Substack'
 	}
 ];
 

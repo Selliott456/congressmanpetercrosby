@@ -1,6 +1,7 @@
 <script>
 	import { createEventDispatcher } from 'svelte';
 	import { locale, messages } from '$lib/i18n/locale';
+	import { outletThumbnails } from '$lib/data/media';
 	import Rail from './Rail.svelte';
 
 	/** @type {import('$lib/data/media').MediaItem} */
@@ -29,6 +30,9 @@
 	$: title = override?.title ?? item.title;
 	$: description = override?.description ?? item.description;
 	$: formattedDate = formatDate(item.date, $locale);
+	// Resolved thumbnail: the item's own image, else the outlet's default, else none
+	// (the branded gradient placeholder). A video always shows the play button + scrim.
+	$: thumb = item.image ?? (item.outlet ? outletThumbnails[item.outlet] : undefined) ?? null;
 	$: kind =
 		item.type === 'video'
 			? $messages.media.kindVideo
@@ -55,9 +59,9 @@
 	rel="noopener noreferrer"
 	on:click={onClick}
 >
-	<div class="media-thumb media-thumb--{item.type}" class:media-thumb--image={item.image}>
-		{#if item.image}
-			<img class="media-thumb-img" src={item.image} alt="" loading="lazy" decoding="async" />
+	<div class="media-thumb media-thumb--{item.type}" class:media-thumb--image={thumb}>
+		{#if thumb}
+			<img class="media-thumb-img" src={thumb} alt="" loading="lazy" decoding="async" />
 			{#if item.type === 'video'}
 				<span class="media-thumb-scrim" aria-hidden="true"></span>
 			{/if}
@@ -65,7 +69,7 @@
 		<div class="media-thumb-rail"><Rail /></div>
 		{#if item.type === 'video'}
 			<span class="media-play" aria-hidden="true"></span>
-		{:else if !item.image}
+		{:else if !thumb}
 			<span class="media-outlet">{item.outlet}</span>
 		{/if}
 		<span class="media-kind">{kind}</span>
