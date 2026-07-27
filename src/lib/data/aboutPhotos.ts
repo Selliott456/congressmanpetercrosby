@@ -13,6 +13,7 @@ export const aboutTrail: string[] = [
 	'/images/about/trail/trail-06.jpg',
 	'/images/about/trail/trail-07.jpg',
 	'/images/about/trail/trail-08.jpg',
+	'/images/about/trail/trail-12.jpg',
 	'/images/about/trail/trail-09.jpg',
 	'/images/about/trail/trail-10.jpg',
 	'/images/about/trail/trail-11.jpg'
@@ -39,5 +40,6 @@ export const aboutImageDims: Record<string, { w: number; h: number }> = {
 	'/images/about/trail/trail-08.jpg': { w: 800, h: 600 },
 	'/images/about/trail/trail-09.jpg': { w: 600, h: 800 },
 	'/images/about/trail/trail-10.jpg': { w: 600, h: 800 },
-	'/images/about/trail/trail-11.jpg': { w: 600, h: 800 }
+	'/images/about/trail/trail-11.jpg': { w: 600, h: 800 },
+	'/images/about/trail/trail-12.jpg': { w: 534, h: 800 }
 };
