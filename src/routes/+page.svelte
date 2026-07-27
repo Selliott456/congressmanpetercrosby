@@ -9,6 +9,7 @@
   // import Priorities from "$lib/components/Priorities.svelte";
   import PoliciesSummary from "$lib/components/PoliciesSummary.svelte";
   import Media from "$lib/components/Media.svelte";
+  import PressReleases from "$lib/components/PressReleases.svelte";
   import { messages } from "$lib/i18n/locale";
   import { socialLinks } from "$lib/data/socialLinks";
 </script>
@@ -127,6 +128,9 @@
 
   <!-- 4. Media -->
   <Media />
+
+  <!-- 4b. Press releases (row of 3 most recent, under Media) -->
+  <PressReleases />
 
   <!-- 5. Community image -->
   <section class="home-community" aria-label={$messages.home.communityAria}>

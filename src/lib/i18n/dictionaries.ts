@@ -27,7 +27,7 @@ const en = {
 		rights: 'Peter Crosby for Congress. All rights reserved.',
 		paidForBy: 'Paid for by Peter Crosby for Congress',
 		newsletter: {
-			title: 'Get campaign updates',
+			title: 'Get Campaign Updates',
 			blurb: 'News, events, and ways to help — straight to your inbox.',
 			firstName: 'First name',
 			lastName: 'Last name',
@@ -40,6 +40,36 @@ const en = {
 			error: 'Something went wrong. Please try again.',
 			privacy: 'We’ll never share your email.'
 		}
+	},
+	yardSign: {
+		footerHeading: 'Put Up a Yard Sign',
+		requestButton: 'Request a Yard Sign',
+		sponsorLink: 'Sponsor a yard sign',
+		eyebrow: 'Yard signs',
+		title: 'Request a Yard Sign',
+		blurb: 'Show your support for the campaign — we’ll get a sign to you and help put it up.',
+		firstName: 'First name',
+		lastName: 'Last name',
+		quantity: 'How many signs?',
+		email: 'Email',
+		phone: 'Phone',
+		streetAddress: 'Street address',
+		city: 'City',
+		instructions: 'Placement instructions',
+		instructionsHint: 'Where should the sign go? Any access notes or preferences.',
+		donatePrompt: 'Yard signs cost about $10 to print, deliver, and place.',
+		sponsorCta: 'Sponsor a yard sign →',
+		requiredNote: 'All fields required except where noted.',
+		submit: 'Send request',
+		submitting: 'Sending…',
+		close: 'Close',
+		error: 'Something went wrong. Please try again.',
+		successTitle: 'Request received!',
+		successBody:
+			'Thanks for showing your support. We’ll be in touch to coordinate delivery and placement.',
+		successSponsorPrompt:
+			'Want to help cover the cost? Each sign runs about $10 to produce and place.',
+		done: 'Done'
 	},
 	language: {
 		switch: 'Language',
@@ -68,12 +98,12 @@ const en = {
 		heroEventsLink: 'Find your next town hall →',
 		donate: 'Donate',
 		prioritiesEyebrow: 'Priorities',
-		prioritiesTitle: 'Five priorities. No fine print.',
+		prioritiesTitle: 'Five Priorities. No Fine Print.',
 		prioritiesLede:
 			'Northern Utah families deserve a representative who listens before speaking, answers tough questions, and votes with the district in mind. Here is where Peter stands.',
 		priorities: [
 			{
-				title: 'Housing people can afford',
+				title: 'Housing People Can Afford',
 				summary: 'Young families and seniors are getting priced out of the towns they built.',
 				points: [
 					'Cut the red tape that blocks starter homes and townhomes near where people already work.',
@@ -82,7 +112,7 @@ const en = {
 				]
 			},
 			{
-				title: 'Costs that match wages',
+				title: 'Costs That Match Wages',
 				summary: 'Groceries, gas, and insurance climbed faster than paychecks. The job is to close that gap.',
 				points: [
 					'Lower the everyday costs—energy, prescriptions, and child care—that hit family budgets first.',
@@ -91,7 +121,7 @@ const en = {
 				]
 			},
 			{
-				title: 'Healthcare that works rurally',
+				title: 'Healthcare That Works Rurally',
 				summary: 'A clinic an hour away isn’t access. Rural Utah deserves care that’s actually within reach.',
 				points: [
 					'Keep rural hospitals and clinics open and staffed.',
@@ -100,7 +130,7 @@ const en = {
 				]
 			},
 			{
-				title: 'Honest, accountable government',
+				title: 'Honest, Accountable Government',
 				summary: 'Public office is a public trust—clear answers, open books, and showing up.',
 				points: [
 					'Hold regular town halls and answer tough questions in person.',
@@ -122,28 +152,28 @@ const en = {
 		// Temporary home stand-in shown while the full "Priorities" section copy is
 		// being finalized — a short summary of the Policies page. See PoliciesSummary.svelte.
 		policiesSummaryEyebrow: 'Where Peter stands',
-		policiesSummaryTitle: 'People-first policy for Northern Utah',
+		policiesSummaryTitle: 'People-First Policy for Northern Utah',
 		policiesSummaryLede:
 			'Peter’s priorities come straight from the people he meets across Northern Utah. They come down to three things:',
 		policiesSummaryAreas: [
 			{
-				title: 'The economy',
-				text: 'Confronting the housing crisis and the rising cost of living, and standing up for the local jobs and small businesses that hold our towns together.'
+				title: 'Affordability',
+				text: 'Confronting the housing crisis and the rising cost of living, including our healthcare costs, and standing up for the local jobs and small businesses that hold our towns together.'
 			},
 			{
-				title: 'The integrity of our government',
+				title: 'Accountability',
 				text: 'Banning congressional stock trades, opening a real conversation on term limits, and getting corporate dark money out of our politics.'
 			},
 			{
-				title: 'The health of our communities',
-				text: 'Protecting access to care for rural Utah and opposing the cuts that hit local families and hospitals the hardest.'
+				title: 'Stewardship',
+				text: 'Protecting our public lands, restoring the Great Salt Lake, and standing up for communities against corporate developments like the Stratos data center project in Box Elder.'
 			}
 		],
 		policiesSummaryLink: 'Read where Peter stands on the issues →',
 		communityAria: 'Peter Crosby with family',
 		communityAlt: 'Peter Crosby with his family in Northern Utah',
 		communityQuote: 'Family, service, and community—values that shape this campaign.',
-		involveTitle: 'Get involved',
+		involveTitle: 'Get Involved',
 		involveIntro: 'Every race is won by people who pitch in. Pick what fits you.',
 		involveDonate: 'Donate',
 		involveDonateDesc: 'Fuel voter outreach and events.',
@@ -194,6 +224,36 @@ const es: Messages = {
 			error: 'Algo salió mal. Inténtelo de nuevo.',
 			privacy: 'Nunca compartiremos su correo.'
 		}
+	},
+	yardSign: {
+		footerHeading: 'Ponga un letrero de jardín',
+		requestButton: 'Solicitar un letrero',
+		sponsorLink: 'Patrocinar un letrero',
+		eyebrow: 'Letreros de jardín',
+		title: 'Solicitar un letrero de jardín',
+		blurb: 'Muestre su apoyo a la campaña: le llevaremos un letrero y le ayudaremos a colocarlo.',
+		firstName: 'Nombre',
+		lastName: 'Apellido',
+		quantity: '¿Cuántos letreros?',
+		email: 'Correo electrónico',
+		phone: 'Teléfono',
+		streetAddress: 'Dirección',
+		city: 'Ciudad',
+		instructions: 'Instrucciones de colocación',
+		instructionsHint: '¿Dónde debe ir el letrero? Notas de acceso o preferencias.',
+		donatePrompt: 'Los letreros cuestan alrededor de $10 para imprimir, entregar y colocar.',
+		sponsorCta: 'Patrocinar un letrero →',
+		requiredNote: 'Todos los campos son obligatorios salvo donde se indique.',
+		submit: 'Enviar solicitud',
+		submitting: 'Enviando…',
+		close: 'Cerrar',
+		error: 'Algo salió mal. Inténtelo de nuevo.',
+		successTitle: '¡Solicitud recibida!',
+		successBody:
+			'Gracias por mostrar su apoyo. Nos pondremos en contacto para coordinar la entrega y la colocación.',
+		successSponsorPrompt:
+			'¿Quiere ayudar a cubrir el costo? Cada letrero cuesta alrededor de $10 para producir y colocar.',
+		done: 'Listo'
 	},
 	language: {
 		switch: 'Idioma',
@@ -281,16 +341,16 @@ const es: Messages = {
 			'Las prioridades de Peter vienen directamente de la gente que conoce en todo el norte de Utah. Se resumen en tres áreas:',
 		policiesSummaryAreas: [
 			{
-				title: 'La economía',
-				text: 'Enfrentar la crisis de vivienda y el aumento del costo de vida, y defender los empleos locales y las pequeñas empresas que sostienen a nuestros pueblos.'
+				title: 'Asequibilidad',
+				text: 'Enfrentar la crisis de vivienda y el aumento del costo de vida, incluidos los costos de atención médica, y defender los empleos locales y las pequeñas empresas que sostienen a nuestros pueblos.'
 			},
 			{
-				title: 'La integridad de nuestro gobierno',
+				title: 'Rendición de cuentas',
 				text: 'Prohibir que los miembros del Congreso negocien acciones, abrir una conversación seria sobre los límites de mandato y sacar el dinero corporativo de nuestra política.'
 			},
 			{
-				title: 'La salud de nuestras comunidades',
-				text: 'Proteger el acceso a la atención médica del Utah rural y oponerse a los recortes que más golpean a las familias y los hospitales locales.'
+				title: 'Cuidado ambiental',
+				text: 'Proteger nuestras tierras públicas, restaurar el Gran Lago Salado y defender a las comunidades frente a desarrollos corporativos como el proyecto de centro de datos Stratos en Box Elder.'
 			}
 		],
 		policiesSummaryLink: 'Lea la postura de Peter sobre los temas →',

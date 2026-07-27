@@ -1,7 +1,9 @@
 <script>
 	import { messages } from '$lib/i18n/locale';
 	import { pinnedMedia, restMedia } from '$lib/data/media';
+	import { pressReleasesByRecent } from '$lib/data/pressReleases';
 	import MediaGrid from '$lib/components/MediaGrid.svelte';
+	import PressReleaseGrid from '$lib/components/PressReleaseGrid.svelte';
 </script>
 
 <svelte:head>
@@ -30,6 +32,17 @@
 			<MediaGrid items={restMedia} variant="light" />
 		</div>
 	</section>
+
+	<section id="press" class="media-block media-block--press">
+		<div class="media-block-inner">
+			<div class="media-block-head">
+				<p class="media-block-eyebrow">{$messages.pressReleases.eyebrow}</p>
+				<h2 class="media-block-title">{$messages.pressReleases.sectionTitle}</h2>
+				<p class="media-block-lede">{$messages.pressReleases.sectionLede}</p>
+			</div>
+			<PressReleaseGrid items={pressReleasesByRecent} />
+		</div>
+	</section>
 </main>
 
 <style>
@@ -45,6 +58,14 @@
 	.media-block--rest {
 		background: var(--paper);
 		color: var(--ink);
+	}
+
+	/* Press releases sit on the same deep-navy ground as the Featured band. */
+	.media-block--press {
+		background: var(--ink-deep);
+		color: var(--paper);
+		/* Clear the sticky nav when jumped to via /media#press. */
+		scroll-margin-top: 5rem;
 	}
 
 	.media-block-inner {
@@ -76,11 +97,13 @@
 		height: 2px;
 	}
 
-	.media-block--pinned .media-block-eyebrow {
+	.media-block--pinned .media-block-eyebrow,
+	.media-block--press .media-block-eyebrow {
 		color: var(--sky);
 	}
 
-	.media-block--pinned .media-block-eyebrow::before {
+	.media-block--pinned .media-block-eyebrow::before,
+	.media-block--press .media-block-eyebrow::before {
 		background: var(--sky);
 	}
 
@@ -102,7 +125,8 @@
 		line-height: 1.02;
 	}
 
-	.media-block--pinned .media-block-title {
+	.media-block--pinned .media-block-title,
+	.media-block--press .media-block-title {
 		color: var(--paper);
 	}
 

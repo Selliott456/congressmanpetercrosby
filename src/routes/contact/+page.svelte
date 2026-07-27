@@ -1,4 +1,5 @@
 <script>
+	import { tick } from 'svelte';
 	import Rail from '$lib/components/Rail.svelte';
 	import Button from '$lib/components/Button.svelte';
 	import { messages } from '$lib/i18n/locale';
@@ -18,6 +19,22 @@
 
 	/** @type {'idle' | 'submitting' | 'success' | 'error'} */
 	let status = 'idle';
+
+	/** Success heading — focused on submit so the confirmation is announced/reachable. @type {HTMLElement | undefined} */
+	let successHeading;
+
+	/** Radio buttons by topic id — so focus can follow selection (WAI-ARIA radiogroup). @type {Record<string, HTMLButtonElement>} */
+	let radioEls = {};
+
+	/** Arrow-key navigation for the topic radiogroup (two options → arrows toggle). @param {KeyboardEvent} e */
+	async function onTopicKeydown(e) {
+		if (['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(e.key)) {
+			e.preventDefault();
+			topic = topic === 'general' ? 'media' : 'general';
+			await tick();
+			radioEls[topic]?.focus();
+		}
+	}
 
 	/** @type {{ id: 'general' | 'media'; label: string }[]} */
 	$: topics = [
@@ -41,6 +58,8 @@
 			if (response.ok) {
 				status = 'success';
 				form.reset();
+				await tick();
+				successHeading?.focus();
 			} else {
 				status = 'error';
 			}
@@ -90,7 +109,9 @@
 		<div class="contact-form-wrap" id="contact-form">
 			{#if status === 'success'}
 					<div class="form-success" role="status" aria-live="polite">
-						<p class="form-success-title">{$messages.contact.successTitle}</p>
+						<p class="form-success-title" bind:this={successHeading} tabindex="-1">
+							{$messages.contact.successTitle}
+						</p>
 						<p class="form-success-body">{$messages.contact.successBody}</p>
 						<button type="button" class="form-success-again" on:click={resetForm}>
 							{$messages.contact.sendAnother}
@@ -98,15 +119,23 @@
 					</div>
 				{/if}
 				<fieldset class="topic-switch" class:is-hidden={status === 'success'}>
-				<legend class="topic-legend">{$messages.contact.topicLegend}</legend>
-				<div class="topic-tabs" role="tablist">
+				<legend class="topic-legend" id="topic-legend">{$messages.contact.topicLegend}</legend>
+				<div
+					class="topic-tabs"
+					role="radiogroup"
+					aria-labelledby="topic-legend"
+					tabindex="-1"
+					on:keydown={onTopicKeydown}
+				>
 					{#each topics as t (t.id)}
 						<button
 							type="button"
-							role="tab"
+							role="radio"
 							class="topic-tab"
 							class:is-active={topic === t.id}
-							aria-selected={topic === t.id}
+							aria-checked={topic === t.id}
+							tabindex={topic === t.id ? 0 : -1}
+							bind:this={radioEls[t.id]}
 							on:click={() => (topic = t.id)}
 						>
 							{t.label}
@@ -177,13 +206,15 @@
 
 				<div class="form-grid">
 					<div class="form-row">
-						<label class="form-label" for="phone">{$messages.contact.phone}</label>
+						<label class="form-label" for="phone">
+							{$messages.contact.phone}
+							<span class="form-optional">({$messages.common.optional})</span>
+						</label>
 						<input
 							id="phone"
 							name="phone"
 							class="form-input"
 							type="tel"
-							required
 							maxlength="25"
 							autocomplete="tel"
 							inputmode="tel"
@@ -428,6 +459,13 @@
 		font-size: 0.9375rem;
 		font-weight: 600;
 		color: var(--ink);
+	}
+
+	/* "(optional)" marker — de-emphasized, normal weight. */
+	.form-optional {
+		font-weight: 400;
+		font-style: italic;
+		color: var(--ink-2);
 	}
 
 	.form-input {

@@ -2,9 +2,14 @@
   import { messages } from "$lib/i18n/locale";
   import SocialIcon from "./SocialIcon.svelte";
   import Rail from "./Rail.svelte";
+  import YardSignModal from "./YardSignModal.svelte";
   import { socialLinks } from "$lib/data/socialLinks";
+  import { SPONSOR_YARD_SIGN_URL } from "$lib/data/links";
 
   const NEWSLETTER_ENDPOINT = "https://formspree.io/f/xjgqknqd";
+
+  /** Yard-sign request modal (opened from the footer band). */
+  let showYardSign = false;
 
   /** @type {'idle' | 'submitting' | 'success' | 'error'} */
   let newsletterStatus = "idle";
@@ -65,6 +70,27 @@
         {/each}
       </div>
     </div>
+
+    <section class="footer-yardsign" aria-label={$messages.yardSign.footerHeading}>
+      <div class="footer-news-rail" aria-hidden="true"><Rail height="3px" /></div>
+      <div class="footer-yardsign-actions">
+        <button
+          type="button"
+          class="footer-yardsign-btn"
+          on:click={() => (showYardSign = true)}
+        >
+          {$messages.yardSign.requestButton}
+        </button>
+        <a
+          class="footer-yardsign-sponsor"
+          href={SPONSOR_YARD_SIGN_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {$messages.yardSign.sponsorLink} ↗
+        </a>
+      </div>
+    </section>
 
     <section class="footer-newsletter" aria-labelledby="footer-newsletter-title">
       <div class="footer-news-rail" aria-hidden="true"><Rail height="3px" /></div>
@@ -165,6 +191,10 @@
   </div>
 </footer>
 
+{#if showYardSign}
+  <YardSignModal on:close={() => (showYardSign = false)} />
+{/if}
+
 <style>
   .footer {
     background: var(--paper-2);
@@ -254,6 +284,61 @@
   .footer-faq-link:hover {
     opacity: 0.85;
     text-decoration: underline;
+  }
+
+  /* ---- Yard-sign band (request modal trigger + sponsor link) ---- */
+  .footer-yardsign {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 2.25rem 0;
+    border-top: 1px solid rgba(15, 37, 69, 0.16);
+  }
+
+  .footer-yardsign-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.85rem 1.25rem;
+  }
+
+  .footer-yardsign-btn {
+    font-family: var(--display);
+    font-style: italic;
+    font-weight: 800;
+    font-size: 0.875rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.7rem 1.5rem;
+    border: 1px solid var(--ink);
+    background: var(--ink);
+    color: var(--paper);
+    cursor: pointer;
+    transition:
+      background 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+  .footer-yardsign-btn:hover {
+    background: var(--blue);
+    border-color: var(--blue);
+  }
+
+  .footer-yardsign-sponsor {
+    font-family: var(--font-primary);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--blue);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .footer-yardsign-sponsor:hover {
+    text-decoration: underline;
+    text-underline-offset: 2px;
   }
 
   /* ---- Newsletter signup (middle zone, set apart by a Rail + hairline) ---- */
