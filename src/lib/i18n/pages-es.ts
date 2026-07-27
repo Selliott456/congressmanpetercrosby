@@ -18,9 +18,13 @@ export const pagesEs = {
 			'El norte de Utah es mi hogar, mi vecindario y mi comunidad. Me postulo al Congreso porque nuestros vecindarios merecen un liderazgo firme y de sentido común, enfocado en las verdaderas respuestas a los problemas que más nos golpean.',
 			'Desde bajar el creciente costo de vida hasta proteger los empleos locales que sostienen a nuestras comunidades, mi compromiso es ofrecer una administración honesta y verdadera responsabilidad.'
 		],
+		trailEyebrow: 'En campaña',
+		trailAria: 'Fotos de la campaña',
 		sections: [
 			{
 				title: 'Una historia familiar de servicio público, un deber de servir',
+				image: '/images/about/service-heritage.jpg',
+				caption: 'El servicio es cosa de familia',
 				parts: [
 					{
 						type: 'p' as const,
@@ -42,6 +46,8 @@ export const pagesEs = {
 			},
 			{
 				title: 'Esposo y padre arraigado en el norte de Utah, que entiende la vida aquí',
+				image: '/images/about/family-northern-utah.jpg',
+				caption: 'Diecinueve años en el norte de Utah',
 				parts: [
 					{
 						type: 'p' as const,
@@ -71,6 +77,8 @@ export const pagesEs = {
 			},
 			{
 				title: 'Una carrera profesional basada en el liderazgo y la confianza',
+				image: '/images/about/community-issues.jpg',
+				caption: 'Al frente de los temas que le importan a la comunidad',
 				parts: [
 					{
 						type: 'p' as const,

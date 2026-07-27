@@ -2,6 +2,7 @@
 	import Button from '$lib/components/Button.svelte';
 	import Rail from '$lib/components/Rail.svelte';
 	import { messages } from '$lib/i18n/locale';
+	import { aboutTrail, aboutImageDims } from '$lib/data/aboutPhotos';
 
 	/**
 	 * Split a paragraph into runs on `**emphasis**` markers — odd segments are
@@ -45,9 +46,26 @@
 	<Rail />
 
 	<div class="about-content">
-		{#each $messages.about.sections as section}
-			<section class="about-section">
+		{#each $messages.about.sections as section, i}
+			<section class="about-section" class:has-media={section.image} class:media-left={i % 2 === 1}>
 				<h2 class="section-title">{section.title}</h2>
+				{#if section.image}
+					<figure class="section-figure">
+						<div class="section-figure-rail"><Rail /></div>
+						<img
+							class="section-figure-img"
+							src={section.image}
+							alt={section.caption}
+							width={aboutImageDims[section.image]?.w}
+							height={aboutImageDims[section.image]?.h}
+							loading="lazy"
+							decoding="async"
+						/>
+						{#if section.caption}
+							<figcaption class="section-caption">{section.caption}</figcaption>
+						{/if}
+					</figure>
+				{/if}
 				<div class="section-body">
 					{#each section.parts as part}
 						{#if part.type === 'p'}
@@ -63,12 +81,32 @@
 				</div>
 			</section>
 		{/each}
+	</div>
 
-		<div class="about-cta">
-			<Button href="https://secure.actblue.com/donate/peter-crosby-1"
-				>{$messages.common.donate}</Button
-			>
-		</div>
+	{#if aboutTrail.length}
+		<section class="about-trail" aria-label={$messages.about.trailAria}>
+			<div class="about-trail-rail"><Rail /></div>
+			<div class="about-trail-inner">
+				<p class="about-trail-eyebrow">{$messages.about.trailEyebrow}</p>
+				<div class="about-trail-grid">
+					{#each aboutTrail as src}
+						<img
+							class="about-trail-img"
+							{src}
+							alt=""
+							width={aboutImageDims[src]?.w}
+							height={aboutImageDims[src]?.h}
+							loading="lazy"
+							decoding="async"
+						/>
+					{/each}
+				</div>
+			</div>
+		</section>
+	{/if}
+
+	<div class="about-cta">
+		<Button href="https://secure.actblue.com/donate/peter-crosby-1">{$messages.common.donate}</Button>
 	</div>
 </main>
 
@@ -147,21 +185,129 @@
 	.about-content {
 		max-width: 1120px;
 		margin: 0 auto;
-		padding: 3rem 1.5rem 4rem;
+		padding: 3rem 1.5rem 2.5rem;
 	}
 
 	.about-section {
-		margin-bottom: 3rem;
+		margin-bottom: 3.5rem;
 	}
 
 	.about-section:last-child {
 		margin-bottom: 0;
 	}
 
+	/* Sections with an anchor photo: the framed image floats and the copy wraps
+	   around it (magazine style) and continues below, so long sections don't leave
+	   whitespace beside the image. Side alternates per section. */
+	.about-section.has-media::after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+
+	/* Framed anchor photo — Rail stripe on top, hairline border, mono caption. */
+	.section-figure {
+		position: relative;
+		margin: 0;
+	}
+
+	.about-section.has-media .section-figure {
+		float: right;
+		width: clamp(240px, 44%, 450px);
+		margin: 0.4rem 0 1rem 2rem;
+	}
+
+	.about-section.media-left .section-figure {
+		float: left;
+		margin: 0.4rem 2rem 1rem 0;
+	}
+
+	.section-figure-rail {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 1;
+	}
+
+	.section-figure-img {
+		display: block;
+		width: 100%;
+		height: auto;
+		border: 1px solid var(--line-l);
+	}
+
+	.section-caption {
+		margin-top: 0.6rem;
+		font-family: var(--mono);
+		font-size: 0.6875rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--ink-2);
+	}
+
+	/* —— "On the trail" montage — dark band, masonry wall of candids —— */
+	.about-trail {
+		position: relative;
+		background: var(--ink-deep);
+		color: var(--paper);
+		padding-block: clamp(2.5rem, 6vw, 4rem);
+	}
+
+	.about-trail-rail {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+	}
+
+	.about-trail-inner {
+		max-width: 1120px;
+		margin: 0 auto;
+		padding: 0 1.5rem;
+	}
+
+	.about-trail-eyebrow {
+		margin: 0 0 1.5rem;
+		display: flex;
+		align-items: center;
+		gap: 0.6rem;
+		font-family: var(--display);
+		font-style: italic;
+		font-weight: 800;
+		font-size: 0.6875rem;
+		letter-spacing: 0.2em;
+		text-transform: uppercase;
+		color: var(--sky);
+	}
+
+	.about-trail-eyebrow::before {
+		content: '';
+		width: 26px;
+		height: 2px;
+		background: var(--sky);
+	}
+
+	/* Masonry wall — columns preserve each candid's native crop (no distortion). */
+	.about-trail-grid {
+		columns: 4;
+		column-gap: 0.5rem;
+	}
+
+	.about-trail-img {
+		display: block;
+		width: 100%;
+		height: auto;
+		margin-bottom: 0.5rem;
+		border: 1px solid var(--line-d);
+		break-inside: avoid;
+	}
+
 	.about-cta {
-		margin-top: 2.5rem;
-		padding-top: 2rem;
-		border-top: 1px solid rgba(0, 35, 56, 0.08);
+		max-width: 1120px;
+		margin: 0 auto;
+		padding: clamp(2.5rem, 6vw, 3.5rem) 1.5rem;
 		text-align: center;
 	}
 
@@ -235,6 +381,18 @@
 			padding-left: 0;
 			padding-right: 0;
 		}
+
+		/* Stack anchor sections: title, then full-width photo, then copy. */
+		.about-section.has-media .section-figure,
+		.about-section.media-left .section-figure {
+			float: none;
+			width: auto;
+			margin: 0 0 1.25rem;
+		}
+
+		.about-trail-grid {
+			columns: 3;
+		}
 	}
 
 	@media (max-width: 640px) {
@@ -252,6 +410,10 @@
 
 		.section-body {
 			font-size: 1rem;
+		}
+
+		.about-trail-grid {
+			columns: 2;
 		}
 	}
 </style>
