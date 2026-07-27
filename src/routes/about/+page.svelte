@@ -88,18 +88,24 @@
 			<div class="about-trail-rail"><Rail /></div>
 			<div class="about-trail-inner">
 				<p class="about-trail-eyebrow">{$messages.about.trailEyebrow}</p>
-				<div class="about-trail-grid">
-					{#each aboutTrail as src}
-						<img
-							class="about-trail-img"
-							{src}
-							alt=""
-							width={aboutImageDims[src]?.w}
-							height={aboutImageDims[src]?.h}
-							loading="lazy"
-							decoding="async"
-						/>
-					{/each}
+				<div class="about-trail-viewport" aria-hidden="true">
+					<!-- Track duplicated for a seamless loop; uniform height aligns the
+					     portrait/landscape mix on a centered baseline. -->
+					<div class="about-trail-track">
+						{#each [0, 1] as copy (copy)}
+							{#each aboutTrail as src}
+								<img
+									class="about-trail-img"
+									{src}
+									alt=""
+									width={aboutImageDims[src]?.w}
+									height={aboutImageDims[src]?.h}
+									loading="lazy"
+									decoding="async"
+								/>
+							{/each}
+						{/each}
+					</div>
 				</div>
 			</div>
 		</section>
@@ -289,19 +295,55 @@
 		background: var(--sky);
 	}
 
-	/* Masonry wall — columns preserve each candid's native crop (no distortion). */
-	.about-trail-grid {
-		columns: 4;
-		column-gap: 0.5rem;
+	/* Slow horizontal marquee — a "campaign reel" of candids. Edge fades soften the
+	   in/out; the track is duplicated in markup so translateX(-50%) loops seamlessly. */
+	.about-trail-viewport {
+		overflow: hidden;
+		-webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+		mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
 	}
 
+	.about-trail-track {
+		display: flex;
+		align-items: center;
+		width: max-content;
+		animation: about-trail-marquee 75s linear infinite;
+	}
+
+	/* Pause when a visitor hovers or tabs in, so they can dwell on a photo. */
+	.about-trail:hover .about-trail-track,
+	.about-trail:focus-within .about-trail-track {
+		animation-play-state: paused;
+	}
+
+	/* Uniform height aligns portrait + landscape on one centered baseline. */
 	.about-trail-img {
 		display: block;
-		width: 100%;
-		height: auto;
-		margin-bottom: 0.5rem;
+		flex-shrink: 0;
+		height: clamp(170px, 22vw, 240px);
+		width: auto;
+		margin-right: 0.6rem;
 		border: 1px solid var(--line-d);
-		break-inside: avoid;
+	}
+
+	@keyframes about-trail-marquee {
+		from {
+			transform: translateX(0);
+		}
+		to {
+			transform: translateX(-50%);
+		}
+	}
+
+	/* Respect reduced-motion: stop the scroll and let the strip be swiped instead. */
+	@media (prefers-reduced-motion: reduce) {
+		.about-trail-track {
+			animation: none;
+		}
+
+		.about-trail-viewport {
+			overflow-x: auto;
+		}
 	}
 
 	.about-cta {
@@ -389,10 +431,6 @@
 			width: auto;
 			margin: 0 0 1.25rem;
 		}
-
-		.about-trail-grid {
-			columns: 3;
-		}
 	}
 
 	@media (max-width: 640px) {
@@ -410,10 +448,6 @@
 
 		.section-body {
 			font-size: 1rem;
-		}
-
-		.about-trail-grid {
-			columns: 2;
 		}
 	}
 </style>

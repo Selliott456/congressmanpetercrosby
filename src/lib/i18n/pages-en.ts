@@ -18,8 +18,8 @@ export const pagesEn = {
 			'Northern Utah is my home, my neighborhood, and my community. I’m running for Congress because our neighborhoods deserve steady, common-sense leadership focused on the real answers to the problems hitting us the hardest.',
 			'From lowering the rising cost of living to protecting the local jobs that anchor our communities, my commitment is to deliver honest stewardship and real accountability.'
 		],
-		trailEyebrow: 'On the trail',
-		trailAria: 'Photos from the campaign trail',
+		trailEyebrow: 'Rooted in Northern Utah',
+		trailAria: 'Candid photos of family and community',
 		sections: [
 			{
 				title: 'A Family History of Public Service, A Duty to Serve',

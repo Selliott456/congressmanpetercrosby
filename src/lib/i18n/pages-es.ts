@@ -18,8 +18,8 @@ export const pagesEs = {
 			'El norte de Utah es mi hogar, mi vecindario y mi comunidad. Me postulo al Congreso porque nuestros vecindarios merecen un liderazgo firme y de sentido común, enfocado en las verdaderas respuestas a los problemas que más nos golpean.',
 			'Desde bajar el creciente costo de vida hasta proteger los empleos locales que sostienen a nuestras comunidades, mi compromiso es ofrecer una administración honesta y verdadera responsabilidad.'
 		],
-		trailEyebrow: 'En campaña',
-		trailAria: 'Fotos de la campaña',
+		trailEyebrow: 'Arraigado en el norte de Utah',
+		trailAria: 'Fotos espontáneas de familia y comunidad',
 		sections: [
 			{
 				title: 'Una historia familiar de servicio público, un deber de servir',
