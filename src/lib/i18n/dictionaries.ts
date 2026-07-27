@@ -27,7 +27,7 @@ const en = {
 		rights: 'Peter Crosby for Congress. All rights reserved.',
 		paidForBy: 'Paid for by Peter Crosby for Congress',
 		newsletter: {
-			title: 'Get campaign updates',
+			title: 'Get Campaign Updates',
 			blurb: 'News, events, and ways to help — straight to your inbox.',
 			firstName: 'First name',
 			lastName: 'Last name',
@@ -42,11 +42,11 @@ const en = {
 		}
 	},
 	yardSign: {
-		footerHeading: 'Put up a yard sign',
+		footerHeading: 'Put Up a Yard Sign',
 		requestButton: 'Request a Yard Sign',
 		sponsorLink: 'Sponsor a yard sign',
 		eyebrow: 'Yard signs',
-		title: 'Request a yard sign',
+		title: 'Request a Yard Sign',
 		blurb: 'Show your support for the campaign — we’ll get a sign to you and help put it up.',
 		firstName: 'First name',
 		lastName: 'Last name',
@@ -98,12 +98,12 @@ const en = {
 		heroEventsLink: 'Find your next town hall →',
 		donate: 'Donate',
 		prioritiesEyebrow: 'Priorities',
-		prioritiesTitle: 'Five priorities. No fine print.',
+		prioritiesTitle: 'Five Priorities. No Fine Print.',
 		prioritiesLede:
 			'Northern Utah families deserve a representative who listens before speaking, answers tough questions, and votes with the district in mind. Here is where Peter stands.',
 		priorities: [
 			{
-				title: 'Housing people can afford',
+				title: 'Housing People Can Afford',
 				summary: 'Young families and seniors are getting priced out of the towns they built.',
 				points: [
 					'Cut the red tape that blocks starter homes and townhomes near where people already work.',
@@ -112,7 +112,7 @@ const en = {
 				]
 			},
 			{
-				title: 'Costs that match wages',
+				title: 'Costs That Match Wages',
 				summary: 'Groceries, gas, and insurance climbed faster than paychecks. The job is to close that gap.',
 				points: [
 					'Lower the everyday costs—energy, prescriptions, and child care—that hit family budgets first.',
@@ -121,7 +121,7 @@ const en = {
 				]
 			},
 			{
-				title: 'Healthcare that works rurally',
+				title: 'Healthcare That Works Rurally',
 				summary: 'A clinic an hour away isn’t access. Rural Utah deserves care that’s actually within reach.',
 				points: [
 					'Keep rural hospitals and clinics open and staffed.',
@@ -130,7 +130,7 @@ const en = {
 				]
 			},
 			{
-				title: 'Honest, accountable government',
+				title: 'Honest, Accountable Government',
 				summary: 'Public office is a public trust—clear answers, open books, and showing up.',
 				points: [
 					'Hold regular town halls and answer tough questions in person.',
@@ -152,7 +152,7 @@ const en = {
 		// Temporary home stand-in shown while the full "Priorities" section copy is
 		// being finalized — a short summary of the Policies page. See PoliciesSummary.svelte.
 		policiesSummaryEyebrow: 'Where Peter stands',
-		policiesSummaryTitle: 'People-first policy for Northern Utah',
+		policiesSummaryTitle: 'People-First Policy for Northern Utah',
 		policiesSummaryLede:
 			'Peter’s priorities come straight from the people he meets across Northern Utah. They come down to three things:',
 		policiesSummaryAreas: [
@@ -173,7 +173,7 @@ const en = {
 		communityAria: 'Peter Crosby with family',
 		communityAlt: 'Peter Crosby with his family in Northern Utah',
 		communityQuote: 'Family, service, and community—values that shape this campaign.',
-		involveTitle: 'Get involved',
+		involveTitle: 'Get Involved',
 		involveIntro: 'Every race is won by people who pitch in. Pick what fits you.',
 		involveDonate: 'Donate',
 		involveDonateDesc: 'Fuel voter outreach and events.',
