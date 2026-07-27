@@ -3,7 +3,7 @@
 	import { mediaByRecent } from '$lib/data/media';
 	import MediaGrid from './MediaGrid.svelte';
 
-	const recent = mediaByRecent.slice(0, 6);
+	const recent = mediaByRecent.slice(0, 3);
 </script>
 
 <section class="media-section" aria-labelledby="media-heading">
