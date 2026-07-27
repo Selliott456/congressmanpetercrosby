@@ -872,7 +872,7 @@ export const eventsData: EventRow[] = [
 		id: 'gcal-59l0d4s00h5dsoh2s0u6vq5lti',
 		type: 'town-hall',
 		month: 'Jul',
-		day: '29',
+		day: '28',
 		year: 2026,
 		monthIndex: 7,
 		title: 'Virtual Town Hall',
@@ -974,13 +974,13 @@ export const eventsData: EventRow[] = [
 		year: 2026,
 		monthIndex: 9,
 		title: 'Town Hall – Farmington',
-		time: '6:15 PM – 8:15 PM MT',
+		time: '6:30 PM – 8:00 PM MT',
 		location: 'Davis County Library Headquarters, 133 S Main St, Farmington, UT 84025',
 		locationUrl: 'https://www.google.com/maps/search/133+S+Main+St+Farmington+UT+84025',
 		description: 'Join Peter for a town hall at the Davis County Library Headquarters in Farmington. Please come with your questions.',
 		viewEventUrl: null,
-		startTime: '18:15',
-		endTime: '20:15'
+		startTime: '18:30',
+		endTime: '20:00'
 	},
 	{
 		id: 'gcal-5lbomb5vtb90oakphdsnipakjc',
@@ -1030,7 +1030,7 @@ export const eventsData: EventRow[] = [
 		startTime: null,
 		endTime: null
 	},
-	// --- Pulled 2026-07-25 (Airtable "Volunteer and Events") ---
+	// --- Pulled 2026-07-25 (Airtable "Volunteer and Events"); dates re-synced 2026-07-26 ---
 	{
 		id: 'gcal-60o1pei574juj1o4iojdqv79gs',
 		type: 'other',
