@@ -55,10 +55,21 @@
 		event.preventDefault();
 		const form = /** @type {HTMLFormElement} */ (event.currentTarget);
 		status = 'submitting';
+		// Submit field names that match the Airtable "Yard Sign Requests" column
+		// names exactly, so the Formspree → Airtable automation maps 1:1 (and never
+		// spawns stray columns). First + last name are merged into a single
+		// "Recipient Name" value to match the table. Campaign-internal columns
+		// (Date, Placement, Volunteer Assigned) are left for Airtable to fill.
+		const data = new FormData(form);
+		const first = (data.get('firstName') ?? '').toString().trim();
+		const last = (data.get('lastName') ?? '').toString().trim();
+		data.delete('firstName');
+		data.delete('lastName');
+		data.set('Recipient Name', `${first} ${last}`.trim());
 		try {
 			const response = await fetch(FORMSPREE_ENDPOINT, {
 				method: 'POST',
-				body: new FormData(form),
+				body: data,
 				headers: { Accept: 'application/json' }
 			});
 			if (response.ok) {
@@ -162,7 +173,7 @@
 							<label class="ys-label" for="ys-qty">{$messages.yardSign.quantity}</label>
 							<input
 								id="ys-qty"
-								name="quantity"
+								name="Quantity Entered"
 								class="ys-input"
 								type="number"
 								inputmode="numeric"
@@ -176,7 +187,7 @@
 							<label class="ys-label" for="ys-email">{$messages.yardSign.email}</label>
 							<input
 								id="ys-email"
-								name="email"
+								name="Recipient Email"
 								class="ys-input"
 								type="email"
 								required
@@ -190,7 +201,7 @@
 						<label class="ys-label" for="ys-phone">{$messages.yardSign.phone}</label>
 						<input
 							id="ys-phone"
-							name="phone"
+							name="Phone"
 							class="ys-input"
 							type="tel"
 							required
@@ -204,7 +215,7 @@
 						<label class="ys-label" for="ys-street">{$messages.yardSign.streetAddress}</label>
 						<input
 							id="ys-street"
-							name="streetAddress"
+							name="Street Address"
 							class="ys-input"
 							type="text"
 							required
@@ -217,7 +228,7 @@
 						<label class="ys-label" for="ys-city">{$messages.yardSign.city}</label>
 						<input
 							id="ys-city"
-							name="city"
+							name="City"
 							class="ys-input"
 							type="text"
 							required
@@ -233,7 +244,7 @@
 						</label>
 						<textarea
 							id="ys-instructions"
-							name="placementInstructions"
+							name="Instructions for Placement"
 							class="ys-input ys-textarea"
 							rows="3"
 							maxlength="600"
