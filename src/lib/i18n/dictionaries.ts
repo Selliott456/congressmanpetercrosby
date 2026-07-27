@@ -92,7 +92,7 @@ const en = {
 		heroTitle: 'The Voice for Northern Utah',
 		heroLead: [
 			'Northern Utah is home. It’s where Amanda and I have put down roots and have raised our family for almost 20 years now.',
-			'I’m running because our community needs a leader that will voice our concerns, resolve our issues, and hold to our values whatever comes. I am determined to be that kind of leader, and to earn your trust by proving that out the entire campaign.',
+			'I’m running because our community needs a leader that will voice our concerns, resolve our issues, and hold to our values whatever comes. I am determined to be that kind of leader, and to earn your trust by proving that throughout the entire campaign.',
 			'I want to hear from you. I’m holding town halls every month. Come talk to me at the next one near you.'
 		],
 		heroEventsLink: 'Find your next town hall →',
