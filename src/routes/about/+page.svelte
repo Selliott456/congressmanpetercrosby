@@ -2,6 +2,15 @@
 	import Button from '$lib/components/Button.svelte';
 	import Rail from '$lib/components/Rail.svelte';
 	import { messages } from '$lib/i18n/locale';
+
+	/**
+	 * Split a paragraph into runs on `**emphasis**` markers — odd segments are
+	 * emphasized. Lets copy carry inline emphasis without HTML in the dictionaries.
+	 * @param {string} text
+	 */
+	function runs(text) {
+		return text.split('**').map((t, i) => ({ text: t, em: i % 2 === 1 }));
+	}
 </script>
 
 <svelte:head>
@@ -42,7 +51,7 @@
 				<div class="section-body">
 					{#each section.parts as part}
 						{#if part.type === 'p'}
-							<p>{part.text}</p>
+							<p>{#each runs(part.text) as run}{#if run.em}<em class="about-em">{run.text}</em>{:else}{run.text}{/if}{/each}</p>
 						{:else if part.type === 'ul'}
 							<ul>
 								{#each part.items as li}
@@ -176,6 +185,13 @@
 
 	.section-body p {
 		margin: 0 0 1rem 0;
+	}
+
+	/* Inline emphasis (**…** in copy) — semibold italic serif to match the doc. */
+	.about-em {
+		font-style: italic;
+		font-weight: 600;
+		color: var(--ink);
 	}
 
 	.section-body p:last-child {

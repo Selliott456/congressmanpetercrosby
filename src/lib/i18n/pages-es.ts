@@ -28,20 +28,24 @@ export const pagesEs = {
 					},
 					{
 						type: 'p' as const,
-						text: 'Tras una lesión durante mi tiempo en el ROTC, supe que debía elegir un camino distinto para servir. Postularme al Congreso es parte de ese servicio para mí.'
+						text: 'Tras una lesión que puso fin a mi tiempo en el ROTC, supe que debía elegir un camino distinto para servir a mi país. Postularme al Congreso es parte de ese servicio.'
 					},
 					{
 						type: 'p' as const,
-						text: 'Salvaguardar los derechos y libertades de nuestro país exige el sacrificio de todos nosotros. El juramento que hice como Eagle Scout hace casi veinticinco años de mejorar la sociedad sigue siendo central en mi vida hoy. Los funcionarios públicos, como nuestros representantes en el Congreso, están para servir a sus vecinos. Como su representante electo en el Congreso, pondré a la comunidad y al país antes que a mí mismo en cada momento de cada día.'
+						text: 'Salvaguardar los derechos y libertades de nuestro país exige el sacrificio de todos nosotros. El juramento que hice como Eagle Scout hace casi veinticinco años de mejorar la sociedad sigue siendo central en mi vida hoy. Los funcionarios públicos, como nuestros representantes en el Congreso, están para servir a sus vecinos.'
+					},
+					{
+						type: 'p' as const,
+						text: 'Como su representante electo en el Congreso, prometo mantener mi compromiso de servir a los mejores intereses de mi comunidad.'
 					}
 				]
 			},
 			{
-				title: 'Esposo y padre arraigado en Cache Valley desde hace 19 años',
+				title: 'Esposo y padre arraigado en el norte de Utah, que entiende la vida aquí',
 				parts: [
 					{
 						type: 'p' as const,
-						text: 'Mi esposa, Amanda, y yo estamos criando a nuestras tres hermosas hijas en Cache Valley. Son tres jóvenes amables, apasionadas, brillantes y extraordinarias.'
+						text: 'Mi esposa, Amanda, y yo hemos criado a nuestras tres hermosas hijas en el norte de Utah durante 19 años. Son jóvenes amables, apasionadas, brillantes y extraordinarias.'
 					},
 					{
 						type: 'p' as const,
@@ -50,6 +54,18 @@ export const pagesEs = {
 					{
 						type: 'p' as const,
 						text: 'Me postulo para asegurar que ellas, y todos los demás, tengan las oportunidades que nos prometieron. Acompáñenme para hacerlo posible.'
+					},
+					{
+						type: 'p' as const,
+						text: 'Comencé mi carrera profesional y tuve a mi primera hija en el verano de 2008, justo cuando nuestro país entraba en la peor crisis financiera en décadas. Me gradué con mi licenciatura en 2011, en uno de los peores mercados laborales para recién graduados de la historia.'
+					},
+					{
+						type: 'p' as const,
+						text: 'Desde tener que permanecer en un empleo ajeno a mi carrera para pagar las cuentas o mantener el seguro médico, o cambiar de empleador para tener alguna posibilidad de un aumento, hasta pedir préstamos estudiantiles y solicitar la Condonación de Préstamos por Servicio Público (Public Service Loan Forgiveness) en un sistema cada vez más frustrante, **lo entiendo.**'
+					},
+					{
+						type: 'p' as const,
+						text: 'Mi esposa y yo libramos estas batallas todos los días y estamos lanzando a nuestras hijas a un mundo aún más incierto que en el que empezamos nosotros. Nuestra familia ha tenido la fortuna de salir adelante con trabajo duro, un poco de suerte y la ayuda de programas como WIC, Medicaid y los programas para compradores de vivienda por primera vez, además de unos padres que nos apoyaron y que se beneficiaron de un sistema que funcionaba.'
 					}
 				]
 			},
@@ -58,31 +74,33 @@ export const pagesEs = {
 				parts: [
 					{
 						type: 'p' as const,
-						text: 'Soy un graduado universitario de primera generación que ha pasado su carrera equilibrando la vida familiar con más de un empleo de tiempo completo para llegar a fin de mes. Mi carrera profesional me ha llevado de puestos de liderazgo en una empresa Fortune 500 a una cátedra en Utah State University.'
+						text: 'Soy un graduado universitario de primera generación que ha pasado su carrera equilibrando la vida familiar con más de un empleo de tiempo completo a la vez para llegar a fin de mes. Mi carrera profesional me ha dado una amplia experiencia, desde puestos de liderazgo en una empresa Fortune 500 hasta un puesto como profesor adjunto en Utah State University:'
 					},
 					{
 						type: 'ul' as const,
 						items: [
-							'Completé mis estudios de licenciatura en [año] en [escuela]',
-							'Comencé como miembro del personal de base trabajando en operaciones',
-							'Ascendí a un rol de supervisión en menos de un año mientras estudiaba a tiempo completo',
-							'Obtuve una maestría en XX en [año]',
-							'Dirigí un equipo de cientos de empleados dedicados a [breve descripción del trabajo]',
-							'Pasé a la educación superior con un puesto en investigación institucional y docencia en Utah State University, donde enseñé Política Estadounidense a estudiantes de pregrado',
-							'Actualmente soy profesor adjunto en el Center for Anticipatory Intelligence de USU, donde imparto un curso de posgrado sobre tecnología emergente mientras desempeño un rol de tiempo completo como director, gestor de proyectos y consultor en el sector privado'
+							'Obtuve una Licenciatura en Ciencias Políticas con énfasis en el Medio Oriente en 2011 en Utah State University',
+							'Obtuve una Maestría en Ciencias Políticas en Utah State University en 2013, con un enfoque en el papel de Estados Unidos en el sistema internacional.',
+							'Comencé como miembro del personal atendiendo llamadas en una agencia de servicio al cliente',
+							'Ascendí a un rol de supervisión en seis meses mientras estudiaba a tiempo completo y formaba una familia',
+							'Dirigí un equipo de cientos de empleados como Gerente de Operaciones, donde me enfoqué en la experiencia del cliente y las operaciones para grandes corporaciones y agencias gubernamentales, gestionando un contrato con $15 millones en ingresos anuales.',
+							'Pasé a un puesto en Análisis Corporativo, donde ayudé a empresas Fortune 500 a implementar mejoras de eficiencia operativa',
+							'Pasé a la educación superior, donde ocupé los puestos de Analista Sénior y Subdirector en Investigación Institucional durante 8 años',
+							'Impartí cursos de Instituciones Estadounidenses a cientos de estudiantes de pregrado cada semestre en Utah State University durante 7 años',
+							'Actualmente soy profesor adjunto en el Center for Anticipatory Intelligence de USU, donde imparto un curso de posgrado sobre tecnología emergente y disruptiva mientras desempeño un rol de tiempo completo como director, gestor de proyectos y consultor en el sector privado.'
 						]
 					},
 					{
 						type: 'p' as const,
-						text: 'Con mi experiencia en los sectores privado y público, trabajo con rectores, provosts, profesorado y personal de apoyo para ayudarles a navegar un futuro cada vez más impredecible.'
+						text: 'Soy educador de corazón, y trabajar con estudiantes y nuevos empleados como mentor, instructor y futuro colega ha sido mi experiencia profesional más gratificante. Aunque la vida no me ha dado la oportunidad de enseñar a tiempo completo, **ayudar a otros a entender los sistemas en los que vivimos y cómo deberían funcionar es mi pasión**.'
 					},
 					{
 						type: 'p' as const,
-						text: 'Trabajar con estudiantes como mentor, instructor y futuro colega es mi experiencia profesional más gratificante.'
+						text: 'Gracias a mi experiencia tanto en el sector privado como en el público, junto con mi propia experiencia de vida, estoy en una posición única para entender las necesidades y preocupaciones de los habitantes del norte de Utah y de las industrias que mueven nuestra economía, de una manera en que un político de carrera nunca lo estará. Se me da bien encontrar soluciones en entornos difíciles, desarrollar sistemas eficientes y asegurar los mejores resultados posibles para quienes trabajo y sirvo.'
 					},
 					{
 						type: 'p' as const,
-						text: 'Mi trayectoria me ha enseñado la fuerza del pensamiento flexible, la construcción de relaciones y las habilidades organizativas.'
+						text: 'Mi trayectoria me ha enseñado la fuerza del pensamiento flexible y la importancia de la resiliencia, y me ha ayudado a desarrollar las habilidades de construcción de relaciones y de organización necesarias para trabajar en un entorno complejo como el Congreso y lograr los mejores resultados posibles para quienes sirvo.'
 					}
 				]
 			}
