@@ -431,6 +431,25 @@
 			width: auto;
 			margin: 0 0 1.25rem;
 		}
+
+		/* Dark "campaign reel" bleeds edge-to-edge on mobile (like the home dark
+		   sections) so the marquee runs to the screen edges. The eyebrow label keeps
+		   the page's side margin so its text still lines up with the copy above. */
+		.about-trail {
+			width: 100vw;
+			max-width: 100vw;
+			margin-left: calc(-1 * var(--mobile-margin));
+			margin-right: calc(-1 * var(--mobile-margin));
+			box-sizing: border-box;
+		}
+
+		.about-trail-inner {
+			padding: 0;
+		}
+
+		.about-trail-eyebrow {
+			padding-inline: var(--mobile-margin);
+		}
 	}
 
 	@media (max-width: 640px) {
