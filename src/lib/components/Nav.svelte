@@ -1,6 +1,7 @@
 <script>
   import { page } from "$app/stores";
   import Rail from "./Rail.svelte";
+  import YardSignModal from "./YardSignModal.svelte";
   import { messages } from "$lib/i18n/locale";
 
   const donateHref = "https://secure.actblue.com/donate/peter-crosby-1";
@@ -17,8 +18,16 @@
 
   let menuOpen = false;
 
+  /** Yard-sign request modal (opened from the bottom of the collapsed menu). */
+  let showYardSign = false;
+
   function toggleMenu() {
     menuOpen = !menuOpen;
+  }
+
+  function openYardSign() {
+    menuOpen = false;
+    showYardSign = true;
   }
 </script>
 
@@ -102,6 +111,13 @@
       {/each}
     </ul>
     <div class="nav-menu-actions">
+      <button
+        type="button"
+        class="nav-menu-action nav-menu-action-yardsign"
+        on:click={openYardSign}
+      >
+        {$messages.yardSign.requestButton}
+      </button>
       <a
         href="/volunteer"
         class="nav-menu-action nav-menu-action-volunteer"
@@ -112,6 +128,10 @@
     </div>
   </div>
 </nav>
+
+{#if showYardSign}
+  <YardSignModal on:close={() => (showYardSign = false)} />
+{/if}
 
 <style>
   .nav {
@@ -370,6 +390,8 @@
 
   .nav-menu-action {
     display: block;
+    width: 100%;
+    box-sizing: border-box;
     text-align: center;
     font-family: var(--display);
     font-style: italic;
@@ -380,22 +402,35 @@
     text-decoration: none;
     padding: 0.85rem 1rem;
     border-radius: 0;
+    cursor: pointer;
     transition:
       background 0.2s ease,
       border-color 0.2s ease,
       color 0.2s ease;
   }
 
-  .nav-menu-action-volunteer {
+  .nav-menu-action-yardsign {
     background: transparent;
     color: var(--paper);
     border: 1px solid rgba(247, 250, 252, 0.4);
   }
 
-  .nav-menu-action-volunteer:hover {
+  .nav-menu-action-yardsign:hover {
     background: rgba(255, 255, 255, 0.12);
     border-color: var(--paper);
     color: var(--paper);
+  }
+
+  .nav-menu-action-volunteer {
+    background: var(--blue);
+    color: var(--paper);
+    border: 1px solid var(--blue);
+  }
+
+  .nav-menu-action-volunteer:hover {
+    background: var(--sky);
+    border-color: var(--sky);
+    color: var(--ink-deep);
   }
 
   @media (max-width: 1119px) {
