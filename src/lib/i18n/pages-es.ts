@@ -743,6 +743,11 @@ export const pagesEs = {
 				title: 'Fe y política',
 				description:
 					'Hoy, en 2026, me encuentro en una posición que no habría esperado de joven: no solo como candidato al Congreso, sino como candidato al Congreso por el Partido Demócrata.'
+			},
+			'moore-crosby-candidates-speak': {
+				title: 'Moore, Crosby y otros candidatos participan en Nibley',
+				description:
+					'Candidatos de contiendas locales, estatales y federales se reunieron el miércoles por la noche en Virgil Gibbons Heritage Park, en Nibley, para un picnic comunitario pensado para fomentar la conversación entre los votantes y quienes buscan un cargo público.'
 			}
 		} as Record<string, { title: string; description?: string }>
 	},
