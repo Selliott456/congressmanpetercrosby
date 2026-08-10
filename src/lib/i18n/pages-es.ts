@@ -592,7 +592,7 @@ export const pagesEs = {
 			},
 			'gcal-25krankb031055jebtbo0jlfr5': {
 				title: 'Desfile de Sauerkraut Days de Providence',
-				description: '¡Acompañe a Peter y a su familia en el desfile de Sauerkraut Days de Providence!'
+				description: '¡Acompañe a Peter y a su familia —con carroza— en el desfile de Sauerkraut Days de Providence! La ruta va hacia el norte por Main Street desde 300 South y luego al oeste por Center Street hasta Zollinger Park.'
 			},
 			'gcal-3n2u5jsopk7sg1bik5kqdl9s1c': {
 				title: 'Sauerkraut Days de Providence – Mesa',
@@ -601,10 +601,6 @@ export const pagesEs = {
 			'gcal-7msagpfs4i1t9ade3i45t827sk': {
 				title: 'Foro Interreligioso de Cache Valley',
 				description: 'Un foro comunitario con líderes religiosos de Cache Valley sobre inquietudes ambientales: una oportunidad para escuchar a los candidatos. Más detalles próximamente.'
-			},
-			'gcal-1hc49k8ubfppkvv24fss43ac4s': {
-				title: 'Desfile de la Feria de Box Elder',
-				description: 'Acompañe a la campaña en el desfile de la Feria del Condado de Box Elder en Tremonton.'
 			},
 			'gcal-66cgctmceb9nc7tdb5dnbktnuk': {
 				title: 'Cabildo – Farmington',
@@ -641,6 +637,34 @@ export const pagesEs = {
 			'gcal-0v2436r6dda91cpnk1t5a2b69a': {
 				title: 'Debate del Distrito 2 del Congreso',
 				description: 'El debate oficial del Distrito 2 del Congreso, organizado por la Comisión de Debates de Utah y transmitido por televisión local y YouTube en vivo.'
+			},
+			'gcal-5vo2ceujgu3r1hr412nnak1e9m': {
+				title: 'Desfile de la Feria de Box Elder',
+				description: 'Acompañe a la campaña en el desfile de la Feria del Condado de Box Elder en Tremonton (ruta: de 600 South a 600 North Tremont Street).'
+			},
+			'gcal-2l8p5sdodo1re295vh0t8eud9c': {
+				title: 'Cabildo Virtual',
+				description: 'Un cabildo virtual, disponible por Facebook Live. Únase desde donde esté.'
+			},
+			'gcal-05fh6qahll9nu4lftkn9hmcbsv': {
+				title: 'Encuentro y saludo – Biblioteca de Kaysville',
+				description: 'Un encuentro comunitario en el Auditorio de la Biblioteca de Kaysville. Venga a saludar a Peter.'
+			},
+			'gcal-1botkdlrv5o1hb1bcdp2h1r8uc': {
+				title: 'Limpieza del sendero Lagoon',
+				description: 'Únase a una limpieza del sendero Lagoon en el Día de Servicio del 11 de septiembre: retirando ramas y material vegetal ya cortado. Venga por una hora o quédese toda la mañana; traiga guantes de trabajo.'
+			},
+			'gcal-0va101o80fmlj3k1f55s52k2i6': {
+				title: 'Cabildo – Ogden Valley',
+				description: 'Acompañe a Peter en un cabildo en la Biblioteca de Ogden Valley en Huntsville. Traiga sus preguntas.'
+			},
+			'gcal-13ot6gnika55pf6gjnphskik6n': {
+				title: 'Cabildo – Biblioteca North Branch',
+				description: 'Acompañe a Peter en un cabildo en la Biblioteca North Branch en Ogden. Traiga sus preguntas.'
+			},
+			'gcal-68m4as7bviqjaparfcr5c4qrsv': {
+				title: 'Cabildo – Biblioteca Southwest',
+				description: 'Acompañe a Peter en un cabildo en la Biblioteca Southwest en Roy. Traiga sus preguntas.'
 			}
 		} as Record<string, { title: string; description: string }>
 	},
@@ -719,6 +743,11 @@ export const pagesEs = {
 				title: 'Fe y política',
 				description:
 					'Hoy, en 2026, me encuentro en una posición que no habría esperado de joven: no solo como candidato al Congreso, sino como candidato al Congreso por el Partido Demócrata.'
+			},
+			'moore-crosby-candidates-speak': {
+				title: 'Moore, Crosby y otros candidatos participan en Nibley',
+				description:
+					'Candidatos de contiendas locales, estatales y federales se reunieron el miércoles por la noche en Virgil Gibbons Heritage Park, en Nibley, para un picnic comunitario pensado para fomentar la conversación entre los votantes y quienes buscan un cargo público.'
 			}
 		} as Record<string, { title: string; description?: string }>
 	},

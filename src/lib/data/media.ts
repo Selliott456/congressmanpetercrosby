@@ -131,6 +131,18 @@ export const mediaData: MediaItem[] = [
 		date: '2026-07-12',
 		url: 'https://substack.com/home/post/p-206725072',
 		outlet: 'Substack'
+	},
+	{
+		id: 'moore-crosby-candidates-speak',
+		pinned: false,
+		type: 'article',
+		title: 'Moore, Crosby, other candidates speak in Nibley',
+		description:
+			'Candidates from local, state and federal races gathered Wednesday evening at Virgil Gibbons Heritage Park in Nibley for a community picnic designed to encourage conversation between voters and those seeking public office.',
+		date: '2026-07-31',
+		url: 'https://www.hjnews.com/news/moore-crosby-other-candidates-speak-in-nibley/article_e042c7d5-3bfd-4a79-a596-b7f106fe454d.html',
+		outlet: 'HJNews',
+		image: '/images/media/moore-crosby-candidates-speak.jpg'
 	}
 ];
 
