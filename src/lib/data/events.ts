@@ -1176,22 +1176,6 @@ export const eventsData: EventRow[] = [
 		endTime: '13:00'
 	},
 	{
-		id: 'gcal-7msagpfs4i1t9ade3i45t827sk',
-		type: 'other',
-		month: 'Aug',
-		day: '20',
-		year: 2026,
-		monthIndex: 8,
-		title: 'Cache Valley Interfaith Forum',
-		time: '7:00 PM – 9:00 PM MT',
-		location: 'Cache Valley (location to be announced)',
-		locationUrl: null,
-		description: 'A community forum with Cache Valley faith leaders on environmental concerns — a listening opportunity for candidates. More details to come.',
-		viewEventUrl: null,
-		startTime: '19:00',
-		endTime: '21:00'
-	},
-	{
 		id: 'gcal-66cgctmceb9nc7tdb5dnbktnuk',
 		type: 'town-hall',
 		month: 'Aug',
@@ -1304,22 +1288,6 @@ export const eventsData: EventRow[] = [
 		endTime: null
 	},
 	{
-		id: 'gcal-584jnkgh3cdlkk3mn2pmfbh5kr',
-		type: 'other',
-		month: 'Oct',
-		day: '10',
-		year: 2026,
-		monthIndex: 10,
-		title: 'Purple Paw Parade (WSU Homecoming)',
-		time: '9:00 AM – 10:30 AM MT',
-		location: 'Municipal Gardens, Ogden, UT',
-		locationUrl: 'https://www.google.com/maps/search/Municipal+Gardens+Ogden+UT',
-		description: 'Join the campaign at the Purple Paw Parade kicking off Weber State Homecoming in downtown Ogden.',
-		viewEventUrl: null,
-		startTime: '09:00',
-		endTime: '10:30'
-	},
-	{
 		id: 'gcal-0v2436r6dda91cpnk1t5a2b69a',
 		type: 'other',
 		month: 'Oct',
@@ -1402,22 +1370,6 @@ export const eventsData: EventRow[] = [
 		endTime: '12:00'
 	},
 	{
-		id: 'gcal-0va101o80fmlj3k1f55s52k2i6',
-		type: 'town-hall',
-		month: 'Sep',
-		day: '23',
-		year: 2026,
-		monthIndex: 9,
-		title: 'Town Hall – Ogden Valley Library',
-		time: '7:00 PM – 8:15 PM MT',
-		location: 'Ogden Valley Branch – Weber County Library System, 131 S 7400 E, Huntsville, UT 84317',
-		locationUrl: 'https://www.google.com/maps/search/131+S+7400+E+Huntsville+UT+84317',
-		description: 'Join Peter for a town hall at the Ogden Valley Library in Huntsville. Please come with your questions.',
-		viewEventUrl: null,
-		startTime: '19:00',
-		endTime: '20:15'
-	},
-	{
 		id: 'gcal-13ot6gnika55pf6gjnphskik6n',
 		type: 'town-hall',
 		month: 'Oct',
@@ -1448,5 +1400,22 @@ export const eventsData: EventRow[] = [
 		viewEventUrl: null,
 		startTime: '19:00',
 		endTime: '20:15'
+	},
+	// --- Pulled 2026-08-15 (Airtable "Volunteer and Events") ---
+	{
+		id: 'gcal-0dsu2dnujsj5nt9ngpvvkvhc05',
+		type: 'other',
+		month: 'Sep',
+		day: '26',
+		year: 2026,
+		monthIndex: 9,
+		title: 'Pride in the Park',
+		time: '12:00 PM – 6:00 PM MT',
+		location: 'Snow Park, 518-540 N 100 W, Brigham City, UT 84302',
+		locationUrl: 'https://www.google.com/maps/search/518+N+100+W+Brigham+City+UT+84302',
+		description: 'Come show your support at the second annual Pride in the Park in Brigham City.',
+		viewEventUrl: null,
+		startTime: '12:00',
+		endTime: '18:00'
 	},
 ];
