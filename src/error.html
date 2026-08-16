@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="robots" content="noindex" />
+		<title>%sveltekit.status% — Peter Crosby for Congress</title>
+		<style>
+			:root {
+				--ink-deep: #091b36;
+				--paper: #f7fafc;
+				--sky: #7fb7dc;
+				--green: #235926;
+				--blue: #2e5fa0;
+				--display: 'Archivo', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+				--sans: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+			}
+			* {
+				box-sizing: border-box;
+			}
+			html,
+			body {
+				margin: 0;
+				height: 100%;
+			}
+			body {
+				display: flex;
+				min-height: 100%;
+				align-items: center;
+				justify-content: center;
+				padding: 2rem 1.5rem;
+				background: var(--ink-deep);
+				color: var(--paper);
+				font-family: var(--sans);
+				-webkit-font-smoothing: antialiased;
+				text-align: center;
+			}
+			.wrap {
+				width: 100%;
+				max-width: 560px;
+			}
+			.rail {
+				display: flex;
+				height: 6px;
+				width: 120px;
+				margin: 0 auto 2rem;
+			}
+			.rail i {
+				flex: 1;
+			}
+			.rail .g {
+				background: var(--green);
+			}
+			.rail .s {
+				background: var(--sky);
+			}
+			.rail .b {
+				background: var(--blue);
+			}
+			.status {
+				margin: 0;
+				font-family: var(--display);
+				font-style: italic;
+				font-weight: 900;
+				font-size: clamp(4.5rem, 20vw, 9rem);
+				line-height: 0.9;
+				letter-spacing: -0.02em;
+			}
+			h1 {
+				margin: 0.5rem 0 0.75rem;
+				font-family: var(--display);
+				font-style: italic;
+				font-weight: 900;
+				font-size: clamp(1.35rem, 4vw, 1.9rem);
+			}
+			p.msg {
+				margin: 0 auto 2rem;
+				max-width: 42ch;
+				font-size: 1.05rem;
+				line-height: 1.6;
+				color: rgba(247, 250, 252, 0.82);
+			}
+			a.home {
+				display: inline-block;
+				padding: 0.8rem 1.9rem;
+				font-family: var(--display);
+				font-style: italic;
+				font-weight: 800;
+				font-size: 0.8125rem;
+				letter-spacing: 0.1em;
+				text-transform: uppercase;
+				color: var(--ink-deep);
+				background: var(--sky);
+				text-decoration: none;
+				border: 2px solid var(--sky);
+			}
+			a.home:hover {
+				background: #6aa6cf;
+				border-color: #6aa6cf;
+			}
+			.detail {
+				margin-top: 2.5rem;
+				font-size: 0.75rem;
+				letter-spacing: 0.04em;
+				color: rgba(247, 250, 252, 0.4);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="rail" aria-hidden="true">
+				<i class="g"></i><i class="s"></i><i class="b"></i>
+			</div>
+			<p class="status">%sveltekit.status%</p>
+			<h1>This page didn’t load</h1>
+			<p class="msg">
+				Something went wrong while loading the site. Please refresh the page, or head back to the
+				homepage — we’ll get you where you’re going.
+			</p>
+			<a class="home" href="/">Back to home</a>
+			<p class="detail">%sveltekit.error.message%</p>
+		</div>
+	</body>
+</html>
