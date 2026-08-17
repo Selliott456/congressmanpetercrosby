@@ -111,7 +111,7 @@ export const mediaData: MediaItem[] = [
 	},
 	{
 		id: 'cache-valley-daily-winnable',
-		pinned: true,
+		pinned: false,
 		type: 'article',
 		title: 'Crosby Views the Race as Winnable',
 		description:
@@ -143,6 +143,18 @@ export const mediaData: MediaItem[] = [
 		url: 'https://www.hjnews.com/news/moore-crosby-other-candidates-speak-in-nibley/article_e042c7d5-3bfd-4a79-a596-b7f106fe454d.html',
 		outlet: 'HJNews',
 		image: '/images/media/moore-crosby-candidates-speak.jpg'
+	},
+	{
+		id: 'candidates-spending-priorities',
+		pinned: true,
+		type: 'article',
+		title: 'Two Utah candidates, two different answers on federal spending priorities',
+		description:
+			'Republican incumbent Blake Moore and Democratic challenger Peter Crosby agree on some issues, like water. But they split on others.',
+		date: '2026-08-12',
+		url: 'https://www.upr.org/politics/2026-08-12/crosby-moore-utah-congressional-election',
+		outlet: 'UPR',
+		image: '/images/media/two_candidates_two_answers.jpg'
 	}
 ];
 

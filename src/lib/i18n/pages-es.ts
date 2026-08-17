@@ -740,6 +740,11 @@ export const pagesEs = {
 				title: 'Moore, Crosby y otros candidatos participan en Nibley',
 				description:
 					'Candidatos de contiendas locales, estatales y federales se reunieron el miércoles por la noche en Virgil Gibbons Heritage Park, en Nibley, para un picnic comunitario pensado para fomentar la conversación entre los votantes y quienes buscan un cargo público.'
+			},
+			'candidates-spending-priorities': {
+				title: 'Dos candidatos de Utah, dos respuestas distintas sobre las prioridades del gasto federal',
+				description:
+					'El representante republicano Blake Moore y el retador demócrata Peter Crosby coinciden en algunos temas, como el agua. Pero difieren en otros.'
 			}
 		} as Record<string, { title: string; description?: string }>
 	},
