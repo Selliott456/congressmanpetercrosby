@@ -28,21 +28,13 @@ export type EventRow = {
 };
 
 /**
- * Event types that offer on-site RSVP by default. The Airtable/Google Calendar
- * source carries no "offer RSVP?" flag (see TODO.md), so we derive it: the
- * voter-facing gathering types (town halls + meet & greets) collect RSVPs unless
- * an individual event opts out. Any event may override with an explicit `rsvp`
- * (e.g. a virtual/livestream town hall sets `rsvp: false` — you just join, no RSVP).
+ * Whether an event should offer the on-site RSVP CTA. Every event offers RSVP by
+ * default, regardless of type; an individual event may opt out with an explicit
+ * `rsvp: false` (e.g. a virtual/livestream town hall — you just tune in, no RSVP).
+ * Callers still gate on the event being upcoming (RSVP only makes sense beforehand).
  */
-export const RSVP_DEFAULT_TYPES: ReadonlySet<EventType> = new Set(['town-hall', 'meet-greet']);
-
-/**
- * Whether an event should offer the on-site RSVP CTA. Explicit `rsvp` wins;
- * otherwise it defaults on for {@link RSVP_DEFAULT_TYPES}. Callers still gate on
- * the event being upcoming (RSVP only makes sense before the event).
- */
-export function eventOffersRsvp(e: Pick<EventRow, 'type' | 'rsvp'>): boolean {
-	return e.rsvp ?? RSVP_DEFAULT_TYPES.has(e.type);
+export function eventOffersRsvp(e: Pick<EventRow, 'rsvp'>): boolean {
+	return e.rsvp ?? true;
 }
 
 export const eventsData: EventRow[] = [

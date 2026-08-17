@@ -25,8 +25,8 @@
 	}
 
 	$: past = endOfDay(event) < new Date();
-	// RSVP defaults on for town halls & meet-greets (eventOffersRsvp), and only
-	// makes sense while the event is still upcoming.
+	// RSVP is offered on every event (eventOffersRsvp) unless it explicitly opts
+	// out, and only makes sense while the event is still upcoming.
 	$: showRsvp = eventOffersRsvp(event) && !past;
 	$: rsvped = $rsvpedEvents.has(event.id);
 	// "Add to calendar" only makes sense for upcoming events.
