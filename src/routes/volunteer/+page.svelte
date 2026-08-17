@@ -128,15 +128,13 @@
 
 					<div class="form-grid">
 						<div class="form-row">
-							<label class="form-label" for="phone">
-								{$messages.volunteer.phone}
-								<span class="form-optional">({$messages.common.optional})</span>
-							</label>
+							<label class="form-label" for="phone">{$messages.volunteer.phone}</label>
 							<input
 								id="phone"
 								name="phone"
 								class="form-input"
 								type="tel"
+								required
 								maxlength="25"
 								autocomplete="tel"
 								inputmode="tel"
