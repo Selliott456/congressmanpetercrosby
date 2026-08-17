@@ -159,8 +159,8 @@ export const pagesEs = {
 		lastName: 'Apellido',
 		phone: 'Teléfono',
 		email: 'Correo electrónico',
+		streetAddress: 'Dirección',
 		city: 'Ciudad',
-		county: 'Condado',
 		houseDistrict: 'Distrito de la Cámara',
 		houseDistrictHint: '¿No sabe cuál le corresponde? Puede dejarlo en blanco.',
 		source: '¿Qué le motivó a ser voluntario?',
@@ -598,10 +598,6 @@ export const pagesEs = {
 				title: 'Sauerkraut Days de Providence – Mesa',
 				description: 'Encuentre a Peter con una mesa en los Sauerkraut Days de Providence. Pase a saludar.'
 			},
-			'gcal-7msagpfs4i1t9ade3i45t827sk': {
-				title: 'Foro Interreligioso de Cache Valley',
-				description: 'Un foro comunitario con líderes religiosos de Cache Valley sobre inquietudes ambientales: una oportunidad para escuchar a los candidatos. Más detalles próximamente.'
-			},
 			'gcal-66cgctmceb9nc7tdb5dnbktnuk': {
 				title: 'Cabildo – Farmington',
 				description: 'Acompañe a Peter en el cabildo de agosto del Condado de Davis en Farmington. Traiga sus preguntas.'
@@ -630,10 +626,6 @@ export const pagesEs = {
 				title: 'Ogden Pride',
 				description: 'Encuentre a la campaña en el festival Ogden Pride.'
 			},
-			'gcal-584jnkgh3cdlkk3mn2pmfbh5kr': {
-				title: 'Desfile Purple Paw (Bienvenida de WSU)',
-				description: 'Acompañe a la campaña en el desfile Purple Paw que inicia la Bienvenida (Homecoming) de Weber State en el centro de Ogden.'
-			},
 			'gcal-0v2436r6dda91cpnk1t5a2b69a': {
 				title: 'Debate del Distrito 2 del Congreso',
 				description: 'El debate oficial del Distrito 2 del Congreso, organizado por la Comisión de Debates de Utah y transmitido por televisión local y YouTube en vivo.'
@@ -654,10 +646,6 @@ export const pagesEs = {
 				title: 'Limpieza del sendero Lagoon',
 				description: 'Únase a una limpieza del sendero Lagoon en el Día de Servicio del 11 de septiembre: retirando ramas y material vegetal ya cortado. Venga por una hora o quédese toda la mañana; traiga guantes de trabajo.'
 			},
-			'gcal-0va101o80fmlj3k1f55s52k2i6': {
-				title: 'Cabildo – Ogden Valley',
-				description: 'Acompañe a Peter en un cabildo en la Biblioteca de Ogden Valley en Huntsville. Traiga sus preguntas.'
-			},
 			'gcal-13ot6gnika55pf6gjnphskik6n': {
 				title: 'Cabildo – Biblioteca North Branch',
 				description: 'Acompañe a Peter en un cabildo en la Biblioteca North Branch en Ogden. Traiga sus preguntas.'
@@ -665,6 +653,10 @@ export const pagesEs = {
 			'gcal-68m4as7bviqjaparfcr5c4qrsv': {
 				title: 'Cabildo – Biblioteca Southwest',
 				description: 'Acompañe a Peter en un cabildo en la Biblioteca Southwest en Roy. Traiga sus preguntas.'
+			},
+			'gcal-0dsu2dnujsj5nt9ngpvvkvhc05': {
+				title: 'Orgullo en el Parque',
+				description: 'Venga a mostrar su apoyo en el segundo Orgullo en el Parque (Pride in the Park) anual en Brigham City.'
 			}
 		} as Record<string, { title: string; description: string }>
 	},

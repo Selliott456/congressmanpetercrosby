@@ -1,19 +1,33 @@
 <script>
 	import { onMount } from 'svelte';
+	import { afterNavigate } from '$app/navigation';
+	import { browser, dev } from '$app/environment';
 	import AnnouncementBar from '../lib/components/AnnouncementBar.svelte';
 	import Nav from '../lib/components/Nav.svelte';
 	import Footer from '../lib/components/Footer.svelte';
 	import { initLocaleFromStorage } from '$lib/i18n/locale';
+	import { initAnalytics, trackPageView } from '$lib/analytics';
+
+	// Load Google Analytics in production only (keeps local dev out of the data).
+	const analyticsEnabled = browser && !dev;
+
+	// Set up gtag before the first afterNavigate fires so no page view is missed.
+	if (analyticsEnabled) initAnalytics();
 
 	onMount(() => {
 		initLocaleFromStorage();
+	});
+
+	// gtag's automatic page_view is disabled (see analytics.ts); send one on every
+	// SvelteKit navigation. afterNavigate also fires on initial load → landing page.
+	afterNavigate(() => {
+		if (analyticsEnabled) trackPageView();
 	});
 </script>
 
 <svelte:head>
 	<title>Peter Crosby for Congress</title>
-	<link rel="icon" href="/images/brand_strategy_logo_white.svg" type="image/svg+xml" />
-	<!-- Nav logo: discover early on every route -->
+	<!-- Favicons live in src/app.html. Nav logo: discover early on every route -->
 	<link
 		rel="preload"
 		href="/images/brand_strategy_logo_white.svg"

@@ -85,6 +85,28 @@ const en = {
 		eyebrow: 'Endorsed By',
 		viewAll: 'See all endorsements'
 	},
+	errorPage: {
+		metaTitle: 'Error',
+		homeCta: 'Back to home',
+		eventsCta: 'Find an event',
+		contactCta: 'Contact the campaign',
+		helpLead: 'Where to next?',
+		notFound: {
+			eyebrow: 'Page not found',
+			title: 'We can’t find that page',
+			lede: 'The page you’re looking for may have moved, or the link might be out of date. Let’s get you back on track.'
+		},
+		serverError: {
+			eyebrow: 'Server error',
+			title: 'Something went wrong on our end',
+			lede: 'This one’s on us, not you. Please try again in a moment, or head back to a page that’s working.'
+		},
+		generic: {
+			eyebrow: 'Something went wrong',
+			title: 'That didn’t work',
+			lede: 'An unexpected error came up. Please try again, or use one of the links below.'
+		}
+	},
 	home: {
 		metaDescription:
 			'Peter Crosby for U.S. Congress, Utah District 2. Integrity, practical solutions, and a representative who puts Northern Utah first.',
@@ -268,6 +290,28 @@ const es: Messages = {
 	endorsements: {
 		eyebrow: 'Respaldado por',
 		viewAll: 'Ver todos los respaldos'
+	},
+	errorPage: {
+		metaTitle: 'Error',
+		homeCta: 'Volver al inicio',
+		eventsCta: 'Buscar un evento',
+		contactCta: 'Contactar la campaña',
+		helpLead: '¿A dónde ahora?',
+		notFound: {
+			eyebrow: 'Página no encontrada',
+			title: 'No encontramos esa página',
+			lede: 'La página que busca pudo haberse movido o el enlace ya no está vigente. Le ayudamos a retomar el camino.'
+		},
+		serverError: {
+			eyebrow: 'Error del servidor',
+			title: 'Algo salió mal de nuestro lado',
+			lede: 'Esto es cosa nuestra, no suya. Inténtelo de nuevo en un momento o vuelva a una página que funcione.'
+		},
+		generic: {
+			eyebrow: 'Algo salió mal',
+			title: 'Eso no funcionó',
+			lede: 'Ocurrió un error inesperado. Inténtelo de nuevo o use uno de los enlaces de abajo.'
+		}
 	},
 	home: {
 		metaDescription:
