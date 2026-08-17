@@ -156,30 +156,30 @@
 						</div>
 					</div>
 
-					<div class="form-grid">
-						<div class="form-row">
-							<label class="form-label" for="city">{$messages.volunteer.city}</label>
-							<input
-								id="city"
-								name="city"
-								class="form-input"
-								type="text"
-								required
-								maxlength="80"
-								autocomplete="address-level2"
-							/>
-						</div>
-						<div class="form-row">
-							<label class="form-label" for="county">{$messages.volunteer.county}</label>
-							<input
-								id="county"
-								name="county"
-								class="form-input"
-								type="text"
-								required
-								maxlength="80"
-							/>
-						</div>
+					<div class="form-row">
+						<label class="form-label" for="street-address">{$messages.volunteer.streetAddress}</label>
+						<input
+							id="street-address"
+							name="streetAddress"
+							class="form-input"
+							type="text"
+							required
+							maxlength="120"
+							autocomplete="street-address"
+						/>
+					</div>
+
+					<div class="form-row">
+						<label class="form-label" for="city">{$messages.volunteer.city}</label>
+						<input
+							id="city"
+							name="city"
+							class="form-input"
+							type="text"
+							required
+							maxlength="80"
+							autocomplete="address-level2"
+						/>
 					</div>
 
 					<div class="form-row">
