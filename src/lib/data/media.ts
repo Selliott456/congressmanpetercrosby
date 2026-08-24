@@ -167,7 +167,8 @@ export const mediaData: MediaItem[] = [
 			'The candidate invites local residents to join that gathering to learn more about his grass-roots campaign against three-term GOP incumbent Rep. Blake Moore in the newly redrawn 2nd Congressional District.',
 		date: '2026-08-21',
 		url: 'https://www.cachevalleydaily.com/news/democratic-congressional-candidate-peter-crosby-schedules-local-town-hall-on-aug-26/article_81629fe8-3537-4755-bd59-d2faae760dfd.html',
-		outlet: 'Cache Valley Daily'
+		outlet: 'Cache Valley Daily',
+		image: '/images/media/town-hall-aug-26.jpg'
 	}
 ];
 
