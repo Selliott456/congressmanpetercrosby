@@ -295,6 +295,7 @@ export const pagesEn = {
 		kindVideo: 'Video',
 		kindArticle: 'Article',
 		kindOpEd: 'Op-Ed',
+		kindPressRelease: 'Press Release',
 		closeVideo: 'Close video',
 		pinnedEyebrow: 'Featured',
 		pinnedTitle: 'Featured Media',

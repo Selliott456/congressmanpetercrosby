@@ -691,6 +691,7 @@ export const pagesEs = {
 		kindVideo: 'Video',
 		kindArticle: 'Artículo',
 		kindOpEd: 'Columna',
+		kindPressRelease: 'Comunicado',
 		closeVideo: 'Cerrar video',
 		pinnedEyebrow: 'Destacados',
 		pinnedTitle: 'Medios destacados',
@@ -747,6 +748,18 @@ export const pagesEs = {
 				title: 'Dos candidatos de Utah, dos respuestas distintas sobre las prioridades del gasto federal',
 				description:
 					'El representante republicano Blake Moore y el retador demócrata Peter Crosby coinciden en algunos temas, como el agua. Pero difieren en otros.'
+			},
+			'town-hall-announcement-aug26': {
+				title: 'El candidato demócrata al Congreso Peter Crosby programa un cabildo local para el 26 de agosto',
+				description:
+					'El candidato invita a los residentes locales a unirse a esa reunión para conocer más sobre su campaña de base contra el representante republicano en ejercicio Blake Moore, que lleva tres mandatos, en el recién rediseñado Distrito 2 del Congreso.'
+			},
+			// Featured press release card (headlines the /media "Featured" band).
+			'august-internal-polling': {
+				title:
+					'Todas las miradas en la contienda por el Distrito 2 de Utah: el demócrata Peter Crosby gana terreno en medio de una ola estatal de rechazo a los titulares',
+				description:
+					'Una encuesta del distrito muestra un 57% de insatisfacción con el representante Moore; el 33% de los republicanos duda, mientras nuevas encuestas de agosto ubican al liderazgo republicano estatal en terreno profundamente negativo.'
 			}
 		} as Record<string, { title: string; description?: string }>
 	},

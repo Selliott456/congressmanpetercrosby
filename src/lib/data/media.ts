@@ -1,3 +1,5 @@
+import { pressReleasesByRecent } from './pressReleases';
+
 /**
  * Campaign media (English source). Spanish overrides: $messages.media.byId[id].
  * The home page shows the 6 most recent; /media shows a pinned set + the rest.
@@ -10,7 +12,7 @@ export type MediaItem = {
 	id: string;
 	/** Pin to the top (featured) section of the /media page. */
 	pinned: boolean;
-	type: 'video' | 'article' | 'op-ed';
+	type: 'video' | 'article' | 'op-ed' | 'press-release';
 	title: string;
 	description?: string;
 	/** ISO date (YYYY-MM-DD) — used to pick the most recent items. */
@@ -98,7 +100,7 @@ export const mediaData: MediaItem[] = [
 	},
 	{
 		id: 'your-vote-your-health',
-		pinned: true,
+		pinned: false,
 		type: 'video',
 		title: 'Interview - Your Vote Your Health',
 		description:
@@ -155,6 +157,17 @@ export const mediaData: MediaItem[] = [
 		url: 'https://www.upr.org/politics/2026-08-12/crosby-moore-utah-congressional-election',
 		outlet: 'UPR',
 		image: '/images/media/two_candidates_two_answers.jpg'
+	},
+	{
+		id: 'town-hall-announcement-aug26',
+		pinned: false,
+		type: 'article',
+		title: 'Democratic congressional candidate Peter Crosby schedules local town hall on Aug. 26',
+		description:
+			'The candidate invites local residents to join that gathering to learn more about his grass-roots campaign against three-term GOP incumbent Rep. Blake Moore in the newly redrawn 2nd Congressional District.',
+		date: '2026-08-21',
+		url: 'https://www.cachevalleydaily.com/news/democratic-congressional-candidate-peter-crosby-schedules-local-town-hall-on-aug-26/article_81629fe8-3537-4755-bd59-d2faae760dfd.html',
+		outlet: 'Cache Valley Daily'
 	}
 ];
 
@@ -168,3 +181,31 @@ export const pinnedMedia: MediaItem[] = mediaByRecent.filter((m) => m.pinned);
 
 /** Non-pinned media, newest-first. */
 export const restMedia: MediaItem[] = mediaByRecent.filter((m) => !m.pinned);
+
+/**
+ * The latest press release, shaped as a MediaItem so it can headline the /media
+ * "Featured" grid. English title/summary/image come straight from the release
+ * (single source of truth); it links to the press detail page. Spanish copy is
+ * looked up by id in `$messages.media.byId` — add an override there when a new
+ * release becomes the latest (it falls back to the English title otherwise).
+ */
+const latestPressAsMedia: MediaItem | null = pressReleasesByRecent[0]
+	? {
+			id: pressReleasesByRecent[0].id,
+			pinned: true,
+			type: 'press-release',
+			title: pressReleasesByRecent[0].title,
+			description: pressReleasesByRecent[0].summary,
+			date: pressReleasesByRecent[0].date,
+			url: `/press/${pressReleasesByRecent[0].id}`,
+			image: pressReleasesByRecent[0].image
+		}
+	: null;
+
+/**
+ * Featured media for the /media "Featured" band: the latest press release first,
+ * then the pinned media items (all newest-first).
+ */
+export const featuredMedia: MediaItem[] = latestPressAsMedia
+	? [latestPressAsMedia, ...pinnedMedia]
+	: pinnedMedia;

@@ -1,6 +1,6 @@
 <script>
 	import { messages } from '$lib/i18n/locale';
-	import { pinnedMedia, restMedia } from '$lib/data/media';
+	import { featuredMedia, restMedia } from '$lib/data/media';
 	import { pressReleasesByRecent } from '$lib/data/pressReleases';
 	import MediaGrid from '$lib/components/MediaGrid.svelte';
 	import PressReleaseGrid from '$lib/components/PressReleaseGrid.svelte';
@@ -19,7 +19,7 @@
 				<h1 class="media-block-title">{$messages.media.pinnedTitle}</h1>
 				<p class="media-block-lede">{$messages.media.pageLede}</p>
 			</div>
-			<MediaGrid items={pinnedMedia} />
+			<MediaGrid items={featuredMedia} />
 		</div>
 	</section>
 
