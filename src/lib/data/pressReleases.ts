@@ -13,9 +13,38 @@
  */
 
 export type PressReleaseBlock =
+	/** Paragraph. `text` may contain inline `[label](url)` links. */
 	| { type: 'p'; text: string }
 	| { type: 'ul'; items: string[] }
-	| { type: 'quote'; text: string; attribution?: string };
+	| { type: 'quote'; text: string; attribution?: string }
+	/** A recreated bar chart (e.g. an internal-poll question). Rendered by PressBarChart. */
+	| {
+			type: 'chart';
+			/** The survey question, shown as the chart title. */
+			chartTitle: string;
+			/** Y-axis maximum (percent). */
+			yMax: number;
+			/** Y-axis gridline interval (percent). */
+			yStep: number;
+			/** Bars in display order; `color` is any CSS color. */
+			bars: { label: string; value: number; color: string }[];
+			/** Optional italic note under the chart (e.g. a response rate). */
+			note?: string;
+			/** Source / methodology line under the chart. */
+			source?: string;
+	  };
+
+/**
+ * Bar colors for the internal-polling charts, sampled from the release graphics.
+ * Semantic ramp: strong-favor → soft-favor → soft-oppose → strong-oppose, plus unsure.
+ */
+export const POLL_COLORS = {
+	favorStrong: '#bbcedd', // pale blue — "Very" favorable
+	favorSoft: '#487996', // steel blue — "Somewhat" favorable
+	opposeSoft: '#235926', // green — "Somewhat" unfavorable
+	opposeStrong: '#002338', // deep navy — "Very" unfavorable
+	unsure: '#737373' // gray — unsure
+};
 
 export type PressRelease = {
 	/** Stable slug — also the `/press/<id>` URL. Keep it stable across edits. */
@@ -55,6 +84,103 @@ const BOILERPLATE_EN =
 	'Peter Crosby is a first-time congressional candidate, and is the Democratic nominee in Utah’s Congressional District 2. He is running a grassroots campaign — Peter is not accepting corporate PAC donations or funding from PACs aligned with foreign interests, and already has more named small-dollar, individual donors than the Moore Campaign. The Campaign is fully volunteer-supported with over 300 registered campaign volunteers. Peter believes citizens of Northern Utah deserve a representative that lives in the district, listens to their concerns, and puts the people of Utah ahead of party or the pursuit of personal power. He is holding public town halls throughout the district, with at least one in Cache, Box Elder, Davis, and Weber counties each month. More information is available at petercrosbyforcongress.org.';
 
 export const pressReleases: PressRelease[] = [
+	{
+		id: 'august-internal-polling',
+		date: '2026-08-21',
+		title:
+			'All Eyes on Utah District 2 Congressional Race: Democrat Peter Crosby Making Gains Amid Statewide Anti-Incumbent Wave',
+		summary:
+			'District survey shows 57% voter dissatisfaction with Rep. Moore; 33% of Republicans waver as fresh August polling places state GOP leadership deep in the red.',
+		location: 'Providence, UT',
+		body: [
+			{
+				type: 'p',
+				text: 'A new internal poll released by the Peter Crosby for Congress campaign reveals that Utah’s newly redrawn 2nd Congressional District has transformed into a competitive race, challenging the assumption of a guaranteed re-election for incumbent Republican Representative Blake Moore. The survey, which sampled 565 registered voters across all counties in the district, found over half of respondents are dissatisfied with Moore and 70% are unlikely or unsure of whether they’ll vote for the current congressman. Clear signs show support for Representative Moore is weakening, even among Republicans—who make up more than 40% of the survey’s sample.'
+			},
+			{
+				type: 'ul',
+				items: [
+					'57% of respondents reported dissatisfaction with Rep. Blake Moore.',
+					'33% of registered Republicans said they are unlikely or unsure whether they will vote for Rep. Blake Moore.',
+					'47% of unaffiliated and independent voters (which make up 43% of the electorate) state they are unlikely to vote for Rep. Blake Moore.'
+				]
+			},
+			{
+				type: 'chart',
+				chartTitle: 'How satisfied are you with our current representative (Rep. Blake Moore)?',
+				yMax: 35,
+				yStep: 5,
+				bars: [
+					{ label: 'Very Satisfied', value: 9, color: POLL_COLORS.favorStrong },
+					{ label: 'Somewhat Satisfied', value: 34, color: POLL_COLORS.favorSoft },
+					{ label: 'Somewhat Dissatisfied', value: 25, color: POLL_COLORS.opposeSoft },
+					{ label: 'Very Dissatisfied', value: 32, color: POLL_COLORS.opposeStrong }
+				],
+				note: 'This question had an 89% response rate.',
+				source:
+					'Voter Survey, Peter Crosby for Congress Campaign. Internal polling of 565 randomized, registered voters across Davis, Weber, Box Elder, Cache, and Rich Counties (CD2), Utah, 8/3–17/2026. ±4% margin of error.'
+			},
+			{
+				type: 'chart',
+				chartTitle: 'How likely are you to vote for Blake Moore this November?',
+				yMax: 40,
+				yStep: 10,
+				bars: [
+					{ label: 'Very Likely', value: 13, color: POLL_COLORS.favorStrong },
+					{ label: 'Somewhat Likely', value: 17, color: POLL_COLORS.favorSoft },
+					{ label: 'Somewhat Unlikely', value: 11, color: POLL_COLORS.opposeSoft },
+					{ label: 'Very Unlikely', value: 40, color: POLL_COLORS.opposeStrong },
+					{ label: 'Unsure', value: 19, color: POLL_COLORS.unsure }
+				],
+				source:
+					'Voter Survey, Peter Crosby for Congress Campaign. Internal polling of 565 randomized, registered voters across Davis, Weber, Box Elder, Cache, and Rich Counties (CD2), Utah, 8/3–17/2026. ±4% margin of error.'
+			},
+			{
+				type: 'p',
+				text: 'The findings align with broader trends across Utah. A recent [Deseret News/Hinckley Institute of Politics poll](https://www.deseret.com/politics/2026/08/17/utah-voters-disapprove-of-governor-cox-senator-lee-and-senator-curtis-in-new-poll/) found an increasingly anti-incumbent mood among Utah voters, with approval ratings for several high-profile elected officials declining. According to that poll, dissatisfaction extends beyond any single officeholder and reflects broader concerns about current leadership. For the first time in his gubernatorial career, Governor Spencer Cox is underwater, with his approval plunging from 51% in January to 41% in August, while total disapproval surged to 49%. The legislative branch and other top GOP officials have felt the same heavy backlash: Senator Mike Lee is now seven points underwater (39% approval to 46% disapproval), Senator John Curtis has slid into negative territory at 37% approval, and the Utah State Legislature is underwater at 44% approval and 45% disapproval. Public trust in Congress as a whole has collapsed further to negative 30 points, underscoring a deep, cross-partisan fatigue with political dysfunction.'
+			},
+			{
+				type: 'p',
+				text: 'Northern Utahns have been deeply affected by DOGE cuts, the One Big Beautiful Bill (of which Moore is proudly an architect), and a tariff regime that has crippled many small businesses and household budgets. These issues are top of mind among residents. In Crosby’s survey, 79% of all voters (including 73% of Republicans and 80% of Unaffiliated voters) identified affordability (housing, healthcare, food prices) as their top priority, while 68% of all voters (including 65% of Republicans and 71% of Unaffiliated voters) prioritized government accountability (ethics, insider trading, and closing promotional loopholes).'
+			},
+			{
+				type: 'p',
+				text: 'Many constituents in this district also felt unheard during the debate over the Stratos Data Center approval process earlier this year, while watching their representative, Blake Moore, stand steadfast with those pushing the project forward. At Moore’s in-person town hall in Box Elder on Wednesday, he stated he had a conversation with the commissioners before the vote took place:'
+			},
+			{
+				type: 'quote',
+				text: 'I called the county commissioners. I said “Hey [...], if this moves forward and you guys aren’t involved, it might be a situation where you get nothing out of the deal, and you don’t help your tax base.”',
+				attribution: 'Rep. Blake Moore'
+			},
+			{
+				type: 'p',
+				text: 'This statement echoes similar ones Moore made during the primary debate, that he views data centers as an economic boon to the state.'
+			},
+			{
+				type: 'p',
+				text: 'Crosby has taken a stand against the Stratos Data Center from the beginning, and was present at the Box Elder Commissioner’s vote, where he rallied folks to let Box Elder residents in first and then to vote out elected officials who don’t listen to their constituents:'
+			},
+			{
+				type: 'quote',
+				text: 'Good governance is non-partisan. Deals in the dark, pressure campaigns from powerful officials on local public servants, and men whose courage fails them when it matters are not good governance. The Box Elder data center decision was premature and poorly researched, and ignored the will of the people of Box Elder county. We are tired of communities taking a back seat to corporate profits. Enough is enough, and we will hold our elected officials accountable.',
+				attribution: 'Peter Crosby'
+			},
+			{
+				type: 'p',
+				text: 'Crosby is focusing his campaign on accessibility and direct engagement with voters. He has held 28 in-person, public town halls across the new district since launching the campaign, along with 4 virtual town halls for increased accessibility, all while maintaining his full-time employment. Before this week, Moore’s last in-person town hall was held in September 2025, after which he moved strictly to less than one scripted telephone town hall a month.'
+			},
+			{
+				type: 'p',
+				text: 'Crosby and his campaign team have also participated in many community events throughout the district, meeting directly with voters and discussing issues ranging from government accountability to concerns on affordability and data center development. The campaign’s grassroots growth reflects that engagement. Crosby has built a volunteer organization of more than 400 registered volunteers (one of the largest campaigns in the state), and raised more than $70,000 from over 550 individual donors. Campaign officials say the strong volunteer base and small-dollar fundraising support their view that CD-2 is emerging as one of Utah’s most competitive congressional races.'
+			},
+			{
+				type: 'p',
+				text: 'Peter Crosby is a first-generation college graduate who earned his undergraduate and master’s degrees in political science from Utah State University. An active member of the LDS Church and a dedicated family man, Crosby is running to restore a neighbor-to-neighbor, values-driven leadership to Utah’s 2nd Congressional District. Refusing corporate PAC money, Crosby’s grassroots campaign is focused on bringing real cost-of-living relief, restoring political accountability, and protecting Utah’s public lands and watersheds. He resides in Providence, UT, with his wife Amanda and their children. Learn more at petercrosbyforcongress.org.'
+			}
+		],
+		image: '/press-releases/august-internal-polling-thumb.jpg',
+		attachment: '/press-releases/august-internal-polling.pdf'
+	},
 	{
 		id: 'debate-rescheduled',
 		date: '2026-07-23',

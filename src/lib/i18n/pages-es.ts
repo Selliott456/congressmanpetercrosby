@@ -1,3 +1,5 @@
+import { POLL_COLORS } from '$lib/data/pressReleases';
+
 /** Spanish page copy (merged into dictionaries.es) — structure mirrors pages-en.ts */
 export const pagesEs = {
 	common: {
@@ -689,6 +691,7 @@ export const pagesEs = {
 		kindVideo: 'Video',
 		kindArticle: 'Artículo',
 		kindOpEd: 'Columna',
+		kindPressRelease: 'Comunicado',
 		closeVideo: 'Cerrar video',
 		pinnedEyebrow: 'Destacados',
 		pinnedTitle: 'Medios destacados',
@@ -740,6 +743,23 @@ export const pagesEs = {
 				title: 'Moore, Crosby y otros candidatos participan en Nibley',
 				description:
 					'Candidatos de contiendas locales, estatales y federales se reunieron el miércoles por la noche en Virgil Gibbons Heritage Park, en Nibley, para un picnic comunitario pensado para fomentar la conversación entre los votantes y quienes buscan un cargo público.'
+			},
+			'candidates-spending-priorities': {
+				title: 'Dos candidatos de Utah, dos respuestas distintas sobre las prioridades del gasto federal',
+				description:
+					'El representante republicano Blake Moore y el retador demócrata Peter Crosby coinciden en algunos temas, como el agua. Pero difieren en otros.'
+			},
+			'town-hall-announcement-aug26': {
+				title: 'El candidato demócrata al Congreso Peter Crosby programa un cabildo local para el 26 de agosto',
+				description:
+					'El candidato invita a los residentes locales a unirse a esa reunión para conocer más sobre su campaña de base contra el representante republicano en ejercicio Blake Moore, que lleva tres mandatos, en el recién rediseñado Distrito 2 del Congreso.'
+			},
+			// Featured press release card (headlines the /media "Featured" band).
+			'august-internal-polling': {
+				title:
+					'Todas las miradas en la contienda por el Distrito 2 de Utah: el demócrata Peter Crosby gana terreno en medio de una ola estatal de rechazo a los titulares',
+				description:
+					'Una encuesta del distrito muestra un 57% de insatisfacción con el representante Moore; el 33% de los republicanos duda, mientras nuevas encuestas de agosto ubican al liderazgo republicano estatal en terreno profundamente negativo.'
 			}
 		} as Record<string, { title: string; description?: string }>
 	},
@@ -759,6 +779,98 @@ export const pagesEs = {
 		metaDescription:
 			'Comunicados de prensa y anuncios oficiales de la campaña Peter Crosby para el Congreso.',
 		byId: {
+			'august-internal-polling': {
+				title:
+					'Todas las miradas en la contienda por el Distrito 2 de Utah: el demócrata Peter Crosby gana terreno en medio de una ola estatal de rechazo a los titulares',
+				summary:
+					'Una encuesta del distrito muestra un 57% de insatisfacción con el representante Moore; el 33% de los republicanos duda, mientras nuevas encuestas de agosto ubican al liderazgo republicano estatal en terreno profundamente negativo.',
+				body: [
+					{
+						type: 'p',
+						text: 'Una nueva encuesta interna divulgada por la campaña Peter Crosby para el Congreso revela que el recién rediseñado Distrito 2 del Congreso de Utah se ha convertido en una contienda competitiva, lo que desafía la suposición de una reelección garantizada para el representante republicano en ejercicio, Blake Moore. La encuesta, que consultó a 565 votantes registrados en todos los condados del distrito, encontró que más de la mitad de los encuestados están insatisfechos con Moore y que, respecto al 70%, es poco probable que vote por el actual congresista o no está seguro de hacerlo. Hay señales claras de que el apoyo al representante Moore se está debilitando, incluso entre los republicanos, que representan más del 40% de la muestra de la encuesta.'
+					},
+					{
+						type: 'ul',
+						items: [
+							'El 57% de los encuestados manifestó insatisfacción con el representante Blake Moore.',
+							'El 33% de los republicanos registrados dijo que es poco probable que vote por el representante Blake Moore o que no está seguro de hacerlo.',
+							'El 47% de los votantes no afiliados e independientes (que representan el 43% del electorado) afirma que es poco probable que vote por el representante Blake Moore.'
+						]
+					},
+					{
+						type: 'chart',
+						chartTitle: '¿Qué tan satisfecho está con nuestro representante actual (Rep. Blake Moore)?',
+						yMax: 35,
+						yStep: 5,
+						bars: [
+							{ label: 'Muy satisfecho', value: 9, color: POLL_COLORS.favorStrong },
+							{ label: 'Algo satisfecho', value: 34, color: POLL_COLORS.favorSoft },
+							{ label: 'Algo insatisfecho', value: 25, color: POLL_COLORS.opposeSoft },
+							{ label: 'Muy insatisfecho', value: 32, color: POLL_COLORS.opposeStrong }
+						],
+						note: 'Esta pregunta tuvo una tasa de respuesta del 89%.',
+						source:
+							'Encuesta de votantes, campaña Peter Crosby para el Congreso. Sondeo interno de 565 votantes registrados seleccionados al azar en los condados de Davis, Weber, Box Elder, Cache y Rich (CD2), Utah, del 3 al 17 de agosto de 2026. Margen de error de ±4%.'
+					},
+					{
+						type: 'chart',
+						chartTitle: '¿Qué tan probable es que vote por Blake Moore este noviembre?',
+						yMax: 40,
+						yStep: 10,
+						bars: [
+							{ label: 'Muy probable', value: 13, color: POLL_COLORS.favorStrong },
+							{ label: 'Algo probable', value: 17, color: POLL_COLORS.favorSoft },
+							{ label: 'Algo improbable', value: 11, color: POLL_COLORS.opposeSoft },
+							{ label: 'Muy improbable', value: 40, color: POLL_COLORS.opposeStrong },
+							{ label: 'Indeciso', value: 19, color: POLL_COLORS.unsure }
+						],
+						source:
+							'Encuesta de votantes, campaña Peter Crosby para el Congreso. Sondeo interno de 565 votantes registrados seleccionados al azar en los condados de Davis, Weber, Box Elder, Cache y Rich (CD2), Utah, del 3 al 17 de agosto de 2026. Margen de error de ±4%.'
+					},
+					{
+						type: 'p',
+						text: 'Los hallazgos coinciden con tendencias más amplias en todo Utah. Una reciente [encuesta de Deseret News/Hinckley Institute of Politics](https://www.deseret.com/politics/2026/08/17/utah-voters-disapprove-of-governor-cox-senator-lee-and-senator-curtis-in-new-poll/) encontró un ánimo cada vez más contrario a los titulares entre los votantes de Utah, con índices de aprobación en descenso para varios funcionarios electos de alto perfil. Según esa encuesta, la insatisfacción va más allá de cualquier funcionario en particular y refleja preocupaciones más amplias sobre el liderazgo actual. Por primera vez en su carrera como gobernador, Spencer Cox está en terreno negativo: su aprobación cayó del 51% en enero al 41% en agosto, mientras que la desaprobación total subió al 49%. El poder legislativo y otros altos funcionarios republicanos han sufrido la misma fuerte reacción: el senador Mike Lee está ahora siete puntos por debajo (39% de aprobación frente a 46% de desaprobación), el senador John Curtis ha caído a terreno negativo con un 37% de aprobación, y la Legislatura Estatal de Utah está por debajo con un 44% de aprobación y un 45% de desaprobación. La confianza pública en el Congreso en su conjunto se ha desplomado aún más hasta los 30 puntos negativos, lo que subraya una profunda fatiga transpartidista con la disfunción política.'
+					},
+					{
+						type: 'p',
+						text: 'Los habitantes del norte de Utah se han visto profundamente afectados por los recortes de DOGE, la ley conocida como One Big Beautiful Bill (de la cual Moore es, con orgullo, uno de sus artífices) y un régimen arancelario que ha perjudicado a muchas pequeñas empresas y a los presupuestos de los hogares. Estos temas son prioritarios entre los residentes. En la encuesta de Crosby, el 79% de todos los votantes (incluidos el 73% de los republicanos y el 80% de los no afiliados) señaló la asequibilidad (vivienda, atención médica, precios de los alimentos) como su principal prioridad, mientras que el 68% de todos los votantes (incluidos el 65% de los republicanos y el 71% de los no afiliados) priorizó la rendición de cuentas del gobierno (ética, uso de información privilegiada y el cierre de lagunas promocionales).'
+					},
+					{
+						type: 'p',
+						text: 'Muchos electores de este distrito también se sintieron ignorados durante el debate sobre el proceso de aprobación del centro de datos Stratos a principios de este año, mientras veían a su representante, Blake Moore, mantenerse firme junto a quienes impulsaban el proyecto. En su cabildo presencial en Box Elder el miércoles, Moore afirmó que había tenido una conversación con los comisionados antes de que se realizara la votación:'
+					},
+					{
+						type: 'quote',
+						text: 'Llamé a los comisionados del condado. Les dije: ‘Oigan [...], si esto sigue adelante y ustedes no participan, podría darse una situación en la que no obtengan nada del acuerdo y no ayuden a su base tributaria.’',
+						attribution: 'Representante Blake Moore'
+					},
+					{
+						type: 'p',
+						text: 'Esta declaración hace eco de otras similares que Moore hizo durante el debate de las primarias, en las que considera que los centros de datos son un beneficio económico para el estado.'
+					},
+					{
+						type: 'p',
+						text: 'Crosby se ha opuesto al centro de datos Stratos desde el principio y estuvo presente en la votación de los comisionados de Box Elder, donde animó a la gente a dar prioridad a los residentes de Box Elder y luego a votar para sacar del cargo a los funcionarios electos que no escuchan a sus electores:'
+					},
+					{
+						type: 'quote',
+						text: 'La buena gobernanza no es partidista. Los acuerdos a puerta cerrada, las campañas de presión de funcionarios poderosos sobre los servidores públicos locales y los hombres cuyo valor les falla cuando más importa no son buena gobernanza. La decisión sobre el centro de datos de Box Elder fue prematura y mal investigada, e ignoró la voluntad de la gente del condado de Box Elder. Estamos cansados de que las comunidades queden en segundo plano frente a las ganancias corporativas. Ya basta, y exigiremos cuentas a nuestros funcionarios electos.',
+						attribution: 'Peter Crosby'
+					},
+					{
+						type: 'p',
+						text: 'Crosby centra su campaña en la accesibilidad y el contacto directo con los votantes. Ha realizado 28 cabildos públicos presenciales en todo el nuevo distrito desde que lanzó la campaña, además de 4 cabildos virtuales para mayor accesibilidad, todo mientras mantiene su empleo de tiempo completo. Antes de esta semana, el último cabildo presencial de Moore se celebró en septiembre de 2025, tras lo cual pasó a realizar estrictamente menos de un cabildo telefónico guionizado al mes.'
+					},
+					{
+						type: 'p',
+						text: 'Crosby y su equipo de campaña también han participado en numerosos eventos comunitarios por todo el distrito, reuniéndose directamente con los votantes y conversando sobre temas que van desde la rendición de cuentas del gobierno hasta preocupaciones sobre la asequibilidad y el desarrollo de centros de datos. El crecimiento de base de la campaña refleja ese compromiso. Crosby ha formado una organización de más de 400 voluntarios registrados (una de las campañas más grandes del estado) y ha recaudado más de $70,000 de más de 550 donantes individuales. Funcionarios de la campaña afirman que la sólida base de voluntarios y la recaudación de pequeñas donaciones respaldan su convicción de que el CD-2 está surgiendo como una de las contiendas al Congreso más competitivas de Utah.'
+					},
+					{
+						type: 'p',
+						text: 'Peter Crosby es un graduado universitario de primera generación que obtuvo sus títulos de licenciatura y maestría en ciencias políticas en la Universidad Estatal de Utah. Miembro activo de la Iglesia SUD y un hombre dedicado a su familia, Crosby se postula para restaurar en el Distrito 2 del Congreso de Utah un liderazgo cercano, de vecino a vecino y guiado por valores. Al rechazar el dinero de los PAC corporativos, la campaña de base de Crosby se centra en brindar un alivio real en el costo de vida, restaurar la rendición de cuentas política y proteger las tierras públicas y las cuencas hidrográficas de Utah. Reside en Providence, UT, con su esposa Amanda y sus hijos. Más información en petercrosbyforcongress.org.'
+					}
+				]
+			},
 			'debate-rescheduled': {
 				title:
 					'La Comisión de Debates de Utah reprograma el debate del Distrito 2 del Congreso tras la respuesta del público',

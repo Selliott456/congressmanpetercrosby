@@ -38,7 +38,11 @@
 			? $messages.media.kindVideo
 			: item.type === 'op-ed'
 				? $messages.media.kindOpEd
-				: $messages.media.kindArticle;
+				: item.type === 'press-release'
+					? $messages.media.kindPressRelease
+					: $messages.media.kindArticle;
+	// Internal links (e.g. a press release detail page) open in the same tab.
+	$: external = !item.url.startsWith('/');
 
 	/** @param {MouseEvent} event */
 	function onClick(event) {
@@ -55,8 +59,8 @@
 	class="media-card"
 	class:media-card--light={variant === 'light'}
 	href={item.url}
-	target="_blank"
-	rel="noopener noreferrer"
+	target={external ? '_blank' : undefined}
+	rel={external ? 'noopener noreferrer' : undefined}
 	on:click={onClick}
 >
 	<div class="media-thumb media-thumb--{item.type}" class:media-thumb--image={thumb}>

@@ -2,9 +2,32 @@
 	import { locale, messages } from '$lib/i18n/locale';
 	import Rail from '$lib/components/Rail.svelte';
 	import Button from '$lib/components/Button.svelte';
+	import PressBarChart from '$lib/components/PressBarChart.svelte';
 
 	/** @type {import('./$types').PageData} */
 	export let data;
+
+	/**
+	 * Split paragraph text into plain-text and link segments, parsing inline
+	 * `[label](url)` markup so citations can render as real links.
+	 * @param {string} text
+	 * @returns {{ text: string; href?: string }[]}
+	 */
+	function inlineSegments(text) {
+		/** @type {{ text: string; href?: string }[]} */
+		const segs = [];
+		const re = /\[([^\]]+)\]\(([^)]+)\)/g;
+		let last = 0;
+		/** @type {RegExpExecArray | null} */
+		let m;
+		while ((m = re.exec(text))) {
+			if (m.index > last) segs.push({ text: text.slice(last, m.index) });
+			segs.push({ text: m[1], href: m[2] });
+			last = m.index + m[0].length;
+		}
+		if (last < text.length) segs.push({ text: text.slice(last) });
+		return segs;
+	}
 
 	$: release = data.release;
 	$: override = $messages.pressReleases.byId[release.id];
@@ -56,7 +79,20 @@
 		<div class="press-body">
 			{#each body as part}
 				{#if part.type === 'p'}
-					<p>{part.text}</p>
+					<p>{#each inlineSegments(part.text) as seg}{#if seg.href}<a
+								href={seg.href}
+								class="press-link"
+								target="_blank"
+								rel="noopener noreferrer">{seg.text}</a>{:else}{seg.text}{/if}{/each}</p>
+				{:else if part.type === 'chart'}
+					<PressBarChart
+						chartTitle={part.chartTitle}
+						yMax={part.yMax}
+						yStep={part.yStep}
+						bars={part.bars}
+						note={part.note}
+						source={part.source}
+					/>
 				{:else if part.type === 'ul'}
 					<ul>
 						{#each part.items as li}
@@ -195,6 +231,16 @@
 
 	.press-body li {
 		margin-bottom: 0.4rem;
+	}
+
+	.press-link {
+		color: var(--blue);
+		text-decoration: underline;
+		text-underline-offset: 2px;
+	}
+
+	.press-link:hover {
+		color: var(--ink);
 	}
 
 	/* Pull quote — Source Serif italic per the brand, with a civic-blue rule. */
