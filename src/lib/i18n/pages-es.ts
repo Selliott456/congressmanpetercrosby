@@ -547,11 +547,6 @@ export const pagesEs = {
 				title: 'Festival Latino de Cache Valley',
 				description: 'Peter acompaña a la comunidad en el Festival Latino de Cache Valley en Logan.'
 			},
-			'gcal-7shm3nltreu4lqee22fikpam9a': {
-				title: 'Cabildo – Farmington',
-				description:
-					'Acompañe a Peter en un cabildo en la sede de la Biblioteca del Condado de Davis en Farmington. Traiga sus preguntas.'
-			},
 			'gcal-5lbomb5vtb90oakphdsnipakjc': {
 				title: 'Festival del Orgullo de Logan',
 				description: 'Peter acompaña a la comunidad en el Festival del Orgullo de Logan.'
@@ -616,10 +611,6 @@ export const pagesEs = {
 				title: 'Desfile de Peach Days – Brigham City',
 				description: 'Acompañe a la campaña caminando con los Demócratas de Box Elder en el desfile de Peach Days (comienza a las 10 a. m.).'
 			},
-			'gcal-43u07b634idc57don9uv0318ee': {
-				title: 'Cabildo – Biblioteca de Layton',
-				description: 'Acompañe a Peter en el cabildo del Condado de Davis en la Biblioteca de Layton. Traiga sus preguntas.'
-			},
 			'gcal-54o9oq6tcn5833gq458mth9egk': {
 				title: 'Desfile de Bienvenida de USU',
 				description: 'Acompañe a la campaña en el desfile de bienvenida (Homecoming) de USU en el centro de Logan.'
@@ -659,6 +650,28 @@ export const pagesEs = {
 			'gcal-0dsu2dnujsj5nt9ngpvvkvhc05': {
 				title: 'Orgullo en el Parque',
 				description: 'Venga a mostrar su apoyo en el segundo Orgullo en el Parque (Pride in the Park) anual en Brigham City.'
+			},
+			'gcal-00upddf0pd9irmpc13lulkvh2b': {
+				title: 'Conversaciones Francas – Patrick Belmont',
+				description:
+					'Peter conversa con Patrick Belmont en una Conversación Franca sobre el agua de Utah, los centros de datos, el crecimiento responsable y el buen gobierno, además de sus preguntas. Transmitido por Facebook, YouTube e Instagram.'
+			},
+			'gcal-723plc74a044phmblkgggv6oq5': {
+				title: 'Foro de Candidatos de UPR / Liga de Mujeres Votantes',
+				description:
+					'Un foro de candidatos en Logan; los candidatos del Distrito 2 del Congreso suben al escenario alrededor de las 7:45 p. m. Moderado por Tom Williams y transmitido en vivo por Utah Public Radio para todo el estado.'
+			},
+			'gcal-65vemvb1lhrq3hjifjfui8cpus': {
+				title: 'Cabildo – Ogden',
+				description: 'Acompañe a Peter en un cabildo público en la Biblioteca Principal del Condado de Weber en Ogden. Traiga sus preguntas e inquietudes, y quizás lleve un letrero de jardín.'
+			},
+			'gcal-4lvjeorgcnp3aljpq27bmerebh': {
+				title: 'Cabildo – Logan',
+				description: 'Acompañe a Peter en un cabildo público en la Biblioteca de Logan. Traiga sus preguntas e inquietudes, y quizás lleve un letrero de jardín.'
+			},
+			'gcal-1e2lvhq1q3dg8qhs5i79b57f0j': {
+				title: 'Cabildo – Syracuse',
+				description: 'Acompañe a Peter en un cabildo público en la Biblioteca Northwest de Syracuse. Traiga sus preguntas e inquietudes, y quizás lleve un letrero de jardín.'
 			}
 		} as Record<string, { title: string; description: string }>
 	},
