@@ -1260,6 +1260,8 @@ export const eventsData: EventRow[] = [
 		locationUrl: 'https://www.google.com/maps/search/Old+Main+Hill+Utah+State+University+Logan+UT',
 		description: 'The official Congressional District 2 debate, hosted by the Utah Debate Commission and broadcast on local television and YouTube Live.',
 		viewEventUrl: null,
+		// Third-party event/venue — an on-site RSVP could be mistaken for guaranteed entry, so opt out.
+		rsvp: false,
 		startTime: '17:00',
 		endTime: '21:00'
 	},
