@@ -2,14 +2,11 @@
   import { messages } from "$lib/i18n/locale";
   import SocialIcon from "./SocialIcon.svelte";
   import Rail from "./Rail.svelte";
-  import YardSignModal from "./YardSignModal.svelte";
   import { socialLinks } from "$lib/data/socialLinks";
   import { SPONSOR_YARD_SIGN_URL } from "$lib/data/links";
+  import { openYardSign } from "$lib/stores/yardSign";
 
   const NEWSLETTER_ENDPOINT = "https://formspree.io/f/xjgqknqd";
-
-  /** Yard-sign request modal (opened from the footer band). */
-  let showYardSign = false;
 
   /** @type {'idle' | 'submitting' | 'success' | 'error'} */
   let newsletterStatus = "idle";
@@ -77,7 +74,7 @@
         <button
           type="button"
           class="footer-yardsign-btn"
-          on:click={() => (showYardSign = true)}
+          on:click={openYardSign}
         >
           {$messages.yardSign.requestButton}
         </button>
@@ -190,10 +187,6 @@
     </div>
   </div>
 </footer>
-
-{#if showYardSign}
-  <YardSignModal on:close={() => (showYardSign = false)} />
-{/if}
 
 <style>
   .footer {
