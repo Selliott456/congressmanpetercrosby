@@ -5,8 +5,10 @@
 	import AnnouncementBar from '../lib/components/AnnouncementBar.svelte';
 	import Nav from '../lib/components/Nav.svelte';
 	import Footer from '../lib/components/Footer.svelte';
+	import YardSignModal from '../lib/components/YardSignModal.svelte';
 	import { initLocaleFromStorage } from '$lib/i18n/locale';
 	import { initAnalytics, trackPageView } from '$lib/analytics';
+	import { yardSignOpen, openYardSign, closeYardSign } from '$lib/stores/yardSign';
 
 	// Load Google Analytics in production only (keeps local dev out of the data).
 	const analyticsEnabled = browser && !dev;
@@ -20,8 +22,21 @@
 
 	// gtag's automatic page_view is disabled (see analytics.ts); send one on every
 	// SvelteKit navigation. afterNavigate also fires on initial load → landing page.
-	afterNavigate(() => {
+	afterNavigate((nav) => {
 		if (analyticsEnabled) trackPageView();
+
+		// Deep link: `/?yardsign` (and the `/yard-sign` redirect that lands here)
+		// opens the request-a-yard-sign modal, then strips the param so the URL
+		// stays clean and closing the modal doesn't leave a stale query behind.
+		// Native history.replaceState (not SvelteKit's) so it also works on the
+		// initial load, before the router is initialized — and keep the existing
+		// history state so back/forward navigation stays intact.
+		const url = nav?.to?.url;
+		if (browser && url?.searchParams.has('yardsign')) {
+			openYardSign();
+			url.searchParams.delete('yardsign');
+			history.replaceState(history.state, '', url.pathname + url.search + url.hash);
+		}
 	});
 </script>
 
@@ -42,6 +57,10 @@
 	<slot />
 </div>
 <Footer />
+
+{#if $yardSignOpen}
+	<YardSignModal on:close={closeYardSign} />
+{/if}
 
 <style>
 	:global(:root) {

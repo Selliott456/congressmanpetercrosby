@@ -959,22 +959,6 @@ export const eventsData: EventRow[] = [
 		endTime: null
 	},
 	{
-		id: 'gcal-7shm3nltreu4lqee22fikpam9a',
-		type: 'town-hall',
-		month: 'Sep',
-		day: '15',
-		year: 2026,
-		monthIndex: 9,
-		title: 'Town Hall – Farmington',
-		time: '7:00 PM – 8:00 PM MT',
-		location: 'Davis County Library Headquarters, 133 S Main St, Farmington, UT 84025',
-		locationUrl: 'https://www.google.com/maps/search/133+S+Main+St+Farmington+UT+84025',
-		description: 'Join Peter for a town hall at the Davis County Library Headquarters in Farmington. Please come with your questions.',
-		viewEventUrl: null,
-		startTime: '19:00',
-		endTime: '20:00'
-	},
-	{
 		id: 'gcal-5lbomb5vtb90oakphdsnipakjc',
 		type: 'other',
 		month: 'Sep',
@@ -1232,22 +1216,6 @@ export const eventsData: EventRow[] = [
 		endTime: '12:30'
 	},
 	{
-		id: 'gcal-43u07b634idc57don9uv0318ee',
-		type: 'town-hall',
-		month: 'Sep',
-		day: '22',
-		year: 2026,
-		monthIndex: 9,
-		title: 'Town Hall – Layton Library',
-		time: '6:00 PM – 7:00 PM MT',
-		location: 'Davis County Library, Layton Branch, 155 N Wasatch Dr, Layton, UT 84041',
-		locationUrl: 'https://www.google.com/maps/search/155+N+Wasatch+Dr+Layton+UT+84041',
-		description: 'Join Peter for the Davis County town hall at the Layton Library. Bring your questions.',
-		viewEventUrl: null,
-		startTime: '18:00',
-		endTime: '19:00'
-	},
-	{
 		id: 'gcal-54o9oq6tcn5833gq458mth9egk',
 		type: 'other',
 		month: 'Sep',
@@ -1292,6 +1260,8 @@ export const eventsData: EventRow[] = [
 		locationUrl: 'https://www.google.com/maps/search/Old+Main+Hill+Utah+State+University+Logan+UT',
 		description: 'The official Congressional District 2 debate, hosted by the Utah Debate Commission and broadcast on local television and YouTube Live.',
 		viewEventUrl: null,
+		// Third-party event/venue — an on-site RSVP could be mistaken for guaranteed entry, so opt out.
+		rsvp: false,
 		startTime: '17:00',
 		endTime: '21:00'
 	},
@@ -1409,5 +1379,126 @@ export const eventsData: EventRow[] = [
 		viewEventUrl: null,
 		startTime: '12:00',
 		endTime: '18:00'
+	},
+	// --- Pulled 2026-08-24 (Airtable "Volunteer and Events") ---
+	{
+		id: 'gcal-00upddf0pd9irmpc13lulkvh2b',
+		type: 'other',
+		month: 'Aug',
+		day: '25',
+		year: 2026,
+		monthIndex: 8,
+		title: 'Candid Conversations – Patrick Belmont',
+		time: '5:00 PM – 6:00 PM MT',
+		location: 'Facebook / YouTube / Instagram Live',
+		locationUrl: null,
+		description:
+			'Peter sits down with Patrick Belmont for a Candid Conversation on Utah’s water, data centers, responsible growth, and good governance — plus your questions. Streamed on Facebook, YouTube, and Instagram.',
+		viewEventUrl: null,
+		// Livestream — viewers just tune in, so opt out of the on-site RSVP default.
+		rsvp: false,
+		startTime: '17:00',
+		endTime: '18:00'
+	},
+	{
+		id: 'gcal-723plc74a044phmblkgggv6oq5',
+		type: 'other',
+		month: 'Sep',
+		day: '10',
+		year: 2026,
+		monthIndex: 9,
+		title: 'UPR / League of Women Voters Candidate Forum',
+		time: '6:30 PM – 9:00 PM MT',
+		location: 'First Presbyterian Church, 178 W Center St, Logan, UT 84321',
+		locationUrl: 'https://www.google.com/maps/search/178+W+Center+St+Logan+UT+84321',
+		description:
+			'A candidate forum in Logan, with the Congressional District 2 candidates taking the stage around 7:45 PM. Moderated by Tom Williams and livestreamed statewide by Utah Public Radio.',
+		viewEventUrl: null,
+		// Third-party forum — no campaign RSVP; just attend or tune in.
+		rsvp: false,
+		startTime: '18:30',
+		endTime: '21:00'
+	},
+	{
+		id: 'gcal-65vemvb1lhrq3hjifjfui8cpus',
+		type: 'town-hall',
+		month: 'Sep',
+		day: '14',
+		year: 2026,
+		monthIndex: 9,
+		title: 'Town Hall – Ogden',
+		time: '6:30 PM – 7:30 PM MT',
+		location: 'Main Library – Weber County Library System, 2464 Jefferson Ave, Ogden, UT 84401',
+		locationUrl: 'https://www.google.com/maps/search/2464+Jefferson+Ave+Ogden+UT+84401',
+		description: 'Join Peter for a public town hall at the Weber County Main Library in Ogden. Bring your questions and concerns — and maybe pick up a yard sign.',
+		viewEventUrl: null,
+		startTime: '18:30',
+		endTime: '19:30'
+	},
+	{
+		id: 'gcal-4lvjeorgcnp3aljpq27bmerebh',
+		type: 'town-hall',
+		month: 'Sep',
+		day: '21',
+		year: 2026,
+		monthIndex: 9,
+		title: 'Town Hall – Logan',
+		time: '6:30 PM – 7:30 PM MT',
+		location: 'Logan Library, 285 N Main St, Logan, UT 84321',
+		locationUrl: 'https://www.google.com/maps/search/285+N+Main+St+Logan+UT+84321',
+		description: 'Join Peter for a public town hall at the Logan Library. Bring your questions and concerns — and maybe pick up a yard sign.',
+		viewEventUrl: null,
+		startTime: '18:30',
+		endTime: '19:30'
+	},
+	{
+		id: 'gcal-1e2lvhq1q3dg8qhs5i79b57f0j',
+		type: 'town-hall',
+		month: 'Sep',
+		day: '24',
+		year: 2026,
+		monthIndex: 9,
+		title: 'Town Hall – Syracuse',
+		time: '6:30 PM – 7:30 PM MT',
+		location: 'Syracuse Northwest Library, 1875 S 2000 W, Syracuse, UT 84075',
+		locationUrl: 'https://www.google.com/maps/search/1875+S+2000+W+Syracuse+UT+84075',
+		description: 'Join Peter for a public town hall at the Syracuse Northwest Library. Bring your questions and concerns — and maybe pick up a yard sign.',
+		viewEventUrl: null,
+		startTime: '18:30',
+		endTime: '19:30'
+	},
+	// --- Pulled 2026-08-27 (Airtable "Volunteer and Events") ---
+	{
+		id: 'gcal-0t3v4g7mhhdae63jb83dpoiv9a',
+		type: 'town-hall',
+		month: 'Sep',
+		day: '15',
+		year: 2026,
+		monthIndex: 9,
+		title: 'Town Hall – Brigham City',
+		time: '6:00 PM – 7:00 PM MT',
+		// NOTE: Airtable has no venue for this one yet — city only. Update when the campaign fills it in.
+		location: 'Brigham City, UT',
+		locationUrl: 'https://www.google.com/maps/search/Brigham+City+UT',
+		description: 'Join Peter for a town hall in Brigham City. Bring your questions and concerns, and get to know your choices for CD2.',
+		viewEventUrl: null,
+		startTime: '18:00',
+		endTime: '19:00'
+	},
+	{
+		id: 'gcal-0sqpter7msdq458efqck7r4vm8',
+		type: 'town-hall',
+		month: 'Sep',
+		day: '16',
+		year: 2026,
+		monthIndex: 9,
+		title: 'Town Hall – Centerville',
+		time: '7:00 PM – 8:00 PM MT',
+		location: 'Centerville Library, 45 S 400 W, Centerville, UT 84014',
+		locationUrl: 'https://www.google.com/maps/search/45+S+400+W+Centerville+UT+84014',
+		description: 'Join Peter for a town hall at the Centerville Library. Bring your questions and concerns, and get to know your choices for CD2.',
+		viewEventUrl: null,
+		startTime: '19:00',
+		endTime: '20:00'
 	},
 ];

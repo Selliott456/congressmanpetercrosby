@@ -1,8 +1,8 @@
 <script>
   import { page } from "$app/stores";
   import Rail from "./Rail.svelte";
-  import YardSignModal from "./YardSignModal.svelte";
   import { messages } from "$lib/i18n/locale";
+  import { openYardSign as openYardSignModal } from "$lib/stores/yardSign";
 
   const donateHref = "https://secure.actblue.com/donate/peter-crosby-1";
 
@@ -18,16 +18,14 @@
 
   let menuOpen = false;
 
-  /** Yard-sign request modal (opened from the bottom of the collapsed menu). */
-  let showYardSign = false;
-
   function toggleMenu() {
     menuOpen = !menuOpen;
   }
 
+  /** Close the collapsed menu, then open the shared yard-sign request modal. */
   function openYardSign() {
     menuOpen = false;
-    showYardSign = true;
+    openYardSignModal();
   }
 </script>
 
@@ -128,10 +126,6 @@
     </div>
   </div>
 </nav>
-
-{#if showYardSign}
-  <YardSignModal on:close={() => (showYardSign = false)} />
-{/if}
 
 <style>
   .nav {
