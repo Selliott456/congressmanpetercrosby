@@ -672,6 +672,14 @@ export const pagesEs = {
 			'gcal-1e2lvhq1q3dg8qhs5i79b57f0j': {
 				title: 'Cabildo – Syracuse',
 				description: 'Acompañe a Peter en un cabildo público en la Biblioteca Northwest de Syracuse. Traiga sus preguntas e inquietudes, y quizás lleve un letrero de jardín.'
+			},
+			'gcal-0t3v4g7mhhdae63jb83dpoiv9a': {
+				title: 'Cabildo – Brigham City',
+				description: 'Acompañe a Peter en un cabildo en Brigham City. Traiga sus preguntas e inquietudes y conozca a sus opciones para el CD2.'
+			},
+			'gcal-0sqpter7msdq458efqck7r4vm8': {
+				title: 'Cabildo – Centerville',
+				description: 'Acompañe a Peter en un cabildo en la Biblioteca de Centerville. Traiga sus preguntas e inquietudes y conozca a sus opciones para el CD2.'
 			}
 		} as Record<string, { title: string; description: string }>
 	},

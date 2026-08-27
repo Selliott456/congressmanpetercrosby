@@ -1465,4 +1465,38 @@ export const eventsData: EventRow[] = [
 		startTime: '18:30',
 		endTime: '19:30'
 	},
+	// --- Pulled 2026-08-27 (Airtable "Volunteer and Events") ---
+	{
+		id: 'gcal-0t3v4g7mhhdae63jb83dpoiv9a',
+		type: 'town-hall',
+		month: 'Sep',
+		day: '15',
+		year: 2026,
+		monthIndex: 9,
+		title: 'Town Hall – Brigham City',
+		time: '6:00 PM – 7:00 PM MT',
+		// NOTE: Airtable has no venue for this one yet — city only. Update when the campaign fills it in.
+		location: 'Brigham City, UT',
+		locationUrl: 'https://www.google.com/maps/search/Brigham+City+UT',
+		description: 'Join Peter for a town hall in Brigham City. Bring your questions and concerns, and get to know your choices for CD2.',
+		viewEventUrl: null,
+		startTime: '18:00',
+		endTime: '19:00'
+	},
+	{
+		id: 'gcal-0sqpter7msdq458efqck7r4vm8',
+		type: 'town-hall',
+		month: 'Sep',
+		day: '16',
+		year: 2026,
+		monthIndex: 9,
+		title: 'Town Hall – Centerville',
+		time: '7:00 PM – 8:00 PM MT',
+		location: 'Centerville Library, 45 S 400 W, Centerville, UT 84014',
+		locationUrl: 'https://www.google.com/maps/search/45+S+400+W+Centerville+UT+84014',
+		description: 'Join Peter for a town hall at the Centerville Library. Bring your questions and concerns, and get to know your choices for CD2.',
+		viewEventUrl: null,
+		startTime: '19:00',
+		endTime: '20:00'
+	},
 ];
