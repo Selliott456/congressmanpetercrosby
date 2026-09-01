@@ -680,6 +680,18 @@ export const pagesEs = {
 			'gcal-0sqpter7msdq458efqck7r4vm8': {
 				title: 'Cabildo – Centerville',
 				description: 'Acompañe a Peter en un cabildo en la Biblioteca de Centerville. Traiga sus preguntas e inquietudes y conozca a sus opciones para el CD2.'
+			},
+			'gcal-45c55bk33ir9vj6u30vjeh6cod': {
+				title: 'Encuentro y saludo – Centerville',
+				description: 'Conozca y salude a los candidatos que representarían el área de Centerville: Peter Crosby (Congreso de EE. UU.), Garret Rushforth (Senado estatal) y Scott Troxel (Cámara estatal). Conviva con los vecinos, haga preguntas y comparta sus inquietudes.'
+			},
+			'gcal-3i19id235oqmfo7acc9j9d093k': {
+				title: 'Cabildo Virtual',
+				description: 'Acompañe a Peter en un cabildo virtual en vivo por Facebook, Instagram o YouTube. Únase desde donde esté.'
+			},
+			'gcal-teatgjuhf7n12cfdqp5doqluec': {
+				title: 'Encuentro y saludo – Ogden Bench',
+				description: '¡Venga a conocer a sus candidatos! Peter Crosby, CJ Hernandez, Kim James y Kacee Weaver estarán presentes. Pásese, haga preguntas y salude.'
 			}
 		} as Record<string, { title: string; description: string }>
 	},
