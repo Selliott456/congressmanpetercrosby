@@ -1501,4 +1501,55 @@ export const eventsData: EventRow[] = [
 		startTime: '19:00',
 		endTime: '20:00'
 	},
+	// --- Pulled 2026-09-01 (Airtable "Volunteer and Events") ---
+	{
+		id: 'gcal-45c55bk33ir9vj6u30vjeh6cod',
+		type: 'meet-greet',
+		month: 'Sep',
+		day: '3',
+		year: 2026,
+		monthIndex: 9,
+		title: 'Meet & Greet – Centerville',
+		time: '6:30 PM – 8:00 PM MT',
+		location: '1354 N Main St, Centerville, UT 84014',
+		locationUrl: 'https://www.google.com/maps/search/1354+N+Main+St+Centerville+UT+84014',
+		description: 'Meet and greet the candidates who would represent the Centerville area — Peter Crosby (US Congress), Garret Rushforth (State Senate), and Scott Troxel (State House). Mingle with neighbors, ask questions, and share your concerns.',
+		viewEventUrl: null,
+		startTime: '18:30',
+		endTime: '20:00'
+	},
+	{
+		id: 'gcal-3i19id235oqmfo7acc9j9d093k',
+		type: 'town-hall',
+		month: 'Sep',
+		day: '28',
+		year: 2026,
+		monthIndex: 9,
+		title: 'Virtual Town Hall',
+		time: '8:00 PM – 9:00 PM MT',
+		location: 'Facebook / Instagram / YouTube Live',
+		locationUrl: null,
+		description: 'Join Peter for a live virtual town hall via Facebook, Instagram, or YouTube. Tune in from wherever you are.',
+		viewEventUrl: null,
+		// Livestream — viewers just tune in, so opt out of the on-site RSVP default.
+		rsvp: false,
+		startTime: '20:00',
+		endTime: '21:00'
+	},
+	{
+		id: 'gcal-teatgjuhf7n12cfdqp5doqluec',
+		type: 'meet-greet',
+		month: 'Sep',
+		day: '11',
+		year: 2026,
+		monthIndex: 9,
+		title: 'Meet & Greet – Ogden Bench',
+		time: '5:30 PM – 7:00 PM MT',
+		location: '1785 29th St, Ogden, UT 84403',
+		locationUrl: 'https://www.google.com/maps/search/1785+29th+St+Ogden+UT+84403',
+		description: 'Come meet your candidates! Peter Crosby, CJ Hernandez, Kim James, and Kacee Weaver will all be in attendance. Stop by, ask questions, and say hello.',
+		viewEventUrl: null,
+		startTime: '17:30',
+		endTime: '19:00'
+	},
 ];
