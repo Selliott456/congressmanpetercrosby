@@ -791,6 +791,14 @@ export const pagesEs = {
 				description:
 					'El candidato invita a los residentes locales a unirse a esa reunión para conocer más sobre su campaña de base contra el representante republicano en ejercicio Blake Moore, que lleva tres mandatos, en el recién rediseñado Distrito 2 del Congreso.'
 			},
+			'candidate-criticizes-israel': {
+				title: 'El candidato demócrata critica a Israel por involucrar a EE. UU. en una guerra equivocada con Irán'
+			},
+			'debt-double-talk': {
+				title: 'No más dobles discursos sobre la deuda; Utah merece verdadera honestidad fiscal',
+				description:
+					'Necesitamos un representante que sea honesto con nosotros y consigo mismo sobre la mejor manera de enfrentar la crisis de la deuda nacional.'
+			},
 			// Featured press release card (headlines the /media "Featured" band).
 			'august-internal-polling': {
 				title:

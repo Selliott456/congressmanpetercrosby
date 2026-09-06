@@ -169,6 +169,28 @@ export const mediaData: MediaItem[] = [
 		url: 'https://www.cachevalleydaily.com/news/democratic-congressional-candidate-peter-crosby-schedules-local-town-hall-on-aug-26/article_81629fe8-3537-4755-bd59-d2faae760dfd.html',
 		outlet: 'Cache Valley Daily',
 		image: '/images/media/town-hall-aug-26.jpg'
+	},
+	{
+		id: 'candidate-criticizes-israel',
+		pinned: false,
+		type: 'article',
+		title: 'Democratic candidate criticizes Israel for involving U.S. in misguided war with Iran',
+		date: '2026-08-26',
+		url: 'https://www.cachevalleydaily.com/news/democratic-candidate-criticizes-israel-for-involving-u-s-in-misguided-war-with-iran/article_8a91f45e-9adc-41ab-903a-f7d785bf4d69.html',
+		outlet: 'Cache Valley Daily',
+		image: '/images/media/candidate_criticizes_israel.jpg'
+	},
+	{
+		id: 'debt-double-talk',
+		pinned: true,
+		type: 'op-ed',
+		title: 'No more debt double-talk, Utah deserves real fiscal honesty',
+		description:
+			'We need a representative who will be honest with us and with themselves about how to best tackle our national debt crisis.',
+		date: '2026-09-01',
+		url: 'https://www.deseret.com/opinion/2026/09/01/no-moore-debt-double-talk-utah-deserves-fiscal-honesty/',
+		outlet: 'Deseret News',
+		image: '/images/media/debt_double-talk.jpg'
 	}
 ];
 
