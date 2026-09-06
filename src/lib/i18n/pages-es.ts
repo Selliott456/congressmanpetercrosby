@@ -692,6 +692,10 @@ export const pagesEs = {
 			'gcal-teatgjuhf7n12cfdqp5doqluec': {
 				title: 'Encuentro y saludo – Ogden Bench',
 				description: '¡Venga a conocer a sus candidatos! Peter Crosby, CJ Hernandez, Kim James y Kacee Weaver estarán presentes. Pásese, haga preguntas y salude.'
+			},
+			'gcal-03s23q49pfo1rtghq4vflat9k9': {
+				title: 'Conversación sobre Fe y Política',
+				description: 'Una conversación informal de mesa redonda sobre la fe y la política en Utah, con dos de los candidatos al Congreso del estado y miembros de la comunidad, con tiempo para preguntas del público. El espacio en la capilla es limitado.'
 			}
 		} as Record<string, { title: string; description: string }>
 	},

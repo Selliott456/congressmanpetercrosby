@@ -1552,4 +1552,21 @@ export const eventsData: EventRow[] = [
 		startTime: '17:30',
 		endTime: '19:00'
 	},
+	// --- Pulled 2026-09-06 (Airtable "Volunteer and Events") ---
+	{
+		id: 'gcal-03s23q49pfo1rtghq4vflat9k9',
+		type: 'other',
+		month: 'Sep',
+		day: '20',
+		year: 2026,
+		monthIndex: 9,
+		title: 'Faith and Politics Fireside',
+		time: '6:00 PM – 7:30 PM MT',
+		location: 'Post Chapel, Fort Douglas — 120 Fort Douglas Blvd, Salt Lake City, UT 84113',
+		locationUrl: 'https://www.google.com/maps/search/120+Fort+Douglas+Blvd+Salt+Lake+City+UT+84113',
+		description: 'An informal roundtable conversation on faith and politics in Utah, featuring two of the state’s congressional candidates and members of the community, with time for audience questions. Chapel space is limited.',
+		viewEventUrl: null,
+		startTime: '18:00',
+		endTime: '19:30'
+	},
 ];
