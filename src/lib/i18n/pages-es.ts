@@ -692,6 +692,10 @@ export const pagesEs = {
 			'gcal-teatgjuhf7n12cfdqp5doqluec': {
 				title: 'Encuentro y saludo – Ogden Bench',
 				description: '¡Venga a conocer a sus candidatos! Peter Crosby, CJ Hernandez, Kim James y Kacee Weaver estarán presentes. Pásese, haga preguntas y salude.'
+			},
+			'gcal-03s23q49pfo1rtghq4vflat9k9': {
+				title: 'Conversación sobre Fe y Política',
+				description: 'Una conversación informal de mesa redonda sobre la fe y la política en Utah, con dos de los candidatos al Congreso del estado y miembros de la comunidad, con tiempo para preguntas del público. El espacio en la capilla es limitado.'
 			}
 		} as Record<string, { title: string; description: string }>
 	},
@@ -786,6 +790,14 @@ export const pagesEs = {
 				title: 'El candidato demócrata al Congreso Peter Crosby programa un cabildo local para el 26 de agosto',
 				description:
 					'El candidato invita a los residentes locales a unirse a esa reunión para conocer más sobre su campaña de base contra el representante republicano en ejercicio Blake Moore, que lleva tres mandatos, en el recién rediseñado Distrito 2 del Congreso.'
+			},
+			'candidate-criticizes-israel': {
+				title: 'El candidato demócrata critica a Israel por involucrar a EE. UU. en una guerra equivocada con Irán'
+			},
+			'debt-double-talk': {
+				title: 'No más dobles discursos sobre la deuda; Utah merece verdadera honestidad fiscal',
+				description:
+					'Necesitamos un representante que sea honesto con nosotros y consigo mismo sobre la mejor manera de enfrentar la crisis de la deuda nacional.'
 			},
 			// Featured press release card (headlines the /media "Featured" band).
 			'august-internal-polling': {

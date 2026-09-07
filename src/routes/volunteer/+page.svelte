@@ -6,7 +6,7 @@
 
 	const EMAIL = 'information@petercrosbyforcongress.org';
 	const [EMAIL_USER, EMAIL_DOMAIN] = EMAIL.split('@');
-	const PHONE = '(435) 535-1048';
+	const PHONE = '(435) 227-5195';
 	const DONATE_URL = 'https://secure.actblue.com/donate/peter-crosby-1';
 	const ENDPOINT = 'https://formspree.io/f/mqeovjzd';
 
@@ -66,7 +66,7 @@
 				<div class="contact-row">
 					<dt class="contact-term">{$messages.volunteer.phoneLabel}</dt>
 					<dd class="contact-def">
-						<a href="tel:+14355351048" class="contact-link">{PHONE}</a>
+						<a href="tel:+14352275195" class="contact-link">{PHONE}</a>
 					</dd>
 				</div>
 			</dl>

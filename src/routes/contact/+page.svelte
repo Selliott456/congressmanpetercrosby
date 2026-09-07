@@ -6,7 +6,7 @@
 
 	const EMAIL = 'information@petercrosbyforcongress.org';
 	const [EMAIL_USER, EMAIL_DOMAIN] = EMAIL.split('@');
-	const PHONE = '(435) 535-1048';
+	const PHONE = '(435) 227-5195';
 
 	/** @type {'general' | 'media'} */
 	let topic = 'general';
@@ -96,7 +96,7 @@
 				<div class="contact-row">
 					<dt class="contact-term">{$messages.contact.phoneLabel}</dt>
 					<dd class="contact-def">
-						<a href="tel:+14355351048" class="contact-link">{PHONE}</a>
+						<a href="tel:+14352275195" class="contact-link">{PHONE}</a>
 					</dd>
 				</div>
 			</dl>
