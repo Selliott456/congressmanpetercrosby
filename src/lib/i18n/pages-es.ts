@@ -1167,4 +1167,241 @@ export const pagesEs = {
 			}
 		]
 	}
+	,
+	analytics: {
+		metaTitle: 'Analíticas — Peter Crosby para el Congreso',
+		metaDescription:
+			'Los datos detrás de la contienda por el Distrito 2 del Congreso de Utah: encuestas del distrito, prioridades temáticas y tendencias de aprobación estatal, con la metodología completa.',
+		eyebrow: 'Sala de Datos UT-02',
+		pageTitle: 'El Distrito 2 de Utah, en cifras',
+		lede:
+			'Encuestas, prioridades temáticas y contexto estatal del Distrito 2 del Congreso de Utah. Cada cifra se publica con su fuente, fechas de campo, tamaño de muestra y margen de error. Se agregan nuevos conjuntos de datos a medida que están disponibles.',
+		onThisPage: 'En esta página',
+		nav: {
+			districtPolling: 'Encuestas del distrito',
+			statewideContext: 'Contexto estatal',
+			groundGame: 'En el terreno',
+			methodology: 'Metodología'
+		},
+		noteLabel: 'Nota.',
+		noteBody:
+			'Las encuestas encargadas por esta campaña se identifican como encuestas internas. Las encuestas públicas independientes se identifican por separado y se atribuyen a su encuestadora. Para cada cifra de esta página se indican la redacción de la pregunta, el tamaño de muestra, las fechas de campo y el margen de error.',
+		meta: {
+			fieldDates: 'Fechas de campo',
+			sample: 'Muestra',
+			marginOfError: 'Margen de error',
+			geography: 'Geografía',
+			geographyValue: 'UT-02',
+			sampleValue: 'n = {n}',
+			moeValue: '±{moe}%'
+		},
+		eyebrows: {
+			internal: 'Encuesta interna · UT-02',
+			crosstabs: 'Encuesta interna · desgloses',
+			issues: 'Encuesta interna · prioridades temáticas',
+			publicPoll: 'Encuesta pública independiente'
+		},
+		pollMeta: {
+			internalPollster: 'Peter Crosby para el Congreso (interna)',
+			population: 'votantes registrados, seleccionados al azar',
+			geography: 'los condados de Davis, Weber, Box Elder, Cache y Rich (UT-02)',
+			fieldLabel: 'del 3 al 17 de agosto de 2026',
+			hinckleyGeography: 'A nivel estatal (Utah)',
+			hinckleyPeriod: 'agosto de 2026',
+			coxFrom: 'enero de 2026',
+			coxTo: 'agosto de 2026'
+		},
+		sourceInternal:
+			'Encuesta interna, {pollster}. {n} {population} en {geography}, {dates}. Margen de error de ±{moe}%.',
+		responseRate: 'Esta pregunta tuvo una tasa de respuesta del {rate}%.',
+		showTable: 'Ver tabla de datos',
+		hideTable: 'Ocultar tabla de datos',
+		neutralSeparate: 'se muestra por separado, ya que no se ubica en ninguno de los lados de la escala.',
+		likertTable: { response: 'Respuesta', share: 'Porcentaje de encuestados' },
+		groups: {
+			all: 'Todos los votantes del distrito',
+			republican: 'Republicanos registrados',
+			unaffiliated: 'No afiliados e independientes'
+		},
+		softSupport: {
+			title: 'Dónde se debilita el apoyo al titular',
+			takeaway:
+				'Un tercio del propio partido del titular no está comprometido a votar por él, y entre los votantes no afiliados —el bloque más grande del distrito, con un 43%— casi la mitad dice que es poco probable que lo haga.',
+			ariaLabel:
+				'Porcentaje con poca probabilidad de votar por el Rep. Moore, o sin decidir, por partido',
+			electorateShare: '{pct}% del electorado',
+			colGroup: 'Grupo',
+			colShare: 'Porcentaje',
+			colMeasure: 'Medida'
+		},
+		issues: {
+			title: 'El distrito coincide más allá de los partidos',
+			takeaway:
+				'La asequibilidad y la rendición de cuentas del gobierno encabezan la lista en todos los grupos encuestados. La diferencia entre republicanos y votantes no afiliados es de 7 puntos en asequibilidad y 6 en rendición de cuentas: inusualmente estrecha para un distrito tan partidista.',
+			ariaLabel: 'Porcentaje que nombra cada tema como prioridad principal, por grupo de votantes',
+			colIssue: 'Tema',
+			colAll: 'Todos los votantes',
+			colRepublican: 'Republicanos',
+			colUnaffiliated: 'No afiliados'
+		},
+		approval: {
+			title: 'Los titulares de Utah están en números rojos',
+			takeaway:
+				'El ánimo a nivel de distrito no es un caso aislado. En agosto, todas las cifras estatales medidas quedaron por debajo de cero: el rechazo a los titulares es amplio y no se limita a un solo candidato.',
+			ariaLabel: 'Aprobación neta de gestión, a nivel estatal, agosto de 2026',
+			source:
+				'{pollster}, {period}. A nivel estatal. Neto = aprobación menos desaprobación; la cifra del Congreso es el neto publicado.',
+			colOfficeHolder: 'Cargo público',
+			colApprove: 'Aprueba',
+			colDisapprove: 'Desaprueba',
+			colNet: 'Neto',
+			notReported: 'No reportado'
+		},
+		trend: {
+			eyebrow: 'El movimiento más claro',
+			body:
+				'La aprobación del gobernador Cox bajó del {from}% en {fromPeriod} al {to}% en {toPeriod} — {delta} puntos, y en números rojos por primera vez en su mandato como gobernador.',
+			source: '{pollster}, {period}. A nivel estatal.'
+		},
+		ground: {
+			note:
+				'Cifras operativas reportadas por la campaña al momento del comunicado de agosto: actividad de organización, no resultados de encuestas.'
+		},
+		method: {
+			internalTitle: 'Encuesta interna de la campaña',
+			publicTitle: 'Encuesta pública estatal',
+			sponsor: 'Patrocinador',
+			sample: 'Muestra',
+			geography: 'Geografía',
+			fieldDates: 'Fechas de campo',
+			fieldPeriod: 'Periodo de campo',
+			marginOfError: 'Margen de error',
+			partisanship: 'Filiación partidista',
+			pollster: 'Encuestadora',
+			sampleValue: '{n} {population}',
+			moeValue: '±{moe} puntos porcentuales',
+			internalPartisanship: 'Patrocinada por esta campaña — una parte interesada',
+			publicPartisanship: 'Independiente — sin afiliación a ninguna campaña',
+			readRelease: 'Leer el comunicado completo →',
+			readPoll: 'Leer la encuesta ↗'
+		},
+		limits: {
+			title: 'Qué no se modela aquí',
+			intro:
+				'Esta página reporta únicamente cifras que aparecen en una fuente publicada. Lo siguiente no está representado:',
+			items: [
+				{
+					label: 'Comparación directa entre candidatos.',
+					text: 'La encuesta no incluyó un enfrentamiento entre Crosby y Moore, por lo que no aparece ninguna cifra de intención de voto directa en esta página.'
+				},
+				{
+					label: 'Tendencia a lo largo del tiempo.',
+					text: 'La encuesta interna cubre un solo periodo de campo. Medir el cambio requiere una segunda encuesta comparable.'
+				},
+				{
+					label: 'Pronóstico o probabilidad de victoria.',
+					text: 'No se aplica ningún modelo predictivo. Un pronóstico requeriría encuestas independientes y repetidas del distrito.'
+				},
+				{
+					label: 'Desgloses por condado.',
+					text: 'La muestra abarca cinco condados pero no se publicó desagregada; n = {n} es demasiado pequeña para estimaciones fiables por subgrupo.'
+				}
+			]
+		},
+		/** Spanish overrides for `src/lib/data/analytics.ts`, keyed by id. */
+		byId: {
+			satisfaction: {
+				title: 'Satisfacción con el Rep. Moore',
+				question: '¿Qué tan satisfecho está con nuestro representante actual (Rep. Blake Moore)?',
+				takeaway:
+					'El 57% de los votantes del distrito se declara insatisfecho con el titular: una mayoría, y 23 puntos por encima del 43% que se declara satisfecho.',
+				segments: ['Muy satisfecho', 'Algo satisfecho', 'Algo insatisfecho', 'Muy insatisfecho']
+			},
+			'vote-likelihood': {
+				title: 'Probabilidad de reelección',
+				question: '¿Qué tan probable es que vote por Blake Moore este noviembre?',
+				takeaway:
+					'El 30% dice que es probable que vote por el titular. El 70% considera poco probable hacerlo, o no lo ha decidido.',
+				segments: [
+					'Muy probable',
+					'Algo probable',
+					'Algo improbable',
+					'Muy improbable',
+					'No está seguro'
+				]
+			},
+			dissatisfied: {
+				label: 'Insatisfechos con el Rep. Moore',
+				sub: 'Algo o muy insatisfechos'
+			},
+			'soft-support': {
+				label: 'Poco probable que lo reelijan, o sin decidir',
+				sub: 'Solo el 30% dice que es probable que lo haga'
+			},
+			'gop-waver': {
+				label: 'Republicanos indecisos',
+				sub: 'Poco probable que apoyen a Moore, o sin decidir'
+			},
+			affordability: {
+				label: 'Nombran la asequibilidad como prioridad principal',
+				sub: 'El tema mejor clasificado del distrito'
+			},
+			'soft-all': {
+				label: 'Todos los votantes del distrito',
+				note: 'Poco probable que voten por Moore, o sin decidir'
+			},
+			'soft-unaffiliated': {
+				label: 'No afiliados e independientes',
+				note: 'Poco probable que voten por Moore'
+			},
+			'soft-republican': {
+				label: 'Republicanos registrados',
+				note: 'Poco probable que voten por Moore, o sin decidir'
+			},
+			'issue-affordability': {
+				label: 'Asequibilidad',
+				detail: 'Vivienda, atención médica y precios de alimentos'
+			},
+			'issue-accountability': {
+				label: 'Rendición de cuentas del gobierno',
+				detail: 'Ética, uso de información privilegiada y cierre de vacíos legales'
+			},
+			'appr-cox': { label: 'Gob. Spencer Cox', role: 'Gobernador' },
+			'appr-lee': { label: 'Sen. Mike Lee', role: 'Senado de EE. UU.' },
+			'appr-legislature': {
+				label: 'Legislatura Estatal de Utah',
+				role: 'Legislatura estatal'
+			},
+			'appr-congress': { label: 'Congreso de EE. UU.', role: 'Institución' },
+			'ground-townhalls': {
+				label: 'Cabildos presenciales',
+				note: 'Realizados en todo el UT-02 desde el lanzamiento'
+			},
+			'ground-virtual': {
+				label: 'Cabildos virtuales',
+				note: 'Para mayor accesibilidad'
+			},
+			'ground-volunteers': {
+				label: 'Voluntarios registrados',
+				note: 'Una de las campañas más grandes del estado'
+			},
+			'ground-donors': {
+				label: 'Donantes individuales',
+				note: 'No se acepta dinero de PAC corporativos'
+			}
+		} as Record<
+			string,
+			{
+				title?: string;
+				question?: string;
+				takeaway?: string;
+				label?: string;
+				sub?: string;
+				note?: string;
+				detail?: string;
+				role?: string;
+				segments?: string[];
+			}
+		>
+	}
 };
