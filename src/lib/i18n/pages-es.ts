@@ -1237,7 +1237,7 @@ export const pagesEs = {
 		issues: {
 			title: 'El distrito coincide más allá de los partidos',
 			takeaway:
-				'La asequibilidad y la rendición de cuentas del gobierno encabezan la lista en todos los grupos encuestados. La diferencia entre republicanos y votantes no afiliados es de 7 puntos en asequibilidad y 6 en rendición de cuentas: inusualmente estrecha para un distrito tan partidista.',
+				'La asequibilidad y la rendición de cuentas del gobierno encabezan la lista en todos los grupos encuestados. La diferencia entre republicanos y votantes no afiliados es de 7 puntos en asequibilidad y 6 en rendición de cuentas.',
 			ariaLabel: 'Porcentaje que nombra cada tema como prioridad principal, por grupo de votantes',
 			colIssue: 'Tema',
 			colAll: 'Todos los votantes',
@@ -1247,7 +1247,7 @@ export const pagesEs = {
 		approval: {
 			title: 'Los titulares de Utah están en números rojos',
 			takeaway:
-				'El ánimo a nivel de distrito no es un caso aislado. En agosto, todas las cifras estatales medidas quedaron por debajo de cero: el rechazo a los titulares es amplio y no se limita a un solo candidato.',
+				'En agosto, todas las cifras estatales medidas quedaron por debajo de cero: el rechazo a los titulares es amplio y no se limita a un solo candidato.',
 			ariaLabel: 'Aprobación neta de gestión, a nivel estatal, agosto de 2026',
 			source:
 				'{pollster}, {period}. A nivel estatal. Neto = aprobación menos desaprobación; la cifra del Congreso es el neto publicado.',
@@ -1260,7 +1260,7 @@ export const pagesEs = {
 		trend: {
 			eyebrow: 'El movimiento más claro',
 			body:
-				'La aprobación del gobernador Cox bajó del {from}% en {fromPeriod} al {to}% en {toPeriod} — {delta} puntos, y en números rojos por primera vez en su mandato como gobernador.',
+				'La aprobación del gobernador Cox bajó del {from} en {fromPeriod} al {to} en {toPeriod} — {delta} puntos, y en números rojos por primera vez en su mandato como gobernador.',
 			source: '{pollster}, {period}. A nivel estatal.'
 		},
 		ground: {

@@ -584,7 +584,7 @@ export const pagesEn = {
 		issues: {
 			title: 'The district agrees across party lines',
 			takeaway:
-				'Affordability and government accountability top the list for every group surveyed. The spread between Republicans and unaffiliated voters is 7 points on affordability and 6 on accountability — unusually tight for a district this partisan.',
+				'Affordability and government accountability top the list for every group surveyed. The spread between Republicans and unaffiliated voters is 7 points on affordability and 6 on accountability.',
 			ariaLabel: 'Share naming each issue a top priority, by voter group',
 			colIssue: 'Issue',
 			colAll: 'All voters',
@@ -594,7 +594,7 @@ export const pagesEn = {
 		approval: {
 			title: "Utah's incumbents are underwater",
 			takeaway:
-				'The district-level mood is not an outlier. In August, every statewide figure measured sat below zero — the anti-incumbent wave is broad, not candidate-specific.',
+				'In August, every statewide figure measured sat below zero — the anti-incumbent wave is broad, not candidate-specific.',
 			ariaLabel: 'Net job approval, statewide, August 2026',
 			source:
 				'{pollster}, {period}. Statewide. Net = approve minus disapprove; the Congress figure is the published net.',
@@ -607,7 +607,7 @@ export const pagesEn = {
 		trend: {
 			eyebrow: 'The clearest single movement',
 			body:
-				"Gov. Cox's approval fell from {from}% in {fromPeriod} to {to}% in {toPeriod} — {delta} points, and underwater for the first time in his governorship.",
+				"Gov. Cox's approval fell from {from} in {fromPeriod} to {to} in {toPeriod} — {delta} points, and underwater for the first time in his governorship.",
 			source: '{pollster}, {period}. Statewide.'
 		},
 		ground: {

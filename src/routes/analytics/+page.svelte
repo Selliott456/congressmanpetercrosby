@@ -1,7 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 	import { messages } from '$lib/i18n/locale';
-	import { fill } from '$lib/i18n/interpolate';
+	import { fill, fillParts } from '$lib/i18n/interpolate';
 	import Rail from '$lib/components/Rail.svelte';
 	import ChartFrame from '$lib/components/analytics/ChartFrame.svelte';
 	import DivergingStackedBar from '$lib/components/analytics/DivergingStackedBar.svelte';
@@ -88,6 +88,27 @@
 	}));
 
 	const coxDelta = coxApprovalTrend.points[1].value - coxApprovalTrend.points[0].value;
+
+	/**
+	 * The "What is not modeled here" panel. Shown deliberately: stating which metrics
+	 * are absent — and why — is part of reporting the ones that are present. Without
+	 * it nothing on the page tells a reader there is no head-to-head number and no
+	 * forecast, which invites them to assume those figures exist.
+	 *
+	 * Kept behind a flag so it can be toggled for a specific audience without
+	 * deleting the copy. Its text lives in `$messages.analytics.limits` (en + es).
+	 */
+	const SHOW_LIMITS = true;
+
+	/** The trend sentence as ordered parts, so the figures inside it can be
+	    highlighted without putting markup in the dictionary. */
+	$: trendParts = fillParts(t.trend.body, {
+		from: `${coxApprovalTrend.points[0].value}%`,
+		fromPeriod: t.pollMeta.coxFrom,
+		to: `${coxApprovalTrend.points[1].value}%`,
+		toPeriod: t.pollMeta.coxTo,
+		delta: coxDelta
+	});
 
 	// ── Sticky "On this page" ribbon (mirrors the Policies jump bar) ──────────
 	/** Anchor id of the section currently in view — drives the "you are here" highlight.
@@ -365,15 +386,8 @@
 
 		<div class="trend-card">
 			<p class="trend-eyebrow">{t.trend.eyebrow}</p>
-			<p class="trend-headline">
-				{fill(t.trend.body, {
-					from: coxApprovalTrend.points[0].value,
-					fromPeriod: t.pollMeta.coxFrom,
-					to: coxApprovalTrend.points[1].value,
-					toPeriod: t.pollMeta.coxTo,
-					delta: coxDelta
-				})}
-			</p>
+			<!-- Kept on one line: indentation between the blocks would render as stray spaces. -->
+			<p class="trend-headline">{#each trendParts as part}{#if part.key === 'delta'}<span class="trend-delta">{part.text}</span>{:else if part.key === 'from' || part.key === 'to'}<span class="trend-num">{part.text}</span>{:else}{part.text}{/if}{/each}</p>
 			<p class="trend-source">
 				{fill(t.trend.source, {
 					pollster: HINCKLEY_POLL.pollster,
@@ -443,6 +457,7 @@
 			</article>
 		</div>
 
+		{#if SHOW_LIMITS}
 		<div class="limits">
 			<h3 class="limits-title">{t.limits.title}</h3>
 			<p class="limits-intro">{t.limits.intro}</p>
@@ -455,6 +470,7 @@
 				{/each}
 			</ul>
 		</div>
+		{/if}
 	</section>
 </main>
 
@@ -799,6 +815,16 @@
 		letter-spacing: 0.14em;
 		text-transform: uppercase;
 		color: var(--sky);
+	}
+
+	.trend-num {
+		font-family: var(--mono);
+		color: var(--sky);
+	}
+
+	.trend-delta {
+		font-family: var(--mono);
+		color: #e8a33d;
 	}
 
 	.trend-headline {
