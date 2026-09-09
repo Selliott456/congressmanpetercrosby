@@ -286,6 +286,9 @@ export const pagesEn = {
 		lede: 'Neighbors, local leaders, and organizations from across Northern Utah are backing this campaign.',
 		peopleHeading: 'People',
 		orgHeading: 'Caucuses & Organizations',
+		/** Card link, shown when an endorsement has a `releaseHref`. The non-breaking
+		    space keeps the arrow from orphaning onto its own line in a narrow card. */
+		readRelease: 'Read the release →',
 		byId: {} as Record<string, { role: string }>
 	},
 	media: {

@@ -708,7 +708,9 @@ export const pagesEs = {
 		lede: 'Vecinos, líderes locales y organizaciones de todo el norte de Utah respaldan esta campaña.',
 		peopleHeading: 'Personas',
 		orgHeading: 'Caucus y organizaciones',
+		readRelease: 'Leer el comunicado →',
 		byId: {
+			'indivisible-utah': { role: 'Los 12 capítulos de Utah' },
 			'rosemary-lesser': { role: 'Médica, veterana - Distrito 10 de la Cámara de Utah' },
 			'dakota-wurth': { role: 'Concejo Municipal de Clearfield, candidata al Senado estatal' },
 			'john-arthur': { role: 'Distrito 41 de la Cámara de Utah' },
