@@ -536,9 +536,20 @@
 		}
 	}
 
-	@media (max-width: 560px) {
+	@media (max-width: 768px) {
+		/* `.layout-main` supplies the page gutter on mobile; this page's own 1.5rem
+		   was stacking on top of it and narrowing the form and copy. */
 		.contact-page {
-			padding: 2.5rem 1.25rem 3.5rem;
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+
+	@media (max-width: 560px) {
+		/* Vertical only — the horizontal gutter is the layout's job (see above). */
+		.contact-page {
+			padding-top: 2.5rem;
+			padding-bottom: 3.5rem;
 		}
 
 		.form-grid {
