@@ -817,18 +817,89 @@ export const pagesEs = {
 		kind: 'Comunicado',
 		eyebrow: 'Sala de prensa',
 		sectionTitle: 'Comunicados de prensa',
-		sectionLede: 'Declaraciones y anuncios oficiales de la campaña.',
+		sectionLede:
+			'Declaraciones y anuncios oficiales de la campaña, y comunicados emitidos por organizaciones que la respaldan.',
 		homeTitle: 'Comunicados de prensa',
 		readMore: 'Leer el comunicado',
 		viewAll: 'Ver todos los comunicados',
 		backToMedia: 'Volver a medios',
 		forImmediateRelease: 'Para publicación inmediata',
+		issuedBy: 'Comunicado emitido por',
+		externalTag: 'Organización que respalda',
+		reproducedNote:
+			'Este comunicado se reproduce tal como fue emitido. El original está disponible a continuación.',
 		pressContact: 'Contacto de prensa',
 		downloadOriginal: 'Descargar el comunicado',
 		metaTitle: 'Comunicados de prensa — Peter Crosby para el Congreso',
 		metaDescription:
 			'Comunicados de prensa y anuncios oficiales de la campaña Peter Crosby para el Congreso.',
 		byId: {
+			'indivisible-statewide-endorsement': {
+				sourceName: 'Los grupos Indivisible de Utah',
+				sourceLogoAlt: 'Indivisible',
+				title:
+					'Los 12 grupos Indivisible de Utah respaldan a Peter Crosby para el Congreso',
+				summary:
+					'Los doce capítulos de Indivisible en Utah anuncian un respaldo estatal unificado en la contienda por el CD2, la primera vez que los capítulos del estado se unen detrás de un solo candidato al Congreso.',
+				body: [
+					{
+						type: 'p',
+						text: 'Los 12 capítulos de Utah de la organización nacional Indivisible se enorgullecen de anunciar su respaldo estatal a Peter Crosby, candidato demócrata por el Distrito 2 del Congreso de Utah, en las elecciones de 2026. Es la primera vez que todos los capítulos de Indivisible en Utah se unen en todo el estado para emitir un respaldo unificado a una candidatura al Congreso.'
+					},
+					{
+						type: 'p',
+						text: 'Indivisible es una organización nacional que trabaja para defender la democracia estadounidense. Existen más de 2,000 capítulos de Indivisible dirigidos localmente en todo el país, incluidos 12 capítulos activos en Utah que se han unido para respaldar colectivamente a Peter Crosby en su candidatura al Congreso. Estos grupos son:'
+					},
+					{
+						type: 'ul',
+						items: [
+							'Indivisible Box Elder',
+							'We the People Cache Valley',
+							'Indivisible Ogden',
+							'Gathering Voices Davis Indivisible',
+							'Salt Lake Indivisible',
+							'Utah Alliance Coalition',
+							'Wasatch Progressives',
+							'Indivisible Utah County',
+							'Indivisible Carbon County',
+							'Indivisible Cedar City',
+							'Moab Indivisible',
+							'Southern Utah Indivisible'
+						]
+					},
+					{
+						type: 'p',
+						text: 'A los habitantes de Utah les preocupan cada vez más tanto el gobierno de Trump como un Congreso que no está dispuesto a frenar sus abusos de poder y sus ataques a las normas democráticas. En este momento de crisis política, los grupos Indivisible de Utah consideran firmemente que es imprescindible respaldar a candidaturas al Congreso dispuestas a poner fin al caos actual. Peter Crosby destaca como un candidato que, de ser electo, aportará integridad, rendición de cuentas, transparencia y un cambio muy necesario al Congreso.'
+					},
+					{
+						type: 'quote',
+						text: 'Durante meses hemos ido conociendo a Peter, y sentimos que está listo para liderar a Utah como socio en nuestro trabajo de construir comunidades más comprometidas que combatan el gobierno autoritario y promuevan el bienestar de todos los habitantes de Utah.',
+						attribution: 'Chelsea Hagman, Gathering Voices Davis Indivisible'
+					},
+					{
+						type: 'p',
+						text: 'La campaña Peter Crosby para el Congreso está logrando avances notables en el norte de Utah, con énfasis en la importancia de la participación de los miembros de la comunidad para asegurar un buen gobierno. Encuestas recientes de la campaña muestran una profunda insatisfacción entre los habitantes del norte de Utah: el 57% de los encuestados no está satisfecho con su representación actual. Con una base de más de 400 voluntarios registrados, cerca de 40 cabildos públicos programados y más de $90,000 recaudados en donaciones pequeñas e individuales, la campaña de Crosby está a la altura del momento.'
+					},
+					{
+						type: 'quote',
+						text: 'Me honra recibir el respaldo de la organización no partidista responsable de las protestas pacíficas más grandes en la historia de nuestro país, protestas centradas en proteger los derechos civiles de todos nosotros. Me siento honrado por la confianza que esto representa, y seguiré trabajando para representar a todas las personas de este nuevo distrito del Congreso, sin importar su trayectoria política, su posición social o su situación económica.',
+						attribution: 'Peter Crosby'
+					},
+					{
+						type: 'quote',
+						text: 'Puede que este respaldo estatal no determine el destino de la democracia estadounidense, pero sentimos cierta urgencia por hacer todo lo que esté a nuestro alcance, incluso desde nuestro rincón del país, habitualmente descartado y subestimado, para lograr que esto suceda. Y respaldar a Peter Crosby es algo que los grupos Indivisible de Utah hacen con entusiasmo en ese esfuerzo.',
+						attribution: 'Sarah McConkie, Indivisible Utah County'
+					},
+					{
+						type: 'p',
+						text: 'Con este respaldo estatal, los grupos Indivisible de Utah están listos y entusiasmados para ayudar a movilizar a las comunidades del CD2, hacer el trabajo, voltear el escaño del representante Blake Moore y enviar a Peter Crosby al Congreso.'
+					},
+					{
+						type: 'p',
+						text: 'Solicitudes de entrevista: los miembros de la Coalición Estatal Indivisible de Utah y representantes de los capítulos mencionados están disponibles para entrevistas sobre este respaldo.'
+					}
+				]
+			},
 			'august-internal-polling': {
 				title:
 					'Todas las miradas en la contienda por el Distrito 2 de Utah: el demócrata Peter Crosby gana terreno en medio de una ola estatal de rechazo a los titulares',

@@ -310,12 +310,17 @@ export const pagesEn = {
 		kind: 'Press Release',
 		eyebrow: 'Newsroom',
 		sectionTitle: 'Press Releases',
-		sectionLede: 'Official statements and announcements from the campaign.',
+		sectionLede:
+			'Official statements and announcements from the campaign, and releases issued by organizations endorsing it.',
 		homeTitle: 'Press Releases',
 		readMore: 'Read the release',
 		viewAll: 'View all press releases',
 		backToMedia: 'Back to media',
 		forImmediateRelease: 'For immediate release',
+		/** Shown instead of "For immediate release" when another organization issued it. */
+		issuedBy: 'Release issued by',
+		externalTag: 'Endorsing organization',
+		reproducedNote: 'This release is reproduced as issued. The original is available below.',
 		pressContact: 'Press contact',
 		downloadOriginal: 'Download the release',
 		metaTitle: 'Press Releases — Peter Crosby for Congress',
@@ -328,6 +333,9 @@ export const pagesEn = {
 				summary: string;
 				body?: import('$lib/data/pressReleases').PressReleaseBlock[];
 				attachment?: string;
+				/** Issuing organization's name, for releases the campaign did not write. */
+				sourceName?: string;
+				sourceLogoAlt?: string;
 			}
 		>
 	},

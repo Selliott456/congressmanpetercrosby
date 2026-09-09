@@ -33,6 +33,9 @@
 	// attachment when it's itself an image, else the branded wordmark placeholder.
 	$: attachment = override?.attachment ?? item.attachment;
 	$: thumb = item.image ?? (attachment && IMAGE_RE.test(attachment) ? attachment : null);
+	// Releases issued by an endorsing organization are bylined on the card, so the
+	// issuer is visible before anyone opens it.
+	$: sourceName = item.source ? (override?.sourceName ?? item.source.name) : null;
 </script>
 
 <a
@@ -55,7 +58,7 @@
 			<p class="pr-desc">{summary}</p>
 		{/if}
 		<span class="pr-meta">
-			{#if item.location}{item.location} • {/if}{formattedDate}
+			{#if sourceName}<span class="pr-source">{sourceName}</span> • {:else if item.location}{item.location} • {/if}{formattedDate}
 		</span>
 	</div>
 </a>
@@ -198,5 +201,15 @@
 		letter-spacing: 0.06em;
 		text-transform: uppercase;
 		color: rgba(247, 250, 252, 0.5);
+	}
+
+	/* Lift the issuing organization out of the dimmed meta line — it is a byline,
+	   not incidental metadata. */
+	.pr-source {
+		color: var(--sky);
+	}
+
+	.pr-card--light .pr-source {
+		color: var(--blue);
 	}
 </style>
