@@ -91,7 +91,7 @@ export const likertQuestions: LikertQuestion[] = [
 		question: 'How satisfied are you with our current representative (Rep. Blake Moore)?',
 		shortTitle: 'Satisfaction with Rep. Moore',
 		takeaway:
-			'57% of district voters report dissatisfaction with the incumbent — a majority, and 23 points clear of the 43% who are satisfied.',
+			'57% of district voters report dissatisfaction with the incumbent; 43% report satisfaction.',
 		segments: [
 			{ label: 'Very satisfied', value: 9, color: SCALE_COLORS.posStrong, side: 'pos' },
 			{ label: 'Somewhat satisfied', value: 34, color: SCALE_COLORS.posSoft, side: 'pos' },
@@ -258,7 +258,9 @@ export const groundGame = [
 		label: 'Registered volunteers',
 		value: 400,
 		unit: '+',
-		note: 'One of the largest in the state'
+		// Was "One of the largest in the state" — a comparative claim with no published
+		// source behind it, which the sourcing rule above does not allow.
+		note: 'Signed up since launch'
 	},
 	{
 		id: 'ground-donors',
@@ -283,14 +285,14 @@ export const headlineStats = [
 		value: 70,
 		unit: '%',
 		label: 'Unlikely to re-elect, or unsure',
-		sub: 'Only 30% say they are likely to'
+		sub: '30% say they are likely to'
 	},
 	{
 		id: 'gop-waver',
 		value: 33,
 		unit: '%',
-		label: 'Republicans wavering',
-		sub: 'Unlikely to back Moore, or unsure'
+		label: 'Republicans unlikely to back Moore',
+		sub: 'Includes those who are unsure'
 	},
 	{
 		id: 'affordability',

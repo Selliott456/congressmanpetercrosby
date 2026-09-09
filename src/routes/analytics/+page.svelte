@@ -252,7 +252,10 @@
 
 	<!-- ── District polling ─────────────────────────────────────── -->
 	<section id="district-polling" class="analytics-section charts" aria-labelledby="district-title">
-		<h2 class="section-title" id="district-title">{t.nav.districtPolling}</h2>
+		<header class="section-head">
+			<div class="section-rail"><Rail height="4px" /></div>
+			<h2 class="section-title" id="district-title">{t.nav.districtPolling}</h2>
+		</header>
 
 		<!-- Poll snapshot: the headline figure and this survey's methodology, kept
 		     with the data they describe rather than in the page masthead. -->
@@ -358,7 +361,10 @@
 
 	<!-- ── Statewide context ────────────────────────────────────── -->
 	<section id="statewide-context" class="analytics-section charts" aria-labelledby="statewide-title">
-		<h2 class="section-title" id="statewide-title">{t.nav.statewideContext}</h2>
+		<header class="section-head">
+			<div class="section-rail"><Rail height="4px" /></div>
+			<h2 class="section-title" id="statewide-title">{t.nav.statewideContext}</h2>
+		</header>
 
 		<ChartFrame
 			eyebrow={t.eyebrows.publicPoll}
@@ -399,7 +405,10 @@
 
 	<!-- ── Ground game ──────────────────────────────────────────── -->
 	<section id="ground-game" class="analytics-section ground" aria-labelledby="ground-title">
-		<h2 class="section-title" id="ground-title">{t.nav.groundGame}</h2>
+		<header class="section-head">
+			<div class="section-rail"><Rail height="4px" /></div>
+			<h2 class="section-title" id="ground-title">{t.nav.groundGame}</h2>
+		</header>
 		<p class="ground-note">{t.ground.note}</p>
 		<div class="ground-grid">
 			{#each groundGame as item}
@@ -414,7 +423,10 @@
 
 	<!-- ── Methodology ──────────────────────────────────────────── -->
 	<section id="methodology" class="analytics-section method" aria-labelledby="method-title">
-		<h2 class="section-title" id="method-title">{t.nav.methodology}</h2>
+		<header class="section-head">
+			<div class="section-rail"><Rail height="4px" /></div>
+			<h2 class="section-title" id="method-title">{t.nav.methodology}</h2>
+		</header>
 
 		<div class="method-grid">
 			<article class="method-card">
@@ -665,15 +677,36 @@
 	.ground {
 		max-width: 1120px;
 		margin: 0 auto;
-		padding: 3rem 1.5rem 0;
+		padding: 4rem 1.5rem 0;
+	}
+
+	/* A hairline between consecutive sections, so a new analysis reads as a new
+	   section rather than as one more card in the previous one. The first section
+	   skips it — the disclosure band above already closes the masthead. */
+	.analytics-section + .analytics-section {
+		border-top: 1px solid var(--line-l);
+	}
+
+	/* Section headings have to outrank the chart titles inside them; both are
+	   display italic, so size alone was doing the work and losing. The rail is the
+	   brand's section marker (it tops the nav and the hero frame). */
+	.section-head {
+		margin: 0 0 2rem;
+	}
+
+	.section-rail {
+		width: 72px;
+		margin-bottom: 1rem;
 	}
 
 	.section-title {
-		margin: 0 0 1.5rem;
+		margin: 0;
 		font-family: var(--display);
 		font-style: italic;
 		font-weight: 900;
-		font-size: clamp(1.5rem, 3vw, 2rem);
+		font-size: clamp(1.9rem, 3.6vw, 2.5rem);
+		letter-spacing: -0.02em;
+		line-height: 1.05;
 		color: var(--ink);
 	}
 

@@ -520,7 +520,7 @@ export const pagesEn = {
 		metaTitle: 'Analytics — Peter Crosby for Congress',
 		metaDescription:
 			"The data behind Utah's 2nd Congressional District race: district polling, issue priorities, and statewide approval trends, with full methodology.",
-		eyebrow: 'The UT-02 Data Room',
+		eyebrow: 'UT-02 · Polling and data',
 		pageTitle: "Utah's 2nd District, by the numbers",
 		lede:
 			"Polling, issue priorities, and statewide context for Utah's 2nd Congressional District. Every figure is published with its source, field dates, sample size, and margin of error. New datasets are added as they become available.",
@@ -572,9 +572,9 @@ export const pagesEn = {
 			unaffiliated: 'Unaffiliated & independent'
 		},
 		softSupport: {
-			title: "Where the incumbent's support is soft",
+			title: 'Support for the incumbent, by party',
 			takeaway:
-				"A third of the incumbent's own party is not committed to voting for him — and among unaffiliated voters, who are the largest bloc in the district at 43%, nearly half say they are unlikely to.",
+				'47% of unaffiliated and independent voters — 43% of the district electorate — say they are unlikely to vote for Rep. Moore. Among registered Republicans, 33% are unlikely to, or unsure.',
 			ariaLabel: 'Share unlikely to vote for Rep. Moore, or unsure, by party',
 			electorateShare: '{pct}% of the electorate',
 			colGroup: 'Group',
@@ -582,7 +582,7 @@ export const pagesEn = {
 			colMeasure: 'Measure'
 		},
 		issues: {
-			title: 'The district agrees across party lines',
+			title: 'Top issue priorities, by party',
 			takeaway:
 				'Affordability and government accountability top the list for every group surveyed. The spread between Republicans and unaffiliated voters is 7 points on affordability and 6 on accountability.',
 			ariaLabel: 'Share naming each issue a top priority, by voter group',
@@ -592,9 +592,9 @@ export const pagesEn = {
 			colUnaffiliated: 'Unaffiliated'
 		},
 		approval: {
-			title: "Utah's incumbents are underwater",
+			title: 'Net job approval, August 2026',
 			takeaway:
-				'In August, every statewide figure measured sat below zero — the anti-incumbent wave is broad, not candidate-specific.',
+				'Every officeholder and institution measured was net negative — disapproval exceeded approval in each case.',
 			ariaLabel: 'Net job approval, statewide, August 2026',
 			source:
 				'{pollster}, {period}. Statewide. Net = approve minus disapprove; the Congress figure is the published net.',
@@ -605,9 +605,9 @@ export const pagesEn = {
 			notReported: 'Not reported'
 		},
 		trend: {
-			eyebrow: 'The clearest single movement',
+			eyebrow: 'Change since January',
 			body:
-				"Gov. Cox's approval fell from {from} in {fromPeriod} to {to} in {toPeriod} — {delta} points, and underwater for the first time in his governorship.",
+				"Gov. Cox's approval fell from {from} in {fromPeriod} to {to} in {toPeriod}, a change of {delta} points.",
 			source: '{pollster}, {period}. Statewide.'
 		},
 		ground: {

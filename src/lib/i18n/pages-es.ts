@@ -1177,7 +1177,7 @@ export const pagesEs = {
 		metaTitle: 'Analíticas — Peter Crosby para el Congreso',
 		metaDescription:
 			'Los datos detrás de la contienda por el Distrito 2 del Congreso de Utah: encuestas del distrito, prioridades temáticas y tendencias de aprobación estatal, con la metodología completa.',
-		eyebrow: 'Sala de Datos UT-02',
+		eyebrow: 'UT-02 · Encuestas y datos',
 		pageTitle: 'El Distrito 2 de Utah, en cifras',
 		lede:
 			'Encuestas, prioridades temáticas y contexto estatal del Distrito 2 del Congreso de Utah. Cada cifra se publica con su fuente, fechas de campo, tamaño de muestra y margen de error. Se agregan nuevos conjuntos de datos a medida que están disponibles.',
@@ -1229,9 +1229,9 @@ export const pagesEs = {
 			unaffiliated: 'No afiliados e independientes'
 		},
 		softSupport: {
-			title: 'Dónde se debilita el apoyo al titular',
+			title: 'Apoyo al titular, por partido',
 			takeaway:
-				'Un tercio del propio partido del titular no está comprometido a votar por él, y entre los votantes no afiliados —el bloque más grande del distrito, con un 43%— casi la mitad dice que es poco probable que lo haga.',
+				'El 47% de los votantes no afiliados e independientes —el 43% del electorado del distrito— dice que es poco probable que vote por el Rep. Moore. Entre los republicanos registrados, el 33% considera poco probable hacerlo, o no lo ha decidido.',
 			ariaLabel:
 				'Porcentaje con poca probabilidad de votar por el Rep. Moore, o sin decidir, por partido',
 			electorateShare: '{pct}% del electorado',
@@ -1240,7 +1240,7 @@ export const pagesEs = {
 			colMeasure: 'Medida'
 		},
 		issues: {
-			title: 'El distrito coincide más allá de los partidos',
+			title: 'Prioridades temáticas principales, por partido',
 			takeaway:
 				'La asequibilidad y la rendición de cuentas del gobierno encabezan la lista en todos los grupos encuestados. La diferencia entre republicanos y votantes no afiliados es de 7 puntos en asequibilidad y 6 en rendición de cuentas.',
 			ariaLabel: 'Porcentaje que nombra cada tema como prioridad principal, por grupo de votantes',
@@ -1250,9 +1250,9 @@ export const pagesEs = {
 			colUnaffiliated: 'No afiliados'
 		},
 		approval: {
-			title: 'Los titulares de Utah están en números rojos',
+			title: 'Aprobación neta de la gestión, agosto de 2026',
 			takeaway:
-				'En agosto, todas las cifras estatales medidas quedaron por debajo de cero: el rechazo a los titulares es amplio y no se limita a un solo candidato.',
+				'Todos los cargos e instituciones medidos tuvieron un neto negativo: en cada caso, la desaprobación superó a la aprobación.',
 			ariaLabel: 'Aprobación neta de gestión, a nivel estatal, agosto de 2026',
 			source:
 				'{pollster}, {period}. A nivel estatal. Neto = aprobación menos desaprobación; la cifra del Congreso es el neto publicado.',
@@ -1263,9 +1263,9 @@ export const pagesEs = {
 			notReported: 'No reportado'
 		},
 		trend: {
-			eyebrow: 'El movimiento más claro',
+			eyebrow: 'Cambio desde enero',
 			body:
-				'La aprobación del gobernador Cox bajó del {from} en {fromPeriod} al {to} en {toPeriod} — {delta} puntos, y en números rojos por primera vez en su mandato como gobernador.',
+				'La aprobación del gobernador Cox bajó del {from} en {fromPeriod} al {to} en {toPeriod}, un cambio de {delta} puntos.',
 			source: '{pollster}, {period}. A nivel estatal.'
 		},
 		ground: {
@@ -1319,7 +1319,7 @@ export const pagesEs = {
 				title: 'Satisfacción con el Rep. Moore',
 				question: '¿Qué tan satisfecho está con nuestro representante actual (Rep. Blake Moore)?',
 				takeaway:
-					'El 57% de los votantes del distrito se declara insatisfecho con el titular: una mayoría, y 23 puntos por encima del 43% que se declara satisfecho.',
+					'El 57% de los votantes del distrito se declara insatisfecho con el titular; el 43% se declara satisfecho.',
 				segments: ['Muy satisfecho', 'Algo satisfecho', 'Algo insatisfecho', 'Muy insatisfecho']
 			},
 			'vote-likelihood': {
@@ -1341,11 +1341,11 @@ export const pagesEs = {
 			},
 			'soft-support': {
 				label: 'Poco probable que lo reelijan, o sin decidir',
-				sub: 'Solo el 30% dice que es probable que lo haga'
+				sub: 'El 30% dice que es probable que lo haga'
 			},
 			'gop-waver': {
-				label: 'Republicanos indecisos',
-				sub: 'Poco probable que apoyen a Moore, o sin decidir'
+				label: 'Republicanos con poca probabilidad de apoyar a Moore',
+				sub: 'Incluye a quienes no lo han decidido'
 			},
 			affordability: {
 				label: 'Nombran la asequibilidad como prioridad principal',
@@ -1388,7 +1388,7 @@ export const pagesEs = {
 			},
 			'ground-volunteers': {
 				label: 'Voluntarios registrados',
-				note: 'Una de las campañas más grandes del estado'
+				note: 'Registrados desde el lanzamiento'
 			},
 			'ground-donors': {
 				label: 'Donantes individuales',
