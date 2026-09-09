@@ -751,6 +751,11 @@ export const pagesEs = {
 			'early-campaign-launch': {
 				title: 'Peter Crosby lanza su campaña con anticipación'
 			},
+			'box-elder-data-center-silence': {
+				title: 'En medio del clamor público por el centro de datos ‘hyperscale’ de Box Elder, los candidatos republicanos guardan silencio',
+				description:
+					'Ni el representante federal Blake Moore ni la representante estatal Karianne Lisonbee se han pronunciado. El demócrata Peter Crosby dijo estar preocupado por la falta de participación pública.'
+			},
 			'virtual-town-hall': {
 				title: 'Cabildo virtual con Peter',
 				description:
