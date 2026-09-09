@@ -696,6 +696,16 @@ export const pagesEs = {
 			'gcal-03s23q49pfo1rtghq4vflat9k9': {
 				title: 'Conversación sobre Fe y Política',
 				description: 'Una conversación informal de mesa redonda sobre la fe y la política en Utah, con dos de los candidatos al Congreso del estado y miembros de la comunidad, con tiempo para preguntas del público. El espacio en la capilla es limitado.'
+			},
+			'gcal-jdb0693pajabibf2gepejg3ais': {
+				title: 'Celebración del Día de Conmemoración de Cache Valley',
+				description:
+					'Cache Valley se reúne en Willow Park para honrar las vidas perdidas hace 25 años y conmemorar el día mediante el servicio comunitario. Almuerzo gratuito, un programa patriótico y tiempo para convivir con los vecinos.'
+			},
+			'gcal-6rttkuiba0ouv1vknv86b7rnr0': {
+				title: 'Saludo en la esquina – Layton',
+				description:
+					'Acompañe a Peter, Abigail Treasure y Garret Rushforth en la esquina de Hill Field Road y Antelope Drive. Traiga a un amigo y ayude a dar a conocer quiénes están en la boleta en Layton.'
 			}
 		} as Record<string, { title: string; description: string }>
 	},
