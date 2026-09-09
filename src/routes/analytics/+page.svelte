@@ -1,6 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
-	import { messages } from '$lib/i18n/locale';
+	import { messages, locale } from '$lib/i18n/locale';
 	import { fill, fillParts } from '$lib/i18n/interpolate';
 	import Rail from '$lib/components/Rail.svelte';
 	import ChartFrame from '$lib/components/analytics/ChartFrame.svelte';
@@ -8,8 +8,9 @@
 	import DotPlot from '$lib/components/analytics/DotPlot.svelte';
 	import NetApprovalBar from '$lib/components/analytics/NetApprovalBar.svelte';
 	import {
-		INTERNAL_POLL,
-		HINCKLEY_POLL,
+		POLLS,
+		FEATURED_POLL_ID,
+		LAST_UPDATED,
 		likertQuestions,
 		softSupportByParty,
 		issuePriorities,
@@ -43,15 +44,55 @@
 	$: hero = headlineStats[0];
 	$: rest = headlineStats.slice(1);
 
-	/** The internal-poll source line, assembled from translated parts. */
-	$: internalSource = fill(t.sourceInternal, {
-		pollster: 'Peter Crosby for Congress',
-		n: INTERNAL_POLL.sampleSize,
-		population: t.pollMeta.population,
-		geography: t.pollMeta.geography,
-		dates: t.pollMeta.fieldLabel,
-		moe: INTERNAL_POLL.marginOfError
-	});
+	/**
+	 * `t.polls` is an object literal in the dictionary on purpose: `pagesEs` is typed
+	 * as the shape of `pagesEn`, so a poll added in English but not Spanish is a type
+	 * error. That literal cannot be indexed by a plain `string`, so it is narrowed to
+	 * a keyed record here — one cast, rather than weakening the dictionary type that
+	 * is doing the useful work.
+	 * @type {Record<string, typeof t.polls['internal-aug-2026']>}
+	 */
+	$: pollsById = t.polls;
+
+	/** The poll headlining the District polling snapshot. */
+	$: featuredPoll = POLLS[FEATURED_POLL_ID];
+	$: featuredPollText = pollsById[FEATURED_POLL_ID];
+
+	/**
+	 * A chart's source line, built from the poll its data came from rather than
+	 * from a page-level constant — so charts drawn from different polls each cite
+	 * their own sample, field dates and margin of error.
+	 *
+	 * Reactive (not a plain function) so it rebuilds on a locale change: Svelte
+	 * tracks `t` here, but would not see it referenced inside a static function.
+	 */
+	$: sourceFor = (/** @type {string} */ pollId) => {
+		const poll = POLLS[pollId];
+		const text = pollsById[pollId];
+		const template = poll.partisan ? t.sourceInternal : t.sourcePublic;
+		return fill(template, {
+			pollster: text.shortPollster,
+			n: poll.sampleSize ?? '',
+			population: text.population,
+			geography: text.geography,
+			dates: text.fieldLabel,
+			moe: poll.marginOfError ?? ''
+		});
+	};
+
+	/** Methodology cards: campaign-sponsored polls first, then independent ones,
+	    each group newest field period first. */
+	const methodPolls = Object.values(POLLS).sort(
+		(a, b) => Number(b.partisan) - Number(a.partisan) || b.fieldEnd.localeCompare(a.fieldEnd)
+	);
+
+	/** Page dateline, formatted in the reader's locale from a single ISO constant. */
+	$: dateline = new Intl.DateTimeFormat($locale === 'es' ? 'es-US' : 'en-US', {
+		year: 'numeric',
+		month: 'long',
+		day: 'numeric',
+		timeZone: 'UTC'
+	}).format(new Date(`${LAST_UPDATED}T00:00:00Z`));
 
 	/** Party colors — validated all-pairs (worst CVD ΔE 18.0) on the paper surface. */
 	const GROUP_COLORS = {
@@ -60,7 +101,7 @@
 		unaffiliated: '#2F7D46'
 	};
 
-	$: issueRows = issuePriorities.map((it) => ({
+	$: issueRows = issuePriorities.rows.map((it) => ({
 		label: t.byId[it.id]?.label ?? it.issue,
 		sublabel: t.byId[it.id]?.detail ?? it.detail,
 		points: [
@@ -70,7 +111,7 @@
 		]
 	}));
 
-	$: softSupportRows = softSupportByParty.map((r) => ({
+	$: softSupportRows = softSupportByParty.rows.map((r) => ({
 		label: t.byId[r.id]?.label ?? r.group,
 		sublabel: r.electorateShare
 			? fill(t.softSupport.electorateShare, { pct: r.electorateShare })
@@ -81,7 +122,7 @@
 	}));
 
 	/** Approval rows with translated names/roles for the chart and its table. */
-	$: approvalRows = statewideApproval.map((r) => ({
+	$: approvalRows = statewideApproval.rows.map((r) => ({
 		...r,
 		name: t.byId[r.id]?.label ?? r.name,
 		role: t.byId[r.id]?.role ?? r.role
@@ -212,6 +253,12 @@
 			<p class="eyebrow">{t.eyebrow}</p>
 			<h1 class="page-title">{t.pageTitle}</h1>
 			<p class="lede">{t.lede}</p>
+			<!-- The page accumulates datasets with different field periods, so it needs
+			     its own "as of" separate from any single poll's dates. -->
+			<p class="dateline">
+				{t.datelineLabel}
+				<time datetime={LAST_UPDATED}>{dateline}</time>
+			</p>
 		</div>
 	</header>
 
@@ -270,15 +317,15 @@
 			<dl class="meta-row">
 				<div class="meta">
 					<dt>{t.meta.fieldDates}</dt>
-					<dd>{t.pollMeta.fieldLabel}</dd>
+					<dd>{featuredPollText.fieldLabel}</dd>
 				</div>
 				<div class="meta">
 					<dt>{t.meta.sample}</dt>
-					<dd>{fill(t.meta.sampleValue, { n: INTERNAL_POLL.sampleSize })}</dd>
+					<dd>{fill(t.meta.sampleValue, { n: featuredPoll.sampleSize ?? '' })}</dd>
 				</div>
 				<div class="meta">
 					<dt>{t.meta.marginOfError}</dt>
-					<dd>{fill(t.meta.moeValue, { moe: INTERNAL_POLL.marginOfError })}</dd>
+					<dd>{fill(t.meta.moeValue, { moe: featuredPoll.marginOfError ?? '' })}</dd>
 				</div>
 				<div class="meta">
 					<dt>{t.meta.geography}</dt>
@@ -307,8 +354,8 @@
 				question={o?.question ?? q.question}
 				takeaway={o?.takeaway ?? q.takeaway}
 				source={q.responseRate
-					? `${internalSource} ${fill(t.responseRate, { rate: q.responseRate })}`
-					: internalSource}
+					? `${sourceFor(q.pollId)} ${fill(t.responseRate, { rate: q.responseRate })}`
+					: sourceFor(q.pollId)}
 				legend={localSegments.map((s) => ({ label: s.label, color: s.color }))}
 				tableColumns={[t.likertTable.response, t.likertTable.share]}
 				tableRows={localSegments.map((s) => [s.label, `${s.value}%`])}
@@ -321,9 +368,9 @@
 			eyebrow={t.eyebrows.crosstabs}
 			title={t.softSupport.title}
 			takeaway={t.softSupport.takeaway}
-			source={internalSource}
+			source={sourceFor(softSupportByParty.pollId)}
 			tableColumns={[t.softSupport.colGroup, t.softSupport.colShare, t.softSupport.colMeasure]}
-			tableRows={softSupportByParty.map((r) => [
+			tableRows={softSupportByParty.rows.map((r) => [
 				t.byId[r.id]?.label ?? r.group,
 				`${r.value}%`,
 				t.byId[r.id]?.note ?? r.note ?? ''
@@ -336,7 +383,7 @@
 			eyebrow={t.eyebrows.issues}
 			title={t.issues.title}
 			takeaway={t.issues.takeaway}
-			source={internalSource}
+			source={sourceFor(issuePriorities.pollId)}
 			legend={[
 				{ label: t.groups.all, color: GROUP_COLORS.all },
 				{ label: t.groups.republican, color: GROUP_COLORS.republican },
@@ -348,7 +395,7 @@
 				t.issues.colRepublican,
 				t.issues.colUnaffiliated
 			]}
-			tableRows={issuePriorities.map((it) => [
+			tableRows={issuePriorities.rows.map((it) => [
 				t.byId[it.id]?.label ?? it.issue,
 				`${it.all}%`,
 				`${it.republican}%`,
@@ -371,8 +418,8 @@
 			title={t.approval.title}
 			takeaway={t.approval.takeaway}
 			source={fill(t.approval.source, {
-				pollster: HINCKLEY_POLL.pollster,
-				period: t.pollMeta.hinckleyPeriod
+				pollster: pollsById[statewideApproval.pollId].pollster,
+				period: pollsById[statewideApproval.pollId].fieldLabel
 			})}
 			tableColumns={[
 				t.approval.colOfficeHolder,
@@ -396,8 +443,8 @@
 			<p class="trend-headline">{#each trendParts as part}{#if part.key === 'delta'}<span class="trend-delta">{part.text}</span>{:else if part.key === 'from' || part.key === 'to'}<span class="trend-num">{part.text}</span>{:else}{part.text}{/if}{/each}</p>
 			<p class="trend-source">
 				{fill(t.trend.source, {
-					pollster: HINCKLEY_POLL.pollster,
-					period: t.pollMeta.hinckleyPeriod
+					pollster: pollsById[coxApprovalTrend.pollId].pollster,
+					period: pollsById[coxApprovalTrend.pollId].fieldLabel
 				})}
 			</p>
 		</div>
@@ -428,45 +475,51 @@
 			<h2 class="section-title" id="method-title">{t.nav.methodology}</h2>
 		</header>
 
+		<!-- One card per poll in the registry, so adding a poll to `POLLS` (plus its
+		     translated entry) surfaces its methodology here without new markup. -->
 		<div class="method-grid">
-			<article class="method-card">
-				<h3 class="method-card-title">{t.method.internalTitle}</h3>
-				<dl class="method-list">
-					<div><dt>{t.method.sponsor}</dt><dd>{t.pollMeta.internalPollster}</dd></div>
-					<div>
-						<dt>{t.method.sample}</dt>
-						<dd>
-							{fill(t.method.sampleValue, {
-								n: INTERNAL_POLL.sampleSize,
-								population: t.pollMeta.population
-							})}
-						</dd>
-					</div>
-					<div><dt>{t.method.geography}</dt><dd>{t.pollMeta.geography}</dd></div>
-					<div><dt>{t.method.fieldDates}</dt><dd>{t.pollMeta.fieldLabel}</dd></div>
-					<div>
-						<dt>{t.method.marginOfError}</dt>
-						<dd>{fill(t.method.moeValue, { moe: INTERNAL_POLL.marginOfError })}</dd>
-					</div>
-					<div><dt>{t.method.partisanship}</dt><dd>{t.method.internalPartisanship}</dd></div>
-				</dl>
-				<a class="method-link" href="/press/{INTERNAL_POLL.releaseId}">
-					{t.method.readRelease}
-				</a>
-			</article>
-
-			<article class="method-card">
-				<h3 class="method-card-title">{t.method.publicTitle}</h3>
-				<dl class="method-list">
-					<div><dt>{t.method.pollster}</dt><dd>{HINCKLEY_POLL.pollster}</dd></div>
-					<div><dt>{t.method.geography}</dt><dd>{t.pollMeta.hinckleyGeography}</dd></div>
-					<div><dt>{t.method.fieldPeriod}</dt><dd>{t.pollMeta.hinckleyPeriod}</dd></div>
-					<div><dt>{t.method.partisanship}</dt><dd>{t.method.publicPartisanship}</dd></div>
-				</dl>
-				<a class="method-link" href={HINCKLEY_POLL.url} target="_blank" rel="noopener noreferrer">
-					{t.method.readPoll}
-				</a>
-			</article>
+			{#each methodPolls as poll}
+				{@const text = pollsById[poll.id]}
+				<article class="method-card">
+					<h3 class="method-card-title">{text.methodTitle}</h3>
+					<dl class="method-list">
+						<div>
+							<dt>{poll.partisan ? t.method.sponsor : t.method.pollster}</dt>
+							<dd>{text.pollster}</dd>
+						</div>
+						{#if poll.sampleSize !== null}
+							<div>
+								<dt>{t.method.sample}</dt>
+								<dd>
+									{fill(t.method.sampleValue, {
+										n: poll.sampleSize,
+										population: text.population
+									})}
+								</dd>
+							</div>
+						{/if}
+						<div><dt>{t.method.geography}</dt><dd>{text.geography}</dd></div>
+						<div>
+							<dt>{poll.sampleSize !== null ? t.method.fieldDates : t.method.fieldPeriod}</dt>
+							<dd>{text.fieldLabel}</dd>
+						</div>
+						{#if poll.marginOfError !== null}
+							<div>
+								<dt>{t.method.marginOfError}</dt>
+								<dd>{fill(t.method.moeValue, { moe: poll.marginOfError })}</dd>
+							</div>
+						{/if}
+						<div><dt>{t.method.partisanship}</dt><dd>{text.partisanship}</dd></div>
+					</dl>
+					{#if poll.releaseId}
+						<a class="method-link" href="/press/{poll.releaseId}">{t.method.readRelease}</a>
+					{:else if poll.url}
+						<a class="method-link" href={poll.url} target="_blank" rel="noopener noreferrer">
+							{t.method.readPoll}
+						</a>
+					{/if}
+				</article>
+			{/each}
 		</div>
 
 		{#if SHOW_LIMITS}
@@ -477,7 +530,7 @@
 				{#each t.limits.items as item}
 					<li>
 						<strong>{item.label}</strong>
-						{fill(item.text, { n: INTERNAL_POLL.sampleSize })}
+						{fill(item.text, { n: featuredPoll.sampleSize ?? '' })}
 					</li>
 				{/each}
 			</ul>
@@ -531,6 +584,16 @@
 		font-size: clamp(1rem, 1.7vw, 1.15rem);
 		line-height: 1.6;
 		color: var(--paper-3);
+	}
+
+	/* Mono + uppercase, matching the site's date/meta voice. */
+	.dateline {
+		margin: 1.35rem 0 0;
+		font-family: var(--mono);
+		font-size: 0.72rem;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--sky);
 	}
 
 	.masthead-rail {

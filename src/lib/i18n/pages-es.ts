@@ -1206,18 +1206,35 @@ export const pagesEs = {
 			issues: 'Encuesta interna · prioridades temáticas',
 			publicPoll: 'Encuesta pública independiente'
 		},
+		/** Prosa por encuesta, con las mismas claves que `POLLS` en la capa de datos. */
+		polls: {
+			'internal-aug-2026': {
+				pollster: 'Peter Crosby para el Congreso (interna)',
+				shortPollster: 'Peter Crosby para el Congreso',
+				population: 'votantes registrados, seleccionados al azar',
+				geography: 'los condados de Davis, Weber, Box Elder, Cache y Rich (UT-02)',
+				fieldLabel: 'del 3 al 17 de agosto de 2026',
+				partisanship: 'Patrocinada por esta campaña — una parte interesada',
+				methodTitle: 'Encuesta interna de la campaña'
+			},
+			'hinckley-aug-2026': {
+				pollster: 'Deseret News / Hinckley Institute of Politics',
+				shortPollster: 'Deseret News / Hinckley Institute of Politics',
+				population: 'votantes registrados',
+				geography: 'A nivel estatal (Utah)',
+				fieldLabel: 'agosto de 2026',
+				partisanship: 'Independiente — sin afiliación a ninguna campaña',
+				methodTitle: 'Encuesta pública estatal'
+			}
+		},
 		pollMeta: {
-			internalPollster: 'Peter Crosby para el Congreso (interna)',
-			population: 'votantes registrados, seleccionados al azar',
-			geography: 'los condados de Davis, Weber, Box Elder, Cache y Rich (UT-02)',
-			fieldLabel: 'del 3 al 17 de agosto de 2026',
-			hinckleyGeography: 'A nivel estatal (Utah)',
-			hinckleyPeriod: 'agosto de 2026',
 			coxFrom: 'enero de 2026',
 			coxTo: 'agosto de 2026'
 		},
+		datelineLabel: 'Última actualización',
 		sourceInternal:
 			'Encuesta interna, {pollster}. {n} {population} en {geography}, {dates}. Margen de error de ±{moe}%.',
+		sourcePublic: '{pollster}, {dates}. {geography}.',
 		responseRate: 'Esta pregunta tuvo una tasa de respuesta del {rate}%.',
 		showTable: 'Ver tabla de datos',
 		hideTable: 'Ocultar tabla de datos',

@@ -549,18 +549,40 @@ export const pagesEn = {
 			issues: 'Internal poll · issue priorities',
 			publicPoll: 'Independent public poll'
 		},
+		/**
+		 * Per-poll prose, keyed by the ids in `POLLS` (`src/lib/data/analytics.ts`).
+		 * Adding a poll here without adding it to `pages-es.ts` is a type error,
+		 * which is the point — it stops English text reaching Spanish readers.
+		 */
+		polls: {
+			'internal-aug-2026': {
+				pollster: 'Peter Crosby for Congress (internal)',
+				shortPollster: 'Peter Crosby for Congress',
+				population: 'randomized, registered voters',
+				geography: 'Davis, Weber, Box Elder, Cache & Rich Counties (UT-02)',
+				fieldLabel: 'Aug 3–17, 2026',
+				partisanship: 'Sponsored by this campaign — an interested party',
+				methodTitle: 'Campaign internal poll'
+			},
+			'hinckley-aug-2026': {
+				pollster: 'Deseret News / Hinckley Institute of Politics',
+				shortPollster: 'Deseret News / Hinckley Institute of Politics',
+				population: 'registered voters',
+				geography: 'Statewide (Utah)',
+				fieldLabel: 'August 2026',
+				partisanship: 'Independent — not affiliated with any campaign',
+				methodTitle: 'Statewide public poll'
+			}
+		},
 		pollMeta: {
-			internalPollster: 'Peter Crosby for Congress (internal)',
-			population: 'randomized, registered voters',
-			geography: 'Davis, Weber, Box Elder, Cache & Rich Counties (UT-02)',
-			fieldLabel: 'Aug 3–17, 2026',
-			hinckleyGeography: 'Statewide (Utah)',
-			hinckleyPeriod: 'August 2026',
 			coxFrom: 'January 2026',
 			coxTo: 'August 2026'
 		},
+		datelineLabel: 'Last updated',
 		sourceInternal:
 			'Internal poll, {pollster}. {n} {population} across {geography}, {dates}. ±{moe}% margin of error.',
+		/** Independent polls: the pollster rarely publishes n and margin of error. */
+		sourcePublic: '{pollster}, {dates}. {geography}.',
 		responseRate: 'This question had an {rate}% response rate.',
 		showTable: 'Show data table',
 		hideTable: 'Hide data table',
