@@ -54,6 +54,10 @@
 	}
 
 	$: dateline = formatDate(release.date, $locale);
+
+	// Issuing-organization strings, translatable via the `es` byId override.
+	$: sourceName = override?.sourceName ?? release.source?.name ?? '';
+	$: sourceLogoAlt = override?.sourceLogoAlt ?? release.source?.logoAlt ?? sourceName;
 </script>
 
 <svelte:head>
@@ -62,12 +66,40 @@
 </svelte:head>
 
 <main class="press-page">
-	<article class="press-article">
-		<div class="press-rail"><Rail /></div>
+	<!-- Outside the article so the stripe spans the viewport, matching the band under
+	     the site nav. Inside `.press-article` it was pinned to that element's 760px
+	     content box and read as an underline of the column. -->
+	<div class="press-rail"><Rail /></div>
 
+	<article class="press-article">
 		<a href="/media#press" class="press-back">&larr; {$messages.pressReleases.backToMedia}</a>
 
-		<p class="press-eyebrow">{$messages.pressReleases.forImmediateRelease}</p>
+		{#if release.source}
+			<!-- Issued by another organization: name the source above the headline so the
+			     release is never mistaken for campaign-authored copy. -->
+			<div class="press-source">
+				{#if release.source.logo}
+					<img
+						class="press-source-logo"
+						src={release.source.logo}
+						alt={sourceLogoAlt}
+						width="48"
+						height="48"
+						loading="lazy"
+					/>
+				{/if}
+				<div class="press-source-text">
+					<p class="press-source-label">{$messages.pressReleases.issuedBy}</p>
+					<p class="press-source-name">
+						{#if release.source.url}
+							<a href={release.source.url} target="_blank" rel="noopener noreferrer">{sourceName}</a>
+						{:else}{sourceName}{/if}
+					</p>
+				</div>
+			</div>
+		{:else}
+			<p class="press-eyebrow">{$messages.pressReleases.forImmediateRelease}</p>
+		{/if}
 		<h1 class="press-title">{title}</h1>
 
 		<p class="press-dateline">
@@ -110,6 +142,10 @@
 			{/each}
 		</div>
 
+		{#if release.source}
+			<p class="press-reproduced">{$messages.pressReleases.reproducedNote}</p>
+		{/if}
+
 		{#if attachment}
 			<p class="press-download">
 				<a href={attachment} download target="_blank" rel="noopener noreferrer">
@@ -143,11 +179,10 @@
 		padding: clamp(2.5rem, 6vw, 4rem) 1.5rem 4rem;
 	}
 
+	/* Full-bleed band. `line-height: 0` keeps the inline box from adding a hairline
+	   of extra height under the stripe. */
 	.press-rail {
-		position: absolute;
-		top: 0;
-		left: 1.5rem;
-		right: 1.5rem;
+		line-height: 0;
 	}
 
 	.press-back {
@@ -176,6 +211,67 @@
 		letter-spacing: 0.2em;
 		text-transform: uppercase;
 		color: var(--blue);
+	}
+
+	/* ── External release attribution ──────────────────────────────
+	   Sits where the "For immediate release" eyebrow normally goes. Boxed and
+	   marked with the issuer's logo so the byline is unmissable — the body below
+	   is another organization's words, not the campaign's. */
+	.press-source {
+		display: flex;
+		align-items: center;
+		gap: 0.9rem;
+		margin: 0 0 1.25rem;
+		padding: 0.85rem 1rem;
+		border: 1px solid var(--line-l);
+		border-left: 3px solid var(--blue);
+		background: var(--paper);
+	}
+
+	.press-source-logo {
+		flex: 0 0 auto;
+		width: 48px;
+		height: 48px;
+		object-fit: contain;
+	}
+
+	.press-source-text {
+		min-width: 0;
+	}
+
+	.press-source-label {
+		margin: 0;
+		font-family: var(--mono);
+		font-size: 0.65rem;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		color: var(--ink-2);
+	}
+
+	.press-source-name {
+		margin: 0.15rem 0 0;
+		font-family: var(--display);
+		font-style: italic;
+		font-weight: 900;
+		font-size: 1.05rem;
+		line-height: 1.2;
+		color: var(--ink);
+	}
+
+	.press-source-name a {
+		color: inherit;
+		text-decoration: underline;
+		text-underline-offset: 2px;
+	}
+
+	.press-reproduced {
+		margin: 2rem 0 0;
+		padding-top: 1rem;
+		border-top: 1px solid var(--line-l);
+		font-family: var(--sans);
+		font-size: 0.85rem;
+		font-style: italic;
+		color: var(--ink-2);
 	}
 
 	.press-title {
@@ -336,5 +432,22 @@
 		padding-top: 2rem;
 		border-top: 1px solid var(--line-l);
 		text-align: center;
+	}
+
+	@media (max-width: 768px) {
+		/* `.layout-main` already supplies the page gutter on mobile. The article's own
+		   1.5rem was stacking on top of it, costing ~23% of a 375px screen and
+		   squeezing the body copy. */
+		.press-article {
+			padding-left: 0;
+			padding-right: 0;
+		}
+
+		/* Pull the stripe back out through that gutter so it reaches both edges.
+		   `.layout-main` uses `overflow-x: clip` on mobile, so this cannot scroll. */
+		.press-rail {
+			margin-left: calc(-1 * var(--mobile-margin));
+			margin-right: calc(-1 * var(--mobile-margin));
+		}
 	}
 </style>

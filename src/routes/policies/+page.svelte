@@ -605,8 +605,19 @@
 		   last item instead (see below), so padding-right is dropped here. */
 		/* Single-line scroll behavior now lives in the base styles; mobile only
 		   re-adds the full-bleed gutter, hides the label, and tightens the gap. */
+		/* `.layout-main` supplies the page gutter on mobile; these containers' own
+		   1.5rem was stacking on top of it and narrowing the copy. */
+		.policies-hero-inner,
+		.policies-body-inner {
+			padding-left: 0;
+			padding-right: 0;
+		}
+
+		/* The jump bar is bled full-width above, so its inner padding re-adds the
+		   gutter to line the first link up with the body text. That alignment target
+		   is now the bare mobile margin, since the body no longer adds 1.5rem. */
 		.policies-jump-inner {
-			padding-left: calc(var(--mobile-margin) + 1.5rem);
+			padding-left: var(--mobile-margin);
 			padding-right: 0;
 		}
 

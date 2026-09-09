@@ -1554,6 +1554,41 @@ export const eventsData: EventRow[] = [
 	},
 	// --- Pulled 2026-09-06 (Airtable "Volunteer and Events") ---
 	{
+		id: 'gcal-jdb0693pajabibf2gepejg3ais',
+		type: 'other',
+		month: 'Sep',
+		day: '12',
+		year: 2026,
+		monthIndex: 9,
+		title: 'Cache Valley Day of Commemoration Celebration',
+		time: '11:00 AM – 2:30 PM MT',
+		location: 'Willow Park — 450 W 700 S, Logan, UT 84321',
+		locationUrl: 'https://www.google.com/maps/search/450+W+700+S+Logan+UT+84321',
+		description:
+			'Cache Valley gathers at Willow Park to honor the lives lost 25 years ago and to mark the day through service. Free lunch, a patriotic program, and time to connect with neighbors.',
+		viewEventUrl: null,
+		startTime: '11:00',
+		endTime: '14:30'
+	},
+	{
+		id: 'gcal-6rttkuiba0ouv1vknv86b7rnr0',
+		type: 'volunteer',
+		month: 'Sep',
+		day: '12',
+		year: 2026,
+		monthIndex: 9,
+		title: 'Honk & Wave – Layton',
+		time: '11:00 AM – 12:00 PM MT',
+		location: 'N Hill Field Rd & W Antelope Dr, Layton, UT 84041',
+		locationUrl:
+			'https://www.google.com/maps/search/N+Hill+Field+Rd+%26+W+Antelope+Dr+Layton+UT+84041',
+		description:
+			'Join Peter, Abigail Treasure, and Garret Rushforth on the corner of Hill Field Road and Antelope Drive. Bring a friend and help let Layton know who is on the ballot.',
+		viewEventUrl: null,
+		startTime: '11:00',
+		endTime: '12:00'
+	},
+	{
 		id: 'gcal-03s23q49pfo1rtghq4vflat9k9',
 		type: 'other',
 		month: 'Sep',

@@ -133,5 +133,13 @@
 		.endorse-grid {
 			grid-template-columns: repeat(2, 1fr);
 		}
+
+		/* `.layout-main` already supplies the page gutter on mobile; this container's
+		   own 1.5rem was stacking on top of it, costing 48px of a 375px screen and
+		   squeezing the two-up card grid. */
+		.endorse-inner {
+			padding-left: 0;
+			padding-right: 0;
+		}
 	}
 </style>
