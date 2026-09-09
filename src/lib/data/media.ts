@@ -74,6 +74,18 @@ export const mediaData: MediaItem[] = [
 		image: '/images/media/early-campaign-launch.jpeg'
 	},
 	{
+		id: 'box-elder-data-center-silence',
+		pinned: false,
+		type: 'article',
+		title: 'Amid public outcry over Box Elder ‘hyperscale’ data center, GOP candidates stay silent',
+		description:
+			'Neither U.S. Rep. Blake Moore nor state Rep. Karianne Lisonbee has weighed in. Democrat Peter Crosby said he is worried about the lack of public input.',
+		date: '2026-04-29',
+		url: 'https://www.sltrib.com/news/politics/2026/04/29/blake-moore-karianne-lisonbee/',
+		outlet: 'The Salt Lake Tribune',
+		image: '/images/media/amid_public_outcry.jpg'
+	},
+	{
 		id: 'virtual-town-hall',
 		pinned: false,
 		type: 'video',
