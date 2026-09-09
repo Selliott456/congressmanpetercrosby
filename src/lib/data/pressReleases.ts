@@ -114,7 +114,9 @@ export const pressReleases: PressRelease[] = [
 		date: '2026-09-09',
 		source: {
 			name: 'The Indivisible groups of Utah',
-			url: 'https://indivisible.org/',
+			// No `url` by campaign decision: the national parent org runs its own
+			// endorsement program, so linking there could imply an endorsement this
+			// release does not claim. Attribution stays as plain text.
 			logo: '/images/endorsements/indivisible.png',
 			logoAlt: 'Indivisible'
 		},
