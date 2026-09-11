@@ -639,13 +639,15 @@ export const pagesEs = {
 				title: 'Limpieza del sendero Lagoon',
 				description: 'Únase a una limpieza del sendero Lagoon en el Día de Servicio del 11 de septiembre: retirando ramas y material vegetal ya cortado. Venga por una hora o quédese toda la mañana; traiga guantes de trabajo.'
 			},
-			'gcal-13ot6gnika55pf6gjnphskik6n': {
-				title: 'Cabildo – Biblioteca North Branch',
-				description: 'Acompañe a Peter en un cabildo en la Biblioteca North Branch en Ogden. Traiga sus preguntas.'
+			'gcal-7o6ll8nb60276cv7s91gqm61u2': {
+				title: 'Encuentro y saludo – Mercado de Jardineros de Cache Valley',
+				description:
+					'Conozca a Peter en el Mercado de Jardineros de Cache Valley (Cache Valley Gardeners’ Market) en Logan. Pásese, haga preguntas y salude.'
 			},
-			'gcal-68m4as7bviqjaparfcr5c4qrsv': {
-				title: 'Cabildo – Biblioteca Southwest',
-				description: 'Acompañe a Peter en un cabildo en la Biblioteca Southwest en Roy. Traiga sus preguntas.'
+			'gcal-38u9sqf3f9il47idtku7ilfkpk': {
+				title: 'Pícnic conjunto de Living Liberally – Layton',
+				description:
+					'Un pícnic conjunto organizado por los grupos Drinking Liberally y Dining Liberally de Living Liberally en Layton Commons Park. Pásese y salude.'
 			},
 			'gcal-0dsu2dnujsj5nt9ngpvvkvhc05': {
 				title: 'Orgullo en el Parque',
@@ -691,7 +693,7 @@ export const pagesEs = {
 			},
 			'gcal-teatgjuhf7n12cfdqp5doqluec': {
 				title: 'Encuentro y saludo – Ogden Bench',
-				description: '¡Venga a conocer a sus candidatos! Peter Crosby, CJ Hernandez, Kim James y Kacee Weaver estarán presentes. Pásese, haga preguntas y salude.'
+				description: '¡Venga a conocer a sus candidatos! Peter Crosby, CJ Hernandez, Kim James y Kacee Weaver estarán presentes. Pásese, haga preguntas y salude. Nueva ubicación: la entrada del sendero de la calle 29 (29th Street Trailhead).'
 			},
 			'gcal-03s23q49pfo1rtghq4vflat9k9': {
 				title: 'Conversación sobre Fe y Política',
