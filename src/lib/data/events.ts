@@ -1331,39 +1331,47 @@ export const eventsData: EventRow[] = [
 		startTime: '08:00',
 		endTime: '12:00'
 	},
-	{
-		id: 'gcal-13ot6gnika55pf6gjnphskik6n',
-		type: 'town-hall',
-		month: 'Oct',
-		day: '8',
-		year: 2026,
-		monthIndex: 10,
-		title: 'Town Hall – North Branch Library',
-		time: '7:00 PM – 8:15 PM MT',
-		location: 'North Branch – Weber County Library System, 475 E 2600 N, Ogden, UT 84414',
-		locationUrl: 'https://www.google.com/maps/search/475+E+2600+N+Ogden+UT+84414',
-		description: 'Join Peter for a town hall at the North Branch Library in Ogden. Please come with your questions.',
-		viewEventUrl: null,
-		startTime: '19:00',
-		endTime: '20:15'
-	},
-	{
-		id: 'gcal-68m4as7bviqjaparfcr5c4qrsv',
-		type: 'town-hall',
-		month: 'Oct',
-		day: '19',
-		year: 2026,
-		monthIndex: 10,
-		title: 'Town Hall – Southwest Library',
-		time: '7:00 PM – 8:15 PM MT',
-		location: 'Southwest Branch – Weber County Library System, 2039 W 4000 S, Roy, UT 84067',
-		locationUrl: 'https://www.google.com/maps/search/2039+W+4000+S+Roy+UT+84067',
-		description: 'Join Peter for a town hall at the Southwest Branch Library in Roy. Please come with your questions.',
-		viewEventUrl: null,
-		startTime: '19:00',
-		endTime: '20:15'
-	},
+	// Removed 2026-09-10, cancelled per the campaign (both dropped from the calendar):
+	//   Town Hall – North Branch Library, Oct 8, Ogden
+	//   Town Hall – Southwest Library, Oct 19, Roy
+	// They may be rescheduled. Their event ids are deliberately not written here: pull
+	// diffs grep this file for ids, so listing them would hide a returning event.
 	// --- Pulled 2026-08-15 (Airtable "Volunteer and Events") ---
+	{
+		id: 'gcal-7o6ll8nb60276cv7s91gqm61u2',
+		type: 'meet-greet',
+		month: 'Sep',
+		day: '26',
+		year: 2026,
+		monthIndex: 9,
+		title: 'Meet & Greet – Cache Valley Gardeners’ Market',
+		time: '9:00 AM – 1:00 PM MT',
+		// The calendar entry carries no address; the market name is used rather than
+		// guessing a street address.
+		location: 'Cache Valley Gardeners’ Market, Logan, UT',
+		locationUrl: 'https://www.google.com/maps/search/Cache+Valley+Gardeners+Market+Logan+UT',
+		description: 'Meet Peter at the Cache Valley Gardeners’ Market in Logan. Stop by, ask questions, and say hello.',
+		viewEventUrl: null,
+		startTime: '09:00',
+		endTime: '13:00'
+	},
+	{
+		id: 'gcal-38u9sqf3f9il47idtku7ilfkpk',
+		type: 'other',
+		month: 'Sep',
+		day: '26',
+		year: 2026,
+		monthIndex: 9,
+		title: 'Living Liberally Joint Picnic – Layton',
+		time: '1:00 PM – 5:00 PM MT',
+		location: 'Layton Commons Park — 437 N Wasatch Dr, Layton, UT 84041',
+		locationUrl: 'https://www.google.com/maps/search/437+N+Wasatch+Dr+Layton+UT+84041',
+		description:
+			'A joint picnic hosted by Living Liberally’s Drinking Liberally and Dining Liberally groups at Layton Commons Park. Stop by and say hello.',
+		viewEventUrl: null,
+		startTime: '13:00',
+		endTime: '17:00'
+	},
 	{
 		id: 'gcal-0dsu2dnujsj5nt9ngpvvkvhc05',
 		type: 'other',
@@ -1545,9 +1553,12 @@ export const eventsData: EventRow[] = [
 		monthIndex: 9,
 		title: 'Meet & Greet – Ogden Bench',
 		time: '5:30 PM – 7:00 PM MT',
-		location: '1785 29th St, Ogden, UT 84403',
-		locationUrl: 'https://www.google.com/maps/search/1785+29th+St+Ogden+UT+84403',
-		description: 'Come meet your candidates! Peter Crosby, CJ Hernandez, Kim James, and Kacee Weaver will all be in attendance. Stop by, ask questions, and say hello.',
+		// Moved 2026-09-10 (was 1785 29th St). The description flags the change for
+		// anyone working from the old address in a shared link or screenshot.
+		location: '29th Street Trailhead (Waterfall Canyon Trail), Ogden, UT 84403',
+		locationUrl:
+			'https://www.google.com/maps/search/29th+Street+Trailhead+Waterfall+Canyon+Trail+Ogden+UT+84403',
+		description: 'Come meet your candidates! Peter Crosby, CJ Hernandez, Kim James, and Kacee Weaver will all be in attendance. Stop by, ask questions, and say hello. New location: the 29th Street Trailhead.',
 		viewEventUrl: null,
 		startTime: '17:30',
 		endTime: '19:00'
