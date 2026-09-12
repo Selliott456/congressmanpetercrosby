@@ -123,26 +123,30 @@
 		aria-label={$messages.policies.onThisPage}
 		bind:this={jumpBar}
 	>
-		<div class="policies-jump-inner" bind:this={jumpInner}>
-			<span class="policies-jump-label">{$messages.policies.onThisPage}</span>
-			<ul class="policies-jump-list">
-				{#each $messages.policies.items as item}
-					{#if item.groupHeading}
-						<li class="policies-jump-sep" aria-hidden="true"></li>
-					{/if}
-					<li>
-						<a
-							class="policies-jump-link"
-							class:is-active={activeId === item.id}
-							href={'#' + item.id}
-							aria-current={activeId === item.id ? 'true' : undefined}
-							on:click|preventDefault={() => jumpTo(item.id)}
-						>
-							{item.navLabel}
-						</a>
-					</li>
-				{/each}
-			</ul>
+		<!-- The frame is capped to the content column and holds the edge fades; the
+		     scroller inside it is what moves. -->
+		<div class="policies-jump-frame">
+			<div class="policies-jump-inner" bind:this={jumpInner}>
+				<span class="policies-jump-label">{$messages.policies.onThisPage}</span>
+				<ul class="policies-jump-list">
+					{#each $messages.policies.items as item}
+						{#if item.groupHeading}
+							<li class="policies-jump-sep" aria-hidden="true"></li>
+						{/if}
+						<li>
+							<a
+								class="policies-jump-link"
+								class:is-active={activeId === item.id}
+								href={'#' + item.id}
+								aria-current={activeId === item.id ? 'true' : undefined}
+								on:click|preventDefault={() => jumpTo(item.id)}
+							>
+								{item.navLabel}
+							</a>
+						</li>
+					{/each}
+				</ul>
+			</div>
 		</div>
 	</nav>
 
@@ -273,14 +277,17 @@
 		z-index: 50;
 		background: var(--blue);
 		border-bottom: 1px solid rgba(9, 27, 54, 0.2);
+		/* The page gutter, so the frame inside lines up with `.policies-body-inner`. */
+		padding-inline: 1.5rem;
 	}
 
 	/* Edge fades signal that the jump list scrolls sideways. They're toggled by
 	   JS (has-left-fade / has-right-fade) only when content actually overflows,
-	   so they never appear on a list that fits. Sticky establishes the
-	   containing block, so these pin to the bar's edges, not the scrolled content. */
-	.policies-jump::before,
-	.policies-jump::after {
+	   so they never appear on a list that fits. They live on the non-scrolling
+	   frame (capped to the content column), so they sit exactly at the scroller's
+	   clip edges rather than out at the edges of the full-width bar. */
+	.policies-jump-frame::before,
+	.policies-jump-frame::after {
 		content: '';
 		position: absolute;
 		top: 0;
@@ -292,25 +299,32 @@
 		z-index: 1;
 	}
 
-	.policies-jump::before {
+	.policies-jump-frame::before {
 		left: 0;
 		background: linear-gradient(90deg, var(--blue), rgba(46, 95, 160, 0));
 	}
 
-	.policies-jump::after {
+	.policies-jump-frame::after {
 		right: 0;
 		background: linear-gradient(270deg, var(--blue), rgba(46, 95, 160, 0));
 	}
 
-	.policies-jump.has-left-fade::before,
-	.policies-jump.has-right-fade::after {
+	.policies-jump.has-left-fade .policies-jump-frame::before,
+	.policies-jump.has-right-fade .policies-jump-frame::after {
 		opacity: 1;
 	}
 
-	.policies-jump-inner {
+	/* Capped to the same 1120px column as the body text, so the links never run wider
+	   than the page content. Holds the fades (see above). */
+	.policies-jump-frame {
+		position: relative;
 		max-width: 1120px;
 		margin: 0 auto;
-		padding: 0.55rem 1.5rem;
+	}
+
+	/* The scroller fills the frame, so its clip edges are the frame's edges. */
+	.policies-jump-inner {
+		padding: 0.55rem 0;
 		display: flex;
 		align-items: center;
 		/* ~26px between the "On this page" label and the jump links (16px + ~10px). */
@@ -571,6 +585,11 @@
 		.policies-jump {
 			margin-left: calc(-1 * var(--mobile-margin));
 			margin-right: calc(-1 * var(--mobile-margin));
+		}
+
+		/* Full-bleed on mobile: the frame and its fades reach the screen edges. */
+		.policies-jump {
+			padding-inline: 0;
 		}
 
 		/* Keep the jump bar a single sticky line that scrolls sideways. The inner
