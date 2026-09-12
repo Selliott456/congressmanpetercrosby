@@ -526,4 +526,186 @@ export const pagesEn = {
 			}
 		]
 	}
+	,
+	analytics: {
+		metaTitle: 'Analytics — Peter Crosby for Congress',
+		metaDescription:
+			"The data behind Utah's 2nd Congressional District race: district polling, issue priorities, and statewide approval trends, with full methodology.",
+		eyebrow: 'UT-02 · Polling and data',
+		pageTitle: "Utah's 2nd District, by the numbers",
+		lede:
+			"Polling, issue priorities, and statewide context for Utah's 2nd Congressional District. Every figure is published with its source, field dates, sample size, and margin of error. New datasets are added as they become available.",
+		onThisPage: 'On this page',
+		nav: {
+			districtPolling: 'District polling',
+			statewideContext: 'Statewide context',
+			groundGame: 'On the ground',
+			methodology: 'Methodology'
+		},
+		noteLabel: 'Note.',
+		noteBody:
+			'Surveys commissioned by this campaign are labeled internal polling. Independent public polling is labeled separately and attributed to its pollster. Question wording, sample size, field dates, and margin of error are listed for every figure on this page.',
+		meta: {
+			fieldDates: 'Field dates',
+			sample: 'Sample',
+			marginOfError: 'Margin of error',
+			geography: 'Geography',
+			geographyValue: 'UT-02',
+			sampleValue: 'n = {n}',
+			moeValue: '±{moe}%'
+		},
+		eyebrows: {
+			internal: 'Internal poll · UT-02',
+			crosstabs: 'Internal poll · crosstabs',
+			issues: 'Internal poll · issue priorities',
+			publicPoll: 'Independent public poll'
+		},
+		/**
+		 * Per-poll prose, keyed by the ids in `POLLS` (`src/lib/data/analytics.ts`).
+		 * Adding a poll here without adding it to `pages-es.ts` is a type error,
+		 * which is the point — it stops English text reaching Spanish readers.
+		 */
+		polls: {
+			'internal-aug-2026': {
+				pollster: 'Peter Crosby for Congress (internal)',
+				shortPollster: 'Peter Crosby for Congress',
+				population: 'randomized, registered voters',
+				geography: 'Davis, Weber, Box Elder, Cache & Rich Counties (UT-02)',
+				fieldLabel: 'Aug 3–17, 2026',
+				partisanship: 'Sponsored by this campaign — an interested party',
+				methodTitle: 'Campaign internal poll'
+			},
+			'hinckley-aug-2026': {
+				pollster: 'Deseret News / Hinckley Institute of Politics',
+				shortPollster: 'Deseret News / Hinckley Institute of Politics',
+				population: 'registered voters',
+				geography: 'Statewide (Utah)',
+				fieldLabel: 'August 2026',
+				partisanship: 'Independent — not affiliated with any campaign',
+				methodTitle: 'Statewide public poll'
+			}
+		},
+		pollMeta: {
+			coxFrom: 'January 2026',
+			coxTo: 'August 2026'
+		},
+		datelineLabel: 'Last updated',
+		sourceInternal:
+			'Internal poll, {pollster}. {n} {population} across {geography}, {dates}. ±{moe}% margin of error.',
+		/** Independent polls: the pollster rarely publishes n and margin of error. */
+		sourcePublic: '{pollster}, {dates}. {geography}.',
+		responseRate: 'This question had an {rate}% response rate.',
+		showTable: 'Show data table',
+		hideTable: 'Hide data table',
+		neutralSeparate: 'shown separately, as it sits on neither side of the scale.',
+		likertTable: { response: 'Response', share: 'Share of respondents' },
+		groups: {
+			all: 'All district voters',
+			republican: 'Registered Republicans',
+			unaffiliated: 'Unaffiliated & independent'
+		},
+		softSupport: {
+			title: 'Support for the incumbent, by party',
+			takeaway:
+				'47% of unaffiliated and independent voters — 43% of the district electorate — say they are unlikely to vote for Rep. Moore. Among registered Republicans, 33% are unlikely to, or unsure.',
+			ariaLabel: 'Share unlikely to vote for Rep. Moore, or unsure, by party',
+			electorateShare: '{pct}% of the electorate',
+			colGroup: 'Group',
+			colShare: 'Share',
+			colMeasure: 'Measure'
+		},
+		issues: {
+			title: 'Top issue priorities, by party',
+			takeaway:
+				'Affordability and government accountability top the list for every group surveyed. The spread between Republicans and unaffiliated voters is 7 points on affordability and 6 on accountability.',
+			ariaLabel: 'Share naming each issue a top priority, by voter group',
+			colIssue: 'Issue',
+			colAll: 'All voters',
+			colRepublican: 'Republicans',
+			colUnaffiliated: 'Unaffiliated'
+		},
+		approval: {
+			title: 'Net job approval, August 2026',
+			takeaway:
+				'Every officeholder and institution measured was net negative — disapproval exceeded approval in each case.',
+			ariaLabel: 'Net job approval, statewide, August 2026',
+			source:
+				'{pollster}, {period}. Statewide. Net = approve minus disapprove; the Congress figure is the published net.',
+			colOfficeHolder: 'Office holder',
+			colApprove: 'Approve',
+			colDisapprove: 'Disapprove',
+			colNet: 'Net',
+			notReported: 'Not reported'
+		},
+		trend: {
+			eyebrow: 'Change since January',
+			body:
+				"Gov. Cox's approval fell from {from} in {fromPeriod} to {to} in {toPeriod}, a change of {delta} points.",
+			source: '{pollster}, {period}. Statewide.'
+		},
+		ground: {
+			note:
+				'Campaign-reported operational counts as of the August release — organizing activity, not survey results.'
+		},
+		method: {
+			internalTitle: 'Campaign internal poll',
+			publicTitle: 'Statewide public poll',
+			sponsor: 'Sponsor',
+			sample: 'Sample',
+			geography: 'Geography',
+			fieldDates: 'Field dates',
+			fieldPeriod: 'Field period',
+			marginOfError: 'Margin of error',
+			partisanship: 'Partisanship',
+			pollster: 'Pollster',
+			sampleValue: '{n} {population}',
+			moeValue: '±{moe} percentage points',
+			internalPartisanship: 'Sponsored by this campaign — an interested party',
+			publicPartisanship: 'Independent — not affiliated with any campaign',
+			readRelease: 'Read the full release →',
+			readPoll: 'Read the poll ↗'
+		},
+		limits: {
+			title: 'What is not modeled here',
+			intro:
+				'This page reports only figures that appear in a published source. The following are not represented:',
+			items: [
+				{
+					label: 'Head-to-head ballot test.',
+					text: 'The survey did not include a Crosby-versus-Moore matchup, so no horse-race figure appears on this page.'
+				},
+				{
+					label: 'Trend over time.',
+					text: 'The internal poll covers a single field period. Measuring change requires a second comparable survey.'
+				},
+				{
+					label: 'Forecast or win probability.',
+					text: 'No predictive model is applied. A forecast would require repeated independent polling of the district.'
+				},
+				{
+					label: 'County-level breakouts.',
+					text: 'The sample spans five counties but was not published disaggregated; n = {n} is too small for reliable subgroup estimates.'
+				}
+			]
+		},
+		/**
+		 * Spanish overrides for the entries in `src/lib/data/analytics.ts`, keyed by id
+		 * (the events/media convention). English lives in the data file; this is empty
+		 * for `en` and filled in `pages-es.ts`.
+		 */
+		byId: {} as Record<
+			string,
+			{
+				title?: string;
+				question?: string;
+				takeaway?: string;
+				label?: string;
+				sub?: string;
+				note?: string;
+				detail?: string;
+				role?: string;
+				segments?: string[];
+			}
+		>
+	}
 };
