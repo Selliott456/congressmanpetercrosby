@@ -3,15 +3,7 @@
 	import Rail from '$lib/components/Rail.svelte';
 	import { messages } from '$lib/i18n/locale';
 	import { aboutTrail, aboutImageDims } from '$lib/data/aboutPhotos';
-
-	/**
-	 * Split a paragraph into runs on `**emphasis**` markers — odd segments are
-	 * emphasized. Lets copy carry inline emphasis without HTML in the dictionaries.
-	 * @param {string} text
-	 */
-	function runs(text) {
-		return text.split('**').map((t, i) => ({ text: t, em: i % 2 === 1 }));
-	}
+	import { emphasisRuns } from '$lib/utils/emphasis';
 </script>
 
 <svelte:head>
@@ -69,7 +61,7 @@
 				<div class="section-body">
 					{#each section.parts as part}
 						{#if part.type === 'p'}
-							<p>{#each runs(part.text) as run}{#if run.em}<em class="about-em">{run.text}</em>{:else}{run.text}{/if}{/each}</p>
+							<p>{#each emphasisRuns(part.text) as run}{#if run.em}<em class="about-em">{run.text}</em>{:else}{run.text}{/if}{/each}</p>
 						{:else if part.type === 'ul'}
 							<ul>
 								{#each part.items as li}

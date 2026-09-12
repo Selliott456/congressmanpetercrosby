@@ -2,28 +2,9 @@
 	import { onMount } from 'svelte';
 	import Button from '$lib/components/Button.svelte';
 	import Rail from '$lib/components/Rail.svelte';
+	import PolicyBlocks from '$lib/components/PolicyBlocks.svelte';
+	import { policyMedia } from '$lib/data/policies';
 	import { messages } from '$lib/i18n/locale';
-
-	/** Sections that get the 2-column video layout (each carries its own src/poster/label).
-	    Everything else is full-width text.
-	    @type {Record<string, { src: string; poster: string; labelKey: 'videoAffordabilityLabel' | 'videoAccountabilityLabel' | 'videoStewardshipLabel' }>} */
-	const sectionMedia = {
-		affordability: {
-			src: '/images/policies/affordability.mp4',
-			poster: '/images/policies/affordability-poster.jpg',
-			labelKey: 'videoAffordabilityLabel'
-		},
-		'government-integrity': {
-			src: '/images/policies/accountability.mp4',
-			poster: '/images/policies/accountability-poster.jpg',
-			labelKey: 'videoAccountabilityLabel'
-		},
-		'great-salt-lake': {
-			src: '/images/policies/stewardship.mp4',
-			poster: '/images/policies/stewardship-poster.jpg',
-			labelKey: 'videoStewardshipLabel'
-		}
-	};
 
 	/** Anchor id of the section currently in view — drives the "you are here" highlight. */
 	let activeId = '';
@@ -168,36 +149,27 @@
 	<section class="policies-body">
 		<div class="policies-body-inner">
 			{#each $messages.policies.items as item}
-				{@const media = sectionMedia[item.id]}
+				{@const media = policyMedia[item.id]}
 				{#if item.groupHeading}
 					<div class="policies-group">
 						<div class="policies-group-rail"><Rail /></div>
 						<h2 class="policies-group-heading">{item.groupHeading}</h2>
 					</div>
 				{/if}
+				<!-- Grid areas place the parts (see .policies-section). DOM order is heading,
+				     video, copy — also the mobile reading order, so a video sits right under
+				     its heading instead of after ~750 words of Affordability. -->
 				<section class="policies-section" class:policies-section--full={!media} id={item.id}>
-					<div class="policies-text">
-						<h2 class="policies-question">{item.question}</h2>
-						<div class="policies-answer">
-							{#each item.parts as part}
-								{#if part.type === 'p'}
-									<p>{part.text}</p>
-								{:else if part.type === 'ul'}
-									<ul>
-										{#each part.items as li}
-											<li>{li}</li>
-										{/each}
-									</ul>
-								{/if}
-							{/each}
-						</div>
-					</div>
+					<h2 class="policies-heading">{item.heading}</h2>
 
 					{#if media}
 						<div class="policies-media">
 							<!-- Vertical (9:16) message video of Peter on this priority. -->
 							<div class="policy-video-frame">
 								<div class="policy-video-rail"><Rail /></div>
+								<!-- No <track>: English captions are burned into the video itself (open
+								     captions), so the a11y warning is suppressed on purpose. A Spanish
+								     subtitle track would be additive, not a replacement. -->
 								<!-- svelte-ignore a11y-media-has-caption -->
 								<video
 									class="policy-video-player"
@@ -212,6 +184,10 @@
 							</div>
 						</div>
 					{/if}
+
+					<div class="policies-answer">
+						<PolicyBlocks blocks={item.parts} tocLabel={$messages.policies.inThisSection} />
+					</div>
 				</section>
 			{/each}
 
@@ -452,10 +428,17 @@
 		margin: 0;
 	}
 
+	/* A section's parts go by grid area: heading, video, copy. On desktop the video
+	   takes a right-hand column spanning the whole section and stays sticky, so it
+	   remains in view through long sections. The mobile override stacks them. */
 	.policies-section {
 		display: grid;
-		grid-template-columns: 1fr minmax(280px, 360px);
-		gap: 2.5rem 3rem;
+		grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+		grid-template-areas:
+			'heading media'
+			'answer media';
+		grid-template-rows: auto 1fr;
+		column-gap: 3rem;
 		align-items: start;
 		padding-bottom: 3rem;
 		margin-bottom: 3rem;
@@ -465,7 +448,10 @@
 
 	/* Sections without a video (intro + "Other Policy Positions") span the full width. */
 	.policies-section--full {
-		grid-template-columns: 1fr;
+		grid-template-columns: minmax(0, 1fr);
+		grid-template-areas:
+			'heading'
+			'answer';
 	}
 
 	.policies-section:last-of-type {
@@ -474,51 +460,36 @@
 		border-bottom: none;
 	}
 
-	.policies-text {
-		min-width: 0;
-	}
-
-	.policies-question {
+	/* Sized to clearly outrank the in-section sub-headers (1.0625rem). Both are display
+	   italic, so size and weight have to carry the hierarchy on their own. */
+	.policies-heading {
+		grid-area: heading;
 		font-family: var(--display);
 		font-style: italic;
-		font-size: 1.25rem;
-		font-weight: 800;
-		letter-spacing: -0.01em;
+		font-size: clamp(1.4rem, 2.4vw, 1.75rem);
+		font-weight: 900;
+		letter-spacing: -0.02em;
 		color: var(--ink);
-		margin: 0 0 1rem 0;
-		line-height: 1.3;
+		margin: 0 0 1.25rem 0;
+		line-height: 1.15;
 	}
 
+	/* Body typography for a section. Block spacing (p, ul, li, sub-headers) lives in
+	   PolicyBlocks, because page-scoped styles can't reach elements a child renders. */
 	.policies-answer {
+		grid-area: answer;
+		min-width: 0;
 		font-family: var(--serif);
 		font-size: 1.0625rem;
 		line-height: 1.8;
 		color: var(--ink-2);
 	}
 
-	.policies-answer p {
-		margin: 0 0 1rem 0;
-	}
-
-	.policies-answer p:last-child {
-		margin-bottom: 0;
-	}
-
-	.policies-answer ul {
-		margin: 0 0 1rem 0;
-		padding-left: 1.5rem;
-	}
-
-	.policies-answer li {
-		margin-bottom: 0.35rem;
-	}
-
-	.policies-answer li:last-child {
-		margin-bottom: 0;
-	}
-
 	.policies-media {
+		grid-area: media;
 		min-width: 0;
+		position: sticky;
+		top: var(--policies-anchor, 6rem);
 	}
 
 	/* Rail stripe pinned to the top of the video frame. */
@@ -529,10 +500,13 @@
 		right: 0;
 	}
 
-	/* Vertical (9:16) message video frame. */
+	/* Vertical (9:16) message video frame. While sticky it must fit under the nav +
+	   ribbon, so on short screens the width shrinks to keep the whole frame visible
+	   with the 9:16 ratio intact. */
 	.policy-video-frame {
 		position: relative;
-		width: 100%;
+		width: min(100%, calc((100vh - var(--policies-anchor, 6rem) - 2rem) * 9 / 16));
+		margin-left: auto;
 		aspect-ratio: 9 / 16;
 		overflow: hidden;
 		background: var(--ink-deep);
@@ -629,13 +603,30 @@
 			gap: 1.25rem;
 		}
 
+		/* Stacked in DOM order: heading, video, copy. */
 		.policies-section {
-			grid-template-columns: 1fr;
-			gap: 1.5rem;
+			grid-template-columns: minmax(0, 1fr);
+			grid-template-areas:
+				'heading'
+				'media'
+				'answer';
+			grid-template-rows: none;
+		}
+
+		.policies-section--full {
+			grid-template-areas:
+				'heading'
+				'answer';
+		}
+
+		.policies-media {
+			position: static;
+			margin-bottom: 1.5rem;
 		}
 
 		/* Stacked: keep the tall 9:16 video from dominating the column. */
 		.policy-video-frame {
+			width: 100%;
 			max-width: 320px;
 			margin-inline: auto;
 		}
@@ -650,8 +641,8 @@
 			font-size: 1.125rem;
 		}
 
-		.policies-question {
-			font-size: 1.125rem;
+		.policies-heading {
+			font-size: 1.35rem;
 		}
 
 		.policies-answer {
