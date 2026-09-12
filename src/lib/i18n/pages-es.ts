@@ -1,4 +1,5 @@
 import { POLL_COLORS } from '$lib/data/pressReleases';
+import { definePolicyItems } from '$lib/data/policies';
 
 /** Spanish page copy (merged into dictionaries.es) — structure mirrors pages-en.ts */
 export const pagesEs = {
@@ -1077,7 +1078,7 @@ export const pagesEs = {
 	policies: {
 		metaTitle: 'La postura de Peter — Peter Crosby para el Congreso',
 		metaDescription:
-			'La postura de Peter Crosby sobre los temas del norte de Utah: asequibilidad, rendición de cuentas y el cuidado del Gran Lago Salado y nuestras tierras públicas.',
+			'La postura de Peter Crosby sobre los temas del norte de Utah: asequibilidad, rendición de cuentas, el Gran Lago Salado, la salud rural, los centros de datos, la IA y la Base Aérea Hill.',
 		eyebrow: 'Políticas',
 		pageTitle: 'La postura de Peter',
 		lede: 'Respuestas reales sobre los temas que más importan al norte de Utah: la asequibilidad, la integridad de nuestro gobierno y el cuidado del Gran Lago Salado y nuestras tierras públicas.',
@@ -1085,176 +1086,376 @@ export const pagesEs = {
 		videoAccountabilityLabel: 'Peter Crosby sobre la rendición de cuentas',
 		videoStewardshipLabel: 'Peter Crosby sobre el Gran Lago Salado',
 		onThisPage: 'En esta página',
-		ctaTitle: '¿Tienes una pregunta que no ves aquí?',
+		inThisSection: 'En esta sección',
+		ctaTitle: '¿Tiene una pregunta que no ve aquí?',
 		ctaText:
-			'Quiero saber de ti. Si tienes una pregunta que no ves respondida arriba, envíamela.',
-		ctaButton: 'Haz una pregunta',
-		items: [
+			'Quiero saber de usted. Si tiene una pregunta que no ve respondida arriba, envíemela.',
+		ctaButton: 'Haga una pregunta',
+		/**
+		 * Mirrors the English `policies.items` block for block: same sections, same order,
+		 * same list lengths and nesting, same `h3` ids and pillar targets. Headings use
+		 * Spanish sentence case. Register is `usted`, as on the rest of the site.
+		 */
+		items: definePolicyItems([
 			{
 				id: 'top-priorities',
 				navLabel: 'Prioridades',
-				question: '¿Cuáles son sus principales prioridades de políticas?',
+				heading: 'Mis principales prioridades de políticas',
 				parts: [
 					{
-						type: 'p' as const,
-						text: 'Mis prioridades reflejan cada conversación que tengo con la gente del norte de Utah. Desde julio pasado he hablado personalmente con cientos de personas comunes de todos los ámbitos y orígenes políticos, y nuestros voluntarios de campaña han sumado miles más. Esas conversaciones han sacado a la luz muchas preocupaciones, pero creo que se resumen en las siguientes áreas:'
-					},
-					{
-						type: 'ul' as const,
+						type: 'pillars',
 						items: [
-							'Tenemos una crisis de asequibilidad',
-							'Nos preocupa profundamente la integridad de nuestro gobierno',
-							'Enfrentamos una amenaza existencial mientras el Gran Lago Salado muere, y preocupaciones más amplias sobre nuestras tierras públicas'
+							{ text: 'Asequibilidad', target: 'affordability' },
+							{ text: 'Rendición de cuentas', target: 'government-integrity' },
+							{ text: 'Cuidado de nuestros recursos naturales', target: 'great-salt-lake' }
 						]
 					},
 					{
-						type: 'p' as const,
-						text: 'En términos generales, mis principales prioridades son la Asequibilidad, la Rendición de cuentas y el Cuidado de nuestras tierras. En estas áreas, y en toda política pública, mi prioridad es representar a la gente del norte de Utah. Mis soluciones se centran en dos áreas clave: lograr que el sistema haga lo que se supone que debe hacer, y asegurarme de poner primero a las personas, las familias y las comunidades.'
+						type: 'h3',
+						id: 'priorities-from-voters',
+						text: 'Mis prioridades de políticas reflejan mis conversaciones con miles de votantes en todo el norte de Utah.'
+					},
+					{
+						type: 'p',
+						text: 'Desde que comenzamos esta campaña, he realizado más de 40 cabildos públicos y he asistido a incontables eventos comunitarios. He hablado personalmente con miles de personas comunes de todos los ámbitos y orígenes políticos, y nuestros voluntarios de campaña han sumado miles más. Las principales preocupaciones que surgieron en estas conversaciones se resumen en las siguientes áreas:'
+					},
+					{
+						type: 'ul',
+						items: [
+							'Nuestra vida es más difícil debido a una crisis de asequibilidad muy real.',
+							'Nos preocupa profundamente la integridad de nuestro gobierno.',
+							'Sentimos una amenaza existencial a medida que el Gran Lago Salado se reduce, y queremos que nuestras tierras públicas estén protegidas de las cuentas bancarias de los multimillonarios.'
+						]
+					},
+					{
+						type: 'p',
+						text: 'Enfoco mis soluciones de políticas en dos áreas clave: **lograr que el sistema haga lo que se supone que debe hacer**, y asegurarme de **poner primero a las personas, las familias y las comunidades**.'
+					},
+					{
+						type: 'p',
+						text: 'Mi principal prioridad es representar a la gente del norte de Utah, y estas tres áreas son las que usted me ha dicho que más le importan. Entiendo que no son su única preocupación. Así que siga leyendo para ver lo que quiero hacer respecto a estos temas clave y otros más.'
 					}
 				]
 			},
 			{
 				id: 'affordability',
 				navLabel: 'Asequibilidad',
-				question: '¿Qué problemas de asequibilidad enfrenta el norte de Utah y qué haría al respecto?',
+				heading: 'Lo que haré frente a la crisis de asequibilidad en el norte de Utah',
 				parts: [
 					{
-						type: 'p' as const,
-						text: 'El norte de Utah tiene una fuerte tradición de trabajo duro e innovación, sostenida por una comunidad que pone primero a la gente. Estos valores y tradiciones nos han servido bien durante décadas, pero hoy están bajo presión, en parte por las acciones (o la inacción) de quienes nos representan.'
+						type: 'lede',
+						text: 'El norte de Utah se fundó sobre las tradiciones del trabajo duro y la innovación que ponen primero a las personas.'
 					},
 					{
-						type: 'p' as const,
-						text: 'Vivimos una crisis de vivienda que impide que la gente encuentre un hogar permanente, debido a un mercado que está entre los más caros del país. Aunque hay algunos esfuerzos estatales para aliviar esta presión, se quedan muy cortos ante nuestras necesidades. Necesitamos incentivar mejor planificación, más vivienda asequible basada en modelos comunitarios, y aumentar los ingresos disponibles para los utahnos promedio, de modo que puedan empezar a construir sus familias y su futuro aquí. Esto incluye volver a financiar los programas existentes que apoyan el desarrollo de las comunidades rurales y luchar por un salario digno.'
+						type: 'p',
+						text: 'Estos valores y tradiciones nos han servido bien durante décadas, pero hoy están bajo presión, en parte por las acciones (o la inacción) de nuestros representantes.'
+					},
+					{ type: 'h3', id: 'housing', text: 'La crisis de vivienda' },
+					{
+						type: 'p',
+						text: 'El mercado de vivienda del norte de Utah es uno de los más caros del país, y hay una crisis de vivienda histórica que impide que la gente encuentre hogares permanentes para sus familias. Aunque existen algunos esfuerzos en el estado para aliviar esta presión, se quedan muy cortos frente a nuestras necesidades actuales.'
 					},
 					{
-						type: 'p' as const,
-						text: 'También vemos inflación y aumentos en el costo de vida que dificultan la situación de cualquiera que no esté en el 1% superior. Alimentos básicos, como la carne, los huevos y la leche, ocupan una parte cada vez mayor del presupuesto familiar cada mes. Otros bienes de consumo afectados por los aranceles impuestos por la administración Trump (e ignorados por nuestro propio representante en el Congreso) son más caros. Al mismo tiempo, el mercado laboral parece debilitarse, creando una situación en la que todo cuesta más y cada vez menos miembros de nuestra comunidad pueden mantenerse a sí mismos o a sus familias.'
+						type: 'p',
+						text: 'Apoyo una reforma regulatoria de nuestros mercados de vivienda y quiero:'
 					},
 					{
-						type: 'p' as const,
-						text: 'A este desastre creciente se suman miles de empleados federales que han sido expulsados de sus trabajos. Hemos perdido miles de buenos empleos en el distrito y se estima entre 110 y 150 millones de dólares en salarios perdidos. Eran cheques que sostenían a las familias y a nuestros negocios locales. Ya hay informes de bancos de alimentos y otros recursos comunitarios al borde del colapso, y el hambre infantil se ha duplicado en el estado.'
+						type: 'ul',
+						items: [
+							'Incentivar **una mejor planificación urbana**',
+							'**Construir más vivienda asequible** basada en modelos comunitarios',
+							'**Aumentar los ingresos de los trabajadores de Utah** para que puedan empezar a formar sus familias y construir su futuro aquí',
+							'Financiar los programas existentes que **apoyan un desarrollo comunitario rural bien pensado**',
+							'Volver a financiar los programas existentes que facilitan que las comunidades rurales y quienes compran su primera vivienda echen raíces'
+						]
+					},
+					{ type: 'h3', id: 'daily-necessities', text: 'Necesidades diarias asequibles' },
+					{
+						type: 'p',
+						text: 'Estamos viendo aumentos de la inflación y del costo de vida que les hacen la vida más difícil a las familias trabajadoras comunes. Los productos básicos, como la carne, los huevos y la leche, ocupan una parte cada vez mayor de nuestro presupuesto mensual para el supermercado. Otros bienes de consumo afectados por los aranceles impuestos por el gobierno de Trump (e ignorados por Blake Moore y nuestros demás representantes) son más caros.'
 					},
 					{
-						type: 'p' as const,
-						text: 'Como golpe final, este Congreso ha recortado el acceso a la atención médica para millones de estadounidenses, incluidos decenas de miles aquí en Utah. Nuestros adultos mayores y las comunidades rurales son los más afectados, pero todos vemos los costos adicionales. Mi propio seguro personal aumentó un 40% a través de mi empleador, pero la calidad de la atención no mejoró. La gente se ve forzada a decidir entre pagar la renta o ver a un médico, y eso es insostenible.'
+						type: 'ul',
+						items: [
+							{
+								text: 'Me uniré a otros miembros dispuestos del Congreso para **poner fin a este régimen de aranceles ilegal**.',
+								items: [
+									'Los aranceles les dificultan a nuestros negocios locales y emprendedores ganarse la vida.',
+									'También aumentan el costo de sus necesidades de todos los días.'
+								]
+							},
+							'Me aseguraría de que se cumpla la ley para **garantizar que los beneficios de SNAP (cupones de alimentos) lleguen** a las más de 80,000 familias de Utah que están pasando dificultades.'
+						]
 					},
 					{
-						type: 'p' as const,
-						text: 'Mi prioridad para resolver estos retos es enfocarme en la gente de aquí, del norte de Utah, usando el poder del Congreso para enderezar el rumbo. Me uniría a otros miembros del Congreso dispuestos a poner fin a un régimen de aranceles ilegal que dificulta cada vez más la vida de nuestros negocios y emprendedores locales. Me aseguraría de que se cumpla la ley para que los beneficios de SNAP lleguen a las más de 80,000 familias de Utah que luchan. Apoyaría una reforma regulatoria de nuestros mercados de vivienda y volvería a financiar los programas existentes que facilitan a las comunidades rurales y a quienes compran su primera vivienda echar raíces. Por último, tenemos que encontrar una solución rentable para el acceso a la salud. Todos los estudios a gran escala apuntan a la misma solución: un sistema de pagador único. Mi preferencia es uno que también permita que existan las aseguradoras privadas, pero que ahora tengan que competir en un mercado real, en lugar de mantener cautiva a la gente común mientras dificultan el trabajo de los proveedores de salud.'
+						type: 'h3',
+						id: 'jobs',
+						text: 'Un mercado laboral estable con oportunidades para todos'
+					},
+					{
+						type: 'p',
+						text: 'Al mismo tiempo que aumenta el costo de vida, el mercado laboral parece debilitarse, lo que crea una situación en la que todo es más caro y menos vecinos pueden mantenerse a sí mismos o a sus familias.'
+					},
+					{
+						type: 'p',
+						text: 'A este desastre en ciernes se suman miles de trabajadores federales que han sido obligados a dejar sus empleos. Por los recortes de DOGE, nuestra comunidad perdió miles de buenos empleos y, según se estima, entre $110 y $150 millones en salarios. Esos eran cheques de pago que sostenían a familias y a nuestros negocios locales. Nuestras organizaciones sin fines de lucro, los bancos de alimentos y otros recursos comunitarios están al límite. El hambre infantil está en su nivel más alto de la historia, mientras nuestro representante actual recorta los beneficios de SNAP.'
+					},
+					{ type: 'p', text: 'Quiero:' },
+					{
+						type: 'ul',
+						items: [
+							'Establecer un **salario digno realista**',
+							'Revisar nuestro código tributario corporativo para impedir que las grandes corporaciones “cobren dos veces” (p. ej., que reciban exenciones fiscales mientras sus trabajadores se ven obligados a usar programas subsidiados por los contribuyentes)',
+							'Reformar la educación superior e invertir en ella para ofrecer caminos más directos hacia empleos bien pagados, reduciendo a la vez el tiempo y el costo de obtener las credenciales correspondientes'
+						]
+					},
+					{ type: 'h3', id: 'affordable-healthcare', text: 'Atención médica asequible' },
+					{
+						type: 'p',
+						text: 'Para colmo de nuestras dificultades económicas, este Congreso ha recortado el acceso a la atención médica de millones de estadounidenses, entre ellos decenas de miles aquí en Utah. Todos vemos cómo ese costo adicional merma nuestras cuentas bancarias, pero nuestras personas mayores y nuestras comunidades rurales son las más afectadas.'
+					},
+					{
+						type: 'p',
+						text: 'El seguro médico que tengo a través de mi empleador aumentó un 40% y, sin embargo, la calidad de la atención no ha mejorado. La gente se ve obligada a elegir entre pagar la renta o ir al médico. Los trabajadores de la salud tienen dificultades para hacer su trabajo bajo el peso de nuestro sistema anticuado. Esto es insostenible.'
+					},
+					{
+						type: 'p',
+						text: 'La industria de seguros médicos de Estados Unidos vale $1.6 billones. Es una bestia difícil de mover, pero eso no significa que sea una causa perdida. Necesitamos una **reforma real** para que todos puedan acceder a una atención médica asequible.'
+					},
+					{
+						type: 'p',
+						text: 'Si soy electo, lucharé por una solución rentable para el acceso a la atención médica. **Todos los estudios a gran escala apuntan a la misma solución: un sistema de pagador único.**'
+					},
+					{ type: 'p', text: 'Mi preferencia es un sistema de pagador único que:' },
+					{
+						type: 'ul',
+						items: [
+							'Permita que existan las compañías de seguros privadas',
+							'Fomente una competencia real en un mercado verdadero',
+							'No mantenga cautiva a la gente común mientras dificulta el trabajo de los proveedores de atención médica'
+						]
+					},
+					{
+						type: 'p',
+						text: 'Medicare, cuando está bien financiado y respaldado, funciona muy bien para las personas mayores. ¿Por qué no ampliar este gran programa para incluir a más estadounidenses?'
 					}
 				]
 			},
 			{
 				id: 'government-integrity',
 				navLabel: 'Rendición de cuentas',
-				question:
-					'Menciona la integridad de nuestro gobierno como un tema que plantea la gente aquí en el norte de Utah. ¿Qué quiere decir con eso y qué haría?',
+				heading: 'Devolver la honestidad al gobierno',
 				parts: [
 					{
-						type: 'p' as const,
-						text: 'Mi familia tiene una larga y orgullosa tradición de servicio militar y público que se remonta a antes de que Estados Unidos fuera Estados Unidos. Una parte integral de mi infancia fue aprender sobre la obligación que tenemos como ciudadanos con nuestro país, y la carga especial que llevan los servidores públicos al representarnos en nuestro gobierno nacional. Este último año hemos visto rota la confianza en quienes nos representan, mientras nuestra nación avanza hacia un gobierno al que no le importa el estado de derecho ni la voluntad del pueblo.'
+						type: 'p',
+						text: 'Mi familia tiene una larga y orgullosa tradición de servicio militar y público que se remonta a antes de que Estados Unidos fuera Estados Unidos. Una parte fundamental de mi niñez fue aprender sobre la obligación que tenemos como ciudadanos con nuestro país, y la carga especial que llevan los servidores públicos al representarnos en nuestro gobierno nacional. Mi fe también me enseña sobre la honestidad, la integridad y el valor de ser un buen vecino.'
 					},
 					{
-						type: 'p' as const,
-						text: 'Quien nos representa debe poner primero la Constitución de Estados Unidos, segundo las necesidades de este distrito, y mucho más abajo cualquier otra preocupación. Los elegimos para que nos representen, no a su partido político ni a sus propios intereses. He hablado con mucha gente en el norte de Utah que siente que no puede confiar en que su representante actual ponga a la gente de este distrito por encima de la política partidista de Washington o de la autopromoción, y, tristemente, creo que este último año lo ha demostrado.'
+						type: 'p',
+						text: '**Los representantes electos deben poner primero la Constitución de los Estados Unidos y, en segundo lugar, las necesidades de este distrito.** Sus deseos personales o su afiliación partidista no deberían contar en sus decisiones oficiales. He hablado con muchas personas en todo el norte de Utah que sienten que no pueden confiar en que su representante actual ponga a la gente de este distrito por encima de la política partidista de Washington o de su propia promoción personal.'
 					},
 					{
-						type: 'p' as const,
-						text: 'Hay varias soluciones que ayudarán a reconstruir la confianza en nuestro gobierno, y exigen sacrificio por parte de nuestros representantes. Primero, prohibiría las operaciones bursátiles individuales para todos los miembros del Congreso y sus familiares directos. Esta prohibición también debería extenderse a los miembros del poder ejecutivo (por ejemplo, el presidente, el vicepresidente, los secretarios de gabinete) y sus familiares directos, así como al poder judicial. No está bien que alguien regule la empresa en la que invierte. Nuestros representantes están para servirnos a nosotros, no a sus cuentas bancarias.'
+						type: 'p',
+						text: 'Hay varias soluciones que ayudarán a reconstruir nuestra confianza en el gobierno.'
 					},
 					{
-						type: 'p' as const,
-						text: 'Segundo, apoyaría un debate sobre los límites de mandato para el Congreso. Es saludable para nuestra democracia impedir que cualquier persona, de cualquier partido, haga del Congreso su hogar permanente. Estados Unidos no quiere, ni necesita, políticos eternos.'
+						type: 'ul',
+						items: [
+							{
+								text: 'Votaría para **prohibir la compraventa de acciones individuales a todos los miembros del Congreso** y a sus familiares directos.',
+								items: [
+									'Esta prohibición también debería extenderse a los miembros del poder ejecutivo (p. ej., el presidente, el vicepresidente y los secretarios del gabinete) y a sus familiares directos, así como al poder judicial.',
+									'No deberían poder regular a las empresas en las que invierten.',
+									'Nuestros representantes están ahí para servirnos a nosotros, no a sus cuentas bancarias.'
+								]
+							},
+							{
+								text: '**Apoyaría una conversación sobre límites de mandato para el Congreso**.',
+								items: [
+									'Es sano para nuestra democracia impedir que cualquier persona, de cualquier partido político, haga del Congreso su hogar permanente.',
+									'Se acabaron los políticos eternos.'
+								]
+							},
+							{
+								text: '**Apoyo los esfuerzos para sacar el dinero corporativo de nuestro proceso político.**',
+								items: [
+									'Nuestro gobierno es “del pueblo, por el pueblo y para el pueblo”, no de los intereses corporativos.',
+									'Eliminar la influencia de este “dinero oscuro” ayudará a que los servidores públicos nos sirvan mejor a nosotros, el pueblo.'
+								]
+							}
+						]
 					},
 					{
-						type: 'p' as const,
-						text: 'Tercero, apoyo los esfuerzos por eliminar el dinero corporativo de nuestro proceso político. Nuestro gobierno es “del pueblo, por el pueblo y para el pueblo”, no de los intereses corporativos. Eliminar la influencia de este “dinero oscuro” ayudará a que todos nuestros servidores públicos nos sirvan mejor a nosotros, el pueblo.'
+						type: 'p',
+						text: 'Las tres soluciones son alcanzables. El problema es que requieren que los representantes actuales pongan las necesidades de este país y de sus votantes por encima de sus beneficios personales. No creo que sean capaces de hacerlo.'
 					},
 					{
-						type: 'p' as const,
-						text: 'Las tres soluciones son razonables y exigen que nuestros representantes actuales y futuros pongan las necesidades de este país y de sus votantes por delante de la política partidista y del beneficio personal. Estoy dispuesto a hacerlo, con el apoyo de los votantes de este distrito.'
+						type: 'p',
+						text: 'Por eso me postulo. Estoy dispuesto y soy capaz de votar en su mejor interés, con el apoyo de los votantes de nuestro distrito.'
 					}
 				]
 			},
 			{
 				id: 'great-salt-lake',
-				navLabel: 'Cuidado',
-				question: '¿Qué hacemos con el Gran Lago Salado?',
+				navLabel: 'Cuidado ambiental',
+				heading: 'Restaurar el Gran Lago Salado',
 				parts: [
 					{
-						type: 'p' as const,
-						text: 'Restaurar el Gran Lago Salado requiere más agua. Esta es en gran medida una decisión estatal, ya que la Legislatura de Utah decide cómo asignar los recursos en colaboración con las entidades locales. Como representante federal, mi responsabilidad es proporcionar recursos que ayuden a llevar más agua al lago y eliminar las barreras a nivel nacional que impiden soluciones efectivas.'
+						type: 'p',
+						text: 'En pocas palabras, restaurar el Gran Lago Salado requiere más agua. Esta es en gran medida una decisión estatal, ya que la Legislatura de Utah decide cómo asignar los recursos en colaboración con las entidades locales.'
 					},
 					{
-						type: 'p' as const,
-						text: 'Esto significa asegurar financiamiento para ayudar a restaurar nuestra envejecida infraestructura hídrica y eliminar los fragmites invasores alrededor de la orilla. También significa simplificar las barreras regulatorias existentes entre las agencias federales cuando los proyectos de mejora requieran aprobaciones de varias agencias. Por último, también significa entender que probablemente habrá comunidades afectadas por las decisiones sobre la asignación del agua, y pensar en esas consecuencias antes de que ocurran para poder brindar los recursos y el apoyo necesarios a los afectados (como los agricultores). Por eso, uno de los comités en los que estaría dispuesto a servir sería el de Agricultura, para poder defender mejor a quienes más se verán afectados por los probables cambios en la asignación de agua en todo el estado.'
+						type: 'p',
+						text: 'Como representante federal, mi responsabilidad será aportar recursos que ayuden a llevar más agua al lago y eliminar a nivel nacional los obstáculos que impiden soluciones eficaces.'
+					},
+					{
+						type: 'p',
+						text: 'Esto significa hacer el trabajo difícil que muy pocos de nuestros líderes estatales parecen capaces de hacer.'
+					},
+					{
+						type: 'ul',
+						items: [
+							{
+								text: '**Conseguir fondos para ayudar a restaurar la envejecida infraestructura hídrica de Utah** y eliminar el carrizo invasor (phragmites) de la orilla.',
+								items: [
+									'Este trabajo incluye buscar los mil millones de dólares en fondos federales conversados con el liderazgo estatal, que se han propuesto pero que el Congreso aún no ha asignado.'
+								]
+							},
+							'**Simplificar los obstáculos regulatorios existentes** entre agencias federales cuando los proyectos de mejora requieran la aprobación de varias agencias.',
+							{
+								text: 'Identificar a las comunidades afectadas por las decisiones sobre la asignación del agua.',
+								items: [
+									'Pensar en las consecuencias antes de que ocurran para poder **brindar los recursos y el apoyo necesarios a quienes resulten afectados**, como los agricultores.'
+								]
+							}
+						]
+					},
+					{
+						type: 'p',
+						text: 'Este es un tema que me preocupa mucho, y espero obtener un puesto en el Comité de Agricultura de la Cámara de Representantes. Desde ahí podría abogar mejor por quienes resulten más afectados por los probables cambios en la asignación del agua en todo el estado.'
 					}
 				]
 			},
 			{
 				id: 'healthcare',
-				navLabel: 'Salud',
+				navLabel: 'Salud rural',
 				groupHeading: 'Otras posturas de política',
-				question:
-					'¿Cuál es su posición sobre los recortes a la Ley del Cuidado de Salud Asequible (ACA u «Obamacare») y el acceso a la atención médica en las comunidades rurales?',
+				heading: 'Fortalecer la infraestructura de salud rural',
 				parts: [
 					{
-						type: 'p' as const,
-						text: 'La reciente “Big Beautiful Bill”, elaborada en parte por el representante Blake Moore de lo que ahora es el distrito 2 del Congreso, recorta de forma significativa el acceso a la atención médica al reducir los pagos a Medicare a partir de 2026. Estos recortes golpean más fuerte a las comunidades rurales como las del norte de Utah, y encarecerán el acceso a la atención médica. Esto ya está teniendo un impacto aquí en Utah, ya que el estado no puede igualar la inversión federal al mismo nivel que antes, a pesar de que tenemos un gran superávit en el presupuesto estatal. Esto probablemente afectará más a nuestros sistemas de hospitales y de atención de emergencia. Para las comunidades rurales en especial, esto significa menos acceso a la atención crítica.'
+						type: 'p',
+						text: 'La reciente “Big Beautiful Bill”, redactada en parte por el representante Blake Moore, de lo que hoy es el Distrito 2 del Congreso, recorta de manera significativa el acceso a la atención médica al reducir los pagos a Medicaid a partir de 2026.'
 					},
 					{
-						type: 'p' as const,
-						text: 'Por eso, no estoy a favor de la Big Beautiful Bill ni de sus recortes dirigidos a nuestras comunidades locales. Es mala política y perjudicará significativamente a miles de familias de Utah.'
+						type: 'p',
+						text: 'Esto ya está teniendo un impacto en nuestra comunidad, ya que el estado no puede igualar la inversión federal al mismo nivel que en el pasado, a pesar de que tenemos un gran superávit en nuestro presupuesto estatal. Es probable que esto afecte más a nuestros hospitales y sistemas de atención de emergencia. **Para las comunidades rurales en particular, esto significa perder el acceso local a la atención crítica.**'
+					},
+					{
+						type: 'ul',
+						items: [
+							{
+								text: 'Con estos antecedentes, creo que la **Big Beautiful Bill y sus recortes son una mala política**.',
+								items: [
+									'Están dirigidos contra nuestras comunidades locales y perjudicarán gravemente a miles de familias de Utah.'
+								]
+							},
+							'Aunque todavía no hemos sentido todos sus efectos, podemos observar otras comunidades del país que están perdiendo el acceso local a la atención esencial y ver lo que se nos viene.',
+							'Esta es una de las razones por las que necesitamos una conversación seria sobre un sistema de salud de pagador único. Cuesta menos que nuestro sistema actual, ofrece cobertura a agricultores, ganaderos y dueños de pequeños negocios, y da a los estadounidenses más libertad para tomar sus propias decisiones.'
+						]
 					}
 				]
 			},
 			{
 				id: 'data-centers',
 				navLabel: 'Centros de datos',
-				question:
-					'El proyecto de centro de datos Stratos aprobado por MIDA está en Box Elder, un condado de su distrito. ¿Qué opina de los centros de datos en general y de Stratos en particular?',
+				heading: 'El centro de datos Stratos y el desarrollo responsable',
 				parts: [
 					{
-						type: 'p' as const,
-						text: 'No apoyo el desarrollo de más centros de datos en Utah a menos que, y hasta que, aborden adecuadamente las preocupaciones sobre el agua, la energía, el medio ambiente y los impactos en la comunidad. Además, las decisiones sobre su desarrollo deberían requerir la aprobación de la comunidad. Me opongo al proyecto Stratos porque no cumple con ninguno de estos requisitos.'
+						type: 'p',
+						text: 'Vimos el impacto de un proceso gubernamental secreto que excluyó a los votantes durante las votaciones de los comisionados del condado de Box Elder sobre el centro de datos Stratos.'
+					},
+					{
+						type: 'p',
+						text: 'También vimos lo que sucede cuando los votantes se sienten con la fuerza para expresar su opinión: dos de los tres comisionados que votaron a favor del proyecto perdieron sus elecciones primarias, al igual que el presidente del Senado estatal, Stuart Adams.'
+					},
+					{
+						type: 'p',
+						text: 'Esto es la democracia en acción, y trabajaré para apoyar la voz de los votantes del condado de Box Elder y proteger a su comunidad de multimillonarios a quienes no les importa su bienestar.'
+					},
+					{
+						type: 'ul',
+						items: [
+							'No apoyo más desarrollo de centros de datos en Utah a menos que, y hasta que, **aborden de manera adecuada y transparente las preocupaciones sobre el agua, la energía, el medio ambiente y el impacto en las comunidades.**',
+							'Las decisiones sobre su desarrollo deben **requerir la aprobación de la comunidad**.'
+						]
+					},
+					{
+						type: 'p',
+						text: '**Me opongo al proyecto Stratos** porque no cumple ninguno de estos requisitos.'
 					}
 				]
 			},
 			{
 				id: 'ai',
 				navLabel: 'IA',
-				question: 'Los centros de datos suelen vincularse con el desarrollo de la IA. ¿Cuál es su postura sobre la IA?',
+				heading: 'Mi postura sobre la inteligencia artificial (IA)',
 				parts: [
 					{
-						type: 'p' as const,
-						text: 'Primero, es importante señalar que la IA se refiere a una amplia variedad de herramientas tecnológicas que a menudo se agrupan. Estoy a favor de los procesos de aprendizaje automático que nos ayudan a identificar el cáncer en las imágenes de forma más rápida y precisa. Me opongo al desarrollo y despliegue de algoritmos que se usan para identificar y rastrear a ciudadanos privados sin ninguna justificación legal.'
+						type: 'p',
+						text: 'La IA abarca una gran variedad de herramientas tecnológicas que a menudo se agrupan bajo un mismo nombre.'
 					},
 					{
-						type: 'p' as const,
-						text: 'Las herramientas de IA generativa existentes (por ejemplo, ChatGPT, Claude, Midjourney) se construyeron sobre bienes robados y, más a menudo que no, afectan negativamente la capacidad humana de crear, razonar y relacionarse de forma significativa con el mundo que nos rodea. Las herramientas están aquí y no van a desaparecer, así que ahora tenemos la obligación de mitigar y prevenir todo el daño que podamos.'
+						type: 'ul',
+						items: [
+							'Estoy a favor de los procesos de aprendizaje automático que nos ayudan a detectar el cáncer en las imágenes médicas con más rapidez y precisión.',
+							'Me opongo al desarrollo y uso de algoritmos para identificar y rastrear a ciudadanos particulares sin ninguna justificación legal.'
+						]
 					},
 					{
-						type: 'p' as const,
-						text: 'Desde el punto de vista de las políticas, estoy a favor de responsabilizar a las corporaciones por su uso y despliegue de la IA. Hay serios posibles impactos financieros para nuestras comunidades, y nuestro código tributario actual permite que las grandes corporaciones eviten pagar su parte justa de impuestos para sostener a nuestro gobierno y comunidades. Necesitamos cerrar estas lagunas fiscales, de modo que, si el despliegue de la IA desplaza significativamente a los estadounidenses y sus familias de la fuerza laboral, tengamos los recursos necesarios para apoyarlos durante esa transición.'
+						type: 'p',
+						text: 'Las herramientas de IA generativa existentes (p. ej., ChatGPT, Claude, Midjourney) se construyeron con materiales robados y a menudo afectan negativamente la capacidad humana de crear, razonar y relacionarse de manera significativa con el mundo que nos rodea. Estas herramientas llegaron para quedarse, así que ahora **tenemos la obligación de mitigar y prevenir todo el daño que podamos.**'
 					},
+					{ type: 'p', text: 'Desde el punto de vista de las políticas públicas, quiero:' },
 					{
-						type: 'p' as const,
-						text: 'También estoy a favor de actualizar nuestras leyes y regulaciones actuales sobre la propiedad y la privacidad de los datos. Los estadounidenses deben ser dueños de sus datos, punto. También debemos estar protegidos del uso indebido de esos datos, ya sea por agencias locales, corporaciones o el gobierno federal.'
+						type: 'ul',
+						items: [
+							'**Responsabilizar a las corporaciones** por la forma en que usan e implementan la IA.',
+							'Reescribir el código tributario actual para que **las grandes empresas tecnológicas paguen la parte de impuestos que les corresponde** y así sostener a nuestro gobierno y nuestras comunidades.',
+							'**Cerrar estos vacíos fiscales**, para que, si la implementación de la IA desplaza de manera significativa a estadounidenses y sus familias de la fuerza laboral, tengamos los recursos necesarios para apoyarlos durante la transición.',
+							{
+								text: '**Actualizar las leyes y regulaciones vigentes sobre la propiedad y la privacidad de los datos.**',
+								items: [
+									'Los estadounidenses deben ser dueños de sus datos, punto.',
+									'También debemos estar protegidos contra el uso indebido de esos datos, ya sea por agencias locales, corporaciones o el gobierno federal.'
+								]
+							},
+							'**Hacer que las grandes tecnológicas paguen** el costo de construir los centros de datos y la energía necesaria para operarlos.'
+						]
 					}
 				]
 			},
 			{
 				id: 'epstein',
 				navLabel: 'Archivos Epstein',
-				question:
-					'Ha mencionado a menudo que una de las razones por las que se postula es por lo que les ocurrió a las víctimas de trata infantil en los archivos de Epstein. ¿Cuál es su posición sobre los traficantes de Epstein?',
+				heading: 'Transparencia en los archivos Epstein',
 				parts: [
 					{
-						type: 'p' as const,
-						text: 'Todos los involucrados deberían ser procesados con todo el peso de la ley. Apoyo la divulgación completa de los archivos, conforme a la petición de las víctimas. No me interesa proteger a nadie que haya participado en la compra, venta o violación de niños.'
+						type: 'p',
+						text: 'Todos los involucrados deben ser procesados con todo el peso de la ley. Apoyo la publicación completa de los archivos, tal como lo han pedido las víctimas. No me interesa proteger a nadie que haya participado en la compra, la venta o la violación de niños.'
+					}
+				]
+			},
+			{
+				id: 'hill-afb',
+				navLabel: 'Base Aérea Hill',
+				heading: 'Base Aérea Hill',
+				parts: [
+					{
+						type: 'p',
+						text: 'La Base Aérea Hill (HAFB, por sus siglas en inglés) es el mayor empleador del norte de Utah, y mantener una relación positiva con su liderazgo es una parte fundamental de las responsabilidades de nuestro representante en el Congreso. La mejor manera de apoyar esta relación es buscar y mantener un puesto en el Comité de Servicios Armados de la Cámara de Representantes, asegurar la restauración del Gran Lago Salado y pasar tiempo no solo con los oficiales, sino también con el personal enlistado y los contratistas que conforman la mayor parte de la fuerza laboral que apoya la misión de la HAFB e impulsa la inversión económica en las comunidades del norte de Utah.'
 					}
 				]
 			}
-		]
+		])
 	}
 };
