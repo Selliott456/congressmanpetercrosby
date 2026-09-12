@@ -272,23 +272,27 @@
 		aria-label={t.onThisPage}
 		bind:this={jumpBar}
 	>
-		<div class="jump-inner" bind:this={jumpInner}>
-			<span class="jump-label">{t.onThisPage}</span>
-			<ul class="jump-list">
-				{#each sections as s}
-					<li>
-						<a
-							class="jump-link"
-							class:is-active={activeId === s.id}
-							href={'#' + s.id}
-							aria-current={activeId === s.id ? 'true' : undefined}
-							on:click|preventDefault={() => jumpTo(s.id)}
-						>
-							{s.label}
-						</a>
-					</li>
-				{/each}
-			</ul>
+		<!-- The frame is capped to the content column and holds the edge fades; the
+		     scroller inside it is what moves. -->
+		<div class="jump-frame">
+			<div class="jump-inner" bind:this={jumpInner}>
+				<span class="jump-label">{t.onThisPage}</span>
+				<ul class="jump-list">
+					{#each sections as s}
+						<li>
+							<a
+								class="jump-link"
+								class:is-active={activeId === s.id}
+								href={'#' + s.id}
+								aria-current={activeId === s.id ? 'true' : undefined}
+								on:click|preventDefault={() => jumpTo(s.id)}
+							>
+								{s.label}
+							</a>
+						</li>
+					{/each}
+				</ul>
+			</div>
 		</div>
 	</nav>
 
@@ -607,10 +611,15 @@
 		z-index: 50;
 		background: var(--blue);
 		border-bottom: 1px solid rgba(9, 27, 54, 0.2);
+		/* The page gutter, so the frame inside lines up with the section content. */
+		padding-inline: 1.5rem;
 	}
 
-	.jump::before,
-	.jump::after {
+	/* Edge fades live on the non-scrolling frame (capped to the content column), so
+	   they sit exactly at the scroller's clip edges, not out at the edges of the
+	   full-width bar where they'd miss the cut-off words on wide screens. */
+	.jump-frame::before,
+	.jump-frame::after {
 		content: '';
 		position: absolute;
 		top: 0;
@@ -622,25 +631,32 @@
 		z-index: 1;
 	}
 
-	.jump::before {
+	.jump-frame::before {
 		left: 0;
 		background: linear-gradient(90deg, var(--blue), rgba(46, 95, 160, 0));
 	}
 
-	.jump::after {
+	.jump-frame::after {
 		right: 0;
 		background: linear-gradient(270deg, var(--blue), rgba(46, 95, 160, 0));
 	}
 
-	.jump.has-left-fade::before,
-	.jump.has-right-fade::after {
+	.jump.has-left-fade .jump-frame::before,
+	.jump.has-right-fade .jump-frame::after {
 		opacity: 1;
 	}
 
-	.jump-inner {
+	/* Capped to the same 1120px column as the sections, so the links never run wider
+	   than the page content. */
+	.jump-frame {
+		position: relative;
 		max-width: 1120px;
 		margin: 0 auto;
-		padding: 0.55rem 1.5rem;
+	}
+
+	/* The scroller fills the frame, so its clip edges are the frame's edges. */
+	.jump-inner {
+		padding: 0.55rem 0;
 		display: flex;
 		align-items: center;
 		gap: 1.625rem;
@@ -1110,6 +1126,11 @@
 		.disclosure {
 			margin-left: calc(-1 * var(--mobile-margin));
 			margin-right: calc(-1 * var(--mobile-margin));
+		}
+
+		/* Full-bleed on mobile: the frame and its fades reach the screen edges. */
+		.jump {
+			padding-inline: 0;
 		}
 
 		/* Re-add the gutter inside the bled bands so their text still lines up with
