@@ -419,7 +419,13 @@
 			gap: 2rem;
 		}
 
-		.about-content {
+		/* `.layout-main` supplies the page gutter on mobile; these containers' own
+		   1.5rem was stacking on top of it. `.about-content` was already handled —
+		   the others were not, so the intro and CTA sat 24px narrower than the body. */
+		.about-content,
+		.about-intro-inner,
+		.about-trail-inner,
+		.about-cta {
 			padding-left: 0;
 			padding-right: 0;
 		}

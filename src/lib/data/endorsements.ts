@@ -16,6 +16,13 @@ export type Endorsement = {
 	role?: string;
 	/** Portrait image path under /images. Falls back to initials when omitted. */
 	photo?: string;
+	/**
+	 * Optional in-site link to the release announcing this endorsement, e.g.
+	 * `/press/<slug>`. Renders a "Read the release" link on the card; the label is
+	 * translated once via `$messages.endorsementsPage.readRelease`, so only the
+	 * path belongs here.
+	 */
+	releaseHref?: string;
 };
 
 export const endorsements: Endorsement[] = [
@@ -32,6 +39,14 @@ export const endorsements: Endorsement[] = [
 	{ id: 'kim-james', category: 'person', name: 'Kim James', role: 'Candidate - Utah House District 8', photo: '/images/endorsements/kim_james.jpg' },
 
 	// Businesses & organizations
+	{
+		id: 'indivisible-utah',
+		category: 'organization',
+		name: 'Indivisible groups of Utah',
+		role: 'All 12 Utah chapters',
+		photo: '/images/endorsements/indivisible.png',
+		releaseHref: '/press/indivisible-statewide-endorsement'
+	},
 	{ id: 'wsu-democrats', category: 'organization', name: 'WSU Democrats', photo: '/images/endorsements/wsu_democrats.jpg' },
 	{ id: 'weber-county-progressives', category: 'organization', name: 'Weber County Progressive Caucus', photo: '/images/endorsements/weber_county_progressive_caucus.jpg' },
 	{ id: 'ogden-50501', category: 'organization', name: 'Ogden 50501', photo: '/images/endorsements/ogden_50501.jpg' },

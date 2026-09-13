@@ -27,6 +27,13 @@
 	{#if role}
 		<p class="endorsement-role">{role}</p>
 	{/if}
+	{#if item.releaseHref}
+		<!-- A discrete link rather than wrapping the whole card: only some endorsements
+		     have a release, and the other cards stay non-interactive. -->
+		<a class="endorsement-link" href={item.releaseHref}>
+			{$messages.endorsementsPage.readRelease}
+		</a>
+	{/if}
 </div>
 
 <style>
@@ -89,6 +96,26 @@
 		font-size: 1.0625rem;
 		letter-spacing: -0.01em;
 		line-height: 1.15;
+		color: var(--ink);
+	}
+
+	/* A flex item, so this blockifies — `text-decoration` (not `border-bottom`)
+	   keeps the rule tight to the words when the label wraps in a narrow column. */
+	.endorsement-link {
+		margin-top: 0.5rem;
+		font-family: var(--display);
+		font-style: italic;
+		font-weight: 800;
+		font-size: 0.72rem;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		color: var(--blue);
+		text-decoration: underline;
+		text-underline-offset: 3px;
+	}
+
+	.endorsement-link:hover,
+	.endorsement-link:focus-visible {
 		color: var(--ink);
 	}
 
