@@ -142,6 +142,16 @@
 			{/each}
 		</div>
 
+		{#if release.dataRoom}
+			<!-- Polling releases point to the Data Room, where the same figures are charted
+			     with their sample sizes, field dates and margins of error. Kept outside the
+			     body so the release itself reads as issued. -->
+			<aside class="press-data">
+				<p class="press-data-text">{$messages.pressReleases.dataRoomNote}</p>
+				<a href="/data-room" class="press-data-link">{$messages.pressReleases.dataRoomLink} &rarr;</a>
+			</aside>
+		{/if}
+
 		{#if release.source}
 			<p class="press-reproduced">{$messages.pressReleases.reproducedNote}</p>
 		{/if}
@@ -364,6 +374,38 @@
 		letter-spacing: 0.04em;
 		text-transform: uppercase;
 		color: var(--ink-2);
+	}
+
+	.press-data {
+		margin: 2.5rem 0 0;
+		padding: 1.1rem 1.25rem 1.2rem;
+		background: var(--paper-2);
+		border-left: 3px solid var(--blue);
+	}
+
+	.press-data-text {
+		margin: 0 0 0.6rem;
+		font-family: var(--sans);
+		font-size: 0.95rem;
+		line-height: 1.55;
+		color: var(--ink);
+	}
+
+	.press-data-link {
+		font-family: var(--display);
+		font-style: italic;
+		font-weight: 800;
+		font-size: 0.8125rem;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: var(--blue);
+		text-decoration: none;
+	}
+
+	.press-data-link:hover {
+		color: var(--ink);
+		text-decoration: underline;
+		text-underline-offset: 3px;
 	}
 
 	.press-download {

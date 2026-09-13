@@ -1,5 +1,5 @@
 /**
- * Color helpers for the /analytics charts.
+ * Color helpers for the Data Room charts.
  */
 
 function toRgb(hex: string): [number, number, number] {

@@ -16,12 +16,15 @@ const en = {
 		media: 'MEDIA',
 		policies: 'POLICIES',
 		endorsements: 'ENDORSEMENTS',
+		/** Collapsed menu only — the desktop link row is full; see AnnouncementBar. */
+		dataRoom: 'DATA ROOM',
 		ariaHome: 'Congressman Peter Crosby - Home',
 		menuToggle: 'Toggle menu'
 	},
 	footer: {
 		contactUs: 'Contact Us',
 		endorsements: 'Endorsements',
+		dataRoom: 'Data Room',
 		navAria: 'Footer links',
 		socialAria: 'Social media links',
 		rights: 'Peter Crosby for Congress. All rights reserved.',
@@ -79,7 +82,8 @@ const en = {
 	announcement: {
 		ballotsMail: 'Ballots Mail · Oct 13, 2026',
 		electionDay: 'Election Day · Tue, Nov 3',
-		registerToVote: 'Register to Vote'
+		registerToVote: 'Register to Vote',
+		dataRoom: 'Data Room'
 	},
 	endorsements: {
 		eyebrow: 'Endorsed By',
@@ -222,12 +226,14 @@ const es: Messages = {
 		media: 'MEDIOS',
 		policies: 'POLÍTICAS',
 		endorsements: 'RESPALDOS',
+		dataRoom: 'SALA DE DATOS',
 		ariaHome: 'Peter Crosby para el Congreso - Inicio',
 		menuToggle: 'Abrir menú'
 	},
 	footer: {
 		contactUs: 'Contáctenos',
 		endorsements: 'Respaldos',
+		dataRoom: 'Sala de datos',
 		navAria: 'Enlaces del pie de página',
 		socialAria: 'Enlaces a redes sociales',
 		rights: 'Peter Crosby para el Congreso. Todos los derechos reservados.',
@@ -285,7 +291,8 @@ const es: Messages = {
 	announcement: {
 		ballotsMail: 'Boletas por correo · 13 oct 2026',
 		electionDay: 'Día de elecciones · mar 3 nov',
-		registerToVote: 'Regístrese para votar'
+		registerToVote: 'Regístrese para votar',
+		dataRoom: 'Sala de datos'
 	},
 	endorsements: {
 		eyebrow: 'Respaldado por',

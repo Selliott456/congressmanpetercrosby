@@ -325,6 +325,11 @@ export const pagesEn = {
 		externalTag: 'Endorsing organization',
 		reproducedNote: 'This release is reproduced as issued. The original is available below.',
 		pressContact: 'Press contact',
+		/** Polling releases (`dataRoom: true`) and the home press row point to the Data Room. */
+		dataRoomNote:
+			'The figures in this release are charted in the Data Room, with sample sizes, field dates and margins of error.',
+		dataRoomLink: 'Open the Data Room',
+		dataRoomHome: 'Polling in the Data Room',
 		downloadOriginal: 'Download the release',
 		metaTitle: 'Press Releases — Peter Crosby for Congress',
 		metaDescription:
@@ -528,10 +533,10 @@ export const pagesEn = {
 	}
 	,
 	analytics: {
-		metaTitle: 'Analytics — Peter Crosby for Congress',
+		metaTitle: 'Data Room — Peter Crosby for Congress',
 		metaDescription:
 			"The data behind Utah's 2nd Congressional District race: district polling, issue priorities, and statewide approval trends, with full methodology.",
-		eyebrow: 'UT-02 · Polling and data',
+		eyebrow: 'Data Room · UT-02',
 		pageTitle: "Utah's 2nd District, by the numbers",
 		lede:
 			"Polling, issue priorities, and statewide context for Utah's 2nd Congressional District. Every figure is published with its source, field dates, sample size, and margin of error. New datasets are added as they become available.",

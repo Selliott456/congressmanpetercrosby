@@ -1,6 +1,6 @@
 <script>
 	/**
-	 * Analytics style guide — the design system for /analytics.
+	 * Data Room style guide — the design system for /data-room.
 	 *
 	 * Internal reference, like `style_guide.html` at the repo root: English-only and
 	 * `noindex`. It documents the chart system rather than presenting campaign data,
@@ -8,7 +8,7 @@
 	 *
 	 * Every chart below renders the REAL components with illustrative sample values, and
 	 * every color is imported from `$lib/data/analytics` with its contrast computed from
-	 * the hex, so the page can't drift from what /analytics ships. The ΔE figures are
+	 * the hex, so the page can't drift from what /data-room ships. The ΔE figures are
 	 * copied from the palette-validator results noted beside each set in `analytics.ts`:
 	 * when a color changes, re-run the validator and update them here too. Sample numbers
 	 * are labeled as such and are not polling results.
@@ -53,7 +53,7 @@
 	/** @typedef {{ lead: string; text: string }} Reason */
 	/** @typedef {{ title: string; body: string; swatches: Swatch[]; why: Reason[]; caption: string; checks: Check[] }} Scale */
 
-	/** Every color set /analytics uses, in the order a reader meets them. @type {Scale[]} */
+	/** Every color set the Data Room uses, in the order a reader meets them. @type {Scale[]} */
 	const scales = [
 		{
 			title: 'Candidates — identity',
@@ -408,8 +408,8 @@
 </script>
 
 <svelte:head>
-	<title>Analytics style guide — Peter Crosby for Congress</title>
-	<meta name="description" content="The chart and color system behind the analytics pages." />
+	<title>Data Room style guide — Peter Crosby for Congress</title>
+	<meta name="description" content="The chart and color system behind the Data Room." />
 	<meta name="robots" content="noindex" />
 </svelte:head>
 
@@ -418,9 +418,9 @@
 		<Rail />
 		<div class="inner">
 			<p class="eyebrow">Internal reference</p>
-			<h1 class="page-title">Analytics style guide</h1>
+			<h1 class="page-title">Data Room style guide</h1>
 			<p class="lede">
-				The chart system behind <a href="/analytics">the analytics pages</a> — color, forms,
+				The chart system behind <a href="/data-room">the Data Room</a> — color, forms,
 				figures, and the accessibility standard each one is held to. Every chart below is the
 				live component rendered with illustrative sample values, not polling results.
 			</p>

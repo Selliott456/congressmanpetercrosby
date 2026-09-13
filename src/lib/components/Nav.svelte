@@ -16,6 +16,14 @@
     { label: $messages.nav.contact, href: "/contact" },
   ];
 
+  /** The collapsed menu adds the Data Room after Media. The desktop row has no room
+      for an eighth link; there it lives in the utility bar (AnnouncementBar). */
+  $: menuLinks = links.flatMap((link) =>
+    link.href === "/media"
+      ? [link, { label: $messages.nav.dataRoom, href: "/data-room" }]
+      : [link]
+  );
+
   let menuOpen = false;
 
   function toggleMenu() {
@@ -93,7 +101,7 @@
     aria-hidden={!menuOpen}
   >
     <ul class="nav-menu-links">
-      {#each links as link}
+      {#each menuLinks as link}
         <li>
           <a
             href={link.href}

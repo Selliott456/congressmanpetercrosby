@@ -86,6 +86,12 @@ export type PressRelease = {
 	/** Press-contact email shown in the release footer. */
 	contactEmail?: string;
 	/**
+	 * Set on the campaign's polling releases: the detail page then points to the Data
+	 * Room, where the same figures are charted with sample size, field dates and margin
+	 * of error. Rendered outside the release body, which stays as issued.
+	 */
+	dataRoom?: boolean;
+	/**
 	 * Card thumbnail (the designed release graphic), path under `/press-releases/`.
 	 * Shown on the `/media` section + home row cards, cropped to 16:9 (anchored top,
 	 * so the headline stays visible). Optional: when omitted, the card falls back to
@@ -191,6 +197,7 @@ export const pressReleases: PressRelease[] = [
 	},
 	{
 		id: 'august-internal-polling',
+		dataRoom: true,
 		date: '2026-08-21',
 		title:
 			'All Eyes on Utah District 2 Congressional Race: Democrat Peter Crosby Making Gains Amid Statewide Anti-Incumbent Wave',

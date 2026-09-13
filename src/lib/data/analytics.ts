@@ -1,5 +1,5 @@
 /**
- * Data for the /analytics dashboard.
+ * Data for the Data Room (/data-room; the page was /analytics until Sep 2026).
  *
  * ⚠️ SOURCING RULE — read before adding anything here.
  * Every number on this page is published, attributable data. Three sources only:

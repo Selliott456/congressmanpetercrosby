@@ -31,3 +31,16 @@
   to = "/images/brand_strategy_logo_white.svg"
   status = 301
   force = true
+
+# The Data Room moved from /analytics (Sep 2026). Keep demo links and bookmarks working.
+[[redirects]]
+  from = "/analytics"
+  to = "/data-room"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/analytics/*"
+  to = "/data-room/:splat"
+  status = 301
+  force = true

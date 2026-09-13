@@ -843,6 +843,10 @@ export const pagesEs = {
 		reproducedNote:
 			'Este comunicado se reproduce tal como fue emitido. El original está disponible a continuación.',
 		pressContact: 'Contacto de prensa',
+		dataRoomNote:
+			'Las cifras de este comunicado están graficadas en la Sala de datos, con tamaños de muestra, fechas de campo y márgenes de error.',
+		dataRoomLink: 'Abrir la Sala de datos',
+		dataRoomHome: 'Encuestas en la Sala de datos',
 		downloadOriginal: 'Descargar el comunicado',
 		metaTitle: 'Comunicados de prensa — Peter Crosby para el Congreso',
 		metaDescription:
@@ -1259,10 +1263,10 @@ export const pagesEs = {
 	}
 	,
 	analytics: {
-		metaTitle: 'Analíticas — Peter Crosby para el Congreso',
+		metaTitle: 'Sala de datos — Peter Crosby para el Congreso',
 		metaDescription:
 			'Los datos detrás de la contienda por el Distrito 2 del Congreso de Utah: encuestas del distrito, prioridades temáticas y tendencias de aprobación estatal, con la metodología completa.',
-		eyebrow: 'UT-02 · Encuestas y datos',
+		eyebrow: 'Sala de datos · UT-02',
 		pageTitle: 'El Distrito 2 de Utah, en cifras',
 		lede:
 			'Encuestas, prioridades temáticas y contexto estatal del Distrito 2 del Congreso de Utah. Cada cifra se publica con su fuente, fechas de campo, tamaño de muestra y margen de error. Se agregan nuevos conjuntos de datos a medida que están disponibles.',

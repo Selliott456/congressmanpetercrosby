@@ -2,7 +2,7 @@
 	import { messages } from '$lib/i18n/locale';
 
 	/**
-	 * Shared wrapper for every chart on /analytics: eyebrow, title, question
+	 * Shared wrapper for every chart in the Data Room (/data-room): eyebrow, title, question
 	 * wording, takeaway, legend, the chart itself, a note, a source line, and a
 	 * data-table toggle. The table is not optional polish — several chart colors
 	 * sit below 3:1 contrast, and the dataviz rules require a relief channel

@@ -51,6 +51,7 @@
       </div>
       <nav class="footer-links" aria-label={$messages.footer.navAria}>
         <a href="/endorsements" class="footer-faq-link">{$messages.footer.endorsements}</a>
+        <a href="/data-room" class="footer-faq-link">{$messages.footer.dataRoom}</a>
         <a href="/contact" class="footer-faq-link">{$messages.footer.contactUs}</a>
       </nav>
       <div class="footer-social" aria-label={$messages.footer.socialAria}>

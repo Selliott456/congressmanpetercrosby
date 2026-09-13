@@ -354,8 +354,6 @@
 <svelte:head>
 	<title>{t.metaTitle}</title>
 	<meta name="description" content={t.metaDescription} />
-	<!-- Prototype page: keep it out of search results until the campaign signs off. -->
-	<meta name="robots" content="noindex" />
 </svelte:head>
 
 <main class="analytics" style="--analytics-nav-top: {navTop}px; --analytics-anchor: {anchorOffset}px;">
