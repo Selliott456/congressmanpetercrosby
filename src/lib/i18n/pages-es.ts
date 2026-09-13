@@ -1202,12 +1202,23 @@ export const pagesEs = {
 		},
 		eyebrows: {
 			internal: 'Encuesta interna · UT-02',
+			ballot: 'Encuesta interna · intención de voto',
 			crosstabs: 'Encuesta interna · desgloses',
 			issues: 'Encuesta interna · prioridades temáticas',
+			change: 'Encuestas internas · agosto vs. septiembre',
 			publicPoll: 'Encuesta pública independiente'
 		},
 		/** Prosa por encuesta, con las mismas claves que `POLLS` en la capa de datos. */
 		polls: {
+			'internal-sep-2026': {
+				pollster: 'Peter Crosby para el Congreso (interna)',
+				shortPollster: 'Peter Crosby para el Congreso',
+				population: 'votantes registrados, seleccionados al azar',
+				geography: 'los condados de Davis, Weber, Box Elder, Cache y Rich (UT-02)',
+				fieldLabel: 'del 8 al 10 de septiembre de 2026',
+				partisanship: 'Patrocinada por esta campaña — una parte interesada',
+				methodTitle: 'Encuesta interna de la campaña · septiembre'
+			},
 			'internal-aug-2026': {
 				pollster: 'Peter Crosby para el Congreso (interna)',
 				shortPollster: 'Peter Crosby para el Congreso',
@@ -1215,7 +1226,7 @@ export const pagesEs = {
 				geography: 'los condados de Davis, Weber, Box Elder, Cache y Rich (UT-02)',
 				fieldLabel: 'del 3 al 17 de agosto de 2026',
 				partisanship: 'Patrocinada por esta campaña — una parte interesada',
-				methodTitle: 'Encuesta interna de la campaña'
+				methodTitle: 'Encuesta interna de la campaña · agosto'
 			},
 			'hinckley-aug-2026': {
 				pollster: 'Deseret News / Hinckley Institute of Politics',
@@ -1226,6 +1237,10 @@ export const pagesEs = {
 				partisanship: 'Independiente — sin afiliación a ninguna campaña',
 				methodTitle: 'Encuesta pública estatal'
 			}
+		},
+		blockTitles: {
+			sep: 'Encuesta de septiembre de 2026',
+			aug: 'Encuesta de agosto de 2026'
 		},
 		pollMeta: {
 			coxFrom: 'enero de 2026',
@@ -1241,9 +1256,11 @@ export const pagesEs = {
 		neutralSeparate: 'se muestra por separado, ya que no se ubica en ninguno de los lados de la escala.',
 		likertTable: { response: 'Respuesta', share: 'Porcentaje de encuestados' },
 		groups: {
-			all: 'Todos los votantes del distrito',
-			republican: 'Republicanos registrados',
-			unaffiliated: 'No afiliados e independientes'
+			all: 'Todos los votantes',
+			democratic: 'Demócratas',
+			republican: 'Republicanos',
+			unaffiliated: 'No afiliados',
+			other: 'Otro partido'
 		},
 		softSupport: {
 			title: 'Apoyo al titular, por partido',
@@ -1256,15 +1273,76 @@ export const pagesEs = {
 			colShare: 'Porcentaje',
 			colMeasure: 'Medida'
 		},
-		issues: {
-			title: 'Prioridades temáticas principales, por partido',
+		september: {
+			heroLabel: 'Un empate estadístico',
+			heroSub: 'La diferencia de {gap} puntos está dentro del margen de error de ±{moe} puntos.',
+			vs: 'vs.',
+			options: {
+				crosby: 'Peter Crosby',
+				moore: 'Blake Moore',
+				other: 'Otro',
+				unsure: 'No está seguro',
+				none: 'Ninguno de los anteriores'
+			},
+			ballot: {
+				title: 'Si las elecciones fueran hoy',
+				question: 'Si las elecciones fueran hoy, ¿por quién votaría?',
+				takeaway:
+					'Blake Moore {moore}%, Peter Crosby {crosby}%. La diferencia de {gap} puntos está dentro del margen de error de ±{moe} puntos, y el {undecided}% no está seguro o eligió ninguno de los anteriores.',
+				bandKey: 'Las bandas muestran el margen de error de ±{moe} puntos de cada candidato.',
+				ariaLabel:
+					'Intención de voto: Peter Crosby {crosby}%, Blake Moore {moore}%, cada uno ±{moe} puntos',
+				barLabel: 'Todas las respuestas',
+				barAria: 'Todas las respuestas a la pregunta de intención de voto'
+			},
+			byParty: {
+				title: 'Intención de voto, por partido',
+				takeaway:
+					'Los republicanos prefieren a Moore por {repMoore}% a {repCrosby}%, y el {repUndecided}% no está seguro o eligió ninguno de los anteriores. Los votantes no afiliados prefieren a Crosby por {unaCrosby}% a {unaMoore}%.',
+				ariaLabel:
+					'Respuestas de intención de voto de todos los votantes, los republicanos y los votantes no afiliados',
+				note: 'El comunicado reporta la intención de voto por partido solo para republicanos y votantes no afiliados. Los márgenes de los grupos partidistas se calculan a partir del tamaño de muestra de cada grupo, con un 95% de confianza.'
+			},
+			groupMeta: 'n = {n} · ±{moe} pts',
+			concerns: {
+				title: 'Principales preocupaciones',
+				question: 'Indíquenos sus principales preocupaciones (puede elegir varias).',
+				takeaway:
+					'La asequibilidad ({aff}%) y la rendición de cuentas del gobierno ({acc}%) son las preocupaciones más mencionadas, seguidas del Gran Lago Salado ({gsl}%).',
+				note: 'Los encuestados podían elegir más de una preocupación, por lo que los porcentajes suman más del 100%.',
+				ariaLabel: 'Porcentaje de encuestados que menciona cada preocupación'
+			},
+			concernsByParty: {
+				title: 'Principales preocupaciones, por partido',
+				takeaway:
+					'La asequibilidad y la rendición de cuentas del gobierno son las dos principales preocupaciones en todos los grupos partidistas.',
+				caption: 'Porcentaje de cada grupo partidista que menciona cada preocupación',
+				rowHeader: 'Preocupación',
+				scaleLabel: 'Porcentaje del grupo',
+				note: '† Muestra pequeña: el margen de error es de aproximadamente ±{dem} puntos para los demócratas y ±{other} puntos para los votantes de otros partidos.'
+			},
+			col: {
+				response: 'Respuesta',
+				share: 'Porcentaje',
+				range: 'Rango (±{moe})',
+				group: 'Grupo',
+				concern: 'Preocupación'
+			}
+		},
+		change: {
+			title: 'Temas principales, de agosto a septiembre',
 			takeaway:
-				'La asequibilidad y la rendición de cuentas del gobierno encabezan la lista en todos los grupos encuestados. La diferencia entre republicanos y votantes no afiliados es de 7 puntos en asequibilidad y 6 en rendición de cuentas.',
-			ariaLabel: 'Porcentaje que nombra cada tema como prioridad principal, por grupo de votantes',
+				'La asequibilidad y la rendición de cuentas del gobierno siguen siendo las dos principales preocupaciones. Ningún cambio entre las dos encuestas supera el margen de error.',
+			from: 'Ago',
+			to: 'Sep',
+			ariaLabel:
+				'Porcentaje que menciona la asequibilidad y la rendición de cuentas del gobierno en las encuestas de agosto y septiembre, por partido',
+			source:
+				'Encuestas internas, Peter Crosby para el Congreso: {aug} (n = {augN}) y {sep} (n = {sepN}). Se muestran en puntos enteros, la precisión del comunicado de agosto.',
 			colIssue: 'Tema',
-			colAll: 'Todos los votantes',
-			colRepublican: 'Republicanos',
-			colUnaffiliated: 'No afiliados'
+			colGroup: 'Grupo',
+			colAug: 'Agosto',
+			colSep: 'Septiembre'
 		},
 		approval: {
 			title: 'Aprobación neta de la gestión, agosto de 2026',
@@ -1287,7 +1365,7 @@ export const pagesEs = {
 		},
 		ground: {
 			note:
-				'Cifras operativas reportadas por la campaña al momento del comunicado de agosto: actividad de organización, no resultados de encuestas.'
+				'Cifras operativas reportadas por la campaña: actividad de organización, no resultados de encuestas. Cabildos a septiembre de 2026; voluntarios y donantes al momento del comunicado de agosto.'
 		},
 		method: {
 			internalTitle: 'Encuesta interna de la campaña',
@@ -1313,12 +1391,8 @@ export const pagesEs = {
 				'Esta página reporta únicamente cifras que aparecen en una fuente publicada. Lo siguiente no está representado:',
 			items: [
 				{
-					label: 'Comparación directa entre candidatos.',
-					text: 'La encuesta no incluyó un enfrentamiento entre Crosby y Moore, por lo que no aparece ninguna cifra de intención de voto directa en esta página.'
-				},
-				{
-					label: 'Tendencia a lo largo del tiempo.',
-					text: 'La encuesta interna cubre un solo periodo de campo. Medir el cambio requiere una segunda encuesta comparable.'
+					label: 'Tendencia de la intención de voto.',
+					text: 'La pregunta entre Crosby y Moore se ha hecho en una sola encuesta hasta ahora, por lo que todavía no puede mostrar cambios a lo largo del tiempo.'
 				},
 				{
 					label: 'Pronóstico o probabilidad de victoria.',
@@ -1388,6 +1462,10 @@ export const pagesEs = {
 				label: 'Rendición de cuentas del gobierno',
 				detail: 'Ética, uso de información privilegiada y cierre de vacíos legales'
 			},
+			'issue-great-salt-lake': { label: 'El Gran Lago Salado' },
+			'issue-public-lands': { label: 'Acceso a las tierras públicas' },
+			'issue-doge': { label: 'Recortes de DOGE' },
+			'issue-other': { label: 'Otro' },
 			'appr-cox': { label: 'Gob. Spencer Cox', role: 'Gobernador' },
 			'appr-lee': { label: 'Sen. Mike Lee', role: 'Senado de EE. UU.' },
 			'appr-legislature': {
@@ -1396,12 +1474,8 @@ export const pagesEs = {
 			},
 			'appr-congress': { label: 'Congreso de EE. UU.', role: 'Institución' },
 			'ground-townhalls': {
-				label: 'Cabildos presenciales',
-				note: 'Realizados en todo el UT-02 desde el lanzamiento'
-			},
-			'ground-virtual': {
-				label: 'Cabildos virtuales',
-				note: 'Para mayor accesibilidad'
+				label: 'Cabildos',
+				note: 'Presenciales y virtuales, en todo el UT-02 desde el lanzamiento'
 			},
 			'ground-volunteers': {
 				label: 'Voluntarios registrados',

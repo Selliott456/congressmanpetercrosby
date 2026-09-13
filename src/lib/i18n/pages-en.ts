@@ -545,8 +545,10 @@ export const pagesEn = {
 		},
 		eyebrows: {
 			internal: 'Internal poll · UT-02',
+			ballot: 'Internal poll · ballot test',
 			crosstabs: 'Internal poll · crosstabs',
 			issues: 'Internal poll · issue priorities',
+			change: 'Internal polls · August vs. September',
 			publicPoll: 'Independent public poll'
 		},
 		/**
@@ -555,6 +557,15 @@ export const pagesEn = {
 		 * which is the point — it stops English text reaching Spanish readers.
 		 */
 		polls: {
+			'internal-sep-2026': {
+				pollster: 'Peter Crosby for Congress (internal)',
+				shortPollster: 'Peter Crosby for Congress',
+				population: 'randomized, registered voters',
+				geography: 'Davis, Weber, Box Elder, Cache & Rich Counties (UT-02)',
+				fieldLabel: 'Sep 8–10, 2026',
+				partisanship: 'Sponsored by this campaign — an interested party',
+				methodTitle: 'Campaign internal poll · September'
+			},
 			'internal-aug-2026': {
 				pollster: 'Peter Crosby for Congress (internal)',
 				shortPollster: 'Peter Crosby for Congress',
@@ -562,7 +573,7 @@ export const pagesEn = {
 				geography: 'Davis, Weber, Box Elder, Cache & Rich Counties (UT-02)',
 				fieldLabel: 'Aug 3–17, 2026',
 				partisanship: 'Sponsored by this campaign — an interested party',
-				methodTitle: 'Campaign internal poll'
+				methodTitle: 'Campaign internal poll · August'
 			},
 			'hinckley-aug-2026': {
 				pollster: 'Deseret News / Hinckley Institute of Politics',
@@ -573,6 +584,11 @@ export const pagesEn = {
 				partisanship: 'Independent — not affiliated with any campaign',
 				methodTitle: 'Statewide public poll'
 			}
+		},
+		/** Subheadings for the District polling blocks, newest first. */
+		blockTitles: {
+			sep: 'September 2026 survey',
+			aug: 'August 2026 survey'
 		},
 		pollMeta: {
 			coxFrom: 'January 2026',
@@ -588,10 +604,13 @@ export const pagesEn = {
 		hideTable: 'Hide data table',
 		neutralSeparate: 'shown separately, as it sits on neither side of the scale.',
 		likertTable: { response: 'Response', share: 'Share of respondents' },
+		/** Party groups as the September crosstabs label them. */
 		groups: {
-			all: 'All district voters',
-			republican: 'Registered Republicans',
-			unaffiliated: 'Unaffiliated & independent'
+			all: 'All voters',
+			democratic: 'Democrats',
+			republican: 'Republicans',
+			unaffiliated: 'Unaffiliated',
+			other: 'Other party'
 		},
 		softSupport: {
 			title: 'Support for the incumbent, by party',
@@ -603,15 +622,77 @@ export const pagesEn = {
 			colShare: 'Share',
 			colMeasure: 'Measure'
 		},
-		issues: {
-			title: 'Top issue priorities, by party',
+		/** The September 8–10 internal poll. Figures are filled in from the data file. */
+		september: {
+			heroLabel: 'A statistical tie',
+			heroSub: 'The {gap}-point gap is within the ±{moe}-point margin of error.',
+			vs: 'vs.',
+			/** Ballot options, as asked. */
+			options: {
+				crosby: 'Peter Crosby',
+				moore: 'Blake Moore',
+				other: 'Other',
+				unsure: 'Unsure',
+				none: 'None of the above'
+			},
+			ballot: {
+				title: 'If the election were held today',
+				question: 'If the election were held today, who would you vote for?',
+				takeaway:
+					'Blake Moore {moore}%, Peter Crosby {crosby}%. The {gap}-point gap is within the ±{moe}-point margin of error, and {undecided}% are unsure or chose none of the above.',
+				bandKey: 'Bands show each candidate’s ±{moe}-point margin of error.',
+				ariaLabel: 'Ballot test: Peter Crosby {crosby}%, Blake Moore {moore}%, each ±{moe} points',
+				barLabel: 'All responses',
+				barAria: 'All responses to the ballot question'
+			},
+			byParty: {
+				title: 'Ballot test, by party',
+				takeaway:
+					'Republicans favor Moore {repMoore}% to {repCrosby}%, with {repUndecided}% unsure or choosing none of the above. Unaffiliated voters favor Crosby {unaCrosby}% to {unaMoore}%.',
+				ariaLabel: 'Ballot test responses for all voters, Republicans and unaffiliated voters',
+				note: 'The release reports the ballot question by party for Republicans and unaffiliated voters only. Margins for party groups are calculated from each group’s sample size, at 95% confidence.'
+			},
+			groupMeta: 'n = {n} · ±{moe} pts',
+			concerns: {
+				title: 'Top concerns',
+				question: 'Please let us know your top concerns (multiple selections possible).',
+				takeaway:
+					'Affordability ({aff}%) and government accountability ({acc}%) are the most-cited concerns, followed by the Great Salt Lake ({gsl}%).',
+				note: 'Respondents could choose more than one concern, so shares add up to more than 100%.',
+				ariaLabel: 'Share of respondents naming each concern'
+			},
+			concernsByParty: {
+				title: 'Top concerns, by party',
+				takeaway:
+					'Affordability and government accountability are the top two concerns in every party group.',
+				caption: 'Share of each party group naming each concern',
+				rowHeader: 'Concern',
+				scaleLabel: 'Share of group',
+				note: '† Small sample: margins of error are about ±{dem} points for Democrats and ±{other} points for other-party voters.'
+			},
+			col: {
+				response: 'Response',
+				share: 'Share',
+				range: 'Range (±{moe})',
+				group: 'Group',
+				concern: 'Concern'
+			}
+		},
+		/** August → September, for the two issues both surveys asked about. */
+		change: {
+			title: 'Top issues, August to September',
 			takeaway:
-				'Affordability and government accountability top the list for every group surveyed. The spread between Republicans and unaffiliated voters is 7 points on affordability and 6 on accountability.',
-			ariaLabel: 'Share naming each issue a top priority, by voter group',
+				'Affordability and government accountability remain the top two concerns. No change between the two surveys exceeds the margin of error.',
+			from: 'Aug',
+			to: 'Sep',
+			ariaLabel:
+				'Share naming affordability and government accountability in the August and September surveys, by party',
+			source:
+				'Internal polls, Peter Crosby for Congress: {aug} (n = {augN}) and {sep} (n = {sepN}). Shown in whole points, the precision of the August release.',
 			colIssue: 'Issue',
-			colAll: 'All voters',
-			colRepublican: 'Republicans',
-			colUnaffiliated: 'Unaffiliated'
+			colGroup: 'Group',
+			colAug: 'August',
+			colSep: 'September'
 		},
 		approval: {
 			title: 'Net job approval, August 2026',
@@ -634,7 +715,7 @@ export const pagesEn = {
 		},
 		ground: {
 			note:
-				'Campaign-reported operational counts as of the August release — organizing activity, not survey results.'
+				'Campaign-reported operational counts — organizing activity, not survey results. Town halls as of September 2026; volunteers and donors as of the August release.'
 		},
 		method: {
 			internalTitle: 'Campaign internal poll',
@@ -660,12 +741,8 @@ export const pagesEn = {
 				'This page reports only figures that appear in a published source. The following are not represented:',
 			items: [
 				{
-					label: 'Head-to-head ballot test.',
-					text: 'The survey did not include a Crosby-versus-Moore matchup, so no horse-race figure appears on this page.'
-				},
-				{
-					label: 'Trend over time.',
-					text: 'The internal poll covers a single field period. Measuring change requires a second comparable survey.'
+					label: 'Ballot-test trend.',
+					text: 'The Crosby-versus-Moore question has been asked in one survey so far, so it cannot yet show change over time.'
 				},
 				{
 					label: 'Forecast or win probability.',

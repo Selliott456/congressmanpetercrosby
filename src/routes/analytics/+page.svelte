@@ -7,6 +7,11 @@
 	import DivergingStackedBar from '$lib/components/analytics/DivergingStackedBar.svelte';
 	import DotPlot from '$lib/components/analytics/DotPlot.svelte';
 	import NetApprovalBar from '$lib/components/analytics/NetApprovalBar.svelte';
+	import MarginPlot from '$lib/components/analytics/MarginPlot.svelte';
+	import ShareBar from '$lib/components/analytics/ShareBar.svelte';
+	import RankedBars from '$lib/components/analytics/RankedBars.svelte';
+	import Heatmap from '$lib/components/analytics/Heatmap.svelte';
+	import Dumbbell from '$lib/components/analytics/Dumbbell.svelte';
 	import {
 		POLLS,
 		FEATURED_POLL_ID,
@@ -14,6 +19,18 @@
 		likertQuestions,
 		softSupportByParty,
 		issuePriorities,
+		ballotTest,
+		topConcerns,
+		BALLOT_ORDER,
+		BALLOT_COLORS,
+		CANDIDATE_COLORS,
+		SERIES_COLOR,
+		SEQUENTIAL_RAMP,
+		CHANGE_COLORS,
+		GROUP_ORDER,
+		SEP_GROUP_N,
+		SMALL_SAMPLE_N,
+		marginOfError,
 		statewideApproval,
 		coxApprovalTrend,
 		groundGame,
@@ -54,9 +71,16 @@
 	 */
 	$: pollsById = t.polls;
 
-	/** The poll headlining the District polling snapshot. */
+	/** The newest district poll; its sample size fills the limits panel's `{n}`. */
 	$: featuredPoll = POLLS[FEATURED_POLL_ID];
-	$: featuredPollText = pollsById[FEATURED_POLL_ID];
+
+	/** A poll snapshot's methodology row: field dates, sample, margin, geography. */
+	$: pollMeta = (/** @type {string} */ id) => [
+		{ dt: t.meta.fieldDates, dd: pollsById[id].fieldLabel },
+		{ dt: t.meta.sample, dd: fill(t.meta.sampleValue, { n: POLLS[id].sampleSize ?? '' }) },
+		{ dt: t.meta.marginOfError, dd: fill(t.meta.moeValue, { moe: POLLS[id].marginOfError ?? '' }) },
+		{ dt: t.meta.geography, dd: t.meta.geographyValue }
+	];
 
 	/**
 	 * A chart's source line, built from the poll its data came from rather than
@@ -94,22 +118,111 @@
 		timeZone: 'UTC'
 	}).format(new Date(`${LAST_UPDATED}T00:00:00Z`));
 
-	/** Party colors — validated all-pairs (worst CVD ΔE 18.0) on the paper surface. */
-	const GROUP_COLORS = {
-		all: '#2E5FA0',
-		republican: '#E8A33D',
-		unaffiliated: '#2F7D46'
-	};
+	// ── September poll ─────────────────────────────────────────
+	/** The two district blocks, each keyed by the poll its datasets cite. */
+	const SEP_ID = ballotTest.pollId;
+	const AUG_ID = issuePriorities.pollId;
 
-	$: issueRows = issuePriorities.rows.map((it) => ({
-		label: t.byId[it.id]?.label ?? it.issue,
-		sublabel: t.byId[it.id]?.detail ?? it.detail,
-		points: [
-			{ series: t.groups.all, value: it.all, color: GROUP_COLORS.all },
-			{ series: t.groups.republican, value: it.republican, color: GROUP_COLORS.republican },
-			{ series: t.groups.unaffiliated, value: it.unaffiliated, color: GROUP_COLORS.unaffiliated }
-		]
+	/** One decimal: the precision the September release publishes. */
+	const f1 = (/** @type {number} */ v) => v.toFixed(1);
+
+	$: sepMoe = POLLS[SEP_ID].marginOfError ?? 0;
+	$: ballotAll = ballotTest.all.shares;
+	$: ballotGap = Math.abs(ballotAll.moore - ballotAll.crosby);
+	$: ballotUndecided = ballotAll.unsure + ballotAll.none;
+
+	/** Crosby and Moore — the hero figures and the margin plot. */
+	$: candidateRows = [
+		{ label: t.september.options.crosby, value: ballotAll.crosby, color: CANDIDATE_COLORS.crosby },
+		{ label: t.september.options.moore, value: ballotAll.moore, color: CANDIDATE_COLORS.moore }
+	];
+
+	$: ballotLegend = BALLOT_ORDER.map((k) => ({
+		label: t.september.options[k],
+		color: BALLOT_COLORS[k]
 	}));
+
+	/** A group's sample size and margin. All voters carry the published margin; party
+	    groups carry the margin computed from their own size (see `marginOfError`). */
+	$: groupMeta = (/** @type {import('$lib/data/analytics').GroupKey} */ g) =>
+		fill(t.september.groupMeta, {
+			n: SEP_GROUP_N[g],
+			moe: g === 'all' ? sepMoe : f1(marginOfError(SEP_GROUP_N[g]))
+		});
+
+	$: ballotSegments = (/** @type {import('$lib/data/analytics').BallotRow} */ row) =>
+		BALLOT_ORDER.map((k) => ({
+			label: t.september.options[k],
+			value: row.shares[k],
+			color: BALLOT_COLORS[k]
+		}));
+
+	$: ballotGroupRows = [ballotTest.all, ...ballotTest.byParty].map((row) => ({
+		label: t.groups[row.group],
+		sublabel: groupMeta(row.group),
+		segments: ballotSegments(row)
+	}));
+
+	$: ballotTableRows = BALLOT_ORDER.map((k) => {
+		const v = ballotAll[k];
+		const ranged = k === 'crosby' || k === 'moore';
+		return [
+			t.september.options[k],
+			`${f1(v)}%`,
+			ranged ? `${f1(v - sepMoe)}–${f1(v + sepMoe)}%` : '—'
+		];
+	});
+
+	$: repShares = ballotTest.byParty.find((r) => r.group === 'republican')?.shares;
+	$: unaShares = ballotTest.byParty.find((r) => r.group === 'unaffiliated')?.shares;
+	$: byPartyTakeaway =
+		repShares && unaShares
+			? fill(t.september.byParty.takeaway, {
+					repMoore: f1(repShares.moore),
+					repCrosby: f1(repShares.crosby),
+					repUndecided: f1(repShares.unsure + repShares.none),
+					unaCrosby: f1(unaShares.crosby),
+					unaMoore: f1(unaShares.moore)
+				})
+			: '';
+
+	$: concernRows = topConcerns.rows.map((c) => ({
+		label: t.byId[c.id]?.label ?? c.issue,
+		sublabel: t.byId[c.id]?.detail ?? c.detail,
+		value: c.shares.all
+	}));
+	$: concernAll = (/** @type {string} */ id) =>
+		topConcerns.rows.find((c) => c.id === id)?.shares.all ?? 0;
+
+	$: heatColumns = GROUP_ORDER.map((g) => ({
+		key: g,
+		label: t.groups[g],
+		sublabel: `n = ${SEP_GROUP_N[g]}`,
+		flagged: SEP_GROUP_N[g] < SMALL_SAMPLE_N
+	}));
+	$: heatRows = topConcerns.rows.map((c) => ({
+		label: t.byId[c.id]?.label ?? c.issue,
+		values: c.shares
+	}));
+
+	/** Groups both surveys report, for the August → September comparison.
+	    @type {('all' | 'republican' | 'unaffiliated')[]} */
+	const CHANGE_GROUPS = ['all', 'republican', 'unaffiliated'];
+
+	/** August (whole points, as released) against September, matched by issue id. */
+	$: changeGroups = issuePriorities.rows.map((aug) => {
+		const sep = topConcerns.rows.find((c) => c.id === aug.id);
+		return {
+			label: t.byId[aug.id]?.label ?? aug.issue,
+			sublabel: t.byId[aug.id]?.detail ?? aug.detail,
+			rows: sep
+				? CHANGE_GROUPS.map((g) => ({ label: t.groups[g], from: aug[g], to: sep.shares[g] }))
+				: []
+		};
+	});
+	$: changeTableRows = changeGroups.flatMap((grp) =>
+		grp.rows.map((r) => [grp.label, r.label, `${r.from}%`, `${f1(r.to)}%`])
+	);
 
 	$: softSupportRows = softSupportByParty.rows.map((r) => ({
 		label: t.byId[r.id]?.label ?? r.group,
@@ -117,7 +230,7 @@
 			? fill(t.softSupport.electorateShare, { pct: r.electorateShare })
 			: undefined,
 		points: [
-			{ series: t.byId[r.id]?.label ?? r.group, value: r.value, color: GROUP_COLORS.all }
+			{ series: t.byId[r.id]?.label ?? r.group, value: r.value, color: SERIES_COLOR }
 		]
 	}));
 
@@ -308,106 +421,244 @@
 			<h2 class="section-title" id="district-title">{t.nav.districtPolling}</h2>
 		</header>
 
-		<!-- Poll snapshot: the headline figure and this survey's methodology, kept
-		     with the data they describe rather than in the page masthead. -->
-		<div class="snapshot">
-			<div class="snapshot-head">
-				<p class="hero-figure">{hero.value}<span class="hero-unit">{hero.unit}</span></p>
-				<div class="hero-copy">
-					<p class="hero-label">{statText(hero).label}</p>
-					<p class="hero-sub">{statText(hero).sub}</p>
+		<!-- One block per district poll, newest first. Each carries its own snapshot, so a
+		     reader always knows which survey a chart came from. -->
+		<div class="poll-block" id="survey-sep-2026">
+			<h3 class="poll-title">{t.blockTitles.sep}</h3>
+
+			<!-- The ballot test leads: both candidates' shares and the margin they sit
+			     within, rather than one side's number. -->
+			<div class="snapshot">
+				<div class="snapshot-head">
+					<div
+						class="matchup"
+						role="img"
+						aria-label={candidateRows.map((c) => `${c.label} ${f1(c.value)}%`).join(', ')}
+					>
+						<p class="hero-figure matchup-figure">
+							{f1(candidateRows[0].value)}<span class="hero-unit">%</span>
+						</p>
+						<span class="matchup-vs">{t.september.vs}</span>
+						<p class="hero-figure matchup-figure">
+							{f1(candidateRows[1].value)}<span class="hero-unit">%</span>
+						</p>
+						<p class="matchup-name">
+							<span class="matchup-key" style="background:{candidateRows[0].color}"></span>
+							{candidateRows[0].label}
+						</p>
+						<span></span>
+						<p class="matchup-name">
+							<span class="matchup-key" style="background:{candidateRows[1].color}"></span>
+							{candidateRows[1].label}
+						</p>
+					</div>
+					<div class="hero-copy">
+						<p class="hero-label">{t.september.heroLabel}</p>
+						<p class="hero-sub">{fill(t.september.heroSub, { gap: f1(ballotGap), moe: sepMoe })}</p>
+					</div>
 				</div>
+				<dl class="meta-row">
+					{#each pollMeta(SEP_ID) as m}
+						<div class="meta"><dt>{m.dt}</dt><dd>{m.dd}</dd></div>
+					{/each}
+				</dl>
 			</div>
-			<dl class="meta-row">
-				<div class="meta">
-					<dt>{t.meta.fieldDates}</dt>
-					<dd>{featuredPollText.fieldLabel}</dd>
-				</div>
-				<div class="meta">
-					<dt>{t.meta.sample}</dt>
-					<dd>{fill(t.meta.sampleValue, { n: featuredPoll.sampleSize ?? '' })}</dd>
-				</div>
-				<div class="meta">
-					<dt>{t.meta.marginOfError}</dt>
-					<dd>{fill(t.meta.moeValue, { moe: featuredPoll.marginOfError ?? '' })}</dd>
-				</div>
-				<div class="meta">
-					<dt>{t.meta.geography}</dt>
-					<dd>{t.meta.geographyValue}</dd>
-				</div>
-			</dl>
-		</div>
 
-		<div class="kpi-row">
-			{#each rest as stat}
-				<article class="kpi">
-					<p class="kpi-value">{stat.value}<span class="kpi-unit">{stat.unit}</span></p>
-					<p class="kpi-label">{statText(stat).label}</p>
-					<p class="kpi-sub">{statText(stat).sub}</p>
-				</article>
-			{/each}
-		</div>
-
-		{#each likertQuestions as q}
-			{@const o = t.byId[q.id]}
-			{@const segLabels = q.segments.map((s, si) => o?.segments?.[si] ?? s.label)}
-			{@const localSegments = q.segments.map((s, si) => ({ ...s, label: segLabels[si] }))}
 			<ChartFrame
-				eyebrow={t.eyebrows.internal}
-				title={o?.title ?? q.shortTitle}
-				question={o?.question ?? q.question}
-				takeaway={o?.takeaway ?? q.takeaway}
-				source={q.responseRate
-					? `${sourceFor(q.pollId)} ${fill(t.responseRate, { rate: q.responseRate })}`
-					: sourceFor(q.pollId)}
-				legend={localSegments.map((s) => ({ label: s.label, color: s.color }))}
-				tableColumns={[t.likertTable.response, t.likertTable.share]}
-				tableRows={localSegments.map((s) => [s.label, `${s.value}%`])}
+				level={4}
+				eyebrow={t.eyebrows.ballot}
+				title={t.september.ballot.title}
+				question={t.september.ballot.question}
+				takeaway={fill(t.september.ballot.takeaway, {
+					moore: f1(ballotAll.moore),
+					crosby: f1(ballotAll.crosby),
+					gap: f1(ballotGap),
+					moe: sepMoe,
+					undecided: f1(ballotUndecided)
+				})}
+				legend={ballotLegend}
+				source={sourceFor(ballotTest.pollId)}
+				tableColumns={[
+					t.september.col.response,
+					t.september.col.share,
+					fill(t.september.col.range, { moe: sepMoe })
+				]}
+				tableRows={ballotTableRows}
 			>
-				<DivergingStackedBar segments={localSegments} ariaLabel={o?.question ?? q.question} />
+				<MarginPlot
+					rows={candidateRows}
+					moe={sepMoe}
+					bandLabel={fill(t.september.ballot.bandKey, { moe: sepMoe })}
+					ariaLabel={fill(t.september.ballot.ariaLabel, {
+						crosby: f1(ballotAll.crosby),
+						moore: f1(ballotAll.moore),
+						moe: sepMoe
+					})}
+				/>
+				<div class="plot-divider"></div>
+				<ShareBar
+					rows={[
+						{
+							label: t.september.ballot.barLabel,
+							sublabel: groupMeta('all'),
+							segments: ballotSegments(ballotTest.all)
+						}
+					]}
+					ariaLabel={t.september.ballot.barAria}
+				/>
 			</ChartFrame>
-		{/each}
 
-		<ChartFrame
-			eyebrow={t.eyebrows.crosstabs}
-			title={t.softSupport.title}
-			takeaway={t.softSupport.takeaway}
-			source={sourceFor(softSupportByParty.pollId)}
-			tableColumns={[t.softSupport.colGroup, t.softSupport.colShare, t.softSupport.colMeasure]}
-			tableRows={softSupportByParty.rows.map((r) => [
-				t.byId[r.id]?.label ?? r.group,
-				`${r.value}%`,
-				t.byId[r.id]?.note ?? r.note ?? ''
-			])}
-		>
-			<DotPlot rows={softSupportRows} max={80} ariaLabel={t.softSupport.ariaLabel} />
-		</ChartFrame>
+			<ChartFrame
+				level={4}
+				eyebrow={t.eyebrows.crosstabs}
+				title={t.september.byParty.title}
+				question={t.september.ballot.question}
+				takeaway={byPartyTakeaway}
+				legend={ballotLegend}
+				note={t.september.byParty.note}
+				source={sourceFor(ballotTest.pollId)}
+				tableColumns={[t.september.col.group, ...BALLOT_ORDER.map((k) => t.september.options[k])]}
+				tableRows={ballotGroupRows.map((r) => [
+					`${r.label} (${r.sublabel})`,
+					...r.segments.map((seg) => `${f1(seg.value)}%`)
+				])}
+			>
+				<ShareBar rows={ballotGroupRows} ariaLabel={t.september.byParty.ariaLabel} />
+			</ChartFrame>
 
-		<ChartFrame
-			eyebrow={t.eyebrows.issues}
-			title={t.issues.title}
-			takeaway={t.issues.takeaway}
-			source={sourceFor(issuePriorities.pollId)}
-			legend={[
-				{ label: t.groups.all, color: GROUP_COLORS.all },
-				{ label: t.groups.republican, color: GROUP_COLORS.republican },
-				{ label: t.groups.unaffiliated, color: GROUP_COLORS.unaffiliated }
-			]}
-			tableColumns={[
-				t.issues.colIssue,
-				t.issues.colAll,
-				t.issues.colRepublican,
-				t.issues.colUnaffiliated
-			]}
-			tableRows={issuePriorities.rows.map((it) => [
-				t.byId[it.id]?.label ?? it.issue,
-				`${it.all}%`,
-				`${it.republican}%`,
-				`${it.unaffiliated}%`
-			])}
-		>
-			<DotPlot rows={issueRows} max={100} ariaLabel={t.issues.ariaLabel} />
-		</ChartFrame>
+			<ChartFrame
+				level={4}
+				eyebrow={t.eyebrows.issues}
+				title={t.september.concerns.title}
+				question={t.september.concerns.question}
+				takeaway={fill(t.september.concerns.takeaway, {
+					aff: f1(concernAll('issue-affordability')),
+					acc: f1(concernAll('issue-accountability')),
+					gsl: f1(concernAll('issue-great-salt-lake'))
+				})}
+				note={t.september.concerns.note}
+				source={sourceFor(topConcerns.pollId)}
+				tableColumns={[t.september.col.concern, t.september.col.share]}
+				tableRows={concernRows.map((r) => [r.label, `${f1(r.value)}%`])}
+			>
+				<RankedBars rows={concernRows} color={SERIES_COLOR} ariaLabel={t.september.concerns.ariaLabel} />
+			</ChartFrame>
+
+			<!-- A heatmap rather than a dot plot: five groups is more than a dot plot can
+			     keep apart by color, and the grid needs no group colors at all. -->
+			<ChartFrame
+				level={4}
+				eyebrow={t.eyebrows.crosstabs}
+				title={t.september.concernsByParty.title}
+				question={t.september.concerns.question}
+				takeaway={t.september.concernsByParty.takeaway}
+				note={fill(t.september.concernsByParty.note, {
+					dem: Math.round(marginOfError(SEP_GROUP_N.democratic)),
+					other: Math.round(marginOfError(SEP_GROUP_N.other))
+				})}
+				source={sourceFor(topConcerns.pollId)}
+			>
+				<Heatmap
+					columns={heatColumns}
+					rows={heatRows}
+					ramp={SEQUENTIAL_RAMP}
+					caption={t.september.concernsByParty.caption}
+					rowHeader={t.september.concernsByParty.rowHeader}
+					scaleLabel={t.september.concernsByParty.scaleLabel}
+					separateFirst
+				/>
+			</ChartFrame>
+
+			<ChartFrame
+				level={4}
+				eyebrow={t.eyebrows.change}
+				title={t.change.title}
+				takeaway={t.change.takeaway}
+				source={fill(t.change.source, {
+					aug: pollsById[AUG_ID].fieldLabel,
+					augN: POLLS[AUG_ID].sampleSize ?? '',
+					sep: pollsById[SEP_ID].fieldLabel,
+					sepN: POLLS[SEP_ID].sampleSize ?? ''
+				})}
+				tableColumns={[t.change.colIssue, t.change.colGroup, t.change.colAug, t.change.colSep]}
+				tableRows={changeTableRows}
+			>
+				<Dumbbell
+					groups={changeGroups}
+					fromColor={CHANGE_COLORS.from}
+					toColor={CHANGE_COLORS.to}
+					fromLabel={t.change.from}
+					toLabel={t.change.to}
+					ariaLabel={t.change.ariaLabel}
+				/>
+			</ChartFrame>
+		</div>
+
+		<div class="poll-block" id="survey-aug-2026">
+			<h3 class="poll-title">{t.blockTitles.aug}</h3>
+
+			<div class="snapshot">
+				<div class="snapshot-head">
+					<p class="hero-figure">{hero.value}<span class="hero-unit">{hero.unit}</span></p>
+					<div class="hero-copy">
+						<p class="hero-label">{statText(hero).label}</p>
+						<p class="hero-sub">{statText(hero).sub}</p>
+					</div>
+				</div>
+				<dl class="meta-row">
+					{#each pollMeta(AUG_ID) as m}
+						<div class="meta"><dt>{m.dt}</dt><dd>{m.dd}</dd></div>
+					{/each}
+				</dl>
+			</div>
+
+			<div class="kpi-row">
+				{#each rest as stat}
+					<article class="kpi">
+						<p class="kpi-value">{stat.value}<span class="kpi-unit">{stat.unit}</span></p>
+						<p class="kpi-label">{statText(stat).label}</p>
+						<p class="kpi-sub">{statText(stat).sub}</p>
+					</article>
+				{/each}
+			</div>
+
+			{#each likertQuestions as q}
+				{@const o = t.byId[q.id]}
+				{@const segLabels = q.segments.map((s, si) => o?.segments?.[si] ?? s.label)}
+				{@const localSegments = q.segments.map((s, si) => ({ ...s, label: segLabels[si] }))}
+				<ChartFrame
+					level={4}
+					eyebrow={t.eyebrows.internal}
+					title={o?.title ?? q.shortTitle}
+					question={o?.question ?? q.question}
+					takeaway={o?.takeaway ?? q.takeaway}
+					source={q.responseRate
+						? `${sourceFor(q.pollId)} ${fill(t.responseRate, { rate: q.responseRate })}`
+						: sourceFor(q.pollId)}
+					legend={localSegments.map((s) => ({ label: s.label, color: s.color }))}
+					tableColumns={[t.likertTable.response, t.likertTable.share]}
+					tableRows={localSegments.map((s) => [s.label, `${s.value}%`])}
+				>
+					<DivergingStackedBar segments={localSegments} ariaLabel={o?.question ?? q.question} />
+				</ChartFrame>
+			{/each}
+
+			<ChartFrame
+				level={4}
+				eyebrow={t.eyebrows.crosstabs}
+				title={t.softSupport.title}
+				takeaway={t.softSupport.takeaway}
+				source={sourceFor(softSupportByParty.pollId)}
+				tableColumns={[t.softSupport.colGroup, t.softSupport.colShare, t.softSupport.colMeasure]}
+				tableRows={softSupportByParty.rows.map((r) => [
+					t.byId[r.id]?.label ?? r.group,
+					`${r.value}%`,
+					t.byId[r.id]?.note ?? r.note ?? ''
+				])}
+			>
+				<DotPlot rows={softSupportRows} max={80} ariaLabel={t.softSupport.ariaLabel} />
+			</ChartFrame>
+		</div>
 	</section>
 
 	<!-- ── Statewide context ────────────────────────────────────── -->
@@ -861,6 +1112,75 @@
 		font-family: var(--mono);
 		font-size: 0.92rem;
 		color: var(--ink);
+	}
+
+	/* ── District poll blocks, newest first ───────────────────── */
+	.poll-block {
+		scroll-margin-top: var(--analytics-anchor, 6rem);
+	}
+
+	.poll-block + .poll-block {
+		margin-top: 3.5rem;
+		padding-top: 2.75rem;
+		border-top: 1px solid var(--line-l);
+	}
+
+	/* Sits between the section title (h2) and the chart titles (h4) in weight. */
+	.poll-title {
+		margin: 0 0 1.1rem;
+		font-family: var(--display);
+		font-style: italic;
+		font-weight: 800;
+		font-size: 1.35rem;
+		letter-spacing: -0.01em;
+		line-height: 1.2;
+		color: var(--ink);
+	}
+
+	/* Ballot-test hero: both shares side by side. The figures stay in ink — identity
+	   comes from the colored key beside each name, never from coloring the number. */
+	.matchup {
+		display: grid;
+		grid-template-columns: auto auto auto;
+		column-gap: 0.9rem;
+		align-items: center;
+		justify-items: start;
+	}
+
+	.matchup-figure {
+		color: var(--ink);
+		font-size: clamp(2.6rem, 6vw, 4rem);
+	}
+
+	.matchup-vs {
+		font-family: var(--serif);
+		font-style: italic;
+		font-size: 1.05rem;
+		color: #5b6b80;
+	}
+
+	.matchup-name {
+		display: flex;
+		align-items: center;
+		gap: 0.45rem;
+		margin: 0.55rem 0 0;
+		font-family: var(--mono);
+		font-size: 0.66rem;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--ink-3);
+	}
+
+	.matchup-key {
+		flex: none;
+		width: 16px;
+		height: 4px;
+	}
+
+	/* Between the margin plot and the all-responses bar in the ballot card. */
+	.plot-divider {
+		margin: 1.4rem 0 0.9rem;
+		border-top: 1px solid var(--line-l-2);
 	}
 
 	/* ── KPI row ──────────────────────────────────────────────── */

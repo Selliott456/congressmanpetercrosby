@@ -3,8 +3,8 @@
 
 	/**
 	 * Shared wrapper for every chart on /analytics: eyebrow, title, question
-	 * wording, takeaway, legend, the chart itself, a source line, and a data-table
-	 * toggle. The table is not optional polish — two steps of the diverging ramp
+	 * wording, takeaway, legend, the chart itself, a note, a source line, and a
+	 * data-table toggle. The table is not optional polish — several chart colors
 	 * sit below 3:1 contrast, and the dataviz rules require a relief channel
 	 * (visible labels + a table view) wherever that's true.
 	 */
@@ -13,14 +13,18 @@
 	export let eyebrow = undefined;
 	/** Chart title. @type {string} */
 	export let title;
+	/** Heading level for the title — 4 when the frame sits under a poll subheading. @type {3 | 4} */
+	export let level = 3;
 	/** Verbatim survey question, shown in quotes under the title. @type {string | undefined} */
 	export let question = undefined;
 	/** One-sentence plain-language finding. @type {string | undefined} */
 	export let takeaway = undefined;
-	/** Source / methodology line. @type {string | undefined} */
-	export let source = undefined;
 	/** Legend entries. @type {{ label: string; color: string }[]} */
 	export let legend = [];
+	/** Short note under the plot, e.g. that shares can total more than 100%. @type {string | undefined} */
+	export let note = undefined;
+	/** Source / methodology line. @type {string | undefined} */
+	export let source = undefined;
 	/** Column headers for the data table. @type {string[]} */
 	export let tableColumns = [];
 	/** Table rows, as arrays of cell strings. @type {(string | number)[][]} */
@@ -32,7 +36,7 @@
 <figure class="frame">
 	<figcaption class="frame-head">
 		{#if eyebrow}<p class="frame-eyebrow">{eyebrow}</p>{/if}
-		<h3 class="frame-title">{title}</h3>
+		<svelte:element this={`h${level}`} class="frame-title">{title}</svelte:element>
 		{#if question}
 			<p class="frame-question">“{question}”</p>
 		{/if}
@@ -55,6 +59,10 @@
 	<div class="frame-plot">
 		<slot />
 	</div>
+
+	{#if note}
+		<p class="frame-note">{note}</p>
+	{/if}
 
 	<div class="frame-foot">
 		{#if source}<p class="frame-source">{source}</p>{/if}
@@ -174,6 +182,14 @@
 	   `overflow-y` to `auto` too — which clipped tooltips at the plot's edges. */
 	.frame-plot {
 		width: 100%;
+	}
+
+	.frame-note {
+		margin: 1rem 0 0;
+		font-size: 0.78rem;
+		line-height: 1.5;
+		color: var(--ink-3);
+		max-width: 70ch;
 	}
 
 	.frame-foot {

@@ -1,5 +1,6 @@
 <script>
 	import { scaleLinear } from 'd3-scale';
+	import { SCALE_COLORS } from '$lib/data/analytics';
 
 	/**
 	 * Diverging bar chart around a zero baseline — net approval (approve minus
@@ -14,10 +15,10 @@
 
 	/** @type {Row[]} */
 	export let rows = [];
-	/** Color for underwater (negative) bars. @type {string} */
-	export let negColor = '#A9501C';
-	/** Color for above-water (positive) bars. @type {string} */
-	export let posColor = '#2E5FA0';
+	/** Color for underwater (negative) bars — the sentiment scale's unfavorable pole. @type {string} */
+	export let negColor = SCALE_COLORS.negStrong;
+	/** Color for above-water (positive) bars — the favorable pole. @type {string} */
+	export let posColor = SCALE_COLORS.posStrong;
 	/** Width reserved for row labels in the side-by-side layout. @type {number} */
 	export let labelWidth = 190;
 	/** @type {string} */

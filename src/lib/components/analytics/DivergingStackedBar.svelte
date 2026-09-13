@@ -1,6 +1,7 @@
 <script>
 	import { scaleLinear } from 'd3-scale';
 	import { messages } from '$lib/i18n/locale';
+	import { inkOn } from '$lib/utils/chartColor';
 
 	/**
 	 * Diverging stacked bar for an ordered (Likert) question — the correct form for
@@ -179,7 +180,7 @@
 						text-anchor="middle"
 						dominant-baseline="central"
 						class="seg-label"
-						fill={bar.seg.color === '#5FAEDE' ? '#0F2545' : '#ffffff'}
+						fill={inkOn(bar.seg.color)}
 					>
 						{bar.seg.value}%
 					</text>
@@ -201,7 +202,7 @@
 						text-anchor="middle"
 						dominant-baseline="central"
 						class="seg-label"
-						fill={bar.seg.color === '#E8A33D' ? '#0F2545' : '#ffffff'}
+						fill={inkOn(bar.seg.color)}
 					>
 						{bar.seg.value}%
 					</text>
