@@ -2,28 +2,9 @@
 	import { onMount } from 'svelte';
 	import Button from '$lib/components/Button.svelte';
 	import Rail from '$lib/components/Rail.svelte';
+	import PolicyBlocks from '$lib/components/PolicyBlocks.svelte';
+	import { policyMedia } from '$lib/data/policies';
 	import { messages } from '$lib/i18n/locale';
-
-	/** Sections that get the 2-column video layout (each carries its own src/poster/label).
-	    Everything else is full-width text.
-	    @type {Record<string, { src: string; poster: string; labelKey: 'videoAffordabilityLabel' | 'videoAccountabilityLabel' | 'videoStewardshipLabel' }>} */
-	const sectionMedia = {
-		affordability: {
-			src: '/images/policies/affordability.mp4',
-			poster: '/images/policies/affordability-poster.jpg',
-			labelKey: 'videoAffordabilityLabel'
-		},
-		'government-integrity': {
-			src: '/images/policies/accountability.mp4',
-			poster: '/images/policies/accountability-poster.jpg',
-			labelKey: 'videoAccountabilityLabel'
-		},
-		'great-salt-lake': {
-			src: '/images/policies/stewardship.mp4',
-			poster: '/images/policies/stewardship-poster.jpg',
-			labelKey: 'videoStewardshipLabel'
-		}
-	};
 
 	/** Anchor id of the section currently in view — drives the "you are here" highlight. */
 	let activeId = '';
@@ -142,62 +123,57 @@
 		aria-label={$messages.policies.onThisPage}
 		bind:this={jumpBar}
 	>
-		<div class="policies-jump-inner" bind:this={jumpInner}>
-			<span class="policies-jump-label">{$messages.policies.onThisPage}</span>
-			<ul class="policies-jump-list">
-				{#each $messages.policies.items as item}
-					{#if item.groupHeading}
-						<li class="policies-jump-sep" aria-hidden="true"></li>
-					{/if}
-					<li>
-						<a
-							class="policies-jump-link"
-							class:is-active={activeId === item.id}
-							href={'#' + item.id}
-							aria-current={activeId === item.id ? 'true' : undefined}
-							on:click|preventDefault={() => jumpTo(item.id)}
-						>
-							{item.navLabel}
-						</a>
-					</li>
-				{/each}
-			</ul>
+		<!-- The frame is capped to the content column and holds the edge fades; the
+		     scroller inside it is what moves. -->
+		<div class="policies-jump-frame">
+			<div class="policies-jump-inner" bind:this={jumpInner}>
+				<span class="policies-jump-label">{$messages.policies.onThisPage}</span>
+				<ul class="policies-jump-list">
+					{#each $messages.policies.items as item}
+						{#if item.groupHeading}
+							<li class="policies-jump-sep" aria-hidden="true"></li>
+						{/if}
+						<li>
+							<a
+								class="policies-jump-link"
+								class:is-active={activeId === item.id}
+								href={'#' + item.id}
+								aria-current={activeId === item.id ? 'true' : undefined}
+								on:click|preventDefault={() => jumpTo(item.id)}
+							>
+								{item.navLabel}
+							</a>
+						</li>
+					{/each}
+				</ul>
+			</div>
 		</div>
 	</nav>
 
 	<section class="policies-body">
 		<div class="policies-body-inner">
 			{#each $messages.policies.items as item}
-				{@const media = sectionMedia[item.id]}
+				{@const media = policyMedia[item.id]}
 				{#if item.groupHeading}
-					<div class="policies-group">
+					<div class="policies-group" id={item.groupId}>
 						<div class="policies-group-rail"><Rail /></div>
 						<h2 class="policies-group-heading">{item.groupHeading}</h2>
 					</div>
 				{/if}
+				<!-- Grid areas place the parts (see .policies-section). DOM order is heading,
+				     video, copy — also the mobile reading order, so a video sits right under
+				     its heading instead of after ~750 words of Affordability. -->
 				<section class="policies-section" class:policies-section--full={!media} id={item.id}>
-					<div class="policies-text">
-						<h2 class="policies-question">{item.question}</h2>
-						<div class="policies-answer">
-							{#each item.parts as part}
-								{#if part.type === 'p'}
-									<p>{part.text}</p>
-								{:else if part.type === 'ul'}
-									<ul>
-										{#each part.items as li}
-											<li>{li}</li>
-										{/each}
-									</ul>
-								{/if}
-							{/each}
-						</div>
-					</div>
+					<h2 class="policies-heading">{item.heading}</h2>
 
 					{#if media}
 						<div class="policies-media">
 							<!-- Vertical (9:16) message video of Peter on this priority. -->
 							<div class="policy-video-frame">
 								<div class="policy-video-rail"><Rail /></div>
+								<!-- No <track>: English captions are burned into the video itself (open
+								     captions), so the a11y warning is suppressed on purpose. A Spanish
+								     subtitle track would be additive, not a replacement. -->
 								<!-- svelte-ignore a11y-media-has-caption -->
 								<video
 									class="policy-video-player"
@@ -212,6 +188,10 @@
 							</div>
 						</div>
 					{/if}
+
+					<div class="policies-answer">
+						<PolicyBlocks blocks={item.parts} tocLabel={$messages.policies.inThisSection} />
+					</div>
 				</section>
 			{/each}
 
@@ -297,14 +277,17 @@
 		z-index: 50;
 		background: var(--blue);
 		border-bottom: 1px solid rgba(9, 27, 54, 0.2);
+		/* The page gutter, so the frame inside lines up with `.policies-body-inner`. */
+		padding-inline: 1.5rem;
 	}
 
 	/* Edge fades signal that the jump list scrolls sideways. They're toggled by
 	   JS (has-left-fade / has-right-fade) only when content actually overflows,
-	   so they never appear on a list that fits. Sticky establishes the
-	   containing block, so these pin to the bar's edges, not the scrolled content. */
-	.policies-jump::before,
-	.policies-jump::after {
+	   so they never appear on a list that fits. They live on the non-scrolling
+	   frame (capped to the content column), so they sit exactly at the scroller's
+	   clip edges rather than out at the edges of the full-width bar. */
+	.policies-jump-frame::before,
+	.policies-jump-frame::after {
 		content: '';
 		position: absolute;
 		top: 0;
@@ -316,25 +299,32 @@
 		z-index: 1;
 	}
 
-	.policies-jump::before {
+	.policies-jump-frame::before {
 		left: 0;
 		background: linear-gradient(90deg, var(--blue), rgba(46, 95, 160, 0));
 	}
 
-	.policies-jump::after {
+	.policies-jump-frame::after {
 		right: 0;
 		background: linear-gradient(270deg, var(--blue), rgba(46, 95, 160, 0));
 	}
 
-	.policies-jump.has-left-fade::before,
-	.policies-jump.has-right-fade::after {
+	.policies-jump.has-left-fade .policies-jump-frame::before,
+	.policies-jump.has-right-fade .policies-jump-frame::after {
 		opacity: 1;
 	}
 
-	.policies-jump-inner {
+	/* Capped to the same 1120px column as the body text, so the links never run wider
+	   than the page content. Holds the fades (see above). */
+	.policies-jump-frame {
+		position: relative;
 		max-width: 1120px;
 		margin: 0 auto;
-		padding: 0.55rem 1.5rem;
+	}
+
+	/* The scroller fills the frame, so its clip edges are the frame's edges. */
+	.policies-jump-inner {
+		padding: 0.55rem 0;
 		display: flex;
 		align-items: center;
 		/* ~26px between the "On this page" label and the jump links (16px + ~10px). */
@@ -434,6 +424,8 @@
 	/* Divider between the priority pillars and the "Other Policy Positions" group. */
 	.policies-group {
 		margin: 1rem 0 2.5rem;
+		/* Linked from the top priorities; land with the label clear of the sticky bars. */
+		scroll-margin-top: var(--policies-anchor, 6rem);
 	}
 
 	.policies-group-rail {
@@ -452,10 +444,17 @@
 		margin: 0;
 	}
 
+	/* A section's parts go by grid area: heading, video, copy. On desktop the video
+	   takes a right-hand column spanning the whole section and stays sticky, so it
+	   remains in view through long sections. The mobile override stacks them. */
 	.policies-section {
 		display: grid;
-		grid-template-columns: 1fr minmax(280px, 360px);
-		gap: 2.5rem 3rem;
+		grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+		grid-template-areas:
+			'heading media'
+			'answer media';
+		grid-template-rows: auto 1fr;
+		column-gap: 3rem;
 		align-items: start;
 		padding-bottom: 3rem;
 		margin-bottom: 3rem;
@@ -465,7 +464,10 @@
 
 	/* Sections without a video (intro + "Other Policy Positions") span the full width. */
 	.policies-section--full {
-		grid-template-columns: 1fr;
+		grid-template-columns: minmax(0, 1fr);
+		grid-template-areas:
+			'heading'
+			'answer';
 	}
 
 	.policies-section:last-of-type {
@@ -474,51 +476,36 @@
 		border-bottom: none;
 	}
 
-	.policies-text {
-		min-width: 0;
-	}
-
-	.policies-question {
+	/* Sized to clearly outrank the in-section sub-headers (1.0625rem). Both are display
+	   italic, so size and weight have to carry the hierarchy on their own. */
+	.policies-heading {
+		grid-area: heading;
 		font-family: var(--display);
 		font-style: italic;
-		font-size: 1.25rem;
-		font-weight: 800;
-		letter-spacing: -0.01em;
+		font-size: clamp(1.4rem, 2.4vw, 1.75rem);
+		font-weight: 900;
+		letter-spacing: -0.02em;
 		color: var(--ink);
-		margin: 0 0 1rem 0;
-		line-height: 1.3;
+		margin: 0 0 1.25rem 0;
+		line-height: 1.15;
 	}
 
+	/* Body typography for a section. Block spacing (p, ul, li, sub-headers) lives in
+	   PolicyBlocks, because page-scoped styles can't reach elements a child renders. */
 	.policies-answer {
+		grid-area: answer;
+		min-width: 0;
 		font-family: var(--serif);
 		font-size: 1.0625rem;
 		line-height: 1.8;
 		color: var(--ink-2);
 	}
 
-	.policies-answer p {
-		margin: 0 0 1rem 0;
-	}
-
-	.policies-answer p:last-child {
-		margin-bottom: 0;
-	}
-
-	.policies-answer ul {
-		margin: 0 0 1rem 0;
-		padding-left: 1.5rem;
-	}
-
-	.policies-answer li {
-		margin-bottom: 0.35rem;
-	}
-
-	.policies-answer li:last-child {
-		margin-bottom: 0;
-	}
-
 	.policies-media {
+		grid-area: media;
 		min-width: 0;
+		position: sticky;
+		top: var(--policies-anchor, 6rem);
 	}
 
 	/* Rail stripe pinned to the top of the video frame. */
@@ -529,10 +516,13 @@
 		right: 0;
 	}
 
-	/* Vertical (9:16) message video frame. */
+	/* Vertical (9:16) message video frame. While sticky it must fit under the nav +
+	   ribbon, so on short screens the width shrinks to keep the whole frame visible
+	   with the 9:16 ratio intact. */
 	.policy-video-frame {
 		position: relative;
-		width: 100%;
+		width: min(100%, calc((100vh - var(--policies-anchor, 6rem) - 2rem) * 9 / 16));
+		margin-left: auto;
 		aspect-ratio: 9 / 16;
 		overflow: hidden;
 		background: var(--ink-deep);
@@ -599,6 +589,11 @@
 			margin-right: calc(-1 * var(--mobile-margin));
 		}
 
+		/* Full-bleed on mobile: the frame and its fades reach the screen edges. */
+		.policies-jump {
+			padding-inline: 0;
+		}
+
 		/* Keep the jump bar a single sticky line that scrolls sideways. The inner
 		   padding-left re-adds the gutter (mobile margin + base inset) so the first
 		   link aligns with the page's body text. The trailing gutter lives on the
@@ -629,13 +624,30 @@
 			gap: 1.25rem;
 		}
 
+		/* Stacked in DOM order: heading, video, copy. */
 		.policies-section {
-			grid-template-columns: 1fr;
-			gap: 1.5rem;
+			grid-template-columns: minmax(0, 1fr);
+			grid-template-areas:
+				'heading'
+				'media'
+				'answer';
+			grid-template-rows: none;
+		}
+
+		.policies-section--full {
+			grid-template-areas:
+				'heading'
+				'answer';
+		}
+
+		.policies-media {
+			position: static;
+			margin-bottom: 1.5rem;
 		}
 
 		/* Stacked: keep the tall 9:16 video from dominating the column. */
 		.policy-video-frame {
+			width: 100%;
 			max-width: 320px;
 			margin-inline: auto;
 		}
@@ -650,8 +662,8 @@
 			font-size: 1.125rem;
 		}
 
-		.policies-question {
-			font-size: 1.125rem;
+		.policies-heading {
+			font-size: 1.35rem;
 		}
 
 		.policies-answer {
