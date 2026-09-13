@@ -379,7 +379,8 @@ export const pagesEn = {
 							{ text: 'Affordability', target: 'affordability' },
 							{ text: 'Accountability', target: 'government-integrity' },
 							{ text: 'Stewardship of our Natural Resources', target: 'great-salt-lake' }
-						]
+						],
+						more: { text: 'Other Policy Positions', target: 'other-positions' }
 					},
 					{
 						type: 'h3',
@@ -607,6 +608,7 @@ export const pagesEn = {
 				id: 'healthcare',
 				navLabel: 'Rural healthcare',
 				groupHeading: 'Other Policy Positions',
+				groupId: 'other-positions',
 				heading: 'Strengthening Rural Healthcare Infrastructure',
 				parts: [
 					{

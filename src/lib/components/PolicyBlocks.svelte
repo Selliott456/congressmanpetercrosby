@@ -38,11 +38,16 @@
 	{/if}
 	{#if block.type === 'pillars'}
 		<!-- The headline priorities double as navigation into their own sections. -->
-		<ul class="pillars">
-			{#each block.items as pillar}
-				<li><a href={'#' + pillar.target}>{pillar.text}</a></li>
-			{/each}
-		</ul>
+		<div class="pillars-block">
+			<ul class="pillars">
+				{#each block.items as pillar}
+					<li><a href={'#' + pillar.target}>{pillar.text}</a></li>
+				{/each}
+			</ul>
+			{#if block.more}
+				<a class="pillars-more" href={'#' + block.more.target}>{block.more.text}</a>
+			{/if}
+		</div>
 	{:else if block.type === 'p'}
 		<p><Emphasis text={block.text} /></p>
 	{:else if block.type === 'lede'}
@@ -128,9 +133,13 @@
 
 	/* Headline priorities as three linked chips. Square corners and hairline borders
 	   per the brand; the top edges take the Rail's green / sky / civic sequence. */
+	.pillars-block {
+		margin: 0 0 2rem;
+	}
+
 	.pillars {
 		list-style: none;
-		margin: 0 0 2rem;
+		margin: 0;
 		padding: 0;
 		display: grid;
 		grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -184,8 +193,34 @@
 		background: var(--paper);
 	}
 
+	/* Secondary link after the chips — plain text and an arrow, styled like the
+	   "In this section" links so it reads as a way further down, not a fourth priority. */
+	.pillars-more {
+		display: inline-block;
+		margin-top: 0.85rem;
+		font-family: var(--display);
+		font-style: italic;
+		font-weight: 800;
+		font-size: 0.9375rem;
+		line-height: 1.3;
+		color: var(--blue);
+		text-decoration: none;
+	}
+
+	.pillars-more::after {
+		content: '↓';
+		margin-left: 0.4rem;
+		font-style: normal;
+	}
+
+	.pillars-more:hover,
+	.pillars-more:focus-visible {
+		text-decoration: underline;
+		text-underline-offset: 3px;
+	}
+
 	/* The first sub-header sits right under the chips; the chips' margin is enough. */
-	.pillars + .subhead {
+	.pillars-block + .subhead {
 		margin-top: 0;
 	}
 

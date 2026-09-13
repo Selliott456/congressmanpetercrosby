@@ -1108,7 +1108,8 @@ export const pagesEs = {
 							{ text: 'Asequibilidad', target: 'affordability' },
 							{ text: 'Rendición de cuentas', target: 'government-integrity' },
 							{ text: 'Cuidado de nuestros recursos naturales', target: 'great-salt-lake' }
-						]
+						],
+						more: { text: 'Otras posturas de política', target: 'other-positions' }
 					},
 					{
 						type: 'h3',
@@ -1340,6 +1341,7 @@ export const pagesEs = {
 				id: 'healthcare',
 				navLabel: 'Salud rural',
 				groupHeading: 'Otras posturas de política',
+				groupId: 'other-positions',
 				heading: 'Fortalecer la infraestructura de salud rural',
 				parts: [
 					{

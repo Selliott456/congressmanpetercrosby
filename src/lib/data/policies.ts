@@ -22,8 +22,15 @@ export type PolicyBlock =
 	| { type: 'h3'; id: string; text: string }
 	/** Bulleted list. Items and sub-items support **bold** runs. */
 	| { type: 'ul'; items: PolicyListItem[] }
-	/** Headline priorities shown as linked chips. Each `target` is a section id on this page. */
-	| { type: 'pillars'; items: { text: string; target: string }[] };
+	/**
+	 * Headline priorities shown as linked chips. Each `target` is an anchor on this page.
+	 * `more` adds a quieter text link after the chips (e.g. to the other positions).
+	 */
+	| {
+			type: 'pillars';
+			items: { text: string; target: string }[];
+			more?: { text: string; target: string };
+	  };
 
 export type PolicyItem = {
 	/** Section anchor (`/policies#id`). Keep stable: links to these are shared off-site. */
@@ -33,6 +40,8 @@ export type PolicyItem = {
 	heading: string;
 	/** Starts a new group (e.g. "Other Policy Positions") just before this section. */
 	groupHeading?: string;
+	/** Anchor for the group heading. Identical in en and es, and stable like `id`. */
+	groupId?: string;
 	parts: PolicyBlock[];
 };
 

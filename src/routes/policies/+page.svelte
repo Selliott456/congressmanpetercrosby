@@ -155,7 +155,7 @@
 			{#each $messages.policies.items as item}
 				{@const media = policyMedia[item.id]}
 				{#if item.groupHeading}
-					<div class="policies-group">
+					<div class="policies-group" id={item.groupId}>
 						<div class="policies-group-rail"><Rail /></div>
 						<h2 class="policies-group-heading">{item.groupHeading}</h2>
 					</div>
@@ -424,6 +424,8 @@
 	/* Divider between the priority pillars and the "Other Policy Positions" group. */
 	.policies-group {
 		margin: 1rem 0 2.5rem;
+		/* Linked from the top priorities; land with the label clear of the sticky bars. */
+		scroll-margin-top: var(--policies-anchor, 6rem);
 	}
 
 	.policies-group-rail {
