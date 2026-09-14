@@ -127,6 +127,11 @@ export const pagesEn = {
 			'Reaching out from the press, or just have a question? Pick a topic and send us a note—the campaign will get back to you.',
 		emailLabel: 'Email',
 		phoneLabel: 'Phone',
+		mailLabel: 'Mail',
+		mailNote:
+			'Donating by check? Make it payable to Peter Crosby for Congress and mail it here. Please include your:',
+		mailRequired: ['Full name', 'Address', 'Occupation', 'Employer'],
+		mailLaw: 'Federal law requires us to ask for all four.',
 		volunteerPrompt: 'Want to pitch in on the campaign?',
 		volunteerCta: 'Volunteer with us',
 		topicLegend: 'What can we help you with?',

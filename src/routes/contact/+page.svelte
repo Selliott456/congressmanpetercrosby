@@ -8,6 +8,8 @@
 	const EMAIL = 'information@petercrosbyforcongress.org';
 	const [EMAIL_USER, EMAIL_DOMAIN] = EMAIL.split('@');
 	const PHONE = '(435) 227-5195';
+	/** Campaign mailing address — also where mailed checks go. Postal, so not translated. */
+	const MAILING_ADDRESS = ['Peter Crosby for Congress', 'PO Box 212', 'Providence, UT 84332'];
 
 	/** @type {'general' | 'media'} */
 	let topic = 'general';
@@ -95,6 +97,19 @@
 					<dt class="contact-term">{$messages.contact.phoneLabel}</dt>
 					<dd class="contact-def">
 						<a href="tel:+14352275195" class="contact-link">{PHONE}</a>
+					</dd>
+				</div>
+				<div class="contact-row">
+					<dt class="contact-term">{$messages.contact.mailLabel}</dt>
+					<dd class="contact-def">
+						<address class="contact-address">
+							{#each MAILING_ADDRESS as line, i}{#if i}<br />{/if}{line}{/each}
+						</address>
+						<p class="contact-note">{$messages.contact.mailNote}</p>
+						<ul class="contact-required">
+							{#each $messages.contact.mailRequired as item}<li>{item}</li>{/each}
+						</ul>
+						<p class="contact-note">{$messages.contact.mailLaw}</p>
 					</dd>
 				</div>
 			</dl>
@@ -340,6 +355,45 @@
 	.contact-link:hover {
 		color: var(--ink);
 		text-decoration: underline;
+	}
+
+	.contact-address {
+		font-family: var(--font-primary);
+		font-size: 1.125rem;
+		font-style: normal;
+		font-weight: 600;
+		line-height: 1.4;
+		color: var(--ink);
+	}
+
+	.contact-note {
+		font-family: var(--font-primary);
+		font-size: 0.9375rem;
+		line-height: 1.5;
+		color: var(--ink-2);
+		margin: 0.5rem 0 0;
+	}
+
+	/* The four contributor details FEC rules ask for — set apart so they're easy to pick out. */
+	.contact-required {
+		display: grid;
+		/* Two columns in the desktop aside; one on phones, where Spanish ("Nombre completo")
+		   would otherwise wrap. */
+		grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+		gap: 0.3rem 1.75rem;
+		margin: 0.5rem 0 0;
+		padding: 0.65rem 0.85rem 0.65rem 1.75rem;
+		border-left: 3px solid var(--blue);
+		background: var(--paper-2);
+		list-style: square outside;
+		font-family: var(--font-primary);
+		font-size: 0.9375rem;
+		font-weight: 600;
+		color: var(--ink);
+	}
+
+	.contact-required li::marker {
+		color: var(--blue);
 	}
 
 	.contact-cta {
