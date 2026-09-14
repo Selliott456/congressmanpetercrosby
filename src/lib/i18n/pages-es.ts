@@ -821,6 +821,100 @@ export const pagesEs = {
 		metaDescription:
 			'Comunicados de prensa y anuncios oficiales de la campaña Peter Crosby para el Congreso.',
 		byId: {
+			'september-internal-polling': {
+				title:
+					'El norte de Utah, en camino de voltear un segundo escaño del Congreso este noviembre',
+				summary:
+					'Un distrito tradicionalmente conservador y seguro está ahora en empate estadístico: Blake Moore aventaja por 1.7 puntos en la más reciente encuesta interna de la campaña Peter Crosby para el Congreso.',
+				body: [
+					{
+						type: 'p',
+						text: 'Una nueva encuesta de enfrentamiento directo realizada por la campaña Peter Crosby para el Congreso muestra al recién llegado a la política en un empate técnico con el titular republicano, el representante Blake Moore, en el recién rediseñado Distrito 2 del Congreso de Utah (CD2). La campaña divulga su encuesta interna más reciente, realizada del 8 al 10 de septiembre de 2026, que muestra al candidato demócrata codo a codo con el representante Moore. Aunque el nuevo distrito aún no ha elegido a su propio representante, [los analistas electorales tradicionales habían anticipado que sería un distrito R+15](https://www.cookpolitical.com/house/race/485416), una calificación que no se ha actualizado desde noviembre de 2025. Los datos recientes indican una realidad muy distinta sobre el terreno.'
+					},
+					{
+						type: 'p',
+						text: 'La encuesta, realizada con una muestra aleatoria de votantes registrados en los condados de Davis, Weber, Box Elder, Cache y Rich, sitúa a Crosby a 1.7 puntos de Moore en un enfrentamiento directo si la elección fuera hoy, con más del 25% de los encuestados aún indecisos. Junto con [encuestas recientes que muestran que el representante Moore es profundamente impopular en el nuevo distrito](/press/august-internal-polling), la contienda por el nuevo CD2 no solo es competitiva: ofrece una oportunidad significativa para que Utah envíe a dos representantes demócratas al Congreso en este ciclo.'
+					},
+					{
+						type: 'ul',
+						items: [
+							'El representante Moore tiene actualmente un 32.4% en las encuestas y Peter Crosby, un 30.71%.',
+							'Más del 25% de los encuestados aún no está seguro, incluido el 24% de los republicanos registrados.',
+							'La asequibilidad y la rendición de cuentas son los principales temas que identifican los encuestados (al 74.4% le preocupan los temas de asequibilidad y al 69.8%, la corrupción, el uso de información privilegiada y asuntos relacionados).'
+						]
+					},
+					{
+						type: 'chart',
+						chartTitle: 'Si la elección fuera hoy, ¿por quién votaría?',
+						yMax: 35,
+						yStep: 5,
+						bars: [
+							{ label: 'Peter Crosby', value: 30.71, color: POLL_COLORS.crosby },
+							{ label: 'Blake Moore', value: 32.41, color: POLL_COLORS.moore },
+							{ label: 'Otro', value: 3.28, color: POLL_COLORS.other },
+							{ label: 'Indeciso', value: 25.07, color: POLL_COLORS.ballotUnsure },
+							{ label: 'Ninguno de los anteriores', value: 8.53, color: POLL_COLORS.none }
+						],
+						source:
+							'Encuesta de votantes, campaña Peter Crosby para el Congreso. Sondeo interno de 762 votantes registrados seleccionados al azar en los condados de Davis, Weber, Box Elder, Cache y Rich (CD2), Utah, del 8 al 10 de septiembre de 2026. Margen de error de ±4%.'
+					},
+					{
+						type: 'chart',
+						chartTitle: 'Preferencia de voto por afiliación partidista: republicanos',
+						yMax: 50,
+						yStep: 10,
+						bars: [
+							{ label: 'Peter Crosby', value: 18, color: POLL_COLORS.crosby },
+							{ label: 'Blake Moore', value: 45.7, color: POLL_COLORS.moore },
+							{ label: 'Otro', value: 3.7, color: POLL_COLORS.other },
+							{ label: 'Indeciso', value: 24, color: POLL_COLORS.ballotUnsure },
+							{ label: 'Ninguno de los anteriores', value: 8.6, color: POLL_COLORS.none }
+						],
+						source:
+							'Encuesta de votantes, campaña Peter Crosby para el Congreso. Sondeo interno de 762 votantes registrados seleccionados al azar en los condados de Davis, Weber, Box Elder, Cache y Rich (CD2), Utah, del 8 al 10 de septiembre de 2026. Margen de error de ±4%.'
+					},
+					{
+						type: 'chart',
+						chartTitle: 'Preferencia de voto por afiliación partidista: no afiliados',
+						yMax: 40,
+						yStep: 10,
+						bars: [
+							{ label: 'Peter Crosby', value: 39.4, color: POLL_COLORS.crosby },
+							{ label: 'Blake Moore', value: 16.5, color: POLL_COLORS.moore },
+							{ label: 'Otro', value: 2.8, color: POLL_COLORS.other },
+							{ label: 'Indeciso', value: 30.3, color: POLL_COLORS.ballotUnsure },
+							{ label: 'Ninguno de los anteriores', value: 11, color: POLL_COLORS.none }
+						],
+						source:
+							'Encuesta de votantes, campaña Peter Crosby para el Congreso. Sondeo interno de 762 votantes registrados seleccionados al azar en los condados de Davis, Weber, Box Elder, Cache y Rich (CD2), Utah, del 8 al 10 de septiembre de 2026. Margen de error de ±4%.'
+					},
+					{
+						type: 'p',
+						text: 'Aunque la campaña tenía la intención de reservar estos resultados hasta después de la publicación de la encuesta independiente encargada por la Comisión de Debates de Utah, [que suele estar disponible](https://utahdebatecommission.org/about/) a principios de septiembre de cada ciclo electoral, esos datos aún no se han publicado. Los datos de la encuesta de la Comisión de Debates de Utah son importantes porque determinan los umbrales que definen qué candidatos llegan al escenario en el único debate con moderación pública programado antes del día de las elecciones. El debate del CD2 estaba previsto originalmente para el 20 de octubre, una semana completa después del envío de las boletas por correo, pero [se reprogramó para el 13 de octubre](/press/debate-rescheduled) tras las críticas del público.'
+					},
+					{
+						type: 'p',
+						text: 'Los datos de la encuesta de la campaña, además, se ven respaldados por informes recientes a nivel estatal y nacional. Una [encuesta reciente de Deseret News/Hinckley Institute of Politics](https://www.deseret.com/politics/2026/08/17/utah-voters-disapprove-of-governor-cox-senator-lee-and-senator-curtis-in-new-poll/) encontró un ánimo cada vez más contrario a los titulares entre los votantes de Utah, con índices de aprobación en descenso para varios funcionarios electos de alto perfil. Según esa encuesta, la insatisfacción va más allá de un solo funcionario y refleja una preocupación más amplia por el liderazgo actual. Aunque esa publicación no incluyó datos sobre la actual delegación de Utah en la Cámara de Representantes (cuyos miembros buscan todos la reelección) por nombre, sí indicó que la confianza pública en el Congreso en su conjunto se ha desplomado a 30 puntos negativos, lo que subraya un profundo hartazgo con la disfunción política que atraviesa a todos los partidos. El ánimo en Utah es similar al que se observa a nivel nacional, donde los estadounidenses de a pie han perdido la confianza en el Partido Republicano. Así lo reflejan las cifras más recientes [recopiladas por el estadístico Nate Silver](https://www.natesilver.net/p/nate-silver-2026-midterm-election-polls-model), según las cuales los demócratas tienen una ventaja de 8 puntos en la boleta genérica para el Congreso.'
+					},
+					{
+						type: 'p',
+						text: 'El representante Blake Moore ha reaccionado notablemente a la presión de la campaña de Crosby: recientemente programó una serie de cuatro cabildos presenciales, convocados con poca antelación, en condados del recién trazado CD-2, las primeras reuniones de ese tipo desde septiembre de 2025. El representante Moore no realizó ninguno de esos cabildos en los condados de Salt Lake ni Morgan, que actualmente representa en el CD1 pero que ya no forman parte de los límites del competitivo CD2 por el que busca ser elegido. Crosby ha realizado 35 cabildos públicos en todo el distrito desde que lanzó su campaña en noviembre de 2025, y tiene 6 más programados para el mes de septiembre. Si resulta electo, Crosby se ha comprometido a seguir realizando esos cabildos presenciales de manera periódica:'
+					},
+					{
+						type: 'quote',
+						text: 'Estos resultados muestran que los habitantes del norte de Utah están listos para un tipo distinto de representación, y voy a seguir ganándome cada voto de aquí al día de las elecciones. Seguiré presentándome, escuchando y trabajando para ser el representante que el norte de Utah merece.',
+						attribution: 'Peter Crosby'
+					},
+					{
+						type: 'p',
+						text: 'Con votantes que buscan una representación receptiva y enfocada en sus preocupaciones sobre la asequibilidad y la rendición de cuentas del gobierno, la campaña de Crosby entra en la etapa final del ciclo electoral de medio término en posición de competir, y de ganar, en el norte de Utah.'
+					},
+					{
+						type: 'p',
+						text: 'Peter Crosby es el candidato demócrata al Distrito 2 del Congreso de EE. UU. por Utah, candidato político por primera vez y papá de hijas. Lleva adelante una campaña de base: Peter no acepta donaciones de PAC corporativos ni financiamiento de PAC vinculados a intereses extranjeros, y ha recaudado poco más de $100,000 de donantes individuales y de pequeñas cantidades, con más del 95% procedente de aquí mismo, de Utah. La campaña se sostiene por completo con voluntarios, con más de 400 voluntarios registrados. Peter cree que los ciudadanos del norte de Utah merecen un representante que viva en el distrito, escuche sus preocupaciones y ponga a la gente de Utah por encima del partido o de la búsqueda de poder personal. Está realizando cabildos públicos por todo el distrito, con al menos uno en los condados de Cache, Box Elder, Davis y Weber cada mes. Más información en petercrosbyforcongress.org.'
+					}
+				]
+			},
 			'indivisible-statewide-endorsement': {
 				sourceName: 'Los grupos Indivisible de Utah',
 				sourceLogoAlt: 'Indivisible',
@@ -1614,7 +1708,7 @@ export const pagesEs = {
 		},
 		ground: {
 			note:
-				'Cifras operativas reportadas por la campaña: actividad de organización, no resultados de encuestas. Cabildos a septiembre de 2026; voluntarios y donantes al momento del comunicado de agosto.'
+				'Cifras operativas reportadas por la campaña: actividad de organización, no resultados de encuestas. Cabildos a septiembre de 2026; voluntarios y fondos recaudados al comunicado del 14 de septiembre; donantes al comunicado de agosto.'
 		},
 		method: {
 			internalTitle: 'Encuesta interna de la campaña',
@@ -1637,7 +1731,7 @@ export const pagesEs = {
 		limits: {
 			title: 'Qué no se modela aquí',
 			intro:
-				'Esta página reporta únicamente cifras que aparecen en una fuente publicada. Lo siguiente no está representado:',
+				'Esta página reporta solo cifras reales y atribuibles —las encuestas internas de la campaña y encuestas públicas publicadas—, nunca cifras modeladas ni estimadas. Lo siguiente no está representado:',
 			items: [
 				{
 					label: 'Tendencia de la intención de voto.',
@@ -1725,6 +1819,10 @@ export const pagesEs = {
 			'ground-donors': {
 				label: 'Donantes individuales',
 				note: 'No se acepta dinero de PAC corporativos'
+			},
+			'ground-raised': {
+				label: 'Recaudado',
+				note: 'De donantes individuales y de pequeñas cantidades, más del 95% en Utah'
 			}
 		} as Record<
 			string,

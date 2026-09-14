@@ -2,15 +2,21 @@
  * Data for the Data Room (/data-room; the page was /analytics until Sep 2026).
  *
  * ⚠️ SOURCING RULE — read before adding anything here.
- * Every number on this page is published, attributable data. Three sources only:
+ * Every number on this page is real, attributable data — never modeled. Sources:
  *   1. The campaign's August internal poll, transcribed from the 2026-08-21 press
  *      release (`pressReleases.ts` → 'august-internal-polling').
- *   2. The campaign's September internal poll (Sep 8–10), transcribed from the
- *      crosstab charts in the campaign's September release ("Weekly Polling —
- *      Press Release", received 2026-09-13). Add its `releaseId` below once the
- *      release is posted to /press.
+ *   2. The campaign's September internal poll (Sep 8–10). The ballot test — overall
+ *      and for Republicans and Unaffiliated voters — is in the 2026-09-14 press release
+ *      (`pressReleases.ts` → 'september-internal-polling'). The top-concerns crosstabs
+ *      (`topConcerns`) were supplied by the campaign ("Weekly Polling — Press Release"
+ *      draft, 2026-09-13); the release itself carries only the all-voter shares.
  *   3. The Deseret News / Hinckley Institute of Politics August 2026 statewide poll,
  *      as cited in the August release.
+ *   4. Campaign-reported organizing counts (`groundGame`), as stated in releases.
+ * The campaign approved (2026-09-14) publishing its own poll data here beyond what a
+ * press release shows, so the Data Room can carry fuller crosstabs than a release. That
+ * covers data the CAMPAIGN supplies, with its poll's full methodology — not figures we
+ * derive, estimate, or take from anywhere else.
  *
  * Two kinds of figure are derived rather than transcribed, and both are plain
  * arithmetic on published numbers:
@@ -72,7 +78,9 @@ export const POLLS: Record<string, Poll> = {
 		sampleSize: 762,
 		marginOfError: 4,
 		fieldStart: '2026-09-08',
-		fieldEnd: '2026-09-10'
+		fieldEnd: '2026-09-10',
+		releaseId: 'september-internal-polling',
+		releaseDate: '2026-09-14'
 	},
 	'internal-aug-2026': {
 		id: 'internal-aug-2026',
@@ -99,7 +107,7 @@ export const POLLS: Record<string, Poll> = {
 export const FEATURED_POLL_ID = 'internal-sep-2026';
 
 /** Page dateline (ISO). Bump whenever data is added or revised. */
-export const LAST_UPDATED = '2026-09-13';
+export const LAST_UPDATED = '2026-09-14';
 
 /** A set of rows and the poll they came from, so a chart can cite its own source
     instead of inheriting a page-level one. */
@@ -512,6 +520,16 @@ export const groundGame = [
 		value: 550,
 		unit: '+',
 		note: 'No corporate PAC money accepted'
+	},
+	{
+		// September 14 release: "has raised just over $100,000 from small-dollar and
+		// individual donors, with over 95% coming from right here in Utah."
+		id: 'ground-raised',
+		label: 'Raised',
+		prefix: '$',
+		value: 100,
+		unit: 'K+',
+		note: 'From small-dollar and individual donors, over 95% in Utah'
 	}
 ];
 

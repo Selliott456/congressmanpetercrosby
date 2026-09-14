@@ -4,6 +4,8 @@
 </script>
 
 <script>
+	import { inkOn } from '$lib/utils/chartColor';
+
 	/**
 	 * A recreated poll bar chart for press releases. Renders on a light (paper)
 	 * ground: hairline gridlines, brand-colored bars with a value label, an x-axis
@@ -30,17 +32,12 @@
 	$: ticks = Array.from({ length: Math.floor(yMax / yStep) + 1 }, (_, i) => yMax - i * yStep);
 
 	/**
-	 * Legible label color for a bar: ink on light fills, white on dark ones.
+	 * Legible label color for a bar: whichever of white or deep navy contrasts more with
+	 * the fill (the Data Room's `inkOn`). A brightness cutoff put white on the salmon
+	 * "Blake Moore" bar at 3.39:1; the contrast rule gives navy at 5.06:1.
 	 * @param {string} hex e.g. "#487996"
 	 */
-	function labelColor(hex) {
-		const h = hex.replace('#', '');
-		const r = parseInt(h.slice(0, 2), 16);
-		const g = parseInt(h.slice(2, 4), 16);
-		const b = parseInt(h.slice(4, 6), 16);
-		const L = 0.2126 * r + 0.7152 * g + 0.0722 * b; // perceived luminance, 0–255
-		return L > 150 ? 'var(--ink)' : '#ffffff';
-	}
+	const labelColor = (hex) => inkOn(hex);
 </script>
 
 <figure class="pbc">

@@ -1,0 +1,105 @@
+<!doctype html>
+<!--
+  Card thumbnail for a press release: 1200×675, the 16:9 image the /media and home cards
+  crop to, and the release page's link-preview image. A branded title card rather than a
+  crop of the release document (which carries the press contact's phone number).
+  Filled in from the query string by render-release-thumb.sh (?date=…&title=…).
+  Same system as default.html: deep navy, the rail, the white logo, Archivo italic.
+-->
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@1,800;1,900&family=JetBrains+Mono:wght@500&display=block"
+			rel="stylesheet"
+		/>
+		<style>
+			html,
+			body {
+				margin: 0;
+				width: 1200px;
+				height: 675px;
+				overflow: hidden;
+				background: #091b36;
+			}
+
+			.card {
+				position: relative;
+				box-sizing: border-box;
+				width: 1200px;
+				height: 675px;
+				padding: 84px 76px 0;
+				color: #f7fafc;
+			}
+
+			.rail {
+				position: absolute;
+				inset: 0 0 auto;
+				height: 12px;
+				display: flex;
+			}
+
+			.rail i {
+				flex: 1;
+			}
+
+			.logo {
+				display: block;
+				height: 126px;
+				width: auto;
+			}
+
+			.eyebrow {
+				margin: 64px 0 0;
+				font-family: 'Archivo', sans-serif;
+				font-style: italic;
+				font-weight: 800;
+				font-size: 21px;
+				letter-spacing: 0.2em;
+				text-transform: uppercase;
+				color: #7fb7dc;
+			}
+
+			h1 {
+				margin: 22px 0 0;
+				max-width: 1010px;
+				font-family: 'Archivo', sans-serif;
+				font-style: italic;
+				font-weight: 900;
+				font-size: 50px;
+				line-height: 1.12;
+				letter-spacing: -0.02em;
+			}
+
+			.url {
+				position: absolute;
+				left: 76px;
+				bottom: 44px;
+				margin: 0;
+				font-family: 'JetBrains Mono', monospace;
+				font-weight: 500;
+				font-size: 13px;
+				letter-spacing: 0.2em;
+				text-transform: uppercase;
+				color: #5b6b80;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="card">
+			<div class="rail">
+				<i style="background: #235926"></i><i style="background: #7fb7dc"></i
+				><i style="background: #2e5fa0"></i>
+			</div>
+			<img class="logo" src="../../static/images/brand_strategy_logo_white.svg" alt="" />
+			<p class="eyebrow">Press release · <span id="date"></span></p>
+			<h1 id="title"></h1>
+			<p class="url">petercrosbyforcongress.org</p>
+		</div>
+		<script>
+			const q = new URLSearchParams(location.search);
+			document.getElementById('date').textContent = q.get('date') ?? '';
+			document.getElementById('title').textContent = q.get('title') ?? '';
+		</script>
+	</body>
+</html>

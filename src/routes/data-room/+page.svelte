@@ -683,7 +683,7 @@
 		<div class="ground-grid">
 			{#each groundGame as item}
 				<article class="ground-stat">
-					<p class="ground-value">{item.value}{item.unit}</p>
+					<p class="ground-value">{item.prefix ?? ''}{item.value}{item.unit}</p>
 					<p class="ground-label">{t.byId[item.id]?.label ?? item.label}</p>
 					<p class="ground-sub">{t.byId[item.id]?.note ?? item.note}</p>
 				</article>
@@ -1263,9 +1263,11 @@
 		max-width: 60ch;
 	}
 
+	/* Fixed column counts (4 → 2 → 1, set below), like the KPI row: four cards in an
+	   auto-fit grid wrap 3 + 1 at mid widths, and the empty cells show the gap color. */
 	.ground-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+		grid-template-columns: repeat(4, minmax(0, 1fr));
 		gap: 1px;
 		background: var(--line-l);
 		border: 1px solid var(--line-l);
@@ -1296,6 +1298,18 @@
 		margin: 0.25rem 0 0;
 		font-size: 0.78rem;
 		color: #5b6b80;
+	}
+
+	@media (max-width: 1023px) {
+		.ground-grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+
+	@media (max-width: 560px) {
+		.ground-grid {
+			grid-template-columns: minmax(0, 1fr);
+		}
 	}
 
 	/* ── Methodology ──────────────────────────────────────────── */

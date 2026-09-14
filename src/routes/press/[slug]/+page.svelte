@@ -117,11 +117,12 @@
 		<div class="press-body">
 			{#each body as part}
 				{#if part.type === 'p'}
-					<p>{#each inlineSegments(part.text) as seg}{#if seg.href}<a
+					<!-- Citations to other sites open in a new tab; links within this site don't. -->
+					<p>{#each inlineSegments(part.text) as seg}{#if seg.href}{@const external = !seg.href.startsWith('/')}<a
 								href={seg.href}
 								class="press-link"
-								target="_blank"
-								rel="noopener noreferrer">{seg.text}</a>{:else}{seg.text}{/if}{/each}</p>
+								target={external ? '_blank' : undefined}
+								rel={external ? 'noopener noreferrer' : undefined}>{seg.text}</a>{:else}{seg.text}{/if}{/each}</p>
 				{:else if part.type === 'chart'}
 					<PressBarChart
 						chartTitle={part.chartTitle}
@@ -152,10 +153,12 @@
 			<!-- Polling releases point to the Data Room, where the same figures are charted
 			     with their sample sizes, field dates and margins of error. Kept outside the
 			     body so the release itself reads as issued. -->
-			<aside class="press-data">
+			<!-- A plain div, not <aside>: inside the article, an aside becomes a nested
+			     complementary landmark, which screen readers expect only at the top level. -->
+			<div class="press-data">
 				<p class="press-data-text">{$messages.pressReleases.dataRoomNote}</p>
 				<a href="/data-room" class="press-data-link">{$messages.pressReleases.dataRoomLink} &rarr;</a>
-			</aside>
+			</div>
 		{/if}
 
 		{#if release.source}

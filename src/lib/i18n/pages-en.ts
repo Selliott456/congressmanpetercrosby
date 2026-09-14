@@ -896,7 +896,7 @@ export const pagesEn = {
 		},
 		ground: {
 			note:
-				'Campaign-reported operational counts — organizing activity, not survey results. Town halls as of September 2026; volunteers and donors as of the August release.'
+				'Campaign-reported operational counts — organizing activity, not survey results. Town halls as of September 2026; volunteers and funds raised as of the September 14 release; donors as of the August release.'
 		},
 		method: {
 			internalTitle: 'Campaign internal poll',
@@ -919,7 +919,7 @@ export const pagesEn = {
 		limits: {
 			title: 'What is not modeled here',
 			intro:
-				'This page reports only figures that appear in a published source. The following are not represented:',
+				'This page reports only real, attributable figures — the campaign’s own polling and published public polls — never modeled or estimated ones. The following are not represented:',
 			items: [
 				{
 					label: 'Ballot-test trend.',
