@@ -126,8 +126,8 @@ const SEP_POLL_SOURCE =
 
 export const pressReleases: PressRelease[] = [
 	{
-		// Transcribed from the release PDF's text layer. The second and third bullets sit
-		// under the chart graphics in the PDF (hidden when printed) but are part of its text.
+		// Transcribed from the release PDF — the revised edition issued the same day, which added
+		// the Hinckley figures and the Utah Democratic Party Chair's quote.
 		id: 'september-internal-polling',
 		dataRoom: true,
 		date: '2026-09-14',
@@ -197,20 +197,27 @@ export const pressReleases: PressRelease[] = [
 			},
 			{
 				type: 'p',
-				text: 'While the Campaign intended to hold these results until after the release of independently commissioned polling conducted on behalf of the Utah Debate Commission, [typically available](https://utahdebatecommission.org/about/) by early September each election cycle, that data has yet to be released. The polling data released by the Utah Debate Commission is significant as it determines thresholds for which candidates make it to the stage in the only publicly moderated debate currently scheduled before election day. The CD2 debate was originally planned for October 20th, one full week after the release of mail-in ballots, but [was rescheduled for October 13th](/press/debate-rescheduled) after public pushback.'
+				text: 'While the Campaign intended to hold these results until after the release of independently commissioned polling conducted on behalf of the Utah Debate Commission, [typically available](https://utahdebatecommission.org/about/) by early September each election cycle, that data has yet to be released. The Utah Debate Commission polling data is significant as it determines thresholds for which candidates make it to the stage in the only publicly moderated debate currently scheduled before election day. The CD2 debate was originally planned for October 20th, one full week after the release of mail-in ballots, but [was rescheduled for October 13th](/press/debate-rescheduled) after public pushback.'
 			},
 			{
 				type: 'p',
-				text: 'The Campaign’s polling data, however, are reinforced by recent reports at the state and national level. A recent [Deseret News/Hinckley Institute of Politics poll](https://www.deseret.com/politics/2026/08/17/utah-voters-disapprove-of-governor-cox-senator-lee-and-senator-curtis-in-new-poll/) found an increasingly anti-incumbent mood among Utah voters, with approval ratings for several high-profile elected officials declining. According to that poll, dissatisfaction extends beyond any single officeholder and reflects broader concerns about current leadership. While that release did not include data about Utah’s current Congressional House delegation (who are all up for re-election) by name, it stated that public trust in Congress as a whole has collapsed to a negative 30 points, underscoring a deep, cross-partisan fatigue with political dysfunction. The mood in Utah is similar to what is being seen nationwide, where regular Americans have lost trust in the Republican party. This is reflected in the latest numbers [compiled by statistician, Nate Silver](https://www.natesilver.net/p/nate-silver-2026-midterm-election-polls-model), where Democrats have an 8-pt lead in the generic congressional ballot.'
+				text: 'The Campaign’s polling data are reinforced by recent reports at the state and national level. A recent [Deseret News/Hinckley Institute of Politics poll](https://www.deseret.com/politics/2026/08/17/utah-voters-disapprove-of-governor-cox-senator-lee-and-senator-curtis-in-new-poll/) found an increasingly anti-incumbent mood among Utah voters, with approval ratings for several high-profile elected officials declining. According to that poll, dissatisfaction extends beyond any single officeholder and reflects broader concerns about current leadership. Governor Spencer Cox is underwater, with his approval plunging from 51% in January to 41% in August. Senator Mike Lee is now seven points underwater (39% approval to 46% disapproval), Senator John Curtis has slid into negative territory at 37% approval, and the Utah State Legislature is underwater at 44% approval and 45% disapproval.'
 			},
 			{
 				type: 'p',
-				text: 'Rep. Blake Moore has been notably reactive to the pressure from the Crosby Campaign, recently scheduling a series of four short-notice, in-person town halls in counties in the newly drawn CD-2, the first such meetings since September 2025. Rep. Moore did not hold any of those town halls in Salt Lake or Morgan counties, which he currently represents in CD1 but are no longer in the competitive CD2 boundaries for which he is seeking election. Crosby has held 35 public town-halls across the district since launching his campaign in November 2025, and has 6 more scheduled for the month of September. If elected, Crosby has pledged to continue holding those in-person town halls on a regular basis:'
+				text: 'While the Deseret News release did not include data about Utah’s current Congressional House delegation (who are all up for re-election) by name, it stated that public trust in Congress as a whole has collapsed to a negative 30 points, underscoring a deep, cross-partisan fatigue with political dysfunction.'
 			},
 			{
-				type: 'quote',
-				text: 'These poll results show that Northern Utahns are ready for a different kind of representation, and I am going to continue earning every vote between now and Election Day. I will keep showing up, listening, and working to be the representative Northern Utah deserves.',
-				attribution: 'Peter Crosby'
+				type: 'p',
+				text: '“The old assumptions about this district aren’t going to decide this election. Voters will,” said Utah Democratic Party Chair Brian King. “For voters across northern Utah, the priorities are pretty straightforward: they want to know how their representatives are going to make life more affordable and whether they can trust them to put constituents ahead of special interests. Peter Crosby is connecting with voters because he’s focused on where Utah is going, not where Washington has been. He’s giving voters a chance to turn the page and elect a representative with a fresh perspective and a vision for the future of northern Utah. This poll shows that message is breaking through, and we’re proud to stand with Peter as he works to earn the support of voters across CD2.”'
+			},
+			{
+				type: 'p',
+				text: 'Rep. Blake Moore has been notably reactive to the pressure from the Crosby Campaign, recently scheduling a series of four short-notice, in-person town halls in counties in the newly drawn CD-2, the first such meetings since September 2025.'
+			},
+			{
+				type: 'p',
+				text: 'Crosby has held 35 public town-halls across the district since launching his campaign in November 2025, and has 6 more scheduled for the month of September. If elected, Crosby has pledged to continue holding those in-person town halls on a regular basis.'
 			},
 			{
 				type: 'p',
@@ -218,7 +225,7 @@ export const pressReleases: PressRelease[] = [
 			},
 			{
 				type: 'p',
-				text: 'Peter Crosby is the Democratic nominee for Utah’s U.S. Congressional District 2, a first-time political candidate, and a girl-dad. He is running a grassroots campaign: Peter is not accepting corporate PAC donations or funding from PACs aligned with foreign interests, and has raised just over $100,000 from small-dollar and individual donors, with over 95% coming from right here in Utah. The campaign is fully volunteer-supported with over 400 registered campaign volunteers. Peter believes citizens of Northern Utah deserve a representative that lives in the district, listens to their concerns, and puts the people of Utah ahead of party or the pursuit of personal power. He is holding public town halls throughout the district, with at least one in Cache, Box Elder, Davis, and Weber counties each month. More information is available at petercrosbyforcongress.org.'
+				text: 'Peter Crosby is the Democratic nominee for Utah’s U.S. Congressional District 2, a first-time political candidate, and a girl-dad. He is running a strictly clean-money, grassroots campaign: Peter is not accepting corporate PAC donations or funding from PACs aligned with foreign interests, and has raised just over $100,000 from small-dollar and individual donors, with over 95% coming from right here in Utah. The campaign is fully volunteer-supported with over 400 registered campaign volunteers. Peter believes citizens of Northern Utah deserve a representative that lives in the district, listens to their concerns, and puts the people of Utah ahead of party or the pursuit of personal power. He is holding public town halls throughout the district, with at least one in Cache, Box Elder, Davis, and Weber counties each month. To learn more, visit petercrosbyforcongress.org.'
 			}
 		],
 		image: '/press-releases/september-internal-polling-thumb.jpg',
