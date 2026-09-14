@@ -1118,7 +1118,7 @@ export const pagesEs = {
 					},
 					{
 						type: 'p',
-						text: 'Desde que comenzamos esta campaña, he realizado más de 40 cabildos públicos y he asistido a incontables eventos comunitarios. He hablado personalmente con miles de personas comunes de todos los ámbitos y orígenes políticos, y nuestros voluntarios de campaña han sumado miles más. Las principales preocupaciones que surgieron en estas conversaciones se resumen en las siguientes áreas:'
+						text: 'Desde que comenzamos esta campaña, he realizado más de 35 cabildos públicos y he asistido a incontables eventos comunitarios. He hablado personalmente con miles de personas comunes de todos los ámbitos y orígenes políticos, y nuestros voluntarios de campaña han sumado miles más. Las principales preocupaciones que surgieron en estas conversaciones se resumen en las siguientes áreas:'
 					},
 					{
 						type: 'ul',
