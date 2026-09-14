@@ -236,6 +236,19 @@
     color: var(--sky);
   }
 
+  /* Seven networks in one row down to 320px: 34px targets (well above the 24px
+     minimum) with 6px gaps = 274px, instead of wrapping into an uneven 5 + 2. */
+  @media (max-width: 400px) {
+    .home-hero-social-row {
+      gap: 0.375rem;
+    }
+
+    .home-hero-social-link {
+      width: 34px;
+      height: 34px;
+    }
+  }
+
   .home-hero-copy {
     min-width: 0;
   }

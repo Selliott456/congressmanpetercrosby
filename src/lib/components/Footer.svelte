@@ -233,6 +233,7 @@
 
   .footer-social {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     gap: 1rem;
@@ -551,6 +552,19 @@
 
     .footer-news-submit {
       width: 100%;
+    }
+  }
+
+  /* Seven networks stay on one row down to 320px: 34px targets (well above the 24px
+     minimum) with 6px gaps = 274px. After the 640px block so it wins there. */
+  @media (max-width: 400px) {
+    .footer-social {
+      gap: 0.375rem;
+    }
+
+    .footer-social-link {
+      width: 34px;
+      height: 34px;
     }
   }
 </style>
