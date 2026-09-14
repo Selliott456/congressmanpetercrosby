@@ -12,8 +12,6 @@
 			<span class="announce-date">{$messages.announcement.electionDay}</span>
 		</p>
 		<div class="announce-right">
-			<!-- The Data Room sits here rather than in the header, whose link row is full. -->
-			<a class="announce-data" href="/data-room">{$messages.announcement.dataRoom}</a>
 			<a
 				class="announce-register"
 				href="https://vote.utah.gov"
@@ -87,24 +85,6 @@
 		transition: color 0.2s ease;
 	}
 
-	.announce-data {
-		font-family: var(--mono);
-		font-size: 0.6875rem;
-		font-weight: 600;
-		letter-spacing: 0.06em;
-		text-transform: uppercase;
-		color: var(--paper);
-		text-decoration: none;
-		white-space: nowrap;
-		transition: color 0.2s ease;
-	}
-
-	.announce-data:hover {
-		color: var(--sky);
-		text-decoration: underline;
-		text-underline-offset: 3px;
-	}
-
 	.announce-register:hover {
 		color: var(--paper);
 		text-decoration: underline;
@@ -115,15 +95,6 @@
 		margin-left: 0.3em;
 		font-weight: 400;
 		text-decoration: none;
-	}
-
-	/* Wherever the header collapses to the menu (below 1180px), the menu carries the
-	   Data Room. Keeping it here too would squeeze the election dates, which truncate
-	   first — in Spanish, from tablet widths down. */
-	@media (max-width: 1179px) {
-		.announce-data {
-			display: none;
-		}
 	}
 
 	@media (max-width: 640px) {

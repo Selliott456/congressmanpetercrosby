@@ -91,7 +91,6 @@ const en = {
 		ballotsMail: 'Ballots Mail · Oct 13, 2026',
 		electionDay: 'Election Day · Tue, Nov 3',
 		registerToVote: 'Register to Vote',
-		dataRoom: 'Data Room',
 		/** Names the bar as a landmark, so screen readers can find or skip it. */
 		ariaLabel: 'Election dates and voter tools'
 	},
@@ -311,7 +310,6 @@ const es: Messages = {
 		ballotsMail: 'Boletas por correo · 13 oct 2026',
 		electionDay: 'Día de elecciones · mar 3 nov',
 		registerToVote: 'Regístrese para votar',
-		dataRoom: 'Sala de datos',
 		ariaLabel: 'Fechas electorales y herramientas para votantes'
 	},
 	endorsements: {
