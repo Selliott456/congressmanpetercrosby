@@ -239,45 +239,6 @@ export const likertQuestions: LikertQuestion[] = [
 ];
 
 /**
- * Soft support for the incumbent, by party. Share saying they are unlikely to vote
- * for Rep. Moore, or are unsure. Reported in the release prose as crosstabs.
- */
-export type CrosstabRow = {
-	/** Stable id — keys the Spanish override in `$messages.analytics.byId`. */
-	id: string;
-	group: string;
-	value: number;
-	/** Share of the district electorate this group represents, where reported. */
-	electorateShare?: number;
-	note?: string;
-};
-
-export const softSupportByParty: Dataset<CrosstabRow> = {
-	pollId: 'internal-aug-2026',
-	rows: [
-		{
-			id: 'soft-all',
-			group: 'All district voters',
-			value: 70,
-			note: 'Unlikely to vote for Moore, or unsure'
-		},
-		{
-			id: 'soft-unaffiliated',
-			group: 'Unaffiliated & independent',
-			value: 47,
-			electorateShare: 43,
-			note: 'Unlikely to vote for Moore'
-		},
-		{
-			id: 'soft-republican',
-			group: 'Registered Republicans',
-			value: 33,
-			note: 'Unlikely to vote for Moore, or unsure'
-		}
-	]
-};
-
-/**
  * Top-priority issues in August, overall and by party. Percent naming each a top
  * priority, in whole points as released. September asked the same question (see
  * `topConcerns`); the two are compared by matching `id`.
@@ -572,6 +533,15 @@ export const headlineStats = [
 		unit: '%',
 		label: 'Republicans unlikely to back Moore',
 		sub: 'Includes those who are unsure'
+	},
+	{
+		// The release gives this group's "unlikely" share only — no unsure split — so
+		// it is a separate tile, never on an axis beside the "unlikely or unsure" figures.
+		id: 'unaffiliated-waver',
+		value: 47,
+		unit: '%',
+		label: 'Unaffiliated voters unlikely to back Moore',
+		sub: 'Unaffiliated and independent voters, 43% of the electorate. Excludes those who are unsure.'
 	},
 	{
 		id: 'affordability',

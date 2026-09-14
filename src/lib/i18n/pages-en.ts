@@ -829,16 +829,6 @@ export const pagesEn = {
 			unaffiliated: 'Unaffiliated',
 			other: 'Other party'
 		},
-		softSupport: {
-			title: 'Support for the incumbent, by party',
-			takeaway:
-				'47% of unaffiliated and independent voters — 43% of the district electorate — say they are unlikely to vote for Rep. Moore. Among registered Republicans, 33% are unlikely to, or unsure.',
-			ariaLabel: 'Share unlikely to vote for Rep. Moore, or unsure, by party',
-			electorateShare: '{pct}% of the electorate',
-			colGroup: 'Group',
-			colShare: 'Share',
-			colMeasure: 'Measure'
-		},
 		/** The September 8–10 internal poll. Figures are filled in from the data file. */
 		september: {
 			heroLabel: 'A statistical tie',

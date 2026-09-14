@@ -5,7 +5,6 @@
 	import Rail from '$lib/components/Rail.svelte';
 	import ChartFrame from '$lib/components/analytics/ChartFrame.svelte';
 	import DivergingStackedBar from '$lib/components/analytics/DivergingStackedBar.svelte';
-	import DotPlot from '$lib/components/analytics/DotPlot.svelte';
 	import NetApprovalBar from '$lib/components/analytics/NetApprovalBar.svelte';
 	import MarginPlot from '$lib/components/analytics/MarginPlot.svelte';
 	import ShareBar from '$lib/components/analytics/ShareBar.svelte';
@@ -17,7 +16,6 @@
 		FEATURED_POLL_ID,
 		LAST_UPDATED,
 		likertQuestions,
-		softSupportByParty,
 		issuePriorities,
 		ballotTest,
 		topConcerns,
@@ -223,16 +221,6 @@
 	$: changeTableRows = changeGroups.flatMap((grp) =>
 		grp.rows.map((r) => [grp.label, r.label, `${r.from}%`, `${f1(r.to)}%`])
 	);
-
-	$: softSupportRows = softSupportByParty.rows.map((r) => ({
-		label: t.byId[r.id]?.label ?? r.group,
-		sublabel: r.electorateShare
-			? fill(t.softSupport.electorateShare, { pct: r.electorateShare })
-			: undefined,
-		points: [
-			{ series: t.byId[r.id]?.label ?? r.group, value: r.value, color: SERIES_COLOR }
-		]
-	}));
 
 	/** Approval rows with translated names/roles for the chart and its table. */
 	$: approvalRows = statewideApproval.rows.map((r) => ({
@@ -640,22 +628,6 @@
 					<DivergingStackedBar segments={localSegments} ariaLabel={o?.question ?? q.question} />
 				</ChartFrame>
 			{/each}
-
-			<ChartFrame
-				level={4}
-				eyebrow={t.eyebrows.crosstabs}
-				title={t.softSupport.title}
-				takeaway={t.softSupport.takeaway}
-				source={sourceFor(softSupportByParty.pollId)}
-				tableColumns={[t.softSupport.colGroup, t.softSupport.colShare, t.softSupport.colMeasure]}
-				tableRows={softSupportByParty.rows.map((r) => [
-					t.byId[r.id]?.label ?? r.group,
-					`${r.value}%`,
-					t.byId[r.id]?.note ?? r.note ?? ''
-				])}
-			>
-				<DotPlot rows={softSupportRows} max={80} ariaLabel={t.softSupport.ariaLabel} />
-			</ChartFrame>
 		</div>
 	</section>
 
@@ -1182,9 +1154,11 @@
 	}
 
 	/* ── KPI row ──────────────────────────────────────────────── */
+	/* Fixed column counts (4 → 2 → 1) rather than auto-fit: four tiles in an auto-fit
+	   grid wrap 3 + 1 at mid widths, and the empty cells show the gap color. */
 	.kpi-row {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+		grid-template-columns: repeat(4, minmax(0, 1fr));
 		gap: 1px;
 		background: var(--line-l);
 		border: 1px solid var(--line-l);
@@ -1225,6 +1199,18 @@
 		font-size: 0.8rem;
 		line-height: 1.45;
 		color: #5b6b80;
+	}
+
+	@media (max-width: 1023px) {
+		.kpi-row {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+
+	@media (max-width: 560px) {
+		.kpi-row {
+			grid-template-columns: minmax(0, 1fr);
+		}
 	}
 
 	/* Space between stacked chart cards (ChartFrame renders .frame). */

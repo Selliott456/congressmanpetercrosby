@@ -1554,17 +1554,6 @@ export const pagesEs = {
 			unaffiliated: 'No afiliados',
 			other: 'Otro partido'
 		},
-		softSupport: {
-			title: 'Apoyo al titular, por partido',
-			takeaway:
-				'El 47% de los votantes no afiliados e independientes —el 43% del electorado del distrito— dice que es poco probable que vote por el Rep. Moore. Entre los republicanos registrados, el 33% considera poco probable hacerlo, o no lo ha decidido.',
-			ariaLabel:
-				'Porcentaje con poca probabilidad de votar por el Rep. Moore, o sin decidir, por partido',
-			electorateShare: '{pct}% del electorado',
-			colGroup: 'Grupo',
-			colShare: 'Porcentaje',
-			colMeasure: 'Medida'
-		},
 		september: {
 			heroLabel: 'Un empate estadístico',
 			heroSub: 'La diferencia de {gap} puntos está dentro del margen de error de ±{moe} puntos.',
@@ -1730,21 +1719,13 @@ export const pagesEs = {
 				label: 'Republicanos con poca probabilidad de apoyar a Moore',
 				sub: 'Incluye a quienes no lo han decidido'
 			},
+			'unaffiliated-waver': {
+				label: 'No afiliados con poca probabilidad de apoyar a Moore',
+				sub: 'Votantes no afiliados e independientes, el 43% del electorado. Excluye a quienes no lo han decidido.'
+			},
 			affordability: {
 				label: 'Nombran la asequibilidad como prioridad principal',
 				sub: 'El tema mejor clasificado del distrito'
-			},
-			'soft-all': {
-				label: 'Todos los votantes del distrito',
-				note: 'Poco probable que voten por Moore, o sin decidir'
-			},
-			'soft-unaffiliated': {
-				label: 'No afiliados e independientes',
-				note: 'Poco probable que voten por Moore'
-			},
-			'soft-republican': {
-				label: 'Republicanos registrados',
-				note: 'Poco probable que voten por Moore, o sin decidir'
 			},
 			'issue-affordability': {
 				label: 'Asequibilidad',

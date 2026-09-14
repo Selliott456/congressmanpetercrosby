@@ -660,6 +660,7 @@
 				<li><strong>Two readings of the same question</strong> → dumbbell.</li>
 				<li><strong>Above or below a baseline</strong> → diverging bar around zero.</li>
 				<li><strong>A single headline number</strong> → a stat tile or hero figure, never a one-bar chart; a matchup hero when the headline is two numbers.</li>
+				<li><strong>Figures that measure different things</strong> ("unlikely" vs. "unlikely or unsure") → separate stat tiles, each naming its own measure; never one shared axis.</li>
 			</ul>
 		</div>
 	</section>
