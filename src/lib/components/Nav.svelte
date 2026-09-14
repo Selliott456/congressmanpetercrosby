@@ -68,16 +68,8 @@
   let groupEl;
   /** @type {HTMLButtonElement | undefined} */
   let groupToggle;
-  /** Panel's left edge, under its toggle, in px from the nav row. */
-  let panelLeft = 0;
-
-  function placePanel() {
-    if (groupToggle) panelLeft = groupToggle.offsetLeft;
-  }
-
   function openGroup(byHover = false) {
     clearTimeout(hoverTimer);
-    placePanel();
     groupOpen = true;
     openedByHover = byHover;
   }
@@ -170,11 +162,7 @@
   }
 </script>
 
-<svelte:window
-  on:click={onWindowClick}
-  on:keydown={onWindowKeydown}
-  on:resize={() => groupOpen && placePanel()}
-/>
+<svelte:window on:click={onWindowClick} on:keydown={onWindowKeydown} />
 
 <nav class="nav">
   <Rail />
@@ -202,6 +190,7 @@
               class="nav-link nav-group-toggle"
               class:active={groupActive}
               aria-expanded={groupOpen}
+              aria-controls="nav-newsroom-panel"
               bind:this={groupToggle}
               on:click={onToggleClick}
             >
@@ -217,33 +206,32 @@
                 <path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" />
               </svg>
             </button>
-            {#if groupOpen}
-              <!-- Hangs from the bottom of the nav bar, under its toggle. -->
-              <div class="nav-dropdown" style="left:{panelLeft}px">
-                <Rail height="3px" />
-                <ul class="nav-dropdown-list">
-                  {#each link.children as child}
-                    <li>
-                      <a
-                        href={child.href}
-                        class="nav-dropdown-link"
-                        class:current={isCurrentChild(child)}
-                        aria-current={isCurrentChild(child) ? "page" : undefined}
-                        on:click={closeGroup}
-                      >
-                        <span class="nav-dropdown-label">
-                          {child.label}
-                          {#if child.isNew}<span class="nav-new">{$messages.nav.newsroom.newTag}</span>{/if}
-                        </span>
-                        {#if child.desc}
-                          <span class="nav-dropdown-desc">{child.desc}</span>
-                        {/if}
-                      </a>
-                    </li>
-                  {/each}
-                </ul>
-              </div>
-            {/if}
+            <!-- Sits just under its toggle. Always rendered (hidden when closed) so the
+                 toggle's aria-controls always points at a real element. -->
+            <div id="nav-newsroom-panel" class="nav-dropdown" hidden={!groupOpen}>
+              <Rail height="3px" />
+              <ul class="nav-dropdown-list">
+                {#each link.children as child}
+                  <li>
+                    <a
+                      href={child.href}
+                      class="nav-dropdown-link"
+                      class:current={isCurrentChild(child)}
+                      aria-current={isCurrentChild(child) ? "page" : undefined}
+                      on:click={closeGroup}
+                    >
+                      <span class="nav-dropdown-label">
+                        {child.label}
+                        {#if child.isNew}<span class="nav-new">{$messages.nav.newsroom.newTag}</span>{/if}
+                      </span>
+                      {#if child.desc}
+                        <span class="nav-dropdown-desc">{child.desc}</span>
+                      {/if}
+                    </a>
+                  </li>
+                {/each}
+              </ul>
+            </div>
           </li>
         {:else if link.href}
           <li>
@@ -294,6 +282,7 @@
               class="nav-menu-link nav-menu-group-toggle"
               class:active={groupActive}
               aria-expanded={menuGroupOpen}
+              aria-controls="nav-menu-newsroom"
               on:click={() => (menuGroupOpen = !menuGroupOpen)}
             >
               <span class="nav-menu-link-inner">{link.label}</span>
@@ -308,24 +297,22 @@
                 <path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" />
               </svg>
             </button>
-            {#if menuGroupOpen}
-              <ul class="nav-menu-sub">
-                {#each link.children as child}
-                  <li>
-                    <a
-                      href={child.href}
-                      class="nav-menu-sublink"
-                      class:active={isCurrentChild(child)}
-                      aria-current={isCurrentChild(child) ? "page" : undefined}
-                      on:click={() => (menuOpen = false)}
-                    >
-                      {child.label}
-                      {#if child.isNew}<span class="nav-new">{$messages.nav.newsroom.newTag}</span>{/if}
-                    </a>
-                  </li>
-                {/each}
-              </ul>
-            {/if}
+            <ul id="nav-menu-newsroom" class="nav-menu-sub" hidden={!menuGroupOpen}>
+              {#each link.children as child}
+                <li>
+                  <a
+                    href={child.href}
+                    class="nav-menu-sublink"
+                    class:active={isCurrentChild(child)}
+                    aria-current={isCurrentChild(child) ? "page" : undefined}
+                    on:click={() => (menuOpen = false)}
+                  >
+                    {child.label}
+                    {#if child.isNew}<span class="nav-new">{$messages.nav.newsroom.newTag}</span>{/if}
+                  </a>
+                </li>
+              {/each}
+            </ul>
           </li>
         {:else if link.href}
           <li>
@@ -370,8 +357,6 @@
   }
 
   .nav-inner {
-    /* Positioning context for the Newsroom panel, so it hangs from the bar's bottom. */
-    position: relative;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0.75rem 1.5rem;
@@ -481,14 +466,28 @@
     transform: rotate(180deg);
   }
 
+  /* Positioning context for the panel, so it opens just under its own toggle
+     rather than at the bottom of the (tall, logo-driven) bar. */
+  .nav-group {
+    position: relative;
+  }
+
   .nav-dropdown {
     position: absolute;
-    top: 100%;
+    top: calc(100% + 0.375rem);
+    left: 0;
     z-index: 10;
     min-width: 19rem;
     background: var(--ink-deep);
     border: 1px solid rgba(247, 250, 252, 0.14);
     border-top: 0;
+  }
+
+  /* Both Newsroom lists stay in the DOM (so aria-controls resolves) and are toggled
+     with `hidden`; their own display rules would otherwise override it. */
+  .nav-dropdown[hidden],
+  .nav-menu-sub[hidden] {
+    display: none;
   }
 
   /* An invisible bridge over the gap between the toggle and the panel, so moving
@@ -499,7 +498,7 @@
     left: 0;
     right: 0;
     bottom: 100%;
-    height: 2.5rem;
+    height: 0.5rem;
   }
 
   .nav-dropdown-list {

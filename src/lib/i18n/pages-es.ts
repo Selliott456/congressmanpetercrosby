@@ -737,21 +737,23 @@ export const pagesEs = {
 		} as Record<string, { role: string }>
 	},
 	media: {
-		eyebrow: 'Medios',
-		title: 'Lo más reciente de la campaña',
-		viewAll: 'Ver todo',
+		eyebrow: 'Sala de prensa',
+		title: 'Cobertura en medios',
+		viewAll: 'Toda la cobertura en medios',
 		kindVideo: 'Video',
 		kindArticle: 'Artículo',
 		kindOpEd: 'Columna',
 		kindPressRelease: 'Comunicado',
 		closeVideo: 'Cerrar video',
-		pinnedEyebrow: 'Destacados',
+		pinnedEyebrow: 'Sala de prensa',
 		pinnedTitle: 'Medios destacados',
-		metaTitle: 'Medios — Peter Crosby para el Congreso',
+		metaTitle: 'Sala de prensa — Peter Crosby para el Congreso',
 		metaDescription:
-			'Videos, columnas y entrevistas de la campaña Peter Crosby para el Congreso.',
-		pageTitle: 'Todo el contenido',
-		pageLede: 'Videos, columnas y entrevistas de toda la campaña.',
+			'Cobertura en medios, entrevistas y comunicados de prensa de la campaña Peter Crosby para el Congreso.',
+		pageEyebrow: 'En las noticias',
+		pageTitle: 'Cobertura en medios',
+		pageLede: 'Entrevistas, cobertura y comunicados de toda la campaña.',
+		chipsLabel: 'Secciones de la sala de prensa',
 		byId: {
 			'our-vote-counts-interview': {
 				title: 'Entrevista — Our Vote Counts',
@@ -830,14 +832,14 @@ export const pagesEs = {
 	},
 	pressReleases: {
 		kind: 'Comunicado',
-		eyebrow: 'Sala de prensa',
+		eyebrow: 'De la campaña',
 		sectionTitle: 'Comunicados de prensa',
 		sectionLede:
 			'Declaraciones y anuncios oficiales de la campaña, y comunicados emitidos por organizaciones que la respaldan.',
 		homeTitle: 'Comunicados de prensa',
 		readMore: 'Leer el comunicado',
 		viewAll: 'Ver todos los comunicados',
-		backToMedia: 'Volver a medios',
+		backToReleases: 'Todos los comunicados de prensa',
 		forImmediateRelease: 'Para publicación inmediata',
 		issuedBy: 'Comunicado emitido por',
 		externalTag: 'Organización que respalda',

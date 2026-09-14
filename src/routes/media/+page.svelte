@@ -18,15 +18,23 @@
 				<p class="media-block-eyebrow">{$messages.media.pinnedEyebrow}</p>
 				<h1 class="media-block-title">{$messages.media.pinnedTitle}</h1>
 				<p class="media-block-lede">{$messages.media.pageLede}</p>
+				<!-- The same three destinations as the Newsroom menu in the header. -->
+				<nav class="media-jump" aria-label={$messages.media.chipsLabel}>
+					<ul>
+						<li><a href="#coverage">{$messages.nav.newsroom.media}<span aria-hidden="true">↓</span></a></li>
+						<li><a href="#press">{$messages.nav.newsroom.press}<span aria-hidden="true">↓</span></a></li>
+						<li><a href="/data-room">{$messages.nav.newsroom.data}<span aria-hidden="true">→</span></a></li>
+					</ul>
+				</nav>
 			</div>
 			<MediaGrid items={featuredMedia} />
 		</div>
 	</section>
 
-	<section class="media-block media-block--rest">
+	<section id="coverage" class="media-block media-block--rest">
 		<div class="media-block-inner">
 			<div class="media-block-head">
-				<p class="media-block-eyebrow">{$messages.media.eyebrow}</p>
+				<p class="media-block-eyebrow">{$messages.media.pageEyebrow}</p>
 				<h2 class="media-block-title">{$messages.media.pageTitle}</h2>
 			</div>
 			<MediaGrid items={restMedia} variant="light" />
@@ -58,6 +66,8 @@
 	.media-block--rest {
 		background: var(--paper);
 		color: var(--ink);
+		/* Clear the sticky nav when jumped to via /media#coverage. */
+		scroll-margin-top: 5rem;
 	}
 
 	/* Press releases sit on the same deep-navy ground as the Featured band. */
@@ -141,6 +151,46 @@
 		font-size: 1.125rem;
 		line-height: 1.5;
 		color: rgba(247, 250, 252, 0.8);
+	}
+
+	/* Shortcut links under the lede — square, hairline chips, like the header's
+	   Newsroom menu they mirror. */
+	.media-jump ul {
+		list-style: none;
+		margin: 1.4rem 0 0;
+		padding: 0;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
+
+	.media-jump a {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.5rem 0.85rem;
+		border: 1px solid rgba(247, 250, 252, 0.28);
+		font-family: var(--display);
+		font-style: italic;
+		font-weight: 800;
+		font-size: 0.8125rem;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: var(--sky);
+		text-decoration: none;
+		transition:
+			background-color 0.15s ease,
+			border-color 0.15s ease;
+	}
+
+	.media-jump span {
+		font-style: normal;
+	}
+
+	.media-jump a:hover,
+	.media-jump a:focus-visible {
+		background: rgba(247, 250, 252, 0.08);
+		border-color: var(--sky);
 	}
 
 	@media (max-width: 768px) {

@@ -72,7 +72,7 @@
 	<div class="press-rail"><Rail /></div>
 
 	<article class="press-article">
-		<a href="/media#press" class="press-back">&larr; {$messages.pressReleases.backToMedia}</a>
+		<a href="/media#press" class="press-back">&larr; {$messages.pressReleases.backToReleases}</a>
 
 		{#if release.source}
 			<!-- Issued by another organization: name the source above the headline so the

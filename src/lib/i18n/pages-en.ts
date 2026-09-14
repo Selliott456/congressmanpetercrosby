@@ -294,33 +294,40 @@ export const pagesEn = {
 		byId: {} as Record<string, { role: string }>
 	},
 	media: {
-		eyebrow: 'Media',
-		title: 'Latest from the Campaign',
-		viewAll: 'View all media',
+		/** Home: heads the Media + Press rows, which read as one Newsroom block. */
+		eyebrow: 'Newsroom',
+		title: 'Media Coverage',
+		viewAll: 'All media coverage',
 		kindVideo: 'Video',
 		kindArticle: 'Article',
 		kindOpEd: 'Op-Ed',
 		kindPressRelease: 'Press Release',
 		closeVideo: 'Close video',
-		pinnedEyebrow: 'Featured',
+		/** /media is the Newsroom's hub: Media coverage and Press releases both land here. */
+		pinnedEyebrow: 'Newsroom',
 		pinnedTitle: 'Featured Media',
-		metaTitle: 'Media — Peter Crosby for Congress',
+		metaTitle: 'Newsroom — Peter Crosby for Congress',
 		metaDescription:
-			'Videos, op-eds, and interviews from the Peter Crosby for Congress campaign.',
-		pageTitle: 'All Media',
-		pageLede: 'Videos, op-eds, and interviews from across the campaign.',
+			'Media coverage, interviews, and press releases from the Peter Crosby for Congress campaign.',
+		pageEyebrow: 'In the news',
+		pageTitle: 'Media Coverage',
+		pageLede: 'Interviews, coverage, and statements from across the campaign.',
+		/** Accessible name for the shortcut links under the /media lede. */
+		chipsLabel: 'Newsroom sections',
 		byId: {} as Record<string, { title: string; description?: string }>
 	},
 	pressReleases: {
 		kind: 'Press Release',
-		eyebrow: 'Newsroom',
+		/** Under the Newsroom block on home and /media: coverage is "In the news", releases are this. */
+		eyebrow: 'From the campaign',
 		sectionTitle: 'Press Releases',
 		sectionLede:
 			'Official statements and announcements from the campaign, and releases issued by organizations endorsing it.',
 		homeTitle: 'Press Releases',
 		readMore: 'Read the release',
 		viewAll: 'View all press releases',
-		backToMedia: 'Back to media',
+		/** Back link on a release page; it goes to /media#press. */
+		backToReleases: 'All press releases',
 		forImmediateRelease: 'For immediate release',
 		/** Shown instead of "For immediate release" when another organization issued it. */
 		issuedBy: 'Release issued by',
