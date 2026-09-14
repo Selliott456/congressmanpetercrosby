@@ -41,7 +41,8 @@
 </script>
 
 <svelte:head>
-	<title>Peter Crosby for Congress</title>
+	<!-- No <title> here: every page sets its own. A layout title is written to
+	     document.title after the page's on hydration, so it overrode every page. -->
 	<!-- Favicons live in src/app.html. Nav logo: discover early on every route -->
 	<link
 		rel="preload"
