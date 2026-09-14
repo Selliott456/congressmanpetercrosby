@@ -94,8 +94,9 @@
 			<span class="scale-label">{scaleLabel}</span>
 			<span class="scale-bar">
 				<span class="scale-ramp" style="background:{bands}"></span>
+				<!-- Each label is pinned to its band edge and centered on it. -->
 				<span class="scale-ticks">
-					{#each edges as edge}<span>{edge}%</span>{/each}
+					{#each edges as edge, i}<span style="left:{(i / steps) * 100}%">{edge}%</span>{/each}
 				</span>
 			</span>
 		</div>
@@ -193,9 +194,11 @@
 		color: var(--blue);
 	}
 
-	/* The reference column gets a wider gap after it. */
+	/* The reference column (the total) is set apart from the group columns by a clear
+	   16px break — 14px here plus the 2px cell gap. Narrower, it read as a rendering
+	   seam rather than a deliberate division. */
 	.ref {
-		border-right: 6px solid var(--paper);
+		border-right: 14px solid var(--paper);
 		background-clip: padding-box;
 	}
 
@@ -226,14 +229,20 @@
 		height: 8px;
 	}
 
-	/* One label per step boundary, spread evenly so each sits under its edge. */
 	.scale-ticks {
-		display: flex;
-		justify-content: space-between;
+		position: relative;
+		height: 0.9rem;
 		margin-top: 0.2rem;
 		font-family: var(--mono);
 		font-size: 0.6rem;
 		color: #5b6b80;
+	}
+
+	.scale-ticks span {
+		position: absolute;
+		top: 0;
+		transform: translateX(-50%);
+		white-space: nowrap;
 	}
 
 	.visually-hidden {
