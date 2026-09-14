@@ -127,6 +127,11 @@ export const pagesEs = {
 			'¿Escribe desde la prensa o solo tiene una pregunta? Elija un tema y envíenos un mensaje—la campaña le responderá.',
 		emailLabel: 'Correo',
 		phoneLabel: 'Teléfono',
+		mailLabel: 'Correo postal',
+		mailNote:
+			'¿Dona con cheque? Hágalo a nombre de Peter Crosby for Congress y envíelo a esta dirección. Por favor incluya su:',
+		mailRequired: ['Nombre completo', 'Dirección', 'Ocupación', 'Empleador'],
+		mailLaw: 'La ley federal nos exige pedir estos cuatro datos.',
 		volunteerPrompt: '¿Quiere colaborar con la campaña?',
 		volunteerCta: 'Sea voluntario',
 		topicLegend: '¿En qué podemos ayudarle?',
