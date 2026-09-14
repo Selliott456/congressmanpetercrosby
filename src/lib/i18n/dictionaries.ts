@@ -108,6 +108,7 @@ const en = {
 		}
 	},
 	home: {
+		metaTitle: 'Peter Crosby for Congress',
 		metaDescription:
 			'Peter Crosby for U.S. Congress, Utah District 2. Integrity, practical solutions, and a representative who puts Northern Utah first.',
 		heroKicker: 'U.S. Congress · Utah District 2',
@@ -314,6 +315,7 @@ const es: Messages = {
 		}
 	},
 	home: {
+		metaTitle: 'Peter Crosby para el Congreso',
 		metaDescription:
 			'Peter Crosby para el Congreso de EE. UU., Distrito 2 de Utah. Integridad, soluciones prácticas y un representante que pone primero al norte de Utah.',
 		heroKicker: 'Congreso de EE. UU. · Distrito 2 de Utah',

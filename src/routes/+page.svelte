@@ -15,7 +15,7 @@
 </script>
 
 <svelte:head>
-  <title>Peter Crosby for Congress</title>
+  <title>{$messages.home.metaTitle}</title>
   <meta name="description" content={$messages.home.metaDescription} />
   <!-- Hero LCP: Peter portrait before CSS paints -->
   <link rel="preload" href="/images/peter.jpg" as="image" />
