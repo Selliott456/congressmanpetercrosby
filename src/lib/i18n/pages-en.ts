@@ -5,7 +5,11 @@ export const pagesEn = {
 	common: {
 		donate: 'Donate',
 		viewEvent: 'View Event →',
-		optional: 'optional'
+		optional: 'optional',
+		/** Link previews (PageMeta): og:site_name, and alt text for the branded share card. */
+		siteName: 'Peter Crosby for Congress',
+		shareImageAlt:
+			'Peter Crosby for Congress — The Voice for Northern Utah. U.S. Congress, Utah District 2.'
 	},
 	about: {
 		metaTitle: 'About Peter Crosby — Peter Crosby for Congress',

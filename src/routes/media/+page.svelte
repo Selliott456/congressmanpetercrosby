@@ -1,15 +1,13 @@
 <script>
 	import { messages } from '$lib/i18n/locale';
+	import PageMeta from '$lib/components/PageMeta.svelte';
 	import { featuredMedia, restMedia } from '$lib/data/media';
 	import { pressReleasesByRecent } from '$lib/data/pressReleases';
 	import MediaGrid from '$lib/components/MediaGrid.svelte';
 	import PressReleaseGrid from '$lib/components/PressReleaseGrid.svelte';
 </script>
 
-<svelte:head>
-	<title>{$messages.media.metaTitle}</title>
-	<meta name="description" content={$messages.media.metaDescription} />
-</svelte:head>
+<PageMeta title={$messages.media.metaTitle} description={$messages.media.metaDescription} />
 
 <main class="media-page">
 	<section class="media-block media-block--pinned">

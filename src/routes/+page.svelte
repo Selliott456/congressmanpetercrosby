@@ -11,12 +11,13 @@
   import Media from "$lib/components/Media.svelte";
   import PressReleases from "$lib/components/PressReleases.svelte";
   import { messages } from "$lib/i18n/locale";
+  import PageMeta from "$lib/components/PageMeta.svelte";
   import { socialLinks } from "$lib/data/socialLinks";
 </script>
 
+<PageMeta title={$messages.home.metaTitle} description={$messages.home.metaDescription} />
+
 <svelte:head>
-  <title>{$messages.home.metaTitle}</title>
-  <meta name="description" content={$messages.home.metaDescription} />
   <!-- Hero LCP: Peter portrait before CSS paints -->
   <link rel="preload" href="/images/peter.jpg" as="image" />
 </svelte:head>

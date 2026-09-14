@@ -3,6 +3,7 @@
 	import Rail from '$lib/components/Rail.svelte';
 	import Button from '$lib/components/Button.svelte';
 	import { messages } from '$lib/i18n/locale';
+	import PageMeta from '$lib/components/PageMeta.svelte';
 
 	const EMAIL = 'information@petercrosbyforcongress.org';
 	const [EMAIL_USER, EMAIL_DOMAIN] = EMAIL.split('@');
@@ -45,10 +46,7 @@
 	}
 </script>
 
-<svelte:head>
-	<title>{$messages.volunteer.metaTitle}</title>
-	<meta name="description" content={$messages.volunteer.metaDescription} />
-</svelte:head>
+<PageMeta title={$messages.volunteer.metaTitle} description={$messages.volunteer.metaDescription} />
 
 <main class="contact-page">
 	<div class="contact-inner">

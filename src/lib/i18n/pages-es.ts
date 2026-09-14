@@ -6,7 +6,10 @@ export const pagesEs = {
 	common: {
 		donate: 'Donar',
 		viewEvent: 'Ver evento →',
-		optional: 'opcional'
+		optional: 'opcional',
+		siteName: 'Peter Crosby para el Congreso',
+		shareImageAlt:
+			'Peter Crosby para el Congreso — La voz del norte de Utah. Congreso de EE. UU., Distrito 2 de Utah.'
 	},
 	about: {
 		metaTitle: 'Acerca de Peter Crosby — Peter Crosby para el Congreso',

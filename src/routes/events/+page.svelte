@@ -2,6 +2,7 @@
 	import { onMount, tick } from 'svelte';
 	import { eventsData } from '$lib/data/events';
 	import { messages } from '$lib/i18n/locale';
+	import PageMeta from '$lib/components/PageMeta.svelte';
 	import EventCard from '$lib/components/EventCard.svelte';
 	import RsvpModal from '$lib/components/RsvpModal.svelte';
 
@@ -180,10 +181,7 @@
 	}
 </script>
 
-<svelte:head>
-	<title>{$messages.events.metaTitle}</title>
-	<meta name="description" content={$messages.events.metaDescription} />
-</svelte:head>
+<PageMeta title={$messages.events.metaTitle} description={$messages.events.metaDescription} />
 
 <main class="events-page">
 	<header class="events-header">

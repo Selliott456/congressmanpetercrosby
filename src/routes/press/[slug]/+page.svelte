@@ -1,5 +1,6 @@
 <script>
 	import { locale, messages } from '$lib/i18n/locale';
+	import PageMeta from '$lib/components/PageMeta.svelte';
 	import Rail from '$lib/components/Rail.svelte';
 	import Button from '$lib/components/Button.svelte';
 	import PressBarChart from '$lib/components/PressBarChart.svelte';
@@ -60,10 +61,15 @@
 	$: sourceLogoAlt = override?.sourceLogoAlt ?? release.source?.logoAlt ?? sourceName;
 </script>
 
-<svelte:head>
-	<title>{title} — {$messages.pressReleases.metaTitle}</title>
-	<meta name="description" content={summary} />
-</svelte:head>
+<!-- Shared links preview with the release's own thumbnail; the branded card if it has none. -->
+<PageMeta
+	title={`${title} — ${$messages.pressReleases.metaTitle}`}
+	description={summary}
+	image={release.image}
+	imageAlt={title}
+	type="article"
+	published={release.date}
+/>
 
 <main class="press-page">
 	<!-- Outside the article so the stripe spans the viewport, matching the band under

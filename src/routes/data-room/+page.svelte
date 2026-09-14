@@ -1,6 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 	import { messages, locale } from '$lib/i18n/locale';
+	import PageMeta from '$lib/components/PageMeta.svelte';
 	import { fill, fillParts } from '$lib/i18n/interpolate';
 	import Rail from '$lib/components/Rail.svelte';
 	import ChartFrame from '$lib/components/analytics/ChartFrame.svelte';
@@ -339,10 +340,7 @@
 	});
 </script>
 
-<svelte:head>
-	<title>{t.metaTitle}</title>
-	<meta name="description" content={t.metaDescription} />
-</svelte:head>
+<PageMeta title={t.metaTitle} description={t.metaDescription} />
 
 <main class="analytics" style="--analytics-nav-top: {navTop}px; --analytics-anchor: {anchorOffset}px;">
 	<!-- ── Masthead — deliberately source-neutral, so new datasets can slot in ── -->

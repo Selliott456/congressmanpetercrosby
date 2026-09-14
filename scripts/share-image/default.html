@@ -1,0 +1,118 @@
+<!doctype html>
+<!--
+  Source for the default link-preview card (1200×630), rendered by render.sh into
+  static/images/share/. Brand: deep navy ground, the green/sky/civic rail, the white
+  logo, Archivo italic display type, JetBrains Mono for the address. Square corners,
+  no shadows. Keep the copy in step with the home hero (heroKicker / heroTitle).
+-->
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@1,800;1,900&family=JetBrains+Mono:wght@500&display=block"
+			rel="stylesheet"
+		/>
+		<style>
+			html,
+			body {
+				margin: 0;
+				width: 1200px;
+				height: 630px;
+				overflow: hidden;
+				background: #091b36;
+			}
+
+			.card {
+				position: relative;
+				box-sizing: border-box;
+				width: 1200px;
+				height: 630px;
+				padding: 14px 64px 0;
+				display: grid;
+				/* Center the logo + copy group so the side margins stay equal. */
+				grid-template-columns: auto auto;
+				justify-content: center;
+				align-items: center;
+				gap: 64px;
+				color: #f7fafc;
+			}
+
+			.rail {
+				position: absolute;
+				inset: 0 0 auto;
+				height: 14px;
+				display: flex;
+			}
+
+			.rail i {
+				flex: 1;
+			}
+
+			.logo {
+				display: block;
+				height: 300px;
+				width: auto;
+			}
+
+			.copy {
+				padding-left: 76px;
+				border-left: 2px solid rgba(247, 250, 252, 0.16);
+			}
+
+			.eyebrow {
+				margin: 0;
+				display: flex;
+				align-items: center;
+				gap: 18px;
+				font-family: 'Archivo', sans-serif;
+				font-style: italic;
+				font-weight: 800;
+				font-size: 23px;
+				letter-spacing: 0.2em;
+				text-transform: uppercase;
+				color: #7fb7dc;
+			}
+
+			.eyebrow::before {
+				content: '';
+				width: 48px;
+				height: 4px;
+				background: #7fb7dc;
+			}
+
+			h1 {
+				margin: 26px 0 0;
+				font-family: 'Archivo', sans-serif;
+				font-style: italic;
+				font-weight: 900;
+				font-size: 88px;
+				line-height: 0.98;
+				letter-spacing: -0.035em;
+			}
+
+			.url {
+				margin: 34px 0 0;
+				font-family: 'JetBrains Mono', monospace;
+				font-weight: 500;
+				font-size: 21px;
+				letter-spacing: 0.08em;
+				text-transform: uppercase;
+				color: #d6e2ee;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="card">
+			<div class="rail">
+				<i style="background: #235926"></i><i style="background: #7fb7dc"></i
+				><i style="background: #2e5fa0"></i>
+			</div>
+			<img class="logo" src="../../static/images/brand_strategy_logo_white.svg" alt="" />
+			<div class="copy">
+				<p class="eyebrow">U.S. Congress · Utah District 2</p>
+				<h1>The Voice for Northern&nbsp;Utah</h1>
+				<p class="url">petercrosbyforcongress.org</p>
+			</div>
+		</div>
+	</body>
+</html>

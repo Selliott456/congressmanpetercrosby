@@ -1,5 +1,6 @@
 import { pressReleases } from '$lib/data/pressReleases';
 import { LAST_UPDATED } from '$lib/data/analytics';
+import { SITE_ORIGIN as ORIGIN } from '$lib/site';
 import type { RequestHandler } from './$types';
 
 /**
@@ -14,8 +15,6 @@ import type { RequestHandler } from './$types';
  * hreflang alternates. static/robots.txt points crawlers here.
  */
 export const prerender = true;
-
-const ORIGIN = 'https://www.petercrosbyforcongress.org';
 
 type Entry = { path: string; lastmod?: string };
 
