@@ -394,7 +394,7 @@ export const pagesEn = {
 					},
 					{
 						type: 'p',
-						text: 'Since we started this campaign, I have hosted over 40 town halls and visited countless community events. I have personally spoken with thousands of regular people from every walk of life and political background, and our campaign volunteers have added thousands more. The key concerns surfaced in these conversations are summed up in the following areas:'
+						text: 'Since we started this campaign, I have hosted over 35 town halls and visited countless community events. I have personally spoken with thousands of regular people from every walk of life and political background, and our campaign volunteers have added thousands more. The key concerns surfaced in these conversations are summed up in the following areas:'
 					},
 					{
 						type: 'ul',

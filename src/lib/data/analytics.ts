@@ -519,7 +519,8 @@ export const coxApprovalTrend = {
 /**
  * Campaign-reported operational counts, not survey results — labeled as such in the UI.
  * Volunteers and donors are as of the August release. Town halls use the campaign's own
- * current figure (over 40 as of September 2026), which counts in-person and virtual
+ * current figure (35 as of September 2026, shown as 35+ because they host weekly; an
+ * earlier "over 40" was corrected by the campaign), which counts in-person and virtual
  * together. The August release's split (28 in person, 4 virtual) is out of date and no
  * newer split has been published, so the page shows one combined total.
  */
@@ -527,7 +528,7 @@ export const groundGame = [
 	{
 		id: 'ground-townhalls',
 		label: 'Town halls',
-		value: 40,
+		value: 35,
 		unit: '+',
 		note: 'In person and virtual, across UT-02 since launch'
 	},
