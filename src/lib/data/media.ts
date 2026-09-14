@@ -220,9 +220,9 @@ export const restMedia: MediaItem[] = mediaByRecent.filter((m) => !m.pinned);
 /**
  * The latest press release, shaped as a MediaItem so it can headline the /media
  * "Featured" grid. English title/summary/image come straight from the release
- * (single source of truth); it links to the press detail page. Spanish copy is
- * looked up by id in `$messages.media.byId` — add an override there when a new
- * release becomes the latest (it falls back to the English title otherwise).
+ * (single source of truth); it links to the press detail page. Its Spanish comes
+ * from the release's own `$messages.pressReleases.byId` entry (MediaCard falls back
+ * to it), so a new release needs no separate `media.byId` override.
  */
 const latestPressAsMedia: MediaItem | null = pressReleasesByRecent[0]
 	? {

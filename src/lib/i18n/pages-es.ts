@@ -6,9 +6,10 @@ export const pagesEs = {
 	common: {
 		donate: 'Donar',
 		viewEvent: 'Ver evento →',
-		googleCalendar: 'Google Calendar',
-		ics: 'ICS',
-		optional: 'opcional'
+		optional: 'opcional',
+		siteName: 'Peter Crosby para el Congreso',
+		shareImageAlt:
+			'Peter Crosby para el Congreso — La voz del norte de Utah. Congreso de EE. UU., Distrito 2 de Utah.'
 	},
 	about: {
 		metaTitle: 'Acerca de Peter Crosby — Peter Crosby para el Congreso',
@@ -179,41 +180,6 @@ export const pagesEs = {
 		successBody:
 			'Gracias por sumarse—alguien de la campaña se pondrá en contacto sobre los próximos pasos.',
 		sendAnother: 'Enviar otra respuesta'
-	},
-	pastInterviews: {
-		metaTitle: 'Entrevistas anteriores — Peter Crosby para el Congreso',
-		metaDescription:
-			'Entrevistas y cabildos anteriores con Peter Crosby en Our Vote Counts, Hal Stewart y más.',
-		pageTitle: 'Entrevistas anteriores',
-		intro: 'Entrevistas virtuales y cabildos de la campaña.',
-		ariaYoutube: 'YouTube',
-		ariaWebsite: 'Sitio web',
-		items: [
-			{
-				id: 'pi-1',
-				month: 'Dic',
-				day: '16',
-				year: 2024,
-				title: 'Entrevista - Our Vote Counts',
-				time: '3:30 PM – 4:30 PM',
-				description:
-					'Our Vote Counts y yo participamos en una entrevista virtual y cabildo donde hablamos de muchos temas que enfrentan nuestro distrito y el país. Puede ver la entrevista completa en YouTube.',
-				viewEventUrl: 'https://www.youtube.com/watch?v=kHJBykNy9zg',
-				platform: 'youtube' as const
-			},
-			{
-				id: 'pi-2',
-				month: 'Nov',
-				day: '17',
-				year: 2024,
-				title: 'Entrevista - Hal Stewart',
-				time: '3:30 PM – 4:30 PM',
-				description:
-					'Hal Stewart me entrevistó al inicio de mi campaña. Si quiere ver cómo empezamos, esta es la primera vez que di públicamente que quería ayudar al norte de Utah.',
-				viewEventUrl: 'https://www.petercrosbyforcongress.org/events-2-1/e08a9jyyxhlt8r691kitsl9ic1m3yg',
-				platform: 'website' as const
-			}
-		]
 	},
 	events: {
 		metaTitle: 'Eventos — Peter Crosby para el Congreso',
@@ -737,21 +703,23 @@ export const pagesEs = {
 		} as Record<string, { role: string }>
 	},
 	media: {
-		eyebrow: 'Medios',
-		title: 'Lo más reciente de la campaña',
-		viewAll: 'Ver todo',
+		eyebrow: 'Sala de prensa',
+		title: 'Cobertura en medios',
+		viewAll: 'Toda la cobertura en medios',
 		kindVideo: 'Video',
 		kindArticle: 'Artículo',
 		kindOpEd: 'Columna',
 		kindPressRelease: 'Comunicado',
 		closeVideo: 'Cerrar video',
-		pinnedEyebrow: 'Destacados',
+		pinnedEyebrow: 'Sala de prensa',
 		pinnedTitle: 'Medios destacados',
-		metaTitle: 'Medios — Peter Crosby para el Congreso',
+		metaTitle: 'Sala de prensa — Peter Crosby para el Congreso',
 		metaDescription:
-			'Videos, columnas y entrevistas de la campaña Peter Crosby para el Congreso.',
-		pageTitle: 'Todo el contenido',
-		pageLede: 'Videos, columnas y entrevistas de toda la campaña.',
+			'Cobertura en medios, entrevistas y comunicados de prensa de la campaña Peter Crosby para el Congreso.',
+		pageEyebrow: 'En las noticias',
+		pageTitle: 'Cobertura en medios',
+		pageLede: 'Entrevistas, cobertura y comunicados de toda la campaña.',
+		chipsLabel: 'Secciones de la sala de prensa',
 		byId: {
 			'our-vote-counts-interview': {
 				title: 'Entrevista — Our Vote Counts',
@@ -830,25 +798,130 @@ export const pagesEs = {
 	},
 	pressReleases: {
 		kind: 'Comunicado',
-		eyebrow: 'Sala de prensa',
+		eyebrow: 'De la campaña',
 		sectionTitle: 'Comunicados de prensa',
 		sectionLede:
 			'Declaraciones y anuncios oficiales de la campaña, y comunicados emitidos por organizaciones que la respaldan.',
 		homeTitle: 'Comunicados de prensa',
 		readMore: 'Leer el comunicado',
 		viewAll: 'Ver todos los comunicados',
-		backToMedia: 'Volver a medios',
+		backToReleases: 'Todos los comunicados de prensa',
 		forImmediateRelease: 'Para publicación inmediata',
 		issuedBy: 'Comunicado emitido por',
 		externalTag: 'Organización que respalda',
 		reproducedNote:
 			'Este comunicado se reproduce tal como fue emitido. El original está disponible a continuación.',
 		pressContact: 'Contacto de prensa',
+		dataRoomNote:
+			'Las cifras de este comunicado están graficadas en la Sala de datos, con tamaños de muestra, fechas de campo y márgenes de error.',
+		dataRoomLink: 'Abrir la Sala de datos',
+		dataRoomHome: 'Encuestas en la Sala de datos',
 		downloadOriginal: 'Descargar el comunicado',
 		metaTitle: 'Comunicados de prensa — Peter Crosby para el Congreso',
 		metaDescription:
 			'Comunicados de prensa y anuncios oficiales de la campaña Peter Crosby para el Congreso.',
 		byId: {
+			'september-internal-polling': {
+				title:
+					'El norte de Utah, en camino de voltear un segundo escaño del Congreso este noviembre',
+				summary:
+					'Un distrito tradicionalmente conservador y seguro está ahora en empate estadístico: Blake Moore aventaja por 1.7 puntos en la más reciente encuesta interna de la campaña Peter Crosby para el Congreso.',
+				body: [
+					{
+						type: 'p',
+						text: 'Una nueva encuesta de enfrentamiento directo realizada por la campaña Peter Crosby para el Congreso muestra al recién llegado a la política en un empate técnico con el titular republicano, el representante Blake Moore, en el recién rediseñado Distrito 2 del Congreso de Utah (CD2). La campaña divulga su encuesta interna más reciente, realizada del 8 al 10 de septiembre de 2026, que muestra al candidato demócrata codo a codo con el representante Moore. Aunque el nuevo distrito aún no ha elegido a su propio representante, [los analistas electorales tradicionales habían anticipado que sería un distrito R+15](https://www.cookpolitical.com/house/race/485416), una calificación que no se ha actualizado desde noviembre de 2025. Los datos recientes indican una realidad muy distinta sobre el terreno.'
+					},
+					{
+						type: 'p',
+						text: 'La encuesta, realizada con una muestra aleatoria de votantes registrados en los condados de Davis, Weber, Box Elder, Cache y Rich, sitúa a Crosby a 1.7 puntos de Moore en un enfrentamiento directo si la elección fuera hoy, con más del 25% de los encuestados aún indecisos. Junto con [encuestas recientes que muestran que el representante Moore es profundamente impopular en el nuevo distrito](/press/august-internal-polling), la contienda por el nuevo CD2 no solo es competitiva: ofrece una oportunidad significativa para que Utah envíe a dos representantes demócratas al Congreso en este ciclo.'
+					},
+					{
+						type: 'ul',
+						items: [
+							'El representante Moore tiene actualmente un 32.4% en las encuestas y Peter Crosby, un 30.71%.',
+							'Más del 25% de los encuestados aún no está seguro, incluido el 24% de los republicanos registrados.',
+							'La asequibilidad y la rendición de cuentas son los principales temas que identifican los encuestados (al 74.4% le preocupan los temas de asequibilidad y al 69.8%, la corrupción, el uso de información privilegiada y asuntos relacionados).'
+						]
+					},
+					{
+						type: 'chart',
+						chartTitle: 'Si la elección fuera hoy, ¿por quién votaría?',
+						yMax: 35,
+						yStep: 5,
+						bars: [
+							{ label: 'Peter Crosby', value: 30.71, color: POLL_COLORS.crosby },
+							{ label: 'Blake Moore', value: 32.41, color: POLL_COLORS.moore },
+							{ label: 'Otro', value: 3.28, color: POLL_COLORS.other },
+							{ label: 'Indeciso', value: 25.07, color: POLL_COLORS.ballotUnsure },
+							{ label: 'Ninguno de los anteriores', value: 8.53, color: POLL_COLORS.none }
+						],
+						source:
+							'Encuesta de votantes, campaña Peter Crosby para el Congreso. Sondeo interno de 762 votantes registrados seleccionados al azar en los condados de Davis, Weber, Box Elder, Cache y Rich (CD2), Utah, del 8 al 10 de septiembre de 2026. Margen de error de ±4%.'
+					},
+					{
+						type: 'chart',
+						chartTitle: 'Preferencia de voto por afiliación partidista: republicanos',
+						yMax: 50,
+						yStep: 10,
+						bars: [
+							{ label: 'Peter Crosby', value: 18, color: POLL_COLORS.crosby },
+							{ label: 'Blake Moore', value: 45.7, color: POLL_COLORS.moore },
+							{ label: 'Otro', value: 3.7, color: POLL_COLORS.other },
+							{ label: 'Indeciso', value: 24, color: POLL_COLORS.ballotUnsure },
+							{ label: 'Ninguno de los anteriores', value: 8.6, color: POLL_COLORS.none }
+						],
+						source:
+							'Encuesta de votantes, campaña Peter Crosby para el Congreso. Sondeo interno de 762 votantes registrados seleccionados al azar en los condados de Davis, Weber, Box Elder, Cache y Rich (CD2), Utah, del 8 al 10 de septiembre de 2026. Margen de error de ±4%.'
+					},
+					{
+						type: 'chart',
+						chartTitle: 'Preferencia de voto por afiliación partidista: no afiliados',
+						yMax: 40,
+						yStep: 10,
+						bars: [
+							{ label: 'Peter Crosby', value: 39.4, color: POLL_COLORS.crosby },
+							{ label: 'Blake Moore', value: 16.5, color: POLL_COLORS.moore },
+							{ label: 'Otro', value: 2.8, color: POLL_COLORS.other },
+							{ label: 'Indeciso', value: 30.3, color: POLL_COLORS.ballotUnsure },
+							{ label: 'Ninguno de los anteriores', value: 11, color: POLL_COLORS.none }
+						],
+						source:
+							'Encuesta de votantes, campaña Peter Crosby para el Congreso. Sondeo interno de 762 votantes registrados seleccionados al azar en los condados de Davis, Weber, Box Elder, Cache y Rich (CD2), Utah, del 8 al 10 de septiembre de 2026. Margen de error de ±4%.'
+					},
+					{
+						type: 'p',
+						text: 'Aunque la campaña tenía la intención de reservar estos resultados hasta después de la publicación de la encuesta independiente encargada por la Comisión de Debates de Utah, [que suele estar disponible](https://utahdebatecommission.org/about/) a principios de septiembre de cada ciclo electoral, esos datos aún no se han publicado. Los datos de la encuesta de la Comisión de Debates de Utah son importantes porque determinan los umbrales que definen qué candidatos llegan al escenario en el único debate con moderación pública programado antes del día de las elecciones. El debate del CD2 estaba previsto originalmente para el 20 de octubre, una semana completa después del envío de las boletas por correo, pero [se reprogramó para el 13 de octubre](/press/debate-rescheduled) tras las críticas del público.'
+					},
+					{
+						type: 'p',
+						text: 'Los datos de la encuesta de la campaña se ven respaldados por informes recientes a nivel estatal y nacional. Una [encuesta reciente de Deseret News/Hinckley Institute of Politics](https://www.deseret.com/politics/2026/08/17/utah-voters-disapprove-of-governor-cox-senator-lee-and-senator-curtis-in-new-poll/) encontró un ánimo cada vez más contrario a los titulares entre los votantes de Utah, con índices de aprobación en descenso para varios funcionarios electos de alto perfil. Según esa encuesta, la insatisfacción va más allá de un solo funcionario y refleja una preocupación más amplia por el liderazgo actual. El gobernador Spencer Cox está en terreno negativo: su aprobación cayó del 51% en enero al 41% en agosto. El senador Mike Lee está ahora siete puntos por debajo (39% de aprobación frente a 46% de desaprobación), el senador John Curtis ha caído a terreno negativo con un 37% de aprobación, y la Legislatura Estatal de Utah está por debajo con un 44% de aprobación y un 45% de desaprobación.'
+					},
+					{
+						type: 'p',
+						text: 'Aunque la publicación de Deseret News no incluyó datos sobre la actual delegación de Utah en la Cámara de Representantes (cuyos miembros buscan todos la reelección) por nombre, sí indicó que la confianza pública en el Congreso en su conjunto se ha desplomado a 30 puntos negativos, lo que subraya un profundo hartazgo con la disfunción política que atraviesa a todos los partidos.'
+					},
+					{
+						type: 'p',
+						text: '“Las viejas suposiciones sobre este distrito no van a decidir esta elección. Lo harán los votantes”, dijo el presidente del Partido Demócrata de Utah, Brian King. “Para los votantes de todo el norte de Utah, las prioridades son bastante claras: quieren saber cómo sus representantes van a hacer la vida más asequible y si pueden confiar en que antepongan a sus electores a los intereses especiales. Peter Crosby está conectando con los votantes porque se enfoca en hacia dónde va Utah, no en dónde ha estado Washington. Les está dando a los votantes la oportunidad de pasar la página y elegir a un representante con una perspectiva fresca y una visión para el futuro del norte de Utah. Esta encuesta muestra que ese mensaje está calando, y estamos orgullosos de respaldar a Peter mientras trabaja para ganarse el apoyo de los votantes de todo el CD2”.'
+					},
+					{
+						type: 'p',
+						text: 'El representante Blake Moore ha reaccionado notablemente a la presión de la campaña de Crosby: recientemente programó una serie de cuatro cabildos presenciales, convocados con poca antelación, en condados del recién trazado CD-2, las primeras reuniones de ese tipo desde septiembre de 2025.'
+					},
+					{
+						type: 'p',
+						text: 'Crosby ha realizado 35 cabildos públicos en todo el distrito desde que lanzó su campaña en noviembre de 2025, y tiene 6 más programados para el mes de septiembre. Si resulta electo, Crosby se ha comprometido a seguir realizando esos cabildos presenciales de manera periódica.'
+					},
+					{
+						type: 'p',
+						text: 'Con votantes que buscan una representación receptiva y enfocada en sus preocupaciones sobre la asequibilidad y la rendición de cuentas del gobierno, la campaña de Crosby entra en la etapa final del ciclo electoral de medio término en posición de competir, y de ganar, en el norte de Utah.'
+					},
+					{
+						type: 'p',
+						text: 'Peter Crosby es el candidato demócrata al Distrito 2 del Congreso de EE. UU. por Utah, candidato político por primera vez y papá de hijas. Lleva adelante una campaña de base, financiada estrictamente con dinero limpio: Peter no acepta donaciones de PAC corporativos ni financiamiento de PAC vinculados a intereses extranjeros, y ha recaudado poco más de $100,000 de donantes individuales y de pequeñas cantidades, con más del 95% procedente de aquí mismo, de Utah. La campaña se sostiene por completo con voluntarios, con más de 400 voluntarios registrados. Peter cree que los ciudadanos del norte de Utah merecen un representante que viva en el distrito, escuche sus preocupaciones y ponga a la gente de Utah por encima del partido o de la búsqueda de poder personal. Está realizando cabildos públicos por todo el distrito, con al menos uno en los condados de Cache, Box Elder, Davis y Weber cada mes. Para saber más, visite petercrosbyforcongress.org.'
+					}
+				]
+			},
 			'indivisible-statewide-endorsement': {
 				sourceName: 'Los grupos Indivisible de Utah',
 				sourceLogoAlt: 'Indivisible',
@@ -1028,7 +1101,7 @@ export const pagesEs = {
 					},
 					{
 						type: 'p',
-						text: 'Peter Crosby es candidato al Congreso por primera vez y es el candidato demócrata en el Distrito 2 del Congreso de Utah. Lleva adelante una campaña de base: Peter no acepta donaciones de PAC corporativos ni financiamiento de PAC vinculados a intereses extranjeros, y ya cuenta con más donantes individuales de pequeñas cantidades registrados que la campaña de Moore. La campaña se sostiene por completo con voluntarios, con más de 300 voluntarios registrados. Peter cree que los ciudadanos del norte de Utah merecen un representante que viva en el distrito, escuche sus preocupaciones y ponga a la gente de Utah por encima del partido o de la búsqueda de poder personal. Está realizando cabildos públicos por todo el distrito, con al menos uno en los condados de Cache, Box Elder, Davis y Weber cada mes. Más información en petercrosbyforcongress.org.'
+						text: 'Peter Crosby es candidato al Congreso por primera vez y es el candidato demócrata en el Distrito 2 del Congreso de Utah. Lleva adelante una campaña de base: Peter no acepta donaciones de PAC corporativos ni financiamiento de PAC vinculados a intereses extranjeros, y ya cuenta con más donantes individuales de pequeñas cantidades registrados que la campaña de Moore. La campaña se sostiene por completo con voluntarios, con más de 400 voluntarios registrados. Peter cree que los ciudadanos del norte de Utah merecen un representante que viva en el distrito, escuche sus preocupaciones y ponga a la gente de Utah por encima del partido o de la búsqueda de poder personal. Está realizando cabildos públicos por todo el distrito, con al menos uno en los condados de Cache, Box Elder, Davis y Weber cada mes. Más información en petercrosbyforcongress.org.'
 					}
 				]
 			},
@@ -1061,7 +1134,7 @@ export const pagesEs = {
 					},
 					{
 						type: 'p',
-						text: 'Peter Crosby es candidato al Congreso por primera vez y es el candidato demócrata en el Distrito 2 del Congreso de Utah. Lleva adelante una campaña de base: Peter no acepta donaciones de PAC corporativos ni financiamiento de PAC vinculados a intereses extranjeros, y ya cuenta con más donantes individuales de pequeñas cantidades registrados que la campaña de Moore. La campaña se sostiene por completo con voluntarios, con más de 300 voluntarios registrados. Peter cree que los ciudadanos del norte de Utah merecen un representante que viva en el distrito, escuche sus preocupaciones y ponga a la gente de Utah por encima del partido o de la búsqueda de poder personal. Está realizando cabildos públicos por todo el distrito, con al menos uno en los condados de Cache, Box Elder, Davis y Weber cada mes. Más información en petercrosbyforcongress.org.'
+						text: 'Peter Crosby es candidato al Congreso por primera vez y es el candidato demócrata en el Distrito 2 del Congreso de Utah. Lleva adelante una campaña de base: Peter no acepta donaciones de PAC corporativos ni financiamiento de PAC vinculados a intereses extranjeros, y ya cuenta con más donantes individuales de pequeñas cantidades registrados que la campaña de Moore. La campaña se sostiene por completo con voluntarios, con más de 400 voluntarios registrados. Peter cree que los ciudadanos del norte de Utah merecen un representante que viva en el distrito, escuche sus preocupaciones y ponga a la gente de Utah por encima del partido o de la búsqueda de poder personal. Está realizando cabildos públicos por todo el distrito, con al menos uno en los condados de Cache, Box Elder, Davis y Weber cada mes. Más información en petercrosbyforcongress.org.'
 					}
 				]
 			}
@@ -1398,6 +1471,17 @@ export const pagesEs = {
 				]
 			},
 			{
+				id: 'hill-afb',
+				navLabel: 'Base Aérea Hill',
+				heading: 'Base Aérea Hill',
+				parts: [
+					{
+						type: 'p',
+						text: 'La Base Aérea Hill (HAFB, por sus siglas en inglés) es el mayor empleador del norte de Utah, y mantener una relación positiva con su liderazgo es una parte fundamental de las responsabilidades de nuestro representante en el Congreso. La mejor manera de apoyar esta relación es buscar y mantener un puesto en el Comité de Servicios Armados de la Cámara de Representantes, asegurar la restauración del Gran Lago Salado y pasar tiempo no solo con los oficiales, sino también con el personal enlistado y los contratistas que conforman la mayor parte de la fuerza laboral que apoya la misión de la HAFB e impulsa la inversión económica en las comunidades del norte de Utah.'
+					}
+				]
+			},
+			{
 				id: 'ai',
 				navLabel: 'IA',
 				heading: 'Mi postura sobre la inteligencia artificial (IA)',
@@ -1446,18 +1530,320 @@ export const pagesEs = {
 						text: 'Todos los involucrados deben ser procesados con todo el peso de la ley. Apoyo la publicación completa de los archivos, tal como lo han pedido las víctimas. No me interesa proteger a nadie que haya participado en la compra, la venta o la violación de niños.'
 					}
 				]
-			},
-			{
-				id: 'hill-afb',
-				navLabel: 'Base Aérea Hill',
-				heading: 'Base Aérea Hill',
-				parts: [
-					{
-						type: 'p',
-						text: 'La Base Aérea Hill (HAFB, por sus siglas en inglés) es el mayor empleador del norte de Utah, y mantener una relación positiva con su liderazgo es una parte fundamental de las responsabilidades de nuestro representante en el Congreso. La mejor manera de apoyar esta relación es buscar y mantener un puesto en el Comité de Servicios Armados de la Cámara de Representantes, asegurar la restauración del Gran Lago Salado y pasar tiempo no solo con los oficiales, sino también con el personal enlistado y los contratistas que conforman la mayor parte de la fuerza laboral que apoya la misión de la HAFB e impulsa la inversión económica en las comunidades del norte de Utah.'
-					}
-				]
 			}
 		])
+	}
+	,
+	analytics: {
+		metaTitle: 'Sala de datos — Peter Crosby para el Congreso',
+		metaDescription:
+			'Los datos detrás de la contienda por el Distrito 2 del Congreso de Utah: encuestas del distrito, prioridades temáticas y tendencias de aprobación estatal, con la metodología completa.',
+		eyebrow: 'Sala de datos · UT-02',
+		pageTitle: 'El Distrito 2 de Utah, en cifras',
+		lede:
+			'Encuestas, prioridades temáticas y contexto estatal del Distrito 2 del Congreso de Utah. Cada cifra se publica con su fuente, fechas de campo, tamaño de muestra y margen de error. Se agregan nuevos conjuntos de datos a medida que están disponibles.',
+		onThisPage: 'En esta página',
+		nav: {
+			districtPolling: 'Encuestas del distrito',
+			statewideContext: 'Contexto estatal',
+			groundGame: 'En el terreno',
+			methodology: 'Metodología'
+		},
+		noteLabel: 'Nota.',
+		noteBody:
+			'Las encuestas encargadas por esta campaña se identifican como encuestas internas. Las encuestas públicas independientes se identifican por separado y se atribuyen a su encuestadora. Para cada cifra de esta página se indican la redacción de la pregunta, el tamaño de muestra, las fechas de campo y el margen de error.',
+		meta: {
+			fieldDates: 'Fechas de campo',
+			sample: 'Muestra',
+			marginOfError: 'Margen de error',
+			geography: 'Geografía',
+			geographyValue: 'UT-02',
+			sampleValue: 'n = {n}',
+			moeValue: '±{moe}%'
+		},
+		eyebrows: {
+			internal: 'Encuesta interna · UT-02',
+			ballot: 'Encuesta interna · intención de voto',
+			crosstabs: 'Encuesta interna · desgloses',
+			issues: 'Encuesta interna · prioridades temáticas',
+			change: 'Encuestas internas · agosto vs. septiembre',
+			publicPoll: 'Encuesta pública independiente'
+		},
+		/** Prosa por encuesta, con las mismas claves que `POLLS` en la capa de datos. */
+		polls: {
+			'internal-sep-2026': {
+				pollster: 'Peter Crosby para el Congreso (interna)',
+				shortPollster: 'Peter Crosby para el Congreso',
+				population: 'votantes registrados, seleccionados al azar',
+				geography: 'los condados de Davis, Weber, Box Elder, Cache y Rich (UT-02)',
+				fieldLabel: 'del 8 al 10 de septiembre de 2026',
+				partisanship: 'Patrocinada por esta campaña — una parte interesada',
+				methodTitle: 'Encuesta interna de la campaña · septiembre'
+			},
+			'internal-aug-2026': {
+				pollster: 'Peter Crosby para el Congreso (interna)',
+				shortPollster: 'Peter Crosby para el Congreso',
+				population: 'votantes registrados, seleccionados al azar',
+				geography: 'los condados de Davis, Weber, Box Elder, Cache y Rich (UT-02)',
+				fieldLabel: 'del 3 al 17 de agosto de 2026',
+				partisanship: 'Patrocinada por esta campaña — una parte interesada',
+				methodTitle: 'Encuesta interna de la campaña · agosto'
+			},
+			'hinckley-aug-2026': {
+				pollster: 'Deseret News / Hinckley Institute of Politics',
+				shortPollster: 'Deseret News / Hinckley Institute of Politics',
+				population: 'votantes registrados',
+				geography: 'A nivel estatal (Utah)',
+				fieldLabel: 'agosto de 2026',
+				partisanship: 'Independiente — sin afiliación a ninguna campaña',
+				methodTitle: 'Encuesta pública estatal'
+			}
+		},
+		blockTitles: {
+			sep: 'Encuesta de septiembre de 2026',
+			aug: 'Encuesta de agosto de 2026'
+		},
+		pollMeta: {
+			coxFrom: 'enero de 2026',
+			coxTo: 'agosto de 2026'
+		},
+		datelineLabel: 'Última actualización',
+		sourceInternal:
+			'Encuesta interna, {pollster}. {n} {population} en {geography}, {dates}. Margen de error de ±{moe}%.',
+		sourcePublic: '{pollster}, {dates}. {geography}.',
+		responseRate: 'Esta pregunta tuvo una tasa de respuesta del {rate}%.',
+		showTable: 'Ver tabla de datos',
+		hideTable: 'Ocultar tabla de datos',
+		neutralSeparate: 'se muestra por separado, ya que no se ubica en ninguno de los lados de la escala.',
+		likertTable: { response: 'Respuesta', share: 'Porcentaje de encuestados' },
+		groups: {
+			all: 'Todos los votantes',
+			democratic: 'Demócratas',
+			republican: 'Republicanos',
+			unaffiliated: 'No afiliados',
+			other: 'Otro partido'
+		},
+		september: {
+			heroLabel: 'Un empate estadístico',
+			heroSub: 'La diferencia de {gap} puntos está dentro del margen de error de ±{moe} puntos.',
+			vs: 'vs.',
+			options: {
+				crosby: 'Peter Crosby',
+				moore: 'Blake Moore',
+				other: 'Otro',
+				unsure: 'No está seguro',
+				none: 'Ninguno de los anteriores'
+			},
+			ballot: {
+				title: 'Si las elecciones fueran hoy',
+				question: 'Si las elecciones fueran hoy, ¿por quién votaría?',
+				takeaway:
+					'Blake Moore {moore}%, Peter Crosby {crosby}%. La diferencia de {gap} puntos está dentro del margen de error de ±{moe} puntos, y el {undecided}% no está seguro o eligió ninguno de los anteriores.',
+				bandKey: 'Las bandas muestran el margen de error de ±{moe} puntos de cada candidato.',
+				ariaLabel:
+					'Intención de voto: Peter Crosby {crosby}%, Blake Moore {moore}%, cada uno ±{moe} puntos',
+				barLabel: 'Todas las respuestas',
+				barAria: 'Todas las respuestas a la pregunta de intención de voto'
+			},
+			byParty: {
+				title: 'Intención de voto, por partido',
+				takeaway:
+					'Los republicanos prefieren a Moore por {repMoore}% a {repCrosby}%, y el {repUndecided}% no está seguro o eligió ninguno de los anteriores. Los votantes no afiliados prefieren a Crosby por {unaCrosby}% a {unaMoore}%.',
+				ariaLabel:
+					'Respuestas de intención de voto de todos los votantes, los republicanos y los votantes no afiliados',
+				note: 'El comunicado reporta la intención de voto por partido solo para republicanos y votantes no afiliados. Los márgenes de los grupos partidistas se calculan a partir del tamaño de muestra de cada grupo, con un 95% de confianza.'
+			},
+			groupMeta: 'n = {n} · ±{moe} pts',
+			concerns: {
+				title: 'Principales preocupaciones',
+				question: 'Indíquenos sus principales preocupaciones (puede elegir varias).',
+				takeaway:
+					'La asequibilidad ({aff}%) y la rendición de cuentas del gobierno ({acc}%) son las preocupaciones más mencionadas, seguidas del Gran Lago Salado ({gsl}%).',
+				note: 'Los encuestados podían elegir más de una preocupación, por lo que los porcentajes suman más del 100%.',
+				ariaLabel: 'Porcentaje de encuestados que menciona cada preocupación'
+			},
+			concernsByParty: {
+				title: 'Principales preocupaciones, por partido',
+				takeaway:
+					'La asequibilidad y la rendición de cuentas del gobierno son las dos principales preocupaciones en todos los grupos partidistas.',
+				caption: 'Porcentaje de cada grupo partidista que menciona cada preocupación',
+				rowHeader: 'Preocupación',
+				scaleLabel: 'Porcentaje del grupo',
+				note: '† Muestra pequeña: el margen de error es de aproximadamente ±{dem} puntos para los demócratas y ±{other} puntos para los votantes de otros partidos.'
+			},
+			col: {
+				response: 'Respuesta',
+				share: 'Porcentaje',
+				range: 'Rango (±{moe})',
+				group: 'Grupo',
+				concern: 'Preocupación'
+			}
+		},
+		change: {
+			title: 'Temas principales, de agosto a septiembre',
+			takeaway:
+				'La asequibilidad y la rendición de cuentas del gobierno siguen siendo las dos principales preocupaciones. Ningún cambio entre las dos encuestas supera el margen de error.',
+			from: 'Ago',
+			to: 'Sep',
+			ariaLabel:
+				'Porcentaje que menciona la asequibilidad y la rendición de cuentas del gobierno en las encuestas de agosto y septiembre, por partido',
+			source:
+				'Encuestas internas, Peter Crosby para el Congreso: {aug} (n = {augN}) y {sep} (n = {sepN}). Se muestran en puntos enteros, la precisión del comunicado de agosto.',
+			colIssue: 'Tema',
+			colGroup: 'Grupo',
+			colAug: 'Agosto',
+			colSep: 'Septiembre'
+		},
+		approval: {
+			title: 'Aprobación neta de la gestión, agosto de 2026',
+			takeaway:
+				'Todos los cargos e instituciones medidos tuvieron un neto negativo: en cada caso, la desaprobación superó a la aprobación.',
+			ariaLabel: 'Aprobación neta de gestión, a nivel estatal, agosto de 2026',
+			source:
+				'{pollster}, {period}. A nivel estatal. Neto = aprobación menos desaprobación; la cifra del Congreso es el neto publicado.',
+			colOfficeHolder: 'Cargo público',
+			colApprove: 'Aprueba',
+			colDisapprove: 'Desaprueba',
+			colNet: 'Neto',
+			notReported: 'No reportado'
+		},
+		trend: {
+			eyebrow: 'Cambio desde enero',
+			body:
+				'La aprobación del gobernador Cox bajó del {from} en {fromPeriod} al {to} en {toPeriod}, un cambio de {delta} puntos.',
+			source: '{pollster}, {period}. A nivel estatal.'
+		},
+		ground: {
+			note:
+				'Cifras operativas reportadas por la campaña: actividad de organización, no resultados de encuestas. Cabildos a septiembre de 2026; voluntarios y fondos recaudados al comunicado del 14 de septiembre; donantes al comunicado de agosto.'
+		},
+		method: {
+			internalTitle: 'Encuesta interna de la campaña',
+			publicTitle: 'Encuesta pública estatal',
+			sponsor: 'Patrocinador',
+			sample: 'Muestra',
+			geography: 'Geografía',
+			fieldDates: 'Fechas de campo',
+			fieldPeriod: 'Periodo de campo',
+			marginOfError: 'Margen de error',
+			partisanship: 'Filiación partidista',
+			pollster: 'Encuestadora',
+			sampleValue: '{n} {population}',
+			moeValue: '±{moe} puntos porcentuales',
+			internalPartisanship: 'Patrocinada por esta campaña — una parte interesada',
+			publicPartisanship: 'Independiente — sin afiliación a ninguna campaña',
+			readRelease: 'Leer el comunicado completo →',
+			readPoll: 'Leer la encuesta ↗'
+		},
+		limits: {
+			title: 'Qué no se modela aquí',
+			intro:
+				'Esta página reporta solo cifras reales y atribuibles —las encuestas internas de la campaña y encuestas públicas publicadas—, nunca cifras modeladas ni estimadas. Lo siguiente no está representado:',
+			items: [
+				{
+					label: 'Tendencia de la intención de voto.',
+					text: 'La pregunta entre Crosby y Moore se ha hecho en una sola encuesta hasta ahora, por lo que todavía no puede mostrar cambios a lo largo del tiempo.'
+				},
+				{
+					label: 'Pronóstico o probabilidad de victoria.',
+					text: 'No se aplica ningún modelo predictivo. Un pronóstico requeriría encuestas independientes y repetidas del distrito.'
+				},
+				{
+					label: 'Desgloses por condado.',
+					text: 'La muestra abarca cinco condados pero no se publicó desagregada; n = {n} es demasiado pequeña para estimaciones fiables por subgrupo.'
+				}
+			]
+		},
+		/** Spanish overrides for `src/lib/data/analytics.ts`, keyed by id. */
+		byId: {
+			satisfaction: {
+				title: 'Satisfacción con el Rep. Moore',
+				question: '¿Qué tan satisfecho está con nuestro representante actual (Rep. Blake Moore)?',
+				takeaway:
+					'El 57% de los votantes del distrito se declara insatisfecho con el titular; el 43% se declara satisfecho.',
+				segments: ['Muy satisfecho', 'Algo satisfecho', 'Algo insatisfecho', 'Muy insatisfecho']
+			},
+			'vote-likelihood': {
+				title: 'Probabilidad de reelección',
+				question: '¿Qué tan probable es que vote por Blake Moore este noviembre?',
+				takeaway:
+					'El 30% dice que es probable que vote por el titular. El 70% considera poco probable hacerlo, o no lo ha decidido.',
+				segments: [
+					'Muy probable',
+					'Algo probable',
+					'Algo improbable',
+					'Muy improbable',
+					'No está seguro'
+				]
+			},
+			dissatisfied: {
+				label: 'Insatisfechos con el Rep. Moore',
+				sub: 'Algo o muy insatisfechos'
+			},
+			'soft-support': {
+				label: 'Poco probable que lo reelijan, o sin decidir',
+				sub: 'El 30% dice que es probable que lo haga'
+			},
+			'gop-waver': {
+				label: 'Republicanos con poca probabilidad de apoyar a Moore',
+				sub: 'Incluye a quienes no lo han decidido'
+			},
+			'unaffiliated-waver': {
+				label: 'No afiliados con poca probabilidad de apoyar a Moore',
+				sub: 'Votantes no afiliados e independientes, el 43% del electorado. Excluye a quienes no lo han decidido.'
+			},
+			affordability: {
+				label: 'Nombran la asequibilidad como prioridad principal',
+				sub: 'El tema mejor clasificado del distrito'
+			},
+			'issue-affordability': {
+				label: 'Asequibilidad',
+				detail: 'Vivienda, atención médica y precios de alimentos'
+			},
+			'issue-accountability': {
+				label: 'Rendición de cuentas del gobierno',
+				detail: 'Ética, uso de información privilegiada y cierre de vacíos legales'
+			},
+			'issue-great-salt-lake': { label: 'El Gran Lago Salado' },
+			'issue-public-lands': { label: 'Acceso a las tierras públicas' },
+			'issue-doge': { label: 'Recortes de DOGE' },
+			'issue-other': { label: 'Otro' },
+			'appr-cox': { label: 'Gob. Spencer Cox', role: 'Gobernador' },
+			'appr-lee': { label: 'Sen. Mike Lee', role: 'Senado de EE. UU.' },
+			'appr-legislature': {
+				label: 'Legislatura Estatal de Utah',
+				role: 'Legislatura estatal'
+			},
+			'appr-congress': { label: 'Congreso de EE. UU.', role: 'Institución' },
+			'ground-townhalls': {
+				label: 'Cabildos',
+				note: 'Presenciales y virtuales, en todo el UT-02 desde el lanzamiento'
+			},
+			'ground-volunteers': {
+				label: 'Voluntarios registrados',
+				note: 'Registrados desde el lanzamiento'
+			},
+			'ground-donors': {
+				label: 'Donantes individuales',
+				note: 'No se acepta dinero de PAC corporativos'
+			},
+			'ground-raised': {
+				label: 'Recaudado',
+				note: 'De donantes individuales y de pequeñas cantidades, más del 95% en Utah'
+			}
+		} as Record<
+			string,
+			{
+				title?: string;
+				question?: string;
+				takeaway?: string;
+				label?: string;
+				sub?: string;
+				note?: string;
+				detail?: string;
+				role?: string;
+				segments?: string[];
+			}
+		>
 	}
 };

@@ -4,6 +4,8 @@
 </script>
 
 <script>
+	import { inkOn } from '$lib/utils/chartColor';
+
 	/**
 	 * A recreated poll bar chart for press releases. Renders on a light (paper)
 	 * ground: hairline gridlines, brand-colored bars with a value label, an x-axis
@@ -30,23 +32,29 @@
 	$: ticks = Array.from({ length: Math.floor(yMax / yStep) + 1 }, (_, i) => yMax - i * yStep);
 
 	/**
-	 * Legible label color for a bar: ink on light fills, white on dark ones.
+	 * Legible label color for a bar: whichever of white or deep navy contrasts more with
+	 * the fill (the Data Room's `inkOn`). A brightness cutoff put white on the salmon
+	 * "Blake Moore" bar at 3.39:1; the contrast rule gives navy at 5.06:1.
 	 * @param {string} hex e.g. "#487996"
 	 */
-	function labelColor(hex) {
-		const h = hex.replace('#', '');
-		const r = parseInt(h.slice(0, 2), 16);
-		const g = parseInt(h.slice(2, 4), 16);
-		const b = parseInt(h.slice(4, 6), 16);
-		const L = 0.2126 * r + 0.7152 * g + 0.0722 * b; // perceived luminance, 0–255
-		return L > 150 ? 'var(--ink)' : '#ffffff';
-	}
+	const labelColor = (hex) => inkOn(hex);
+
+	/** Rendered plot height in px. Before hydration, assume the smallest the clamp allows. */
+	let plotH = 220;
+	/** Height a bar needs to hold its label inside: the 5px inset plus one line of text. */
+	const LABEL_ROOM = 26;
+	/**
+	 * A bar too short for its label gets it just above the bar instead. Inside, the
+	 * label's lower half hung past the bar onto the paper ground, where white text
+	 * vanished — "3.7%" read as cut off.
+	 */
+	$: isShort = (/** @type {number} */ value) => (value / yMax) * plotH < LABEL_ROOM;
 </script>
 
 <figure class="pbc">
 	<figcaption id={titleId} class="pbc-title">{chartTitle}</figcaption>
 
-	<div class="pbc-plot" aria-hidden="true">
+	<div class="pbc-plot" aria-hidden="true" bind:clientHeight={plotH}>
 		{#each ticks as t}
 			<div class="pbc-line" style="bottom:{(t / yMax) * 100}%">
 				<span class="pbc-ytick">{t}%</span>
@@ -54,9 +62,15 @@
 		{/each}
 		<div class="pbc-bars">
 			{#each bars as b}
+				{@const short = isShort(b.value)}
 				<div class="pbc-col">
 					<div class="pbc-bar" style="height:{(b.value / yMax) * 100}%; background:{b.color};">
-						<span class="pbc-val" style="color:{labelColor(b.color)}">{b.value}%</span>
+						<!-- Above a short bar the label sits on the paper ground, so it takes ink. -->
+						<span
+							class="pbc-val"
+							class:pbc-val--above={short}
+							style="color:{short ? 'var(--ink)' : labelColor(b.color)}">{b.value}%</span
+						>
 					</div>
 				</div>
 			{/each}
@@ -162,6 +176,13 @@
 		font-family: var(--mono);
 		font-size: 0.72rem;
 		font-weight: 600;
+	}
+
+	/* Too short to hold it: the label sits just above the bar instead. */
+	.pbc-val--above {
+		top: auto;
+		bottom: 100%;
+		margin-bottom: 4px;
 	}
 
 	.pbc-xaxis {

@@ -10,7 +10,10 @@
 		<p class="pr-section-eyebrow">{$messages.pressReleases.eyebrow}</p>
 		<h2 id="pr-home-heading" class="pr-section-title">{$messages.pressReleases.homeTitle}</h2>
 		<PressReleaseGrid items={homePressReleases} variant="light" />
-		<a href="/media#press" class="pr-section-link">{$messages.pressReleases.viewAll} &rarr;</a>
+		<div class="pr-section-links">
+			<a href="/media#press" class="pr-section-link">{$messages.pressReleases.viewAll} &rarr;</a>
+			<a href="/data-room" class="pr-section-link">{$messages.pressReleases.dataRoomHome} &rarr;</a>
+		</div>
 	</div>
 </section>
 
@@ -60,9 +63,15 @@
 		color: var(--ink);
 	}
 
+	.pr-section-links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem 2rem;
+		margin-top: 1.85rem;
+	}
+
 	.pr-section-link {
 		display: inline-block;
-		margin-top: 1.85rem;
 		font-family: var(--display);
 		font-style: italic;
 		font-weight: 800;

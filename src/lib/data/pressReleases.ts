@@ -43,7 +43,13 @@ export const POLL_COLORS = {
 	favorSoft: '#487996', // steel blue — "Somewhat" favorable
 	opposeSoft: '#235926', // green — "Somewhat" unfavorable
 	opposeStrong: '#002338', // deep navy — "Very" unfavorable
-	unsure: '#737373' // gray — unsure
+	unsure: '#737373', // gray — unsure
+	// Ballot test (September release): candidate + answer colors, sampled the same way.
+	crosby: '#094061', // navy — Peter Crosby
+	moore: '#d76b6b', // salmon — Blake Moore
+	other: '#2b602e', // green — Other
+	ballotUnsure: '#bbcedd', // pale blue — Unsure
+	none: '#737373' // gray — None of the Above
 };
 
 /**
@@ -86,6 +92,12 @@ export type PressRelease = {
 	/** Press-contact email shown in the release footer. */
 	contactEmail?: string;
 	/**
+	 * Set on the campaign's polling releases: the detail page then points to the Data
+	 * Room, where the same figures are charted with sample size, field dates and margin
+	 * of error. Rendered outside the release body, which stays as issued.
+	 */
+	dataRoom?: boolean;
+	/**
 	 * Card thumbnail (the designed release graphic), path under `/press-releases/`.
 	 * Shown on the `/media` section + home row cards, cropped to 16:9 (anchored top,
 	 * so the headline stays visible). Optional: when omitted, the card falls back to
@@ -106,9 +118,119 @@ export type PressRelease = {
 
 /** Campaign boilerplate that closes each release (English). */
 const BOILERPLATE_EN =
-	'Peter Crosby is a first-time congressional candidate, and is the Democratic nominee in Utah’s Congressional District 2. He is running a grassroots campaign — Peter is not accepting corporate PAC donations or funding from PACs aligned with foreign interests, and already has more named small-dollar, individual donors than the Moore Campaign. The Campaign is fully volunteer-supported with over 300 registered campaign volunteers. Peter believes citizens of Northern Utah deserve a representative that lives in the district, listens to their concerns, and puts the people of Utah ahead of party or the pursuit of personal power. He is holding public town halls throughout the district, with at least one in Cache, Box Elder, Davis, and Weber counties each month. More information is available at petercrosbyforcongress.org.';
+	'Peter Crosby is a first-time congressional candidate, and is the Democratic nominee in Utah’s Congressional District 2. He is running a grassroots campaign — Peter is not accepting corporate PAC donations or funding from PACs aligned with foreign interests, and already has more named small-dollar, individual donors than the Moore Campaign. The Campaign is fully volunteer-supported with over 400 registered campaign volunteers. Peter believes citizens of Northern Utah deserve a representative that lives in the district, listens to their concerns, and puts the people of Utah ahead of party or the pursuit of personal power. He is holding public town halls throughout the district, with at least one in Cache, Box Elder, Davis, and Weber counties each month. More information is available at petercrosbyforcongress.org.';
+
+/** Source line under each chart in the September polling release, as printed there. */
+const SEP_POLL_SOURCE =
+	'Voter Survey, Peter Crosby for Congress Campaign. Internal polling of 762 randomized, registered voters across Davis, Weber, Box Elder, Cache, and Rich Counties (CD2), Utah, 9/8–10/2026. ±4% margin of error.';
 
 export const pressReleases: PressRelease[] = [
+	{
+		// Transcribed from the release PDF — the revised edition issued the same day, which added
+		// the Hinckley figures and the Utah Democratic Party Chair's quote.
+		id: 'september-internal-polling',
+		dataRoom: true,
+		date: '2026-09-14',
+		title: 'Northern Utah on track to flip a 2nd Congressional seat this November',
+		summary:
+			'A traditionally safe conservative district is now statistically tied, with Blake Moore leading by 1.7 points in latest Peter Crosby for Congress Campaign internal polling.',
+		location: 'Providence, UT',
+		contactEmail: 'Amanda@petercrosbyforcongress.org',
+		body: [
+			{
+				type: 'p',
+				text: 'New head-to-head polling conducted by the Peter Crosby for Congress campaign has the political newcomer surging into a dead heat with Republican incumbent, Representative Blake Moore in the newly redrawn Utah Congressional District 2 (CD2). The Campaign is releasing its latest internal polling, conducted Sept. 8-10, 2026, which shows the Democratic candidate neck and neck with Rep. Moore. While the new Congressional district has not yet elected its own representative, [traditional race watchers had suggested it will be an R+15 district](https://www.cookpolitical.com/house/race/485416), a rating which has not been updated since November of 2025. Recent data indicate a very different reality on the ground.'
+			},
+			{
+				type: 'p',
+				text: 'The survey, conducted across a randomized sample of registered voters in Davis, Weber, Box Elder, Cache, and Rich counties, places Crosby within a 1.7-point range of Moore in a head-to-head matchup if the election were to happen today, with over 25% of respondents still unsure. Combined with [recent polling showing that incumbent Rep. Moore is deeply unpopular in the new district](/press/august-internal-polling), the race for the new CD2 is not just competitive – it offers a significant opportunity for Utah to send two Democratic representatives to Congress this cycle.'
+			},
+			{
+				type: 'ul',
+				items: [
+					'Rep. Moore is currently polling at 32.4%, and Peter Crosby is currently polling at 30.71%.',
+					'Over 25% of respondents are still unsure, including 24% of registered Republicans.',
+					'Affordability and Accountability are the top issues identified by respondents (74.4% are concerned with affordability related issues, and 69.8% are concerned with corruption, insider trading, and related concerns).'
+				]
+			},
+			{
+				type: 'chart',
+				chartTitle: 'If the election were held today, who would you vote for?',
+				yMax: 35,
+				yStep: 5,
+				bars: [
+					{ label: 'Peter Crosby', value: 30.71, color: POLL_COLORS.crosby },
+					{ label: 'Blake Moore', value: 32.41, color: POLL_COLORS.moore },
+					{ label: 'Other', value: 3.28, color: POLL_COLORS.other },
+					{ label: 'Unsure', value: 25.07, color: POLL_COLORS.ballotUnsure },
+					{ label: 'None of the Above', value: 8.53, color: POLL_COLORS.none }
+				],
+				source: SEP_POLL_SOURCE
+			},
+			{
+				type: 'chart',
+				chartTitle: 'Voter Preference by Party Affiliation: Republican',
+				yMax: 50,
+				yStep: 10,
+				bars: [
+					{ label: 'Peter Crosby', value: 18, color: POLL_COLORS.crosby },
+					{ label: 'Blake Moore', value: 45.7, color: POLL_COLORS.moore },
+					{ label: 'Other', value: 3.7, color: POLL_COLORS.other },
+					{ label: 'Unsure', value: 24, color: POLL_COLORS.ballotUnsure },
+					{ label: 'None of the Above', value: 8.6, color: POLL_COLORS.none }
+				],
+				source: SEP_POLL_SOURCE
+			},
+			{
+				type: 'chart',
+				chartTitle: 'Voter Preference by Party Affiliation: Unaffiliated',
+				yMax: 40,
+				yStep: 10,
+				bars: [
+					{ label: 'Peter Crosby', value: 39.4, color: POLL_COLORS.crosby },
+					{ label: 'Blake Moore', value: 16.5, color: POLL_COLORS.moore },
+					{ label: 'Other', value: 2.8, color: POLL_COLORS.other },
+					{ label: 'Unsure', value: 30.3, color: POLL_COLORS.ballotUnsure },
+					{ label: 'None of the Above', value: 11, color: POLL_COLORS.none }
+				],
+				source: SEP_POLL_SOURCE
+			},
+			{
+				type: 'p',
+				text: 'While the Campaign intended to hold these results until after the release of independently commissioned polling conducted on behalf of the Utah Debate Commission, [typically available](https://utahdebatecommission.org/about/) by early September each election cycle, that data has yet to be released. The Utah Debate Commission polling data is significant as it determines thresholds for which candidates make it to the stage in the only publicly moderated debate currently scheduled before election day. The CD2 debate was originally planned for October 20th, one full week after the release of mail-in ballots, but [was rescheduled for October 13th](/press/debate-rescheduled) after public pushback.'
+			},
+			{
+				type: 'p',
+				text: 'The Campaign’s polling data are reinforced by recent reports at the state and national level. A recent [Deseret News/Hinckley Institute of Politics poll](https://www.deseret.com/politics/2026/08/17/utah-voters-disapprove-of-governor-cox-senator-lee-and-senator-curtis-in-new-poll/) found an increasingly anti-incumbent mood among Utah voters, with approval ratings for several high-profile elected officials declining. According to that poll, dissatisfaction extends beyond any single officeholder and reflects broader concerns about current leadership. Governor Spencer Cox is underwater, with his approval plunging from 51% in January to 41% in August. Senator Mike Lee is now seven points underwater (39% approval to 46% disapproval), Senator John Curtis has slid into negative territory at 37% approval, and the Utah State Legislature is underwater at 44% approval and 45% disapproval.'
+			},
+			{
+				type: 'p',
+				text: 'While the Deseret News release did not include data about Utah’s current Congressional House delegation (who are all up for re-election) by name, it stated that public trust in Congress as a whole has collapsed to a negative 30 points, underscoring a deep, cross-partisan fatigue with political dysfunction.'
+			},
+			{
+				type: 'p',
+				text: '“The old assumptions about this district aren’t going to decide this election. Voters will,” said Utah Democratic Party Chair Brian King. “For voters across northern Utah, the priorities are pretty straightforward: they want to know how their representatives are going to make life more affordable and whether they can trust them to put constituents ahead of special interests. Peter Crosby is connecting with voters because he’s focused on where Utah is going, not where Washington has been. He’s giving voters a chance to turn the page and elect a representative with a fresh perspective and a vision for the future of northern Utah. This poll shows that message is breaking through, and we’re proud to stand with Peter as he works to earn the support of voters across CD2.”'
+			},
+			{
+				type: 'p',
+				text: 'Rep. Blake Moore has been notably reactive to the pressure from the Crosby Campaign, recently scheduling a series of four short-notice, in-person town halls in counties in the newly drawn CD-2, the first such meetings since September 2025.'
+			},
+			{
+				type: 'p',
+				text: 'Crosby has held 35 public town-halls across the district since launching his campaign in November 2025, and has 6 more scheduled for the month of September. If elected, Crosby has pledged to continue holding those in-person town halls on a regular basis.'
+			},
+			{
+				type: 'p',
+				text: 'With voters seeking responsive representation that is focused on their concerns regarding affordability and governmental accountability, the Crosby campaign enters the final stage of the mid-term election cycle positioned to compete—and win—in Northern Utah.'
+			},
+			{
+				type: 'p',
+				text: 'Peter Crosby is the Democratic nominee for Utah’s U.S. Congressional District 2, a first-time political candidate, and a girl-dad. He is running a strictly clean-money, grassroots campaign: Peter is not accepting corporate PAC donations or funding from PACs aligned with foreign interests, and has raised just over $100,000 from small-dollar and individual donors, with over 95% coming from right here in Utah. The campaign is fully volunteer-supported with over 400 registered campaign volunteers. Peter believes citizens of Northern Utah deserve a representative that lives in the district, listens to their concerns, and puts the people of Utah ahead of party or the pursuit of personal power. He is holding public town halls throughout the district, with at least one in Cache, Box Elder, Davis, and Weber counties each month. To learn more, visit petercrosbyforcongress.org.'
+			}
+		],
+		image: '/press-releases/september-internal-polling-thumb.jpg',
+		attachment: '/press-releases/september-internal-polling.pdf'
+	},
 	{
 		id: 'indivisible-statewide-endorsement',
 		date: '2026-09-09',
@@ -191,6 +313,7 @@ export const pressReleases: PressRelease[] = [
 	},
 	{
 		id: 'august-internal-polling',
+		dataRoom: true,
 		date: '2026-08-21',
 		title:
 			'All Eyes on Utah District 2 Congressional Race: Democrat Peter Crosby Making Gains Amid Statewide Anti-Incumbent Wave',

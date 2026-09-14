@@ -215,6 +215,61 @@
     .logo-spec-cap{padding:12px 14px 14px;font-family:var(--sans);font-size:10px;line-height:1.45;color:rgba(247,250,252,.72)}
     .logo-spec-cap b{display:block;font-family:var(--display);font-style:italic;font-size:11px;font-weight:800;letter-spacing:.04em;color:var(--paper);margin-bottom:5px;text-transform:uppercase;letter-spacing:.08em}
 
+    /* Data page */
+    .dv-sets{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .dv-set{border:1px solid var(--line-l-2);background:#fff;padding:12px 13px 13px}
+    .dv-set-h{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);margin-bottom:10px}
+    .dv-chips{display:flex;gap:8px}
+    .dv-chip{flex:1;display:flex;flex-direction:column;gap:3px}
+    .dv-chip i{display:block;height:30px}
+    .dv-chip b{font-family:var(--display);font-style:italic;font-weight:800;font-size:11px;color:var(--ink);margin-top:3px}
+    .dv-chip span{font-family:var(--mono);font-size:8.5px;color:var(--ink-2);letter-spacing:.04em}
+    .dv-ramp{display:flex;gap:2px}
+    .dv-ramp i{flex:1;height:30px}
+    .dv-ramp-k{display:flex;justify-content:space-between;font-family:var(--mono);font-size:8.5px;color:var(--ink-2);margin-top:5px;letter-spacing:.04em}
+    .dv-note{font-size:10px;line-height:1.45;color:var(--ink-2);margin-top:9px}
+    .dv-marks{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .dv-mark{border:1px solid var(--line-l-2);background:#fff;padding:14px}
+    .dv-demo{min-height:54px;display:flex;flex-direction:column;justify-content:center;gap:8px}
+    .dv-cap{font-size:10px;line-height:1.45;color:var(--ink-2);margin-top:12px}
+    .dv-cap b{display:block;font-family:var(--display);font-style:italic;font-weight:800;font-size:11px;color:var(--ink);margin-bottom:3px}
+    .dv-stack{display:flex;gap:2px;height:24px}
+    .dv-stack i{display:flex;align-items:center;justify-content:center;min-width:0;font-style:normal;font-family:var(--mono);font-size:8.5px;color:#fff}
+    .dv-stack i:first-child{border-radius:4px 0 0 4px}
+    .dv-stack i:last-child{border-radius:0 4px 4px 0}
+    .dv-track{position:relative;height:18px}
+    .dv-band{position:absolute;top:50%;height:10px;transform:translateY(-50%);box-sizing:border-box;border-inline:2px solid var(--c)}
+    .dv-band::before{content:"";position:absolute;inset:0;background:var(--c);opacity:.18}
+    .dv-dot{position:absolute;top:50%;width:13px;height:13px;box-sizing:border-box;border-radius:50%;border:2px solid #fff;transform:translate(-50%,-50%)}
+    .dv-bar{position:relative;height:16px;margin-right:34px}
+    .dv-bar i{position:absolute;left:0;top:0;bottom:0;background:#2E5FA0;border-radius:0 4px 4px 0}
+    .dv-bar span{position:absolute;top:50%;transform:translateY(-50%);font-family:var(--mono);font-size:9px;color:var(--ink)}
+    .dv-gridbox{position:relative;height:36px;border-bottom:1px solid var(--line-l)}
+    .dv-gridbox i{position:absolute;top:0;bottom:0;width:1px;background:var(--line-l-2)}
+    .dv-ticks{position:relative;height:12px;margin-top:5px}
+    .dv-ticks span{position:absolute;transform:translateX(-50%);font-family:var(--mono);font-size:8.5px;color:var(--ink-2)}
+    .dv-ticks span:first-child{transform:none}
+
+    .dv-anat{display:grid;grid-template-columns:1.12fr .88fr;gap:18px;align-items:start}
+    .dv-frame{border:1px solid var(--line-l);background:#fff;padding:14px 14px 12px}
+    .dv-row{display:grid;grid-template-columns:14px 1fr;gap:9px;align-items:start;margin-top:9px}
+    .dv-row:first-child{margin-top:0}
+    .dv-num{display:grid;place-items:center;width:14px;height:14px;background:var(--blue);color:#fff;font-family:var(--mono);font-size:8px;font-weight:600;font-style:normal}
+    .dv-f-eyebrow{font-family:var(--mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);line-height:14px}
+    .dv-f-title{font-family:var(--display);font-style:italic;font-weight:900;font-size:15px;letter-spacing:-.02em;line-height:1.1;color:var(--ink)}
+    .dv-f-q{font-family:var(--serif);font-size:10px;line-height:1.4;color:var(--ink-3)}
+    .dv-f-take{font-size:10px;line-height:1.45;color:var(--ink)}
+    .dv-f-legend{display:flex;flex-wrap:wrap;gap:4px 10px;font-size:8.5px;line-height:14px;color:var(--ink-3)}
+    .dv-f-legend b{display:inline-block;width:8px;height:8px;margin-right:4px;vertical-align:-1px}
+    .dv-f-note{font-size:8.5px;line-height:1.4;color:var(--ink-3)}
+    .dv-f-foot{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;padding-top:7px;border-top:1px solid var(--line-l-2);font-size:8px;line-height:1.4;color:#5b6b80}
+    .dv-f-btn{flex:none;border:1px solid var(--line-l);padding:3px 6px;font-family:var(--mono);font-size:7px;letter-spacing:.08em;color:var(--blue)}
+    .dv-anat-list{margin:0;padding:0;list-style:none}
+    .dv-anat-list li{display:grid;grid-template-columns:14px 1fr;gap:9px;padding:3.5px 0;border-top:1px solid var(--line-l-2);font-size:9.5px;line-height:1.38;color:var(--ink-2)}
+    .dv-anat-list li:first-child{border-top:0;padding-top:0}
+    .dv-anat-list b{display:block;font-family:var(--display);font-style:italic;font-weight:800;font-size:10.5px;color:var(--ink)}
+    .dv-rules .principle{padding:9px 0}
+
     @media print{
       body{background:#fff}
       .page{margin:0;box-shadow:none;width:100%;min-height:100vh;page-break-after:always}
@@ -683,13 +738,189 @@
     </div>
   </section>
 
-  <!-- ════════════════ PAGE 7 · VOICE ════════════════ -->
+  <!-- ════════════════ PAGE 7 · DATA ════════════════ -->
   <section class="page">
     <div class="rail" aria-hidden="true"><i class="g"></i><i class="s"></i><i class="b"></i></div>
     <div class="pad grow" style="display:flex;flex-direction:column">
       <div class="runner">
         <span>Crosby for Congress</span>
-        <span class="dotrow"><span class="dot"></span> 07 — Voice</span>
+        <span class="dotrow"><span class="dot"></span> 07 — Data</span>
+      </div>
+
+      <div style="margin-top:30px">
+        <div class="eyebrow">Data &amp; Charts</div>
+        <h2 class="section-title">Honest numbers, <span class="serif">plainly drawn.</span></h2>
+        <p class="lede">The data room publishes only sourced figures, and draws them so they can't be misread. Every chart color is assigned by the job it does, and checked with a colorblind-safety validator before it ships. The source of truth for these values is <b>src/lib/data/analytics.ts</b>.</p>
+      </div>
+
+      <div class="block">
+        <div class="block-h"><span class="n">A</span> Chart color, by job</div>
+        <div class="dv-sets">
+          <div class="dv-set">
+            <div class="dv-set-h">Candidates · identity</div>
+            <div class="dv-chips">
+              <div class="dv-chip"><i style="background:#2E5FA0"></i><b>Crosby</b><span>#2E5FA0</span></div>
+              <div class="dv-chip"><i style="background:#B8473D"></i><b>Moore</b><span>#B8473D</span></div>
+            </div>
+            <p class="dv-note">Reserved for the two candidates. No other series uses a blue or red that could be read as either one.</p>
+          </div>
+          <div class="dv-set">
+            <div class="dv-set-h">Other answers · neutral</div>
+            <div class="dv-chips">
+              <div class="dv-chip"><i style="background:#A9B0B8"></i><b>Other</b><span>#A9B0B8</span></div>
+              <div class="dv-chip"><i style="background:#6C7683"></i><b>Unsure</b><span>#6C7683</span></div>
+              <div class="dv-chip"><i style="background:#CDD3D9"></i><b>None</b><span>#CDD3D9</span></div>
+            </div>
+            <p class="dv-note">Grays, because these answers are nobody's side. The darkest sits in the middle of a ballot bar so every neighbor stays distinct.</p>
+          </div>
+          <div class="dv-set">
+            <div class="dv-set-h">Sentiment · diverging</div>
+            <div class="dv-ramp">
+              <i style="background:#0F8B6F"></i><i style="background:#5BBFA8"></i><i style="background:#6C7683"></i><i style="background:#DDA640"></i><i style="background:#6E6000"></i>
+            </div>
+            <div class="dv-ramp-k"><span>FAVORABLE</span><span>UNSURE</span><span>UNFAVORABLE</span></div>
+            <p class="dv-note">Teal-green to olive-gold, gray for unsure. Never blue or red, so no one reads a candidate into a satisfaction or approval chart.</p>
+          </div>
+          <div class="dv-set">
+            <div class="dv-set-h">Magnitude · sequential</div>
+            <div class="dv-ramp">
+              <i style="background:#8AADD6"></i><i style="background:#6189C0"></i><i style="background:#2E5FA0"></i><i style="background:#1F4478"></i><i style="background:#132B4E"></i>
+            </div>
+            <div class="dv-ramp-k"><span>0%</span><span>50%</span><span>100%</span></div>
+            <p class="dv-note">One hue, light to dark: heatmaps (in solid steps, never blended) and before → after (light = earlier). Single-series bars take civic blue.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-h"><span class="n">B</span> Marks</div>
+        <div class="dv-marks">
+          <div class="dv-mark">
+            <div class="dv-demo">
+              <div class="dv-stack">
+                <i style="flex:30.7;background:#2E5FA0">30.7</i><i style="flex:3.3;background:#A9B0B8"></i><i style="flex:25.1;background:#6C7683">25.1</i><i style="flex:8.5;background:#CDD3D9;color:#0F2545">8.5</i><i style="flex:32.4;background:#B8473D">32.4</i>
+              </div>
+            </div>
+            <div class="dv-cap"><b>Stacked bars</b>24px tall, a 2px paper gap between segments (never a stroke). A value sits inside a segment only when it fits.</div>
+          </div>
+          <div class="dv-mark">
+            <div class="dv-demo">
+              <div class="dv-track"><span class="dv-band" style="--c:#2E5FA0;left:53.4%;width:16%"></span><span class="dv-dot" style="left:61.4%;background:#2E5FA0"></span></div>
+              <div class="dv-track"><span class="dv-band" style="--c:#B8473D;left:56.8%;width:16%"></span><span class="dv-dot" style="left:64.8%;background:#B8473D"></span></div>
+            </div>
+            <div class="dv-cap"><b>Estimates</b>A dot with a 2px paper ring, and a band for the margin of error: a light wash with solid caps. When each dot sits inside the other's band, the gap is within the margin: a statistical tie.</div>
+          </div>
+          <div class="dv-mark">
+            <div class="dv-demo">
+              <div class="dv-bar"><i style="width:74.4%"></i><span style="left:calc(74.4% + 6px)">74.4%</span></div>
+              <div class="dv-bar"><i style="width:69.8%"></i><span style="left:calc(69.8% + 6px)">69.8%</span></div>
+            </div>
+            <div class="dv-cap"><b>Bars</b>At most 24px thick, square at the baseline with a 4px rounded data end: the one rounded shape in the system. The value rides the tip.</div>
+          </div>
+          <div class="dv-mark">
+            <div class="dv-demo">
+              <div class="dv-gridbox"><i style="left:0"></i><i style="left:25%"></i><i style="left:50%"></i><i style="left:75%"></i><i style="left:calc(100% - 1px)"></i></div>
+              <div class="dv-ticks"><span style="left:0">0%</span><span style="left:25%">25%</span><span style="left:50%">50%</span><span style="left:75%">75%</span><span style="left:100%">100%</span></div>
+            </div>
+            <div class="dv-cap"><b>Grid &amp; type</b>1px solid hairlines, never dashed. Ticks and values in JetBrains Mono. Text stays in ink, never in a series color.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="foot">
+        <span>PETER CROSBY FOR CONGRESS · BRAND &amp; STYLE GUIDE</span>
+        <span>08</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════ PAGE 8 · CHARTS ════════════════ -->
+  <section class="page">
+    <div class="rail" aria-hidden="true"><i class="g"></i><i class="s"></i><i class="b"></i></div>
+    <div class="pad grow" style="display:flex;flex-direction:column">
+      <div class="runner">
+        <span>Crosby for Congress</span>
+        <span class="dotrow"><span class="dot"></span> 08 — Charts</span>
+      </div>
+
+      <div style="margin-top:30px">
+        <div class="eyebrow">Charts</div>
+        <h2 class="section-title">Every chart, <span class="serif">the same frame.</span></h2>
+        <p class="lede">A reader should never have to hunt for where a number came from. Every chart in the data room sits in one frame, in one order, with its source attached.</p>
+      </div>
+
+      <div class="block">
+        <div class="block-h"><span class="n">A</span> The chart frame</div>
+        <div class="dv-anat">
+          <div class="dv-frame">
+            <div class="dv-row"><span class="dv-num">1</span><div class="dv-f-eyebrow">Internal poll · ballot test</div></div>
+            <div class="dv-row"><span class="dv-num">2</span><div class="dv-f-title">If the election were held today</div></div>
+            <div class="dv-row"><span class="dv-num">3</span><div class="dv-f-q">“If the election were held today, who would you vote for?”</div></div>
+            <div class="dv-row"><span class="dv-num">4</span><div class="dv-f-take">Blake Moore 32.4%, Peter Crosby 30.7%. The 1.7-point gap is within the ±4-point margin of error.</div></div>
+            <div class="dv-row"><span class="dv-num">5</span><div class="dv-f-legend"><span><b style="background:#2E5FA0"></b>Peter Crosby</span><span><b style="background:#A9B0B8"></b>Other</span><span><b style="background:#6C7683"></b>Unsure</span><span><b style="background:#CDD3D9"></b>None of the above</span><span><b style="background:#B8473D"></b>Blake Moore</span></div></div>
+            <div class="dv-row"><span class="dv-num">6</span>
+              <div class="dv-stack">
+                <i style="flex:30.7;background:#2E5FA0">30.7</i><i style="flex:3.3;background:#A9B0B8"></i><i style="flex:25.1;background:#6C7683">25.1</i><i style="flex:8.5;background:#CDD3D9;color:#0F2545">8.5</i><i style="flex:32.4;background:#B8473D">32.4</i>
+              </div>
+            </div>
+            <div class="dv-row"><span class="dv-num">7</span><div class="dv-f-note">Margins for party groups are calculated from each group's sample size, at 95% confidence.</div></div>
+            <div class="dv-row"><span class="dv-num">8</span><div class="dv-f-foot"><span>Internal poll, Peter Crosby for Congress. 762 randomized, registered voters across UT-02, Sep 8–10, 2026. ±4% margin of error.</span><span class="dv-f-btn">SHOW DATA TABLE</span></div></div>
+          </div>
+          <ol class="dv-anat-list">
+            <li><span class="dv-num">1</span><span><b>Eyebrow</b>JetBrains Mono in civic blue. The kind of source: internal poll, crosstabs, independent public poll.</span></li>
+            <li><span class="dv-num">2</span><span><b>Title</b>Archivo 900 italic. Names the measure, not the conclusion.</span></li>
+            <li><span class="dv-num">3</span><span><b>Question</b>Source Serif, in quotes: the wording as asked.</span></li>
+            <li><span class="dv-num">4</span><span><b>Takeaway</b>One plain sentence with the numbers in it. No adjective the data can't back.</span></li>
+            <li><span class="dv-num">5</span><span><b>Legend</b>Always there for two or more series, in ink with a colored key.</span></li>
+            <li><span class="dv-num">6</span><span><b>Plot</b>Direct labels where they fit; hover adds detail, never gates it.</span></li>
+            <li><span class="dv-num">7</span><span><b>Note</b>Whatever a reader needs to read it right: multi-select totals, small samples, how a margin was computed.</span></li>
+            <li><span class="dv-num">8</span><span><b>Source &amp; table</b>Sample, population, geography, field dates, margin. The toggle opens every value as a table.</span></li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="block dv-rules">
+        <div class="block-h"><span class="n">B</span> Rules every chart follows</div>
+        <div class="principle">
+          <div class="pk">Cite the source</div>
+          <div class="pv">Sample size, field dates and margin of error sit under every chart. <em>Campaign polls are labeled internal.</em></div>
+        </div>
+        <div class="principle">
+          <div class="pk">Subgroups carry their n</div>
+          <div class="pv">Party groups show their own sample size and margin. <em>Groups under 100 respondents are flagged †.</em></div>
+        </div>
+        <div class="principle">
+          <div class="pk">Say what's missing</div>
+          <div class="pv">The limits panel names what the data does not contain, <em>so no one assumes a number exists.</em></div>
+        </div>
+        <div class="principle">
+          <div class="pk">Nothing modeled</div>
+          <div class="pv">No forecasts, trendlines or smoothing. <em>Only published figures, and plain arithmetic on them.</em></div>
+        </div>
+        <div class="principle">
+          <div class="pk">Check, don't eyeball</div>
+          <div class="pv">Every palette passes the validator: <em>colorblind ΔE ≥ 8 and normal-vision ΔE ≥ 15 between neighbors.</em></div>
+        </div>
+        <div class="principle">
+          <div class="pk">A table behind it</div>
+          <div class="pv">Every value is reachable without hover or color: <em>direct labels, a data table, or both.</em></div>
+        </div>
+      </div>
+
+      <div class="foot">
+        <span>PETER CROSBY FOR CONGRESS · BRAND &amp; STYLE GUIDE</span>
+        <span>09</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════ PAGE 9 · VOICE ════════════════ -->
+  <section class="page">
+    <div class="rail" aria-hidden="true"><i class="g"></i><i class="s"></i><i class="b"></i></div>
+    <div class="pad grow" style="display:flex;flex-direction:column">
+      <div class="runner">
+        <span>Crosby for Congress</span>
+        <span class="dotrow"><span class="dot"></span> 09 — Voice</span>
       </div>
 
       <div style="margin-top:30px">
@@ -747,18 +978,18 @@
 
       <div class="foot">
         <span>PETER CROSBY FOR CONGRESS · BRAND &amp; STYLE GUIDE</span>
-        <span>08</span>
+        <span>10</span>
       </div>
     </div>
   </section>
 
-  <!-- ════════════════ PAGE 8 · CLOSE ════════════════ -->
+  <!-- ════════════════ PAGE 10 · CLOSE ════════════════ -->
   <section class="page page-dark">
     <div class="rail" aria-hidden="true"><i class="g"></i><i class="s"></i><i class="b"></i></div>
     <div class="pad grow" style="display:flex;flex-direction:column">
       <div class="runner">
         <span>Crosby for Congress</span>
-        <span class="dotrow"><span class="dot"></span> 08 — In a sentence</span>
+        <span class="dotrow"><span class="dot"></span> 10 — In a sentence</span>
       </div>
 
       <div style="margin-top:auto;margin-bottom:auto">

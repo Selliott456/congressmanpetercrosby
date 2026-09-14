@@ -5,6 +5,7 @@
 	import PolicyBlocks from '$lib/components/PolicyBlocks.svelte';
 	import { policyMedia } from '$lib/data/policies';
 	import { messages } from '$lib/i18n/locale';
+	import PageMeta from '$lib/components/PageMeta.svelte';
 
 	/** Anchor id of the section currently in view — drives the "you are here" highlight. */
 	let activeId = '';
@@ -95,10 +96,7 @@
 	});
 </script>
 
-<svelte:head>
-	<title>{$messages.policies.metaTitle}</title>
-	<meta name="description" content={$messages.policies.metaDescription} />
-</svelte:head>
+<PageMeta title={$messages.policies.metaTitle} description={$messages.policies.metaDescription} />
 
 <main
 	class="policies-page"

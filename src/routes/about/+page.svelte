@@ -2,14 +2,12 @@
 	import Button from '$lib/components/Button.svelte';
 	import Rail from '$lib/components/Rail.svelte';
 	import { messages } from '$lib/i18n/locale';
+	import PageMeta from '$lib/components/PageMeta.svelte';
 	import { aboutTrail, aboutImageDims } from '$lib/data/aboutPhotos';
 	import { emphasisRuns } from '$lib/utils/emphasis';
 </script>
 
-<svelte:head>
-	<title>{$messages.about.metaTitle}</title>
-	<meta name="description" content={$messages.about.metaDescription} />
-</svelte:head>
+<PageMeta title={$messages.about.metaTitle} description={$messages.about.metaDescription} />
 
 <main class="about-page">
 	<section class="about-intro" aria-labelledby="about-intro-title">

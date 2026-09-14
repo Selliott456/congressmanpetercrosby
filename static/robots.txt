@@ -1,0 +1,6 @@
+# https://www.petercrosbyforcongress.org
+# Netlify deploy previews send their own `X-Robots-Tag: noindex`, so only production is indexed.
+User-agent: *
+Allow: /
+
+Sitemap: https://www.petercrosbyforcongress.org/sitemap.xml

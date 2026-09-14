@@ -11,12 +11,13 @@
   import Media from "$lib/components/Media.svelte";
   import PressReleases from "$lib/components/PressReleases.svelte";
   import { messages } from "$lib/i18n/locale";
+  import PageMeta from "$lib/components/PageMeta.svelte";
   import { socialLinks } from "$lib/data/socialLinks";
 </script>
 
+<PageMeta title={$messages.home.metaTitle} description={$messages.home.metaDescription} />
+
 <svelte:head>
-  <title>{$messages.home.metaTitle}</title>
-  <meta name="description" content={$messages.home.metaDescription} />
   <!-- Hero LCP: Peter portrait before CSS paints -->
   <link rel="preload" href="/images/peter.jpg" as="image" />
 </svelte:head>
@@ -233,6 +234,19 @@
   .home-hero-social-link:hover {
     background: rgba(255, 255, 255, 0.1);
     color: var(--sky);
+  }
+
+  /* Seven networks in one row down to 320px: 34px targets (well above the 24px
+     minimum) with 6px gaps = 274px, instead of wrapping into an uneven 5 + 2. */
+  @media (max-width: 400px) {
+    .home-hero-social-row {
+      gap: 0.375rem;
+    }
+
+    .home-hero-social-link {
+      width: 34px;
+      height: 34px;
+    }
   }
 
   .home-hero-copy {

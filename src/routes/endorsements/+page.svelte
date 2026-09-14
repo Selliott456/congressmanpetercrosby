@@ -1,13 +1,14 @@
 <script>
 	import { messages } from '$lib/i18n/locale';
+	import PageMeta from '$lib/components/PageMeta.svelte';
 	import { peopleEndorsements, orgEndorsements } from '$lib/data/endorsements';
 	import EndorsementCard from '$lib/components/EndorsementCard.svelte';
 </script>
 
-<svelte:head>
-	<title>{$messages.endorsementsPage.metaTitle}</title>
-	<meta name="description" content={$messages.endorsementsPage.metaDescription} />
-</svelte:head>
+<PageMeta
+	title={$messages.endorsementsPage.metaTitle}
+	description={$messages.endorsementsPage.metaDescription}
+/>
 
 <main class="endorse-page">
 	<div class="endorse-inner">

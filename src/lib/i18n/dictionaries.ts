@@ -13,7 +13,17 @@ const en = {
 		about: 'ABOUT',
 		contact: 'CONTACT',
 		events: 'EVENTS',
-		media: 'MEDIA',
+		/** The one dropdown: the campaign's public record — coverage, releases, data. */
+		newsroom: {
+			label: 'NEWSROOM',
+			media: 'Media coverage',
+			mediaDesc: 'Interviews, articles and video',
+			press: 'Press releases',
+			pressDesc: 'Statements from the campaign',
+			data: 'Data Room',
+			dataDesc: 'Polling and the numbers behind the race',
+			newTag: 'New'
+		},
 		policies: 'POLICIES',
 		endorsements: 'ENDORSEMENTS',
 		ariaHome: 'Congressman Peter Crosby - Home',
@@ -22,6 +32,7 @@ const en = {
 	footer: {
 		contactUs: 'Contact Us',
 		endorsements: 'Endorsements',
+		dataRoom: 'Data Room',
 		navAria: 'Footer links',
 		socialAria: 'Social media links',
 		rights: 'Peter Crosby for Congress. All rights reserved.',
@@ -79,7 +90,9 @@ const en = {
 	announcement: {
 		ballotsMail: 'Ballots Mail · Oct 13, 2026',
 		electionDay: 'Election Day · Tue, Nov 3',
-		registerToVote: 'Register to Vote'
+		registerToVote: 'Register to Vote',
+		/** Names the bar as a landmark, so screen readers can find or skip it. */
+		ariaLabel: 'Election dates and voter tools'
 	},
 	endorsements: {
 		eyebrow: 'Endorsed By',
@@ -220,7 +233,16 @@ const es: Messages = {
 		about: 'ACERCA DE',
 		contact: 'CONTACTO',
 		events: 'EVENTOS',
-		media: 'MEDIOS',
+		newsroom: {
+			label: 'PRENSA',
+			media: 'Cobertura en medios',
+			mediaDesc: 'Entrevistas, artículos y videos',
+			press: 'Comunicados de prensa',
+			pressDesc: 'Declaraciones de la campaña',
+			data: 'Sala de datos',
+			dataDesc: 'Encuestas y las cifras detrás de la contienda',
+			newTag: 'Nueva'
+		},
 		policies: 'POLÍTICAS',
 		endorsements: 'RESPALDOS',
 		ariaHome: 'Peter Crosby para el Congreso - Inicio',
@@ -229,6 +251,7 @@ const es: Messages = {
 	footer: {
 		contactUs: 'Contáctenos',
 		endorsements: 'Respaldos',
+		dataRoom: 'Sala de datos',
 		navAria: 'Enlaces del pie de página',
 		socialAria: 'Enlaces a redes sociales',
 		rights: 'Peter Crosby para el Congreso. Todos los derechos reservados.',
@@ -286,7 +309,8 @@ const es: Messages = {
 	announcement: {
 		ballotsMail: 'Boletas por correo · 13 oct 2026',
 		electionDay: 'Día de elecciones · mar 3 nov',
-		registerToVote: 'Regístrese para votar'
+		registerToVote: 'Regístrese para votar',
+		ariaLabel: 'Fechas electorales y herramientas para votantes'
 	},
 	endorsements: {
 		eyebrow: 'Respaldado por',

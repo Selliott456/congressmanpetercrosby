@@ -5,9 +5,11 @@ export const pagesEn = {
 	common: {
 		donate: 'Donate',
 		viewEvent: 'View Event →',
-		googleCalendar: 'Google Calendar',
-		ics: 'ICS',
-		optional: 'optional'
+		optional: 'optional',
+		/** Link previews (PageMeta): og:site_name, and alt text for the branded share card. */
+		siteName: 'Peter Crosby for Congress',
+		shareImageAlt:
+			'Peter Crosby for Congress — The Voice for Northern Utah. U.S. Congress, Utah District 2.'
 	},
 	about: {
 		metaTitle: 'About Peter Crosby — Peter Crosby for Congress',
@@ -179,41 +181,6 @@ export const pagesEn = {
 			'Thanks for stepping up—someone from the campaign will be in touch about next steps.',
 		sendAnother: 'Submit another response'
 	},
-	pastInterviews: {
-		metaTitle: 'Past Interviews — Peter Crosby for Congress',
-		metaDescription:
-			'Past interviews and town halls with Peter Crosby on Our Vote Counts, Hal Stewart, and more.',
-		pageTitle: 'Past Interviews',
-		intro: 'Virtual interviews and town halls from the campaign.',
-		ariaYoutube: 'YouTube',
-		ariaWebsite: 'Website',
-		items: [
-			{
-				id: 'pi-1',
-				month: 'Dec',
-				day: '16',
-				year: 2024,
-				title: 'Interview - Our Vote Counts',
-				time: '3:30 PM – 4:30 PM',
-				description:
-					'Our Vote Counts and I sat for a virtual interview and town hall, where we talked about a wide range of issues facing our district and the nation. You can find the full interview on Youtube.',
-				viewEventUrl: 'https://www.youtube.com/watch?v=kHJBykNy9zg',
-				platform: 'youtube' as const
-			},
-			{
-				id: 'pi-2',
-				month: 'Nov',
-				day: '17',
-				year: 2024,
-				title: 'Interview - Hal Stewart',
-				time: '3:30 PM – 4:30 PM',
-				description:
-					'Hal Stewart interviewed me at the start of my campaign. If you would like to see where we started, this is the first time I went public with my desire to help Northern Utah.',
-				viewEventUrl: 'https://www.petercrosbyforcongress.org/events-2-1/e08a9jyyxhlt8r691kitsl9ic1m3yg',
-				platform: 'website' as const
-			}
-		]
-	},
 	events: {
 		metaTitle: 'Events — Peter Crosby for Congress',
 		metaDescription:
@@ -294,39 +261,51 @@ export const pagesEn = {
 		byId: {} as Record<string, { role: string }>
 	},
 	media: {
-		eyebrow: 'Media',
-		title: 'Latest from the Campaign',
-		viewAll: 'View all media',
+		/** Home: heads the Media + Press rows, which read as one Newsroom block. */
+		eyebrow: 'Newsroom',
+		title: 'Media Coverage',
+		viewAll: 'All media coverage',
 		kindVideo: 'Video',
 		kindArticle: 'Article',
 		kindOpEd: 'Op-Ed',
 		kindPressRelease: 'Press Release',
 		closeVideo: 'Close video',
-		pinnedEyebrow: 'Featured',
+		/** /media is the Newsroom's hub: Media coverage and Press releases both land here. */
+		pinnedEyebrow: 'Newsroom',
 		pinnedTitle: 'Featured Media',
-		metaTitle: 'Media — Peter Crosby for Congress',
+		metaTitle: 'Newsroom — Peter Crosby for Congress',
 		metaDescription:
-			'Videos, op-eds, and interviews from the Peter Crosby for Congress campaign.',
-		pageTitle: 'All Media',
-		pageLede: 'Videos, op-eds, and interviews from across the campaign.',
+			'Media coverage, interviews, and press releases from the Peter Crosby for Congress campaign.',
+		pageEyebrow: 'In the news',
+		pageTitle: 'Media Coverage',
+		pageLede: 'Interviews, coverage, and statements from across the campaign.',
+		/** Accessible name for the shortcut links under the /media lede. */
+		chipsLabel: 'Newsroom sections',
 		byId: {} as Record<string, { title: string; description?: string }>
 	},
 	pressReleases: {
 		kind: 'Press Release',
-		eyebrow: 'Newsroom',
+		/** Under the Newsroom block on home and /media: coverage is "In the news", releases are this. */
+		eyebrow: 'From the campaign',
 		sectionTitle: 'Press Releases',
 		sectionLede:
 			'Official statements and announcements from the campaign, and releases issued by organizations endorsing it.',
 		homeTitle: 'Press Releases',
 		readMore: 'Read the release',
 		viewAll: 'View all press releases',
-		backToMedia: 'Back to media',
+		/** Back link on a release page; it goes to /media#press. */
+		backToReleases: 'All press releases',
 		forImmediateRelease: 'For immediate release',
 		/** Shown instead of "For immediate release" when another organization issued it. */
 		issuedBy: 'Release issued by',
 		externalTag: 'Endorsing organization',
 		reproducedNote: 'This release is reproduced as issued. The original is available below.',
 		pressContact: 'Press contact',
+		/** Polling releases (`dataRoom: true`) and the home press row point to the Data Room. */
+		dataRoomNote:
+			'The figures in this release are charted in the Data Room, with sample sizes, field dates and margins of error.',
+		dataRoomLink: 'Open the Data Room',
+		dataRoomHome: 'Polling in the Data Room',
 		downloadOriginal: 'Download the release',
 		metaTitle: 'Press Releases — Peter Crosby for Congress',
 		metaDescription:
@@ -665,6 +644,17 @@ export const pagesEn = {
 				]
 			},
 			{
+				id: 'hill-afb',
+				navLabel: 'Hill AFB',
+				heading: 'Hill Air Force Base',
+				parts: [
+					{
+						type: 'p',
+						text: 'Hill Air Force Base (HAFB) is the single largest economic employer in Northern Utah, and maintaining a positive relationship with the leadership is an integral part of the responsibilities of our Congressional representative. The best way to support this relationship is to pursue and maintain a position on the House Armed Services Committee, ensure the restoration of the Great Salt Lake, and spend time with not just the officers, but the enlisted personnel and contractors that form the bulk of the workforce supporting the mission of HAFB, and driving the economic investment in the communities of Northern Utah.'
+					}
+				]
+			},
+			{
 				id: 'ai',
 				navLabel: 'AI',
 				heading: 'My Stance on Artificial Intelligence (AI)',
@@ -713,18 +703,256 @@ export const pagesEn = {
 						text: 'Everyone involved should be prosecuted to the fullest extent of the law. I support the full release of the files, as per the victims’ request. I am not interested in protecting anyone who has participated in the buying, selling, or raping of children.'
 					}
 				]
-			},
-			{
-				id: 'hill-afb',
-				navLabel: 'Hill AFB',
-				heading: 'Hill Air Force Base',
-				parts: [
-					{
-						type: 'p',
-						text: 'Hill Air Force Base (HAFB) is the single largest economic employer in Northern Utah, and maintaining a positive relationship with the leadership is an integral part of the responsibilities of our Congressional representative. The best way to support this relationship is to pursue and maintain a position on the House Armed Services Committee, ensure the restoration of the Great Salt Lake, and spend time with not just the officers, but the enlisted personnel and contractors that form the bulk of the workforce supporting the mission of HAFB, and driving the economic investment in the communities of Northern Utah.'
-					}
-				]
 			}
 		])
+	}
+	,
+	analytics: {
+		metaTitle: 'Data Room — Peter Crosby for Congress',
+		metaDescription:
+			"The data behind Utah's 2nd Congressional District race: district polling, issue priorities, and statewide approval trends, with full methodology.",
+		eyebrow: 'Data Room · UT-02',
+		pageTitle: "Utah's 2nd District, by the numbers",
+		lede:
+			"Polling, issue priorities, and statewide context for Utah's 2nd Congressional District. Every figure is published with its source, field dates, sample size, and margin of error. New datasets are added as they become available.",
+		onThisPage: 'On this page',
+		nav: {
+			districtPolling: 'District polling',
+			statewideContext: 'Statewide context',
+			groundGame: 'On the ground',
+			methodology: 'Methodology'
+		},
+		noteLabel: 'Note.',
+		noteBody:
+			'Surveys commissioned by this campaign are labeled internal polling. Independent public polling is labeled separately and attributed to its pollster. Question wording, sample size, field dates, and margin of error are listed for every figure on this page.',
+		meta: {
+			fieldDates: 'Field dates',
+			sample: 'Sample',
+			marginOfError: 'Margin of error',
+			geography: 'Geography',
+			geographyValue: 'UT-02',
+			sampleValue: 'n = {n}',
+			moeValue: '±{moe}%'
+		},
+		eyebrows: {
+			internal: 'Internal poll · UT-02',
+			ballot: 'Internal poll · ballot test',
+			crosstabs: 'Internal poll · crosstabs',
+			issues: 'Internal poll · issue priorities',
+			change: 'Internal polls · August vs. September',
+			publicPoll: 'Independent public poll'
+		},
+		/**
+		 * Per-poll prose, keyed by the ids in `POLLS` (`src/lib/data/analytics.ts`).
+		 * Adding a poll here without adding it to `pages-es.ts` is a type error,
+		 * which is the point — it stops English text reaching Spanish readers.
+		 */
+		polls: {
+			'internal-sep-2026': {
+				pollster: 'Peter Crosby for Congress (internal)',
+				shortPollster: 'Peter Crosby for Congress',
+				population: 'randomized, registered voters',
+				geography: 'Davis, Weber, Box Elder, Cache & Rich Counties (UT-02)',
+				fieldLabel: 'Sep 8–10, 2026',
+				partisanship: 'Sponsored by this campaign — an interested party',
+				methodTitle: 'Campaign internal poll · September'
+			},
+			'internal-aug-2026': {
+				pollster: 'Peter Crosby for Congress (internal)',
+				shortPollster: 'Peter Crosby for Congress',
+				population: 'randomized, registered voters',
+				geography: 'Davis, Weber, Box Elder, Cache & Rich Counties (UT-02)',
+				fieldLabel: 'Aug 3–17, 2026',
+				partisanship: 'Sponsored by this campaign — an interested party',
+				methodTitle: 'Campaign internal poll · August'
+			},
+			'hinckley-aug-2026': {
+				pollster: 'Deseret News / Hinckley Institute of Politics',
+				shortPollster: 'Deseret News / Hinckley Institute of Politics',
+				population: 'registered voters',
+				geography: 'Statewide (Utah)',
+				fieldLabel: 'August 2026',
+				partisanship: 'Independent — not affiliated with any campaign',
+				methodTitle: 'Statewide public poll'
+			}
+		},
+		/** Subheadings for the District polling blocks, newest first. */
+		blockTitles: {
+			sep: 'September 2026 survey',
+			aug: 'August 2026 survey'
+		},
+		pollMeta: {
+			coxFrom: 'January 2026',
+			coxTo: 'August 2026'
+		},
+		datelineLabel: 'Last updated',
+		sourceInternal:
+			'Internal poll, {pollster}. {n} {population} across {geography}, {dates}. ±{moe}% margin of error.',
+		/** Independent polls: the pollster rarely publishes n and margin of error. */
+		sourcePublic: '{pollster}, {dates}. {geography}.',
+		responseRate: 'This question had an {rate}% response rate.',
+		showTable: 'Show data table',
+		hideTable: 'Hide data table',
+		neutralSeparate: 'shown separately, as it sits on neither side of the scale.',
+		likertTable: { response: 'Response', share: 'Share of respondents' },
+		/** Party groups as the September crosstabs label them. */
+		groups: {
+			all: 'All voters',
+			democratic: 'Democrats',
+			republican: 'Republicans',
+			unaffiliated: 'Unaffiliated',
+			other: 'Other party'
+		},
+		/** The September 8–10 internal poll. Figures are filled in from the data file. */
+		september: {
+			heroLabel: 'A statistical tie',
+			heroSub: 'The {gap}-point gap is within the ±{moe}-point margin of error.',
+			vs: 'vs.',
+			/** Ballot options, as asked. */
+			options: {
+				crosby: 'Peter Crosby',
+				moore: 'Blake Moore',
+				other: 'Other',
+				unsure: 'Unsure',
+				none: 'None of the above'
+			},
+			ballot: {
+				title: 'If the election were held today',
+				question: 'If the election were held today, who would you vote for?',
+				takeaway:
+					'Blake Moore {moore}%, Peter Crosby {crosby}%. The {gap}-point gap is within the ±{moe}-point margin of error, and {undecided}% are unsure or chose none of the above.',
+				bandKey: 'Bands show each candidate’s ±{moe}-point margin of error.',
+				ariaLabel: 'Ballot test: Peter Crosby {crosby}%, Blake Moore {moore}%, each ±{moe} points',
+				barLabel: 'All responses',
+				barAria: 'All responses to the ballot question'
+			},
+			byParty: {
+				title: 'Ballot test, by party',
+				takeaway:
+					'Republicans favor Moore {repMoore}% to {repCrosby}%, with {repUndecided}% unsure or choosing none of the above. Unaffiliated voters favor Crosby {unaCrosby}% to {unaMoore}%.',
+				ariaLabel: 'Ballot test responses for all voters, Republicans and unaffiliated voters',
+				note: 'The release reports the ballot question by party for Republicans and unaffiliated voters only. Margins for party groups are calculated from each group’s sample size, at 95% confidence.'
+			},
+			groupMeta: 'n = {n} · ±{moe} pts',
+			concerns: {
+				title: 'Top concerns',
+				question: 'Please let us know your top concerns (multiple selections possible).',
+				takeaway:
+					'Affordability ({aff}%) and government accountability ({acc}%) are the most-cited concerns, followed by the Great Salt Lake ({gsl}%).',
+				note: 'Respondents could choose more than one concern, so shares add up to more than 100%.',
+				ariaLabel: 'Share of respondents naming each concern'
+			},
+			concernsByParty: {
+				title: 'Top concerns, by party',
+				takeaway:
+					'Affordability and government accountability are the top two concerns in every party group.',
+				caption: 'Share of each party group naming each concern',
+				rowHeader: 'Concern',
+				scaleLabel: 'Share of group',
+				note: '† Small sample: margins of error are about ±{dem} points for Democrats and ±{other} points for other-party voters.'
+			},
+			col: {
+				response: 'Response',
+				share: 'Share',
+				range: 'Range (±{moe})',
+				group: 'Group',
+				concern: 'Concern'
+			}
+		},
+		/** August → September, for the two issues both surveys asked about. */
+		change: {
+			title: 'Top issues, August to September',
+			takeaway:
+				'Affordability and government accountability remain the top two concerns. No change between the two surveys exceeds the margin of error.',
+			from: 'Aug',
+			to: 'Sep',
+			ariaLabel:
+				'Share naming affordability and government accountability in the August and September surveys, by party',
+			source:
+				'Internal polls, Peter Crosby for Congress: {aug} (n = {augN}) and {sep} (n = {sepN}). Shown in whole points, the precision of the August release.',
+			colIssue: 'Issue',
+			colGroup: 'Group',
+			colAug: 'August',
+			colSep: 'September'
+		},
+		approval: {
+			title: 'Net job approval, August 2026',
+			takeaway:
+				'Every officeholder and institution measured was net negative — disapproval exceeded approval in each case.',
+			ariaLabel: 'Net job approval, statewide, August 2026',
+			source:
+				'{pollster}, {period}. Statewide. Net = approve minus disapprove; the Congress figure is the published net.',
+			colOfficeHolder: 'Office holder',
+			colApprove: 'Approve',
+			colDisapprove: 'Disapprove',
+			colNet: 'Net',
+			notReported: 'Not reported'
+		},
+		trend: {
+			eyebrow: 'Change since January',
+			body:
+				"Gov. Cox's approval fell from {from} in {fromPeriod} to {to} in {toPeriod}, a change of {delta} points.",
+			source: '{pollster}, {period}. Statewide.'
+		},
+		ground: {
+			note:
+				'Campaign-reported operational counts — organizing activity, not survey results. Town halls as of September 2026; volunteers and funds raised as of the September 14 release; donors as of the August release.'
+		},
+		method: {
+			internalTitle: 'Campaign internal poll',
+			publicTitle: 'Statewide public poll',
+			sponsor: 'Sponsor',
+			sample: 'Sample',
+			geography: 'Geography',
+			fieldDates: 'Field dates',
+			fieldPeriod: 'Field period',
+			marginOfError: 'Margin of error',
+			partisanship: 'Partisanship',
+			pollster: 'Pollster',
+			sampleValue: '{n} {population}',
+			moeValue: '±{moe} percentage points',
+			internalPartisanship: 'Sponsored by this campaign — an interested party',
+			publicPartisanship: 'Independent — not affiliated with any campaign',
+			readRelease: 'Read the full release →',
+			readPoll: 'Read the poll ↗'
+		},
+		limits: {
+			title: 'What is not modeled here',
+			intro:
+				'This page reports only real, attributable figures — the campaign’s own polling and published public polls — never modeled or estimated ones. The following are not represented:',
+			items: [
+				{
+					label: 'Ballot-test trend.',
+					text: 'The Crosby-versus-Moore question has been asked in one survey so far, so it cannot yet show change over time.'
+				},
+				{
+					label: 'Forecast or win probability.',
+					text: 'No predictive model is applied. A forecast would require repeated independent polling of the district.'
+				},
+				{
+					label: 'County-level breakouts.',
+					text: 'The sample spans five counties but was not published disaggregated; n = {n} is too small for reliable subgroup estimates.'
+				}
+			]
+		},
+		/**
+		 * Spanish overrides for the entries in `src/lib/data/analytics.ts`, keyed by id
+		 * (the events/media convention). English lives in the data file; this is empty
+		 * for `en` and filled in `pages-es.ts`.
+		 */
+		byId: {} as Record<
+			string,
+			{
+				title?: string;
+				question?: string;
+				takeaway?: string;
+				label?: string;
+				sub?: string;
+				note?: string;
+				detail?: string;
+				role?: string;
+				segments?: string[];
+			}
+		>
 	}
 };

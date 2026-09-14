@@ -1,4 +1,11 @@
-export type SocialIconName = 'tiktok' | 'youtube' | 'instagram' | 'facebook' | 'substack';
+export type SocialIconName =
+	| 'tiktok'
+	| 'youtube'
+	| 'instagram'
+	| 'threads'
+	| 'facebook'
+	| 'bluesky'
+	| 'substack';
 
 export interface SocialLink {
 	href: string;
@@ -7,10 +14,14 @@ export interface SocialLink {
 	label: string;
 }
 
-/** Campaign social profiles, shared by the footer and the homepage. */
+/**
+ * Campaign social profiles, shared by the footer and the homepage. Plain profile URLs —
+ * strip share/tracking parameters (`?utm_…`, `?is_from_webapp…`) when adding one.
+ * Order: Threads sits beside Instagram (both Meta); Substack, the newsletter, goes last.
+ */
 export const socialLinks: SocialLink[] = [
 	{
-		href: 'https://www.tiktok.com/@petercrosbyforcongress?is_from_webapp=1&sender_device=pc',
+		href: 'https://www.tiktok.com/@petercrosbyforcongress',
 		icon: 'tiktok',
 		label: 'TikTok'
 	},
@@ -25,12 +36,22 @@ export const socialLinks: SocialLink[] = [
 		label: 'Instagram'
 	},
 	{
+		href: 'https://www.threads.com/@petercrosbyut',
+		icon: 'threads',
+		label: 'Threads'
+	},
+	{
 		href: 'https://www.facebook.com/people/Peter-Crosby-for-Congress/61583498494612/',
 		icon: 'facebook',
 		label: 'Facebook'
 	},
 	{
-		href: 'https://substack.com/@petercrosbyforcongress?r=3en65r&utm_medium=ios&utm_source=profile',
+		href: 'https://bsky.app/profile/petercrosby.bsky.social',
+		icon: 'bluesky',
+		label: 'Bluesky'
+	},
+	{
+		href: 'https://substack.com/@petercrosbyforcongress',
 		icon: 'substack',
 		label: 'Substack'
 	}

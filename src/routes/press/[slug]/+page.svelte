@@ -1,5 +1,6 @@
 <script>
 	import { locale, messages } from '$lib/i18n/locale';
+	import PageMeta from '$lib/components/PageMeta.svelte';
 	import Rail from '$lib/components/Rail.svelte';
 	import Button from '$lib/components/Button.svelte';
 	import PressBarChart from '$lib/components/PressBarChart.svelte';
@@ -60,10 +61,15 @@
 	$: sourceLogoAlt = override?.sourceLogoAlt ?? release.source?.logoAlt ?? sourceName;
 </script>
 
-<svelte:head>
-	<title>{title} — {$messages.pressReleases.metaTitle}</title>
-	<meta name="description" content={summary} />
-</svelte:head>
+<!-- Shared links preview with the release's own thumbnail; the branded card if it has none. -->
+<PageMeta
+	title={`${title} — ${$messages.pressReleases.metaTitle}`}
+	description={summary}
+	image={release.image}
+	imageAlt={title}
+	type="article"
+	published={release.date}
+/>
 
 <main class="press-page">
 	<!-- Outside the article so the stripe spans the viewport, matching the band under
@@ -72,7 +78,7 @@
 	<div class="press-rail"><Rail /></div>
 
 	<article class="press-article">
-		<a href="/media#press" class="press-back">&larr; {$messages.pressReleases.backToMedia}</a>
+		<a href="/media#press" class="press-back">&larr; {$messages.pressReleases.backToReleases}</a>
 
 		{#if release.source}
 			<!-- Issued by another organization: name the source above the headline so the
@@ -111,11 +117,12 @@
 		<div class="press-body">
 			{#each body as part}
 				{#if part.type === 'p'}
-					<p>{#each inlineSegments(part.text) as seg}{#if seg.href}<a
+					<!-- Citations to other sites open in a new tab; links within this site don't. -->
+					<p>{#each inlineSegments(part.text) as seg}{#if seg.href}{@const external = !seg.href.startsWith('/')}<a
 								href={seg.href}
 								class="press-link"
-								target="_blank"
-								rel="noopener noreferrer">{seg.text}</a>{:else}{seg.text}{/if}{/each}</p>
+								target={external ? '_blank' : undefined}
+								rel={external ? 'noopener noreferrer' : undefined}>{seg.text}</a>{:else}{seg.text}{/if}{/each}</p>
 				{:else if part.type === 'chart'}
 					<PressBarChart
 						chartTitle={part.chartTitle}
@@ -141,6 +148,18 @@
 				{/if}
 			{/each}
 		</div>
+
+		{#if release.dataRoom}
+			<!-- Polling releases point to the Data Room, where the same figures are charted
+			     with their sample sizes, field dates and margins of error. Kept outside the
+			     body so the release itself reads as issued. -->
+			<!-- A plain div, not <aside>: inside the article, an aside becomes a nested
+			     complementary landmark, which screen readers expect only at the top level. -->
+			<div class="press-data">
+				<p class="press-data-text">{$messages.pressReleases.dataRoomNote}</p>
+				<a href="/data-room" class="press-data-link">{$messages.pressReleases.dataRoomLink} &rarr;</a>
+			</div>
+		{/if}
 
 		{#if release.source}
 			<p class="press-reproduced">{$messages.pressReleases.reproducedNote}</p>
@@ -364,6 +383,38 @@
 		letter-spacing: 0.04em;
 		text-transform: uppercase;
 		color: var(--ink-2);
+	}
+
+	.press-data {
+		margin: 2.5rem 0 0;
+		padding: 1.1rem 1.25rem 1.2rem;
+		background: var(--paper-2);
+		border-left: 3px solid var(--blue);
+	}
+
+	.press-data-text {
+		margin: 0 0 0.6rem;
+		font-family: var(--sans);
+		font-size: 0.95rem;
+		line-height: 1.55;
+		color: var(--ink);
+	}
+
+	.press-data-link {
+		font-family: var(--display);
+		font-style: italic;
+		font-weight: 800;
+		font-size: 0.8125rem;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: var(--blue);
+		text-decoration: none;
+	}
+
+	.press-data-link:hover {
+		color: var(--ink);
+		text-decoration: underline;
+		text-underline-offset: 3px;
 	}
 
 	.press-download {

@@ -92,7 +92,9 @@
 		font-size: 0.6875rem;
 		letter-spacing: 0.2em;
 		text-transform: uppercase;
-		color: var(--sky);
+		/* Paper, not sky: sky on civic blue is 2.97:1, below AA for small text. The
+		   dash and the stars stay sky — they are decoration, not text. */
+		color: var(--paper);
 	}
 
 	.endorse-eyebrow::before {
@@ -120,17 +122,18 @@
 		font-size: 0.8125rem;
 		font-weight: 600;
 		letter-spacing: 0.02em;
-		color: var(--sky);
+		/* Paper for the same reason as the eyebrow; hover adds an underline instead of
+		   a color shift, since sky can't pass on this ground. */
+		color: var(--paper);
 		text-decoration: none;
-		transition:
-			color 0.18s ease,
-			gap 0.18s ease;
+		transition: gap 0.18s ease;
 	}
 
 	.endorse-link:hover,
 	.endorse-link:focus-visible {
-		color: var(--paper);
 		gap: 0.6rem;
+		text-decoration: underline;
+		text-underline-offset: 3px;
 	}
 
 	.endorse-link-arrow {

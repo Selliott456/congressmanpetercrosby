@@ -6,6 +6,8 @@
 	export let items;
 	/** Card surface passed through to each MediaCard. @type {'dark' | 'light'} */
 	export let variant = 'dark';
+	/** Card title heading level — 2 when the grid sits directly under the page's h1. @type {2 | 3} */
+	export let headingLevel = 3;
 
 	/** @type {import('$lib/data/media').MediaItem | null} */
 	let active = null;
@@ -23,7 +25,7 @@
 <ul class="media-grid">
 	{#each items as item (item.id)}
 		<li class="media-grid-cell">
-			<MediaCard {item} {variant} on:play={onPlay} />
+			<MediaCard {item} {variant} {headingLevel} on:play={onPlay} />
 		</li>
 	{/each}
 </ul>
