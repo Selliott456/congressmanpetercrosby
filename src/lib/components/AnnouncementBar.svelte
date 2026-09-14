@@ -116,10 +116,10 @@
 		text-decoration: none;
 	}
 
-	/* Wherever the header collapses to the menu (below 1120px), the menu carries the
+	/* Wherever the header collapses to the menu (below 1180px), the menu carries the
 	   Data Room. Keeping it here too would squeeze the election dates, which truncate
 	   first — in Spanish, from tablet widths down. */
-	@media (max-width: 1119px) {
+	@media (max-width: 1179px) {
 		.announce-data {
 			display: none;
 		}

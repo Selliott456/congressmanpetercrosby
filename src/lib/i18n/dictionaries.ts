@@ -13,11 +13,19 @@ const en = {
 		about: 'ABOUT',
 		contact: 'CONTACT',
 		events: 'EVENTS',
-		media: 'MEDIA',
+		/** The one dropdown: the campaign's public record — coverage, releases, data. */
+		newsroom: {
+			label: 'NEWSROOM',
+			media: 'Media coverage',
+			mediaDesc: 'Interviews, articles and video',
+			press: 'Press releases',
+			pressDesc: 'Statements from the campaign',
+			data: 'Data Room',
+			dataDesc: 'Polling and the numbers behind the race',
+			newTag: 'New'
+		},
 		policies: 'POLICIES',
 		endorsements: 'ENDORSEMENTS',
-		/** Collapsed menu only — the desktop link row is full; see AnnouncementBar. */
-		dataRoom: 'DATA ROOM',
 		ariaHome: 'Congressman Peter Crosby - Home',
 		menuToggle: 'Toggle menu'
 	},
@@ -223,10 +231,18 @@ const es: Messages = {
 		about: 'ACERCA DE',
 		contact: 'CONTACTO',
 		events: 'EVENTOS',
-		media: 'MEDIOS',
+		newsroom: {
+			label: 'PRENSA',
+			media: 'Cobertura en medios',
+			mediaDesc: 'Entrevistas, artículos y videos',
+			press: 'Comunicados de prensa',
+			pressDesc: 'Declaraciones de la campaña',
+			data: 'Sala de datos',
+			dataDesc: 'Encuestas y las cifras detrás de la contienda',
+			newTag: 'Nueva'
+		},
 		policies: 'POLÍTICAS',
 		endorsements: 'RESPALDOS',
-		dataRoom: 'SALA DE DATOS',
 		ariaHome: 'Peter Crosby para el Congreso - Inicio',
 		menuToggle: 'Abrir menú'
 	},
