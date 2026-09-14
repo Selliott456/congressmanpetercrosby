@@ -49,8 +49,8 @@ time to register a form named **`contact`**.
 
 ```
 ├── src/
-│   ├── routes/              # File-based routes (home, about, faq, events,
-│   │   │                    #   past-interviews, contact, volunteer)
+│   ├── routes/              # File-based routes (home, about, policies, events, media,
+│   │   │                    #   press, data-room, endorsements, contact, volunteer)
 │   │   ├── +layout.svelte   # App shell: Nav + Footer + global CSS variables
 │   │   └── +page.svelte     # Home page
 │   ├── lib/

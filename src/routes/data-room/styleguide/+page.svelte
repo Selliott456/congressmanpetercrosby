@@ -108,12 +108,12 @@
 				{
 					check: 'CVD separation',
 					result: 'Pass',
-					detail: 'Worst neighbor pair on the bar ΔE 18.4 under protanopia, candidates included.'
+					detail: 'Worst neighbor pair on the bar ΔE 19.0 under protanopia, candidates included.'
 				},
 				{
 					check: 'Normal-vision floor',
 					result: 'Pass',
-					detail: 'Worst neighbor pair ΔE 18.6. In lightness order the grays measured 12–13 and failed.'
+					detail: 'Worst neighbor pair ΔE 19.2. In lightness order the grays measured 12–13 and failed.'
 				},
 				{
 					check: 'Contrast vs surface',
@@ -215,7 +215,7 @@
 				},
 				{
 					lead: 'Values are printed.',
-					text: 'Every heatmap cell carries its number, in ink or white chosen by the cell’s luminance, so no one has to estimate a shade.'
+					text: 'Every heatmap cell carries its number, so no one has to estimate a shade. Cells take the ramp’s colors in solid steps, never a blend, and the number is white or deep navy by the cell’s luminance; every step clears 4.5:1. A blend would pass through mid-blues where neither color does.'
 				}
 			],
 			caption: 'Sequential ramp — verification (ordinal)',
@@ -819,9 +819,9 @@
 		<p class="body">
 			Text never wears a data color. Values, labels, legends, and axis text use ink tokens; the
 			colored mark beside them carries the identity. The one exception is a label set inside a
-			filled segment or cell, where the text takes white or ink by the fill's luminance —
+			filled segment or cell, where the text takes white or deep navy by the fill's luminance —
 			<code>inkOn</code> in <code>src/lib/utils/chartColor.ts</code> picks it, never a hand-kept
-			list of light colors.
+			list of light colors. Every fill a label sits on must clear 4.5:1 with one of the two.
 		</p>
 	</section>
 

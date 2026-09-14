@@ -6,8 +6,6 @@ export const pagesEs = {
 	common: {
 		donate: 'Donar',
 		viewEvent: 'Ver evento →',
-		googleCalendar: 'Google Calendar',
-		ics: 'ICS',
 		optional: 'opcional'
 	},
 	about: {
@@ -179,41 +177,6 @@ export const pagesEs = {
 		successBody:
 			'Gracias por sumarse—alguien de la campaña se pondrá en contacto sobre los próximos pasos.',
 		sendAnother: 'Enviar otra respuesta'
-	},
-	pastInterviews: {
-		metaTitle: 'Entrevistas anteriores — Peter Crosby para el Congreso',
-		metaDescription:
-			'Entrevistas y cabildos anteriores con Peter Crosby en Our Vote Counts, Hal Stewart y más.',
-		pageTitle: 'Entrevistas anteriores',
-		intro: 'Entrevistas virtuales y cabildos de la campaña.',
-		ariaYoutube: 'YouTube',
-		ariaWebsite: 'Sitio web',
-		items: [
-			{
-				id: 'pi-1',
-				month: 'Dic',
-				day: '16',
-				year: 2024,
-				title: 'Entrevista - Our Vote Counts',
-				time: '3:30 PM – 4:30 PM',
-				description:
-					'Our Vote Counts y yo participamos en una entrevista virtual y cabildo donde hablamos de muchos temas que enfrentan nuestro distrito y el país. Puede ver la entrevista completa en YouTube.',
-				viewEventUrl: 'https://www.youtube.com/watch?v=kHJBykNy9zg',
-				platform: 'youtube' as const
-			},
-			{
-				id: 'pi-2',
-				month: 'Nov',
-				day: '17',
-				year: 2024,
-				title: 'Entrevista - Hal Stewart',
-				time: '3:30 PM – 4:30 PM',
-				description:
-					'Hal Stewart me entrevistó al inicio de mi campaña. Si quiere ver cómo empezamos, esta es la primera vez que di públicamente que quería ayudar al norte de Utah.',
-				viewEventUrl: 'https://www.petercrosbyforcongress.org/events-2-1/e08a9jyyxhlt8r691kitsl9ic1m3yg',
-				platform: 'website' as const
-			}
-		]
 	},
 	events: {
 		metaTitle: 'Eventos — Peter Crosby para el Congreso',
@@ -1034,7 +997,7 @@ export const pagesEs = {
 					},
 					{
 						type: 'p',
-						text: 'Peter Crosby es candidato al Congreso por primera vez y es el candidato demócrata en el Distrito 2 del Congreso de Utah. Lleva adelante una campaña de base: Peter no acepta donaciones de PAC corporativos ni financiamiento de PAC vinculados a intereses extranjeros, y ya cuenta con más donantes individuales de pequeñas cantidades registrados que la campaña de Moore. La campaña se sostiene por completo con voluntarios, con más de 300 voluntarios registrados. Peter cree que los ciudadanos del norte de Utah merecen un representante que viva en el distrito, escuche sus preocupaciones y ponga a la gente de Utah por encima del partido o de la búsqueda de poder personal. Está realizando cabildos públicos por todo el distrito, con al menos uno en los condados de Cache, Box Elder, Davis y Weber cada mes. Más información en petercrosbyforcongress.org.'
+						text: 'Peter Crosby es candidato al Congreso por primera vez y es el candidato demócrata en el Distrito 2 del Congreso de Utah. Lleva adelante una campaña de base: Peter no acepta donaciones de PAC corporativos ni financiamiento de PAC vinculados a intereses extranjeros, y ya cuenta con más donantes individuales de pequeñas cantidades registrados que la campaña de Moore. La campaña se sostiene por completo con voluntarios, con más de 400 voluntarios registrados. Peter cree que los ciudadanos del norte de Utah merecen un representante que viva en el distrito, escuche sus preocupaciones y ponga a la gente de Utah por encima del partido o de la búsqueda de poder personal. Está realizando cabildos públicos por todo el distrito, con al menos uno en los condados de Cache, Box Elder, Davis y Weber cada mes. Más información en petercrosbyforcongress.org.'
 					}
 				]
 			},
@@ -1067,7 +1030,7 @@ export const pagesEs = {
 					},
 					{
 						type: 'p',
-						text: 'Peter Crosby es candidato al Congreso por primera vez y es el candidato demócrata en el Distrito 2 del Congreso de Utah. Lleva adelante una campaña de base: Peter no acepta donaciones de PAC corporativos ni financiamiento de PAC vinculados a intereses extranjeros, y ya cuenta con más donantes individuales de pequeñas cantidades registrados que la campaña de Moore. La campaña se sostiene por completo con voluntarios, con más de 300 voluntarios registrados. Peter cree que los ciudadanos del norte de Utah merecen un representante que viva en el distrito, escuche sus preocupaciones y ponga a la gente de Utah por encima del partido o de la búsqueda de poder personal. Está realizando cabildos públicos por todo el distrito, con al menos uno en los condados de Cache, Box Elder, Davis y Weber cada mes. Más información en petercrosbyforcongress.org.'
+						text: 'Peter Crosby es candidato al Congreso por primera vez y es el candidato demócrata en el Distrito 2 del Congreso de Utah. Lleva adelante una campaña de base: Peter no acepta donaciones de PAC corporativos ni financiamiento de PAC vinculados a intereses extranjeros, y ya cuenta con más donantes individuales de pequeñas cantidades registrados que la campaña de Moore. La campaña se sostiene por completo con voluntarios, con más de 400 voluntarios registrados. Peter cree que los ciudadanos del norte de Utah merecen un representante que viva en el distrito, escuche sus preocupaciones y ponga a la gente de Utah por encima del partido o de la búsqueda de poder personal. Está realizando cabildos públicos por todo el distrito, con al menos uno en los condados de Cache, Box Elder, Davis y Weber cada mes. Más información en petercrosbyforcongress.org.'
 					}
 				]
 			}

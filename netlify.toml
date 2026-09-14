@@ -44,3 +44,10 @@
   to = "/data-room/:splat"
   status = 301
   force = true
+
+# /past-interviews was retired (Sep 2026); its interviews live in Media Coverage on /media.
+[[redirects]]
+  from = "/past-interviews"
+  to = "/media#coverage"
+  status = 301
+  force = true

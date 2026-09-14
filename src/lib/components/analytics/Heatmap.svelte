@@ -1,5 +1,5 @@
 <script>
-	import { inkOn, rampColor } from '$lib/utils/chartColor';
+	import { inkOn } from '$lib/utils/chartColor';
 
 	/**
 	 * Heatmap table: a grid of percentages, each cell shaded on a one-hue sequential
@@ -21,7 +21,7 @@
 	export let rows = [];
 	/** Validated sequential ramp, light → dark. @type {string[]} */
 	export let ramp;
-	/** Value mapped to the dark end of the ramp. @type {number} */
+	/** Value at the top of the darkest step. @type {number} */
 	export let max = 100;
 	/** Decimal places shown for values. @type {number} */
 	export let digits = 1;
@@ -34,10 +34,21 @@
 	/** Label for the color-scale key; the key is omitted without one. @type {string} */
 	export let scaleLabel = '';
 
-	$: shade = (/** @type {number} */ v) => rampColor(ramp, v / max);
-	/** The key's gradient uses the ramp's own stops, evenly spaced — the same
-	    interpolation `rampColor` applies to the cells. */
-	$: gradient = `linear-gradient(90deg, ${ramp.join(', ')})`;
+	/**
+	 * Cells take the ramp's own colors in equal steps (0–20%, 20–40% … for five stops
+	 * and a max of 100), never a blend between stops. A blend passes through mid-blues
+	 * where neither dark nor white text reaches 4.5:1; every validated stop clears it
+	 * with the label color `inkOn` picks. The printed value carries the precision.
+	 */
+	$: steps = ramp.length;
+	$: shade = (/** @type {number} */ v) =>
+		ramp[Math.min(steps - 1, Math.max(0, Math.floor((v / max) * steps)))];
+	/** Step boundaries for the key: 0, max/steps, … max. */
+	$: edges = Array.from({ length: steps + 1 }, (_, i) => Math.round(((max / steps) * i) * 10) / 10);
+	/** One solid band per step (hard color stops), so the key matches the cells exactly. */
+	$: bands = `linear-gradient(90deg, ${ramp
+		.map((c, i) => `${c} ${(i / steps) * 100}% ${((i + 1) / steps) * 100}%`)
+		.join(', ')})`;
 </script>
 
 <div class="heatmap">
@@ -82,8 +93,10 @@
 		<div class="scale" aria-hidden="true">
 			<span class="scale-label">{scaleLabel}</span>
 			<span class="scale-bar">
-				<span class="scale-ramp" style="background:{gradient}"></span>
-				<span class="scale-ticks"><span>0%</span><span>{max / 2}%</span><span>{max}%</span></span>
+				<span class="scale-ramp" style="background:{bands}"></span>
+				<span class="scale-ticks">
+					{#each edges as edge}<span>{edge}%</span>{/each}
+				</span>
 			</span>
 		</div>
 	{/if}
@@ -205,7 +218,7 @@
 	.scale-bar {
 		display: flex;
 		flex-direction: column;
-		width: 10rem;
+		width: 12.5rem;
 	}
 
 	.scale-ramp {
@@ -213,6 +226,7 @@
 		height: 8px;
 	}
 
+	/* One label per step boundary, spread evenly so each sits under its edge. */
 	.scale-ticks {
 		display: flex;
 		justify-content: space-between;

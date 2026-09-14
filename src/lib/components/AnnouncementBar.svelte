@@ -3,7 +3,8 @@
 	import { messages } from '$lib/i18n/locale';
 </script>
 
-<div class="announce">
+<!-- A labeled landmark, so assistive tech can find (or skip) the bar like the nav below it. -->
+<aside class="announce" aria-label={$messages.announcement.ariaLabel}>
 	<div class="announce-inner">
 		<p class="announce-dates">
 			<span class="announce-date">{$messages.announcement.ballotsMail}</span>
@@ -26,7 +27,7 @@
 			<LanguageSwitcher />
 		</div>
 	</div>
-</div>
+</aside>
 
 <style>
 	.announce {

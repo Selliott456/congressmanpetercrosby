@@ -5,8 +5,6 @@ export const pagesEn = {
 	common: {
 		donate: 'Donate',
 		viewEvent: 'View Event →',
-		googleCalendar: 'Google Calendar',
-		ics: 'ICS',
 		optional: 'optional'
 	},
 	about: {
@@ -178,41 +176,6 @@ export const pagesEn = {
 		successBody:
 			'Thanks for stepping up—someone from the campaign will be in touch about next steps.',
 		sendAnother: 'Submit another response'
-	},
-	pastInterviews: {
-		metaTitle: 'Past Interviews — Peter Crosby for Congress',
-		metaDescription:
-			'Past interviews and town halls with Peter Crosby on Our Vote Counts, Hal Stewart, and more.',
-		pageTitle: 'Past Interviews',
-		intro: 'Virtual interviews and town halls from the campaign.',
-		ariaYoutube: 'YouTube',
-		ariaWebsite: 'Website',
-		items: [
-			{
-				id: 'pi-1',
-				month: 'Dec',
-				day: '16',
-				year: 2024,
-				title: 'Interview - Our Vote Counts',
-				time: '3:30 PM – 4:30 PM',
-				description:
-					'Our Vote Counts and I sat for a virtual interview and town hall, where we talked about a wide range of issues facing our district and the nation. You can find the full interview on Youtube.',
-				viewEventUrl: 'https://www.youtube.com/watch?v=kHJBykNy9zg',
-				platform: 'youtube' as const
-			},
-			{
-				id: 'pi-2',
-				month: 'Nov',
-				day: '17',
-				year: 2024,
-				title: 'Interview - Hal Stewart',
-				time: '3:30 PM – 4:30 PM',
-				description:
-					'Hal Stewart interviewed me at the start of my campaign. If you would like to see where we started, this is the first time I went public with my desire to help Northern Utah.',
-				viewEventUrl: 'https://www.petercrosbyforcongress.org/events-2-1/e08a9jyyxhlt8r691kitsl9ic1m3yg',
-				platform: 'website' as const
-			}
-		]
 	},
 	events: {
 		metaTitle: 'Events — Peter Crosby for Congress',

@@ -200,7 +200,8 @@
 		font-size: 0.6875rem;
 		letter-spacing: 0.06em;
 		text-transform: uppercase;
-		color: rgba(247, 250, 252, 0.5);
+		/* 0.6 (not 0.5) so the small meta line clears WCAG AA on the navy card: 5.4:1. */
+		color: rgba(247, 250, 252, 0.6);
 	}
 
 	/* Lift the issuing organization out of the dimmed meta line — it is a byline,

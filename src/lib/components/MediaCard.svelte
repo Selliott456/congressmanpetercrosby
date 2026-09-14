@@ -8,6 +8,8 @@
 	export let item;
 	/** Card surface: 'dark' (default, navy) or 'light' (for light section grounds). @type {'dark' | 'light'} */
 	export let variant = 'dark';
+	/** Title heading level — 2 when the grid sits directly under the page's h1. @type {2 | 3} */
+	export let headingLevel = 3;
 
 	const dispatch = createEventDispatcher();
 
@@ -26,7 +28,13 @@
 		});
 	}
 
-	$: override = $messages.media.byId[item.id];
+	// Spanish copy: the media override, else — for a press release shown as a media card
+	// (the latest one heads /media's Featured band) — the release's own Spanish.
+	$: pressOverride =
+		item.type === 'press-release' ? $messages.pressReleases.byId[item.id] : undefined;
+	$: override =
+		$messages.media.byId[item.id] ??
+		(pressOverride ? { title: pressOverride.title, description: pressOverride.summary } : undefined);
 	$: title = override?.title ?? item.title;
 	$: description = override?.description ?? item.description;
 	$: formattedDate = formatDate(item.date, $locale);
@@ -79,7 +87,7 @@
 		<span class="media-kind">{kind}</span>
 	</div>
 	<div class="media-body">
-		<h3 class="media-title">{title}</h3>
+		<svelte:element this={`h${headingLevel}`} class="media-title">{title}</svelte:element>
 		{#if description}
 				<p class="media-desc">{description}</p>
 			{/if}
@@ -248,6 +256,7 @@
 		font-size: 0.6875rem;
 		letter-spacing: 0.06em;
 		text-transform: uppercase;
-		color: rgba(247, 250, 252, 0.5);
+		/* 0.6 (not 0.5) so the small meta line clears WCAG AA on the navy card: 5.4:1. */
+		color: rgba(247, 250, 252, 0.6);
 	}
 </style>

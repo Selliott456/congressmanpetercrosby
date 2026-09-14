@@ -129,13 +129,14 @@ export const CANDIDATE_COLORS = {
  * The ballot's non-candidate answers, in grays — they are nobody's side. The darkest
  * gray is "Unsure" and sits in the middle of the bar: grays in lightness order were
  * too close to tell apart (normal-vision ΔE 12–13); in this order, with the candidates
- * at the ends, the worst neighbor pair is CVD ΔE 18.4 · normal-vision ΔE 18.6. Other
+ * at the ends, the worst neighbor pair is CVD ΔE 19.0 · normal-vision ΔE 19.2. Other
  * and None sit below 3:1 contrast, so they ship with in-bar labels
- * where they fit, a legend, a tooltip and the table view.
+ * where they fit, a legend, a tooltip and the table view. "Unsure" was darkened from
+ * #6E7885 (Sep 2026) so its white in-bar labels clear WCAG AA: 4.61:1, was 4.48.
  */
 export const RESPONSE_GRAYS = {
 	other: '#A9B0B8',
-	unsure: '#6E7885',
+	unsure: '#6C7683',
 	none: '#CDD3D9'
 } as const;
 
@@ -146,6 +147,9 @@ export const SERIES_COLOR = '#2E5FA0';
  * Sequential ramp for magnitude grids (the heatmap), light → dark on civic blue.
  * Validator (ordinal): lightness monotone · adjacent ΔL ≥ 0.06 · single hue (5°) ·
  * light end 2.22:1 on the surface, so even the lightest cell stays visible.
+ * The heatmap uses the stops as solid steps, never a blend between them: each stop
+ * clears 4.5:1 with the label `inkOn` picks (deep navy on the two light steps, white
+ * on the rest), while a blend passes through mid-blues where no label color does.
  */
 export const SEQUENTIAL_RAMP = ['#8AADD6', '#6189C0', '#2E5FA0', '#1F4478', '#132B4E'];
 

@@ -27,7 +27,8 @@
 					</ul>
 				</nav>
 			</div>
-			<MediaGrid items={featuredMedia} />
+			<!-- Directly under the page's h1, so the card titles are h2s. -->
+			<MediaGrid items={featuredMedia} headingLevel={2} />
 		</div>
 	</section>
 
