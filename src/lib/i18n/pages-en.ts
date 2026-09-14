@@ -644,6 +644,17 @@ export const pagesEn = {
 				]
 			},
 			{
+				id: 'hill-afb',
+				navLabel: 'Hill AFB',
+				heading: 'Hill Air Force Base',
+				parts: [
+					{
+						type: 'p',
+						text: 'Hill Air Force Base (HAFB) is the single largest economic employer in Northern Utah, and maintaining a positive relationship with the leadership is an integral part of the responsibilities of our Congressional representative. The best way to support this relationship is to pursue and maintain a position on the House Armed Services Committee, ensure the restoration of the Great Salt Lake, and spend time with not just the officers, but the enlisted personnel and contractors that form the bulk of the workforce supporting the mission of HAFB, and driving the economic investment in the communities of Northern Utah.'
+					}
+				]
+			},
+			{
 				id: 'ai',
 				navLabel: 'AI',
 				heading: 'My Stance on Artificial Intelligence (AI)',
@@ -690,17 +701,6 @@ export const pagesEn = {
 					{
 						type: 'p',
 						text: 'Everyone involved should be prosecuted to the fullest extent of the law. I support the full release of the files, as per the victims’ request. I am not interested in protecting anyone who has participated in the buying, selling, or raping of children.'
-					}
-				]
-			},
-			{
-				id: 'hill-afb',
-				navLabel: 'Hill AFB',
-				heading: 'Hill Air Force Base',
-				parts: [
-					{
-						type: 'p',
-						text: 'Hill Air Force Base (HAFB) is the single largest economic employer in Northern Utah, and maintaining a positive relationship with the leadership is an integral part of the responsibilities of our Congressional representative. The best way to support this relationship is to pursue and maintain a position on the House Armed Services Committee, ensure the restoration of the Great Salt Lake, and spend time with not just the officers, but the enlisted personnel and contractors that form the bulk of the workforce supporting the mission of HAFB, and driving the economic investment in the communities of Northern Utah.'
 					}
 				]
 			}

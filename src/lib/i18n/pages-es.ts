@@ -1464,6 +1464,17 @@ export const pagesEs = {
 				]
 			},
 			{
+				id: 'hill-afb',
+				navLabel: 'Base Aérea Hill',
+				heading: 'Base Aérea Hill',
+				parts: [
+					{
+						type: 'p',
+						text: 'La Base Aérea Hill (HAFB, por sus siglas en inglés) es el mayor empleador del norte de Utah, y mantener una relación positiva con su liderazgo es una parte fundamental de las responsabilidades de nuestro representante en el Congreso. La mejor manera de apoyar esta relación es buscar y mantener un puesto en el Comité de Servicios Armados de la Cámara de Representantes, asegurar la restauración del Gran Lago Salado y pasar tiempo no solo con los oficiales, sino también con el personal enlistado y los contratistas que conforman la mayor parte de la fuerza laboral que apoya la misión de la HAFB e impulsa la inversión económica en las comunidades del norte de Utah.'
+					}
+				]
+			},
+			{
 				id: 'ai',
 				navLabel: 'IA',
 				heading: 'Mi postura sobre la inteligencia artificial (IA)',
@@ -1510,17 +1521,6 @@ export const pagesEs = {
 					{
 						type: 'p',
 						text: 'Todos los involucrados deben ser procesados con todo el peso de la ley. Apoyo la publicación completa de los archivos, tal como lo han pedido las víctimas. No me interesa proteger a nadie que haya participado en la compra, la venta o la violación de niños.'
-					}
-				]
-			},
-			{
-				id: 'hill-afb',
-				navLabel: 'Base Aérea Hill',
-				heading: 'Base Aérea Hill',
-				parts: [
-					{
-						type: 'p',
-						text: 'La Base Aérea Hill (HAFB, por sus siglas en inglés) es el mayor empleador del norte de Utah, y mantener una relación positiva con su liderazgo es una parte fundamental de las responsabilidades de nuestro representante en el Congreso. La mejor manera de apoyar esta relación es buscar y mantener un puesto en el Comité de Servicios Armados de la Cámara de Representantes, asegurar la restauración del Gran Lago Salado y pasar tiempo no solo con los oficiales, sino también con el personal enlistado y los contratistas que conforman la mayor parte de la fuerza laboral que apoya la misión de la HAFB e impulsa la inversión económica en las comunidades del norte de Utah.'
 					}
 				]
 			}
