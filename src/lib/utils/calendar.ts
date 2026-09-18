@@ -1,4 +1,5 @@
 import type { EventRow } from '$lib/data/events';
+import { linksToPlainText } from '$lib/utils/links';
 
 /** All campaign events are in Mountain Time. */
 const TZ = 'America/Denver';
@@ -82,7 +83,7 @@ export function googleCalendarUrl(ev: CalEvent): string {
 		const { start, end } = allDayRange(ev);
 		params.set('dates', `${start}/${end}`);
 	}
-	if (ev.description) params.set('details', ev.description);
+	if (ev.description) params.set('details', linksToPlainText(ev.description));
 	if (ev.location) params.set('location', ev.location);
 	return `https://calendar.google.com/calendar/render?${params.toString()}`;
 }
@@ -129,7 +130,7 @@ export function icsText(ev: CalEvent): string {
 	}
 	lines.push(`SUMMARY:${icsEscape(ev.title)}`);
 	if (ev.location) lines.push(`LOCATION:${icsEscape(ev.location)}`);
-	if (ev.description) lines.push(`DESCRIPTION:${icsEscape(ev.description)}`);
+	if (ev.description) lines.push(`DESCRIPTION:${icsEscape(linksToPlainText(ev.description))}`);
 	lines.push('END:VEVENT', 'END:VCALENDAR');
 	return lines.map(fold).join('\r\n');
 }
