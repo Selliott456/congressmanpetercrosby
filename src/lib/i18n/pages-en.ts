@@ -143,6 +143,8 @@ export const pagesEn = {
 		lastName: 'Last Name',
 		phone: 'Phone Number',
 		email: 'Email Address',
+		zipCode: 'ZIP Code',
+		zipFormat: 'A 5-digit ZIP code, e.g. 84321',
 		mediaOutlet: 'Media Outlet / Publication',
 		message: 'Message',
 		requiredNote: 'All fields required except where noted.',

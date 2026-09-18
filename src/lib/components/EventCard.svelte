@@ -4,6 +4,7 @@
 	import { rsvpedEvents } from '$lib/stores/rsvp';
 	import { eventOffersRsvp } from '$lib/data/events';
 	import { googleCalendarUrl, icsHref, icsFilename } from '$lib/utils/calendar';
+	import { linkRuns } from '$lib/utils/links';
 	import Rail from './Rail.svelte';
 
 	/** @type {import('$lib/data/events').EventRow & { title: string; description: string }} */
@@ -68,7 +69,8 @@
 					{/if}
 				</p>
 			{/if}
-			<p class="event-description">{event.description}</p>
+			<!-- One line on purpose: whitespace between the blocks would render as stray spaces around links. -->
+			<p class="event-description">{#each linkRuns(event.description) as run}{#if run.href}<a href={run.href} target="_blank" rel="noopener noreferrer" class="event-description-link">{run.text}</a>{:else}{run.text}{/if}{/each}</p>
 			{#if showCalendar || event.viewEventUrl}
 				<div class="event-links">
 					{#if showCalendar}
@@ -270,6 +272,18 @@
 		line-height: 1.7;
 		color: var(--ink-2);
 		margin: 0;
+		overflow-wrap: anywhere;
+	}
+
+	.event-description-link {
+		color: var(--blue);
+		font-weight: 600;
+		text-decoration: underline;
+		text-underline-offset: 2px;
+	}
+
+	.event-description-link:hover {
+		color: var(--ink);
 	}
 
 	.event-links {

@@ -966,12 +966,13 @@ export const eventsData: EventRow[] = [
 		year: 2026,
 		monthIndex: 9,
 		title: 'Logan Pride Festival',
-		time: '9:00 AM – 5:00 PM MT',
-		location: 'Logan, UT',
-		locationUrl: 'https://www.google.com/maps/search/Logan+UT',
+		// Start moved 9:00 → 10:00 and street added (Airtable, re-synced 2026-09-18).
+		time: '10:00 AM – 5:00 PM MT',
+		location: 'Federal Ave, Logan, UT 84321',
+		locationUrl: 'https://www.google.com/maps/search/Federal+Ave+Logan+UT+84321',
 		description: 'Peter joins the community at the Logan Pride Festival.',
 		viewEventUrl: null,
-		startTime: '09:00',
+		startTime: '10:00',
 		endTime: '17:00'
 	},
 	{
@@ -1216,20 +1217,23 @@ export const eventsData: EventRow[] = [
 		endTime: '12:30'
 	},
 	{
-		id: 'gcal-54o9oq6tcn5833gq458mth9egk',
+		// Calendar event was deleted and re-created (was gcal-54o9oq6tcn5833gq458mth9egk,
+		// 9–1 on Main St); re-synced 2026-09-18. Location is the walkers' check-in point.
+		id: 'gcal-688to3nuumuh8miqhpts1ne7ie',
 		type: 'other',
 		month: 'Sep',
 		day: '26',
 		year: 2026,
 		monthIndex: 9,
 		title: 'USU Homecoming Parade',
-		time: '9:00 AM – 1:00 PM MT',
-		location: 'Main Street, Logan, UT',
-		locationUrl: 'https://www.google.com/maps/search/Main+Street+Logan+UT',
-		description: 'Join the campaign in the USU Homecoming parade in downtown Logan.',
+		time: '8:00 AM – 12:00 PM MT',
+		location: 'Logan Rec Center — 195 S 100 W, Logan, UT 84321',
+		locationUrl: 'https://www.google.com/maps/search/195+S+100+W+Logan+UT+84321',
+		description:
+			'Cheer on Peter in the USU Homecoming Parade in Logan. Walking with the campaign? Check in at the Logan Rec Center parking lot between 7:00 and 9:00 AM.',
 		viewEventUrl: null,
-		startTime: '09:00',
-		endTime: '13:00'
+		startTime: '08:00',
+		endTime: '12:00'
 	},
 	{
 		id: 'gcal-51p7cin4daaquor021iod945fb',
@@ -1346,10 +1350,9 @@ export const eventsData: EventRow[] = [
 		monthIndex: 9,
 		title: 'Meet & Greet – Cache Valley Gardeners’ Market',
 		time: '9:00 AM – 1:00 PM MT',
-		// The calendar entry carries no address; the market name is used rather than
-		// guessing a street address.
-		location: 'Cache Valley Gardeners’ Market, Logan, UT',
-		locationUrl: 'https://www.google.com/maps/search/Cache+Valley+Gardeners+Market+Logan+UT',
+		// Address added in Airtable (re-synced 2026-09-18).
+		location: 'Cache Valley Gardeners’ Market — 199 N Main St, Logan, UT 84321',
+		locationUrl: 'https://www.google.com/maps/search/199+N+Main+St+Logan+UT+84321',
 		description: 'Meet Peter at the Cache Valley Gardeners’ Market in Logan. Stop by, ask questions, and say hello.',
 		viewEventUrl: null,
 		startTime: '09:00',
@@ -1610,9 +1613,101 @@ export const eventsData: EventRow[] = [
 		time: '6:00 PM – 7:30 PM MT',
 		location: 'Post Chapel, Fort Douglas — 120 Fort Douglas Blvd, Salt Lake City, UT 84113',
 		locationUrl: 'https://www.google.com/maps/search/120+Fort+Douglas+Blvd+Salt+Lake+City+UT+84113',
-		description: 'An informal roundtable conversation on faith and politics in Utah, featuring two of the state’s congressional candidates and members of the community, with time for audience questions. Chapel space is limited.',
+		description: 'An informal roundtable conversation on faith and politics in Utah, featuring two of the state’s congressional candidates and members of the community, with time for audience questions. Chapel space is limited, so an RSVP is required: [bit.ly/faithandpoliticsfireside](https://bit.ly/faithandpoliticsfireside)',
 		viewEventUrl: null,
+		// The organizers take RSVPs at their own link (in the description); ours would miss their list.
+		rsvp: false,
 		startTime: '18:00',
 		endTime: '19:30'
+	},
+	// --- Pulled 2026-09-18 (Airtable "Volunteer and Events") ---
+	// Airtable titles all three Weber County honk & waves "…in Ogden!"; titled here by
+	// their actual corner's city.
+	{
+		id: 'gcal-0rcji0al4b36ht2otus8li8q2h',
+		type: 'volunteer',
+		month: 'Sep',
+		day: '19',
+		year: 2026,
+		monthIndex: 9,
+		title: 'Honk & Wave – Ogden',
+		time: '11:00 AM – 1:00 PM MT',
+		location: 'Washington Blvd & 25th St, Ogden, UT 84401',
+		locationUrl: 'https://www.google.com/maps/search/Washington+Blvd+%26+25th+St+Ogden+UT+84401',
+		description:
+			'Join Peter and campaign volunteers on the corner of Washington Boulevard and 25th Street in downtown Ogden. Bring a friend, grab a sign, and wave hello.',
+		viewEventUrl: null,
+		startTime: '11:00',
+		endTime: '13:00'
+	},
+	{
+		id: 'gcal-62a126qbg3enva08d9l8noibsj',
+		type: 'volunteer',
+		month: 'Sep',
+		day: '22',
+		year: 2026,
+		monthIndex: 9,
+		title: 'Honk & Wave – Riverdale',
+		time: '3:30 PM – 5:00 PM MT',
+		location: '1125 W Riverdale Rd, Riverdale, UT 84405',
+		locationUrl: 'https://www.google.com/maps/search/1125+W+Riverdale+Rd+Riverdale+UT+84405',
+		description:
+			'Join Peter and campaign volunteers along Riverdale Road for an after-work honk and wave. Bring a friend, grab a sign, and wave hello.',
+		viewEventUrl: null,
+		startTime: '15:30',
+		endTime: '17:00'
+	},
+	{
+		id: 'gcal-2rr47j0lop03huvhlmvqnuidik',
+		type: 'volunteer',
+		month: 'Sep',
+		day: '24',
+		year: 2026,
+		monthIndex: 9,
+		title: 'Honk & Wave – South Ogden',
+		time: '3:30 PM – 5:00 PM MT',
+		location: '40th St & Washington Blvd, South Ogden, UT 84403',
+		locationUrl: 'https://www.google.com/maps/search/40th+St+%26+Washington+Blvd+South+Ogden+UT+84403',
+		description:
+			'Join Peter and campaign volunteers on the corner of 40th Street and Washington Boulevard in South Ogden. Bring a friend, grab a sign, and wave hello.',
+		viewEventUrl: null,
+		startTime: '15:30',
+		endTime: '17:00'
+	},
+	{
+		id: 'gcal-5phdak0lbng42a7vc69i81q8dj',
+		type: 'volunteer',
+		month: 'Sep',
+		day: '26',
+		year: 2026,
+		monthIndex: 9,
+		title: 'Honk & Wave – Centerville',
+		time: '11:00 AM – 12:00 PM MT',
+		location: 'N 400 W & W Parrish Ln, Centerville, UT 84014',
+		locationUrl: 'https://www.google.com/maps/search/N+400+W+%26+W+Parrish+Ln+Centerville+UT+84014',
+		description:
+			'Join Peter, Garret Rushforth, and Scott Troxel at 400 West and Parrish Lane. Meet on the southwest corner in front of America First Credit Union; parking is behind IHOP. Water, treats, and music provided.',
+		viewEventUrl: null,
+		startTime: '11:00',
+		endTime: '12:00'
+	},
+	{
+		// Hosted at a private home — the campaign confirmed the homeowner OK'd publishing
+		// the address (2026-09-18). The host's name stays off the site.
+		id: 'gcal-3hqpev8ks8jiufdph715p5ooho',
+		type: 'meet-greet',
+		month: 'Oct',
+		day: '6',
+		year: 2026,
+		monthIndex: 10,
+		title: 'Meet & Greet – Centerville',
+		time: '1:30 PM – 3:00 PM MT',
+		location: '502 W 2025 N, Centerville, UT 84014',
+		locationUrl: 'https://www.google.com/maps/search/502+W+2025+N+Centerville+UT+84014',
+		description:
+			'Meet Peter at a neighborhood meet and greet in Centerville, next to Reading Elementary. Stop by, ask questions, and say hello.',
+		viewEventUrl: null,
+		startTime: '13:30',
+		endTime: '15:00'
 	},
 ];

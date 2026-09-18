@@ -143,6 +143,8 @@ export const pagesEs = {
 		lastName: 'Apellido',
 		phone: 'Teléfono',
 		email: 'Correo electrónico',
+		zipCode: 'Código postal',
+		zipFormat: 'Un código postal de 5 dígitos, p. ej. 84321',
 		mediaOutlet: 'Medio / Publicación',
 		message: 'Mensaje',
 		requiredNote: 'Todos los campos son obligatorios salvo donde se indique.',
@@ -583,9 +585,10 @@ export const pagesEs = {
 				title: 'Desfile de Peach Days – Brigham City',
 				description: 'Acompañe a la campaña caminando con los Demócratas de Box Elder en el desfile de Peach Days (comienza a las 10 a. m.).'
 			},
-			'gcal-54o9oq6tcn5833gq458mth9egk': {
+			'gcal-688to3nuumuh8miqhpts1ne7ie': {
 				title: 'Desfile de Bienvenida de USU',
-				description: 'Acompañe a la campaña en el desfile de bienvenida (Homecoming) de USU en el centro de Logan.'
+				description:
+					'Anime a Peter en el desfile de bienvenida (Homecoming) de USU en Logan. ¿Va a desfilar con la campaña? Regístrese en el estacionamiento del Logan Rec Center entre las 7:00 y las 9:00 AM.'
 			},
 			'gcal-51p7cin4daaquor021iod945fb': {
 				title: 'Ogden Pride',
@@ -669,7 +672,7 @@ export const pagesEs = {
 			},
 			'gcal-03s23q49pfo1rtghq4vflat9k9': {
 				title: 'Conversación sobre Fe y Política',
-				description: 'Una conversación informal de mesa redonda sobre la fe y la política en Utah, con dos de los candidatos al Congreso del estado y miembros de la comunidad, con tiempo para preguntas del público. El espacio en la capilla es limitado.'
+				description: 'Una conversación informal de mesa redonda sobre la fe y la política en Utah, con dos de los candidatos al Congreso del estado y miembros de la comunidad, con tiempo para preguntas del público. El espacio en la capilla es limitado, por lo que es obligatorio confirmar asistencia en [bit.ly/faithandpoliticsfireside](https://bit.ly/faithandpoliticsfireside)'
 			},
 			'gcal-jdb0693pajabibf2gepejg3ais': {
 				title: 'Celebración del Día de Conmemoración de Cache Valley',
@@ -680,6 +683,31 @@ export const pagesEs = {
 				title: 'Saludo en la esquina – Layton',
 				description:
 					'Acompañe a Peter, Abigail Treasure y Garret Rushforth en la esquina de Hill Field Road y Antelope Drive. Traiga a un amigo y ayude a dar a conocer quiénes están en la boleta en Layton.'
+			},
+			'gcal-0rcji0al4b36ht2otus8li8q2h': {
+				title: 'Saludo en la esquina – Ogden',
+				description:
+					'Acompañe a Peter y a los voluntarios de la campaña en la esquina de Washington Boulevard y 25th Street, en el centro de Ogden. Traiga a un amigo, tome un letrero y salude.'
+			},
+			'gcal-62a126qbg3enva08d9l8noibsj': {
+				title: 'Saludo en la esquina – Riverdale',
+				description:
+					'Acompañe a Peter y a los voluntarios de la campaña sobre Riverdale Road al salir del trabajo. Traiga a un amigo, tome un letrero y salude.'
+			},
+			'gcal-2rr47j0lop03huvhlmvqnuidik': {
+				title: 'Saludo en la esquina – South Ogden',
+				description:
+					'Acompañe a Peter y a los voluntarios de la campaña en la esquina de 40th Street y Washington Boulevard, en South Ogden. Traiga a un amigo, tome un letrero y salude.'
+			},
+			'gcal-5phdak0lbng42a7vc69i81q8dj': {
+				title: 'Saludo en la esquina – Centerville',
+				description:
+					'Acompañe a Peter, Garret Rushforth y Scott Troxel en 400 West y Parrish Lane. Reúnase en la esquina suroeste, frente a America First Credit Union; hay estacionamiento detrás de IHOP. Habrá agua, bocadillos y música.'
+			},
+			'gcal-3hqpev8ks8jiufdph715p5ooho': {
+				title: 'Encuentro y saludo – Centerville',
+				description:
+					'Conozca a Peter en un encuentro vecinal en Centerville, junto a Reading Elementary. Pásese, haga preguntas y salude.'
 			}
 		} as Record<string, { title: string; description: string }>
 	},
