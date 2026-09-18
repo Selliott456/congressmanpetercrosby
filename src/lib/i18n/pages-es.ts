@@ -143,6 +143,8 @@ export const pagesEs = {
 		lastName: 'Apellido',
 		phone: 'Teléfono',
 		email: 'Correo electrónico',
+		zipCode: 'Código postal',
+		zipFormat: 'Un código postal de 5 dígitos, p. ej. 84321',
 		mediaOutlet: 'Medio / Publicación',
 		message: 'Mensaje',
 		requiredNote: 'Todos los campos son obligatorios salvo donde se indique.',

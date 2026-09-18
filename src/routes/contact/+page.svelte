@@ -14,6 +14,9 @@
 	/** @type {'general' | 'media'} */
 	let topic = 'general';
 
+	/** General-topic ZIP — echoed into the email subject so the campaign can sort CD2 mail at a glance. */
+	let zip = '';
+
 	/** Formspree endpoint per topic. */
 	const ENDPOINTS = {
 		general: 'https://formspree.io/f/meewbdjn',
@@ -61,6 +64,7 @@
 			if (response.ok) {
 				status = 'success';
 				form.reset();
+				zip = '';
 				await tick();
 				successHeading?.focus();
 			} else {
@@ -166,7 +170,9 @@
 					<input
 						type="hidden"
 						name="_subject"
-						value={topic === 'media' ? 'Media request (website)' : 'General inquiry (website)'}
+						value={topic === 'media'
+							? 'Media request (website)'
+							: `General inquiry (website) — ZIP ${zip.trim()}`}
 					/>
 				<!-- Honeypot: hidden from people; bots that fill it are silently dropped by Formspree. -->
 					<div class="hp-field" aria-hidden="true">
@@ -246,6 +252,28 @@
 						/>
 					</div>
 				</div>
+
+				<!-- General only: lets the campaign separate CD2 constituents from everyone else. -->
+				{#if topic === 'general'}
+					<div class="form-grid">
+						<div class="form-row">
+							<label class="form-label" for="zip-code">{$messages.contact.zipCode}</label>
+							<input
+								id="zip-code"
+								name="zipCode"
+								bind:value={zip}
+								class="form-input"
+								type="text"
+								required
+								maxlength="10"
+								pattern={'\\d{5}(-\\d{4})?'}
+								title={$messages.contact.zipFormat}
+								autocomplete="postal-code"
+								inputmode="numeric"
+							/>
+						</div>
+					</div>
+				{/if}
 
 				<div class="form-row">
 					<label class="form-label" for="message">{$messages.contact.message}</label>
