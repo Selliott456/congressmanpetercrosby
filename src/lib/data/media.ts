@@ -3,9 +3,10 @@ import { pressReleasesByRecent } from './pressReleases';
 /**
  * Campaign media (English source). Spanish overrides: $messages.media.byId[id].
  * The home page shows the 6 most recent; /media shows a pinned set + the rest.
- * Convention: keep exactly 3 items pinned — the campaign's most important —
- * so the featured set stays a clean row on widescreen and a short stack on
- * phones. Pinning a new one means unpinning another.
+ * Convention: keep exactly 5 items pinned — the campaign's most important. With
+ * the latest press release heading the band that fills two clean rows of three on
+ * widescreen (and 3×2 / 6×1 as it narrows). Pinning a new one means unpinning
+ * another. The sheet's `Pinned` column is the source of truth, re-checked each sync.
  * Source of truth: the "PC - Media Objects" Google Sheet.
  */
 export type MediaItem = {
@@ -203,6 +204,32 @@ export const mediaData: MediaItem[] = [
 		url: 'https://www.deseret.com/opinion/2026/09/01/no-moore-debt-double-talk-utah-deserves-fiscal-honesty/',
 		outlet: 'Deseret News',
 		image: '/images/media/debt_double-talk.jpg'
+	},
+	{
+		id: 'polling-dead-heat',
+		pinned: true,
+		type: 'article',
+		title:
+			'Recent partisan polling suggests that 2nd Congressional District race may be a dead heat',
+		description:
+			'If recent polling is accurate, Democratic congressional candidate Peter Crosby’s race against incumbent U.S. Rep. Blake Moore in the newly redrawn 2nd District of Utah is now a dead heat.',
+		date: '2026-09-15',
+		url: 'https://www.cachevalleydaily.com/news/recent-partisan-polling-suggests-that-2nd-congressional-district-race-may-be-a-dead-heat/article_434cff86-2b23-450b-8e83-06c0aff3634a.html',
+		outlet: 'Cache Valley Daily',
+		image: '/images/media/partisan_polling_suggests.jpg'
+	},
+	{
+		id: 'crosby-narrows-gap',
+		pinned: true,
+		type: 'article',
+		title:
+			'Peter Crosby narrows gap with Blake Moore in Utah’s new Congressional district, unaffiliated voters show strong support',
+		description:
+			'Democrat Peter Crosby trails Republican Representative Blake Moore by 1.7 percentage points in an internal poll conducted for the Utah CD2 race. The survey found Crosby leading among unaffiliated voters, while more than 26% of respondents remained unsure of their choice.',
+		date: '2026-09-17',
+		url: 'https://www.moneycontrol.com/world/peter-crosby-narrows-gap-with-blake-moore-in-utah-s-new-congressional-district-unaffiliated-voters-show-strong-support-article-14032126.html',
+		outlet: 'Money Control',
+		image: '/images/media/crosby_narrows_gap.jpg'
 	}
 ];
 
