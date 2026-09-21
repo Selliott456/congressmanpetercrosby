@@ -820,6 +820,18 @@ export const pagesEs = {
 				description:
 					'Necesitamos un representante que sea honesto con nosotros y consigo mismo sobre la mejor manera de enfrentar la crisis de la deuda nacional.'
 			},
+			'polling-dead-heat': {
+				title:
+					'Encuestas recientes sugieren que la contienda del Segundo Distrito Congresional podría estar empatada',
+				description:
+					'Si las encuestas recientes son precisas, la contienda del candidato demócrata al Congreso Peter Crosby contra el representante Blake Moore en el nuevo Segundo Distrito de Utah está ahora empatada.'
+			},
+			'crosby-narrows-gap': {
+				title:
+					'Peter Crosby acorta la distancia con Blake Moore en el nuevo distrito congresional de Utah; los votantes no afiliados muestran un fuerte apoyo',
+				description:
+					'El demócrata Peter Crosby está 1.7 puntos porcentuales detrás del representante republicano Blake Moore en una encuesta interna realizada para la contienda del CD2 de Utah. El sondeo encontró a Crosby a la cabeza entre los votantes no afiliados, mientras que más del 26 % de los encuestados seguía sin decidir su voto.'
+			},
 			// Featured press release card (headlines the /media "Featured" band).
 			'august-internal-polling': {
 				title:
