@@ -13,6 +13,10 @@
  *   3. The Deseret News / Hinckley Institute of Politics August 2026 statewide poll,
  *      as cited in the August release.
  *   4. Campaign-reported organizing counts (`groundGame`), as stated in releases.
+ *   5. The campaign's week-of-Sept-21 internal poll, transcribed from the deck the
+ *      campaign supplied ("Weekly Polling — Week of 9.21.2026", received 2026-09-23).
+ *      It repeats September's questions, which is what makes the trend charts possible.
+ *      No press release carries it yet; it is published here under the approval below.
  * The campaign approved (2026-09-14) publishing its own poll data here beyond what a
  * press release shows, so the Data Room can carry fuller crosstabs than a release. That
  * covers data the CAMPAIGN supplies, with its poll's full methodology — not figures we
@@ -21,19 +25,23 @@
  * Two kinds of figure are derived rather than transcribed, and both are plain
  * arithmetic on published numbers:
  *   • the September party-group sample sizes (`SEP_GROUP_N`), reconstructed from
- *     the published percentages — see that constant;
+ *     the published percentages — see that constant (the week-of-Sept-21 deck
+ *     publishes its group sizes, so `SEP21_GROUP_N` is transcribed, not derived);
  *   • party-group margins of error, computed from those sizes (`marginOfError`),
- *     and labeled as calculated wherever they appear.
+ *     and labeled as calculated wherever they appear — as is the week-of-Sept-21
+ *     poll's full-sample margin, which its deck does not state.
  * Do NOT add modeled, projected, smoothed, or illustrative figures. This page is
  * public-facing on a campaign site; a fabricated trendline or win probability
  * would read as a real finding. If a series has no source, it does not belong here.
  *
  * Note what the polls do NOT contain, so nobody "fills it in":
- *   • no ballot-test trend — the Crosby-vs-Moore question has been asked once
- *   • no ballot-test figures for Democrats or other-party voters (not in the
- *     release; the by-party chart's note says so)
+ *   • no ballot-test figures for Democrats or other-party voters — neither September
+ *     survey breaks the question out for them (the by-party chart's note says so)
  *   • no county-level crosstabs
  *   • no forecast / win probability
+ * The ballot test now has two readings (Sep 8–10 and the week of Sep 21), so a trend
+ * exists where it did not before; that item is gone from `limits.items` accordingly.
+ * Two readings is still a short series — do not extrapolate it.
  *
  * ⚠️ These absences are also stated publicly, in `$messages.analytics.limits`.
  * When a new poll supplies one of them, delete that item from `limits.items` in
@@ -61,6 +69,8 @@ export type Poll = {
 	/** Null when the pollster did not publish the figure. */
 	sampleSize: number | null;
 	marginOfError: number | null;
+	/** True when the pollster published no margin and this one is calculated from `n`. */
+	moeCalculated?: boolean;
 	/** ISO field dates — used for ordering and for the page dateline. */
 	fieldStart: string;
 	fieldEnd: string;
@@ -72,6 +82,21 @@ export type Poll = {
 };
 
 export const POLLS: Record<string, Poll> = {
+	'internal-sep21-2026': {
+		id: 'internal-sep21-2026',
+		partisan: true,
+		sampleSize: 738,
+		// The campaign's deck states no margin of error, so this is calculated from the
+		// sample size the same way party-group margins are (see `marginOfError`), and is
+		// labeled as calculated everywhere it appears.
+		marginOfError: 3.6,
+		moeCalculated: true,
+		// The deck is titled "Week of 9.21.2026" and gives no exact field dates; both
+		// bounds are the Monday of that week, used only for ordering. The reader-facing
+		// label is the honest "Week of Sept 21, 2026" (`polls[...].fieldLabel`).
+		fieldStart: '2026-09-21',
+		fieldEnd: '2026-09-21'
+	},
 	'internal-sep-2026': {
 		id: 'internal-sep-2026',
 		partisan: true,
@@ -104,10 +129,10 @@ export const POLLS: Record<string, Poll> = {
 };
 
 /** The newest district poll. Its sample size fills `{n}` in the limits panel. */
-export const FEATURED_POLL_ID = 'internal-sep-2026';
+export const FEATURED_POLL_ID = 'internal-sep21-2026';
 
 /** Page dateline (ISO). Bump whenever data is added or revised. */
-export const LAST_UPDATED = '2026-09-14';
+export const LAST_UPDATED = '2026-09-23';
 
 /** A set of rows and the poll they came from, so a chart can cite its own source
     instead of inheriting a page-level one. */
@@ -310,6 +335,27 @@ export const SEP_GROUP_N: Record<GroupKey, number> = {
 	other: 45
 };
 
+/**
+ * Respondents per group, week-of-Sept-21 poll. Unlike September, this deck publishes
+ * the party counts outright ("Demo - Party"), so nothing is reconstructed: Republican
+ * 440, Democratic 101, Unaffiliated 167, Other 30 — summing to the full 738, with no
+ * no-party-on-file remainder. The crosstab percentages resolve to whole respondents at
+ * exactly these sizes (72.73% of 440 = 320; 80.84% of 167 = 135; 76.67% of 30 = 23).
+ */
+export const SEP21_GROUP_N: Record<GroupKey, number> = {
+	all: 738,
+	democratic: 101,
+	republican: 440,
+	unaffiliated: 167,
+	other: 30
+};
+
+/** Group sizes per poll, so a chart can size its own margins. */
+export const GROUP_N: Record<string, Record<GroupKey, number>> = {
+	'internal-sep21-2026': SEP21_GROUP_N,
+	'internal-sep-2026': SEP_GROUP_N
+};
+
 /** Groups smaller than this are flagged as small samples wherever they appear. */
 export const SMALL_SAMPLE_N = 100;
 
@@ -341,34 +387,57 @@ export type BallotRow = {
 	shares: Record<BallotOption, number>;
 };
 
-/**
- * "If the election were held today, who would you vote for?" The release reports it
- * for all voters and, by party, for Republicans and unaffiliated voters only.
- *
- * ➤ If a later poll repeats the question, add it as a second reading keyed by its
- *   own `pollId` rather than overwriting this one; that is what a trend needs.
- */
-export const ballotTest: {
+/** One survey's answers to the ballot question. */
+export type BallotReading = {
 	pollId: string;
 	all: BallotRow;
 	byParty: BallotRow[];
-} = {
-	pollId: 'internal-sep-2026',
-	all: {
-		group: 'all',
-		shares: { crosby: 30.71, moore: 32.41, other: 3.28, unsure: 25.07, none: 8.53 }
-	},
-	byParty: [
-		{
-			group: 'republican',
-			shares: { crosby: 18.0, moore: 45.7, other: 3.7, unsure: 24.0, none: 8.6 }
-		},
-		{
-			group: 'unaffiliated',
-			shares: { crosby: 39.4, moore: 16.5, other: 2.8, unsure: 30.3, none: 11.0 }
-		}
-	]
 };
+
+/**
+ * "If the election were held today, who would you vote for?" Asked in both September
+ * surveys, for all voters and — by party — for Republicans and unaffiliated voters
+ * only. Both surveys leave Democrats and other-party voters out of this question.
+ *
+ * ➤ Newest first, one entry per survey. A later poll repeating the question is added
+ *   as another reading rather than overwriting one; that is what the trend reads.
+ */
+export const ballotReadings: BallotReading[] = [
+	{
+		pollId: 'internal-sep21-2026',
+		all: {
+			group: 'all',
+			shares: { crosby: 34.01, moore: 30.22, other: 2.98, unsure: 25.47, none: 7.32 }
+		},
+		byParty: [
+			{
+				group: 'republican',
+				shares: { crosby: 20.2, moore: 43.4, other: 3.2, unsure: 24.1, none: 9.1 }
+			},
+			{
+				group: 'unaffiliated',
+				shares: { crosby: 40.1, moore: 15.6, other: 1.8, unsure: 35.9, none: 6.6 }
+			}
+		]
+	},
+	{
+		pollId: 'internal-sep-2026',
+		all: {
+			group: 'all',
+			shares: { crosby: 30.71, moore: 32.41, other: 3.28, unsure: 25.07, none: 8.53 }
+		},
+		byParty: [
+			{
+				group: 'republican',
+				shares: { crosby: 18.0, moore: 45.7, other: 3.7, unsure: 24.0, none: 8.6 }
+			},
+			{
+				group: 'unaffiliated',
+				shares: { crosby: 39.4, moore: 16.5, other: 2.8, unsure: 30.3, none: 11.0 }
+			}
+		]
+	}
+];
 
 /**
  * "Please let us know your top concerns (multiple selections possible)." Percent of
@@ -382,6 +451,68 @@ export type ConcernRow = {
 	issue: string;
 	detail?: string;
 	shares: Record<GroupKey, number>;
+};
+
+const sep21Concerns: Dataset<ConcernRow> = {
+	pollId: 'internal-sep21-2026',
+	rows: [
+		{
+			id: 'issue-affordability',
+			issue: 'Affordability',
+			detail: 'Housing, healthcare & food prices',
+			shares: {
+				all: 76.8,
+				democratic: 88.12,
+				republican: 72.73,
+				unaffiliated: 80.84,
+				other: 76.67
+			}
+		},
+		{
+			id: 'issue-accountability',
+			issue: 'Government accountability',
+			detail: 'Ethics, insider trading & closing loopholes',
+			shares: {
+				all: 69.0,
+				democratic: 78.22,
+				republican: 64.32,
+				unaffiliated: 72.46,
+				other: 86.67
+			}
+		},
+		{
+			id: 'issue-great-salt-lake',
+			issue: 'The Great Salt Lake',
+			shares: { all: 46.3, democratic: 63.37, republican: 40.91, unaffiliated: 47.9, other: 60.0 }
+		},
+		{
+			id: 'issue-public-lands',
+			issue: 'Access to public lands',
+			shares: {
+				all: 30.8,
+				democratic: 43.56,
+				republican: 25.68,
+				unaffiliated: 34.13,
+				other: 43.33
+			}
+		},
+		{
+			id: 'issue-doge',
+			issue: 'DOGE cuts',
+			shares: {
+				all: 27.1,
+				democratic: 44.55,
+				republican: 19.77,
+				unaffiliated: 34.13,
+				other: 36.67
+			}
+		},
+	{
+		id: 'issue-other',
+		issue: 'Other',
+		shares: { all: 14.0, democratic: 13.86, republican: 13.64, unaffiliated: 16.17, other: 6.67 }
+	}
+]
 };
 
 export const topConcerns: Dataset<ConcernRow> = {
@@ -421,6 +552,13 @@ export const topConcerns: Dataset<ConcernRow> = {
 		}
 	]
 };
+
+/**
+ * Both September readings of the concerns question, newest first. Row ids match across
+ * readings (and back to August's `issuePriorities`), which is how the change charts
+ * pair them up.
+ */
+export const concernReadings: Dataset<ConcernRow>[] = [sep21Concerns, topConcerns];
 
 // ── Statewide (Deseret News / Hinckley Institute) ────────────────────────────
 
