@@ -590,9 +590,10 @@ export const pagesEs = {
 				description:
 					'Anime a Peter en el desfile de bienvenida (Homecoming) de USU en Logan. ¿Va a desfilar con la campaña? Regístrese en el estacionamiento del Logan Rec Center entre las 7:00 y las 9:00 AM.'
 			},
-			'gcal-51p7cin4daaquor021iod945fb': {
-				title: 'Ogden Pride',
-				description: 'Encuentre a la campaña en el festival Ogden Pride.'
+			'gcal-5m6rmqljarlusiumq7edhdf0e2': {
+				title: 'Festival Ogden Pride',
+				description:
+					'Encuentre a la campaña en el Festival Ogden Pride, compartiendo mesa con los Demócratas del Condado de Weber. Pásese por la mesa y salude.'
 			},
 			'gcal-0v2436r6dda91cpnk1t5a2b69a': {
 				title: 'Debate del Distrito 2 del Congreso',
@@ -662,7 +663,7 @@ export const pagesEs = {
 				title: 'Encuentro y saludo – Centerville',
 				description: 'Conozca y salude a los candidatos que representarían el área de Centerville: Peter Crosby (Congreso de EE. UU.), Garret Rushforth (Senado estatal) y Scott Troxel (Cámara estatal). Conviva con los vecinos, haga preguntas y comparta sus inquietudes.'
 			},
-			'gcal-3i19id235oqmfo7acc9j9d093k': {
+			'gcal-6v8hba6nmcudrgronoatvuv578': {
 				title: 'Cabildo Virtual',
 				description: 'Acompañe a Peter en un cabildo virtual en vivo por Facebook, Instagram o YouTube. Únase desde donde esté.'
 			},
@@ -708,6 +709,21 @@ export const pagesEs = {
 				title: 'Encuentro y saludo – Centerville',
 				description:
 					'Conozca a Peter en un encuentro vecinal en Centerville, junto a Reading Elementary. Pásese, haga preguntas y salude.'
+			},
+			'gcal-28rk8vi1b1isoi83ifk20ji3sl': {
+				title: 'Acción en el paso elevado – Farmington',
+				description:
+					'Alce la voz por Peter en un paso elevado de Farmington. Música, bocadillos, sonrisas y bocinazos: traiga a un amigo.'
+			},
+			'gcal-692vl6c4kpnq71cu678nmmct9b': {
+				title: 'Acción en el paso elevado – Layton',
+				description:
+					'Alce la voz por Peter en un paso elevado de Layton. Música, bocadillos, sonrisas y bocinazos: traiga a un amigo.'
+			},
+			'gcal-i2cu16ufptc6ngifu0otsm8p6o': {
+				title: 'Cabildo – Biblioteca North Branch',
+				description:
+					'Acompañe a Peter en un cabildo público en la Biblioteca North Branch. Traiga sus preguntas e inquietudes.'
 			}
 		} as Record<string, { title: string; description: string }>
 	},

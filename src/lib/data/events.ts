@@ -983,13 +983,14 @@ export const eventsData: EventRow[] = [
 		year: 2026,
 		monthIndex: 10,
 		title: 'Town Hall – Kaysville',
-		time: '6:15 PM – 7:45 PM MT',
+		// Moved 6:15–7:45 → 6:30–7:30 in the calendar (re-synced 2026-09-24).
+		time: '6:30 PM – 7:30 PM MT',
 		location: 'Kaysville Library, 215 N Fairfield St, Kaysville, UT 84037',
 		locationUrl: 'https://www.google.com/maps/search/215+N+Fairfield+St+Kaysville+UT+84037',
 		description: 'Join Peter for a town hall at the Kaysville Library. Please come with your questions.',
 		viewEventUrl: null,
-		startTime: '18:15',
-		endTime: '19:45'
+		startTime: '18:30',
+		endTime: '19:30'
 	},
 	{
 		id: 'gcal-79j4830k0p9ft60in84lbmlmnp',
@@ -1236,20 +1237,23 @@ export const eventsData: EventRow[] = [
 		endTime: '12:00'
 	},
 	{
-		id: 'gcal-51p7cin4daaquor021iod945fb',
+		// Re-created in the calendar with real times and a venue (was
+		// gcal-51p7cin4daaquor021iod945fb, all day Oct 3); re-synced 2026-09-24.
+		id: 'gcal-5m6rmqljarlusiumq7edhdf0e2',
 		type: 'other',
 		month: 'Oct',
-		day: '3',
+		day: '4',
 		year: 2026,
 		monthIndex: 10,
-		title: 'Ogden Pride',
-		time: null,
-		location: 'Ogden, UT',
-		locationUrl: 'https://www.google.com/maps/search/Ogden+UT',
-		description: 'Find the campaign at the Ogden Pride festival.',
+		title: 'Ogden Pride Festival',
+		time: '11:00 AM – 6:00 PM MT',
+		location: 'Ogden Amphitheater — 343 E 25th St, Ogden, UT 84401',
+		locationUrl: 'https://www.google.com/maps/search/343+E+25th+St+Ogden+UT+84401',
+		description:
+			'Find the campaign at the Ogden Pride Festival, sharing a table with the Weber County Democrats. Stop by the table and say hello.',
 		viewEventUrl: null,
-		startTime: null,
-		endTime: null
+		startTime: '11:00',
+		endTime: '18:00'
 	},
 	{
 		id: 'gcal-0v2436r6dda91cpnk1t5a2b69a',
@@ -1530,7 +1534,13 @@ export const eventsData: EventRow[] = [
 		endTime: '20:00'
 	},
 	{
-		id: 'gcal-3i19id235oqmfo7acc9j9d093k',
+		// Calendar entry re-created (was gcal-3i19id235oqmfo7acc9j9d093k); same date, time
+		// and venue ("Via Social Media"), so the public copy below is unchanged. Re-synced
+		// 2026-09-24. The new entry's calendar description is about a voter-registration
+		// table at Logan Lanes and carries volunteers' personal phone numbers — unrelated to
+		// a livestream and not public; deliberately not imported. Confirm with the campaign
+		// before changing this entry.
+		id: 'gcal-6v8hba6nmcudrgronoatvuv578',
 		type: 'town-hall',
 		month: 'Sep',
 		day: '28',
@@ -1710,4 +1720,56 @@ export const eventsData: EventRow[] = [
 		startTime: '13:30',
 		endTime: '15:00'
 	},
+	// --- Pulled 2026-09-24 (Airtable "Volunteer and Events") ---
+	{
+		id: 'gcal-28rk8vi1b1isoi83ifk20ji3sl',
+		type: 'volunteer',
+		month: 'Sep',
+		day: '30',
+		year: 2026,
+		monthIndex: 9,
+		title: 'Overpass Action – Farmington',
+		time: '4:45 PM – 6:30 PM MT',
+		location: 'Ezra T. Clark Park — 25 N 400 W, Farmington, UT 84025',
+		locationUrl: 'https://www.google.com/maps/search/25+N+400+W+Farmington+UT+84025',
+		description:
+			'Speak up for Peter on a Farmington overpass. Music, snacks, smiles and honks — bring a friend.',
+		viewEventUrl: null,
+		startTime: '16:45',
+		endTime: '18:30'
+	},
+	{
+		id: 'gcal-692vl6c4kpnq71cu678nmmct9b',
+		type: 'volunteer',
+		month: 'Sep',
+		day: '30',
+		year: 2026,
+		monthIndex: 9,
+		title: 'Overpass Action – Layton',
+		time: '4:45 PM – 6:30 PM MT',
+		location: '195 E Gentile St, Layton, UT 84041',
+		locationUrl: 'https://www.google.com/maps/search/195+E+Gentile+St+Layton+UT+84041',
+		description:
+			'Speak up for Peter on a Layton overpass. Music, snacks, smiles and honks — bring a friend.',
+		viewEventUrl: null,
+		startTime: '16:45',
+		endTime: '18:30'
+	},
+	{
+		id: 'gcal-i2cu16ufptc6ngifu0otsm8p6o',
+		type: 'town-hall',
+		month: 'Oct',
+		day: '8',
+		year: 2026,
+		monthIndex: 10,
+		title: 'Town Hall – North Branch Library',
+		time: '6:45 PM – 8:00 PM MT',
+		location: 'North Branch Library — 475 E 2600 N, Ogden, UT 84414',
+		locationUrl: 'https://www.google.com/maps/search/475+E+2600+N+Ogden+UT+84414',
+		description:
+			'Join Peter for a public town hall at the North Branch Library. Bring your questions and concerns.',
+		viewEventUrl: null,
+		startTime: '18:45',
+		endTime: '20:00'
+	}
 ];
