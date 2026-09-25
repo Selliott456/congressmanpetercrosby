@@ -1628,8 +1628,8 @@ export const pagesEs = {
 			ballot: 'Encuesta interna · intención de voto',
 			crosstabs: 'Encuesta interna · desgloses',
 			issues: 'Encuesta interna · prioridades temáticas',
-			change: 'Encuestas internas · agosto vs. septiembre',
-			trend: 'Encuestas internas · tendencia de septiembre',
+			change: 'Encuestas internas · ago. vs. sept.',
+			trend: 'Encuestas internas · tendencia de sept.',
 			publicPoll: 'Encuesta pública independiente'
 		},
 		/** Prosa por encuesta, con las mismas claves que `POLLS` en la capa de datos. */
@@ -1637,27 +1637,27 @@ export const pagesEs = {
 			'internal-sep21-2026': {
 				pollster: 'Peter Crosby para el Congreso (interna)',
 				shortPollster: 'Peter Crosby para el Congreso',
-				population: 'votantes registrados, seleccionados al azar',
+				population: 'votantes probables',
 				geography: 'Condados de Davis, Weber, Box Elder, Cache y Rich (UT-02)',
-				fieldLabel: 'Semana del 21 de septiembre de 2026',
+				fieldLabel: '22–23 de sept. de 2026',
 				partisanship: 'Patrocinada por esta campaña: una parte interesada',
-				methodTitle: 'Encuesta interna de la campaña · semana del 21 de septiembre'
+				methodTitle: 'Encuesta interna de la campaña · 22–23 de sept.'
 			},
 			'internal-sep-2026': {
 				pollster: 'Peter Crosby para el Congreso (interna)',
 				shortPollster: 'Peter Crosby para el Congreso',
 				population: 'votantes registrados, seleccionados al azar',
 				geography: 'los condados de Davis, Weber, Box Elder, Cache y Rich (UT-02)',
-				fieldLabel: 'del 8 al 10 de septiembre de 2026',
+				fieldLabel: 'del 8 al 10 de sept. de 2026',
 				partisanship: 'Patrocinada por esta campaña — una parte interesada',
-				methodTitle: 'Encuesta interna de la campaña · septiembre'
+				methodTitle: 'Encuesta interna de la campaña · 8–10 de sept.'
 			},
 			'internal-aug-2026': {
 				pollster: 'Peter Crosby para el Congreso (interna)',
 				shortPollster: 'Peter Crosby para el Congreso',
 				population: 'votantes registrados, seleccionados al azar',
 				geography: 'los condados de Davis, Weber, Box Elder, Cache y Rich (UT-02)',
-				fieldLabel: 'del 3 al 17 de agosto de 2026',
+				fieldLabel: 'del 3 al 17 de ago. de 2026',
 				partisanship: 'Patrocinada por esta campaña — una parte interesada',
 				methodTitle: 'Encuesta interna de la campaña · agosto'
 			},
@@ -1672,19 +1672,19 @@ export const pagesEs = {
 			}
 		},
 		blockTitles: {
-			aug: 'Encuesta de agosto de 2026'
+			aug: 'Encuesta del 3–17 de agosto de 2026'
 		},
 		pollBlocks: {
 			'internal-sep21-2026': {
-				title: 'Encuesta de la semana del 21 de septiembre de 2026',
+				title: 'Encuesta del 22–23 de septiembre de 2026',
 				heroLabel: 'Demasiado reñida para definirse',
 				heroSub:
-					'Crosby aventaja por {gap} puntos, una diferencia similar al margen de error de ±{moe} puntos.',
+					'Crosby aventaja por {gap} puntos, dentro del margen de error de ±{moe} puntos.',
 				takeaway:
-					'Peter Crosby {crosby}%, Blake Moore {moore}%. La diferencia de {gap} puntos es similar al margen de error de ±{moe} puntos, por lo que la contienda sigue demasiado reñida para definirse, y {undecided}% no está seguro o eligió ninguna de las opciones.'
+					'Peter Crosby {crosby}%, Blake Moore {moore}%. La diferencia de {gap} puntos está dentro del margen de error de ±{moe} puntos, por lo que la contienda sigue demasiado reñida para definirse, y {undecided}% no está seguro o eligió ninguna de las opciones.'
 			},
 			'internal-sep-2026': {
-				title: 'Encuesta de septiembre de 2026',
+				title: 'Encuesta del 8–10 de septiembre de 2026',
 				heroLabel: 'Un empate estadístico',
 				heroSub: 'La diferencia de {gap} puntos está dentro del margen de error de ±{moe} puntos.',
 				takeaway:
@@ -1770,41 +1770,44 @@ export const pagesEs = {
 			}
 		},
 		trendPair: {
-			from: '8–10 de sep',
-			to: 'Semana del 21 de sep',
-			colFrom: '8–10 de sep',
-			colTo: 'Semana del 21 de sep',
+			from: '8–10 de sept.',
+			to: '22–23 de sept.',
+			colFrom: '8–10 de sept.',
+			colTo: '22–23 de sept.',
 			source:
 				'Encuestas internas, Peter Crosby para el Congreso: {a} (n = {aN}) y {b} (n = {bN}). El margen de la segunda encuesta se calcula a partir de su tamaño de muestra.'
 		},
 		ballotTrend: {
-			title: 'Intención de voto, del 8–10 de septiembre a la semana del 21 de septiembre',
-			takeaway:
-				'Entre las dos encuestas Crosby está en {crosby} y Moore en {moore}. El movimiento de ambos está dentro del margen de error de ±{moe} puntos.',
+			title: 'Intención de voto, del 8–10 de sept. al 22–23 de sept.',
+			takeaway: 'Entre las dos encuestas Crosby está en {crosby} y Moore en {moore}. {moeNote}',
+			moeWithin:
+				'Ningún cambio supera los ±{moe} puntos que debe superar una diferencia entre dos encuestas, por lo que el movimiento no es medible.',
+			moeExceeds:
+				'Supera los ±{moe} puntos que debe superar una diferencia entre dos encuestas: {names}.',
 			ariaLabel:
-				'Intención de voto para Crosby, Moore y quienes no están seguros en la encuesta del 8 al 10 de septiembre y en la de la semana del 21 de septiembre'
+				'Intención de voto para Crosby, Moore y quienes no están seguros en la encuesta del 8 al 10 de septiembre y en la del 22 y 23 de septiembre'
 		},
 		concernsTrend: {
-			title: 'Principales preocupaciones, del 8–10 de septiembre a la semana del 21 de septiembre',
+			title: 'Principales preocupaciones, del 8–10 de sept. al 22–23 de sept.',
 			takeaway:
 				'El orden de las preocupaciones no cambia: la asequibilidad primero y la rendición de cuentas del gobierno en segundo lugar. Todos los cambios entre ambas encuestas están dentro del margen de error.',
 			ariaLabel:
-				'Proporción que menciona cada preocupación en la encuesta del 8 al 10 de septiembre y en la de la semana del 21 de septiembre'
+				'Proporción que menciona cada preocupación en la encuesta del 8 al 10 de septiembre y en la del 22 y 23 de septiembre'
 		},
 		change: {
-			title: 'Temas principales, de agosto a septiembre',
+			title: 'Temas principales, de ago. a sept.',
 			takeaway:
 				'La asequibilidad y la rendición de cuentas del gobierno siguen siendo las dos principales preocupaciones. Ningún cambio entre las dos encuestas supera el margen de error.',
-			from: 'Ago',
-			to: 'Sep',
+			from: 'Ago.',
+			to: 'Sept.',
 			ariaLabel:
 				'Porcentaje que menciona la asequibilidad y la rendición de cuentas del gobierno en las encuestas de agosto y septiembre, por partido',
 			source:
 				'Encuestas internas, Peter Crosby para el Congreso: {aug} (n = {augN}) y {sep} (n = {sepN}). Se muestran en puntos enteros, la precisión del comunicado de agosto.',
 			colIssue: 'Tema',
 			colGroup: 'Grupo',
-			colAug: 'Agosto',
-			colSep: 'Septiembre'
+			colAug: 'Ago.',
+			colSep: 'Sept.'
 		},
 		approval: {
 			title: 'Aprobación neta de la gestión, agosto de 2026',

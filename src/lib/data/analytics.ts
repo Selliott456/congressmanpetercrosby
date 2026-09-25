@@ -13,10 +13,14 @@
  *   3. The Deseret News / Hinckley Institute of Politics August 2026 statewide poll,
  *      as cited in the August release.
  *   4. Campaign-reported organizing counts (`groundGame`), as stated in releases.
- *   5. The campaign's week-of-Sept-21 internal poll, transcribed from the deck the
- *      campaign supplied ("Weekly Polling — Week of 9.21.2026", received 2026-09-23).
- *      It repeats September's questions, which is what makes the trend charts possible.
- *      No press release carries it yet; it is published here under the approval below.
+ *   5. The campaign's Sept 22–23 internal poll, transcribed from the deck the campaign
+ *      supplied ("Weekly Polling — Week of 9.21.2026 — Likely Voters", received
+ *      2026-09-25). It repeats September's questions, which is what makes the trend
+ *      charts possible. No press release carries it yet; it is published here under the
+ *      approval below. ⚠️ An earlier deck of the SAME survey reported all 738
+ *      respondents; the campaign sent it before the likely-voter screen was applied and
+ *      confirmed the screened cut (n = 657) is what their releases use. Every figure here
+ *      is the likely-voter cut — do not mix the two.
  * The campaign approved (2026-09-14) publishing its own poll data here beyond what a
  * press release shows, so the Data Room can carry fuller crosstabs than a release. That
  * covers data the CAMPAIGN supplies, with its poll's full methodology — not figures we
@@ -85,17 +89,20 @@ export const POLLS: Record<string, Poll> = {
 	'internal-sep21-2026': {
 		id: 'internal-sep21-2026',
 		partisan: true,
-		sampleSize: 738,
+		// Likely voters. An earlier deck of the same survey reported all 738 respondents;
+		// the campaign sent that one before the likely-voter screen was applied and
+		// confirmed (2026-09-25) that this screened cut is the one their releases use.
+		sampleSize: 657,
 		// The campaign's deck states no margin of error, so this is calculated from the
 		// sample size the same way party-group margins are (see `marginOfError`), and is
 		// labeled as calculated everywhere it appears.
-		marginOfError: 3.6,
+		marginOfError: 3.8,
 		moeCalculated: true,
-		// The deck is titled "Week of 9.21.2026" and gives no exact field dates; both
-		// bounds are the Monday of that week, used only for ordering. The reader-facing
-		// label is the honest "Week of Sept 21, 2026" (`polls[...].fieldLabel`).
-		fieldStart: '2026-09-21',
-		fieldEnd: '2026-09-21'
+		// Field dates confirmed by the campaign 2026-09-25 (the decks are titled only
+		// "Week of 9.21.2026"). The id keeps its original `sep21` spelling — it is a
+		// stable key, not a date.
+		fieldStart: '2026-09-22',
+		fieldEnd: '2026-09-23'
 	},
 	'internal-sep-2026': {
 		id: 'internal-sep-2026',
@@ -132,7 +139,7 @@ export const POLLS: Record<string, Poll> = {
 export const FEATURED_POLL_ID = 'internal-sep21-2026';
 
 /** Page dateline (ISO). Bump whenever data is added or revised. */
-export const LAST_UPDATED = '2026-09-23';
+export const LAST_UPDATED = '2026-09-25';
 
 /** A set of rows and the poll they came from, so a chart can cite its own source
     instead of inheriting a page-level one. */
@@ -336,18 +343,19 @@ export const SEP_GROUP_N: Record<GroupKey, number> = {
 };
 
 /**
- * Respondents per group, week-of-Sept-21 poll. Unlike September, this deck publishes
- * the party counts outright ("Demo - Party"), so nothing is reconstructed: Republican
- * 440, Democratic 101, Unaffiliated 167, Other 30 — summing to the full 738, with no
- * no-party-on-file remainder. The crosstab percentages resolve to whole respondents at
- * exactly these sizes (72.73% of 440 = 320; 80.84% of 167 = 135; 76.67% of 30 = 23).
+ * Respondents per group, Sept 22–23 poll (likely voters). Unlike September, this deck
+ * publishes the party counts outright ("Demo - Party"), so nothing is reconstructed:
+ * Republican 413, Democratic 89, Unaffiliated 132, Other 23 — summing to the full 657,
+ * with no no-party-on-file remainder. The crosstab percentages resolve to whole
+ * respondents at exactly these sizes (71.91% of 413 = 297; 77.27% of 132 = 102;
+ * 73.91% of 23 = 17).
  */
 export const SEP21_GROUP_N: Record<GroupKey, number> = {
-	all: 738,
-	democratic: 101,
-	republican: 440,
-	unaffiliated: 167,
-	other: 30
+	all: 657,
+	democratic: 89,
+	republican: 413,
+	unaffiliated: 132,
+	other: 23
 };
 
 /** Group sizes per poll, so a chart can size its own margins. */
@@ -407,16 +415,16 @@ export const ballotReadings: BallotReading[] = [
 		pollId: 'internal-sep21-2026',
 		all: {
 			group: 'all',
-			shares: { crosby: 34.01, moore: 30.22, other: 2.98, unsure: 25.47, none: 7.32 }
+			shares: { crosby: 34.86, moore: 31.96, other: 3.2, unsure: 23.29, none: 6.7 }
 		},
 		byParty: [
 			{
 				group: 'republican',
-				shares: { crosby: 20.2, moore: 43.4, other: 3.2, unsure: 24.1, none: 9.1 }
+				shares: { crosby: 20.3, moore: 44.6, other: 3.4, unsure: 23.2, none: 8.5 }
 			},
 			{
 				group: 'unaffiliated',
-				shares: { crosby: 40.1, moore: 15.6, other: 1.8, unsure: 35.9, none: 6.6 }
+				shares: { crosby: 43.2, moore: 15.2, other: 2.3, unsure: 33.3, none: 6.1 }
 			}
 		]
 	},
@@ -460,59 +468,35 @@ const sep21Concerns: Dataset<ConcernRow> = {
 			id: 'issue-affordability',
 			issue: 'Affordability',
 			detail: 'Housing, healthcare & food prices',
-			shares: {
-				all: 76.8,
-				democratic: 88.12,
-				republican: 72.73,
-				unaffiliated: 80.84,
-				other: 76.67
-			}
+			shares: { all: 75.2, democratic: 87.64, republican: 71.91, unaffiliated: 77.27, other: 73.91 }
 		},
 		{
 			id: 'issue-accountability',
 			issue: 'Government accountability',
 			detail: 'Ethics, insider trading & closing loopholes',
-			shares: {
-				all: 69.0,
-				democratic: 78.22,
-				republican: 64.32,
-				unaffiliated: 72.46,
-				other: 86.67
-			}
+			shares: { all: 70.3, democratic: 80.9, republican: 65.62, unaffiliated: 75.0, other: 86.96 }
 		},
 		{
 			id: 'issue-great-salt-lake',
 			issue: 'The Great Salt Lake',
-			shares: { all: 46.3, democratic: 63.37, republican: 40.91, unaffiliated: 47.9, other: 60.0 }
+			shares: { all: 45.2, democratic: 67.42, republican: 40.92, unaffiliated: 41.67, other: 56.52 }
 		},
 		{
 			id: 'issue-public-lands',
 			issue: 'Access to public lands',
-			shares: {
-				all: 30.8,
-				democratic: 43.56,
-				republican: 25.68,
-				unaffiliated: 34.13,
-				other: 43.33
-			}
+			shares: { all: 30.4, democratic: 44.94, republican: 25.91, unaffiliated: 31.82, other: 47.83 }
 		},
 		{
 			id: 'issue-doge',
 			issue: 'DOGE cuts',
-			shares: {
-				all: 27.1,
-				democratic: 44.55,
-				republican: 19.77,
-				unaffiliated: 34.13,
-				other: 36.67
-			}
+			shares: { all: 27.4, democratic: 48.31, republican: 19.61, unaffiliated: 34.85, other: 43.48 }
 		},
-	{
-		id: 'issue-other',
-		issue: 'Other',
-		shares: { all: 14.0, democratic: 13.86, republican: 13.64, unaffiliated: 16.17, other: 6.67 }
-	}
-]
+		{
+			id: 'issue-other',
+			issue: 'Other',
+			shares: { all: 14.0, democratic: 15.73, republican: 13.56, unaffiliated: 15.91, other: 4.35 }
+		}
+	]
 };
 
 export const topConcerns: Dataset<ConcernRow> = {

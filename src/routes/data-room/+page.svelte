@@ -276,10 +276,27 @@
 	}));
 	$: ballotTrendGroups = [{ label: t.groups.all, rows: ballotTrendRows }];
 	$: ballotSwing = ballotTrendRows.map((r) => r.to - r.from);
+	/**
+	 * The margin on a CHANGE between two surveys, not either survey's own: the two
+	 * sampling errors compound, so the bar a movement has to clear is √(a² + b²) — about
+	 * 5.5 points here, against ±3.8 and ±4 individually. Comparing a change to one poll's
+	 * margin would call movement real when it is not.
+	 */
+	$: trendMoe = Math.sqrt(
+		moeOf(ballotReadings[0].pollId) ** 2 + moeOf(ballotReadings[1].pollId) ** 2
+	);
+	$: trendMovers = ballotTrendRows
+		.filter((r) => Math.abs(r.to - r.from) > trendMoe)
+		.map((r) => r.label);
 	$: ballotTrendTakeaway = fill(t.ballotTrend.takeaway, {
 		crosby: `${ballotSwing[0] >= 0 ? '+' : '−'}${f1(Math.abs(ballotSwing[0]))}`,
 		moore: `${ballotSwing[1] >= 0 ? '+' : '−'}${f1(Math.abs(ballotSwing[1]))}`,
-		moe: fmtMoe(moeOf(ballotReadings[0].pollId))
+		moeNote: trendMovers.length
+			? fill(t.ballotTrend.moeExceeds, {
+					moe: fmtMoe(trendMoe),
+					names: trendMovers.join(', ')
+				})
+			: fill(t.ballotTrend.moeWithin, { moe: fmtMoe(trendMoe) })
 	});
 
 	/** The concerns question, earlier reading → newest, all voters. */
