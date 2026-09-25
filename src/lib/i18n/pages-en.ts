@@ -739,7 +739,9 @@ export const pagesEn = {
 			geography: 'Geography',
 			geographyValue: 'UT-02',
 			sampleValue: 'n = {n}',
-			moeValue: '±{moe}%'
+			moeValue: '±{moe}%',
+			/** Used when the pollster published no margin and we computed it from n. */
+			moeValueCalculated: '±{moe}% (calculated)'
 		},
 		eyebrows: {
 			internal: 'Internal poll · UT-02',
@@ -747,6 +749,7 @@ export const pagesEn = {
 			crosstabs: 'Internal poll · crosstabs',
 			issues: 'Internal poll · issue priorities',
 			change: 'Internal polls · August vs. September',
+			trend: 'Internal polls · September trend',
 			publicPoll: 'Independent public poll'
 		},
 		/**
@@ -755,6 +758,15 @@ export const pagesEn = {
 		 * which is the point — it stops English text reaching Spanish readers.
 		 */
 		polls: {
+			'internal-sep21-2026': {
+				pollster: 'Peter Crosby for Congress (internal)',
+				shortPollster: 'Peter Crosby for Congress',
+				population: 'randomized, registered voters',
+				geography: 'Davis, Weber, Box Elder, Cache & Rich Counties (UT-02)',
+				fieldLabel: 'Week of Sept 21, 2026',
+				partisanship: 'Sponsored by this campaign — an interested party',
+				methodTitle: 'Campaign internal poll · week of Sept 21'
+			},
 			'internal-sep-2026': {
 				pollster: 'Peter Crosby for Congress (internal)',
 				shortPollster: 'Peter Crosby for Congress',
@@ -783,10 +795,31 @@ export const pagesEn = {
 				methodTitle: 'Statewide public poll'
 			}
 		},
-		/** Subheadings for the District polling blocks, newest first. */
+		/** Subheading for the August block, which has no ballot test of its own. */
 		blockTitles: {
-			sep: 'September 2026 survey',
 			aug: 'August 2026 survey'
+		},
+		/**
+		 * Per-survey copy for the district-polling blocks, keyed like `polls`. The
+		 * headline sentences are written per survey rather than templated: which
+		 * candidate leads, and whether the gap clears the margin, differ between them.
+		 */
+		pollBlocks: {
+			'internal-sep21-2026': {
+				title: 'Week of September 21, 2026 survey',
+				heroLabel: 'Too close to call',
+				heroSub:
+					'Crosby is ahead by {gap} points — about the size of the ±{moe}-point margin of error.',
+				takeaway:
+					'Peter Crosby {crosby}%, Blake Moore {moore}%. The {gap}-point gap is about the size of the ±{moe}-point margin of error, so the race remains too close to call, and {undecided}% are unsure or chose none of the above.'
+			},
+			'internal-sep-2026': {
+				title: 'September 2026 survey',
+				heroLabel: 'A statistical tie',
+				heroSub: 'The {gap}-point gap is within the ±{moe}-point margin of error.',
+				takeaway:
+					'Blake Moore {moore}%, Peter Crosby {crosby}%. The {gap}-point gap is within the ±{moe}-point margin of error, and {undecided}% are unsure or chose none of the above.'
+			}
 		},
 		pollMeta: {
 			coxFrom: 'January 2026',
@@ -795,6 +828,9 @@ export const pagesEn = {
 		datelineLabel: 'Last updated',
 		sourceInternal:
 			'Internal poll, {pollster}. {n} {population} across {geography}, {dates}. ±{moe}% margin of error.',
+		/** Same, for a survey whose margin the campaign did not publish. */
+		sourceInternalCalculated:
+			'Internal poll, {pollster}. {n} {population} across {geography}, {dates}. ±{moe}% margin of error, calculated from the sample size at 95% confidence — the campaign did not publish one.',
 		/** Independent polls: the pollster rarely publishes n and margin of error. */
 		sourcePublic: '{pollster}, {dates}. {geography}.',
 		responseRate: 'This question had an {rate}% response rate.',
@@ -811,7 +847,7 @@ export const pagesEn = {
 			other: 'Other party'
 		},
 		/** The September 8–10 internal poll. Figures are filled in from the data file. */
-		september: {
+		pollBlock: {
 			heroLabel: 'A statistical tie',
 			heroSub: 'The {gap}-point gap is within the ±{moe}-point margin of error.',
 			vs: 'vs.',
@@ -865,6 +901,29 @@ export const pagesEn = {
 				group: 'Group',
 				concern: 'Concern'
 			}
+		},
+		/** Shared labels for charts that pair the two September surveys. */
+		trendPair: {
+			from: 'Sep 8–10',
+			to: 'Week of Sep 21',
+			colFrom: 'Sep 8–10',
+			colTo: 'Week of Sep 21',
+			source:
+				'Internal polls, Peter Crosby for Congress: {a} (n = {aN}) and {b} (n = {bN}). The second survey’s margin is calculated from its sample size.'
+		},
+		ballotTrend: {
+			title: 'Ballot test, September 8–10 to the week of September 21',
+			takeaway:
+				'Between the two surveys Crosby is {crosby}, while Moore is {moore}. Movement for both is within the ±{moe}-point margin of error.',
+			ariaLabel:
+				'Ballot shares for Crosby, Moore and unsure voters in the September 8–10 survey and the week of September 21 survey'
+		},
+		concernsTrend: {
+			title: 'Top concerns, September 8–10 to the week of September 21',
+			takeaway:
+				'The order of concerns is unchanged: affordability first, government accountability second. Every shift between the two surveys is within the margin of error.',
+			ariaLabel:
+				'Share naming each concern in the September 8–10 survey and the week of September 21 survey'
 		},
 		/** August → September, for the two issues both surveys asked about. */
 		change: {
@@ -929,8 +988,8 @@ export const pagesEn = {
 				'This page reports only real, attributable figures — the campaign’s own polling and published public polls — never modeled or estimated ones. The following are not represented:',
 			items: [
 				{
-					label: 'Ballot-test trend.',
-					text: 'The Crosby-versus-Moore question has been asked in one survey so far, so it cannot yet show change over time.'
+					label: 'Ballot-test figures for Democrats and other-party voters.',
+					text: 'Neither September survey breaks the Crosby-versus-Moore question out for those groups, so only Republicans and unaffiliated voters appear in the by-party chart.'
 				},
 				{
 					label: 'Forecast or win probability.',

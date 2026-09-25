@@ -132,8 +132,17 @@
 		background: rgba(46, 95, 160, 0.05);
 	}
 
+	/* The head's two cells hold words, not numbers, so they size to their own text and
+	   never wrap — the numeric column width (3.25rem) squeezes a label like
+	   "Week of Sep 21" into three lines. They still right-align with the value columns
+	   below, and the empty track cell absorbs the extra width. */
 	.head {
-		padding: 0 0 0.2rem;
+		grid-template-columns: var(--label-w) minmax(0, 1fr) auto auto;
+		padding: 0 0 0.5rem;
+	}
+
+	.head .col {
+		white-space: nowrap;
 	}
 
 	.col {
@@ -243,5 +252,55 @@
 	/* The 0% tick sits at the plot's left edge; centering it would half-clip it. */
 	.axis span:first-child {
 		transform: none;
+	}
+
+	/*
+	 * Narrow screens: beside a label and two value columns the track is only ~115px, so
+	 * a 3-point change comes out 7px and the two dots sit on top of each other. Stack
+	 * instead — label and both values on one line, the track full-width beneath — which
+	 * roughly triples the plot width. The axis still starts at zero: widening the track
+	 * is what makes a small change legible, rather than truncating the scale to
+	 * exaggerate it.
+	 */
+	.chart.compact .row {
+		grid-template-columns: minmax(0, 1fr) auto auto;
+		row-gap: 0.2rem;
+		padding: 0.5rem 0;
+	}
+
+	.chart.compact .row-label,
+	.chart.compact .row .num {
+		grid-row: 1;
+	}
+
+	.chart.compact .track {
+		grid-column: 1 / -1;
+		grid-row: 2;
+		height: 18px;
+	}
+
+	/* The head is a legend on its own line once the value columns are gone. */
+	.chart.compact .head {
+		display: flex;
+		justify-content: flex-end;
+		gap: 0.85rem;
+		padding-bottom: 0.35rem;
+	}
+
+	/* Direct children only — the layout placeholders. The legend's key dots are empty
+	   spans too, one level deeper. */
+	.chart.compact .head > span:empty {
+		display: none;
+	}
+
+	/* Gridlines and ticks span the full width, matching the stacked track. */
+	.chart.compact .grid {
+		left: 0;
+		right: 0;
+	}
+
+	.chart.compact .axis {
+		margin-left: 0;
+		margin-right: 0;
 	}
 </style>
