@@ -1763,13 +1763,14 @@ export const eventsData: EventRow[] = [
 		year: 2026,
 		monthIndex: 10,
 		title: 'Town Hall – North Branch Library',
-		time: '6:45 PM – 8:00 PM MT',
+		// Start moved 6:45 → 7:00 in the calendar (re-synced 2026-09-27).
+		time: '7:00 PM – 8:00 PM MT',
 		location: 'North Branch Library — 475 E 2600 N, Ogden, UT 84414',
 		locationUrl: 'https://www.google.com/maps/search/475+E+2600+N+Ogden+UT+84414',
 		description:
 			'Join Peter for a public town hall at the North Branch Library. Bring your questions and concerns.',
 		viewEventUrl: null,
-		startTime: '18:45',
+		startTime: '19:00',
 		endTime: '20:00'
 	}
 ];
