@@ -93,16 +93,15 @@ export const POLLS: Record<string, Poll> = {
 		// the campaign sent that one before the likely-voter screen was applied and
 		// confirmed (2026-09-25) that this screened cut is the one their releases use.
 		sampleSize: 657,
-		// The campaign's deck states no margin of error, so this is calculated from the
-		// sample size the same way party-group margins are (see `marginOfError`), and is
-		// labeled as calculated everywhere it appears.
+		// Published in the 2026-09-27 release ("+/- 3.8% margin of error"), which also
+		// matches what this sample size yields — so it is no longer labeled as calculated.
 		marginOfError: 3.8,
-		moeCalculated: true,
-		// Field dates confirmed by the campaign 2026-09-25 (the decks are titled only
-		// "Week of 9.21.2026"). The id keeps its original `sep21` spelling — it is a
-		// stable key, not a date.
-		fieldStart: '2026-09-22',
-		fieldEnd: '2026-09-23'
+		// Field dates as printed in the release and its chart source lines (9/21–9/23).
+		// The id keeps its original `sep21` spelling — it is a stable key, not a date.
+		fieldStart: '2026-09-21',
+		fieldEnd: '2026-09-23',
+		releaseId: 'late-september-internal-polling',
+		releaseDate: '2026-09-27'
 	},
 	'internal-sep-2026': {
 		id: 'internal-sep-2026',
@@ -139,7 +138,7 @@ export const POLLS: Record<string, Poll> = {
 export const FEATURED_POLL_ID = 'internal-sep21-2026';
 
 /** Page dateline (ISO). Bump whenever data is added or revised. */
-export const LAST_UPDATED = '2026-09-25';
+export const LAST_UPDATED = '2026-09-27';
 
 /** A set of rows and the poll they came from, so a chart can cite its own source
     instead of inheriting a page-level one. */
@@ -623,7 +622,8 @@ export const groundGame = [
 	{
 		id: 'ground-townhalls',
 		label: 'Town halls',
-		value: 35,
+		// 40th town hall held, per the 2026-09-27 release.
+		value: 40,
 		unit: '+',
 		note: 'In person and virtual, across UT-02 since launch'
 	},

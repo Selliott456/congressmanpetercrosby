@@ -886,6 +886,11 @@
 						{/if}
 						<div><dt>{t.method.partisanship}</dt><dd>{text.partisanship}</dd></div>
 					</dl>
+					<!-- Any sampling caveat the pollster disclosed (e.g. an oversampled party),
+					     stated with the poll rather than left for the reader to find. -->
+					{#if text.samplingNote}
+						<p class="method-note">{text.samplingNote}</p>
+					{/if}
 					{#if poll.releaseId}
 						<a class="method-link" href="/press/{poll.releaseId}">{t.method.readRelease}</a>
 					{:else if poll.url}
@@ -1516,6 +1521,16 @@
 		font-size: 0.84rem;
 		text-align: right;
 		color: var(--ink);
+	}
+
+	.method-note {
+		font-family: var(--font-primary);
+		font-size: 0.85rem;
+		line-height: 1.5;
+		color: var(--ink-3);
+		margin: 0.85rem 0 0;
+		padding-top: 0.85rem;
+		border-top: 1px solid var(--line-l);
 	}
 
 	.method-link {

@@ -124,7 +124,125 @@ const BOILERPLATE_EN =
 const SEP_POLL_SOURCE =
 	'Voter Survey, Peter Crosby for Congress Campaign. Internal polling of 762 randomized, registered voters across Davis, Weber, Box Elder, Cache, and Rich Counties (CD2), Utah, 9/8–10/2026. ±4% margin of error.';
 
+/** Source line under each chart in the late-September polling release, as printed there. */
+const LATE_SEP_POLL_SOURCE =
+	'Voter Survey, Peter Crosby for Congress Campaign. Internal polling of 657 likely voters across Davis, Weber, Box Elder, Cache, and Rich Counties (CD2), Utah, 9/21–9/23/2026. ±3.8% margin of error.';
+
 export const pressReleases: PressRelease[] = [
+	{
+		// Transcribed from the release PDF. Same survey as the Data Room's Sept 21–23 poll —
+		// the likely-voter cut; `dataRoom: true` + POLLS.releaseId cross-link the two.
+		id: 'late-september-internal-polling',
+		dataRoom: true,
+		date: '2026-09-27',
+		title: 'Crosby leads Moore in latest internal polling in Utah\u2019s 2nd Congressional District',
+		summary:
+			'Peter Crosby leading Blake Moore by 2.9 points in internal polling conducted this week across Northern Utah. The first time Crosby has led in the race to represent the new seat.',
+		location: 'Providence, UT',
+		contactEmail: 'press@petercrosbyforcongress.org',
+		body: [
+			{
+				type: 'p',
+				text: 'Peter Crosby closed the gap and shifted ahead of Blake Moore in the latest internal poll released by the Peter Crosby for Congress campaign. Momentum continues to build for the first time candidate. He is now leading the long-time incumbent by almost 3 points in the race to represent Northern Utahns in the newly redrawn Utah Congressional District 2 (CD2). The survey of 657 likely voters, conducted Sept. 21 \u2013 23, 2026, is the first poll to show a lead for Crosby.'
+			},
+			{
+				type: 'p',
+				text: 'Once again, the Campaign conducted sampling across a randomized selection of likely voters across every county in the new district (Box Elder, Cache, Davis, Rich, and Weber). Respondents continue to highlight concerns with affordability as their leading issue, a pattern consistent across voters from every political party, and [aligned with other recent polling from independent pollsters](https://www.noblepredictiveinsights.com/post/utah-republicans-hold-2026-ballot-edge-as-cost-of-living-dominates-voter-priorities). Aside from the shift towards support for Crosby, other trends remain consistent.'
+			},
+			{
+				type: 'ul',
+				items: [
+					'Rep. Moore is currently polling at 32%, and Peter Crosby is currently polling at 34.9%.',
+					'Over 23% of respondents are still unsure, which continues to include 23% of registered Republicans.',
+					'The shift appears to have come from changes in support among unaffiliated voters and registered Republicans.'
+				]
+			},
+			{
+				type: 'chart',
+				chartTitle: 'If the election were held today, who would you vote for?',
+				yMax: 35,
+				yStep: 5,
+				bars: [
+					{ label: 'Peter Crosby', value: 34.86, color: POLL_COLORS.crosby },
+					{ label: 'Blake Moore', value: 31.96, color: POLL_COLORS.moore },
+					{ label: 'Other', value: 3.2, color: POLL_COLORS.other },
+					{ label: 'Unsure', value: 23.29, color: POLL_COLORS.ballotUnsure },
+					{ label: 'None of the Above', value: 6.7, color: POLL_COLORS.none }
+				],
+				source: LATE_SEP_POLL_SOURCE
+			},
+			{
+				type: 'chart',
+				chartTitle: 'Voter Preference by Party Affiliation: Republican',
+				yMax: 50,
+				yStep: 10,
+				bars: [
+					{ label: 'Peter Crosby', value: 20.3, color: POLL_COLORS.crosby },
+					{ label: 'Blake Moore', value: 44.6, color: POLL_COLORS.moore },
+					{ label: 'Other', value: 3.4, color: POLL_COLORS.other },
+					{ label: 'Unsure', value: 23.2, color: POLL_COLORS.ballotUnsure },
+					{ label: 'None of the Above', value: 8.6, color: POLL_COLORS.none }
+				],
+				source: LATE_SEP_POLL_SOURCE
+			},
+			{
+				type: 'chart',
+				chartTitle: 'Voter Preference by Party Affiliation: Unaffiliated',
+				yMax: 50,
+				yStep: 10,
+				bars: [
+					{ label: 'Peter Crosby', value: 43.2, color: POLL_COLORS.crosby },
+					{ label: 'Blake Moore', value: 15.2, color: POLL_COLORS.moore },
+					{ label: 'Other', value: 2.3, color: POLL_COLORS.other },
+					{ label: 'Unsure', value: 33.3, color: POLL_COLORS.ballotUnsure },
+					{ label: 'None of the Above', value: 6.1, color: POLL_COLORS.none }
+				],
+				source: LATE_SEP_POLL_SOURCE
+			},
+			{
+				type: 'p',
+				text: 'While the reason for the shift is unknown, anonymous comments from likely voters who responded to the survey may provide insight. When asked to explain their concerns in greater detail, voters responded with a diversity of reasoning behind their choices:'
+			},
+			{
+				type: 'quote',
+				text: 'I\u2019m concerned about the leadership of our state and country driving ever further into bi-partisan division and ruining the sense of unity, optimism, and tolerance that I feel ought to define the United States.'
+			},
+			{
+				type: 'quote',
+				text: 'The war in Iran and gas prices. We need accountability when only 20% of people support this war. It should end.'
+			},
+			{
+				type: 'quote',
+				text: 'Unwanted data centers in our county, the war in Iran, lack of regard for the constitution and rule of law by current administration, and lack of willingness of our current Utah congressmen to call it out.'
+			},
+			{
+				type: 'p',
+				text: 'The House has been notably unproductive this session. They\u2019ve missed over 100 workdays, in part due to early releases by the current Speaker, Rep. Mike Johnson. Speaker Johnson, [who recently canceled the last few working days before the midterm elections](https://nypost.com/2026/09/16/us-news/congress-goes-home-after-just-7-workdays-since-summer-break-ended-and-wont-be-back-until-after-midterms/), said he wanted Republicans back in their districts campaigning. This is unsurprising, as [the most recent generic ballot poll from Emerson puts Democratic candidates 11 points ahead](https://emersoncollegepolling.com/september-2026-national-poll-democrats/).'
+			},
+			{
+				type: 'p',
+				text: 'Peter Crosby continues to centralize the needs of regular Utahns in his campaign and policy priorities. His public town hall last Thursday night was the 40th such event held since the campaign started, with additional town halls scheduled over the next six weeks.'
+			},
+			{
+				type: 'p',
+				text: 'Peter Crosby is the Democratic nominee for Utah\u2019s U.S. Congressional District 2, a first-time political candidate, and a girl-dad. He is running a strictly clean-money, grassroots campaign: Peter is not accepting corporate PAC donations or funding from PACs aligned with foreign interests, and has raised over $100,000 from small-dollar and individual donors, with over 95% coming from right here in Utah. The campaign is fully volunteer-supported with over 400 registered campaign volunteers. Peter believes citizens of Northern Utah deserve a representative that lives in the district, listens to their concerns, and puts the people of Utah ahead of party or the pursuit of personal power. He is holding public town halls throughout the district, with at least one in Cache, Box Elder, Davis, and Weber counties each month. To learn more, visit [petercrosbyforcongress.org](https://petercrosbyforcongress.org/).'
+			},
+			{
+				type: 'p',
+				text: 'Survey methodology: the poll was conducted using a random sample of likely voters across Northern Utah, including respondents from every county in the district. Outreach was done using SMS, and participants were invited to offer their feedback on Northern Utah.'
+			},
+			{
+				type: 'p',
+				text: 'In the head-to-head question, Rep. Blake Moore was identified as the Republican candidate (but not the incumbent), Mr. Peter Crosby was identified as the Democratic candidate, and Rep. Moore\u2019s name was always listed first.'
+			},
+			{
+				type: 'p',
+				text: 'The polling includes responses from 657 likely voters. Registered Republicans were oversampled by approximately 11 points (63% of the polled sample) compared to voter registration data available at the time of the polling. It has a +/- 3.8% margin of error. Full data details also available at [petercrosbyforcongress.org/data-room](/data-room).'
+			}
+		],
+		image: '/press-releases/late-september-internal-polling-thumb.jpg',
+		attachment: '/press-releases/late-september-internal-polling.pdf'
+	},
 	{
 		// Transcribed from the release PDF — the revised edition issued the same day, which added
 		// the Hinckley figures and the Utah Democratic Party Chair's quote.
