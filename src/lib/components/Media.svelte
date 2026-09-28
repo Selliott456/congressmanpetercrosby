@@ -2,12 +2,14 @@
 	import { messages } from '$lib/i18n/locale';
 	import { mediaByRecent } from '$lib/data/media';
 	import MediaGrid from './MediaGrid.svelte';
+	import DebateCallout from './DebateCallout.svelte';
 
 	const recent = mediaByRecent.slice(0, 3);
 </script>
 
 <section class="media-section" aria-labelledby="media-heading">
 	<div class="media-section-inner">
+		<DebateCallout variant="light" />
 		<p class="media-section-eyebrow">{$messages.media.eyebrow}</p>
 		<h2 id="media-heading" class="media-section-title">{$messages.media.title}</h2>
 		<MediaGrid items={recent} variant="light" />

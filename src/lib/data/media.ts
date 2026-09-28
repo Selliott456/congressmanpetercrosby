@@ -230,6 +230,18 @@ export const mediaData: MediaItem[] = [
 		url: 'https://www.moneycontrol.com/world/peter-crosby-narrows-gap-with-blake-moore-in-utah-s-new-congressional-district-unaffiliated-voters-show-strong-support-article-14032126.html',
 		outlet: 'Money Control',
 		image: '/images/media/crosby_narrows_gap.jpg'
+	},
+	{
+		id: 'six-year-term-pledge',
+		pinned: false,
+		type: 'article',
+		title: 'Congressional candidate pledges to spend no more than six years in Washington, D.C.',
+		description:
+			'Democratic candidate Peter Crosby hasn’t been elected to Congress yet, but is already confident enough to set term limits for himself.',
+		date: '2026-09-23',
+		url: 'https://www.cachevalleydaily.com/news/congressional-candidate-pledges-to-spend-no-more-than-six-years-in-washington-d-c/article_bcd2cb8b-89bd-4245-a16a-31170e60059d.html',
+		outlet: 'Cache Valley Daily',
+		image: '/images/media/six_year_pledge.jpg'
 	}
 ];
 
