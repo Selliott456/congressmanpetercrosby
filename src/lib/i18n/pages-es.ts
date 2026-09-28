@@ -836,6 +836,12 @@ export const pagesEs = {
 				description:
 					'Necesitamos un representante que sea honesto con nosotros y consigo mismo sobre la mejor manera de enfrentar la crisis de la deuda nacional.'
 			},
+			'six-year-term-pledge': {
+				title:
+					'Un candidato al Congreso se compromete a no pasar más de seis años en Washington, D.C.',
+				description:
+					'El candidato demócrata Peter Crosby aún no ha sido elegido al Congreso, pero ya tiene la confianza suficiente para fijarse a sí mismo límites de mandato.'
+			},
 			'polling-dead-heat': {
 				title:
 					'Encuestas recientes sugieren que la contienda del Segundo Distrito Congresional podría estar empatada',
