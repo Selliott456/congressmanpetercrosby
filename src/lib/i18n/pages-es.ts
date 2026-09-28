@@ -590,9 +590,10 @@ export const pagesEs = {
 				description:
 					'Anime a Peter en el desfile de bienvenida (Homecoming) de USU en Logan. ¿Va a desfilar con la campaña? Regístrese en el estacionamiento del Logan Rec Center entre las 7:00 y las 9:00 AM.'
 			},
-			'gcal-51p7cin4daaquor021iod945fb': {
-				title: 'Ogden Pride',
-				description: 'Encuentre a la campaña en el festival Ogden Pride.'
+			'gcal-5m6rmqljarlusiumq7edhdf0e2': {
+				title: 'Festival Ogden Pride',
+				description:
+					'Encuentre a la campaña en el Festival Ogden Pride, compartiendo mesa con los Demócratas del Condado de Weber. Pásese por la mesa y salude.'
 			},
 			'gcal-0v2436r6dda91cpnk1t5a2b69a': {
 				title: 'Debate del Distrito 2 del Congreso',
@@ -662,7 +663,7 @@ export const pagesEs = {
 				title: 'Encuentro y saludo – Centerville',
 				description: 'Conozca y salude a los candidatos que representarían el área de Centerville: Peter Crosby (Congreso de EE. UU.), Garret Rushforth (Senado estatal) y Scott Troxel (Cámara estatal). Conviva con los vecinos, haga preguntas y comparta sus inquietudes.'
 			},
-			'gcal-3i19id235oqmfo7acc9j9d093k': {
+			'gcal-6v8hba6nmcudrgronoatvuv578': {
 				title: 'Cabildo Virtual',
 				description: 'Acompañe a Peter en un cabildo virtual en vivo por Facebook, Instagram o YouTube. Únase desde donde esté.'
 			},
@@ -708,6 +709,21 @@ export const pagesEs = {
 				title: 'Encuentro y saludo – Centerville',
 				description:
 					'Conozca a Peter en un encuentro vecinal en Centerville, junto a Reading Elementary. Pásese, haga preguntas y salude.'
+			},
+			'gcal-28rk8vi1b1isoi83ifk20ji3sl': {
+				title: 'Acción en el paso elevado – Farmington',
+				description:
+					'Alce la voz por Peter en un paso elevado de Farmington. Música, bocadillos, sonrisas y bocinazos: traiga a un amigo.'
+			},
+			'gcal-692vl6c4kpnq71cu678nmmct9b': {
+				title: 'Acción en el paso elevado – Layton',
+				description:
+					'Alce la voz por Peter en un paso elevado de Layton. Música, bocadillos, sonrisas y bocinazos: traiga a un amigo.'
+			},
+			'gcal-i2cu16ufptc6ngifu0otsm8p6o': {
+				title: 'Cabildo – Biblioteca North Branch',
+				description:
+					'Acompañe a Peter en un cabildo público en la Biblioteca North Branch. Traiga sus preguntas e inquietudes.'
 			}
 		} as Record<string, { title: string; description: string }>
 	},
@@ -866,6 +882,115 @@ export const pagesEs = {
 		metaDescription:
 			'Comunicados de prensa y anuncios oficiales de la campaña Peter Crosby para el Congreso.',
 		byId: {
+			'late-september-internal-polling': {
+				title:
+					'Crosby aventaja a Moore en la más reciente encuesta interna del Distrito 2 del Congreso de Utah',
+				summary:
+					'Peter Crosby aventaja a Blake Moore por 2.9 puntos en la encuesta interna realizada esta semana en el norte de Utah. Es la primera vez que Crosby encabeza la contienda por el nuevo escaño.',
+				body: [
+					{
+						type: 'p',
+						text: 'Peter Crosby cerró la brecha y pasó por delante de Blake Moore en la más reciente encuesta interna divulgada por la campaña Peter Crosby para el Congreso. El impulso sigue creciendo para el candidato primerizo, que ahora aventaja por casi 3 puntos al representante con años en el cargo en la contienda por representar a los habitantes del norte de Utah en el recién rediseñado Distrito 2 del Congreso de Utah (CD2). La encuesta, realizada entre 657 votantes probables del 21 al 23 de septiembre de 2026, es la primera en mostrar una ventaja para Crosby.'
+					},
+					{
+						type: 'p',
+						text: 'Una vez más, la campaña realizó el muestreo con una selección aleatoria de votantes probables en todos los condados del nuevo distrito (Box Elder, Cache, Davis, Rich y Weber). Los encuestados siguen señalando la asequibilidad como su principal preocupación, un patrón constante entre votantes de todos los partidos y [en línea con otras encuestas recientes de encuestadores independientes](https://www.noblepredictiveinsights.com/post/utah-republicans-hold-2026-ballot-edge-as-cost-of-living-dominates-voter-priorities). Aparte del giro a favor de Crosby, las demás tendencias se mantienen.'
+					},
+					{
+						type: 'ul',
+						items: [
+							'El representante Moore tiene actualmente un 32% en las encuestas y Peter Crosby, un 34.9%.',
+							'Más del 23% de los encuestados aún no está seguro, lo que sigue incluyendo al 23% de los republicanos registrados.',
+							'El cambio parece provenir de variaciones en el apoyo de los votantes no afiliados y los republicanos registrados.'
+						]
+					},
+					{
+						type: 'chart',
+						chartTitle: 'Si las elecciones fueran hoy, ¿por quién votaría?',
+						yMax: 35,
+						yStep: 5,
+						bars: [
+							{ label: 'Peter Crosby', value: 34.86, color: POLL_COLORS.crosby },
+							{ label: 'Blake Moore', value: 31.96, color: POLL_COLORS.moore },
+							{ label: 'Otro', value: 3.2, color: POLL_COLORS.other },
+							{ label: 'No está seguro', value: 23.29, color: POLL_COLORS.ballotUnsure },
+							{ label: 'Ninguna de las anteriores', value: 6.7, color: POLL_COLORS.none }
+						],
+						source:
+							'Encuesta de votantes, campaña Peter Crosby para el Congreso. Sondeo interno de 657 votantes probables en los condados de Davis, Weber, Box Elder, Cache y Rich (CD2), Utah, del 21 al 23 de septiembre de 2026. Margen de error de ±3.8%.'
+					},
+					{
+						type: 'chart',
+						chartTitle: 'Preferencia de voto por afiliación partidista: republicanos',
+						yMax: 50,
+						yStep: 10,
+						bars: [
+							{ label: 'Peter Crosby', value: 20.3, color: POLL_COLORS.crosby },
+							{ label: 'Blake Moore', value: 44.6, color: POLL_COLORS.moore },
+							{ label: 'Otro', value: 3.4, color: POLL_COLORS.other },
+							{ label: 'No está seguro', value: 23.2, color: POLL_COLORS.ballotUnsure },
+							{ label: 'Ninguna de las anteriores', value: 8.6, color: POLL_COLORS.none }
+						],
+						source:
+							'Encuesta de votantes, campaña Peter Crosby para el Congreso. Sondeo interno de 657 votantes probables en los condados de Davis, Weber, Box Elder, Cache y Rich (CD2), Utah, del 21 al 23 de septiembre de 2026. Margen de error de ±3.8%.'
+					},
+					{
+						type: 'chart',
+						chartTitle: 'Preferencia de voto por afiliación partidista: no afiliados',
+						yMax: 50,
+						yStep: 10,
+						bars: [
+							{ label: 'Peter Crosby', value: 43.2, color: POLL_COLORS.crosby },
+							{ label: 'Blake Moore', value: 15.2, color: POLL_COLORS.moore },
+							{ label: 'Otro', value: 2.3, color: POLL_COLORS.other },
+							{ label: 'No está seguro', value: 33.3, color: POLL_COLORS.ballotUnsure },
+							{ label: 'Ninguna de las anteriores', value: 6.1, color: POLL_COLORS.none }
+						],
+						source:
+							'Encuesta de votantes, campaña Peter Crosby para el Congreso. Sondeo interno de 657 votantes probables en los condados de Davis, Weber, Box Elder, Cache y Rich (CD2), Utah, del 21 al 23 de septiembre de 2026. Margen de error de ±3.8%.'
+					},
+					{
+						type: 'p',
+						text: 'Aunque se desconoce la razón del cambio, los comentarios anónimos de los votantes probables que respondieron a la encuesta pueden dar una pista. Al pedirles que explicaran sus preocupaciones con más detalle, los votantes respondieron con razonamientos diversos:'
+					},
+					{
+						type: 'quote',
+						text: 'Me preocupa que el liderazgo de nuestro estado y de nuestro país nos lleve cada vez más a la división partidista y arruine el sentido de unidad, optimismo y tolerancia que, en mi opinión, debería definir a Estados Unidos.'
+					},
+					{
+						type: 'quote',
+						text: 'La guerra en Irán y el precio de la gasolina. Necesitamos rendición de cuentas cuando solo el 20% de la gente apoya esta guerra. Debería terminar.'
+					},
+					{
+						type: 'quote',
+						text: 'Los centros de datos no deseados en nuestro condado, la guerra en Irán, la falta de respeto por la constitución y el estado de derecho por parte de la administración actual, y la falta de voluntad de nuestros congresistas de Utah para denunciarlo.'
+					},
+					{
+						type: 'p',
+						text: 'La Cámara de Representantes ha sido notablemente improductiva en esta sesión. Han perdido más de 100 días hábiles, en parte por las salidas anticipadas dispuestas por el actual presidente de la Cámara, el representante Mike Johnson. Johnson, [que recientemente canceló los últimos días de trabajo antes de las elecciones de medio término](https://nypost.com/2026/09/16/us-news/congress-goes-home-after-just-7-workdays-since-summer-break-ended-and-wont-be-back-until-after-midterms/), dijo que quería a los republicanos de vuelta en sus distritos haciendo campaña. No sorprende, ya que [la más reciente encuesta de intención de voto genérica de Emerson sitúa a los candidatos demócratas 11 puntos por delante](https://emersoncollegepolling.com/september-2026-national-poll-democrats/).'
+					},
+					{
+						type: 'p',
+						text: 'Peter Crosby sigue poniendo las necesidades de los utahnos comunes en el centro de su campaña y de sus prioridades de política pública. Su cabildo público del jueves pasado por la noche fue el evento número 40 desde que comenzó la campaña, y hay más cabildos programados para las próximas seis semanas.'
+					},
+					{
+						type: 'p',
+						text: 'Peter Crosby es el candidato demócrata al Distrito 2 del Congreso de Utah, candidato político por primera vez y papá de niñas. Lleva una campaña de base y de dinero limpio: Peter no acepta donaciones de PAC corporativos ni fondos de PAC alineados con intereses extranjeros, y ha recaudado más de $100,000 de donantes individuales y de pequeñas cantidades, con más del 95% proveniente de aquí mismo, de Utah. La campaña se sostiene íntegramente con voluntarios: más de 400 voluntarios registrados. Peter cree que los ciudadanos del norte de Utah merecen un representante que viva en el distrito, escuche sus inquietudes y ponga a la gente de Utah por delante del partido o de la búsqueda de poder personal. Realiza cabildos públicos en todo el distrito, con al menos uno al mes en los condados de Cache, Box Elder, Davis y Weber. Para más información, visite [petercrosbyforcongress.org](https://petercrosbyforcongress.org/).'
+					},
+					{
+						type: 'p',
+						text: 'Metodología de la encuesta: el sondeo se realizó con una muestra aleatoria de votantes probables del norte de Utah, con encuestados de todos los condados del distrito. El contacto se hizo por SMS y se invitó a los participantes a dar su opinión sobre el norte de Utah.'
+					},
+					{
+						type: 'p',
+						text: 'En la pregunta de enfrentamiento directo, el representante Blake Moore fue identificado como el candidato republicano (pero no como el titular), el señor Peter Crosby fue identificado como el candidato demócrata y el nombre del representante Moore siempre apareció primero.'
+					},
+					{
+						type: 'p',
+						text: 'El sondeo incluye respuestas de 657 votantes probables. Los republicanos registrados fueron sobremuestreados en aproximadamente 11 puntos (63% de la muestra encuestada) en comparación con los datos de registro de votantes disponibles al momento de la encuesta. Tiene un margen de error de +/- 3.8%. Todos los detalles de los datos también están disponibles en [petercrosbyforcongress.org/data-room](/data-room).'
+					}
+				]
+			},
 			'september-internal-polling': {
 				title:
 					'El norte de Utah, en camino de voltear un segundo escaño del Congreso este noviembre',
@@ -1236,7 +1361,7 @@ export const pagesEs = {
 					},
 					{
 						type: 'p',
-						text: 'Desde que comenzamos esta campaña, he realizado más de 35 cabildos públicos y he asistido a incontables eventos comunitarios. He hablado personalmente con miles de personas comunes de todos los ámbitos y orígenes políticos, y nuestros voluntarios de campaña han sumado miles más. Las principales preocupaciones que surgieron en estas conversaciones se resumen en las siguientes áreas:'
+						text: 'Desde que comenzamos esta campaña, he realizado más de 40 cabildos públicos y he asistido a incontables eventos comunitarios. He hablado personalmente con miles de personas comunes de todos los ámbitos y orígenes políticos, y nuestros voluntarios de campaña han sumado miles más. Las principales preocupaciones que surgieron en estas conversaciones se resumen en las siguientes áreas:'
 					},
 					{
 						type: 'ul',
@@ -1604,37 +1729,53 @@ export const pagesEs = {
 			geography: 'Geografía',
 			geographyValue: 'UT-02',
 			sampleValue: 'n = {n}',
-			moeValue: '±{moe}%'
+			moeValue: '±{moe}%',
+			moeValueCalculated: '±{moe}% (calculado)'
 		},
 		eyebrows: {
 			internal: 'Encuesta interna · UT-02',
 			ballot: 'Encuesta interna · intención de voto',
 			crosstabs: 'Encuesta interna · desgloses',
 			issues: 'Encuesta interna · prioridades temáticas',
-			change: 'Encuestas internas · agosto vs. septiembre',
+			change: 'Encuestas internas · ago. vs. sept.',
+			trend: 'Encuestas internas · tendencia de sept.',
 			publicPoll: 'Encuesta pública independiente'
 		},
 		/** Prosa por encuesta, con las mismas claves que `POLLS` en la capa de datos. */
 		polls: {
+			'internal-sep21-2026': {
+				samplingNote:
+					'El comunicado de la campaña indica que los republicanos registrados fueron sobremuestreados en unos 11 puntos —el 63% de la muestra— frente a los datos de registro de votantes al momento de la encuesta.',
+				pollster: 'Peter Crosby para el Congreso (interna)',
+				shortPollster: 'Peter Crosby para el Congreso',
+				population: 'votantes probables',
+				geography: 'Condados de Davis, Weber, Box Elder, Cache y Rich (UT-02)',
+				fieldLabel: '21–23 de sept. de 2026',
+				partisanship: 'Patrocinada por esta campaña: una parte interesada',
+				methodTitle: 'Encuesta interna de la campaña · 21–23 de sept.'
+			},
 			'internal-sep-2026': {
+				samplingNote: '',
 				pollster: 'Peter Crosby para el Congreso (interna)',
 				shortPollster: 'Peter Crosby para el Congreso',
 				population: 'votantes registrados, seleccionados al azar',
 				geography: 'los condados de Davis, Weber, Box Elder, Cache y Rich (UT-02)',
-				fieldLabel: 'del 8 al 10 de septiembre de 2026',
+				fieldLabel: 'del 8 al 10 de sept. de 2026',
 				partisanship: 'Patrocinada por esta campaña — una parte interesada',
-				methodTitle: 'Encuesta interna de la campaña · septiembre'
+				methodTitle: 'Encuesta interna de la campaña · 8–10 de sept.'
 			},
 			'internal-aug-2026': {
+				samplingNote: '',
 				pollster: 'Peter Crosby para el Congreso (interna)',
 				shortPollster: 'Peter Crosby para el Congreso',
 				population: 'votantes registrados, seleccionados al azar',
 				geography: 'los condados de Davis, Weber, Box Elder, Cache y Rich (UT-02)',
-				fieldLabel: 'del 3 al 17 de agosto de 2026',
+				fieldLabel: 'del 3 al 17 de ago. de 2026',
 				partisanship: 'Patrocinada por esta campaña — una parte interesada',
 				methodTitle: 'Encuesta interna de la campaña · agosto'
 			},
 			'hinckley-aug-2026': {
+				samplingNote: '',
 				pollster: 'Deseret News / Hinckley Institute of Politics',
 				shortPollster: 'Deseret News / Hinckley Institute of Politics',
 				population: 'votantes registrados',
@@ -1645,8 +1786,24 @@ export const pagesEs = {
 			}
 		},
 		blockTitles: {
-			sep: 'Encuesta de septiembre de 2026',
-			aug: 'Encuesta de agosto de 2026'
+			aug: 'Encuesta del 3–17 de agosto de 2026'
+		},
+		pollBlocks: {
+			'internal-sep21-2026': {
+				title: 'Encuesta del 21–23 de septiembre de 2026',
+				heroLabel: 'Demasiado reñida para definirse',
+				heroSub:
+					'Crosby aventaja por {gap} puntos, dentro del margen de error de ±{moe} puntos.',
+				takeaway:
+					'Peter Crosby {crosby}%, Blake Moore {moore}%. La diferencia de {gap} puntos está dentro del margen de error de ±{moe} puntos, por lo que la contienda sigue demasiado reñida para definirse, y {undecided}% no está seguro o eligió ninguna de las opciones.'
+			},
+			'internal-sep-2026': {
+				title: 'Encuesta del 8–10 de septiembre de 2026',
+				heroLabel: 'Un empate estadístico',
+				heroSub: 'La diferencia de {gap} puntos está dentro del margen de error de ±{moe} puntos.',
+				takeaway:
+					'Blake Moore {moore}%, Peter Crosby {crosby}%. La diferencia de {gap} puntos está dentro del margen de error de ±{moe} puntos, y {undecided}% no está seguro o eligió ninguna de las opciones.'
+			}
 		},
 		pollMeta: {
 			coxFrom: 'enero de 2026',
@@ -1655,6 +1812,8 @@ export const pagesEs = {
 		datelineLabel: 'Última actualización',
 		sourceInternal:
 			'Encuesta interna, {pollster}. {n} {population} en {geography}, {dates}. Margen de error de ±{moe}%.',
+		sourceInternalCalculated:
+			'Encuesta interna, {pollster}. {n} {population} en {geography}, {dates}. Margen de error de ±{moe}%, calculado a partir del tamaño de la muestra con un 95% de confianza: la campaña no publicó uno.',
 		sourcePublic: '{pollster}, {dates}. {geography}.',
 		responseRate: 'Esta pregunta tuvo una tasa de respuesta del {rate}%.',
 		showTable: 'Ver tabla de datos',
@@ -1668,7 +1827,7 @@ export const pagesEs = {
 			unaffiliated: 'No afiliados',
 			other: 'Otro partido'
 		},
-		september: {
+		pollBlock: {
 			heroLabel: 'Un empate estadístico',
 			heroSub: 'La diferencia de {gap} puntos está dentro del margen de error de ±{moe} puntos.',
 			vs: 'vs.',
@@ -1724,20 +1883,45 @@ export const pagesEs = {
 				concern: 'Preocupación'
 			}
 		},
+		trendPair: {
+			from: '8–10 de sept.',
+			to: '21–23 de sept.',
+			colFrom: '8–10 de sept.',
+			colTo: '21–23 de sept.',
+			source:
+				'Encuestas internas, Peter Crosby para el Congreso: {a} (n = {aN}) y {b} (n = {bN}).'
+		},
+		ballotTrend: {
+			title: 'Intención de voto, del 8–10 de sept. al 21–23 de sept.',
+			takeaway: 'Entre las dos encuestas Crosby está en {crosby} y Moore en {moore}. {moeNote}',
+			moeWithin:
+				'Ningún cambio supera los ±{moe} puntos que debe superar una diferencia entre dos encuestas, por lo que el movimiento no es medible.',
+			moeExceeds:
+				'Supera los ±{moe} puntos que debe superar una diferencia entre dos encuestas: {names}.',
+			ariaLabel:
+				'Intención de voto para Crosby, Moore y quienes no están seguros en la encuesta del 8 al 10 de septiembre y en la del 21 al 23 de septiembre'
+		},
+		concernsTrend: {
+			title: 'Principales preocupaciones, del 8–10 de sept. al 21–23 de sept.',
+			takeaway:
+				'El orden de las preocupaciones no cambia: la asequibilidad primero y la rendición de cuentas del gobierno en segundo lugar. Todos los cambios entre ambas encuestas están dentro del margen de error.',
+			ariaLabel:
+				'Proporción que menciona cada preocupación en la encuesta del 8 al 10 de septiembre y en la del 21 al 23 de septiembre'
+		},
 		change: {
-			title: 'Temas principales, de agosto a septiembre',
+			title: 'Temas principales, de ago. a sept.',
 			takeaway:
 				'La asequibilidad y la rendición de cuentas del gobierno siguen siendo las dos principales preocupaciones. Ningún cambio entre las dos encuestas supera el margen de error.',
-			from: 'Ago',
-			to: 'Sep',
+			from: 'Ago.',
+			to: 'Sept.',
 			ariaLabel:
 				'Porcentaje que menciona la asequibilidad y la rendición de cuentas del gobierno en las encuestas de agosto y septiembre, por partido',
 			source:
 				'Encuestas internas, Peter Crosby para el Congreso: {aug} (n = {augN}) y {sep} (n = {sepN}). Se muestran en puntos enteros, la precisión del comunicado de agosto.',
 			colIssue: 'Tema',
 			colGroup: 'Grupo',
-			colAug: 'Agosto',
-			colSep: 'Septiembre'
+			colAug: 'Ago.',
+			colSep: 'Sept.'
 		},
 		approval: {
 			title: 'Aprobación neta de la gestión, agosto de 2026',
@@ -1786,8 +1970,8 @@ export const pagesEs = {
 				'Esta página reporta solo cifras reales y atribuibles —las encuestas internas de la campaña y encuestas públicas publicadas—, nunca cifras modeladas ni estimadas. Lo siguiente no está representado:',
 			items: [
 				{
-					label: 'Tendencia de la intención de voto.',
-					text: 'La pregunta entre Crosby y Moore se ha hecho en una sola encuesta hasta ahora, por lo que todavía no puede mostrar cambios a lo largo del tiempo.'
+					label: 'Intención de voto de demócratas y votantes de otros partidos.',
+					text: 'Ninguna de las dos encuestas de septiembre desglosa la pregunta entre Crosby y Moore para esos grupos, por lo que en el gráfico por partido solo aparecen republicanos e independientes.'
 				},
 				{
 					label: 'Pronóstico o probabilidad de victoria.',
