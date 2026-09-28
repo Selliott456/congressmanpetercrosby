@@ -19,6 +19,9 @@ export type EventRow = {
 	locationUrl: string | null;
 	description: string;
 	viewEventUrl: string | null;
+	/** Label for `viewEventUrl`. 'watch' marks a livestream ("Watch on YouTube"); the
+	    default reads "View Event". */
+	viewEventLabel?: 'watch';
 	/** Offer the on-site RSVP option for this event (only shown while the event is upcoming). */
 	rsvp?: boolean;
 	/** Start time as 24h "HH:MM" in America/Denver. Drives "Add to Calendar". Omit for an all-day entry. */
@@ -1263,15 +1266,22 @@ export const eventsData: EventRow[] = [
 		year: 2026,
 		monthIndex: 10,
 		title: 'Congressional District 2 Debate',
-		time: '5:00 PM – 9:00 PM MT',
+		// ⚠️ DELIBERATE OVERRIDE — do not "correct" this on the next Airtable pull.
+		// Airtable blocks 5–9 PM, which is the candidate's hold; 6–8 PM is the broadcast
+		// window viewers should tune in for (campaign confirmed 2026-09-28). Ask the
+		// campaign to fix the calendar entry; until then this stays 6–8.
+		time: '6:00 PM – 8:00 PM MT',
 		location: 'Utah State University, Old Main Hill, Logan, UT 84322',
 		locationUrl: 'https://www.google.com/maps/search/Old+Main+Hill+Utah+State+University+Logan+UT',
 		description: 'The official Congressional District 2 debate, hosted by the Utah Debate Commission and broadcast on local television and YouTube Live.',
-		viewEventUrl: null,
+		// The Commission's YouTube channel — the same link the site's debate callouts use
+		// (`src/lib/data/debate.ts`), which is where to change it when a stream URL exists.
+		viewEventUrl: 'https://www.youtube.com/@utahdebatecommission9658',
+		viewEventLabel: 'watch',
 		// Third-party event/venue — an on-site RSVP could be mistaken for guaranteed entry, so opt out.
 		rsvp: false,
-		startTime: '17:00',
-		endTime: '21:00'
+		startTime: '18:00',
+		endTime: '20:00'
 	},
 	// --- Pulled 2026-08-09 (Airtable "Volunteer and Events") ---
 	{

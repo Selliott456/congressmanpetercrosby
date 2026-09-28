@@ -6,6 +6,7 @@ export const pagesEs = {
 	common: {
 		donate: 'Donar',
 		viewEvent: 'Ver evento →',
+		watchEvent: 'Ver en YouTube →',
 		optional: 'opcional',
 		siteName: 'Peter Crosby para el Congreso',
 		shareImageAlt:
@@ -1710,6 +1711,13 @@ export const pagesEs = {
 		])
 	}
 	,
+	debate: {
+		eyebrow: 'Debate en vivo',
+		title: 'Vea el debate del CD2',
+		when: 'Martes 13 de octubre · 6:00–8:00 p. m. MT',
+		host: 'Organizado por la Utah Debate Commission',
+		cta: 'Ver en YouTube \u2197'
+	},
 	analytics: {
 		metaTitle: 'Sala de datos — Peter Crosby para el Congreso',
 		metaDescription:

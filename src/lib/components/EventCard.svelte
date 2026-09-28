@@ -90,7 +90,10 @@
 							href={event.viewEventUrl}
 							target="_blank"
 							rel="noopener noreferrer"
-							class="event-view-link">{$messages.common.viewEvent}</a
+							class="event-view-link"
+							>{event.viewEventLabel === 'watch'
+								? $messages.common.watchEvent
+								: $messages.common.viewEvent}</a
 						>
 					{/if}
 				</div>

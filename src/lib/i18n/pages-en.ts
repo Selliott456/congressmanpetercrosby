@@ -5,6 +5,7 @@ export const pagesEn = {
 	common: {
 		donate: 'Donate',
 		viewEvent: 'View Event →',
+		watchEvent: 'Watch on YouTube →',
 		optional: 'optional',
 		/** Link previews (PageMeta): og:site_name, and alt text for the branded share card. */
 		siteName: 'Peter Crosby for Congress',
@@ -714,6 +715,14 @@ export const pagesEn = {
 		])
 	}
 	,
+	/** The Utah Debate Commission debate promo (home media section + /media Featured). */
+	debate: {
+		eyebrow: 'Live debate',
+		title: 'Watch the CD2 debate',
+		when: 'Tuesday, October 13 · 6:00–8:00 PM MT',
+		host: 'Hosted by the Utah Debate Commission',
+		cta: 'Watch on YouTube \u2197'
+	},
 	analytics: {
 		metaTitle: 'Data Room — Peter Crosby for Congress',
 		metaDescription:
