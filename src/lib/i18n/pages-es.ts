@@ -725,6 +725,21 @@ export const pagesEs = {
 				title: 'Cabildo – Biblioteca North Branch',
 				description:
 					'Acompañe a Peter en un cabildo público en la Biblioteca North Branch. Traiga sus preguntas e inquietudes.'
+			},
+			'gcal-21t2tf6h2i7uhih8dbdlr9tthh': {
+				title: 'Saludo en la esquina – Ogden',
+				description:
+					'Tome un letrero y acompañe a Peter y a los voluntarios de la campaña en las aceras de 25th Street y Washington Boulevard durante el Ogden Fall Market.'
+			},
+			'gcal-576qqkooakuo3eh2cl033cbc4u': {
+				title: 'Encuentro y saludo – Bountiful',
+				description:
+					'Conozca a Peter junto a Shasti Conrad, vicepresidenta del Comité Nacional Demócrata, en un encuentro vespertino en Bountiful. Pásese, haga preguntas y salude.'
+			},
+			'gcal-7i7acmo7m1suaddpp31nqcolao': {
+				title: 'Conozca al candidato – Box Elder Indivisible',
+				description:
+					'Box Elder Indivisible organiza una velada con Peter en USU Brigham City. Venga a conocer al candidato y traiga sus preguntas.'
 			}
 		} as Record<string, { title: string; description: string }>
 	},

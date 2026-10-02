@@ -1782,5 +1782,66 @@ export const eventsData: EventRow[] = [
 		viewEventUrl: null,
 		startTime: '19:00',
 		endTime: '20:00'
+	},
+	// --- Pulled 2026-10-01 (Airtable "Volunteer and Events") ---
+	// Held back pending campaign confirmation (private-home addresses / incomplete info):
+	// the Oct 2 South Weber and Oct 6 Syracuse meet & greets (bare residential addresses),
+	// the Oct 12 Davis County Teacher-Candidate meet & greet (location still "TBD"), and
+	// the Oct 7 "Downtown Ogden" meet & greet (internal-only description — a targeted
+	// lunch with federal employees, plus named volunteers). Add once the campaign clears them.
+	{
+		id: 'gcal-21t2tf6h2i7uhih8dbdlr9tthh',
+		type: 'volunteer',
+		month: 'Oct',
+		day: '3',
+		year: 2026,
+		monthIndex: 10,
+		title: 'Honk & Wave – Ogden',
+		time: '11:00 AM – 12:30 PM MT',
+		location: '25th St & Washington Blvd, Ogden, UT 84401',
+		locationUrl: 'https://www.google.com/maps/search/25th+St+%26+Washington+Blvd+Ogden+UT+84401',
+		description:
+			'Grab a sign and join Peter and campaign volunteers on the sidewalks of 25th Street and Washington Boulevard during the Ogden Fall Market.',
+		// Sign-ups run through the Utah Democrats' Mobilize page, so skip the on-site RSVP.
+		viewEventUrl: 'https://www.mobilize.us/utahdemocrats/event/1049907/',
+		rsvp: false,
+		startTime: '11:00',
+		endTime: '12:30'
+	},
+	{
+		id: 'gcal-576qqkooakuo3eh2cl033cbc4u',
+		type: 'meet-greet',
+		month: 'Oct',
+		day: '9',
+		year: 2026,
+		monthIndex: 10,
+		title: 'Meet & Greet – Bountiful',
+		time: '6:30 PM – 8:00 PM MT',
+		location: 'Wild Sage Events — 1480 Orchard Dr Ste 113, Bountiful, UT 84010',
+		locationUrl: 'https://www.google.com/maps/search/1480+Orchard+Dr+Bountiful+UT+84010',
+		description:
+			'Meet Peter alongside DNC Vice Chair Shasti Conrad at an evening meet and greet in Bountiful. Stop by, ask questions, and say hello.',
+		// Sign-ups run through the Utah Democrats' Mobilize page, so skip the on-site RSVP.
+		viewEventUrl: 'https://www.mobilize.us/utahdemocrats/event/1051288/',
+		rsvp: false,
+		startTime: '18:30',
+		endTime: '20:00'
+	},
+	{
+		id: 'gcal-7i7acmo7m1suaddpp31nqcolao',
+		type: 'meet-greet',
+		month: 'Oct',
+		day: '16',
+		year: 2026,
+		monthIndex: 10,
+		title: 'Meet the Candidate – Box Elder Indivisible',
+		time: '6:00 PM – 8:00 PM MT',
+		location: 'USU Brigham City — 989 S Main St, Brigham City, UT 84302',
+		locationUrl: 'https://www.google.com/maps/search/989+S+Main+St+Brigham+City+UT+84302',
+		description:
+			'Box Elder Indivisible hosts an evening with Peter at USU Brigham City. Come meet the candidate and bring your questions.',
+		viewEventUrl: null,
+		startTime: '18:00',
+		endTime: '20:00'
 	}
 ];
