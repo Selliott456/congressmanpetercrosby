@@ -409,25 +409,6 @@ export const pagesEn = {
 						type: 'p',
 						text: 'These values and traditions have served us well for decades, but are now under stress, partly because of the actions (or inaction) of our representatives.'
 					},
-					{ type: 'h3', id: 'housing', text: 'The Housing Crisis' },
-					{
-						type: 'p',
-						text: 'Northern Utah’s housing market is one of the most expensive in the country and there is a historic housing crisis preventing people from finding permanent homes for their families. While there are some in-state efforts to alleviate this pressure, they are falling well short of our current needs.'
-					},
-					{
-						type: 'p',
-						text: 'I support regulatory reform for our housing markets and want to:'
-					},
-					{
-						type: 'ul',
-						items: [
-							'Incentivize **better city planning**',
-							'**Build more affordable housing** around community models',
-							'**Increase incomes for hard working Utahns** so they can afford to start building their families and their futures here',
-							'Fund existing programs that **support thoughtful rural community development**',
-							'Re-fund existing programs that make it easier for rural communities and first-time home buyers to build roots'
-						]
-					},
 					{ type: 'h3', id: 'daily-necessities', text: 'Affordable Daily Necessities' },
 					{
 						type: 'p',
@@ -444,6 +425,24 @@ export const pagesEn = {
 								]
 							},
 							'I would ensure the law is upheld in **making sure SNAP benefits are distributed** to the more than 80,000 Utah families who are struggling.'
+						]
+					},
+					{ type: 'h3', id: 'housing', text: 'The Housing Crisis' },
+					{
+						type: 'p',
+						text: 'Northern Utah’s housing market is one of the most expensive in the country and there is a historic housing crisis preventing people from finding permanent homes for their families. While there are some in-state efforts to alleviate this pressure, they are falling well short of our current needs.'
+					},
+					{
+						type: 'p',
+						text: 'I support regulatory reform for our housing markets and want to:'
+					},
+					{
+						type: 'ul',
+						items: [
+							'**Build more affordable housing** around community models',
+							'**Increase incomes for hard working Utahns** so they can afford to start building their families and their futures here',
+							'Fund existing programs that **support thoughtful rural community development**',
+							'Re-fund existing programs that make it easier for rural communities and first-time home buyers to build roots'
 						]
 					},
 					{ type: 'h3', id: 'jobs', text: 'A Stable Job Market with Opportunities for All' },

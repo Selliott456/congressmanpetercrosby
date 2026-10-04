@@ -1416,25 +1416,6 @@ export const pagesEs = {
 						type: 'p',
 						text: 'Estos valores y tradiciones nos han servido bien durante décadas, pero hoy están bajo presión, en parte por las acciones (o la inacción) de nuestros representantes.'
 					},
-					{ type: 'h3', id: 'housing', text: 'La crisis de vivienda' },
-					{
-						type: 'p',
-						text: 'El mercado de vivienda del norte de Utah es uno de los más caros del país, y hay una crisis de vivienda histórica que impide que la gente encuentre hogares permanentes para sus familias. Aunque existen algunos esfuerzos en el estado para aliviar esta presión, se quedan muy cortos frente a nuestras necesidades actuales.'
-					},
-					{
-						type: 'p',
-						text: 'Apoyo una reforma regulatoria de nuestros mercados de vivienda y quiero:'
-					},
-					{
-						type: 'ul',
-						items: [
-							'Incentivar **una mejor planificación urbana**',
-							'**Construir más vivienda asequible** basada en modelos comunitarios',
-							'**Aumentar los ingresos de los trabajadores de Utah** para que puedan empezar a formar sus familias y construir su futuro aquí',
-							'Financiar los programas existentes que **apoyan un desarrollo comunitario rural bien pensado**',
-							'Volver a financiar los programas existentes que facilitan que las comunidades rurales y quienes compran su primera vivienda echen raíces'
-						]
-					},
 					{ type: 'h3', id: 'daily-necessities', text: 'Necesidades diarias asequibles' },
 					{
 						type: 'p',
@@ -1451,6 +1432,24 @@ export const pagesEs = {
 								]
 							},
 							'Me aseguraría de que se cumpla la ley para **garantizar que los beneficios de SNAP (cupones de alimentos) lleguen** a las más de 80,000 familias de Utah que están pasando dificultades.'
+						]
+					},
+					{ type: 'h3', id: 'housing', text: 'La crisis de vivienda' },
+					{
+						type: 'p',
+						text: 'El mercado de vivienda del norte de Utah es uno de los más caros del país, y hay una crisis de vivienda histórica que impide que la gente encuentre hogares permanentes para sus familias. Aunque existen algunos esfuerzos en el estado para aliviar esta presión, se quedan muy cortos frente a nuestras necesidades actuales.'
+					},
+					{
+						type: 'p',
+						text: 'Apoyo una reforma regulatoria de nuestros mercados de vivienda y quiero:'
+					},
+					{
+						type: 'ul',
+						items: [
+							'**Construir más vivienda asequible** basada en modelos comunitarios',
+							'**Aumentar los ingresos de los trabajadores de Utah** para que puedan empezar a formar sus familias y construir su futuro aquí',
+							'Financiar los programas existentes que **apoyan un desarrollo comunitario rural bien pensado**',
+							'Volver a financiar los programas existentes que facilitan que las comunidades rurales y quienes compran su primera vivienda echen raíces'
 						]
 					},
 					{
