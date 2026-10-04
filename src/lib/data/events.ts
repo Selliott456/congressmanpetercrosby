@@ -1843,5 +1843,46 @@ export const eventsData: EventRow[] = [
 		viewEventUrl: null,
 		startTime: '18:00',
 		endTime: '20:00'
+	},
+	// --- Pulled 2026-10-04 (Airtable "Volunteer and Events") ---
+	// Still held pending campaign confirmation, unchanged since the 2026-10-01 pull: the
+	// Oct 6 Syracuse meet & greet (private home), the Oct 7 "Downtown Ogden" meet & greet
+	// (internal-only description), and the Oct 12 Davis County Teacher-Candidate meet &
+	// greet (location still "TBD"). Newly held: the Oct 15 "Town Hall - Rich" — its
+	// Location field says South Shore Barn in Laketown while its description says Garden
+	// City library, two different towns, and the description also carries a WiFi password.
+	{
+		id: 'gcal-5t14frc6s6c4t6vjevbjrepntf',
+		type: 'town-hall',
+		month: 'Oct',
+		day: '20',
+		year: 2026,
+		monthIndex: 10,
+		title: 'Town Hall – Brigham City',
+		time: '7:30 PM – 8:30 PM MT',
+		location: 'Brigham City Public Library, 26 E Forest St, Brigham City, UT 84302',
+		locationUrl: 'https://www.google.com/maps/search/26+E+Forest+St+Brigham+City+UT+84302',
+		description:
+			'Join Peter for a public town hall at the Brigham City Public Library. Bring your questions and concerns.',
+		viewEventUrl: null,
+		startTime: '19:30',
+		endTime: '20:30'
+	},
+	{
+		id: 'gcal-6phgn8i0tvtopb49e130htkdsr',
+		type: 'town-hall',
+		month: 'Oct',
+		day: '26',
+		year: 2026,
+		monthIndex: 10,
+		title: 'Town Hall – Providence',
+		time: '7:00 PM – 8:00 PM MT',
+		location: 'Providence Elementary School, 91 E Center St, Providence, UT 84332',
+		locationUrl: 'https://www.google.com/maps/search/91+E+Center+St+Providence+UT+84332',
+		description:
+			'Join Peter for a public town hall at Providence Elementary School. Bring your questions and concerns.',
+		viewEventUrl: null,
+		startTime: '19:00',
+		endTime: '20:00'
 	}
 ];

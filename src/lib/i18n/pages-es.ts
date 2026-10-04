@@ -740,6 +740,16 @@ export const pagesEs = {
 				title: 'Conozca al candidato – Box Elder Indivisible',
 				description:
 					'Box Elder Indivisible organiza una velada con Peter en USU Brigham City. Venga a conocer al candidato y traiga sus preguntas.'
+			},
+			'gcal-5t14frc6s6c4t6vjevbjrepntf': {
+				title: 'Cabildo – Brigham City',
+				description:
+					'Acompañe a Peter en un cabildo público en la Biblioteca Pública de Brigham City. Traiga sus preguntas e inquietudes.'
+			},
+			'gcal-6phgn8i0tvtopb49e130htkdsr': {
+				title: 'Cabildo – Providence',
+				description:
+					'Acompañe a Peter en un cabildo público en la Escuela Primaria Providence. Traiga sus preguntas e inquietudes.'
 			}
 		} as Record<string, { title: string; description: string }>
 	},
