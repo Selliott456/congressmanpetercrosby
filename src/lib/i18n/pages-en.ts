@@ -6,6 +6,9 @@ export const pagesEn = {
 		donate: 'Donate',
 		viewEvent: 'View Event →',
 		watchEvent: 'Watch on YouTube →',
+		/** Ticketed events: the link goes to the campaign's ActBlue page, where a ticket
+		    is a contribution — so the label says tickets, not "donate" or "view". */
+		getTickets: 'Get tickets →',
 		optional: 'optional',
 		/** Link previews (PageMeta): og:site_name, and alt text for the branded share card. */
 		siteName: 'Peter Crosby for Congress',

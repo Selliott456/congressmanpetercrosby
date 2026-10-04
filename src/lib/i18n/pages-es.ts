@@ -7,6 +7,7 @@ export const pagesEs = {
 		donate: 'Donar',
 		viewEvent: 'Ver evento →',
 		watchEvent: 'Ver en YouTube →',
+		getTickets: 'Comprar entradas →',
 		optional: 'opcional',
 		siteName: 'Peter Crosby para el Congreso',
 		shareImageAlt:
@@ -745,6 +746,11 @@ export const pagesEs = {
 				title: 'Cabildo – Brigham City',
 				description:
 					'Acompañe a Peter en un cabildo público en la Biblioteca Pública de Brigham City. Traiga sus preguntas e inquietudes.'
+			},
+			'fund-eden-2026-10-07': {
+				title: 'Recepción para recaudar fondos – Eden',
+				description:
+					'Una velada con Peter en el Trappers Ridge Clubhouse de Eden, con bufé de aperitivos, bar de bebidas y vinos, y música de Craig Schriber and Friends. La entrada es con boleto.'
 			},
 			'gcal-6phgn8i0tvtopb49e130htkdsr': {
 				title: 'Cabildo – Providence',

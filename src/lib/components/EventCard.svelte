@@ -93,7 +93,9 @@
 							class="event-view-link"
 							>{event.viewEventLabel === 'watch'
 								? $messages.common.watchEvent
-								: $messages.common.viewEvent}</a
+								: event.viewEventLabel === 'tickets'
+									? $messages.common.getTickets
+									: $messages.common.viewEvent}</a
 						>
 					{/if}
 				</div>

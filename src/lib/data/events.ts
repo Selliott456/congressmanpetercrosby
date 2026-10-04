@@ -19,9 +19,10 @@ export type EventRow = {
 	locationUrl: string | null;
 	description: string;
 	viewEventUrl: string | null;
-	/** Label for `viewEventUrl`. 'watch' marks a livestream ("Watch on YouTube"); the
-	    default reads "View Event". */
-	viewEventLabel?: 'watch';
+	/** Label for `viewEventUrl`. 'watch' marks a livestream ("Watch on YouTube"), 'tickets'
+	    a ticketed event whose link goes to the ActBlue page ("Get tickets"); the default
+	    reads "View Event". */
+	viewEventLabel?: 'watch' | 'tickets';
 	/** Offer the on-site RSVP option for this event (only shown while the event is upcoming). */
 	rsvp?: boolean;
 	/** Start time as 24h "HH:MM" in America/Denver. Drives "Add to Calendar". Omit for an all-day entry. */
@@ -1867,6 +1868,34 @@ export const eventsData: EventRow[] = [
 		viewEventUrl: null,
 		startTime: '19:30',
 		endTime: '20:30'
+	},
+	// --- Campaign-supplied, not from Airtable (2026-10-04) ---
+	// ⚠️ This is the one upcoming event with a non-`gcal-` id: the campaign sent it
+	// directly, from its ActBlue page, and it is not on the Airtable calendar. If it is
+	// added there later, a pull will bring it back under a `gcal-` id — reconcile by
+	// title/date and keep ONE of them, or the fundraiser lists twice.
+	{
+		id: 'fund-eden-2026-10-07',
+		// A ticketed fundraiser is none of the filter categories, so it files under
+		// 'other' and shows only in "All".
+		type: 'other',
+		month: 'Oct',
+		day: '7',
+		year: 2026,
+		monthIndex: 10,
+		title: 'Eden Fundraising Reception',
+		time: '6:00 PM – 8:00 PM MT',
+		location: 'Trappers Ridge Clubhouse, 5801 E Elkhorn Dr, Eden, UT 84310',
+		locationUrl: 'https://www.google.com/maps/search/5801+E+Elkhorn+Dr+Eden+UT+84310',
+		description:
+			'An evening with Peter at the Trappers Ridge Clubhouse in Eden, with an appetizer buffet, a beverage and wine bar, and music by Craig Schriber and Friends. Admission is by ticket.',
+		// Tickets are sold through ActBlue, so the on-site RSVP would be a second, broken
+		// path to the same thing.
+		viewEventUrl: 'https://secure.actblue.com/donate/crosbyeden',
+		viewEventLabel: 'tickets',
+		rsvp: false,
+		startTime: '18:00',
+		endTime: '20:00'
 	},
 	{
 		id: 'gcal-6phgn8i0tvtopb49e130htkdsr',
