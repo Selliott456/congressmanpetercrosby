@@ -733,6 +733,7 @@ export const pagesEn = {
 		onThisPage: 'On this page',
 		nav: {
 			districtPolling: 'District polling',
+			independentPolling: 'Independent polling',
 			statewideContext: 'Statewide context',
 			groundGame: 'On the ground',
 			methodology: 'Methodology'
@@ -758,7 +759,8 @@ export const pagesEn = {
 			issues: 'Internal poll · issue priorities',
 			change: 'Internal polls · Aug. vs. Sept.',
 			trend: 'Internal polls · Sept. trend',
-			publicPoll: 'Independent public poll'
+			publicPoll: 'Independent public poll',
+			independentBallot: 'Independent poll · full ballot'
 		},
 		/**
 		 * Per-poll prose, keyed by the ids in `POLLS` (`src/lib/data/analytics.ts`).
@@ -806,6 +808,17 @@ export const pagesEn = {
 				fieldLabel: 'August 2026',
 				partisanship: 'Independent — not affiliated with any campaign',
 				methodTitle: 'Statewide public poll'
+			},
+			'udc-hinckley-sep-2026': {
+				samplingNote:
+					'The commission’s methodology states that no data weighting was applied, and that the sample was drawn from the public voter-registration list matched to public contact records. Interviews were conducted by phone and online by Lighthouse Research & Development.',
+				pollster: 'Utah Debate Commission at the Hinckley Institute of Politics',
+				shortPollster: 'Utah Debate Commission',
+				population: 'registered voters',
+				geography: 'Utah’s 2nd Congressional District',
+				fieldLabel: 'Sept. 10–24, 2026',
+				partisanship: 'Independent — not affiliated with any campaign',
+				methodTitle: 'Independent district poll · Sept. 10–24'
 			}
 		},
 		/** Subheading for the August block, which has no ballot test of its own. */
@@ -914,6 +927,35 @@ export const pagesEn = {
 				group: 'Group',
 				concern: 'Concern'
 			}
+		},
+		/**
+		 * The Utah Debate Commission's independent CD2 survey. It gets its own section
+		 * rather than a block beside the internal polls, because it asks a different
+		 * question of a different population — `comparability` is the point of the section,
+		 * not a footnote to it.
+		 */
+		independentPoll: {
+			title: 'The Utah Debate Commission’s district survey',
+			intro:
+				'This is the first poll of this district on this page that the campaign did not commission. The Utah Debate Commission runs it through the Hinckley Institute of Politics to set the thresholds that decide who appears on the debate stage, and it publishes the full results sheet for every congressional district.',
+			heroLabel: 'Too close to call',
+			heroSub: 'Moore is ahead by {gap} points, within the ±{moe}-point margin for a gap.',
+			ballot: {
+				title: 'The full five-way ballot',
+				question:
+					'If the election for the US House of Representatives were held today, which of the following candidates would you vote for in 2nd congressional district?',
+				takeaway:
+					'Blake Moore {moore}%, Peter Crosby {crosby}%. The {gap}-point gap does not clear the margin of error, so this survey also leaves the race too close to call. {undecided}% are undecided and {minor}% name one of the three minor-party candidates — together, about a quarter of respondents are not with either major candidate.',
+				ariaLabel: 'Five-way ballot test, share of respondents for each candidate',
+				note: 'Every candidate who will appear on the ballot was read as an option; “Other” and “Undecided” were not read aloud but were recorded when volunteered. Shares are of all {n} respondents.',
+				moeNote:
+					'The commission publishes a ±{moe}-point margin for a single share. The ±{diff}-point figure above is the margin on the gap between two candidates, which is wider — this page calculates it; the commission does not publish it.'
+			},
+			comparability: {
+				label: 'Not directly comparable to the campaign’s internal polling.',
+				text: 'This survey asks the full five-way ballot, while the internal polls ask a two-way Crosby-versus-Moore question that reports both major candidates higher. Sampling, weighting and field length differ as well.'
+			},
+			col: { candidate: 'Candidate', party: 'Party', count: 'Respondents', share: 'Share' }
 		},
 		/** Shared labels for charts that pair the two September surveys. */
 		trendPair: {

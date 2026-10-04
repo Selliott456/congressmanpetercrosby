@@ -1743,6 +1743,7 @@ export const pagesEs = {
 		onThisPage: 'En esta página',
 		nav: {
 			districtPolling: 'Encuestas del distrito',
+			independentPolling: 'Encuestas independientes',
 			statewideContext: 'Contexto estatal',
 			groundGame: 'En el terreno',
 			methodology: 'Metodología'
@@ -1767,7 +1768,8 @@ export const pagesEs = {
 			issues: 'Encuesta interna · prioridades temáticas',
 			change: 'Encuestas internas · ago. vs. sept.',
 			trend: 'Encuestas internas · tendencia de sept.',
-			publicPoll: 'Encuesta pública independiente'
+			publicPoll: 'Encuesta pública independiente',
+			independentBallot: 'Encuesta independiente · boleta completa'
 		},
 		/** Prosa por encuesta, con las mismas claves que `POLLS` en la capa de datos. */
 		polls: {
@@ -1811,6 +1813,17 @@ export const pagesEs = {
 				fieldLabel: 'agosto de 2026',
 				partisanship: 'Independiente — sin afiliación a ninguna campaña',
 				methodTitle: 'Encuesta pública estatal'
+			},
+			'udc-hinckley-sep-2026': {
+				samplingNote:
+					'La metodología de la comisión indica que no se aplicó ninguna ponderación a los datos y que la muestra se extrajo del padrón electoral público, cotejado con registros públicos de contacto. Las entrevistas se realizaron por teléfono y en línea a cargo de Lighthouse Research & Development.',
+				pollster: 'Utah Debate Commission en el Hinckley Institute of Politics',
+				shortPollster: 'Utah Debate Commission',
+				population: 'votantes registrados',
+				geography: 'Distrito 2 del Congreso de Utah',
+				fieldLabel: '10–24 de sept. de 2026',
+				partisanship: 'Independiente — sin afiliación a ninguna campaña',
+				methodTitle: 'Encuesta independiente del distrito · 10–24 de sept.'
 			}
 		},
 		blockTitles: {
@@ -1909,6 +1922,36 @@ export const pagesEs = {
 				range: 'Rango (±{moe})',
 				group: 'Grupo',
 				concern: 'Preocupación'
+			}
+		},
+		independentPoll: {
+			title: 'La encuesta distrital de la Utah Debate Commission',
+			intro:
+				'Esta es la primera encuesta de este distrito en esta página que la campaña no encargó. La Utah Debate Commission la realiza a través del Hinckley Institute of Politics para fijar los umbrales que determinan quién sube al escenario del debate, y publica la hoja completa de resultados de cada distrito congresional.',
+			heroLabel: 'Demasiado reñida para definirse',
+			heroSub:
+				'Moore va adelante por {gap} puntos, dentro del margen de ±{moe} puntos para una diferencia.',
+			ballot: {
+				title: 'La boleta completa de cinco candidatos',
+				question:
+					'Si las elecciones para la Cámara de Representantes de EE. UU. se celebraran hoy, ¿por cuál de los siguientes candidatos votaría usted en el 2.º distrito congresional?',
+				takeaway:
+					'Blake Moore {moore}%, Peter Crosby {crosby}%. La diferencia de {gap} puntos no supera el margen de error, por lo que esta encuesta también deja la contienda demasiado reñida para definirse. El {undecided}% está indeciso y el {minor}% menciona a uno de los tres candidatos de partidos minoritarios: en conjunto, cerca de una cuarta parte de los encuestados no está con ninguno de los dos candidatos principales.',
+				ariaLabel:
+					'Intención de voto con cinco candidatos, porcentaje de encuestados por cada candidato',
+				note: 'Se leyó como opción a cada candidato que aparecerá en la boleta; «Otro» e «Indeciso» no se leyeron en voz alta, pero se registraron cuando el encuestado los mencionó. Los porcentajes son sobre el total de {n} encuestados.',
+				moeNote:
+					'La comisión publica un margen de ±{moe} puntos para un porcentaje individual. La cifra de ±{diff} puntos que aparece arriba es el margen de la diferencia entre dos candidatos, que es mayor: esta página la calcula; la comisión no la publica.'
+			},
+			comparability: {
+				label: 'No es directamente comparable con las encuestas internas de la campaña.',
+				text: 'Esta encuesta presenta la boleta completa con cinco candidatos, mientras que las encuestas internas plantean una pregunta de dos opciones entre Crosby y Moore que reporta más altos a ambos candidatos principales. El muestreo, la ponderación y la duración del trabajo de campo también difieren.'
+			},
+			col: {
+				candidate: 'Candidato',
+				party: 'Partido',
+				count: 'Encuestados',
+				share: 'Porcentaje'
 			}
 		},
 		trendPair: {
@@ -2072,6 +2115,13 @@ export const pagesEs = {
 				role: 'Legislatura estatal'
 			},
 			'appr-congress': { label: 'Congreso de EE. UU.', role: 'Institución' },
+			'udc-moore': { detail: 'Republicano' },
+			'udc-crosby': { detail: 'Demócrata' },
+			'udc-undecided': { label: 'Indeciso', detail: 'No se leyó como opción' },
+			'udc-cottam': { detail: 'Libertario' },
+			'udc-moesinger': { detail: 'Sin afiliación' },
+			'udc-bowen': { detail: 'Independent American' },
+			'udc-other': { label: 'Otro', detail: 'No se leyó como opción' },
 			'ground-townhalls': {
 				label: 'Cabildos',
 				note: 'Presenciales y virtuales, en todo el UT-02 desde el lanzamiento'
