@@ -12,6 +12,11 @@
  *      draft, 2026-09-13); the release itself carries only the all-voter shares.
  *   3. The Deseret News / Hinckley Institute of Politics August 2026 statewide poll,
  *      as cited in the August release.
+ *   6. The Utah Debate Commission's independent CD2 survey (Sept 10–24, released
+ *      2026-09-29), transcribed from the results sheet the commission publishes. This is
+ *      the first district poll here that the campaign did not pay for, and the only one
+ *      showing the full five-way ballot. ⚠️ It is NOT comparable to the internal polls'
+ *      two-way question — see `udcBallot` for why, and do not merge the two series.
  *   4. Campaign-reported organizing counts (`groundGame`), as stated in releases.
  *   5. The campaign's Sept 22–23 internal poll, transcribed from the deck the campaign
  *      supplied ("Weekly Polling — Week of 9.21.2026 — Likely Voters", received
@@ -131,6 +136,17 @@ export const POLLS: Record<string, Poll> = {
 		fieldStart: '2026-08-01',
 		fieldEnd: '2026-08-31',
 		url: 'https://www.deseret.com/politics/2026/08/17/utah-voters-disapprove-of-governor-cox-senator-lee-and-senator-curtis-in-new-poll/'
+	},
+	'udc-hinckley-sep-2026': {
+		id: 'udc-hinckley-sep-2026',
+		partisan: false,
+		sampleSize: 515,
+		// Published by the pollster (±4.32% for CD2; the methodology states ±4.33% as the
+		// floor across all four districts). Not calculated here.
+		marginOfError: 4.32,
+		fieldStart: '2026-09-10',
+		fieldEnd: '2026-09-24',
+		url: 'https://utahdebatecommission.org/2026-polling/'
 	}
 };
 
@@ -138,7 +154,7 @@ export const POLLS: Record<string, Poll> = {
 export const FEATURED_POLL_ID = 'internal-sep21-2026';
 
 /** Page dateline (ISO). Bump whenever data is added or revised. */
-export const LAST_UPDATED = '2026-09-27';
+export const LAST_UPDATED = '2026-10-04';
 
 /** A set of rows and the poll they came from, so a chart can cite its own source
     instead of inheriting a page-level one. */
@@ -375,6 +391,24 @@ export function marginOfError(n: number): number {
 	return 1.96 * Math.sqrt(0.25 / n) * 100;
 }
 
+/**
+ * Margin of error, in percentage points, on the GAP between two candidates' shares in
+ * the SAME survey, at 95% confidence. `p1`/`p2` are shares (percent).
+ *
+ * This is not the single-share margin, and it is not √(a² + b²) either — that form is
+ * for two *independent* samples (which is why the September-to-September trend uses it).
+ * Two shares from one sample are negatively correlated: a respondent counted for one
+ * candidate cannot be counted for the other, so the gap carries more error than either
+ * share alone. Var(p₁ − p₂) = [p₁ + p₂ − (p₁ − p₂)²] / n.
+ *
+ * Reported as a calculated figure wherever it appears — no pollster publishes it.
+ */
+export function marginOfDifference(p1: number, p2: number, n: number): number {
+	const a = p1 / 100;
+	const b = p2 / 100;
+	return 1.96 * Math.sqrt((a + b - (a - b) ** 2) / n) * 100;
+}
+
 export type BallotOption = 'crosby' | 'moore' | 'other' | 'unsure' | 'none';
 
 /** Display order: Crosby anchors the left edge, Moore the right, the rest between. */
@@ -542,6 +576,104 @@ export const topConcerns: Dataset<ConcernRow> = {
  * pair them up.
  */
 export const concernReadings: Dataset<ConcernRow>[] = [sep21Concerns, topConcerns];
+
+// ── Independent district poll (Utah Debate Commission / Hinckley Institute) ──
+
+/**
+ * The Utah Debate Commission's CD2 survey, released 2026-09-29 and transcribed from the
+ * results sheet the commission publishes at `POLLS['udc-hinckley-sep-2026'].url`.
+ * Fielded by Lighthouse Research & Development.
+ *
+ * ⚠️ This is NOT a reading of the same question as the internal polls, and it must never
+ * be appended to `ballotReadings` or plotted on their trend. Three differences make the
+ * numbers non-comparable:
+ *   • It is the FULL five-way ballot — every candidate who will appear on it, plus
+ *     "Other" and "Undecided" read as options. The internal polls ask a two-way
+ *     Crosby-versus-Moore question, which has nowhere for a minor-party voter to go and
+ *     so reports both majors higher.
+ *   • Its population is registered voters; the week-of-Sept-21 internal is the
+ *     likely-voter screen.
+ *   • No weighting was applied (the commission's methodology says so outright), and it
+ *     was in the field 15 days against the internals' two or three.
+ * Shown in its own section for exactly that reason.
+ *
+ * `count` and `share` are both as published; they are kept together so the table can
+ * show respondents alongside percentages, and because they cross-check each other
+ * (every count ÷ 515 reproduces the published share to the stated decimal).
+ */
+export type BallotCandidateRow = {
+	/** Stable id — keys the Spanish override in `$messages.analytics.byId`. */
+	id: string;
+	name: string;
+	/** Party as the commission's sheet lists it. */
+	party: string;
+	count: number;
+	share: number;
+	/** Reserved identity colors for the two majors; the rest are deliberately neutral. */
+	color: string;
+};
+
+export const udcBallot: Dataset<BallotCandidateRow> = {
+	pollId: 'udc-hinckley-sep-2026',
+	rows: [
+		{
+			id: 'udc-moore',
+			name: 'Blake D. Moore',
+			party: 'Republican',
+			count: 201,
+			share: 39.0,
+			color: CANDIDATE_COLORS.moore
+		},
+		{
+			id: 'udc-crosby',
+			name: 'Peter Crosby',
+			party: 'Democrat',
+			count: 175,
+			share: 34.0,
+			color: CANDIDATE_COLORS.crosby
+		},
+		{
+			id: 'udc-undecided',
+			name: 'Undecided',
+			party: 'Not read as an option',
+			count: 55,
+			share: 10.7,
+			color: RESPONSE_GRAYS.unsure
+		},
+		{
+			id: 'udc-cottam',
+			name: 'Daniel Cottam',
+			party: 'Libertarian',
+			count: 25,
+			share: 4.9,
+			color: RESPONSE_GRAYS.other
+		},
+		{
+			id: 'udc-moesinger',
+			name: 'Robert M. Moesinger',
+			party: 'Unaffiliated',
+			count: 25,
+			share: 4.9,
+			color: RESPONSE_GRAYS.other
+		},
+		{
+			id: 'udc-bowen',
+			name: 'Carlton E. Bowen',
+			party: 'Independent American',
+			count: 21,
+			share: 4.1,
+			color: RESPONSE_GRAYS.other
+		},
+		{
+			id: 'udc-other',
+			name: 'Other',
+			party: 'Not read as an option',
+			count: 13,
+			share: 2.5,
+			color: RESPONSE_GRAYS.none
+		}
+	]
+};
 
 // ── Statewide (Deseret News / Hinckley Institute) ────────────────────────────
 

@@ -9,11 +9,18 @@
 	 * `COMPACT_AT` the label moves above its bar.
 	 */
 
-	/** @typedef {{ label: string; sublabel?: string; value: number }} Row */
+	/**
+	 * A row may override `color` when the bars stand for distinct ENTITIES whose identity
+	 * is already fixed elsewhere — the candidates' reserved blue and red on a ballot test.
+	 * Leave it unset for ordinary magnitude rankings: coloring those apart would re-encode
+	 * what bar length already shows.
+	 *
+	 * @typedef {{ label: string; sublabel?: string; value: number; color?: string }} Row
+	 */
 
 	/** @type {Row[]} */
 	export let rows = [];
-	/** @type {string} */
+	/** Fallback bar color, used for every row that does not set its own. @type {string} */
 	export let color = '#2E5FA0';
 	/** Axis maximum (percent). @type {number} */
 	export let max = 100;
@@ -46,7 +53,8 @@
 					{#if row.sublabel}<span class="label-sub">{row.sublabel}</span>{/if}
 				</div>
 				<div class="track">
-					<span class="bar" style="width:{pos(row.value)}%; background:{color}"></span>
+					<span class="bar" style="width:{pos(row.value)}%; background:{row.color ?? color}"
+					></span>
 					<span class="value" style="left:calc({pos(row.value)}% + 8px)">
 						{row.value.toFixed(digits)}%
 					</span>

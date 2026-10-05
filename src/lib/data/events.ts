@@ -19,9 +19,10 @@ export type EventRow = {
 	locationUrl: string | null;
 	description: string;
 	viewEventUrl: string | null;
-	/** Label for `viewEventUrl`. 'watch' marks a livestream ("Watch on YouTube"); the
-	    default reads "View Event". */
-	viewEventLabel?: 'watch';
+	/** Label for `viewEventUrl`. 'watch' marks a livestream ("Watch on YouTube"), 'tickets'
+	    a ticketed event whose link goes to the ActBlue page ("Get tickets"); the default
+	    reads "View Event". */
+	viewEventLabel?: 'watch' | 'tickets';
 	/** Offer the on-site RSVP option for this event (only shown while the event is upcoming). */
 	rsvp?: boolean;
 	/** Start time as 24h "HH:MM" in America/Denver. Drives "Add to Calendar". Omit for an all-day entry. */
@@ -1842,6 +1843,75 @@ export const eventsData: EventRow[] = [
 			'Box Elder Indivisible hosts an evening with Peter at USU Brigham City. Come meet the candidate and bring your questions.',
 		viewEventUrl: null,
 		startTime: '18:00',
+		endTime: '20:00'
+	},
+	// --- Pulled 2026-10-04 (Airtable "Volunteer and Events") ---
+	// Still held pending campaign confirmation, unchanged since the 2026-10-01 pull: the
+	// Oct 6 Syracuse meet & greet (private home), the Oct 7 "Downtown Ogden" meet & greet
+	// (internal-only description), and the Oct 12 Davis County Teacher-Candidate meet &
+	// greet (location still "TBD"). Newly held: the Oct 15 "Town Hall - Rich" — its
+	// Location field says South Shore Barn in Laketown while its description says Garden
+	// City library, two different towns, and the description also carries a WiFi password.
+	{
+		id: 'gcal-5t14frc6s6c4t6vjevbjrepntf',
+		type: 'town-hall',
+		month: 'Oct',
+		day: '20',
+		year: 2026,
+		monthIndex: 10,
+		title: 'Town Hall – Brigham City',
+		time: '7:30 PM – 8:30 PM MT',
+		location: 'Brigham City Public Library, 26 E Forest St, Brigham City, UT 84302',
+		locationUrl: 'https://www.google.com/maps/search/26+E+Forest+St+Brigham+City+UT+84302',
+		description:
+			'Join Peter for a public town hall at the Brigham City Public Library. Bring your questions and concerns.',
+		viewEventUrl: null,
+		startTime: '19:30',
+		endTime: '20:30'
+	},
+	// --- Campaign-supplied, not from Airtable (2026-10-04) ---
+	// ⚠️ This is the one upcoming event with a non-`gcal-` id: the campaign sent it
+	// directly, from its ActBlue page, and it is not on the Airtable calendar. If it is
+	// added there later, a pull will bring it back under a `gcal-` id — reconcile by
+	// title/date and keep ONE of them, or the fundraiser lists twice.
+	{
+		id: 'fund-eden-2026-10-07',
+		// A ticketed fundraiser is none of the filter categories, so it files under
+		// 'other' and shows only in "All".
+		type: 'other',
+		month: 'Oct',
+		day: '7',
+		year: 2026,
+		monthIndex: 10,
+		title: 'Eden Fundraising Reception',
+		time: '6:00 PM – 8:00 PM MT',
+		location: 'Trappers Ridge Clubhouse, 5801 E Elkhorn Dr, Eden, UT 84310',
+		locationUrl: 'https://www.google.com/maps/search/5801+E+Elkhorn+Dr+Eden+UT+84310',
+		description:
+			'An evening with Peter at the Trappers Ridge Clubhouse in Eden, with an appetizer buffet, a beverage and wine bar, and music by Craig Schriber and Friends. Admission is by ticket.',
+		// Tickets are sold through ActBlue, so the on-site RSVP would be a second, broken
+		// path to the same thing.
+		viewEventUrl: 'https://secure.actblue.com/donate/crosbyeden',
+		viewEventLabel: 'tickets',
+		rsvp: false,
+		startTime: '18:00',
+		endTime: '20:00'
+	},
+	{
+		id: 'gcal-6phgn8i0tvtopb49e130htkdsr',
+		type: 'town-hall',
+		month: 'Oct',
+		day: '26',
+		year: 2026,
+		monthIndex: 10,
+		title: 'Town Hall – Providence',
+		time: '7:00 PM – 8:00 PM MT',
+		location: 'Providence Elementary School, 91 E Center St, Providence, UT 84332',
+		locationUrl: 'https://www.google.com/maps/search/91+E+Center+St+Providence+UT+84332',
+		description:
+			'Join Peter for a public town hall at Providence Elementary School. Bring your questions and concerns.',
+		viewEventUrl: null,
+		startTime: '19:00',
 		endTime: '20:00'
 	}
 ];

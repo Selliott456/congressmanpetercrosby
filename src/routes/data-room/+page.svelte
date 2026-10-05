@@ -31,6 +31,8 @@
 		GROUP_N,
 		SMALL_SAMPLE_N,
 		marginOfError,
+		marginOfDifference,
+		udcBallot,
 		statewideApproval,
 		coxApprovalTrend,
 		groundGame,
@@ -45,6 +47,7 @@
 	/** Jump-bar destinations. Each id must match a `.analytics-section` below. */
 	$: sections = [
 		{ id: 'district-polling', label: t.nav.districtPolling },
+		{ id: 'independent-polling', label: t.nav.independentPolling },
 		{ id: 'statewide-context', label: t.nav.statewideContext },
 		{ id: 'ground-game', label: t.nav.groundGame },
 		{ id: 'methodology', label: t.nav.methodology }
@@ -329,6 +332,32 @@
 	$: changeTableRows = changeGroups.flatMap((grp) =>
 		grp.rows.map((r) => [grp.label, r.label, `${r.from}%`, `${f1(r.to)}%`])
 	);
+
+	// ── Independent district poll (Utah Debate Commission) ─────
+	const UDC_ID = udcBallot.pollId;
+	const UDC_N = POLLS[UDC_ID].sampleSize ?? 0;
+
+	/** Keyed by id so the copy can pull named candidates without depending on row order. */
+	/** @type {Record<string, (typeof udcBallot.rows)[number]>} */
+	const udcById = Object.fromEntries(udcBallot.rows.map((r) => [r.id, r]));
+
+	const udcMoore = udcById['udc-moore'].share;
+	const udcCrosby = udcById['udc-crosby'].share;
+	const udcGap = udcMoore - udcCrosby;
+	/** The three minor-party candidates, excluding the volunteered "Other". */
+	const udcMinor =
+		udcById['udc-cottam'].share + udcById['udc-moesinger'].share + udcById['udc-bowen'].share;
+	/** Margin on the GAP, not on a single share — the commission publishes only the latter. */
+	const udcDiffMoe = marginOfDifference(udcMoore, udcCrosby, UDC_N);
+
+	/** Bars carry each candidate's own color: the two majors keep their reserved blue and
+	    red, everyone else stays neutral, so identity is not re-encoded as rank. */
+	$: udcRows = udcBallot.rows.map((r) => ({
+		label: t.byId[r.id]?.label ?? r.name,
+		sublabel: t.byId[r.id]?.detail ?? r.party,
+		value: r.share,
+		color: r.color
+	}));
 
 	/** Approval rows with translated names/roles for the chart and its table. */
 	$: approvalRows = statewideApproval.rows.map((r) => ({
@@ -778,6 +807,106 @@
 					<DivergingStackedBar segments={localSegments} ariaLabel={o?.question ?? q.question} />
 				</ChartFrame>
 			{/each}
+		</div>
+	</section>
+
+	<!-- ── Independent district polling ─────────────────────────── -->
+	<!-- Its own section, not a block beside the internals: it asks the full five-way
+	     ballot of registered voters, so the two sets of numbers are not one series. -->
+	<section
+		id="independent-polling"
+		class="analytics-section charts"
+		aria-labelledby="independent-title"
+	>
+		<header class="section-head">
+			<div class="section-rail"><Rail height="4px" /></div>
+			<h2 class="section-title" id="independent-title">{t.nav.independentPolling}</h2>
+		</header>
+
+		<div class="poll-block" id="survey-{UDC_ID}">
+			<h3 class="poll-title">{t.independentPoll.title}</h3>
+			<p class="poll-intro">{t.independentPoll.intro}</p>
+
+			<div class="snapshot">
+				<div class="snapshot-head">
+					<div
+						class="matchup"
+						role="img"
+						aria-label="{udcById['udc-moore'].name} {f1(udcMoore)}%, {udcById['udc-crosby']
+							.name} {f1(udcCrosby)}%"
+					>
+						<p class="hero-figure matchup-figure">
+							{f1(udcMoore)}<span class="hero-unit">%</span>
+						</p>
+						<span class="matchup-vs">{t.pollBlock.vs}</span>
+						<p class="hero-figure matchup-figure">
+							{f1(udcCrosby)}<span class="hero-unit">%</span>
+						</p>
+						<p class="matchup-name">
+							<span class="matchup-key" style="background:{CANDIDATE_COLORS.moore}"></span>
+							{t.pollBlock.options.moore}
+						</p>
+						<span></span>
+						<p class="matchup-name">
+							<span class="matchup-key" style="background:{CANDIDATE_COLORS.crosby}"></span>
+							{t.pollBlock.options.crosby}
+						</p>
+					</div>
+					<div class="hero-copy">
+						<p class="hero-label">{t.independentPoll.heroLabel}</p>
+						<p class="hero-sub">
+							{fill(t.independentPoll.heroSub, {
+								gap: f1(udcGap),
+								moe: fmtMoe(udcDiffMoe)
+							})}
+						</p>
+					</div>
+				</div>
+				<dl class="meta-row">
+					{#each pollMeta(UDC_ID) as m}
+						<div class="meta"><dt>{m.dt}</dt><dd>{m.dd}</dd></div>
+					{/each}
+				</dl>
+				<p class="method-note">{pollsById[UDC_ID].samplingNote}</p>
+			</div>
+
+			<ChartFrame
+				level={4}
+				eyebrow={t.eyebrows.independentBallot}
+				title={t.independentPoll.ballot.title}
+				question={t.independentPoll.ballot.question}
+				takeaway={fill(t.independentPoll.ballot.takeaway, {
+					moore: f1(udcMoore),
+					crosby: f1(udcCrosby),
+					gap: f1(udcGap),
+					undecided: f1(udcById['udc-undecided'].share),
+					minor: f1(udcMinor)
+				})}
+				note="{fill(t.independentPoll.ballot.note, { n: UDC_N })} {fill(
+					t.independentPoll.ballot.moeNote,
+					{ moe: fmtMoe(POLLS[UDC_ID].marginOfError ?? 0), diff: fmtMoe(udcDiffMoe) }
+				)}"
+				source={sourceFor(UDC_ID)}
+				tableColumns={[
+					t.independentPoll.col.candidate,
+					t.independentPoll.col.party,
+					t.independentPoll.col.count,
+					t.independentPoll.col.share
+				]}
+				tableRows={udcBallot.rows.map((r) => [
+					t.byId[r.id]?.label ?? r.name,
+					t.byId[r.id]?.detail ?? r.party,
+					`${r.count}`,
+					`${f1(r.share)}%`
+				])}
+			>
+				<RankedBars rows={udcRows} max={40} ariaLabel={t.independentPoll.ballot.ariaLabel} />
+			</ChartFrame>
+
+			<p class="comparability">
+				<strong>{t.independentPoll.comparability.label}</strong>
+				{t.independentPoll.comparability.text}
+			</p>
 		</div>
 	</section>
 
@@ -1531,6 +1660,35 @@
 		margin: 0.85rem 0 0;
 		padding-top: 0.85rem;
 		border-top: 1px solid var(--line-l);
+	}
+
+	/* Sits under the independent poll's title, before its snapshot — who ran the survey
+	   and why, which a reader needs before the numbers mean anything. */
+	.poll-intro {
+		margin: -0.4rem 0 1.3rem;
+		font-family: var(--serif);
+		font-size: 1.02rem;
+		line-height: 1.6;
+		color: var(--ink-2);
+		max-width: 62ch;
+	}
+
+	/* Why the independent poll is not plotted with the campaign's own. Rail-marked so it
+	   reads as a caveat on the section rather than a note on the chart above it. */
+	.comparability {
+		margin: 1.5rem 0 0;
+		padding: 0.95rem 1.1rem;
+		border: 1px solid var(--line-l);
+		border-left: 4px solid var(--blue);
+		background: var(--paper-2, #eef2f6);
+		font-family: var(--font-primary);
+		font-size: 0.9rem;
+		line-height: 1.6;
+		color: var(--ink-2);
+	}
+
+	.comparability strong {
+		color: var(--ink);
 	}
 
 	.method-link {
