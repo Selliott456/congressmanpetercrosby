@@ -747,6 +747,11 @@ export const pagesEs = {
 				description:
 					'Acompañe a Peter en un cabildo público en la Biblioteca Pública de Brigham City. Traiga sus preguntas e inquietudes.'
 			},
+			'gcal-271hnnm1g0osmb2q5om13hbgbl': {
+				title: 'Encuentro y saludo – Syracuse',
+				description:
+					'Conozca a Peter en un encuentro vecinal en Syracuse, realizado junto con Davis Pride. Pásese, haga preguntas y salude.'
+			},
 			'fund-eden-2026-10-07': {
 				title: 'Recepción para recaudar fondos – Eden',
 				description:
