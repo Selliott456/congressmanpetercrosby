@@ -1846,12 +1846,30 @@ export const eventsData: EventRow[] = [
 		endTime: '20:00'
 	},
 	// --- Pulled 2026-10-04 (Airtable "Volunteer and Events") ---
-	// Still held pending campaign confirmation, unchanged since the 2026-10-01 pull: the
-	// Oct 6 Syracuse meet & greet (private home), the Oct 7 "Downtown Ogden" meet & greet
-	// (internal-only description), and the Oct 12 Davis County Teacher-Candidate meet &
-	// greet (location still "TBD"). Newly held: the Oct 15 "Town Hall - Rich" — its
+	// Still held pending campaign confirmation: the Oct 7 "Downtown Ogden" meet & greet
+	// (internal-only description) and the Oct 12 Davis County Teacher-Candidate meet &
+	// greet (location still "TBD"). Also held: the Oct 15 "Town Hall - Rich" — its
 	// Location field says South Shore Barn in Laketown while its description says Garden
 	// City library, two different towns, and the description also carries a WiFi password.
+	{
+		// Hosted at a private home — the campaign confirmed the address can be published
+		// (2026-10-05). The hosts' names stay off the site, as with the Centerville event.
+		id: 'gcal-271hnnm1g0osmb2q5om13hbgbl',
+		type: 'meet-greet',
+		month: 'Oct',
+		day: '6',
+		year: 2026,
+		monthIndex: 10,
+		title: 'Meet & Greet – Syracuse',
+		time: '6:30 PM – 8:00 PM MT',
+		location: '2449 S 1520 W, Syracuse, UT 84075',
+		locationUrl: 'https://www.google.com/maps/search/2449+S+1520+W+Syracuse+UT+84075',
+		description:
+			'Meet Peter at a neighborhood meet and greet in Syracuse, held with Davis Pride. Stop by, ask questions, and say hello.',
+		viewEventUrl: null,
+		startTime: '18:30',
+		endTime: '20:00'
+	},
 	{
 		id: 'gcal-5t14frc6s6c4t6vjevbjrepntf',
 		type: 'town-hall',
