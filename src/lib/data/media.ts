@@ -256,8 +256,10 @@ export const mediaData: MediaItem[] = [
 		description:
 			'The Utah Debate Commission’s debate for Utah’s 2nd Congressional District, moderated by Heidi Hatch at Utah State University — the only publicly moderated debate of the race. Watch the full broadcast.',
 		date: '2026-10-13',
-		url: 'https://www.youtube.com/watch?v=iP-GniMoGXQ',
-		youtubeId: 'iP-GniMoGXQ',
+		// Re-pointed 2026-10-13: the Commission removed its first upload (iP-GniMoGXQ) and
+		// reposted the debate under this id. Kept in sync with `DEBATE.url` in `debate.ts`.
+		url: 'https://www.youtube.com/watch?v=28N9EFEzPZk',
+		youtubeId: '28N9EFEzPZk',
 		outlet: 'Utah Debate Commission',
 		image: '/images/media/debate.jpg'
 	}
