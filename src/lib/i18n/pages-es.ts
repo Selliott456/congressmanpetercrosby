@@ -816,6 +816,7 @@ export const pagesEs = {
 		kindArticle: 'Artículo',
 		kindOpEd: 'Columna',
 		kindPressRelease: 'Comunicado',
+		watchOnSource: 'Ver en YouTube ↗',
 		closeVideo: 'Cerrar video',
 		pinnedEyebrow: 'Sala de prensa',
 		pinnedTitle: 'Medios destacados',
@@ -898,6 +899,11 @@ export const pagesEs = {
 					'Un candidato al Congreso se compromete a no pasar más de seis años en Washington, D.C.',
 				description:
 					'El candidato demócrata Peter Crosby aún no ha sido elegido al Congreso, pero ya tiene la confianza suficiente para fijarse a sí mismo límites de mandato.'
+			},
+			'cd2-debate-2026': {
+				title: 'Debate general de 2026 del Distrito 2 del Congreso de Utah',
+				description:
+					'El debate de la Utah Debate Commission para el Distrito 2 del Congreso de Utah, moderado por Heidi Hatch en Utah State University: el único debate con moderación pública de esta contienda. Vea la transmisión completa.'
 			},
 			'polling-dead-heat': {
 				title:

@@ -161,7 +161,8 @@ export const mediaData: MediaItem[] = [
 	},
 	{
 		id: 'candidates-spending-priorities',
-		pinned: true,
+		// Unpinned 2026-10-13 per the sheet, making room for the debate video.
+		pinned: false,
 		type: 'article',
 		title: 'Two Utah candidates, two different answers on federal spending priorities',
 		description:
@@ -242,6 +243,25 @@ export const mediaData: MediaItem[] = [
 		url: 'https://www.cachevalleydaily.com/news/congressional-candidate-pledges-to-spend-no-more-than-six-years-in-washington-d-c/article_bcd2cb8b-89bd-4245-a16a-31170e60059d.html',
 		outlet: 'Cache Valley Daily',
 		image: '/images/media/six_year_pledge.jpg'
+	},
+	{
+		// Pinned per the sheet (2026-10-13), taking the slot `candidates-spending-priorities`
+		// gave up. `outlet` is the Utah Debate Commission rather than the sheet's "YouTube":
+		// YouTube is the platform, and crediting the Commission matches how it is named in
+		// the debate callouts and on the /events card.
+		id: 'cd2-debate-2026',
+		pinned: true,
+		type: 'video',
+		title: 'Utah 2nd Congressional District 2026 General Election Debate',
+		description:
+			'The Utah Debate Commission’s debate for Utah’s 2nd Congressional District, moderated by Heidi Hatch at Utah State University — the only publicly moderated debate of the race. Watch the full broadcast.',
+		date: '2026-10-13',
+		// Re-pointed 2026-10-13: the Commission removed its first upload (iP-GniMoGXQ) and
+		// reposted the debate under this id. Kept in sync with `DEBATE.url` in `debate.ts`.
+		url: 'https://www.youtube.com/watch?v=28N9EFEzPZk',
+		youtubeId: '28N9EFEzPZk',
+		outlet: 'Utah Debate Commission',
+		image: '/images/media/debate.jpg'
 	}
 ];
 

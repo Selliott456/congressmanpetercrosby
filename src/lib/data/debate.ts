@@ -15,11 +15,15 @@ export const DEBATE = {
 	/**
 	 * The Commission's live stream for this debate — "Utah 2nd Congressional District 2026
 	 * General Election Debate", on its own channel (@utahdebatecommission9658), verified
-	 * 2026-10-12. It replaced the bare channel link once the Commission published the
-	 * stream. YouTube keeps the same URL for the recording afterwards, so this does not
-	 * need swapping again.
+	 * 2026-10-13.
+	 *
+	 * ⚠️ The Commission has already replaced this stream once: the first id (iP-GniMoGXQ)
+	 * was removed by the uploader on debate day and reposted under this one. A YouTube id
+	 * normally survives into the recording, but theirs has not proved stable — re-check the
+	 * link before relying on it, and remember `media.ts` carries the same id for the
+	 * debate's media card.
 	 */
-	url: 'https://www.youtube.com/watch?v=iP-GniMoGXQ',
+	url: 'https://www.youtube.com/watch?v=28N9EFEzPZk',
 	/**
 	 * Broadcast end as a fixed instant (2026-10-13 8:00 PM MDT = 02:00 UTC the next day).
 	 * A UTC instant rather than a local date so the callouts disappear at the same real

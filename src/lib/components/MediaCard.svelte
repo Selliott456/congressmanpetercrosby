@@ -63,14 +63,13 @@
 	}
 </script>
 
-<a
-	class="media-card"
-	class:media-card--light={variant === 'light'}
-	href={item.url}
-	target={external ? '_blank' : undefined}
-	rel={external ? 'noopener noreferrer' : undefined}
-	on:click={onClick}
->
+<!--
+	The card is a container, not one big <a>, because a video card needs a second link out
+	to YouTube and an anchor cannot nest inside another anchor. The primary link wraps the
+	title and is stretched over the whole card with a ::after overlay, so the card still
+	behaves as one click target; the source link sits above that overlay.
+-->
+<article class="media-card" class:media-card--light={variant === 'light'}>
 	<div class="media-thumb media-thumb--{item.type}" class:media-thumb--image={thumb}>
 		{#if thumb}
 			<img class="media-thumb-img" src={thumb} alt="" loading="lazy" decoding="async" />
@@ -87,18 +86,37 @@
 		<span class="media-kind">{kind}</span>
 	</div>
 	<div class="media-body">
-		<svelte:element this={`h${headingLevel}`} class="media-title">{title}</svelte:element>
+		<svelte:element this={`h${headingLevel}`} class="media-title">
+			<a
+				class="media-card-link"
+				href={item.url}
+				target={external ? '_blank' : undefined}
+				rel={external ? 'noopener noreferrer' : undefined}
+				on:click={onClick}>{title}</a
+			>
+		</svelte:element>
 		{#if description}
-				<p class="media-desc">{description}</p>
-			{/if}
+			<p class="media-desc">{description}</p>
+		{/if}
+		{#if item.type === 'video'}
+			<!-- The card opens the lightbox, so this is the only way to reach the video on
+			     YouTube. It doubles as the no-JS fallback for the play action. -->
+			<a
+				class="media-source-link"
+				href={item.url}
+				target="_blank"
+				rel="noopener noreferrer">{$messages.media.watchOnSource}</a
+			>
+		{/if}
 		<span class="media-meta">
 			{#if item.outlet}{item.outlet} • {/if}{formattedDate}
 		</span>
 	</div>
-</a>
+</article>
 
 <style>
 	.media-card {
+		position: relative;
 		display: flex;
 		flex-direction: column;
 		height: 100%;
@@ -111,10 +129,28 @@
 			transform 0.18s ease;
 	}
 
+	/* `:focus-within` rather than `:focus-visible`: the card is a container now, so the
+	   focus lands on one of the links inside it. */
 	.media-card:hover,
-	.media-card:focus-visible {
+	.media-card:focus-within {
 		border-color: var(--sky);
 		transform: translateY(-3px);
+	}
+
+	/* The title link, stretched over the card so the whole surface stays clickable. */
+	.media-card-link {
+		color: inherit;
+		text-decoration: none;
+	}
+
+	/* z-index 3 clears the thumbnail's own decorations — the rail, play button and kind
+	   badge all sit at 2 — so a click anywhere on the card reaches this link rather than
+	   landing on a decorative span. */
+	.media-card-link::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		z-index: 3;
 	}
 
 	/* Light variant — for cards on light section grounds (less glaring). The
@@ -126,7 +162,7 @@
 	}
 
 	.media-card--light:hover,
-	.media-card--light:focus-visible {
+	.media-card--light:focus-within {
 		border-color: var(--blue);
 	}
 
@@ -248,6 +284,35 @@
 		font-size: 0.875rem;
 		line-height: 1.5;
 		color: rgba(247, 250, 252, 0.72);
+	}
+
+	/* Sits above the stretched overlay so it is independently clickable. `align-self` keeps
+	   the hit area to the text itself rather than the full card width. */
+	.media-source-link {
+		position: relative;
+		/* Above the stretched overlay (3), so this link stays independently clickable. */
+		z-index: 4;
+		align-self: flex-start;
+		margin-top: 0.7rem;
+		font-family: var(--mono);
+		font-size: 0.6875rem;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		text-decoration: none;
+		color: var(--sky);
+		border-bottom: 1px solid transparent;
+		transition:
+			color 0.18s ease,
+			border-color 0.18s ease;
+	}
+
+	.media-source-link:hover,
+	.media-source-link:focus-visible {
+		border-bottom-color: currentColor;
+	}
+
+	.media-card--light .media-source-link {
+		color: var(--blue);
 	}
 
 	.media-meta {
