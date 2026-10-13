@@ -816,6 +816,7 @@ export const pagesEs = {
 		kindArticle: 'Artículo',
 		kindOpEd: 'Columna',
 		kindPressRelease: 'Comunicado',
+		watchOnSource: 'Ver en YouTube ↗',
 		closeVideo: 'Cerrar video',
 		pinnedEyebrow: 'Sala de prensa',
 		pinnedTitle: 'Medios destacados',

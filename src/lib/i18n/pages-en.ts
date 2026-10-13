@@ -280,6 +280,9 @@ export const pagesEn = {
 		kindArticle: 'Article',
 		kindOpEd: 'Op-Ed',
 		kindPressRelease: 'Press Release',
+		/** Video cards only: the card itself opens the on-site lightbox, so this is the way
+		    out to the source. Every video the site carries is hosted on YouTube. */
+		watchOnSource: 'Watch on YouTube ↗',
 		closeVideo: 'Close video',
 		/** /media is the Newsroom's hub: Media coverage and Press releases both land here. */
 		pinnedEyebrow: 'Newsroom',
