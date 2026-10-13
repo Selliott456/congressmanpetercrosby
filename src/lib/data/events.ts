@@ -1846,11 +1846,10 @@ export const eventsData: EventRow[] = [
 		endTime: '20:00'
 	},
 	// --- Pulled 2026-10-04 (Airtable "Volunteer and Events") ---
-	// Still held pending campaign confirmation: the Oct 7 "Downtown Ogden" meet & greet
-	// (internal-only description) and the Oct 12 Davis County Teacher-Candidate meet &
-	// greet (location still "TBD"). Also held: the Oct 15 "Town Hall - Rich" — its
-	// Location field says South Shore Barn in Laketown while its description says Garden
-	// City library, two different towns, and the description also carries a WiFi password.
+	// Held, unresolved: the Oct 7 "Downtown Ogden" meet & greet (internal-only
+	// description; now past). The Oct 12 Davis County Teacher-Candidate meet & greet
+	// finally got a venue (Vista Education Campus, Farmington) on 2026-10-11, too late to
+	// be worth publishing for the same evening — if it recurs, it is ready to add.
 	{
 		// Hosted at a private home — the campaign confirmed the address can be published
 		// (2026-10-05). The hosts' names stay off the site, as with the Centerville event.
@@ -1883,7 +1882,10 @@ export const eventsData: EventRow[] = [
 		locationUrl: 'https://www.google.com/maps/search/26+E+Forest+St+Brigham+City+UT+84302',
 		description:
 			'Join Peter for a public town hall at the Brigham City Public Library. Bring your questions and concerns.',
-		viewEventUrl: null,
+		// Mobilize signup page added to the calendar entry 2026-10-06; its date, time and
+		// venue match the above.
+		viewEventUrl: 'https://www.mobilize.us/utahdemocrats/event/1056814/',
+		rsvp: false,
 		startTime: '19:30',
 		endTime: '20:30'
 	},
@@ -1928,8 +1930,95 @@ export const eventsData: EventRow[] = [
 		locationUrl: 'https://www.google.com/maps/search/91+E+Center+St+Providence+UT+84332',
 		description:
 			'Join Peter for a public town hall at Providence Elementary School. Bring your questions and concerns.',
-		viewEventUrl: null,
+		// Mobilize signup page added to the calendar entry 2026-10-06.
+		viewEventUrl: 'https://www.mobilize.us/utahdemocrats/event/1056831/',
+		rsvp: false,
 		startTime: '19:00',
 		endTime: '20:00'
+	},
+	// --- Pulled 2026-10-12 (Airtable "Volunteer and Events") ---
+	{
+		// ⚠️ The campaign's calendar carries TWO entries for this one town hall: Google ids
+		// `55qtcg5b7mft8qemf23vh8e5b2` (used here, the one carrying the Mobilize link) and
+		// `23ur42efvb1kad5bqrnrj30709`, added 2026-10-12. Same date, time and venue. Do not
+		// add the second on a later pull — ask the campaign to delete it instead.
+		//
+		// The Airtable description still reads "Garden City library" and still carries a
+		// WiFi password; both are stale/internal. The venue below is the Location field,
+		// confirmed against the campaign's own public Mobilize listing (2026-10-12), which
+		// is titled "Town Hall - Laketown" and gives South Shore Barn.
+		id: 'gcal-55qtcg5b7mft8qemf23vh8e5b2',
+		type: 'town-hall',
+		month: 'Oct',
+		day: '15',
+		year: 2026,
+		monthIndex: 10,
+		title: 'Town Hall – Rich County',
+		time: '6:00 PM – 7:00 PM MT',
+		location: 'South Shore Barn, 334 W 800 N, Laketown, UT 84038',
+		locationUrl: 'https://www.google.com/maps/search/334+W+800+N+Laketown+UT+84038',
+		description:
+			'Join Peter for a public town hall at the South Shore Barn in Laketown. Bring your friends and neighbors, come with your questions, and maybe even pick up a yard sign.',
+		viewEventUrl: 'https://www.mobilize.us/utahdemocrats/event/1056754/',
+		rsvp: false,
+		startTime: '18:00',
+		endTime: '19:00'
+	},
+	// A weekly Wednesday-morning series at the Kaysville Park and Ride. These are the
+	// recurring instances, so their ids carry Google's `_<instance>` suffix and stay
+	// stable per week. The Oct 7 instance has already passed and is not imported.
+	{
+		id: 'gcal-udsfv65e7dkr6s45r5g2a8raef_20261014T131500Z',
+		type: 'volunteer',
+		month: 'Oct',
+		day: '14',
+		year: 2026,
+		monthIndex: 10,
+		title: 'Honk & Wave – Kaysville',
+		time: '7:15 AM – 8:30 AM MT',
+		location: 'Kaysville Park and Ride, 160 N 600 W, Kaysville, UT 84037',
+		locationUrl: 'https://www.google.com/maps/search/160+N+600+W+Kaysville+UT+84037',
+		description:
+			'Grab a sign and join Peter and campaign volunteers at the Kaysville Park and Ride for a morning honk and wave.',
+		viewEventUrl: 'https://www.mobilize.us/utahdemocrats/event/1056639/',
+		rsvp: false,
+		startTime: '07:15',
+		endTime: '08:30'
+	},
+	{
+		id: 'gcal-udsfv65e7dkr6s45r5g2a8raef_20261021T131500Z',
+		type: 'volunteer',
+		month: 'Oct',
+		day: '21',
+		year: 2026,
+		monthIndex: 10,
+		title: 'Honk & Wave – Kaysville',
+		time: '7:15 AM – 8:30 AM MT',
+		location: 'Kaysville Park and Ride, 160 N 600 W, Kaysville, UT 84037',
+		locationUrl: 'https://www.google.com/maps/search/160+N+600+W+Kaysville+UT+84037',
+		description:
+			'Grab a sign and join Peter and campaign volunteers at the Kaysville Park and Ride for a morning honk and wave.',
+		viewEventUrl: 'https://www.mobilize.us/utahdemocrats/event/1056639/',
+		rsvp: false,
+		startTime: '07:15',
+		endTime: '08:30'
+	},
+	{
+		id: 'gcal-udsfv65e7dkr6s45r5g2a8raef_20261028T131500Z',
+		type: 'volunteer',
+		month: 'Oct',
+		day: '28',
+		year: 2026,
+		monthIndex: 10,
+		title: 'Honk & Wave – Kaysville',
+		time: '7:15 AM – 8:30 AM MT',
+		location: 'Kaysville Park and Ride, 160 N 600 W, Kaysville, UT 84037',
+		locationUrl: 'https://www.google.com/maps/search/160+N+600+W+Kaysville+UT+84037',
+		description:
+			'Grab a sign and join Peter and campaign volunteers at the Kaysville Park and Ride for a morning honk and wave.',
+		viewEventUrl: 'https://www.mobilize.us/utahdemocrats/event/1056639/',
+		rsvp: false,
+		startTime: '07:15',
+		endTime: '08:30'
 	}
 ];
