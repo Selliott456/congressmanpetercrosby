@@ -761,6 +761,26 @@ export const pagesEs = {
 				title: 'Cabildo – Providence',
 				description:
 					'Acompañe a Peter en un cabildo público en la Escuela Primaria Providence. Traiga sus preguntas e inquietudes.'
+			},
+			'gcal-55qtcg5b7mft8qemf23vh8e5b2': {
+				title: 'Cabildo – Condado de Rich',
+				description:
+					'Acompañe a Peter en un cabildo público en el South Shore Barn de Laketown. Traiga a sus amigos y vecinos, venga con sus preguntas y hasta puede llevarse un letrero para el jardín.'
+			},
+			'gcal-udsfv65e7dkr6s45r5g2a8raef_20261014T131500Z': {
+				title: 'Saludo en la esquina – Kaysville',
+				description:
+					'Tome un letrero y acompañe a Peter y a los voluntarios de la campaña en el Park and Ride de Kaysville para un saludo matutino.'
+			},
+			'gcal-udsfv65e7dkr6s45r5g2a8raef_20261021T131500Z': {
+				title: 'Saludo en la esquina – Kaysville',
+				description:
+					'Tome un letrero y acompañe a Peter y a los voluntarios de la campaña en el Park and Ride de Kaysville para un saludo matutino.'
+			},
+			'gcal-udsfv65e7dkr6s45r5g2a8raef_20261028T131500Z': {
+				title: 'Saludo en la esquina – Kaysville',
+				description:
+					'Tome un letrero y acompañe a Peter y a los voluntarios de la campaña en el Park and Ride de Kaysville para un saludo matutino.'
 			}
 		} as Record<string, { title: string; description: string }>
 	},
