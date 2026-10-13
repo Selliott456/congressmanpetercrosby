@@ -2,14 +2,15 @@
 	import { messages } from '$lib/i18n/locale';
 	import { mediaByRecent } from '$lib/data/media';
 	import MediaGrid from './MediaGrid.svelte';
-	import DebateCallout from './DebateCallout.svelte';
 
 	const recent = mediaByRecent.slice(0, 3);
 </script>
 
 <section class="media-section" aria-labelledby="media-heading">
 	<div class="media-section-inner">
-		<DebateCallout variant="light" />
+		<!-- The debate callout moved to a banner above the hero for debate week
+		     (src/routes/+page.svelte). Restore <DebateCallout variant="light" /> here if it
+		     should sit in this section again. -->
 		<p class="media-section-eyebrow">{$messages.media.eyebrow}</p>
 		<h2 id="media-heading" class="media-section-title">{$messages.media.title}</h2>
 		<MediaGrid items={recent} variant="light" />
