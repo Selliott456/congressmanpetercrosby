@@ -31,8 +31,9 @@
       label: $messages.nav.newsroom.data,
       desc: $messages.nav.newsroom.dataDesc,
       href: "/data-room",
-      // Launch flag for the Data Room; drop it once the page has been live a while.
-      isNew: true,
+      // The Data Room's launch badge was dropped 2026-10-12, a month after launch. The
+      // `isNew` mechanism below stays for the next new nav item: set `isNew: true` here
+      // and the "New"/"Nueva" tag renders in both the open menu and the collapsed one.
     },
   ]);
 
