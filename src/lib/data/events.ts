@@ -1,6 +1,7 @@
 /**
  * Campaign events (English source). Spanish overrides: $messages.events.byId[id]
  */
+import { DEBATE } from './debate';
 
 /** Event category, used by the events-page type filter. 'other' has no filter chip (shows under "All"). */
 export type EventType = 'town-hall' | 'rally' | 'meet-greet' | 'volunteer' | 'other';
@@ -1275,9 +1276,9 @@ export const eventsData: EventRow[] = [
 		location: 'Utah State University, Old Main Hill, Logan, UT 84322',
 		locationUrl: 'https://www.google.com/maps/search/Old+Main+Hill+Utah+State+University+Logan+UT',
 		description: 'The official Congressional District 2 debate, hosted by the Utah Debate Commission and broadcast on local television and YouTube Live.',
-		// The Commission's YouTube channel — the same link the site's debate callouts use
-		// (`src/lib/data/debate.ts`), which is where to change it when a stream URL exists.
-		viewEventUrl: 'https://www.youtube.com/@utahdebatecommission9658',
+		// Read from `debate.ts` rather than repeated, so this card and the site's debate
+		// callouts can never drift apart — change the URL in that one constant.
+		viewEventUrl: DEBATE.url,
 		viewEventLabel: 'watch',
 		// Third-party event/venue — an on-site RSVP could be mistaken for guaranteed entry, so opt out.
 		rsvp: false,

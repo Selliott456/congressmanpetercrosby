@@ -13,11 +13,13 @@ export const DEBATE = {
 	/** The event's id in `events.ts`, so the two stay associated. */
 	eventId: 'gcal-0v2436r6dda91cpnk1t5a2b69a',
 	/**
-	 * The Utah Debate Commission's YouTube channel. Not a stream URL: the live stream and
-	 * the later recording each get their own, and this is what exists until then. Swap
-	 * this one constant when the commission publishes the direct link.
+	 * The Commission's live stream for this debate — "Utah 2nd Congressional District 2026
+	 * General Election Debate", on its own channel (@utahdebatecommission9658), verified
+	 * 2026-10-12. It replaced the bare channel link once the Commission published the
+	 * stream. YouTube keeps the same URL for the recording afterwards, so this does not
+	 * need swapping again.
 	 */
-	url: 'https://www.youtube.com/@utahdebatecommission9658',
+	url: 'https://www.youtube.com/watch?v=iP-GniMoGXQ',
 	/**
 	 * Broadcast end as a fixed instant (2026-10-13 8:00 PM MDT = 02:00 UTC the next day).
 	 * A UTC instant rather than a local date so the callouts disappear at the same real
