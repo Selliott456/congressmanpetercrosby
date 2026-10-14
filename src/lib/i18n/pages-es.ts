@@ -951,6 +951,73 @@ export const pagesEs = {
 		metaDescription:
 			'Comunicados de prensa y anuncios oficiales de la campaña Peter Crosby para el Congreso.',
 		byId: {
+			'debate-recap': {
+				title:
+					'Peter Crosby demuestra a los votantes que está decidido a resolver los problemas que más les importan en el debate del Distrito 2 del Congreso de Utah',
+				summary:
+					'Peter Crosby demostró ser un solucionador de problemas con experiencia en su debate con Blake Moore en Utah State University, y expuso soluciones que impulsará en temas que van del costo de vida a la preservación del Gran Lago Salado y la ineficiencia del Congreso actual.',
+				body: [
+					{
+						type: 'p',
+						text: 'Peter Crosby se impuso con claridad al representante en funciones Blake Moore en el debate del Segundo Distrito del Congreso de Utah, celebrado anoche en Utah State University. Crosby habló a la gente del norte de Utah sobre las medidas que tomará, una vez electo, en los asuntos que más les importan.'
+					},
+					{
+						type: 'quote',
+						text: 'Tengo una obligación moral con mi distrito antes que con un partido político, antes que con nadie más, y necesito votar de una manera que resuelva estos problemas.',
+						attribution:
+							'Peter Crosby, sobre cómo frenar la inflación y fortalecer el mercado laboral'
+					},
+					{
+						type: 'p',
+						text: 'Entre las prioridades que Crosby expuso están reinvertir en los programas federales de vivienda asequible en los que el gobierno de Trump ha dejado de invertir, invertir en modernizar la envejecida infraestructura hídrica de Utah, asegurar financiamiento real para los derechos de agua que salven el Gran Lago Salado, reformar el código fiscal para cerrar vacíos legales que benefician a las corporaciones, garantizar el derecho a la privacidad de todos los ciudadanos, una política migratoria legal y humana, aprobar legislación que garantice la revisión y aprobación local del desarrollo de centros de datos, poner fin a los aranceles del gobierno de Trump y detener la guerra en Irán.'
+					},
+					{
+						type: 'quote',
+						text: 'Podríamos votar para poner fin a la guerra en Irán. Solo haría falta que 1 o 2 republicanos cruzaran el pasillo. La Cámara está así de cerca ahora mismo. Podríamos votar para poner fin a un régimen arancelario generalizado. De nuevo, solo hace falta que 1 o 2 republicanos crucen el pasillo y digan: «Voy a poner las necesidades de mi distrito por delante del partido político o de la lealtad a un ejecutivo». No hace falta trabajo de comisiones. Solo hace falta valor.',
+						attribution: 'Peter Crosby'
+					},
+					{
+						type: 'p',
+						text: 'Al preguntársele cómo representaría la diversidad del 2.º Distrito del Congreso del norte de Utah, Crosby destacó sus miles de conversaciones con votantes de toda la región y subrayó su atención a las preocupaciones que le plantearon directamente.'
+					},
+					{
+						type: 'quote',
+						text: 'Creo que lo más importante que debo recordar es, primero, no hacer daño y, segundo, ayudar a tantas personas como me sea posible. Y cuando miro nuestra política actual —una política que el señor Moore ha votado seis veces por mantener—, los aranceles están perjudicando a todos: a los agricultores, a los ganaderos, a los dueños de pequeños negocios o a las familias.',
+						attribution: 'Peter Crosby'
+					},
+					{
+						type: 'p',
+						text: 'Al responder sobre el tema de los aranceles, Moore mencionó haber atendido una llamada privada de Proctor and Gamble para ayudar a resolver sus dificultades arancelarias, en lugar de mencionar alguna acción concreta que haya tomado para aliviar la carga de los pequeños negocios y las familias trabajadoras. A lo que Crosby respondió: «ninguno de los dueños de pequeños negocios parece recibir la misma atención».'
+					},
+					{
+						type: 'p',
+						text: 'En sus casi seis años en el cargo, Blake Moore ha respaldado proyectos de ley centrados en intereses especiales y ha hecho poco por contrarrestar la labor del gobierno actual, pese a las preocupaciones de sus electores. Su inacción quedó en evidencia en sus argumentos de anoche.'
+					},
+					{
+						type: 'ul',
+						items: [
+							'Al preguntársele sobre energía confiable y asequible, Moore eludió el tema hablando de legislación no aprobada. Omitió mencionar que la llamada One Big Beautiful Bill —por la que votó— eliminó gradualmente los créditos fiscales para proyectos solares industriales y residenciales.',
+							'Al preguntársele cómo podría ayudar ante la crisis de falta de asequibilidad que enfrentan los jóvenes, Moore volvió a promocionar una iniciativa que no ha salido de comisión y otra ya aprobada que, según sus críticos, podría alejar a los estudiantes de los préstamos educativos federales asequibles y empujarlos hacia préstamos privados más caros.',
+							'Moore posó detrás del presidente Donald Trump en una sesión de fotos mientras este desmantelaba las protecciones del 90% de los queridos monumentos nacionales de Utah, Bears Ears y Grand Staircase Escalante. Moore defendió después su presencia en la firma: «No estoy a cargo del arrendamiento» de esas tierras.',
+							'Moore copreside el DOGE Caucus, que impulsa recortes en las agencias, pero admitió en su cabildo que DOGE «no consultó» al Congreso.'
+						]
+					},
+					{ type: 'p', text: 'Crosby cerró con una visión clara.' },
+					{
+						type: 'quote',
+						text: 'Hay una visión de nuestro país distinta del camino por el que vamos ahora. Es un país donde la economía funciona para la gente común, donde tenemos acceso a lo que necesitamos, como atención médica y vivienda, donde el Gran Lago Salado está sano, donde nuestras tierras públicas están protegidas y disponibles no solo para nuestros hijos, sino para todas las generaciones futuras. Y ese es un futuro que se logra cuando elegimos a personas transparentes y honestas en su manejo del gobierno. Ese es el futuro por el que estamos luchando.',
+						attribution: 'Peter Crosby'
+					},
+					{
+						type: 'p',
+						text: 'Una encuesta independiente de la Utah Debate Commission mostró a Crosby —cuya campaña de base no ha aceptado financiamiento de PAC corporativos— a corta distancia de Moore.'
+					},
+					{
+						type: 'p',
+						text: 'Peter Crosby es el candidato demócrata al Distrito 2 del Congreso de EE. UU. por Utah, candidato político por primera vez y papá de niñas. Lleva una campaña de base y de dinero estrictamente limpio: Peter no acepta donaciones de PAC corporativos ni fondos de PAC alineados con intereses extranjeros, y ha recaudado más de $125,000 de donantes individuales y de pequeñas cantidades, con más del 94% proveniente de aquí mismo, de Utah. La campaña se sostiene íntegramente con voluntarios: más de 400 voluntarios registrados. Peter cree que los ciudadanos del norte de Utah merecen un representante que viva en el distrito, escuche sus inquietudes y ponga a la gente de Utah por delante del partido o de la búsqueda de poder personal. Realiza cabildos públicos en todo el distrito, con al menos uno al mes en los condados de Cache, Box Elder, Davis y Weber. Para más información, visite [petercrosbyforcongress.org](https://petercrosbyforcongress.org/).'
+					}
+				]
+			},
 			'late-september-internal-polling': {
 				title:
 					'Crosby aventaja a Moore en la más reciente encuesta interna del Distrito 2 del Congreso de Utah',
