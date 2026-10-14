@@ -130,8 +130,11 @@ const LATE_SEP_POLL_SOURCE =
 
 export const pressReleases: PressRelease[] = [
 	{
-		// Transcribed from the release PDF. The press contact's cell number is on the PDF
-		// and is deliberately left out of this transcription, as with the other releases.
+		// Transcribed from the release PDF. The press-contact block is left out of the
+		// transcription only because it is letterhead, not body copy — the attached PDF
+		// carries it, as the other release PDFs do. The number on it is the campaign's
+		// media-and-communications line, published on purpose so press can call; it is not
+		// a private number and does not need redacting (confirmed 2026-10-14).
 		// `dataRoom: true` because the release's closing claim rests on the Utah Debate
 		// Commission's survey, which the Data Room charts in full under Independent polling.
 		id: 'debate-recap',
@@ -202,7 +205,8 @@ export const pressReleases: PressRelease[] = [
 			}
 		],
 		dataRoom: true,
-		image: '/press-releases/debate-recap-thumb.jpg'
+		image: '/press-releases/debate-recap-thumb.jpg',
+		attachment: '/press-releases/debate-recap.pdf'
 	},
 	{
 		// Transcribed from the release PDF. Same survey as the Data Room's Sept 21–23 poll —
