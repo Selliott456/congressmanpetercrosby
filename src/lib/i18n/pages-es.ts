@@ -905,6 +905,35 @@ export const pagesEs = {
 				description:
 					'El debate de la Utah Debate Commission para el Distrito 2 del Congreso de Utah, moderado por Heidi Hatch en Utah State University: el único debate con moderación pública de esta contienda. Vea la transmisión completa.'
 			},
+			'ksl-debate-economy-ai-privacy': {
+				title:
+					'Los candidatos hablan de economía, inteligencia artificial y privacidad en el debate del Distrito 2 de Utah',
+				description:
+					'El representante Blake Moore, republicano por Utah, y el demócrata Peter Crosby se encontraron en un debate más bien tranquilo el martes por la noche en Logan, en su campaña por representar al Distrito 2 del Congreso de Utah.'
+			},
+			'deseret-debate-data-centers': {
+				title:
+					'Los candidatos del Distrito 2 de Utah coinciden en querer transparencia sobre los centros de datos tras Stratos, pero difieren sobre MIDA',
+				description:
+					'Peter Crosby y Blake Moore se enfrentaron en el debate por el Distrito 2 del Congreso de Utah, donde se ubica el polémico proyecto Stratos.'
+			},
+			'crosby-impressive-debate-performance': {
+				title:
+					'El candidato demócrata Peter Crosby ofrece una actuación impresionante en el debate cara a cara',
+				description:
+					'En una noche en la que los candidatos al Distrito 2 del Congreso intercambiaron golpes en el encuentro organizado por la Utah Debate Commission en Utah State University, el aspirante asestó un golpe decisivo.'
+			},
+			'moore-productive-lane': {
+				title:
+					'El representante Blake Moore dice haber encontrado «un camino productivo» en el Congreso. Su contrincante Peter Crosby dice que le falta valor',
+				description:
+					'Los dos candidatos se enfrentaron el martes por la noche en un debate por el distrito congresional más competitivo de Utah.'
+			},
+			'post-debate-press-conference': {
+				title: 'Conferencia de prensa posterior al debate',
+				description:
+					'Peter habla con la prensa inmediatamente después del debate del CD2 de la Utah Debate Commission en Utah State University.'
+			},
 			'polling-dead-heat': {
 				title:
 					'Encuestas recientes sugieren que la contienda del Segundo Distrito Congresional podría estar empatada',

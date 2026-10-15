@@ -196,7 +196,8 @@ export const mediaData: MediaItem[] = [
 	},
 	{
 		id: 'debt-double-talk',
-		pinned: true,
+		// Unpinned 2026-10-15 per the sheet, making room for the debate-performance piece.
+		pinned: false,
 		type: 'op-ed',
 		title: 'No more debt double-talk, Utah deserves real fiscal honesty',
 		description:
@@ -262,6 +263,75 @@ export const mediaData: MediaItem[] = [
 		youtubeId: '28N9EFEzPZk',
 		outlet: 'Utah Debate Commission',
 		image: '/images/media/debate.jpg'
+	},
+	// --- Post-debate coverage, pulled 2026-10-15 ---
+	// The four articles share one image, as supplied.
+	{
+		id: 'ksl-debate-economy-ai-privacy',
+		pinned: false,
+		type: 'article',
+		title: 'Candidates discuss economy, AI and privacy in debate for Utah’s 2nd District',
+		description:
+			'Rep. Blake Moore, R-Utah, and Democrat Peter Crosby met in what was a fairly tame debate Tuesday evening in Logan as they campaign to represent Utah’s 2nd Congressional District.',
+		date: '2026-10-13',
+		url: 'https://www.ksl.com/article/51635948/watch-live-blake-moore-peter-crosby-take-debate-stage-in-utahs-2nd-district-race',
+		outlet: 'KSL',
+		image: '/images/media/post-debate-articles.jpeg'
+	},
+	{
+		id: 'deseret-debate-data-centers',
+		pinned: false,
+		type: 'article',
+		title:
+			'Utah’s 2nd District candidates both want data center transparency after Stratos — but differ on MIDA',
+		description:
+			'Peter Crosby and Blake Moore met to debate for Utah’s 2nd Congressional District, where the controversial Stratos Project lies.',
+		date: '2026-10-13',
+		url: 'https://www.deseret.com/politics/2026/10/13/utah-2nd-district-candidates-debate-data-centers-stratos-and-water/',
+		outlet: 'Deseret News',
+		image: '/images/media/post-debate-articles.jpeg'
+	},
+	{
+		// Pinned per the sheet (2026-10-15), taking the slot `debt-double-talk` gave up.
+		id: 'crosby-impressive-debate-performance',
+		pinned: true,
+		type: 'article',
+		title:
+			'Democratic candidate Peter Crosby delivers impressive performance in face-to-face debate',
+		description:
+			'During a night when 2nd Congressional District candidates traded shots in the face-off sponsored by the Utah Debate Commission at Utah State University, the challenger landed a game-changing haymaker.',
+		date: '2026-10-14',
+		url: 'https://www.cachevalleydaily.com/news/democratic-candidate-peter-crosby-delivers-impressive-performance-in-face-to-face-debate/article_133af12d-a501-48a4-9013-a89009936c65.html',
+		outlet: 'Cache Valley Daily',
+		image: '/images/media/post-debate-articles.jpeg'
+	},
+	{
+		id: 'moore-productive-lane',
+		pinned: false,
+		type: 'article',
+		title:
+			'Rep. Blake Moore says he has found ‘a productive lane’ in Congress. Challenger Peter Crosby says he lacks courage',
+		description:
+			'The two candidates squared off Tuesday night in a debate for Utah’s most competitive congressional district.',
+		date: '2026-10-14',
+		url: 'https://www.sltrib.com/news/politics/2026/10/14/moore-crosby-square-off-debate/',
+		outlet: 'The Salt Lake Tribune',
+		image: '/images/media/post-debate-articles.jpeg'
+	},
+	{
+		// The sheet left the YouTube id blank and gave a `/live/` URL with an `?is=` tracking
+		// param; both normalized here the way every other video item is stored.
+		id: 'post-debate-press-conference',
+		pinned: false,
+		type: 'video',
+		title: 'Post Debate Press Conference',
+		description:
+			'Peter speaks with the press immediately after the Utah Debate Commission’s CD2 debate at Utah State University.',
+		date: '2026-10-14',
+		url: 'https://www.youtube.com/watch?v=_BqsyGrkvns',
+		youtubeId: '_BqsyGrkvns',
+		outlet: 'YouTube',
+		image: '/images/media/post-debate-press-conference.jpg'
 	}
 ];
 
