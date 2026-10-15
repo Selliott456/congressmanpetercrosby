@@ -3,7 +3,6 @@
 	import PageMeta from '$lib/components/PageMeta.svelte';
 	import { featuredMedia, restMedia } from '$lib/data/media';
 	import { pressReleasesByRecent } from '$lib/data/pressReleases';
-	import DebateCallout from '$lib/components/DebateCallout.svelte';
 	import MediaGrid from '$lib/components/MediaGrid.svelte';
 	import PressReleaseGrid from '$lib/components/PressReleaseGrid.svelte';
 </script>
@@ -26,7 +25,8 @@
 					</ul>
 				</nav>
 			</div>
-			<DebateCallout variant="dark" />
+			<!-- The live-debate callout came out on 2026-10-15. The debate keeps a pinned
+			     media card in this Featured band, so it stays reachable here. -->
 			<!-- Directly under the page's h1, so the card titles are h2s. -->
 			<MediaGrid items={featuredMedia} headingLevel={2} />
 		</div>

@@ -9,7 +9,6 @@
   // import Priorities from "$lib/components/Priorities.svelte";
   import PoliciesSummary from "$lib/components/PoliciesSummary.svelte";
   import Media from "$lib/components/Media.svelte";
-  import DebateCallout from "$lib/components/DebateCallout.svelte";
   import PressReleases from "$lib/components/PressReleases.svelte";
   import { messages } from "$lib/i18n/locale";
   import PageMeta from "$lib/components/PageMeta.svelte";
@@ -24,12 +23,6 @@
 </svelte:head>
 
 <main class="home-page">
-  <!-- Debate-week banner, above the hero. It removes itself once the broadcast window
-       has passed (see `debateHasEnded`), so this needs no cleanup after Oct 13 — but if
-       the campaign wants it back down in the media section before then, move this line
-       back into Media.svelte as <DebateCallout variant="light" />. -->
-  <DebateCallout variant="banner" />
-
   <!-- 1. Hero -->
   <section class="home-hero" aria-label={$messages.home.heroTitle}>
     <div class="home-hero-inner">

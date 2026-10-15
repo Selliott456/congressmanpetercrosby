@@ -1840,9 +1840,9 @@ export const pagesEs = {
 	}
 	,
 	debate: {
-		eyebrow: 'Debate en vivo',
+		eyebrow: 'Debate completo',
 		title: 'Vea el debate del CD2',
-		when: 'Martes 13 de octubre · 6:00–8:00 p. m. MT',
+		when: '13 de octubre de 2026 · Utah State University',
 		host: 'Organizado por la Utah Debate Commission',
 		cta: 'Ver en YouTube \u2197'
 	},

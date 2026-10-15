@@ -720,11 +720,13 @@ export const pagesEn = {
 		])
 	}
 	,
-	/** The Utah Debate Commission debate promo (home media section + /media Featured). */
+	/** The permanent watch link for the CD2 debate, at the top of the home media section.
+	    Past tense since 2026-10-15: it points at the recording rather than a broadcast to
+	    tune in for, so `when` gives the date and place instead of a start time. */
 	debate: {
-		eyebrow: 'Live debate',
+		eyebrow: 'Full debate',
 		title: 'Watch the CD2 debate',
-		when: 'Tuesday, October 13 · 6:00–8:00 PM MT',
+		when: 'October 13, 2026 · Utah State University',
 		host: 'Hosted by the Utah Debate Commission',
 		cta: 'Watch on YouTube \u2197'
 	},
