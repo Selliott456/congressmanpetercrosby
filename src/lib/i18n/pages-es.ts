@@ -781,6 +781,36 @@ export const pagesEs = {
 				title: 'Saludo en la esquina – Kaysville',
 				description:
 					'Tome un letrero y acompañe a Peter y a los voluntarios de la campaña en el Park and Ride de Kaysville para un saludo matutino.'
+			},
+			'gcal-5kgv851rb41u2leg1eb7mt9qa8': {
+				title: 'Conversaciones con líderes locales – Weber State',
+				description:
+					'Peter participa en el ciclo «Conversations with Local Leaders» de Weber State, en el salón 112 de Lindquist Hall. Abierto a estudiantes y al público.'
+			},
+			'gcal-2p0a0u98pogr1c3f91jcqq078o': {
+				title: 'Cabildo – Clearfield',
+				description:
+					'¿Tiene preguntas para Peter después del debate? Tráigalas al cabildo de Clearfield en la Escuela Primaria Hill Field.'
+			},
+			'gcal-eq1qprbsblqj815r197ig3a7ps': {
+				title: 'Convivencia y jornada telefónica – Ogden',
+				description:
+					'Una tarde de llamadas telefónicas y conversación en el Indigo Cafe de Ogden. Traiga a un amigo: no hace falta experiencia.'
+			},
+			'gcal-k41uq9uh1lg3f9lfqsrejulbs0': {
+				title: 'Encuentro y saludo – North Salt Lake',
+				description:
+					'Conozca a Peter en Legacy Park, en el vecindario de Foxboro en North Salt Lake. Pásese, haga preguntas y salude.'
+			},
+			'gcal-7emnraueihbr9e20ur8qsfeigg': {
+				title: 'Convivencia de Young Dems y USU Dems',
+				description:
+					'Una convivencia organizada por los Young Democrats y los USU Democrats en el salón 222 de Huntsman Hall. Estudiantes y miembros de la comunidad son bienvenidos.'
+			},
+			'gcal-120prese2gfqpu1n0n2aimuecu': {
+				title: 'Encuentro y saludo – Layton',
+				description:
+					'Un encuentro matutino con Abigail Treasure en Sand Ridge Park, en Layton, con sidra y donas. Venga a saludar.'
 			}
 		} as Record<string, { title: string; description: string }>
 	},

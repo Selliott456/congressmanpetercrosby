@@ -1965,6 +1965,9 @@ export const eventsData: EventRow[] = [
 		startTime: '18:00',
 		endTime: '19:00'
 	},
+	// ⚠️ Address corrected 2026-10-16: the calendar said 160 N 600 W at first and now says
+	// 160 N 300 W, which the campaign's public Mobilize listing also gives. 300 W is right.
+	//
 	// A weekly Wednesday-morning series at the Kaysville Park and Ride. These are the
 	// recurring instances, so their ids carry Google's `_<instance>` suffix and stay
 	// stable per week. The Oct 7 instance has already passed and is not imported.
@@ -1977,8 +1980,8 @@ export const eventsData: EventRow[] = [
 		monthIndex: 10,
 		title: 'Honk & Wave – Kaysville',
 		time: '7:15 AM – 8:30 AM MT',
-		location: 'Kaysville Park and Ride, 160 N 600 W, Kaysville, UT 84037',
-		locationUrl: 'https://www.google.com/maps/search/160+N+600+W+Kaysville+UT+84037',
+		location: 'Kaysville Park and Ride, 160 N 300 W, Kaysville, UT 84037',
+		locationUrl: 'https://www.google.com/maps/search/160+N+300+W+Kaysville+UT+84037',
 		description:
 			'Grab a sign and join Peter and campaign volunteers at the Kaysville Park and Ride for a morning honk and wave.',
 		viewEventUrl: 'https://www.mobilize.us/utahdemocrats/event/1056639/',
@@ -1995,8 +1998,8 @@ export const eventsData: EventRow[] = [
 		monthIndex: 10,
 		title: 'Honk & Wave – Kaysville',
 		time: '7:15 AM – 8:30 AM MT',
-		location: 'Kaysville Park and Ride, 160 N 600 W, Kaysville, UT 84037',
-		locationUrl: 'https://www.google.com/maps/search/160+N+600+W+Kaysville+UT+84037',
+		location: 'Kaysville Park and Ride, 160 N 300 W, Kaysville, UT 84037',
+		locationUrl: 'https://www.google.com/maps/search/160+N+300+W+Kaysville+UT+84037',
 		description:
 			'Grab a sign and join Peter and campaign volunteers at the Kaysville Park and Ride for a morning honk and wave.',
 		viewEventUrl: 'https://www.mobilize.us/utahdemocrats/event/1056639/',
@@ -2013,13 +2016,126 @@ export const eventsData: EventRow[] = [
 		monthIndex: 10,
 		title: 'Honk & Wave – Kaysville',
 		time: '7:15 AM – 8:30 AM MT',
-		location: 'Kaysville Park and Ride, 160 N 600 W, Kaysville, UT 84037',
-		locationUrl: 'https://www.google.com/maps/search/160+N+600+W+Kaysville+UT+84037',
+		location: 'Kaysville Park and Ride, 160 N 300 W, Kaysville, UT 84037',
+		locationUrl: 'https://www.google.com/maps/search/160+N+300+W+Kaysville+UT+84037',
 		description:
 			'Grab a sign and join Peter and campaign volunteers at the Kaysville Park and Ride for a morning honk and wave.',
 		viewEventUrl: 'https://www.mobilize.us/utahdemocrats/event/1056639/',
 		rsvp: false,
 		startTime: '07:15',
 		endTime: '08:30'
+	},
+	// --- Pulled 2026-10-16 (Airtable "Volunteer and Events") ---
+	{
+		id: 'gcal-5kgv851rb41u2leg1eb7mt9qa8',
+		type: 'other',
+		month: 'Oct',
+		day: '19',
+		year: 2026,
+		monthIndex: 10,
+		title: 'Conversations with Local Leaders – Weber State',
+		time: '5:00 PM – 7:00 PM MT',
+		// Airtable gives the building only ("Social & Behavioral Science"); the room is in
+		// its description. Mapped by building name rather than inventing a street address.
+		location: 'Lindquist Hall, Room 112 — Weber State University, Ogden, UT',
+		locationUrl:
+			'https://www.google.com/maps/search/Lindquist+Hall+Weber+State+University+Ogden+UT',
+		description:
+			'Peter joins Weber State’s Conversations with Local Leaders series in Lindquist Hall, Room 112. Open to students and the public.',
+		viewEventUrl: null,
+		startTime: '17:00',
+		endTime: '19:00'
+	},
+	{
+		id: 'gcal-2p0a0u98pogr1c3f91jcqq078o',
+		type: 'town-hall',
+		month: 'Oct',
+		day: '19',
+		year: 2026,
+		monthIndex: 10,
+		title: 'Town Hall – Clearfield',
+		time: '6:30 PM – 7:30 PM MT',
+		// Airtable has the bare street address; the venue name comes from the campaign's
+		// public Mobilize listing, which confirms it is a school rather than a home.
+		location: 'Hill Field Elementary School, 389 S 1000 E, Clearfield, UT 84015',
+		locationUrl: 'https://www.google.com/maps/search/389+S+1000+E+Clearfield+UT+84015',
+		description:
+			'Have follow-up questions for Peter after the debate? Bring them to the Clearfield town hall at Hill Field Elementary School.',
+		viewEventUrl: 'https://www.mobilize.us/utahdemocrats/event/1064689/',
+		rsvp: false,
+		startTime: '18:30',
+		endTime: '19:30'
+	},
+	{
+		id: 'gcal-eq1qprbsblqj815r197ig3a7ps',
+		type: 'volunteer',
+		month: 'Oct',
+		day: '21',
+		year: 2026,
+		monthIndex: 10,
+		title: 'Social & Phone Bank – Ogden',
+		time: '6:00 PM – 8:00 PM MT',
+		location: 'Indigo Cafe and Mocktail Bar, 2356 Kiesel Ave, Ogden, UT 84401',
+		locationUrl: 'https://www.google.com/maps/search/2356+Kiesel+Ave+Ogden+UT+84401',
+		description:
+			'An evening of phone banking and conversation at the Indigo Cafe in Ogden. Bring a friend — no experience needed.',
+		viewEventUrl: 'https://www.mobilize.us/utahdemocrats/event/1064673/',
+		rsvp: false,
+		startTime: '18:00',
+		endTime: '20:00'
+	},
+	{
+		id: 'gcal-k41uq9uh1lg3f9lfqsrejulbs0',
+		type: 'meet-greet',
+		month: 'Oct',
+		day: '22',
+		year: 2026,
+		monthIndex: 10,
+		title: 'Meet & Greet – North Salt Lake',
+		time: '6:00 PM – 8:00 PM MT',
+		location: 'Legacy Park, 1140 W 1100 N, North Salt Lake, UT 84054',
+		locationUrl: 'https://www.google.com/maps/search/1140+W+1100+N+North+Salt+Lake+UT+84054',
+		description:
+			'Meet Peter at Legacy Park in the Foxboro neighborhood of North Salt Lake. Stop by, ask questions, and say hello.',
+		viewEventUrl: null,
+		startTime: '18:00',
+		endTime: '20:00'
+	},
+	{
+		id: 'gcal-7emnraueihbr9e20ur8qsfeigg',
+		type: 'other',
+		month: 'Oct',
+		day: '23',
+		year: 2026,
+		monthIndex: 10,
+		title: 'Young Dems & USU Dems Social',
+		time: '6:00 PM – 8:00 PM MT',
+		location: 'Huntsman Hall, Room 222 — Utah State University, Logan, UT 84321',
+		locationUrl: 'https://www.google.com/maps/search/Huntsman+Hall+Utah+State+University+Logan+UT',
+		description:
+			'A social hosted by the Young Democrats and USU Democrats in Huntsman Hall, Room 222. Students and community members welcome.',
+		viewEventUrl: null,
+		startTime: '18:00',
+		endTime: '20:00'
+	},
+	{
+		// Airtable titles this "Meet and Greet - Abigail" — Abigail Treasure's event, which
+		// the campaign has put on Peter's calendar. The description's canvassing tail is the
+		// volunteer half and stays off the site; the meet and greet is the public part.
+		id: 'gcal-120prese2gfqpu1n0n2aimuecu',
+		type: 'meet-greet',
+		month: 'Oct',
+		day: '24',
+		year: 2026,
+		monthIndex: 10,
+		title: 'Meet & Greet – Layton',
+		time: '11:00 AM – 12:00 PM MT',
+		location: 'Sand Ridge Park, 2645 N Church St, Layton, UT 84040',
+		locationUrl: 'https://www.google.com/maps/search/2645+N+Church+St+Layton+UT+84040',
+		description:
+			'A morning meet and greet with Abigail Treasure at Sand Ridge Park in Layton, with cider and donuts. Come say hello.',
+		viewEventUrl: null,
+		startTime: '11:00',
+		endTime: '12:00'
 	}
 ];
