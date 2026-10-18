@@ -10,18 +10,20 @@
 	import { initAnalytics, trackPageView } from '$lib/analytics';
 	import { yardSignOpen, openYardSign, closeYardSign } from '$lib/stores/yardSign';
 
-	// Load Google Analytics in production only (keeps local dev out of the data).
+	// Load Google Tag Manager in production only (keeps local dev and Netlify deploy
+	// previews out of the campaign's data).
 	const analyticsEnabled = browser && !dev;
 
-	// Set up gtag before the first afterNavigate fires so no page view is missed.
+	// Load the container before the first afterNavigate fires so no page view is missed.
 	if (analyticsEnabled) initAnalytics();
 
 	onMount(() => {
 		initLocaleFromStorage();
 	});
 
-	// gtag's automatic page_view is disabled (see analytics.ts); send one on every
-	// SvelteKit navigation. afterNavigate also fires on initial load → landing page.
+	// GTM's "All Pages" trigger only fires on a real page load (see analytics.ts); push a
+	// page view on every SvelteKit navigation instead. afterNavigate also fires on the
+	// initial load → the landing page is counted too.
 	afterNavigate((nav) => {
 		if (analyticsEnabled) trackPageView();
 

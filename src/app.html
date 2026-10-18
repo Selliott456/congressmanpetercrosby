@@ -15,6 +15,22 @@
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">
+		<!--
+			Google Tag Manager's no-JS fallback. The container's <script> half is loaded from
+			src/lib/analytics.ts instead of here, so it can be held back in dev and on deploy
+			previews; this iframe cannot be gated the same way, but it only ever runs for a
+			visitor with JavaScript disabled, who in an SPA sees a single page and no
+			navigation. Keep the container id in sync with GTM_CONTAINER_ID.
+		-->
+		<noscript
+			><iframe
+				src="https://www.googletagmanager.com/ns.html?id=GTM-K6R427Q3"
+				height="0"
+				width="0"
+				style="display:none;visibility:hidden"
+				title="Google Tag Manager"
+			></iframe
+		></noscript>
 		<div style="display: contents">%sveltekit.body%</div>
 	</body>
 </html>
