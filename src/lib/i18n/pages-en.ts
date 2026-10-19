@@ -1,4 +1,5 @@
 import { definePolicyItems } from '$lib/data/policies';
+import { definePrivacySections } from '$lib/data/privacy';
 
 /** English-only page copy (merged into dictionaries.en) */
 export const pagesEn = {
@@ -121,6 +122,139 @@ export const pagesEn = {
 				]
 			}
 		]
+	},
+	/**
+	 * Privacy policy (`/privacy`). Everything here is checked against what the site
+	 * actually does — the tags it loads, the fields each form posts, the services those
+	 * reach. Do not add a claim that cannot be verified in the code or confirmed by the
+	 * campaign; see `PRIVACY_OPEN_QUESTIONS` in `src/lib/data/privacy.ts`.
+	 */
+	privacy: {
+		metaTitle: 'Privacy Policy — Peter Crosby for Congress',
+		metaDescription:
+			'What this website collects, who processes it, and the choices you have.',
+		eyebrow: 'Privacy',
+		title: 'Privacy Policy',
+		lede: 'This policy covers petercrosbyforcongress.org — what the site collects when you visit, what you give us when you fill in a form, and who else handles it.',
+		updatedLabel: 'Last updated',
+		updated: 'October 18, 2026',
+		draftNoticeTitle: 'Draft — not yet published',
+		draftNoticeBody:
+			'This page is complete on everything the site can verify, and is waiting on the answers listed below before it goes live. It is marked noindex and is not linked from the footer until then.',
+		sections: definePrivacySections([
+			{
+				id: 'scope',
+				title: 'What this covers',
+				blocks: [
+					{
+						type: 'p',
+						text: 'This policy applies to this website. It does not cover donations: those are handled by **ActBlue** on its own pages, under its own policy, and the campaign only receives what ActBlue reports. Federal law requires the campaign to collect and report the name, address, occupation and employer of contributors above a threshold set by the FEC.'
+					},
+					{
+						type: 'p',
+						text: 'It also does not cover other sites we link to — news outlets, YouTube, or the Utah Democratic Party’s event pages — which have their own policies.'
+					}
+				]
+			},
+			{
+				id: 'automatic',
+				title: 'What the site collects when you visit',
+				blocks: [
+					{
+						type: 'p',
+						text: 'The site loads **Google Tag Manager**, which in turn loads **Google Analytics**. Analytics records the pages you view, roughly where you are (derived from your IP address, to city level), and basic details about your browser and device. It sets cookies to recognise a returning browser across a visit.'
+					},
+					{
+						type: 'p',
+						text: 'We do not use this to identify you by name, and it is not connected to anything you submit through a form. Analytics runs only on the live site — local development and preview builds are deliberately excluded.'
+					},
+					{
+						type: 'p',
+						text: 'Pages also request fonts from **Google Fonts**, which means your browser contacts Google to load them. Videos are embedded through YouTube’s **no-cookie** domain, so watching one on this site does not set YouTube’s usual advertising cookies.'
+					},
+					{
+						type: 'p',
+						text: 'One thing is stored in your own browser rather than sent anywhere: your language choice, kept under `pcc-locale` so the site stays in English or Spanish between visits. Clearing your browser storage removes it.'
+					}
+				]
+			},
+			{
+				id: 'forms',
+				title: 'What you give us',
+				blocks: [
+					{
+						type: 'p',
+						text: 'The site has six forms. Each sends only the fields listed, and only when you submit it:'
+					},
+					{
+						type: 'ul',
+						items: [
+							'**Contact — general:** name, email, phone, ZIP code, and your message. The ZIP lets the campaign tell constituents of the 2nd District from everyone else.',
+							'**Contact — media:** the same, plus your outlet.',
+							'**Volunteer:** name, email, phone, street address, city, house district, how you would like to help, and how you heard about the campaign.',
+							'**Yard sign request:** name, phone, street address and city — the address is needed to deliver the sign.',
+							'**Event RSVP:** name and email.',
+							'**Newsletter:** name and email.'
+						]
+					},
+					{
+						type: 'p',
+						text: 'Two of these ask for a **street address**, and only because a yard sign has to be delivered and volunteer shifts are organised by neighbourhood. Nothing else on the site asks for one.'
+					}
+				]
+			},
+			{
+				id: 'processors',
+				title: 'Who else handles it',
+				blocks: [
+					{
+						type: 'p',
+						text: 'Form submissions are delivered by **Formspree**, which passes them to the campaign’s inbox. Analytics is handled by **Google**. Event signups linked from the events page are run by the **Utah Democratic Party** on **Mobilize**, and anything you enter there is governed by their policies, not this one.'
+					},
+					{
+						type: 'p',
+						text: 'If you sign up for the newsletter, Formspree passes your name and email straight on to **Mailchimp** automatically — nobody at the campaign copies it across — and Mailchimp holds the mailing list and sends the emails. Every newsletter carries an unsubscribe link, and using it takes you off the list.'
+					},
+					{
+						type: 'links',
+						label: 'Their privacy policies:',
+						items: [
+							{ label: 'Formspree', href: 'https://formspree.io/legal/privacy-policy/' },
+							{ label: 'Google', href: 'https://policies.google.com/privacy' },
+							// Mailchimp is owned by Intuit and this link lands on Intuit's statement;
+							// the label says so, since arriving at an Intuit page is otherwise odd.
+							{ label: 'Mailchimp (Intuit)', href: 'https://mailchimp.com/legal/privacy/' },
+							{ label: 'Mobilize', href: 'https://join.mobilize.us/privacy-policy' },
+							{ label: 'ActBlue', href: 'https://www.actblue.com/legal-privacy/' }
+						]
+					}
+				]
+			},
+			{
+				id: 'choices',
+				title: 'Your choices',
+				blocks: [
+					{
+						type: 'p',
+						text: 'You can block or clear cookies in your browser settings, which stops analytics from recognising your browser. Most browsers also offer a global privacy or “do not track” setting.'
+					},
+					{
+						type: 'p',
+						text: 'You are never required to fill in a form to read anything on this site. Every page, including the Data Room and every press release, is readable without giving us anything.'
+					}
+				]
+			},
+			{
+				id: 'contact',
+				title: 'Questions',
+				blocks: [
+					{
+						type: 'p',
+						text: 'Write to information@petercrosbyforcongress.org with any question about this policy, or to ask what the campaign holds about you.'
+					}
+				]
+			}
+		])
 	},
 	contact: {
 		metaTitle: 'Contact Us — Peter Crosby for Congress',

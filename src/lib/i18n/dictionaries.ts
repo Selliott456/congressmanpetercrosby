@@ -31,6 +31,8 @@ const en = {
 	},
 	footer: {
 		contactUs: 'Contact Us',
+		/** Shown only once the privacy policy is published (see data/privacy.ts). */
+		privacy: 'Privacy Policy',
 		endorsements: 'Endorsements',
 		dataRoom: 'Data Room',
 		navAria: 'Footer links',
@@ -250,6 +252,7 @@ const es: Messages = {
 	},
 	footer: {
 		contactUs: 'Contáctenos',
+		privacy: 'Política de privacidad',
 		endorsements: 'Respaldos',
 		dataRoom: 'Sala de datos',
 		navAria: 'Enlaces del pie de página',
