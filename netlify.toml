@@ -13,6 +13,15 @@
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
 
+# Bluesky handle verification (static/.well-known/atproto-did). The file has no
+# extension, so pin the type — otherwise it is served as a download rather than
+# text, and the verifier reads an empty body. Content is the bare DID, no `did=`
+# prefix: that prefix belongs to the DNS TXT method, not this one.
+[[headers]]
+  for = "/.well-known/atproto-did"
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"
+
 # Redirects (e.g. for petercrosbyforcongress.org)
 [[redirects]]
   from = "/donate"
