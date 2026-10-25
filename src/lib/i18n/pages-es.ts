@@ -1,5 +1,6 @@
 import { POLL_COLORS } from '$lib/data/pressReleases';
 import { definePolicyItems } from '$lib/data/policies';
+import { definePrivacySections } from '$lib/data/privacy';
 
 /** Spanish page copy (merged into dictionaries.es) — structure mirrors pages-en.ts */
 export const pagesEs = {
@@ -119,6 +120,131 @@ export const pagesEs = {
 				]
 			}
 		]
+	},
+	privacy: {
+		metaTitle: 'Política de privacidad — Peter Crosby para el Congreso',
+		metaDescription:
+			'Qué recopila este sitio web, quién lo procesa y qué opciones tiene usted.',
+		eyebrow: 'Privacidad',
+		title: 'Política de privacidad',
+		lede: 'Esta política cubre petercrosbyforcongress.org: lo que el sitio recopila cuando usted lo visita, lo que usted nos da al llenar un formulario y quién más lo maneja.',
+		updatedLabel: 'Última actualización',
+		updated: '18 de octubre de 2026',
+		draftNoticeTitle: 'Borrador — aún sin publicar',
+		draftNoticeBody:
+			'Esta página está completa en todo lo que el sitio puede verificar y espera las respuestas que se enumeran abajo antes de publicarse. Hasta entonces lleva la marca noindex y no está enlazada en el pie de página.',
+		sections: definePrivacySections([
+			{
+				id: 'scope',
+				title: 'Qué cubre esta política',
+				blocks: [
+					{
+						type: 'p',
+						text: 'Esta política se aplica a este sitio web. No cubre las donaciones: esas las maneja **ActBlue** en sus propias páginas, bajo su propia política, y la campaña solo recibe lo que ActBlue le informa. La ley federal exige que la campaña recopile y reporte el nombre, la dirección, la ocupación y el empleador de quienes contribuyen por encima del umbral que fija la FEC.'
+					},
+					{
+						type: 'p',
+						text: 'Tampoco cubre otros sitios a los que enlazamos —medios de comunicación, YouTube o las páginas de eventos del Partido Demócrata de Utah—, que tienen sus propias políticas.'
+					}
+				]
+			},
+			{
+				id: 'automatic',
+				title: 'Qué recopila el sitio cuando usted lo visita',
+				blocks: [
+					{
+						type: 'p',
+						text: 'El sitio carga **Google Tag Manager**, que a su vez carga **Google Analytics**. Analytics registra las páginas que usted ve, aproximadamente dónde se encuentra (a partir de su dirección IP, a nivel de ciudad) y datos básicos sobre su navegador y dispositivo. Instala cookies para reconocer un navegador que vuelve durante una visita.'
+					},
+					{
+						type: 'p',
+						text: 'No usamos esto para identificarlo por su nombre, y no está vinculado con nada de lo que usted envíe por un formulario. Analytics se ejecuta únicamente en el sitio publicado: el desarrollo local y las versiones de prueba quedan excluidos a propósito.'
+					},
+					{
+						type: 'p',
+						text: 'Las páginas también solicitan tipografías a **Google Fonts**, lo que significa que su navegador se comunica con Google para cargarlas. Los videos se insertan a través del dominio **sin cookies** de YouTube, de modo que ver uno en este sitio no instala las cookies publicitarias habituales de YouTube.'
+					},
+					{
+						type: 'p',
+						text: 'Una sola cosa se guarda en su propio navegador en lugar de enviarse a ningún lado: su preferencia de idioma, almacenada bajo `pcc-locale` para que el sitio siga en inglés o español entre visitas. Borrar el almacenamiento de su navegador la elimina.'
+					}
+				]
+			},
+			{
+				id: 'forms',
+				title: 'Qué nos da usted',
+				blocks: [
+					{
+						type: 'p',
+						text: 'El sitio tiene seis formularios. Cada uno envía solo los campos indicados, y solo cuando usted lo envía:'
+					},
+					{
+						type: 'ul',
+						items: [
+							'**Contacto — general:** nombre, correo electrónico, teléfono, código postal y su mensaje. El código postal permite a la campaña distinguir a los residentes del Distrito 2 de los demás.',
+							'**Contacto — prensa:** lo mismo, más su medio de comunicación.',
+							'**Voluntariado:** nombre, correo electrónico, teléfono, dirección, ciudad, distrito legislativo, cómo le gustaría ayudar y cómo se enteró de la campaña.',
+							'**Solicitud de letrero para el jardín:** nombre, teléfono, dirección y ciudad; la dirección hace falta para entregar el letrero.',
+							'**Confirmación de asistencia a eventos:** nombre y correo electrónico.',
+							'**Boletín:** nombre y correo electrónico.'
+						]
+					},
+					{
+						type: 'p',
+						text: 'Dos de estos piden una **dirección**, y solo porque un letrero hay que entregarlo y los turnos de voluntariado se organizan por vecindario. Ningún otro formulario del sitio la pide.'
+					}
+				]
+			},
+			{
+				id: 'processors',
+				title: 'Quién más lo maneja',
+				blocks: [
+					{
+						type: 'p',
+						text: 'Los envíos de formularios los entrega **Formspree**, que los hace llegar al buzón de la campaña. De Analytics se encarga **Google**. Las inscripciones a eventos enlazadas desde la página de eventos las gestiona el **Partido Demócrata de Utah** en **Mobilize**, y todo lo que usted ingrese allí se rige por sus políticas, no por esta.'
+					},
+					{
+						type: 'p',
+						text: 'Si usted se suscribe al boletín, Formspree envía su nombre y su correo electrónico directamente a **Mailchimp** de forma automática —nadie en la campaña los copia a mano—, y Mailchimp guarda la lista de correo y envía los mensajes. Cada boletín incluye un enlace para cancelar la suscripción, y usarlo lo elimina de la lista.'
+					},
+					{
+						type: 'links',
+						label: 'Sus políticas de privacidad:',
+						items: [
+							{ label: 'Formspree', href: 'https://formspree.io/legal/privacy-policy/' },
+							{ label: 'Google', href: 'https://policies.google.com/privacy' },
+							{ label: 'Mailchimp (Intuit)', href: 'https://mailchimp.com/legal/privacy/' },
+							{ label: 'Mobilize', href: 'https://join.mobilize.us/privacy-policy' },
+							{ label: 'ActBlue', href: 'https://www.actblue.com/legal-privacy/' }
+						]
+					}
+				]
+			},
+			{
+				id: 'choices',
+				title: 'Sus opciones',
+				blocks: [
+					{
+						type: 'p',
+						text: 'Usted puede bloquear o borrar las cookies desde la configuración de su navegador, lo que impide que Analytics reconozca su navegador. La mayoría de los navegadores también ofrecen una configuración general de privacidad o de «no rastrear».'
+					},
+					{
+						type: 'p',
+						text: 'Nunca hace falta llenar un formulario para leer nada en este sitio. Todas las páginas, incluidas la Sala de datos y todos los comunicados de prensa, se pueden leer sin darnos nada.'
+					}
+				]
+			},
+			{
+				id: 'contact',
+				title: 'Preguntas',
+				blocks: [
+					{
+						type: 'p',
+						text: 'Escriba a information@petercrosbyforcongress.org con cualquier pregunta sobre esta política o para saber qué información tiene la campaña sobre usted.'
+					}
+				]
+			}
+		])
 	},
 	contact: {
 		metaTitle: 'Contáctenos — Peter Crosby para el Congreso',

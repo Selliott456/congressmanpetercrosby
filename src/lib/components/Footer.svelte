@@ -5,6 +5,7 @@
   import { socialLinks } from "$lib/data/socialLinks";
   import { SPONSOR_YARD_SIGN_URL } from "$lib/data/links";
   import { openYardSign } from "$lib/stores/yardSign";
+  import { PRIVACY_DRAFT } from "$lib/data/privacy";
 
   const NEWSLETTER_ENDPOINT = "https://formspree.io/f/xjgqknqd";
 
@@ -53,6 +54,10 @@
         <a href="/endorsements" class="footer-faq-link">{$messages.footer.endorsements}</a>
         <a href="/data-room" class="footer-faq-link">{$messages.footer.dataRoom}</a>
         <a href="/contact" class="footer-faq-link">{$messages.footer.contactUs}</a>
+        <!-- Appears once the privacy policy is cleared to publish; see data/privacy.ts. -->
+        {#if !PRIVACY_DRAFT}
+          <a href="/privacy" class="footer-faq-link">{$messages.footer.privacy}</a>
+        {/if}
       </nav>
       <div class="footer-social" aria-label={$messages.footer.socialAria}>
         {#each socialLinks as link}
